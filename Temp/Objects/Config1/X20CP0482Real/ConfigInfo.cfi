@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version="4.10.3.60 SP"?>
+<ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
+  <TaskClass
+    Name="Cyclic#1">
+    <Task
+      Name="Kettle"
+      Disable="false"
+      Source="TempControl.Kettle"
+      Language="IEC">
+      <InternalFile
+        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Types.typ" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Variables.var" />
+    </Task>
+  </TaskClass>
+  <TaskClass
+    Name="Cyclic#2">
+    <Task
+      Name="HLT"
+      Disable="false"
+      Source="TempControl.HLT"
+      Language="IEC">
+      <InternalFile
+        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Types.typ" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Variables.var" />
+    </Task>
+  </TaskClass>
+  <TaskClass
+    Name="Cyclic#3" />
+  <TaskClass
+    Name="Cyclic#4">
+    <Task
+      Name="BrewingSeq"
+      Disable="false"
+      Source="Brewing.BrewingSeq"
+      Language="IEC">
+      <InternalFile
+        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Types.typ" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Variables.var" />
+    </Task>
+    <Task
+      Name="HMIProgram"
+      Disable="false"
+      Source="HMIControl.HMIProgram"
+      Language="IEC">
+      <InternalFile
+        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Types.typ" />
+      <File
+        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Variables.var" />
+    </Task>
+  </TaskClass>
+  <TaskClass
+    Name="Cyclic#5" />
+  <TaskClass
+    Name="Cyclic#6" />
+  <TaskClass
+    Name="Cyclic#7" />
+  <TaskClass
+    Name="Cyclic#8" />
+</ConfigInfo>

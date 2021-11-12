@@ -1,0 +1,8 @@
+@import "mixins.scss";
+@mixin widgets_widgetlibrary_0_StatusIndicator_base {
+	@include elemWidth(300);
+	@include elemHeight(12);
+	margin: 0px;
+
+}
+

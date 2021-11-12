@@ -1,0 +1,6 @@
+{
+  global:
+    Device;
+  local:
+    *;
+ };

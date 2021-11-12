@@ -1,0 +1,5 @@
+VAR
+	Cfg_HLTTemp : {REDUND_UNREPLICABLE} MpComIdentType; (*#1"C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappControl\Config.tempcontroller" #2"1" #3"1"*)
+	Cfg_KettleTemp : {REDUND_UNREPLICABLE} MpComIdentType; (*#1"C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappControl\Config.tempcontroller" #2"1" #3"1"*)
+	gAlarmXCore : {REDUND_UNREPLICABLE} MpComIdentType; (*#1"C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappServices\Config_1.mpalarmxcore" #2"1" #3"1"*)
+END_VAR

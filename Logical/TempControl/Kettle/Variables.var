@@ -1,0 +1,4 @@
+VAR
+	Mp_Parameters : MpTempControllerParType;
+	Mp_Controller : MpTempController;
+END_VAR

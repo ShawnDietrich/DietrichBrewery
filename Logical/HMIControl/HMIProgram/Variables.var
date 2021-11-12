@@ -1,0 +1,3 @@
+VAR
+	pbMashPump : BOOL;
+END_VAR

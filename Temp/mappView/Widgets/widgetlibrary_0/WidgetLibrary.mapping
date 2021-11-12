@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mappings>
+  <Mapping parameter="widgets.widgetlibrary_0.StatusIndicator.Action.SetEnable.value" type="BOOL"/>
+  <Mapping parameter="widgets.widgetlibrary_0.StatusIndicator.Action.SetVisible.value" type="BOOL"/>
+</Mappings>

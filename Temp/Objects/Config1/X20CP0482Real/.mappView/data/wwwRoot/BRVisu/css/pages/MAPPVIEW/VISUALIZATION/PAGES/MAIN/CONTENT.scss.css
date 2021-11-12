@@ -1,0 +1,164 @@
+@charset "UTF-8";
+#MainContent_ToggleSwitch1 {
+  height: 30px;
+}
+
+#MainContent_ToggleSwitch1 {
+  top: 187px;
+  position: absolute;
+}
+
+#MainContent_ToggleSwitch1 {
+  left: 155px;
+  position: absolute;
+}
+
+#MainContent_ToggleSwitch1 {
+  width: 84px;
+}
+
+#MainContent_ToggleSwitch1 {
+  z-index: 0;
+}
+
+#MainContent_ToggleSwitch1 {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+#MainContent_StatusIndicator1 {
+  height: 12px;
+}
+
+#MainContent_StatusIndicator1 {
+  top: 223px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1 {
+  left: 155px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1 {
+  width: 120px;
+}
+
+#MainContent_StatusIndicator1 {
+  z-index: 1;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  top: 0px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  left: 0px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  z-index: 1;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  width: 12px;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  height: 12px;
+}
+
+#MainContent_StatusIndicator1ΘstatOn {
+  background-color: lime;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  top: 0px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  left: 0px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  z-index: 0;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  width: 12px;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  height: 12px;
+}
+
+#MainContent_StatusIndicator1ΘstatOff {
+  background-color: #fff;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  top: 0px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  left: 12px;
+  position: absolute;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  width: 300px;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  height: 12px;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  z-index: 2;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  justify-content: flex-start;
+  text-align: left;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  font-size: 12px;
+}
+
+#MainContent_StatusIndicator1ΘtxtLabel {
+  font-weight: normal;
+}
+
+#MainContent_ToggleSwitch2 {
+  width: 100px;
+}
+
+#MainContent_ToggleSwitch2 {
+  height: 30px;
+}
+
+#MainContent_ToggleSwitch2 {
+  top: 187px;
+  position: absolute;
+}
+
+#MainContent_ToggleSwitch2 {
+  left: 380px;
+  position: absolute;
+}
+
+#MainContent_ToggleSwitch2 {
+  z-index: 2;
+}

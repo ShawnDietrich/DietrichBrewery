@@ -1,0 +1,50 @@
+﻿@import "mixins.scss";
+#MainContent_ToggleSwitch1 {
+	@include elemAutoHeight(30);
+}
+#MainContent_ToggleSwitch1 {
+	@include elemTop(187);
+}
+#MainContent_ToggleSwitch1 {
+	@include elemLeft(155);
+}
+#MainContent_ToggleSwitch1 {
+	@include elemAutoWidth(84);
+}
+#MainContent_ToggleSwitch1 {
+		z-index: 0;
+}
+#MainContent_ToggleSwitch1 {
+	@include rotate(0deg);
+}
+#MainContent_StatusIndicator1 {
+	@include elemHeight(12);
+}
+#MainContent_StatusIndicator1 {
+	@include elemTop(223);
+}
+#MainContent_StatusIndicator1 {
+	@include elemLeft(155);
+}
+#MainContent_StatusIndicator1 {
+	@include elemWidth(120);
+}
+#MainContent_StatusIndicator1 {
+		z-index: 1;
+}
+#MainContent_StatusIndicator1ΘstatOn{top:0px;position:absolute}#MainContent_StatusIndicator1ΘstatOn{left:0px;position:absolute}#MainContent_StatusIndicator1ΘstatOn{z-index:1}#MainContent_StatusIndicator1ΘstatOn{width:12px}#MainContent_StatusIndicator1ΘstatOn{height:12px}#MainContent_StatusIndicator1ΘstatOn{background-color:lime}#MainContent_StatusIndicator1ΘstatOff{top:0px;position:absolute}#MainContent_StatusIndicator1ΘstatOff{left:0px;position:absolute}#MainContent_StatusIndicator1ΘstatOff{z-index:0}#MainContent_StatusIndicator1ΘstatOff{width:12px}#MainContent_StatusIndicator1ΘstatOff{height:12px}#MainContent_StatusIndicator1ΘstatOff{background-color:#fff}#MainContent_StatusIndicator1ΘtxtLabel{top:0px;position:absolute}#MainContent_StatusIndicator1ΘtxtLabel{left:12px;position:absolute}#MainContent_StatusIndicator1ΘtxtLabel{width:300px}#MainContent_StatusIndicator1ΘtxtLabel{height:12px}#MainContent_StatusIndicator1ΘtxtLabel{z-index:2}#MainContent_StatusIndicator1ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainContent_StatusIndicator1ΘtxtLabel{font-size:12px}#MainContent_StatusIndicator1ΘtxtLabel{font-weight:normal}
+#MainContent_ToggleSwitch2 {
+	@include elemAutoWidth(100);
+}
+#MainContent_ToggleSwitch2 {
+	@include elemAutoHeight(30);
+}
+#MainContent_ToggleSwitch2 {
+	@include elemTop(187);
+}
+#MainContent_ToggleSwitch2 {
+	@include elemLeft(380);
+}
+#MainContent_ToggleSwitch2 {
+		z-index: 2;
+}

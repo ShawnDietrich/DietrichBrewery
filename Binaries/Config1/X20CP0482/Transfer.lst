@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Transfer xmlns="http://br-automation.co.at/AS/Transfer">
+  <OperatingSystem Version="B4.91"/>
+  <Hardware Target="SG4"/>
+  <Operation Delete="HMIProgram.br"/>
+  <Operation Delete="BrewingSeq.br"/>
+  <Operation Delete="HLT.br"/>
+  <Operation Delete="Kettle.br"/>
+  <Operation Delete="mvLoader.br"/>
+  <Operation Delete="Functions.br"/>
+  <Operation Delete="AsIODiag.br"/>
+  <Operation Delete="MTBasics.br"/>
+  <Operation Delete="MpTemp.br"/>
+  <Operation Delete="asieccon.br"/>
+  <Operation Delete="MpBase.br"/>
+  <Operation Delete="astime.br"/>
+  <Operation Delete="sys_lib.br"/>
+  <Operation Delete="brsystem.br"/>
+  <Operation Delete="fileio.br"/>
+  <Operation Delete="arssl.br"/>
+  <Operation Download="ashwd.br" Memory="SystemROM"/>
+  <Operation Download="asfw.br" Memory="SystemROM"/>
+  <Operation Download="arconfig.br" Memory="SystemROM"/>
+  <Operation Download="sysconf.br" Memory="SystemROM"/>
+  <Operation Restart="warm"/>
+  <Operation Download="FWRules.br" Memory="UserROM"/>
+  <Operation Download="TCData.br" Memory="SystemROM"/>
+  <Operation Download="udbdef.br" Memory="UserROM"/>
+  <Operation Download="User.br" Memory="UserROM"/>
+  <Operation Download="iomap.br" Memory="UserROM"/>
+  <Operation Download="Config.br" Memory="UserROM"/>
+  <Operation Download="Role.br" Memory="UserROM"/>
+  <Operation Download="ashwac.br" Memory="UserROM"/>
+  <Operation Download="Config_1.br" Memory="UserROM"/>
+  <Operation Download="MTTypes.br" Memory="UserROM"/>
+  <Operation Download="runtime.br" Memory="UserROM"/>
+  <Operation Download="standard.br" Memory="UserROM"/>
+  <Operation Download="arsvcreg.br" Memory="UserROM"/>
+  <Operation Download="arssl.br" Memory="UserROM"/>
+  <Operation Download="fileio.br" Memory="UserROM"/>
+  <Operation Download="brsystem.br" Memory="UserROM"/>
+  <Operation Download="sys_lib.br" Memory="UserROM"/>
+  <Operation Download="astime.br" Memory="UserROM"/>
+  <Operation Download="MpBase.br" Memory="UserROM"/>
+  <Operation Download="asieccon.br" Memory="UserROM"/>
+  <Operation Download="MpTemp.br" Memory="UserROM"/>
+  <Operation Download="MTBasics.br" Memory="UserROM"/>
+  <Operation Download="AsIODiag.br" Memory="UserROM"/>
+  <Operation Download="Functions.br" Memory="UserROM"/>
+  <Operation Download="mvLoader.br" Memory="UserROM"/>
+  <Operation Download="Kettle.br" Memory="UserROM"/>
+  <Operation Download="HLT.br" Memory="UserROM"/>
+  <Operation Download="BrewingSeq.br" Memory="UserROM"/>
+  <Operation Download="HMIProgram.br" Memory="UserROM"/>
+</Transfer>
