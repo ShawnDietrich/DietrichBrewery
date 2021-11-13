@@ -4,7 +4,8 @@ TYPE
 		(
 		Manual,
 		Automatic,
-		Simulation
+		SimManual,
+		SimAuto
 		);
 	Controller : 	STRUCT 
 		ManPWM : MTBasicsPWM;

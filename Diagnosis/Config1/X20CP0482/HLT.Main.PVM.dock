@@ -1,149 +1,193 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=HLT 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=151 Type=0 Scope=0 Force=0 Index=130 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=151 Type=0 Scope=0 Force=0 Index=78 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
-                           Mp_Controller                         MpTempController    0 "                                                               *"    0   24    1    0    1    1         
-                                  MpLink                                    UDINT    0 "                                                        72160672"    1    7    1   10    0    0         
-                                  Enable                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                              ErrorReset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                              Parameters                                    UDINT    0 "                                                       100933984"    1    7    1   10    0    0         
-                                  Update                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                          SetTemperature                                     REAL    0 "                                                            80.0"    1    8    1   10    0    0         
-                       ActualTemperature                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                                 Control                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                                    Tune                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                Simulate                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                                  Active                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                                   Error                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                StatusID                                     DINT    0 "                                                               0"    1    4    1   10    0    0         
-                              UpdateDone                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                    Heat                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                    Cool                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                               HeatValue                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                               CoolValue                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                           ControlActive                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                            TuningActive                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                              TuningDone                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                              Simulation                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
-                                    Info                 MpTempControllerInfoType    0 "                                                               *"    1   24    1    0    0    1         
-                          SetTemperature                                     REAL    0 "                                                             0.0"    2    8    1   10    0    0         
-                         FeedForwardHeat                                     REAL    0 "                                                             0.0"    2    8    1   10    0    0         
-                         FeedForwardCool                                     REAL    0 "                                                             0.0"    2    8    1   10    0    0         
-                             InTolerance                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                  Tuning                     MpTempTuningInfoType    0 "                                                               *"    2   24    1    0    0    0         
-                                   State                                     DINT    0 "                                                               *"    3    4    1   10    0    0 e,0,mpTE
-
-                           PIDParameters                            MpTempPIDType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                         MpTempPIDParType    0 "                                                               *"    4   24    1    0    0    0         
-                        ProportionalGain                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                         IntegrationTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                          DerivativeTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              FilterTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                                    Cool                         MpTempPIDParType    0 "                                                               *"    4   24    1    0    0    0         
-                        ProportionalGain                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                         IntegrationTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                          DerivativeTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              FilterTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                    IntegratorPreloading                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
-                        SystemParameters                         MpTempSystemType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                      MpTempSystemParType    0 "                                                               *"    4   24    1    0    0    0         
-                                    Gain                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                           TimeConstant1                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                           TimeConstant2                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                               DelayTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                                    Cool                      MpTempSystemParType    0 "                                                               *"    4   24    1    0    0    0         
-                                    Gain                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                           TimeConstant1                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                           TimeConstant2                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                               DelayTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                       ProfileParameters                        MpTempProfileType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                     MpTempProfileParType    0 "                                                               *"    4   24    1    0    0    0         
-                                SlewRate                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              FilterTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                               DelayTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              QuickStart                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
-                                    Cool                     MpTempProfileParType    0 "                                                               *"    4   24    1    0    0    0         
-                                SlewRate                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              FilterTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                               DelayTime                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
-                              QuickStart                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
-                                 Quality                  MpTempTuningQualityType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                                    USINT    0 "                                                               *"    4    5    1   10    0    0         
-                                    Cool                                    USINT    0 "                                                               *"    4    5    1   10    0    0         
-                       TemperatureFilter                   MpTempTuningFilterType    0 "                                                               *"    3   24    1    0    0    0         
-                          NoiseReduction                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
-                              SystemType          MpTempSystemCharacteristicsType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
-
-                                    Cool                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
-
-                                 Profile          MpTempControllerProfileInfoType    0 "                                                               *"    2   24    1    0    0    0         
-                                  Active                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
-                              InSetPoint                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
-                                 Control                    MpTempControlInfoType    0 "                                                               *"    2   24    1    0    0    0         
-                            ControlError                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                        ProportionalPart                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                         IntegrationPart                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                          DerivativePart                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-               ActualTemperatureFiltered                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-             ActualTemperatureDerivative                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                   TemperatureFilterUsed                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
-                              Simulation                 MpTempSimulationInfoType    0 "                                                               *"    2   24    1    0    0    1         
-                               HeatValue                                     REAL    0 "                                                             0.0"    3    8    1   10    0    0         
-                               CoolValue                                     REAL    0 "                                                             0.0"    3    8    1   10    0    0         
-                       ActualTemperature                                     REAL    0 "                                                             0.0"    3    8    1   10    0    0         
-                                    Heat                                     BOOL    0 "                                                           FALSE"    3    1    1    2    0    0         
-                                    Cool                                     BOOL    0 "                                                           FALSE"    3    1    1    2    0    0         
-                              SystemType          MpTempSystemCharacteristicsType    0 "                                                               *"    3   24    1    0    0    0         
-                                    Heat                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
-
-                                    Cool                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
-
-                                    Diag                           MpTempDiagType    0 "                                                               *"    2   24    1    0    0    0         
-                                StatusID                       MpTempStatusIDType    0 "                                                               *"    3   24    1    0    0    0         
-                                      ID                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
-
-                                Severity                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpCO
-
-                                    Code                                     UINT    0 "                                                               *"    4    6    1   10    0    0         
-                                     HCM              MpTempControllerHCMInfoType    0 "                                                               *"    2   24    1    0    0    0         
-                        AverageCurrentL1                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                        AverageCurrentL2                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                        AverageCurrentL3                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
-                                Internal                    MpComInternalDataType    0 "                                                               *"    1   24    1    0    0    0         
-                                 pObject                                    UDINT    0 "                                                       107639184"    2    7    1   10    0    0         
-                                   State                                    UDINT    0 "                                                               3"    2    7    1   10    0    0         
-                                     PWM                              MTBasicsPWM    0 "                                                               *"    0   24    1    0    1    0         
-                                  Enable                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                                    Mode                                     DINT    0 "                                                               *"    1    4    1   10    0    0 e,0,mtBA
-
-                           MinPulseWidth                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
-                                  Period                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
-                                  Update                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                               DutyCycle                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
-                                  Active                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                                   Error                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                                StatusID                                     DINT    0 "                                                               *"    1    4    1   10    0    0         
-                              UpdateDone                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                                     Out                                     BOOL    0 "                                                               *"    1    1    1    2    0    0         
-                                Internal                  MTBasicsPWMInternalType    0 "                                                               *"    1   24    1    0    0    0         
-                               CycleTime                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                         ParametersValid                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                    Proc                               Controller    0 "                                                               *"    0   24    1    0    1    1         
+                                  ManPWM                              MTBasicsPWM    0 "                                                               *"    1   24    1    0    0    0         
+                                  Enable                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
                                     Mode                                     DINT    0 "                                                               *"    2    4    1   10    0    0 e,0,mtBA
 
                            MinPulseWidth                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
                                   Period                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                                      In                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                                  OnTime                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                                 OffTime                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                           PeriodCounter                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                           OnTimeCounter                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
-                               UpdateOld                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
-                               EnableOld                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                  Update                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                               DutyCycle                                     REAL    0 "                                                               *"    2    8    1   10    0    0         
+                                  Active                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                   Error                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                StatusID                                     DINT    0 "                                                               *"    2    4    1   10    0    0         
+                              UpdateDone                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                     Out                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                Internal                  MTBasicsPWMInternalType    0 "                                                               *"    2   24    1    0    0    0         
+                               CycleTime                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                         ParametersValid                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                    Mode                                     DINT    0 "                                                               *"    3    4    1   10    0    0 e,0,mtBA
+
+                           MinPulseWidth                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                  Period                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                      In                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                  OnTime                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                 OffTime                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                           PeriodCounter                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                           OnTimeCounter                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                               UpdateOld                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                               EnableOld                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                   State                                     DINT    0 "                                                               2"    1    4    1   10    0    0 e,0,Manu
+
+                                TempPram                  MpTempControllerParType    0 "                                                               *"    1   24    1    0    0    0         
+                                     PID                            MpTempPIDType    0 "                                                               *"    2   24    1    0    0    0         
+                                    Heat                         MpTempPIDParType    0 "                                                               *"    3   24    1    0    0    0         
+                        ProportionalGain                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                         IntegrationTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                          DerivativeTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                                    Cool                         MpTempPIDParType    0 "                                                               *"    3   24    1    0    0    0         
+                        ProportionalGain                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                         IntegrationTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                          DerivativeTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                    IntegratorPreloading                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                  Tuning                         MpTempTuningType    0 "                                                               *"    2   24    1    0    0    0         
+                                    Mode                                     DINT    0 "                                                               *"    3    4    1   10    0    0 e,0,mpTE
+
+                            SetPointHeat                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                            SetPointCool                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                 Profile              MpTempControllerProfileType    0 "                                                               *"    2   24    1    0    0    0         
+                                    Heat                     MpTempProfileParType    0 "                                                               *"    3   24    1    0    0    0         
+                                SlewRate                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              QuickStart                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                                    Cool                     MpTempProfileParType    0 "                                                               *"    3   24    1    0    0    0         
+                                SlewRate                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              QuickStart                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                       AttenuationFactor                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                      OvershootReduction                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                           ToleranceBand                  MpTempToleranceBandType    0 "                                                               *"    2   24    1    0    0    0         
+                                   Lower                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                                   Upper                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                              Hysteresis                     MpTempHysteresisType    0 "                                                               *"    2   24    1    0    0    0         
+                                    Mode                                     DINT    0 "                                                               *"    3    4    1   10    0    0 e,0,mpTE
+
+                                    Band                     MpTempHysteresisBand    0 "                                                               *"    3   24    1    0    0    0         
+                              HeatToCool                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                              CoolToHeat                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                                TempCont                         MpTempController    0 "                                                               *"    1   24    1    0    0    1         
+                                  MpLink                                    UDINT    0 "                                                        93304048"    2    7    1   10    0    0         
+                                  Enable                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                              ErrorReset                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                              Parameters                                    UDINT    0 "                                                        97048268"    2    7    1   10    0    0         
+                                  Update                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                          SetTemperature                                     REAL    0 "                                                            90.0"    2    8    1   10    0    0         
+                       ActualTemperature                                     REAL    0 "                                                      39.3175735"    2    8    1   10    0    0         
+                                 Control                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Tune                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                Simulate                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
+                                  Active                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Error                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                StatusID                                     DINT    0 "                                                               0"    2    4    1   10    0    0         
+                              UpdateDone                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Heat                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Cool                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                               HeatValue                                     REAL    0 "                                                             0.0"    2    8    1   10    0    0         
+                               CoolValue                                     REAL    0 "                                                             0.0"    2    8    1   10    0    0         
+                           ControlActive                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                            TuningActive                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                              TuningDone                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                              Simulation                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Info                 MpTempControllerInfoType    0 "                                                               *"    2   24    1    0    0    0         
+                          SetTemperature                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                         FeedForwardHeat                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                         FeedForwardCool                                     REAL    0 "                                                               *"    3    8    1   10    0    0         
+                             InTolerance                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                  Tuning                     MpTempTuningInfoType    0 "                                                               *"    3   24    1    0    0    0         
+                                   State                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpTE
+
+                           PIDParameters                            MpTempPIDType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                         MpTempPIDParType    0 "                                                               *"    5   24    1    0    0    0         
+                        ProportionalGain                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                         IntegrationTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                          DerivativeTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                                    Cool                         MpTempPIDParType    0 "                                                               *"    5   24    1    0    0    0         
+                        ProportionalGain                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                         IntegrationTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                          DerivativeTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                    IntegratorPreloading                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
+                        SystemParameters                         MpTempSystemType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                      MpTempSystemParType    0 "                                                               *"    5   24    1    0    0    0         
+                                    Gain                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                           TimeConstant1                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                           TimeConstant2                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                                    Cool                      MpTempSystemParType    0 "                                                               *"    5   24    1    0    0    0         
+                                    Gain                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                           TimeConstant1                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                           TimeConstant2                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                       ProfileParameters                        MpTempProfileType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                     MpTempProfileParType    0 "                                                               *"    5   24    1    0    0    0         
+                                SlewRate                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              QuickStart                                     BOOL    0 "                                                               *"    6    1    1    2    0    0         
+                                    Cool                     MpTempProfileParType    0 "                                                               *"    5   24    1    0    0    0         
+                                SlewRate                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              FilterTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                               DelayTime                                     REAL    0 "                                                               *"    6    8    1   10    0    0         
+                              QuickStart                                     BOOL    0 "                                                               *"    6    1    1    2    0    0         
+                                 Quality                  MpTempTuningQualityType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                                    USINT    0 "                                                               *"    5    5    1   10    0    0         
+                                    Cool                                    USINT    0 "                                                               *"    5    5    1   10    0    0         
+                       TemperatureFilter                   MpTempTuningFilterType    0 "                                                               *"    4   24    1    0    0    0         
+                          NoiseReduction                                     REAL    0 "                                                               *"    5    8    1   10    0    0         
+                              SystemType          MpTempSystemCharacteristicsType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpTE
+
+                                    Cool                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpTE
+
+                                 Profile          MpTempControllerProfileInfoType    0 "                                                               *"    3   24    1    0    0    0         
+                                  Active                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                              InSetPoint                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                                 Control                    MpTempControlInfoType    0 "                                                               *"    3   24    1    0    0    0         
+                            ControlError                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                        ProportionalPart                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                         IntegrationPart                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                          DerivativePart                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+               ActualTemperatureFiltered                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+             ActualTemperatureDerivative                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                   TemperatureFilterUsed                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                              Simulation                 MpTempSimulationInfoType    0 "                                                               *"    3   24    1    0    0    0         
+                               HeatValue                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                               CoolValue                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                       ActualTemperature                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                                    Heat                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                                    Cool                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
+                              SystemType          MpTempSystemCharacteristicsType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Heat                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpTE
+
+                                    Cool                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpTE
+
+                                    Diag                           MpTempDiagType    0 "                                                               *"    3   24    1    0    0    0         
+                                StatusID                       MpTempStatusIDType    0 "                                                               *"    4   24    1    0    0    0         
+                                      ID                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpTE
+
+                                Severity                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpCO
+
+                                    Code                                     UINT    0 "                                                               *"    5    6    1   10    0    0         
+                                     HCM              MpTempControllerHCMInfoType    0 "                                                               *"    3   24    1    0    0    0         
+                        AverageCurrentL1                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                        AverageCurrentL2                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                        AverageCurrentL3                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
+                                Internal                    MpComInternalDataType    0 "                                                               *"    2   24    1    0    0    0         
+                                 pObject                                    UDINT    0 "                                                               *"    3    7    1   10    0    0         
+                                   State                                    UDINT    0 "                                                               *"    3    7    1   10    0    0         
                                  contHLT                    TemperatureController    0 "                                                               *"    0   24    1    0    0    1         
+                             Temperature                                     REAL    0 "                                                      39.3175735"    1    8    1   10    0    0         
                                Automatic                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
                                    Start                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
                                  Running                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
                               ErrorReset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                setPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                               currPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                              CycleCount                                     DINT    0 "                                                               0"    0    4    1   10    1    0         
+                                setPower                                     REAL    0 "                                                           100.0"    1    8    1   10    0    0         
+                               currPower                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
+                                 SetTemp                                     REAL    0 "                                                               *"    1    8    1   10    0    0         

@@ -77,21 +77,38 @@ typedef enum Seq
 } Seq;
 #endif
 
+#ifndef __AS__TYPE_SystemInput
+#define __AS__TYPE_SystemInput
+typedef struct SystemInput
+{	plcbit EStop;
+	plcbit Auto;
+	plcbit Stop;
+	plcbit Pause;
+	plcbit Power;
+} SystemInput;
+#endif
+
+#ifndef __AS__TYPE_SystemStatus
+#define __AS__TYPE_SystemStatus
+typedef struct SystemStatus
+{	plcbit Automatic;
+	plcbit Manual;
+	plcbit Running;
+	plcbit Stopped;
+	plcbit Paused;
+	plcbit On;
+} SystemStatus;
+#endif
+
+#ifndef __AS__TYPE_System
+#define __AS__TYPE_System
+typedef struct System
+{	SystemInput i;
+	SystemStatus Stat;
+} System;
+#endif
+
 _BUR_PUBLIC plcbit Device(plcbit AutoMode, plcbit pbExpected, plcbit AutoExpected, plcbit(* Output));
-struct TON
-{	plctime PT;
-	plctime ET;
-	plctime StartTime;
-	unsigned long Restart;
-	plcbit IN;
-	plcbit Q;
-	plcbit M;
-};
-_BUR_PUBLIC void TON(struct TON* inst);
-_BUR_LOCAL struct TON HeatTime;
 _BUR_LOCAL Seq Sequence;
-_GLOBAL plcbit ManMode;
-_GLOBAL plcbit AutoMode;
+_GLOBAL System sys;
 _GLOBAL plcbit MashPump;
-_LOCAL plcbit Edge0000100000;
-_LOCAL plcbit Edge0000100001;

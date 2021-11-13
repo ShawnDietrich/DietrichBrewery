@@ -5,8 +5,8 @@ $(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/MpBase/MpBase.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTempError.typ
-$(AS_PROJECT_PATH)/Logical/TempControl/HLT/Variables.var
 $(AS_PROJECT_PATH)/Physical/Config1/X20CP0482/mappControl/Config.tempcontroller
-$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+$(AS_PROJECT_PATH)/Logical/TempControl/HLT/Variables.var
+$(AS_PROJECT_PATH)/Logical/TempControl/HLT/Types.typ
 $(AS_PROJECT_PATH)/Logical/Global.var
 $(AS_PROJECT_PATH)/Logical/Global.typ

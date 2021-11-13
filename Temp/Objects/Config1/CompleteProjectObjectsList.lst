@@ -16,13 +16,13 @@
     Path="C:\projects\DietrichBrewing\Logical\Global.typ"
     LogicalPath="Global.typ"
     Type="File"
-    LastWriteTime="132811259065325710"
+    LastWriteTime="132812442714380571"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\Global.var"
     LogicalPath="Global.var"
     Type="File"
-    LastWriteTime="132810418606741401"
+    LastWriteTime="132812269525078000"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\Libraries\Package.pkg"
@@ -366,19 +366,19 @@
     Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Main.st"
     LogicalPath="TempControl.HLT.Main.st"
     Type="File"
-    LastWriteTime="132811263685188488"
+    LastWriteTime="132812456318349011"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Types.typ"
     LogicalPath="TempControl.HLT.Types.typ"
     Type="File"
-    LastWriteTime="132809449779909049"
+    LastWriteTime="132812259096578375"
     Private="true" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Variables.var"
     LogicalPath="TempControl.HLT.Variables.var"
     Type="File"
-    LastWriteTime="132811088775177082"
+    LastWriteTime="132811323491644371"
     Private="true" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\IEC.prg"
@@ -417,7 +417,7 @@
     Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Main.st"
     LogicalPath="Brewing.BrewingSeq.Main.st"
     Type="File"
-    LastWriteTime="132810459995284348"
+    LastWriteTime="132812446875605417"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Types.typ"
@@ -455,7 +455,7 @@
     Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Main.st"
     LogicalPath="HMIControl.HMIProgram.Main.st"
     Type="File"
-    LastWriteTime="132810436346684950"
+    LastWriteTime="132812444797165102"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Types.typ"
@@ -467,7 +467,7 @@
     Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Variables.var"
     LogicalPath="HMIControl.HMIProgram.Variables.var"
     Type="File"
-    LastWriteTime="132810290175246799"
+    LastWriteTime="132812254366651600"
     Private="true" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\mappView\Package.pkg"
@@ -478,12 +478,12 @@
     Path="C:\projects\DietrichBrewing\Logical\mappView\Layouts\Package.pkg"
     LogicalPath="mappView.Layouts"
     Type="Package"
-    LastWriteTime="132809570099598740" />
+    LastWriteTime="132812405333617417" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\mappView\Layouts\Layout.layout"
     LogicalPath="mappView.Layouts.Layout.layout"
     Type="File"
-    LastWriteTime="132809570099590085"
+    LastWriteTime="132812408179195245"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\mappView\Widgets\Package.pkg"
@@ -576,13 +576,13 @@
     Path="C:\projects\DietrichBrewing\Logical\mappView\Visualization\Pages\Main\Main.page"
     LogicalPath="mappView.Visualization.Pages.Main.Main.page"
     Type="File"
-    LastWriteTime="132810414020956474"
+    LastWriteTime="132812447592059912"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\mappView\Visualization\Pages\Main\Content.content"
     LogicalPath="mappView.Visualization.Pages.Main.Content.content"
     Type="File"
-    LastWriteTime="132810446448186371"
+    LastWriteTime="132812462263527579"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Logical\mappView\Visualization\Variables\Package.pkg"
@@ -645,7 +645,7 @@
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\Cpu.pkg"
     LogicalPath="Config1.X20CP0482"
     Type="Cpu"
-    LastWriteTime="132811106366351178" />
+    LastWriteTime="132812461718861285" />
   <Object
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\Cpu.sw"
     LogicalPath="Config1.X20CP0482.Cpu.sw"
@@ -684,7 +684,7 @@
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\Connectivity\OpcUA\OpcUaMap.uad"
     LogicalPath="Config1.X20CP0482.Connectivity.OpcUA.OpcUaMap.uad"
     Type="File"
-    LastWriteTime="132810422422351473"
+    LastWriteTime="132812451136702941"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\TextSystem\Package.pkg"
@@ -820,7 +820,7 @@
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappView\Package.pkg"
     LogicalPath="Config1.X20CP0482.mappView"
     Type="Package"
-    LastWriteTime="132810411491850038" />
+    LastWriteTime="132812417739841379" />
   <Object
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappView\Config.mappviewcfg"
     LogicalPath="Config1.X20CP0482.mappView.Config.mappviewcfg"
@@ -831,13 +831,13 @@
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappView\Visualizat.vis"
     LogicalPath="Config1.X20CP0482.mappView.Visualizat.vis"
     Type="File"
-    LastWriteTime="132810409132982968"
+    LastWriteTime="132812445535145193"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappView\MainContent.binding"
     LogicalPath="Config1.X20CP0482.mappView.MainContent.binding"
     Type="File"
-    LastWriteTime="132810446448200651"
+    LastWriteTime="132812461118677382"
     Private="false" />
   <Object
     Path="C:\projects\DietrichBrewing\Physical\Config1\X20CP0482\mappVision\Package.pkg"

@@ -66,70 +66,57 @@ typedef struct {
 } _4byte_bit_field_;
 #endif
 
-#ifndef __AS__TYPE_TemperatureController
-#define __AS__TYPE_TemperatureController
-typedef struct TemperatureController
-{	plcbit Automatic;
-	plcbit Start;
-	plcbit Running;
-	plcbit ErrorReset;
-	float setPower;
-	float currPower;
-} TemperatureController;
+#ifndef __AS__TYPE_ControlState
+#define __AS__TYPE_ControlState
+typedef enum ControlState
+{	Manual = 0,
+	Automatic = 1,
+	SimManual = 2,
+	SimAuto = 3,
+} ControlState;
 #endif
 
-#ifndef __AS__TYPE_MpTempSystemTypeEnum
-#define __AS__TYPE_MpTempSystemTypeEnum
-typedef enum MpTempSystemTypeEnum
-{	mpTEMP_SYSTEM_TYPE_PT2 = 0,
-	mpTEMP_SYSTEM_TYPE_IT1 = 1,
-	mpTEMP_SYSTEM_TYPE_NONE = 3,
-} MpTempSystemTypeEnum;
+#ifndef __AS__TYPE_MTBasicsPWMModeEnum
+#define __AS__TYPE_MTBasicsPWMModeEnum
+typedef enum MTBasicsPWMModeEnum
+{	mtBASICS_PULSE_BEGINNING = 0,
+	mtBASICS_PULSE_MIDDLE = 1,
+} MTBasicsPWMModeEnum;
 #endif
 
-#ifndef __AS__TYPE_MpTempHysteresisModeEnum
-#define __AS__TYPE_MpTempHysteresisModeEnum
-typedef enum MpTempHysteresisModeEnum
-{	mpTEMP_HYSTERESIS_ON = 0,
-	mpTEMP_HYSTERESIS_OFF_HEAT_ONLY = 1,
-	mpTEMP_HYSTERESIS_OFF_COOL_ONLY = 2,
-} MpTempHysteresisModeEnum;
+#ifndef __AS__TYPE_MTBasicsPWMInternalType
+#define __AS__TYPE_MTBasicsPWMInternalType
+typedef struct MTBasicsPWMInternalType
+{	float CycleTime;
+	plcbit ParametersValid;
+	MTBasicsPWMModeEnum Mode;
+	float MinPulseWidth;
+	float Period;
+	float In;
+	float OnTime;
+	float OffTime;
+	float PeriodCounter;
+	float OnTimeCounter;
+	plcbit UpdateOld;
+	plcbit EnableOld;
+} MTBasicsPWMInternalType;
 #endif
 
-#ifndef __AS__TYPE_MpTempTuningModeEnum
-#define __AS__TYPE_MpTempTuningModeEnum
-typedef enum MpTempTuningModeEnum
-{	mpTEMP_TUNING_MODE_OFF = 0,
-	mpTEMP_TUNING_MODE_HEAT = 1,
-	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
-	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
-	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
-} MpTempTuningModeEnum;
-#endif
-
-#ifndef __AS__TYPE_MpTempTuningStateEnum
-#define __AS__TYPE_MpTempTuningStateEnum
-typedef enum MpTempTuningStateEnum
-{	mpTEMP_TUNING_STATE_IDLE = 0,
-	mpTEMP_TUNING_STATE_INIT = 1,
-	mpTEMP_TUNING_STATE_SYSTEM_CHECK = 2,
-	mpTEMP_TUNING_STATE_DELAY_TIME = 3,
-	mpTEMP_TUNING_STATE_IDENT = 4,
-	mpTEMP_TUNING_STATE_PREDICTION = 5,
-	mpTEMP_TUNING_STATE_IN_SETPOINT = 6,
-	mpTEMP_TUNING_STATE_ERROR = 99,
-	mpTEMP_TUNING_STATE_ABORTED = 100,
-} MpTempTuningStateEnum;
-#endif
-
-#ifndef __AS__TYPE_MpTempToleranceBandType
-#define __AS__TYPE_MpTempToleranceBandType
-typedef struct MpTempToleranceBandType
-{	float Lower;
-	float Upper;
-} MpTempToleranceBandType;
-#endif
-
+struct MTBasicsPWM
+{	MTBasicsPWMModeEnum Mode;
+	float MinPulseWidth;
+	float Period;
+	float DutyCycle;
+	signed long StatusID;
+	MTBasicsPWMInternalType Internal;
+	plcbit Enable;
+	plcbit Update;
+	plcbit Active;
+	plcbit Error;
+	plcbit UpdateDone;
+	plcbit Out;
+};
+_BUR_PUBLIC void MTBasicsPWM(struct MTBasicsPWM* inst);
 #ifndef __AS__TYPE_MpTempPIDParType
 #define __AS__TYPE_MpTempPIDParType
 typedef struct MpTempPIDParType
@@ -147,6 +134,17 @@ typedef struct MpTempPIDType
 	MpTempPIDParType Cool;
 	float IntegratorPreloading;
 } MpTempPIDType;
+#endif
+
+#ifndef __AS__TYPE_MpTempTuningModeEnum
+#define __AS__TYPE_MpTempTuningModeEnum
+typedef enum MpTempTuningModeEnum
+{	mpTEMP_TUNING_MODE_OFF = 0,
+	mpTEMP_TUNING_MODE_HEAT = 1,
+	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
+	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
+	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
+} MpTempTuningModeEnum;
 #endif
 
 #ifndef __AS__TYPE_MpTempTuningType
@@ -178,6 +176,23 @@ typedef struct MpTempControllerProfileType
 } MpTempControllerProfileType;
 #endif
 
+#ifndef __AS__TYPE_MpTempToleranceBandType
+#define __AS__TYPE_MpTempToleranceBandType
+typedef struct MpTempToleranceBandType
+{	float Lower;
+	float Upper;
+} MpTempToleranceBandType;
+#endif
+
+#ifndef __AS__TYPE_MpTempHysteresisModeEnum
+#define __AS__TYPE_MpTempHysteresisModeEnum
+typedef enum MpTempHysteresisModeEnum
+{	mpTEMP_HYSTERESIS_ON = 0,
+	mpTEMP_HYSTERESIS_OFF_HEAT_ONLY = 1,
+	mpTEMP_HYSTERESIS_OFF_COOL_ONLY = 2,
+} MpTempHysteresisModeEnum;
+#endif
+
 #ifndef __AS__TYPE_MpTempHysteresisBand
 #define __AS__TYPE_MpTempHysteresisBand
 typedef struct MpTempHysteresisBand
@@ -205,12 +220,27 @@ typedef struct MpTempControllerParType
 } MpTempControllerParType;
 #endif
 
-#ifndef __AS__TYPE_MpTempProfileType
-#define __AS__TYPE_MpTempProfileType
-typedef struct MpTempProfileType
-{	MpTempProfileParType Heat;
-	MpTempProfileParType Cool;
-} MpTempProfileType;
+#ifndef __AS__TYPE_MpComInternalDataType
+#define __AS__TYPE_MpComInternalDataType
+typedef struct MpComInternalDataType
+{	unsigned long pObject;
+	unsigned long State;
+} MpComInternalDataType;
+#endif
+
+#ifndef __AS__TYPE_MpTempTuningStateEnum
+#define __AS__TYPE_MpTempTuningStateEnum
+typedef enum MpTempTuningStateEnum
+{	mpTEMP_TUNING_STATE_IDLE = 0,
+	mpTEMP_TUNING_STATE_INIT = 1,
+	mpTEMP_TUNING_STATE_SYSTEM_CHECK = 2,
+	mpTEMP_TUNING_STATE_DELAY_TIME = 3,
+	mpTEMP_TUNING_STATE_IDENT = 4,
+	mpTEMP_TUNING_STATE_PREDICTION = 5,
+	mpTEMP_TUNING_STATE_IN_SETPOINT = 6,
+	mpTEMP_TUNING_STATE_ERROR = 99,
+	mpTEMP_TUNING_STATE_ABORTED = 100,
+} MpTempTuningStateEnum;
 #endif
 
 #ifndef __AS__TYPE_MpTempSystemParType
@@ -231,12 +261,12 @@ typedef struct MpTempSystemType
 } MpTempSystemType;
 #endif
 
-#ifndef __AS__TYPE_MpTempSystemCharacteristicsType
-#define __AS__TYPE_MpTempSystemCharacteristicsType
-typedef struct MpTempSystemCharacteristicsType
-{	MpTempSystemTypeEnum Heat;
-	MpTempSystemTypeEnum Cool;
-} MpTempSystemCharacteristicsType;
+#ifndef __AS__TYPE_MpTempProfileType
+#define __AS__TYPE_MpTempProfileType
+typedef struct MpTempProfileType
+{	MpTempProfileParType Heat;
+	MpTempProfileParType Cool;
+} MpTempProfileType;
 #endif
 
 #ifndef __AS__TYPE_MpTempTuningQualityType
@@ -252,6 +282,23 @@ typedef struct MpTempTuningQualityType
 typedef struct MpTempTuningFilterType
 {	float NoiseReduction;
 } MpTempTuningFilterType;
+#endif
+
+#ifndef __AS__TYPE_MpTempSystemTypeEnum
+#define __AS__TYPE_MpTempSystemTypeEnum
+typedef enum MpTempSystemTypeEnum
+{	mpTEMP_SYSTEM_TYPE_PT2 = 0,
+	mpTEMP_SYSTEM_TYPE_IT1 = 1,
+	mpTEMP_SYSTEM_TYPE_NONE = 3,
+} MpTempSystemTypeEnum;
+#endif
+
+#ifndef __AS__TYPE_MpTempSystemCharacteristicsType
+#define __AS__TYPE_MpTempSystemCharacteristicsType
+typedef struct MpTempSystemCharacteristicsType
+{	MpTempSystemTypeEnum Heat;
+	MpTempSystemTypeEnum Cool;
+} MpTempSystemCharacteristicsType;
 #endif
 
 #ifndef __AS__TYPE_MpTempTuningInfoType
@@ -396,47 +443,6 @@ typedef struct MpTempControllerInfoType
 } MpTempControllerInfoType;
 #endif
 
-#ifndef __AS__TYPE_MpComIdentType
-#define __AS__TYPE_MpComIdentType
-typedef struct MpComIdentType
-{	unsigned long Internal[2];
-} MpComIdentType;
-#endif
-
-#ifndef __AS__TYPE_MpComInternalDataType
-#define __AS__TYPE_MpComInternalDataType
-typedef struct MpComInternalDataType
-{	unsigned long pObject;
-	unsigned long State;
-} MpComInternalDataType;
-#endif
-
-#ifndef __AS__TYPE_MTBasicsPWMModeEnum
-#define __AS__TYPE_MTBasicsPWMModeEnum
-typedef enum MTBasicsPWMModeEnum
-{	mtBASICS_PULSE_BEGINNING = 0,
-	mtBASICS_PULSE_MIDDLE = 1,
-} MTBasicsPWMModeEnum;
-#endif
-
-#ifndef __AS__TYPE_MTBasicsPWMInternalType
-#define __AS__TYPE_MTBasicsPWMInternalType
-typedef struct MTBasicsPWMInternalType
-{	float CycleTime;
-	plcbit ParametersValid;
-	MTBasicsPWMModeEnum Mode;
-	float MinPulseWidth;
-	float Period;
-	float In;
-	float OnTime;
-	float OffTime;
-	float PeriodCounter;
-	float OnTimeCounter;
-	plcbit UpdateOld;
-	plcbit EnableOld;
-} MTBasicsPWMInternalType;
-#endif
-
 struct MpTempController
 {	struct MpComIdentType(* MpLink);
 	struct MpTempControllerParType(* Parameters);
@@ -464,26 +470,72 @@ struct MpTempController
 	plcbit Simulation;
 };
 _BUR_PUBLIC void MpTempController(struct MpTempController* inst);
-struct MTBasicsPWM
-{	MTBasicsPWMModeEnum Mode;
-	float MinPulseWidth;
-	float Period;
-	float DutyCycle;
-	signed long StatusID;
-	MTBasicsPWMInternalType Internal;
-	plcbit Enable;
-	plcbit Update;
-	plcbit Active;
-	plcbit Error;
-	plcbit UpdateDone;
-	plcbit Out;
-};
-_BUR_PUBLIC void MTBasicsPWM(struct MTBasicsPWM* inst);
+#ifndef __AS__TYPE_Controller
+#define __AS__TYPE_Controller
+typedef struct Controller
+{	struct MTBasicsPWM ManPWM;
+	ControlState State;
+	MpTempControllerParType TempPram;
+	struct MpTempController TempCont;
+} Controller;
+#endif
+
+#ifndef __AS__TYPE_TemperatureController
+#define __AS__TYPE_TemperatureController
+typedef struct TemperatureController
+{	float Temperature;
+	plcbit Automatic;
+	plcbit Start;
+	plcbit Running;
+	plcbit ErrorReset;
+	float setPower;
+	float currPower;
+	float SetTemp;
+} TemperatureController;
+#endif
+
+#ifndef __AS__TYPE_SystemInput
+#define __AS__TYPE_SystemInput
+typedef struct SystemInput
+{	plcbit EStop;
+	plcbit Auto;
+	plcbit Stop;
+	plcbit Pause;
+	plcbit Power;
+} SystemInput;
+#endif
+
+#ifndef __AS__TYPE_SystemStatus
+#define __AS__TYPE_SystemStatus
+typedef struct SystemStatus
+{	plcbit Automatic;
+	plcbit Manual;
+	plcbit Running;
+	plcbit Stopped;
+	plcbit Paused;
+	plcbit On;
+} SystemStatus;
+#endif
+
+#ifndef __AS__TYPE_System
+#define __AS__TYPE_System
+typedef struct System
+{	SystemInput i;
+	SystemStatus Stat;
+} System;
+#endif
+
+#ifndef __AS__TYPE_MpComIdentType
+#define __AS__TYPE_MpComIdentType
+typedef struct MpComIdentType
+{	unsigned long Internal[2];
+} MpComIdentType;
+#endif
+
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
-_BUR_LOCAL struct MTBasicsPWM PWM;
-_BUR_LOCAL MpTempControllerParType Mp_Parameters;
-_BUR_LOCAL struct MpTempController Mp_Controller;
+_BUR_LOCAL Controller Proc;
+_GLOBAL System sys;
 _GLOBAL TemperatureController contHLT;
 _GLOBAL signed short rawHLTTemp;
 _GLOBAL MpComIdentType Cfg_HLTTemp;

@@ -1,3 +1,4 @@
 $(AS_PROJECT_PATH)/Logical/Global.var
+$(AS_PROJECT_PATH)/Logical/Global.typ
 $(AS_PROJECT_PATH)/Logical/HMIControl/HMIProgram/Variables.var
 $(AS_PROJECT_PATH)/Physical/Config1/X20CP0482/Cpu.sw

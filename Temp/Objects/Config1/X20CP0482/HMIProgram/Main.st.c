@@ -12,19 +12,33 @@ void __BUR__ENTRY_INIT_FUNCT__(void){{
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
 
-if((AutoMode^1)){
-Device(AutoMode,pbMashPump,0,&MashPump);
+
+
+(sys.Stat.On=sys.i.Power);
+(sys.Stat.Automatic=sys.i.Auto);
+(sys.Stat.Manual=(sys.i.Auto^1));
+(sys.Stat.Paused=sys.i.Pause);
+(sys.Stat.Stopped=sys.i.Stop);
+
+
+if(sys.Stat.Manual){
+Device(sys.Stat.Automatic,pbMashPump,0,&MashPump);
+Device(sys.Stat.Automatic,pbHLTPump,0,&HLTPump);
+Device(sys.Stat.Automatic,pbCoolingPump,0,&CoolingPump);
+Device(sys.Stat.Automatic,pbKettleHeater,0,&KettleHeater);
+Device(sys.Stat.Automatic,pbHLTHeater,0,&HLTHeater);
+Device(sys.Stat.Automatic,pbSysPower,0,&SysPower);
 }
 
 
 }imp1_else0_0:imp1_end0_0:;}
-#line 15 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 17 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st"
+#line 29 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 31 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 20 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 34 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -43,6 +57,8 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.typ\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Types.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/runtime/runtime.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/astime/astime.fun\\\" scope \\\"global\\\"\\n\"");
@@ -54,6 +70,8 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.fun\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Functions.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Global.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/Config1/GlobalComponents/MpComponents.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.var\\\" scope \\\"global\\\"\\n\"");
@@ -67,6 +85,8 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Constants.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Types.typ\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Variables.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.var\\\" scope \\\"local\\\"\\n\"");

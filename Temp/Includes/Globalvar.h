@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1636568474_1_
-#define _BUR_1636568474_1_
+#ifndef _BUR_1636767375_2_
+#define _BUR_1636767375_2_
 
 #include <bur/plctypes.h>
 
@@ -19,10 +19,13 @@ _GLOBAL struct TemperatureController contHLT;
 _GLOBAL struct TemperatureController contKettle;
 _GLOBAL plcbit KettleHeater;
 _GLOBAL plcbit HLTHeater;
+_GLOBAL plcbit CoolingPump;
 _GLOBAL plcbit MashPump;
 _GLOBAL plcbit HLTPump;
-_GLOBAL plcbit AutoMode;
-_GLOBAL plcbit ManMode;
+_GLOBAL plcbit SysPower;
+_GLOBAL plcbit ValveOn;
+_GLOBAL plcbit ValveOff;
+_GLOBAL struct System sys;
 
 
 
@@ -38,5 +41,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Global.var\\\" scope \\\"global\\\"\\n\"")
 __asm__(".previous");
 
 
-#endif /* _BUR_1636568474_1_ */
+#endif /* _BUR_1636767375_2_ */
 

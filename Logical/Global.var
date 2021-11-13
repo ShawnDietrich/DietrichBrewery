@@ -1,11 +1,15 @@
+(*System Control*)
 VAR
-	ManMode : BOOL;
-	AutoMode : BOOL;
+	sys : System;
 END_VAR
 (*Output Mapping*)
 VAR
+	ValveOff : BOOL;
+	ValveOn : BOOL;
+	SysPower : BOOL;
 	HLTPump : BOOL;
 	MashPump : BOOL;
+	CoolingPump : BOOL;
 	HLTHeater : BOOL;
 	KettleHeater : BOOL;
 END_VAR

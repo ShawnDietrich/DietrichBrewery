@@ -1,21 +1,21 @@
 
 TYPE
 	TemperatureController : 	STRUCT 
+		Temperature : REAL;
 		Automatic : BOOL;
 		Start : BOOL;
 		Running : BOOL;
 		ErrorReset : BOOL;
 		setPower : REAL;
 		currPower : REAL;
-	END_STRUCT;
-	SystemOutput : 	STRUCT 
-		Stop : BOOL;
-		Pause : BOOL;
-		Run : BOOL;
-		Power : BOOL;
+		SetTemp : REAL;
 	END_STRUCT;
 	SystemInput : 	STRUCT 
 		EStop : BOOL;
+		Auto : BOOL;
+		Stop : BOOL;
+		Pause : BOOL;
+		Power : BOOL;
 	END_STRUCT;
 	SystemStatus : 	STRUCT 
 		Automatic : BOOL;
@@ -27,7 +27,6 @@ TYPE
 	END_STRUCT;
 	System : 	STRUCT 
 		i : SystemInput;
-		o : SystemOutput;
 		Stat : SystemStatus;
 	END_STRUCT;
 END_TYPE

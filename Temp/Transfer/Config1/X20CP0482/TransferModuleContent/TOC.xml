@@ -5,9 +5,9 @@
 			<Folder Name="IAT_Data" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
 					<File Name="Config.mappviewcfg" Size="1474" HashValue="6AA5A5DCFB054D30E86A8999C97952D0" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="MainContent_binding.binding" Size="2219" HashValue="9348ED437D494FA07FB13BEB728CB724" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="MainPageContent_binding.binding" Size="5705" HashValue="E2FC720F425BFAB0947E9679CE0C4EF0" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="__SystemVariables.sessionVar" Size="3484" HashValue="4F27B2AC736714506A4AD35EE4C9300A" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.vis" Size="1270" HashValue="BD321BB2D9966BACB3E3BDF1EB310B43" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.vis" Size="1274" HashValue="A34659D15187C6E5E8A7F995DF7A7724" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="BRVisu" ProjectDependent="1" IgnoreDifference="0">
@@ -524,8 +524,8 @@
 							<File Name="sinon.js" Size="208950" HashValue="B53B6EE79E2568DC68166087370FCC64" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="release" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="brease.js" Size="781557" HashValue="B959C7C2F24181DEAE4F420CE3930861" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease_core.min.css" Size="364731" HashValue="A65B79AC92CCE2315C6A3166C255D322" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease.js" Size="819839" HashValue="062144D7C40756EB802FD0F326F1EDFD" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease_core.min.css" Size="368268" HashValue="54028DB9E4783BFA6332F4EA7E1FC9A8" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="system" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
@@ -743,6 +743,33 @@
 									</Folder>
 									<File Name="Ellipse.html" Size="71" HashValue="21C16449F7E06A84A9D87E1CA74940F8" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Ellipse.js" Size="1270" HashValue="88306D3F71C48404C521949A485F95AE" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="GroupBox" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="GroupBox.sass.css" Size="2656" HashValue="CFAC5A2BE776B337F9C34AA6DA279A49" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.scss" Size="2935" HashValue="5DFB38419AD3163E8C40BA7BCC22D5CC" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1900" HashValue="C18B42AFD3C299996144ACC41BAA3FD8" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="EditorHandles.js" Size="3463" HashValue="9749815981D4C1C658321E913C54698B" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="GroupBox.json" Size="19196" HashValue="404B97896142FF1D45A44DB4D6DA243F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.style" Size="7330" HashValue="FAC82112800997C5D922B02BC45FC80E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.widget" Size="19513" HashValue="9A12CB74A927BB3B18BE5A105C1DF09D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.xsd" Size="3924" HashValue="1AFE2C4090A7CE635B7FECE64C78EE78" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_EventsActions.xsd" Size="2981" HashValue="E3DAB9A3D585923C2DF371A5F9A76610" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_Styles.xsd" Size="2172" HashValue="88FB66ECFA37D02CB886C540032474CF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_base.scss" Size="1129" HashValue="237A523E28B76FC87A11DBE4DA6CEE2A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_default.sass.css" Size="1115" HashValue="094FEF4675DA0C00BE7C45FA5205067E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_default.scss" Size="1211" HashValue="C94248EC898CABB5A9C5DEE92F757C03" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_doc.html" Size="27877" HashValue="279A79B108666C147781783A5C0655E3" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="GroupBox.html" Size="77" HashValue="C203E3FBBBC6B928B39F0EDD6C434FC8" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="GroupBox.js" Size="30729" HashValue="B0D5717FF3C5BC6E3040554E3FB1D109" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="KeyBoard" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
@@ -962,6 +989,60 @@
 									</Folder>
 									<File Name="NumPad.html" Size="2606" HashValue="E89AB5A2D5CEFBBBD6F4292FF9161B66" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="NumPad.js" Size="8889" HashValue="56F713A717EEB34B946536BCA2818AE8" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="NumericInput" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="NumericInput.sass.css" Size="4807" HashValue="723C8B30A80CEE6039F501488CE4D124" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.scss" Size="2865" HashValue="D71E99766733D8F7094DA5EB1489F094" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3240" HashValue="2FF34919F77024CE16993D0007769289" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Config.js" Size="4686" HashValue="1890993A5CA512C7EE37ED21C92B4D21" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="NumericInput.json" Size="29365" HashValue="CCA7C18D1E9A775568640A4E288EB153" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.style" Size="9756" HashValue="065498CCB89E1C2584E66A33C5AF0332" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.widget" Size="26406" HashValue="691F5AAE3A8F7E73671F34F603B8000D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.xsd" Size="5590" HashValue="EBCD623DAAE94B8A8D9B1E5B5FC45C8A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_EventsActions.xsd" Size="4460" HashValue="549A125F50DBDB330763D54C0ACDD3A4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_Styles.xsd" Size="2958" HashValue="619933412261BA19E685856A9B05CA24" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_base.scss" Size="1501" HashValue="F633E715B9BA773E11DC9C49C621F078" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_default.sass.css" Size="2134" HashValue="6C69B99DD4E9488C8CFBD062F1789B6C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_default.scss" Size="1591" HashValue="361C0440103BAD842A2525A9508DE208" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_doc.html" Size="38183" HashValue="035415C1D74FF9185B15DDFF05086146" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="NumericInput.html" Size="76" HashValue="EA4C3AD285AFC7F9BBF77457C2E4ACDE" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="NumericInput.js" Size="43234" HashValue="10689FC97EAB44B71B2312DBBE35F483" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="NumericOutput" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="NumericOutput.sass.css" Size="4126" HashValue="D1B9B5595E6603567C37AD4ACDAD1FCD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.scss" Size="2072" HashValue="388051DC1AFA78A2D5C244E61CCAE77C" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3203" HashValue="AED6D29FFE820E74BD457A892CA180C2" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="config.js" Size="1641" HashValue="BF97352A3810774509192CD9934FCC01" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="NumericOutput.json" Size="24605" HashValue="0D7C6718410DAF0E3EA57BF994E51E17" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.style" Size="5259" HashValue="966D967CA65F824980EE76843C34B8E1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.widget" Size="24165" HashValue="8178DC8C7DB55056CF133389009F3A6D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.xsd" Size="4451" HashValue="1B5F579F8BDD23649D265768ED53ABF6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_EventsActions.xsd" Size="3365" HashValue="27FCC5517ABD561FFAF52E36A7F13C05" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_Styles.xsd" Size="2091" HashValue="D805063B765E486A7916CE5910599819" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_base.scss" Size="820" HashValue="087A795FA17E8835CB1F3DA23DFA2DEE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_default.sass.css" Size="992" HashValue="71F438DDE882A65A81F7BEA6514C483B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_default.scss" Size="912" HashValue="C3E6747DD69851988E56AF28B24DD3FC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_doc.html" Size="33654" HashValue="F6C0A763E409FE578A6BA31D9AE2E216" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="NumericOutput.html" Size="77" HashValue="81E8174788ED113209C1FC3E6285E3B4" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="NumericOutput.js" Size="1924" HashValue="8BC36A97931AF8B37A1134D36CE5FA1D" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="Rectangle" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -1342,7 +1423,7 @@
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1" IgnoreDifference="0">
 						<Folder Name="mappView" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="MainContent.html" Size="2246" HashValue="6A7B30B180B9D72979FE5DF8B941E76E" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="MainPageContent.html" Size="6668" HashValue="56B0DFA152392552B99994834559C894" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 					</Folder>
 					<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
@@ -1416,13 +1497,13 @@
 					</Folder>
 					<File Name="favicon.ico" Size="1406" HashValue="B3D2122594565CE5AF565BE898EF539A" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="index.html" Size="583" HashValue="D4F7BF3E953B0B4F4C78158B1216F74B" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.json" Size="417" HashValue="499FF5ADEF137C8F5DB72F13DFE5CCF7" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.json" Size="617" HashValue="BAB06F31B6633EC3EB3A6AD3A9F1099B" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 			</Folder>
 			<Folder Name="OPCUA" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="Generated" ProjectDependent="1" IgnoreDifference="0">
-						<File Name="OpcUaMap.uar.gz" Size="469" HashValue="4C39883BEF90CF201B85341BFCFA143F" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="OpcUaMap.uar.gz" Size="790" HashValue="198E1B52C6CBC1AFB9CB906B44C1E0BD" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IgnoreDifference="0">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1" IgnoreDifference="0" />
@@ -1510,14 +1591,14 @@
 			<Module Name="::ArSvcReg" Type="18" Size="78216" Modified="2016-12-09 07:57:34" Version="4.91" ProjectDependent="1" />
 			<Module Name="::AsIODiag" Type="18" Size="52264" Modified="2021-04-20 08:22:41" Version="4.91" ProjectDependent="1" />
 			<Module Name="::AsIecCon" Type="18" Size="17432" Modified="2021-04-20 08:22:34" Version="4.91" ProjectDependent="1" />
-			<Module Name="::BrewingSeq" Type="17" Size="2840" Modified="2021-11-11 12:48:30" Version="1.00" ProjectDependent="1" />
+			<Module Name="::BrewingSeq" Type="17" Size="2780" Modified="2021-11-12 21:38:15" Version="1.00" ProjectDependent="1" />
 			<Module Name="::Config" Type="136" Size="11864" Modified="2021-11-11 07:58:33" Version="5.12" ProjectDependent="1" />
 			<Module Name="::Config_1" Type="136" Size="1100" Modified="2021-11-09 10:16:10" Version="5.121" ProjectDependent="1" />
 			<Module Name="::FWRules" Type="136" Size="456" Modified="2021-11-09 10:16:10" Version="1.00" ProjectDependent="1" />
 			<Module Name="::FileIO" Type="18" Size="25496" Modified="2021-04-20 08:24:35" Version="4.91" ProjectDependent="1" />
 			<Module Name="::Functions" Type="18" Size="1468" Modified="2021-11-11 12:48:30" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HLT" Type="17" Size="10388" Modified="2021-11-11 12:48:30" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HMIProgram" Type="17" Size="2032" Modified="2021-11-11 12:48:31" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HLT" Type="17" Size="10748" Modified="2021-11-12 21:54:00" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HMIProgram" Type="17" Size="2952" Modified="2021-11-12 21:35:36" Version="1.00" ProjectDependent="1" />
 			<Module Name="::Kettle" Type="17" Size="8464" Modified="2021-11-11 12:48:30" Version="1.00" ProjectDependent="1" />
 			<Module Name="::MTBasics" Type="18" Size="80568" Modified="2020-08-18 12:41:07" Version="5.12" ProjectDependent="1" />
 			<Module Name="::MTTypes" Type="18" Size="364" Modified="2017-02-21 11:08:12" Version="1.034" ProjectDependent="1" />
@@ -1528,7 +1609,7 @@
 			<Module Name="::ashwac" Type="136" Size="212" Modified="2021-11-09 10:16:10" Version="1.00" ProjectDependent="1" />
 			<Module Name="::astime" Type="18" Size="24304" Modified="2021-04-20 08:23:46" Version="4.91" ProjectDependent="1" />
 			<Module Name="::brsystem" Type="18" Size="23780" Modified="2021-04-20 08:24:09" Version="4.91" ProjectDependent="1" />
-			<Module Name="::iomap" Type="50" Size="16908" Modified="2021-11-11 12:48:38" Version="1.00" ProjectDependent="1" />
+			<Module Name="::iomap" Type="50" Size="16908" Modified="2021-11-12 21:35:37" Version="1.00" ProjectDependent="1" />
 			<Module Name="::mvLoader" Type="18" Size="5064" Modified="2020-06-30 11:28:40" Version="1.00" ProjectDependent="1" />
 			<Module Name="::runtime" Type="18" Size="29340" Modified="2021-04-20 08:24:37" Version="4.91" ProjectDependent="1" />
 			<Module Name="::standard" Type="18" Size="11576" Modified="2021-04-20 08:24:43" Version="4.91" ProjectDependent="1" />

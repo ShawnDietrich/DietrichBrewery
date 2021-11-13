@@ -1,8 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="MainContent" height="600" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="MainPageContent" height="800" width="1480" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="187" left="155" width="84" zIndex="0" rotation="0deg" />
-    <Widget xsi:type="widgets.widgetlibrary_0.StatusIndicator" id="StatusIndicator1" top="223" left="155" width="120" zIndex="1" Label="Pump Status" />
-    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch2" top="187" left="380" zIndex="2" mouseDownText="Manual" text="Auto" />
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="10" left="59" width="400" height="784" zIndex="0" text="HLT" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" fontSize="30px">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="601" left="224" width="160" height="50" zIndex="0" mouseDownText="Pump Off" text="Pump On" cornerRadius="5px" mouseDownBackColor="rgba(0, 255, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch2" top="600" left="14" width="160" height="50" zIndex="1" mouseDownText="Heater Off" text="Heater On" cornerRadius="5px" mouseDownBackColor="rgba(255, 0, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox2" top="32" left="14" width="370" height="179" zIndex="2" text="Auto Control" cornerRadius="10px" borderStyle="outset">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="15" left="32" width="110" height="40" zIndex="0" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" unit="{'metric':'CEL','imperial':'FAR','imperial-us':'FAR'}" unitAlign="right" borderWidth="2px" cornerRadius="5px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" textAlign="left" />
+            <Widget xsi:type="widgets.brease.Label" id="Label1" top="16" left="154" width="162" zIndex="1" text="Actual Temperature" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput1" top="91" left="32" width="110" height="40" zIndex="2" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" unit="{'metric':'CEL','imperial':'FAR','imperial-us':'FAR'}" unitAlign="right" cornerRadius="5px" textAlign="left" />
+            <Widget xsi:type="widgets.brease.Label" id="Label2" top="96" left="154" width="171" zIndex="3" text="Temperature Setpoint" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox3" top="247" left="14" width="370" height="179" zIndex="3" text="Power Control" cornerRadius="10px" borderStyle="outset">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput2" top="15" left="32" height="40" zIndex="0" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" unit="{'metric':'P1','imperial':'P1','imperial-us':'P1'}" unitAlign="right" borderWidth="2px" cornerRadius="5px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" textAlign="center" />
+            <Widget xsi:type="widgets.brease.Label" id="Label3" top="16" left="154" width="162" zIndex="1" text="Actual Power" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="91" left="32" height="40" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" numpadPosition="left" unit="{'metric':'P1','imperial':'P1','imperial-us':'P1'}" unitAlign="right" cornerRadius="5px" textAlign="center" />
+            <Widget xsi:type="widgets.brease.Label" id="Label4" top="96" left="154" width="171" zIndex="3" text="Power Setpoint" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch3" top="477" left="13" width="160" height="50" zIndex="4" mouseDownText="Automatic" text="Manual" cornerRadius="5px" mouseDownBackColor="rgba(255, 215, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch4" top="477" left="215" width="160" height="50" zIndex="5" mouseDownText="Stop" text="Start" cornerRadius="5px" mouseDownBackColor="rgba(255, 69, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+      </Widgets>
+    </Widget>
   </Widgets>
 </Content>

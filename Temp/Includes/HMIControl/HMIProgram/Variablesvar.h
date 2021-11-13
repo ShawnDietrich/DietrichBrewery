@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1636555434_1_
-#define _BUR_1636555434_1_
+#ifndef _BUR_1636767375_5_
+#define _BUR_1636767375_5_
 
 #include <bur/plctypes.h>
 
@@ -14,6 +14,11 @@
 
 /* Variables */
 _BUR_LOCAL plcbit pbMashPump;
+_BUR_LOCAL plcbit pbHLTPump;
+_BUR_LOCAL plcbit pbCoolingPump;
+_BUR_LOCAL plcbit pbKettleHeater;
+_BUR_LOCAL plcbit pbHLTHeater;
+_BUR_LOCAL plcbit pbSysPower;
 
 
 
@@ -29,5 +34,5 @@ __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Variables.var\\\" sc
 __asm__(".previous");
 
 
-#endif /* _BUR_1636555434_1_ */
+#endif /* _BUR_1636767375_5_ */
 

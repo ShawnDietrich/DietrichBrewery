@@ -1,3 +1,8 @@
 VAR
+	pbSysPower : BOOL;
+	pbHLTHeater : BOOL;
+	pbKettleHeater : BOOL;
+	pbCoolingPump : BOOL;
+	pbHLTPump : BOOL;
 	pbMashPump : BOOL;
 END_VAR

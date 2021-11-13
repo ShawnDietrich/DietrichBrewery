@@ -4,51 +4,79 @@
 #line 1 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
 #line 2 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
-(Mp_Controller.Simulate=(DiagCpuIsARsim()|DiagCpuIsSimulated()));
+
 }}
 #line 4 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
 #line 6 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
-((*(unsigned long*)&(Mp_Controller.Parameters))=((unsigned long)(&Mp_Parameters)));
-((*(unsigned long*)&(Mp_Controller.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
+((*(unsigned long*)&(Proc.TempCont.Parameters))=((unsigned long)(&Proc.TempPram)));
+((*(unsigned long*)&(Proc.TempCont.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
+
+(Proc.TempCont.Control=contHLT.Start);
+(Proc.TempCont.ErrorReset=contHLT.ErrorReset);
+(contHLT.Running=Proc.TempCont.ControlActive);
 
 
-(Mp_Controller.Control=contHLT.Start);
-(Mp_Controller.ErrorReset=contHLT.ErrorReset);
-(Mp_Controller.ActualTemperature=(rawHLTTemp*1000));
-
-(contHLT.currPower=Mp_Controller.HeatValue);
-(contHLT.Running=Mp_Controller.ControlActive);
-
-
-(PWM.DutyCycle=contHLT.setPower);
-(PWM.MinPulseWidth=1.00000001490116119385E-01);
-(PWM.Period=1.00000000000000000000E+00);
-
-
-if((contHLT.Automatic^1)){
-(PWM.Enable=1);
-(Mp_Controller.Enable=0);
-}else{
-(PWM.Enable=0);
-(Mp_Controller.Enable=1);
+if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
+if(sys.Stat.Automatic){
+(Proc.State=3);
+}else if(sys.Stat.Manual){
+(Proc.State=2);
+}
 }
 
+switch(Proc.State){
+
+case 3:{
+(Proc.ManPWM.Enable=0);
+(Proc.TempCont.Enable=1);
+(Proc.TempCont.Simulate=1);
+
+(Proc.TempCont.ActualTemperature=Proc.TempCont.Info.Simulation.ActualTemperature);
+(Proc.TempCont.SetTemperature=contHLT.SetTemp);
+(Proc.TempCont.Control=contHLT.Start);
+(contHLT.Temperature=Proc.TempCont.Info.Simulation.ActualTemperature);
+(contHLT.currPower=Proc.TempCont.Info.Simulation.HeatValue);
+
+}break;case 2:{
+(Proc.ManPWM.Enable=1);
+(Proc.TempCont.Enable=0);
+
+(Proc.ManPWM.DutyCycle=contHLT.setPower);
+(Proc.ManPWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.ManPWM.Period=1.00000000000000000000E+00);
+
+
+}break;case 1:{
+(Proc.ManPWM.Enable=1);
+(Proc.TempCont.Enable=0);
+(Proc.TempCont.ActualTemperature=(rawHLTTemp*1000));
+(contHLT.currPower=Proc.TempCont.HeatValue);
+(contHLT.Temperature=(rawHLTTemp*1000));
+}break;case 0:{
+(Proc.ManPWM.Enable=0);
+(Proc.TempCont.Enable=1);
+
+(Proc.ManPWM.DutyCycle=contHLT.setPower);
+(Proc.ManPWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.ManPWM.Period=1.00000000000000000000E+00);
+(contHLT.Temperature=(rawHLTTemp*1000));
+
+}break;}
 
 
 
-
-MpTempController(&Mp_Controller);
-MTBasicsPWM(&PWM);
+MpTempController(&Proc.TempCont);
+MTBasicsPWM(&Proc.ManPWM);
 }}
-#line 39 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 41 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#line 67 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
+#line 69 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 44 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
+#line 72 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
