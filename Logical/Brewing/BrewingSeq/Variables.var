@@ -1,0 +1,5 @@
+VAR
+	HeatTime : TON;
+	Sequence : Seq;
+	pbMashPump : BOOL;
+END_VAR

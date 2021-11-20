@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Content id="RedStatusIndicator" width="300" height="12" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Ellipse" id="statOn" top="0" left="0" zIndex="1" width="12" height="12" backColor="rgba(255, 0, 0, 1)" visible="false"/>
+    <Widget xsi:type="widgets.brease.Ellipse" id="statOff" top="0" left="0" zIndex="0" width="12" height="12" backColor="rgba(255, 255, 255, 1)" visible="true"/>
+    <Widget xsi:type="widgets.brease.Label" id="txtLabel" top="0" left="12" width="300" height="12" zIndex="2" multiLine="false" text="Device Status" wordWrap="true" textAlign="left" fontSize="12px" bold="false"/>
+  </Widgets>
+</Content>

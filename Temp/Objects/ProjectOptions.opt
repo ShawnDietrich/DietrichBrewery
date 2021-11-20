@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<ProjectOptions
+  IecNamingConventions="true"
+  IecKeywordsAsStructureMembers="false"
+  IecExtendedConstants="true"
+  LogicalDirectory="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\"
+  TempDirectory="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\"
+  AutomationStudioVersion="4.10.2.37"
+  AutomationStudioEdition="Standard"
+  BuildCrossReference="false"
+  ActiveConfiguration="Config1"
+  CreateAnsiCDeclarations="false" />

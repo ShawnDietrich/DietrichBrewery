@@ -1,0 +1,11 @@
+@import "mixins.scss";
+@mixin widgets_widgetlibrary_0_RedStatusIndicator_base {
+	@include elemWidth(300);
+	@include elemHeight(12);
+	margin: 0px;
+
+}
+
+.widgets_widgetlibrary_0_RedStatusIndicator_style_default {
+@include widgets_widgetlibrary_0_RedStatusIndicator_base 
+}

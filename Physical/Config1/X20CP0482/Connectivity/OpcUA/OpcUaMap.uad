@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="B4.91">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="4408652" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree Celsius" Symbol="°C" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="MashPump" />
+        <Variable Name="HLTHeater" />
+        <Variable Name="HLTPump" />
+      </GlobalVariables>
+      <Task Name="HMIProgram">
+        <Variable Name="pbMashPump" />
+        <Variable Name="pbCoolingPump" />
+        <Variable Name="pbHLTHeater" />
+        <Variable Name="pbHLTPump" />
+        <Variable Name="pbKettleHeater" />
+        <Variable Name="pbSysPower" />
+      </Task>
+      <Task Name="Kettle">
+        <Variable Name="Proc">
+          <Variable Name="setPower" />
+          <Variable Name="currPower" />
+          <Variable Name="currTemp" />
+          <Variable Name="SetTemp" />
+          <Variable Name="TempCtrl">
+            <Variable Name="Ctrl">
+              <Variable Name="Enable" />
+              <Variable Name="ErrorReset" />
+              <Variable Name="Control" />
+              <Variable Name="Active" />
+              <Variable Name="Error" />
+              <Variable Name="SetTemperature" />
+              <Variable Name="ActualTemperature" />
+              <Variable Name="HeatValue" />
+            </Variable>
+            <Variable Name="PWM">
+              <Variable Name="Enable" />
+              <Variable Name="Mode" />
+              <Variable Name="MinPulseWidth" />
+              <Variable Name="Period" />
+              <Variable Name="Update" />
+              <Variable Name="DutyCycle" />
+              <Variable Name="Active" />
+              <Variable Name="Error" />
+              <Variable Name="StatusID" />
+              <Variable Name="UpdateDone" />
+              <Variable Name="Out" />
+            </Variable>
+          </Variable>
+          <Variable Name="Status">
+            <Variable Name="Automatic" />
+            <Variable Name="Manual" />
+            <Variable Name="Running" />
+            <Variable Name="Stopped" />
+            <Variable Name="Paused" />
+            <Variable Name="On" />
+          </Variable>
+          <Variable Name="i">
+            <Variable Name="ResetError" />
+            <Variable Name="EStop" />
+            <Variable Name="Auto" />
+            <Variable Name="Stop" />
+            <Variable Name="Pause" />
+            <Variable Name="Start" />
+          </Variable>
+        </Variable>
+      </Task>
+      <Task Name="HLT">
+        <Variable Name="Proc">
+          <Variable Name="setPower" />
+          <Variable Name="currPower" />
+          <Variable Name="currTemp" EngineeringUnitId="1" />
+          <Variable Name="SetTemp" EngineeringUnitId="1" />
+          <Variable Name="TempCtrl">
+            <Variable Name="Ctrl">
+              <Variable Name="Enable" />
+              <Variable Name="ErrorReset" />
+              <Variable Name="SetTemperature" />
+              <Variable Name="ActualTemperature" />
+              <Variable Name="Control" />
+              <Variable Name="Tune" />
+              <Variable Name="Active" />
+              <Variable Name="Error" />
+              <Variable Name="Heat" />
+              <Variable Name="HeatValue" />
+            </Variable>
+          </Variable>
+          <Variable Name="i">
+            <Variable Name="ResetError" />
+            <Variable Name="EStop" />
+            <Variable Name="Auto" />
+            <Variable Name="Stop" />
+            <Variable Name="Pause" />
+            <Variable Name="Start" />
+          </Variable>
+          <Variable Name="Status">
+            <Variable Name="Automatic" />
+            <Variable Name="Manual" />
+            <Variable Name="Running" />
+            <Variable Name="Stopped" />
+            <Variable Name="Paused" />
+            <Variable Name="On" />
+          </Variable>
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>
