@@ -1,82 +1,98 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Mainst.h"
-#line 1 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 2 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#include "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HLT/Mainst.h"
+#line 1 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.nodebug"
+#line 2 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
 
 }}
-#line 4 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 6 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#line 4 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.nodebug"
+#line 6 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
-((*(unsigned long*)&(Proc.TempCont.Parameters))=((unsigned long)(&Proc.TempPram)));
-((*(unsigned long*)&(Proc.TempCont.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.Parameters))=((unsigned long)(&Proc.TempCtrl.Ptr)));
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
 
-(Proc.TempCont.Control=contHLT.Start);
-(Proc.TempCont.ErrorReset=contHLT.ErrorReset);
-(contHLT.Running=Proc.TempCont.ControlActive);
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
+
+
+if((FromMashCyc.Start&~Edge0000100000&1?((Edge0000100000=FromMashCyc.Start&1),1):((Edge0000100000=FromMashCyc.Start&1),0))){
+(Proc.i.Auto=1);
+(Proc.i.Start=1);
+(Proc.SetTemp=FromMashCyc.HLTTemp);
+}else if((~FromMashCyc.Start&Edge0000100001&1?((Edge0000100001=FromMashCyc.Start&1),1):((Edge0000100001=FromMashCyc.Start&1),0))){
+(Proc.i.Auto=0);
+(Proc.i.Start=0);
+}
+
+
+(Proc.Status.Automatic=Proc.i.Auto);
+(Proc.Status.Manual=(Proc.i.Auto^1));
 
 
 if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
-if(sys.Stat.Automatic){
+if(Proc.Status.Automatic){
 (Proc.State=3);
-}else if(sys.Stat.Manual){
+}else if(Proc.Status.Manual){
 (Proc.State=2);
 }
 }
 
+
 switch(Proc.State){
 
 case 3:{
-(Proc.ManPWM.Enable=0);
-(Proc.TempCont.Enable=1);
-(Proc.TempCont.Simulate=1);
 
-(Proc.TempCont.ActualTemperature=Proc.TempCont.Info.Simulation.ActualTemperature);
-(Proc.TempCont.SetTemperature=contHLT.SetTemp);
-(Proc.TempCont.Control=contHLT.Start);
-(contHLT.Temperature=Proc.TempCont.Info.Simulation.ActualTemperature);
-(contHLT.currPower=Proc.TempCont.Info.Simulation.HeatValue);
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+(Proc.TempCtrl.Ctrl.Simulate=1);
+
+(Proc.TempCtrl.Ctrl.ActualTemperature=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.TempCtrl.Ctrl.SetTemperature=Proc.SetTemp);
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.currPower=Proc.TempCtrl.Ctrl.Info.Simulation.HeatValue);
+(HLTHeater=Proc.TempCtrl.Ctrl.Info.Simulation.Heat);
 
 }break;case 2:{
-(Proc.ManPWM.Enable=1);
-(Proc.TempCont.Enable=0);
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
 
-(Proc.ManPWM.DutyCycle=contHLT.setPower);
-(Proc.ManPWM.MinPulseWidth=1.00000001490116119385E-01);
-(Proc.ManPWM.Period=1.00000000000000000000E+00);
-
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
 
 }break;case 1:{
-(Proc.ManPWM.Enable=1);
-(Proc.TempCont.Enable=0);
-(Proc.TempCont.ActualTemperature=(rawHLTTemp*1000));
-(contHLT.currPower=Proc.TempCont.HeatValue);
-(contHLT.Temperature=(rawHLTTemp*1000));
-}break;case 0:{
-(Proc.ManPWM.Enable=0);
-(Proc.TempCont.Enable=1);
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
+(Proc.TempCtrl.Ctrl.ActualTemperature=(rawHLTTemp*1000));
+(Proc.currPower=Proc.TempCtrl.Ctrl.HeatValue);
+(Proc.currTemp=(rawHLTTemp*1000));
 
-(Proc.ManPWM.DutyCycle=contHLT.setPower);
-(Proc.ManPWM.MinPulseWidth=1.00000001490116119385E-01);
-(Proc.ManPWM.Period=1.00000000000000000000E+00);
-(contHLT.Temperature=(rawHLTTemp*1000));
+}break;case 0:{
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
+(Proc.currTemp=(rawHLTTemp*1000));
 
 }break;}
 
 
 
-MpTempController(&Proc.TempCont);
-MTBasicsPWM(&Proc.ManPWM);
+MpTempController(&Proc.TempCtrl.Ctrl);
+MTBasicsPWM(&Proc.TempCtrl.PWM);
 }}
-#line 67 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 69 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#line 83 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.nodebug"
+#line 85 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 72 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
+#line 88 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -125,8 +141,9 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.var\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Constants.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/TempControl/HLT/Types.typ\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/TempControl/HLT/Variables.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/ProcessControl/HLT/Types.typ\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/ProcessControl/HLT/Variables.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HLT/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/HLT/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".previous");

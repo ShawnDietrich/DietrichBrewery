@@ -1,46 +1,27 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/Mainst.h"
-#line 1 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.nodebug"
-#line 2 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.st"
+#include "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/Mainst.h"
+#line 1 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.nodebug"
+#line 2 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
 
 }}
-#line 4 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.nodebug"
-#line 6 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.st"
+#line 4 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.nodebug"
+#line 6 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
 
 
-switch(Sequence){
-
-case 0:{
 
 
-}break;case 1:{
-
-
-}break;case 2:{
-
-Device(sys.Stat.Automatic,0,0,&MashPump);
-
-
-}break;case 3:{
-
-}break;case 4:{
-
-
-}break;}
-
-
-}imp1_case0_4:imp1_endcase0_0:;}
-#line 31 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.nodebug"
-#line 33 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.st"
+}}
+#line 12 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.nodebug"
+#line 14 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 36 "C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.nodebug"
+#line 17 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -91,6 +72,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Brewing/BrewingSeq/Types.typ\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Brewing/BrewingSeq/Variables.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/Main.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/Logical/Brewing/BrewingSeq/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/Main.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/Brewing/BrewingSeq/Main.st\\\"\\n\"");
 __asm__(".previous");

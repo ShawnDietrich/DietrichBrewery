@@ -1,0 +1,9 @@
+VAR
+	MashTmr : TON;
+	mProc : ProcControl;
+	pbMashPump : BOOL;
+	PumpExp : BOOL;
+	StartMash : BOOL;
+	MashTime : TIME;
+	TimePre : DINT;
+END_VAR

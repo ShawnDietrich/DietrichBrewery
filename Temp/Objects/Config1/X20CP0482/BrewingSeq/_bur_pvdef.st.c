@@ -2,7 +2,7 @@
 #define _BUR_LOCAL_RETAIN _BUR_PUBLIC __attribute__((__section__(".bss.rem")))
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdefst.h"
+#include "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdefst.h"
 #line 9 "C:/BrAutomation/AS410/AS/gnuinst/V4.1.2/4.9/i386-elf/include/bur/_bur_pvdef.nodebug"
 void __AS__ImplInitMain_st(void);
 void _INIT __BUR__ENTRY_INIT_BRELF_FUNCT__(void){__AS__ImplInitMain_st();
@@ -55,6 +55,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Brewing/BrewingSeq/Types.typ\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Brewing/BrewingSeq/Variables.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdef.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdef.st.c\\\" \\\"C:/BrAutomation/AS410/AS/gnuinst/V4.1.2/4.9/i386-elf/include/bur/_bur_pvdef.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdef.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/BrewingSeq/_bur_pvdef.st.c\\\" \\\"C:/BrAutomation/AS410/AS/gnuinst/V4.1.2/4.9/i386-elf/include/bur/_bur_pvdef.st\\\"\\n\"");
 __asm__(".previous");

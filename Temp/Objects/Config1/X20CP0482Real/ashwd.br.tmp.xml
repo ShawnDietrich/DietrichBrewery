@@ -54,16 +54,17 @@
       </Resource>
     </Resource>
   </Hardware>
-  <Hardware Family="10" ID="X20DI9371" Modno="7061" UseType="3">
+  <Hardware Family="10" ID="X20cDI4371" Modno="57887" UseType="3">
     <Parameter ID="NeededBus" Value="X2X" />
     <Parameter ID="InsertParameter" Value="ARIOMasterBus" />
     <Parameter ID="X2XNodeType" Value="STANDARD" />
-    <Parameter ID="RemoteUpdate" Value="1" Type="UDINT" />
-    <Parameter ID="CanioUsetyp" Value="2" Type="UDINT" />
-    <Parameter ID="CanioLogicalWidth" Value="2" Type="UDINT" />
+    <Parameter ID="RemoteUpdate" Type="UDINT" Value="1" />
+    <Parameter ID="CanioUsetyp" Type="UDINT" Value="1" />
+    <Parameter ID="CanioLogicalWidth" Type="UDINT" Value="1" />
     <Resource ID="IO">
       <Parameter ID="Classcode" Value="0x2000000d" Type="UDINT" />
-      <Parameter ID="InitScript" Value="       write(ConfigOutput01, InputFilter);" />
+      <Parameter ID="InitScript" Value="				write(ConfigOutput01, InputFilter);				if (FunctionModel==&quot;Counter&quot;){					write(ConfigOutput02, 0x00					| CounterCfg01==&quot;posEdge&quot; ? 0x01 : 0x00					| CounterCfg02==&quot;posEdge&quot; ? 0x02 : 0x00					| CounterCfg03==&quot;posEdge&quot; ? 0x04 : 0x00					| CounterCfg04==&quot;posEdge&quot; ? 0x08 : 0x00					| CounterCfg01==&quot;negEdge&quot; ? 0x10 : 0x00					| CounterCfg02==&quot;negEdge&quot; ? 0x20 : 0x00					| CounterCfg03==&quot;negEdge&quot; ? 0x40 : 0x00					| CounterCfg04==&quot;negEdge&quot; ? 0x80 : 0x00					| CounterCfg01==&quot;botEdge&quot; ? 0x11 : 0x00					| CounterCfg02==&quot;botEdge&quot; ? 0x22 : 0x00					| CounterCfg03==&quot;botEdge&quot; ? 0x44 : 0x00					| CounterCfg04==&quot;botEdge&quot; ? 0x88 : 0x00);				}			" />
+      <!-- Hier wird die ChannelDescription durch Merging eingefuegt -->
       <Channel ID="ModuleOk">
         <Parameter ID="Ext" Value="/OK" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
@@ -95,7 +96,7 @@
         <Parameter ID="Type" Value="UINT" />
       </Channel>
       <Channel ID="DigitalInput01">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
+        <Filter Value="NOT (ARIOMasterBus='CANIO')" />
         <Parameter ID="Ext" Value="/FIXED" />
         <Parameter ID="Address" Value="1" Type="UDINT" />
         <Parameter ID="BitOffset" Value="0" Type="UDINT" />
@@ -104,14 +105,14 @@
       </Channel>
       <Channel ID="DigitalInput01_CANIO">
         <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput01" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
         <Parameter ID="BitOffset" Value="0" Type="UDINT" />
+        <Parameter ID="Name" Value="DigitalInput01" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="BOOL" />
       </Channel>
       <Channel ID="DigitalInput02">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
+        <Filter Value="NOT (ARIOMasterBus='CANIO')" />
         <Parameter ID="Ext" Value="/FIXED" />
         <Parameter ID="Address" Value="1" Type="UDINT" />
         <Parameter ID="BitOffset" Value="1" Type="UDINT" />
@@ -120,14 +121,14 @@
       </Channel>
       <Channel ID="DigitalInput02_CANIO">
         <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput02" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
         <Parameter ID="BitOffset" Value="1" Type="UDINT" />
+        <Parameter ID="Name" Value="DigitalInput02" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="BOOL" />
       </Channel>
       <Channel ID="DigitalInput03">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
+        <Filter Value="NOT (ARIOMasterBus='CANIO')" />
         <Parameter ID="Ext" Value="/FIXED" />
         <Parameter ID="Address" Value="1" Type="UDINT" />
         <Parameter ID="BitOffset" Value="2" Type="UDINT" />
@@ -136,14 +137,14 @@
       </Channel>
       <Channel ID="DigitalInput03_CANIO">
         <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput03" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
         <Parameter ID="BitOffset" Value="2" Type="UDINT" />
+        <Parameter ID="Name" Value="DigitalInput03" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="BOOL" />
       </Channel>
       <Channel ID="DigitalInput04">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
+        <Filter Value="NOT (ARIOMasterBus='CANIO')" />
         <Parameter ID="Ext" Value="/FIXED" />
         <Parameter ID="Address" Value="1" Type="UDINT" />
         <Parameter ID="BitOffset" Value="3" Type="UDINT" />
@@ -152,151 +153,111 @@
       </Channel>
       <Channel ID="DigitalInput04_CANIO">
         <Filter Value="ARIOMasterBus='CANIO'" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="BitOffset" Value="3" Type="UDINT" />
         <Parameter ID="Name" Value="DigitalInput04" />
-        <Parameter ID="Address" Value="0" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="3" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="BOOL" />
       </Channel>
-      <Channel ID="DigitalInput05">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="4" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput05_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput05" />
-        <Parameter ID="Address" Value="0" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="4" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput06">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="5" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput06_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput06" />
-        <Parameter ID="Address" Value="0" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="5" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput07">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="6" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput07_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput07" />
-        <Parameter ID="Address" Value="0" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="6" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput08">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="7" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput08_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput08" />
-        <Parameter ID="Address" Value="0" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="7" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput09">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
+      <Channel ID="Counter01">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg01='off')" />
         <Parameter ID="Ext" Value="/FIXED" />
         <Parameter ID="Address" Value="2" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="0" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput09_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput09" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="0" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput10">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="2" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="1" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput10_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput10" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="1" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput11">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="2" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="2" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput11_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput11" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="2" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput12">
-        <Filter Value="NOT (ARIOMasterBus='CANIO') AND NOT (DigitalInputsPacked='on')" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="2" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="3" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput12_CANIO">
-        <Filter Value="ARIOMasterBus='CANIO'" />
-        <Parameter ID="Name" Value="DigitalInput12" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
-        <Parameter ID="BitOffset" Value="3" Type="UDINT" />
-        <Parameter ID="Direction" Value="IN" />
-        <Parameter ID="Type" Value="BOOL" />
-      </Channel>
-      <Channel ID="DigitalInput">
-        <Filter Value="DigitalInputsPacked='on'" />
-        <Parameter ID="Ext" Value="/FIXED" />
-        <Parameter ID="Address" Value="1" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter01_hiddenFIX">
+        <Filter Value="FunctionModel='Counter' AND CounterCfg01='off' AND IS_RUNTIME='1'" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="2" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter02">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg02='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="4" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter02_hiddenFIX">
+        <Filter Value="FunctionModel='Counter' AND CounterCfg02='off' AND IS_RUNTIME='1'" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="4" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter03">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg03='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="6" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter03_hiddenFIX">
+        <Filter Value="FunctionModel='Counter' AND CounterCfg03='off' AND IS_RUNTIME='1'" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="6" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter04">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg04='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="8" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Counter04_hiddenFIX">
+        <Filter Value="FunctionModel='Counter' AND CounterCfg04='off' AND IS_RUNTIME='1'" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="8" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="ResetCounter01">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg01='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="BitOffset" Value="0" Type="UDINT" />
+        <Parameter ID="Direction" Value="OUT" />
+        <Parameter ID="Type" Value="BOOL" />
+      </Channel>
+      <Channel ID="ResetCounter02">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg02='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="BitOffset" Value="1" Type="UDINT" />
+        <Parameter ID="Direction" Value="OUT" />
+        <Parameter ID="Type" Value="BOOL" />
+      </Channel>
+      <Channel ID="ResetCounter03">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg03='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="BitOffset" Value="2" Type="UDINT" />
+        <Parameter ID="Direction" Value="OUT" />
+        <Parameter ID="Type" Value="BOOL" />
+      </Channel>
+      <Channel ID="ResetCounter04">
+        <Filter Value="FunctionModel='Counter' AND NOT(CounterCfg04='off')" />
+        <Parameter ID="Ext" Value="/FIXED" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="BitOffset" Value="3" Type="UDINT" />
+        <Parameter ID="Direction" Value="OUT" />
+        <Parameter ID="Type" Value="BOOL" />
       </Channel>
       <Channel ID="ConfigOutput01">
         <Filter Value="IS_RUNTIME='1'" />
         <Parameter ID="Ext" Value="/NOTCYCLIC" />
         <Parameter ID="Address" Value="18" Type="UDINT" />
+        <Parameter ID="Direction" Value="OUT" />
+        <Parameter ID="Type" Value="USINT" />
+      </Channel>
+      <Channel ID="ConfigOutput02">
+        <Filter Value="FunctionModel='Counter' AND IS_RUNTIME='1'" />
+        <Parameter ID="Ext" Value="/NOTCYCLIC" />
+        <Parameter ID="Address" Value="14" Type="UDINT" />
         <Parameter ID="Direction" Value="OUT" />
         <Parameter ID="Type" Value="USINT" />
       </Channel>
@@ -406,7 +367,7 @@
       </Channel>
     </Resource>
   </Hardware>
-  <Hardware Family="10" ID="X20AT4232" Modno="60037" UseType="3">
+  <Hardware Family="10" ID="X20cAT4222" Modno="57877" UseType="3">
     <Parameter ID="NeededBus" Value="X2X" />
     <Parameter ID="InsertParameter" Value="ARIOMasterBus" />
     <Parameter ID="X2XNodeType" Value="STANDARD" />
@@ -415,7 +376,7 @@
     <Parameter ID="CanioLogicalWidth" Type="UDINT" Value="1" />
     <Resource ID="IO">
       <Parameter ID="Classcode" Value="0x2000000d" Type="UDINT" />
-      <Parameter ID="InitScript" Value="&#xD;&#xA;	write(ConfigOutput01, 0x00&#xD;&#xA;	| InputFilter==&quot;40ms&quot; ? 0x01 : 0x00&#xD;&#xA;	| InputFilter==&quot;33.3ms&quot; ? 0x02 : 0x00&#xD;&#xA;	| InputFilter==&quot;20ms&quot; ? 0x03 : 0x00&#xD;&#xA;	| InputFilter==&quot;16.7ms&quot; ? 0x04 : 0x00);&#xD;&#xA;	write(ConfigOutput02, 0x0000&#xD;&#xA;	| SensorType01==&quot;NTC10K_1&quot; ? 0x0000 : 0x0000&#xD;&#xA;	| SensorType01==&quot;NTC10K_2&quot; ? 0x0001 : 0x0000&#xD;&#xA;	| SensorType01==&quot;0 Ohm to 200000 Ohm&quot; ? 0x0005 : 0x0000&#xD;&#xA;	| SensorType01==&quot;off&quot; ? 0x0007 : 0x0000&#xD;&#xA;	| SensorType02==&quot;NTC10K_1&quot; ? 0x0000 : 0x0000&#xD;&#xA;	| SensorType02==&quot;NTC10K_2&quot; ? 0x0010 : 0x0000&#xD;&#xA;	| SensorType02==&quot;0 Ohm to 200000 Ohm&quot; ? 0x0050 : 0x0000&#xD;&#xA;	| SensorType02==&quot;off&quot; ? 0x0070 : 0x000&#xD;&#xA;	| SensorType03==&quot;NTC10K_1&quot; ? 0x0000 : 0x0000&#xD;&#xA;	| SensorType03==&quot;NTC10K_2&quot; ? 0x0100 : 0x0000&#xD;&#xA;	| SensorType03==&quot;0 Ohm to 200000 Ohm&quot; ? 0x0500 : 0x0000&#xD;&#xA;	| SensorType03==&quot;off&quot; ? 0x0700 : 0x0000&#xD;&#xA;	| SensorType04==&quot;NTC10K_1&quot; ? 0x0000 : 0x0000&#xD;&#xA;	| SensorType04==&quot;NTC10K_2&quot; ? 0x1000 : 0x0000&#xD;&#xA;	| SensorType04==&quot;0 Ohm to 200000 Ohm&quot; ? 0x5000 : 0x0000&#xD;&#xA;	| SensorType04==&quot;off&quot; ? 0x7000 : 0x0000);&#xD;&#xA;" />
+      <Parameter ID="InitScript" Value="&#xD;&#xA;				write(ConfigOutput01, 0x00&#xD;&#xA;				| InputFilter==&quot;40ms&quot; ? 0x01 : 0x00&#xD;&#xA;				| InputFilter==&quot;33.3ms&quot; ? 0x02 : 0x00&#xD;&#xA;				| InputFilter==&quot;20ms&quot; ? 0x03 : 0x00&#xD;&#xA;				| InputFilter==&quot;16.7ms&quot; ? 0x04 : 0x00&#xD;&#xA;				| InputFilter==&quot;10ms&quot; ? 0x05 : 0x00&#xD;&#xA;				| InputFilter==&quot;2ms&quot; ? 0x06 : 0x00&#xD;&#xA;				| InputFilter==&quot;1ms&quot; ? 0x07 : 0x00);&#xD;&#xA;				write(ConfigOutput02, 0x0000&#xD;&#xA;				| SensorType01==&quot;PT100&quot; ? 0x0002 : 0x0000&#xD;&#xA;				| SensorType01==&quot;PT1000&quot; ? 0x0003 : 0x0000&#xD;&#xA;				| SensorType01==&quot;0.1 Ohm to 4500.0 Ohm&quot; ? 0x0005 : 0x0000&#xD;&#xA;				| SensorType01==&quot;0.05 Ohm to 2250.0 Ohm&quot; ? 0x0006 : 0x0000&#xD;&#xA;				| SensorType01==&quot;off&quot; ? 0x0007 : 0x0000&#xD;&#xA;				| SensorType02==&quot;PT100&quot; ? 0x0020 : 0x0000&#xD;&#xA;				| SensorType02==&quot;PT1000&quot; ? 0x0030 : 0x0000&#xD;&#xA;				| SensorType02==&quot;0.1 Ohm to 4500.0 Ohm&quot; ? 0x0050 : 0x0000&#xD;&#xA;				| SensorType02==&quot;0.05 Ohm to 2250.0 Ohm&quot; ? 0x0060 : 0x000&#xD;&#xA;				| SensorType02==&quot;off&quot; ? 0x0070 : 0x000&#xD;&#xA;				| SensorType03==&quot;PT100&quot; ? 0x0200 : 0x0000&#xD;&#xA;				| SensorType03==&quot;PT1000&quot; ? 0x0300 : 0x0000&#xD;&#xA;				| SensorType03==&quot;0.1 Ohm to 4500.0 Ohm&quot; ? 0x0500 : 0x0000&#xD;&#xA;				| SensorType03==&quot;0.05 Ohm to 2250.0 Ohm&quot; ? 0x0600 : 0x0000&#xD;&#xA;				| SensorType03==&quot;off&quot; ? 0x0700 : 0x0000&#xD;&#xA;				| SensorType04==&quot;PT100&quot; ? 0x2000 : 0x0000&#xD;&#xA;				| SensorType04==&quot;PT1000&quot; ? 0x3000 : 0x0000&#xD;&#xA;				| SensorType04==&quot;0.1 Ohm to 4500.0 Ohm&quot; ? 0x5000 : 0x0000&#xD;&#xA;				| SensorType04==&quot;0.05 Ohm to 2250.0 Ohm&quot; ? 0x6000 : 0x0000&#xD;&#xA;				| SensorType04==&quot;off&quot; ? 0x7000 : 0x0000);&#xD;&#xA;			" />
       <!-- Hier wird die ChannelDescription durch Merging eingefuegt -->
       <Channel ID="ModuleOk">
         <Parameter ID="Ext" Value="/OK" />
@@ -448,50 +409,106 @@
         <Parameter ID="Type" Value="UINT" />
       </Channel>
       <Channel ID="Temperature01">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND ((SensorType01='NTC10K_1') OR (SensorType01='NTC10K_2'))" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType01='PT100' OR SensorType01='PT1000')" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="INT" />
       </Channel>
       <Channel ID="Resistor01">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType01='0 Ohm to 200000 Ohm')" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType01='0.1 Ohm to 4500.0 Ohm' OR SensorType01='0.05 Ohm to 2250.0 Ohm')" />
         <Parameter ID="Address" Value="0" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="UINT" />
       </Channel>
       <Channel ID="Temperature02">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND ((SensorType02='NTC10K_1') OR (SensorType02='NTC10K_2'))" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType02='PT100' OR SensorType02='PT1000')" />
         <Parameter ID="Address" Value="2" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="INT" />
       </Channel>
       <Channel ID="Resistor02">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType02='0 Ohm to 200000 Ohm')" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType02='0.1 Ohm to 4500.0 Ohm' OR SensorType02='0.05 Ohm to 2250.0 Ohm')" />
         <Parameter ID="Address" Value="2" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="UINT" />
       </Channel>
       <Channel ID="Temperature03">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND ((SensorType03='NTC10K_1') OR (SensorType03='NTC10K_2'))" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType03='PT100' OR SensorType03='PT1000')" />
         <Parameter ID="Address" Value="4" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="INT" />
       </Channel>
       <Channel ID="Resistor03">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType03='0 Ohm to 200000 Ohm')" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType03='0.1 Ohm to 4500.0 Ohm' OR SensorType03='0.05 Ohm to 2250.0 Ohm')" />
         <Parameter ID="Address" Value="4" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="UINT" />
       </Channel>
       <Channel ID="Temperature04">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND ((SensorType04='NTC10K_1') OR (SensorType04='NTC10K_2'))" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType04='PT100' OR SensorType04='PT1000')" />
         <Parameter ID="Address" Value="6" Type="UDINT" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="INT" />
       </Channel>
       <Channel ID="Resistor04">
-        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType04='0 Ohm to 200000 Ohm')" />
+        <Filter Value="(FunctionModel='Standard' OR FunctionModel='CANIOBusController') AND (SensorType04='0.1 Ohm to 4500.0 Ohm' OR SensorType04='0.05 Ohm to 2250.0 Ohm')" />
         <Parameter ID="Address" Value="6" Type="UDINT" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Temperature05">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType01='PT100' OR SensorType01='PT1000')" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="Name" Value="Temperature01" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="INT" />
+      </Channel>
+      <Channel ID="Resistor05">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType01='0.1 Ohm to 4500.0 Ohm' OR SensorType01='0.05 Ohm to 2250.0 Ohm')" />
+        <Parameter ID="Address" Value="0" Type="UDINT" />
+        <Parameter ID="Name" Value="Resistor01" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Temperature06">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType02='PT100' OR SensorType02='PT1000')" />
+        <Parameter ID="Address" Value="2" Type="UDINT" />
+        <Parameter ID="Name" Value="Temperature02" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="INT" />
+      </Channel>
+      <Channel ID="Resistor06">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType02='0.1 Ohm to 4500.0 Ohm' OR SensorType02='0.05 Ohm to 2250.0 Ohm')" />
+        <Parameter ID="Address" Value="2" Type="UDINT" />
+        <Parameter ID="Name" Value="Resistor02" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Temperature07">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType03='PT100' OR SensorType03='PT1000')" />
+        <Parameter ID="Address" Value="4" Type="UDINT" />
+        <Parameter ID="Name" Value="Temperature03" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="INT" />
+      </Channel>
+      <Channel ID="Resistor07">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType03='0.1 Ohm to 4500.0 Ohm' OR SensorType03='0.05 Ohm to 2250.0 Ohm')" />
+        <Parameter ID="Address" Value="4" Type="UDINT" />
+        <Parameter ID="Name" Value="Resistor03" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="UINT" />
+      </Channel>
+      <Channel ID="Temperature08">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType04='PT100' OR SensorType04='PT1000')" />
+        <Parameter ID="Address" Value="6" Type="UDINT" />
+        <Parameter ID="Name" Value="Temperature04" />
+        <Parameter ID="Direction" Value="IN" />
+        <Parameter ID="Type" Value="INT" />
+      </Channel>
+      <Channel ID="Resistor08">
+        <Filter Value="FunctionModel='FunctionModel001' AND (SensorType04='0.1 Ohm to 4500.0 Ohm' OR SensorType04='0.05 Ohm to 2250.0 Ohm')" />
+        <Parameter ID="Address" Value="6" Type="UDINT" />
+        <Parameter ID="Name" Value="Resistor04" />
         <Parameter ID="Direction" Value="IN" />
         <Parameter ID="Type" Value="UINT" />
       </Channel>

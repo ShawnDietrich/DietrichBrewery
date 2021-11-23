@@ -55,29 +55,28 @@
     <Parameter ID="BusCycleTrigger" Value="auto" />
     <Parameter ID="OutputCycleTrigger" Value="auto" />
   </Module>
-  <Module ID="IF6.ST1" Hardware="X20DI9371">
-    <Parameter ID="HardwareModuleName" Value="X20DI9371" />
+  <Module ID="IF6.ST1" Hardware="X20cDI4371">
+    <Parameter ID="HardwareModuleName" Value="X20cDI4371" />
   </Module>
-  <Module ID="IF6.ST1.IO" Hardware="X20DI9371">
+  <Module ID="IF6.ST1.IO" Hardware="X20cDI4371">
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
     <Parameter ID="Supervision" Value="on" />
     <Parameter ID="InputFilter" Value="10" Type="USINT" />
-    <Parameter ID="DigitalInputsPacked" Value="off" />
   </Module>
-  <Module ID="IF6.ST2" Hardware="X20AT4232">
-    <Parameter ID="HardwareModuleName" Value="X20AT4232" />
+  <Module ID="IF6.ST2" Hardware="X20cAT4222">
+    <Parameter ID="HardwareModuleName" Value="X20cAT4222" />
   </Module>
-  <Module ID="IF6.ST2.IO" Hardware="X20AT4232">
+  <Module ID="IF6.ST2.IO" Hardware="X20cAT4222">
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
     <Parameter ID="Supervision" Value="on" />
     <Parameter ID="IOCycleCounter" Value="off" />
     <Parameter ID="InputFilter" Value="20ms" />
-    <Parameter ID="SensorType01" Value="NTC10K_1" />
-    <Parameter ID="SensorType02" Value="NTC10K_1" />
-    <Parameter ID="SensorType03" Value="NTC10K_1" />
-    <Parameter ID="SensorType04" Value="NTC10K_1" />
+    <Parameter ID="SensorType01" Value="PT100" />
+    <Parameter ID="SensorType02" Value="PT100" />
+    <Parameter ID="SensorType03" Value="PT100" />
+    <Parameter ID="SensorType04" Value="PT100" />
   </Module>
   <Module ID="IF6.ST3" Hardware="X20DO8332">
     <Parameter ID="HardwareModuleName" Value="X20DO8332" />

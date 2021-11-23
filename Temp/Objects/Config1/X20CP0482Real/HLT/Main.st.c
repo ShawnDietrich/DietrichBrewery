@@ -1,66 +1,91 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Mainst.h"
-#line 1 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 2 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#include "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/HLT/Mainst.h"
+#line 1 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.nodebug"
+#line 2 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
 
-(CycleTime.PT=1000);
 }}
-#line 5 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 7 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#line 4 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.nodebug"
+#line 6 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
-((*(unsigned long*)&(Mp_Controller.Parameters))=((unsigned long)(&Mp_Parameters)));
-((*(unsigned long*)&(Mp_Controller.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.Parameters))=((unsigned long)(&Proc.TempCtrl.Ptr)));
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
+
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
 
 
-(Mp_Controller.Control=contHLT.Start);
-(Mp_Controller.ErrorReset=contHLT.ErrorReset);
-(Mp_Controller.ActualTemperature=(rawHLTTemp*1000));
 
-(contHLT.currPower=Mp_Controller.HeatValue);
-(contHLT.Running=Mp_Controller.ControlActive);
+(Proc.Status.Automatic=Proc.i.Auto);
+(Proc.Status.Manual=(Proc.i.Auto^1));
 
 
-(PWM.DutyCycle=contHLT.setPower);
-(PWM.MinPulseWidth=1.00000001490116119385E-01);
-(PWM.Period=1.00000000000000000000E+00);
-
-
-if((contHLT.Automatic^1)){
-(PWM.Enable=1);
-(Mp_Controller.Enable=0);
-}else{
-(PWM.Enable=0);
-(Mp_Controller.Enable=1);
-}
-
-
-if((Mp_Controller.Control&((Mp_Controller.HeatValue>0)))){
-
-(CycleTime.IN=1);
-if((CycleTime.Q^1)){
-if((Mp_Controller.Heat&~Edge0000100000&1?((Edge0000100000=Mp_Controller.Heat&1),1):((Edge0000100000=Mp_Controller.Heat&1),0))){
-(CycleCount=(CycleCount+1));
-}
+if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
+if(Proc.Status.Automatic){
+(Proc.State=3);
+}else if(Proc.Status.Manual){
+(Proc.State=2);
 }
 }
 
-TON(&CycleTime);
+
+switch(Proc.State){
+
+case 3:{
+
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+(Proc.TempCtrl.Ctrl.Simulate=1);
+
+(Proc.TempCtrl.Ctrl.ActualTemperature=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.TempCtrl.Ctrl.SetTemperature=Proc.SetTemp);
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.currPower=Proc.TempCtrl.Ctrl.Info.Simulation.HeatValue);
+(HLTHeater=Proc.TempCtrl.Ctrl.Heat);
 
 
 
-MpTempController(&Mp_Controller);
-MTBasicsPWM(&PWM);
+}break;case 2:{
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
+
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
+
+}break;case 1:{
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
+(Proc.TempCtrl.Ctrl.ActualTemperature=(rawHLTTemp*1000));
+(Proc.currPower=Proc.TempCtrl.Ctrl.HeatValue);
+(Proc.currTemp=(rawHLTTemp*1000));
+
+}break;case 0:{
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
+(Proc.currTemp=(rawHLTTemp*1000));
+
+}break;}
+
+
+
+MpTempController(&Proc.TempCtrl.Ctrl);
+MTBasicsPWM(&Proc.TempCtrl.PWM);
 }}
-#line 51 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
-#line 53 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st"
+#line 76 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.nodebug"
+#line 78 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 56 "C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.nodebug"
+#line 81 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -80,6 +105,7 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.typ\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Types.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/runtime/runtime.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/astime/astime.fun\\\" scope \\\"global\\\"\\n\"");
@@ -92,6 +118,7 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.fun\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Functions.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Global.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/Config1/GlobalComponents/MpComponents.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.var\\\" scope \\\"global\\\"\\n\"");
@@ -106,9 +133,9 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.var\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Constants.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/TempControl/HLT/Types.typ\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/TempControl/HLT/Variables.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HLT/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/Logical/TempControl/HLT/Main.st\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/ProcessControl/HLT/Types.typ\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/ProcessControl/HLT/Variables.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/HLT/Main.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/HLT/Main.st.c\\\" \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/ProcessControl/HLT/Main.st\\\"\\n\"");
 __asm__(".previous");

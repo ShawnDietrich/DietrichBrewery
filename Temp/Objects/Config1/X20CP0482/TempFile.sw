@@ -2,15 +2,16 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="Kettle" Source="TempControl.Kettle.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Kettle" Source="ProcessControl.Kettle.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
-    <Task Name="HLT" Source="TempControl.HLT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="HLT" Source="ProcessControl.HLT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
     <Task Name="BrewingSeq" Source="Brewing.BrewingSeq.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="HMIProgram" Source="HMIControl.HMIProgram.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="MashTun" Source="ProcessControl.MashTun.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

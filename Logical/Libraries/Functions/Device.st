@@ -2,7 +2,7 @@
 //Set device on or off with HMI or sequence
 FUNCTION Device
 	
-	IF NOT AutoMode AND NOT AutoExpected THEN
+	IF NOT AutoMode THEN
 		
 		//Manual Operation
 		IF pbExpected  THEN
@@ -13,9 +13,9 @@ FUNCTION Device
 	
 	ELSE
 		//Auto operation
-		IF AutoExpected AND NOT pbExpected THEN
+		IF AutoExpected THEN
 			Expected:= TRUE;
-		ELSIF NOT AutoExpected AND NOT pbExpected THEN
+		ELSIF NOT AutoExpected THEN
 			Expected := FALSE;
 		END_IF
 	END_IF

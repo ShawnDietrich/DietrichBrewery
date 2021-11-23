@@ -4,6 +4,7 @@
   <Objects>
     <Object Type="File" Description="Widget Library Description">Description.widgetlibrary</Object>
     <Object Type="Package" Description="Resources">Resources</Object>
-    <Object Type="Package">StatusIndictors</Object>
+    <Object Type="Package">GreenStatusIndictors</Object>
+    <Object Type="Package">RedStatusIndictors</Object>
   </Objects>
 </Package>

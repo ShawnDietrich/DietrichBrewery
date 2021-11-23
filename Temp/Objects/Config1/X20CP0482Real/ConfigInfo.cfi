@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.10.3.60 SP"?>
+<?AutomationStudio Version="4.10.2.37"?>
 <ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
   <TaskClass
     Name="Cyclic#1">
     <Task
       Name="Kettle"
       Disable="false"
-      Source="TempControl.Kettle"
+      Source="ProcessControl.Kettle"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Types.typ" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\Kettle\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Variables.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\Kettle\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -21,14 +21,14 @@
     <Task
       Name="HLT"
       Disable="false"
-      Source="TempControl.HLT"
+      Source="ProcessControl.HLT"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Types.typ" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\HLT\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Variables.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\HLT\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -41,11 +41,11 @@
       Source="Brewing.BrewingSeq"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Types.typ" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\Brewing\BrewingSeq\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Variables.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\Brewing\BrewingSeq\Variables.var" />
     </Task>
     <Task
       Name="HMIProgram"
@@ -53,11 +53,11 @@
       Source="HMIControl.HMIProgram"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Types.typ" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\HMIControl\HMIProgram\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Variables.var" />
+        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\HMIControl\HMIProgram\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass

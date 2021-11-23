@@ -310,11 +310,11 @@
 <Prod Device="IF6.ST3" DPName="FirmwareVersion" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput01" Type="BOOL">
-<Prod Device="TC#4-CPYDEV" DPName="::KettleHeater" Kind="pv"/>
+<Prod Device="TC#1-CPYDEV" DPName="::KettleHeater" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput01" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput02" Type="BOOL">
-<Prod Device="TC#4-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
+<Prod Device="TC#2-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput02" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput03" Type="BOOL">
@@ -322,7 +322,7 @@
 <Cons Device="IF6.ST3" DPName="DigitalOutput03" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput04" Type="BOOL">
-<Prod Device="TC#4-CPYDEV" DPName="::HLTPump" Kind="pv"/>
+<Prod Device="TC#1-CPYDEV" DPName="::HLTPump" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput04" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput05" Type="BOOL">

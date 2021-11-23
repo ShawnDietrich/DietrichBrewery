@@ -3,37 +3,8 @@
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile">
     <BuildReason>Target "iat_media.job._markerfile" does not exist</BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\mainpagecontent_binding.binding._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\transformations\eventbinding\parametertypemapping.xml">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.widgets._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" differs.
-</BuildReason>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.c">
+    <BuildReason>Target "main.st.c" does not exist</BuildReason>
   </Rule>
   <Rule ID=".mappView_Build">
     <BuildReason>Rule contains a phony target. </BuildReason>
@@ -41,7 +12,35 @@
   <Rule ID=".mappView_IntegrationBuild">
     <BuildReason>Rule contains a phony target. </BuildReason>
   </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\a.out">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\mashtun.ox">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\a.out" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\mashtun.ox" differs.
+</BuildReason>
+  </Rule>
   <Rule ID="#cpu_tp.mak">
     <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\binaries\config1\x20cp0482\transfer.lst">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun.br" differs.
+</BuildReason>
   </Rule>
 </BuildReasons>

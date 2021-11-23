@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="GreenStatusIndicator" width="300" height="12" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Widgets>
+		<!-- Define two ellipses on top of eachother and a label -->
+		<Widget xsi:type="widgets.brease.Ellipse" id="statOn" top="0" left="0" zIndex="1" width="12" height="12" backColor="rgba(0, 255, 0, 1)" visible="false" />
+		<Widget xsi:type="widgets.brease.Ellipse" id="statOff" top="0" left="0" zIndex="0" width="12" height="12" backColor="rgba(255, 255, 255, 1)" visible="true" />
+		<Widget xsi:type="widgets.brease.Label" id="txtLabel" top="0" left="12" width="300" height="12" zIndex="2" multiLine="false" text="Device Status" wordWrap="true" textAlign="left" fontSize="12px" bold="false" />
+	</Widgets>
+	<Properties>
+		
+		<!-- Map visible property for user -->
+		<Property xsi:type="BindableProperty" name="Status" defaultValue="false" type="Boolean">
+			<Description>Status Indicator</Description>
+			<Mappings>
+				<Mapping widget="statOn" property="visible"  mode="oneWay"/>
+			</Mappings>
+		</Property>
+		
+		<!-- Allow user to change label -->
+		<Property xsi:type="NonBindableProperty" name="Label" type="String" defaultValue="Device Status" required="false">
+			<Description>Text Label</Description>
+			<Mappings>
+				<Mapping widget="txtLabel" property="text"/>
+			</Mappings>
+		</Property>
+	</Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action>
+    -->
+  </Actions>
+
+  <EventBindings>
+    <!-- source and target can only be widgets within the compound widget.
+    <EventBinding id="">
+      <Source xsi:type="widget.Event" widgetRefId="" event="" />
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="">
+            <Method name="" value="" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    -->
+  </EventBindings>
+
+</CompoundWidget>

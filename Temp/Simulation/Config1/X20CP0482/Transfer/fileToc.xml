@@ -41,8 +41,8 @@
 			<Folder Name="IAT_Data" ProjectDependent="1" IsGroup="1">
 				<Folder Name="server" ProjectDependent="1">
 					<File Name="__SystemVariables.sessionVar" Size="3484" HashValue="4F27B2AC736714506A4AD35EE4C9300A" ProjectDependent="1"/>
-					<File Name="Config.mappviewcfg" Size="1474" HashValue="6AA5A5DCFB054D30E86A8999C97952D0" ProjectDependent="1"/>
-					<File Name="MainPageContent_binding.binding" Size="5705" HashValue="E2FC720F425BFAB0947E9679CE0C4EF0" ProjectDependent="1"/>
+					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1"/>
+					<File Name="MainPageContent_binding.binding" Size="8809" HashValue="D2A9A7FDFD46512BDB7CA6A55AC6C205" ProjectDependent="1"/>
 					<File Name="vis_0.vis" Size="1274" HashValue="A34659D15187C6E5E8A7F995DF7A7724" ProjectDependent="1"/>
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1">
@@ -567,8 +567,8 @@
 							</Folder>
 						</Folder>
 						<Folder Name="release" ProjectDependent="1">
-							<File Name="brease.js" Size="819839" HashValue="062144D7C40756EB802FD0F326F1EDFD" ProjectDependent="1"/>
-							<File Name="brease_core.min.css" Size="368268" HashValue="54028DB9E4783BFA6332F4EA7E1FC9A8" ProjectDependent="1"/>
+							<File Name="brease.js" Size="824568" HashValue="FD6C6C4898F7DFB986416FE16332225A" ProjectDependent="1"/>
+							<File Name="brease_core.min.css" Size="384899" HashValue="5FA481087BC3D890A7ABDF6669F2C111" ProjectDependent="1"/>
 						</Folder>
 						<Folder Name="system" ProjectDependent="1">
 							<Folder Name="brease" ProjectDependent="1">
@@ -1326,6 +1326,25 @@
 										<File Name="NumPad_Styles.xsd" Size="4202" HashValue="0F1D84DE303F7C2771FC523FC7948851" ProjectDependent="1"/>
 									</Folder>
 								</Folder>
+								<Folder Name="PushButton" ProjectDependent="1">
+									<File Name="PushButton.html" Size="84" HashValue="48D596E095DFCC1EB1224FDEA1298560" ProjectDependent="1"/>
+									<File Name="PushButton.js" Size="1885" HashValue="2FA3445DD51F35A5EB92CBCC1F615ECE" ProjectDependent="1"/>
+									<Folder Name="designer" ProjectDependent="1">
+										<File Name="ClassInfo.js" Size="2413" HashValue="48F1D608FE9CA15D8E63B00218976579" ProjectDependent="1"/>
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1">
+										<File Name="PushButton.json" Size="27506" HashValue="564E766346A0ED824F94A74E491322F9" ProjectDependent="1"/>
+										<File Name="PushButton.widget" Size="28967" HashValue="ADB85FD45620768E0782CAAB716D808B" ProjectDependent="1"/>
+										<File Name="PushButton.xsd" Size="5339" HashValue="5FB15CF415BA4BBCF4BA15CA361FA877" ProjectDependent="1"/>
+										<File Name="PushButton_base.scss" Size="2892" HashValue="8E15399DE61D5B841D337CE2E1619150" ProjectDependent="1"/>
+										<File Name="PushButton_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1"/>
+										<File Name="PushButton_default.sass.css" Size="3404" HashValue="74AD858D957057830DB13D2FFDF34B7F" ProjectDependent="1"/>
+										<File Name="PushButton_default.scss" Size="2978" HashValue="8A82F233EA7520E144FE7FCC6CA50F8E" ProjectDependent="1"/>
+										<File Name="PushButton_doc.html" Size="37986" HashValue="AED2129079262997DDD6C58176E453DD" ProjectDependent="1"/>
+										<File Name="PushButton_EventsActions.xsd" Size="5277" HashValue="733CBFEAB3FA54F38617EDD9A76AD17D" ProjectDependent="1"/>
+										<File Name="PushButton_Styles.xsd" Size="3320" HashValue="5E776269DBEDDE1D70211C724DEC3740" ProjectDependent="1"/>
+									</Folder>
+								</Folder>
 								<Folder Name="Rectangle" ProjectDependent="1">
 									<File Name="Rectangle.html" Size="73" HashValue="D1F6EA2AB0E2DA64E70A7FFB97584A1D" ProjectDependent="1"/>
 									<File Name="Rectangle.js" Size="1928" HashValue="98F15F4726D00D2BEEECF11FE2E75567" ProjectDependent="1"/>
@@ -1430,31 +1449,58 @@
 								</Folder>
 							</Folder>
 							<Folder Name="widgetlibrary_0" ProjectDependent="1">
-								<Folder Name="StatusIndicator" ProjectDependent="1">
-									<File Name="StatusIndicator.html" Size="122" HashValue="5113B1F564986D6224124D412E702576" ProjectDependent="1"/>
-									<File Name="StatusIndicator.js" Size="1870" HashValue="0209B109C12AFDB53F70B37ABB86D1F6" ProjectDependent="1"/>
+								<Folder Name="GreenStatusIndicator" ProjectDependent="1">
+									<File Name="GreenStatusIndicator.html" Size="127" HashValue="3325D9EA0E042DDB9F64C242F96F92BB" ProjectDependent="1"/>
+									<File Name="GreenStatusIndicator.js" Size="1816" HashValue="D3C028A9CBDCB5C95FF7196C73B02EC7" ProjectDependent="1"/>
 									<Folder Name="content" ProjectDependent="1">
 										<File Name="widgetPathMapping.xml" Size="287" HashValue="A4A11225B5B93BFD67C3B7B74C327EBF" ProjectDependent="1"/>
-										<File Name="widgets.content" Size="783" HashValue="696317C54D6A1A87E0C35FCE05DE0DA9" ProjectDependent="1"/>
+										<File Name="widgets.content" Size="788" HashValue="AB030E909BC6A9CB64B7463E2651A981" ProjectDependent="1"/>
 										<File Name="widgets.css" Size="872" HashValue="D01B3705B2046BE13E82AC99EEEF391D" ProjectDependent="1"/>
-										<File Name="widgets.html" Size="1103" HashValue="A78C712DAD0E2B170BA2E1861E17FC7F" ProjectDependent="1"/>
-										<File Name="widgets.scss" Size="1182" HashValue="606B437BC7A067349A02AB450C6CA7BD" ProjectDependent="1"/>
+										<File Name="widgets.html" Size="1100" HashValue="D21767B149BD4BBA2BEF6E8CEA569E76" ProjectDependent="1"/>
+										<File Name="widgets.scss" Size="1221" HashValue="EFED0642057E877679950615532B0A48" ProjectDependent="1"/>
 										<File Name="widgets_css.xml" Size="925" HashValue="EE4B246A179BD05BC429AD84F1205C7C" ProjectDependent="1"/>
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1">
-										<File Name="ClassInfo.js" Size="880" HashValue="762494C7239EB7FC5AF391730E86B468" ProjectDependent="1"/>
+										<File Name="ClassInfo.js" Size="890" HashValue="0BC5C290E71F1718DD4014699507C199" ProjectDependent="1"/>
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1">
-										<File Name="StatusIndicator.json" Size="7836" HashValue="9CA8E35753424779A3D1B46AE5A758A0" ProjectDependent="1"/>
-										<File Name="StatusIndicator.style" Size="809" HashValue="99625FD219D756035EBEDCCC0CE2146B" ProjectDependent="1"/>
-										<File Name="StatusIndicator.widget" Size="8346" HashValue="0A32C0AB33F17104A51C2AF519EF5221" ProjectDependent="1"/>
-										<File Name="StatusIndicator.xsd" Size="1219" HashValue="B3E06848F2A655351F826201002F038B" ProjectDependent="1"/>
-										<File Name="StatusIndicator_base.scss" Size="147" HashValue="9EB260BA454E11934CE05B27C7C7E3E5" ProjectDependent="1"/>
-										<File Name="StatusIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1"/>
-										<File Name="StatusIndicator_default.sass.css" Size="91" HashValue="20C31BAAA59AF386BB5AF502BA55631B" ProjectDependent="1"/>
-										<File Name="StatusIndicator_default.scss" Size="261" HashValue="4E2C3FF3C74BE80C16489B0F8636918F" ProjectDependent="1"/>
-										<File Name="StatusIndicator_EventsActions.xsd" Size="2591" HashValue="0421C8E1A08322C01855961190B3AF4D" ProjectDependent="1"/>
-										<File Name="StatusIndicator_Styles.xsd" Size="623" HashValue="B2C3434E2A55B6A0550B3481577C5CA5" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator.json" Size="7886" HashValue="1544E62A11DEB2FC90212D783B52ED92" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator.style" Size="798" HashValue="983FF33C0A2D6FECF3507FE004FD563B" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator.widget" Size="8376" HashValue="96E1D7278F6ABCAF36ECCD44E289DE73" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator.xsd" Size="1234" HashValue="934BFB7A1EB81B9EC6C98C045322BDB5" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_base.scss" Size="152" HashValue="8A94D944E43F99F6341EB5A516F64BE7" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_default.sass.css" Size="96" HashValue="E45A86B99BBE16058B54F02F981BF475" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_default.scss" Size="276" HashValue="991281D4C66B92A52F3047D84A862CB9" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_EventsActions.xsd" Size="2651" HashValue="8A1E30827D621A8E0B734CD5667BB16E" ProjectDependent="1"/>
+										<File Name="GreenStatusIndicator_Styles.xsd" Size="628" HashValue="E21553DDCCCB1930474D15E10B6A8F4B" ProjectDependent="1"/>
+									</Folder>
+								</Folder>
+								<Folder Name="RedStatusIndicator" ProjectDependent="1">
+									<File Name="RedStatusIndicator.html" Size="125" HashValue="15FB7A4EEE89CBA03339D381EBA03F07" ProjectDependent="1"/>
+									<File Name="RedStatusIndicator.js" Size="1810" HashValue="ABCCB1E91149E5CEB06DC4A25F143307" ProjectDependent="1"/>
+									<Folder Name="content" ProjectDependent="1">
+										<File Name="widgetPathMapping.xml" Size="287" HashValue="A4A11225B5B93BFD67C3B7B74C327EBF" ProjectDependent="1"/>
+										<File Name="widgets.content" Size="786" HashValue="AEA1299805C3C9DE7A85FA9B6AB14F90" ProjectDependent="1"/>
+										<File Name="widgets.css" Size="871" HashValue="BE02D8FE320FEF20A7921253B5B63E54" ProjectDependent="1"/>
+										<File Name="widgets.html" Size="1100" HashValue="8CFF296E49A57469DF04F5908E25E17C" ProjectDependent="1"/>
+										<File Name="widgets.scss" Size="1181" HashValue="9726F6C1E6B83F85BBBDF618A2F34A2C" ProjectDependent="1"/>
+										<File Name="widgets_css.xml" Size="924" HashValue="513FAE60C63694D69085BEBD3AF1332B" ProjectDependent="1"/>
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1">
+										<File Name="ClassInfo.js" Size="886" HashValue="D7E8F23C1F33F8A2E230076861E586C5" ProjectDependent="1"/>
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1">
+										<File Name="RedStatusIndicator.json" Size="7866" HashValue="FE84B69A53276E78CC997B70568BEAFE" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator.style" Size="796" HashValue="F1A15FAF0C7CC0F6FAE592DDF26E5507" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator.widget" Size="8364" HashValue="FA87AFF2BB93EB3D8FC401EA23793128" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator.xsd" Size="1228" HashValue="C04630ED4044DA8D83CF34F054C64649" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_base.scss" Size="150" HashValue="114FFB339A0EAAD143CCF1743FBB67A6" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_default.sass.css" Size="94" HashValue="C65F0184FC3FF3C942575EC0AAD643DD" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_default.scss" Size="270" HashValue="E83F844F064322A545DA1B6525ECACEB" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_EventsActions.xsd" Size="2627" HashValue="0CF9581C896794633B619235F818527E" ProjectDependent="1"/>
+										<File Name="RedStatusIndicator_Styles.xsd" Size="626" HashValue="8852C1F3D7FBC807841D592BE47008D7" ProjectDependent="1"/>
 									</Folder>
 								</Folder>
 							</Folder>
@@ -1462,7 +1508,7 @@
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1">
 						<Folder Name="mappView" ProjectDependent="1">
-							<File Name="MainPageContent.html" Size="6668" HashValue="56B0DFA152392552B99994834559C894" ProjectDependent="1"/>
+							<File Name="MainPageContent.html" Size="35107" HashValue="D0DA155C39E6F9666D8A6E4317190214" ProjectDependent="1"/>
 						</Folder>
 					</Folder>
 					<Folder Name="server" ProjectDependent="1">
@@ -1536,12 +1582,12 @@
 					</Folder>
 				</Folder>
 			</Folder>
-			<Folder Name="OPCUA" ProjectDependent="1" IsGroup="1">
-				<Folder Name="NodeSet" ProjectDependent="1">
-					<Folder Name="Generated" ProjectDependent="1">
-						<File Name="OpcUaMap.uar.gz" Size="790" HashValue="198E1B52C6CBC1AFB9CB906B44C1E0BD" ProjectDependent="1"/>
+			<Folder Name="OPCUA" ProjectDependent="1">
+				<Folder Name="NodeSet" ProjectDependent="1" IsGroup="1">
+					<Folder Name="Generated" ProjectDependent="1" IsGroup="1">
+						<File Name="OpcUaMap.uar.gz" Size="891" HashValue="36A5F93881B0D46F991F01B4120A8CBF" ProjectDependent="1"/>
 					</Folder>
-					<Folder Name="Vendor" ProjectDependent="1">
+					<Folder Name="Vendor" ProjectDependent="1" IsGroup="1">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1"/>
 						<File Name="plc.br.pv.uanodeset" Size="7103" HashValue="682E7CDF6F09940F70D6CA1CC158D516" ProjectDependent="1"/>
 						<File Name="plc.plcopen.pv.uanodeset" Size="19824" HashValue="0ACC12204AA326E4FC509E697ACBB201" ProjectDependent="1"/>

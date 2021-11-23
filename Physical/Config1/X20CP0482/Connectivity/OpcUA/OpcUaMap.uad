@@ -13,33 +13,8 @@
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
         <Variable Name="MashPump" />
-        <Variable Name="sys">
-          <Variable Name="i">
-            <Variable Name="Auto" />
-            <Variable Name="Stop" />
-            <Variable Name="Pause" />
-            <Variable Name="Power" />
-            <Variable Name="EStop" />
-          </Variable>
-          <Variable Name="Stat">
-            <Variable Name="Automatic" />
-            <Variable Name="Manual" />
-            <Variable Name="Running" />
-            <Variable Name="Stopped" />
-            <Variable Name="Paused" />
-            <Variable Name="On" />
-          </Variable>
-        </Variable>
-        <Variable Name="contHLT">
-          <Variable Name="Automatic" />
-          <Variable Name="Start" />
-          <Variable Name="Running" />
-          <Variable Name="ErrorReset" />
-          <Variable Name="setPower" />
-          <Variable Name="currPower" />
-          <Variable Name="Temperature" EngineeringUnitId="1" />
-          <Variable Name="SetTemp" EngineeringUnitId="1" />
-        </Variable>
+        <Variable Name="HLTHeater" />
+        <Variable Name="HLTPump" />
       </GlobalVariables>
       <Task Name="HMIProgram">
         <Variable Name="pbMashPump" />
@@ -48,6 +23,71 @@
         <Variable Name="pbHLTPump" />
         <Variable Name="pbKettleHeater" />
         <Variable Name="pbSysPower" />
+      </Task>
+      <Task Name="Kettle" />
+      <Task Name="HLT">
+        <Variable Name="Proc">
+          <Variable Name="setPower" />
+          <Variable Name="currPower" />
+          <Variable Name="currTemp" EngineeringUnitId="1" />
+          <Variable Name="SetTemp" EngineeringUnitId="1" />
+          <Variable Name="TempCtrl">
+            <Variable Name="Ctrl">
+              <Variable Name="Enable" />
+              <Variable Name="ErrorReset" />
+              <Variable Name="SetTemperature" />
+              <Variable Name="ActualTemperature" />
+              <Variable Name="Control" />
+              <Variable Name="Tune" />
+              <Variable Name="Active" />
+              <Variable Name="Error" />
+              <Variable Name="Heat" />
+              <Variable Name="HeatValue" />
+            </Variable>
+          </Variable>
+          <Variable Name="i">
+            <Variable Name="ResetError" />
+            <Variable Name="EStop" />
+            <Variable Name="Auto" />
+            <Variable Name="Stop" />
+            <Variable Name="Pause" />
+            <Variable Name="Start" />
+          </Variable>
+          <Variable Name="Status">
+            <Variable Name="Automatic" />
+            <Variable Name="Manual" />
+            <Variable Name="Running" />
+            <Variable Name="Stopped" />
+            <Variable Name="Paused" />
+            <Variable Name="On" />
+          </Variable>
+        </Variable>
+      </Task>
+      <Task Name="MashTun">
+        <Variable Name="pbMashPump" />
+        <Variable Name="mProc">
+          <Variable Name="i">
+            <Variable Name="ResetError" />
+            <Variable Name="EStop" />
+            <Variable Name="Auto" />
+            <Variable Name="Stop" />
+            <Variable Name="Pause" />
+            <Variable Name="Start" />
+          </Variable>
+          <Variable Name="setPower" />
+          <Variable Name="currPower" />
+          <Variable Name="currTemp" />
+          <Variable Name="SetTemp" />
+          <Variable Name="Status">
+            <Variable Name="Manual" />
+            <Variable Name="Running" />
+            <Variable Name="Stopped" />
+            <Variable Name="Paused" />
+            <Variable Name="On" />
+            <Variable Name="Automatic" />
+          </Variable>
+        </Variable>
+        <Variable Name="TimePre" />
       </Task>
     </Module>
   </DefaultView>

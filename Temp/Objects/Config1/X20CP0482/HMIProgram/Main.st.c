@@ -1,44 +1,31 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HMIProgram/Mainst.h"
-#line 1 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 2 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st"
+#include "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HMIProgram/Mainst.h"
+#line 1 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 2 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
 
 
 }}
-#line 5 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 7 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st"
+#line 5 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 7 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
 
 
 
-(sys.Stat.On=sys.i.Power);
-(sys.Stat.Automatic=sys.i.Auto);
-(sys.Stat.Manual=(sys.i.Auto^1));
-(sys.Stat.Paused=sys.i.Pause);
-(sys.Stat.Stopped=sys.i.Stop);
 
 
-if(sys.Stat.Manual){
-Device(sys.Stat.Automatic,pbMashPump,0,&MashPump);
-Device(sys.Stat.Automatic,pbHLTPump,0,&HLTPump);
-Device(sys.Stat.Automatic,pbCoolingPump,0,&CoolingPump);
-Device(sys.Stat.Automatic,pbKettleHeater,0,&KettleHeater);
-Device(sys.Stat.Automatic,pbHLTHeater,0,&HLTHeater);
-Device(sys.Stat.Automatic,pbSysPower,0,&SysPower);
-}
 
 
-}imp1_else0_0:imp1_end0_0:;}
-#line 29 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 31 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st"
+}}
+#line 16 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 18 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 34 "C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 21 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -89,6 +76,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Types.typ\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Variables.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/Logical/HMIControl/HMIProgram/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.c\\\" \\\"C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/HMIControl/HMIProgram/Main.st\\\"\\n\"");
 __asm__(".previous");

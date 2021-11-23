@@ -185,30 +185,6 @@
 <LN ID="%IX.IF6.ST1.DigitalInput04" Type="BOOL">
 <Prod Device="IF6.ST1" DPName="DigitalInput04" Kind="io"/>
 </LN>
-<LN ID="%IX.IF6.ST1.DigitalInput05" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput05" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput06" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput06" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput07" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput07" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput08" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput08" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput09" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput09" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput10" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput10" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput11" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput11" Kind="io"/>
-</LN>
-<LN ID="%IX.IF6.ST1.DigitalInput12" Type="BOOL">
-<Prod Device="IF6.ST1" DPName="DigitalInput12" Kind="io"/>
-</LN>
 <LN ID="%IW.IF6.ST1.BusModuleId" Type="UINT">
 <Prod Device="IF6.ST1" DPName="BusModuleId" Kind="io"/>
 </LN>
@@ -338,11 +314,11 @@
 <Cons Device="IF6.ST3" DPName="DigitalOutput01" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput02" Type="BOOL">
-<Prod Device="TC#1-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
+<Prod Device="TC#2-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput02" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput03" Type="BOOL">
-<Prod Device="TC#4-CPYDEV" DPName="::MashPump" Kind="pv"/>
+<Prod Device="TC#1-CPYDEV" DPName="::MashPump" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput03" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput04" Type="BOOL">

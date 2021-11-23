@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _LIBRARIES_20211111082346_
-#define _LIBRARIES_20211111082346_
+#ifndef _LIBRARIES_20211114122656_
+#define _LIBRARIES_20211114122656_
 
 __asm__(".section \".plc\"");
 
@@ -45,6 +45,9 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Functions.fun\\\" scop
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
 
 /* Exported library functions and function blocks */
 #ifdef _OPERATOR_EXPORT
@@ -642,9 +645,17 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 	__asm__(".ascii \"plcexport \\\"REPLACE\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"FIND\\\" FUN\\n\"");
 #endif
+#ifdef _ASIODIAG_EXPORT
+	__asm__(".ascii \"plcexport \\\"DiagCreateInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DiagDisposeInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DiagGetNumInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DiagGetStrInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DiagCpuIsSimulated\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"DiagCpuIsARsim\\\" FUN\\n\"");
+#endif
 
 __asm__(".previous");
 
 
-#endif /* _LIBRARIES_20211111082346_ */
+#endif /* _LIBRARIES_20211114122656_ */
 

@@ -1,30 +1,29 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1636770814_1_
-#define _BUR_1636770814_1_
+#ifndef _BUR_1636910752_1_
+#define _BUR_1636910752_1_
 
 #include <bur/plctypes.h>
 
 /* Datatypes and datatypes of function blocks */
-typedef struct TemperatureController
-{	float Temperature;
-	plcbit Automatic;
-	plcbit Start;
-	plcbit Running;
-	plcbit ErrorReset;
-	float setPower;
-	float currPower;
-	float SetTemp;
-} TemperatureController;
+typedef enum ControlState
+{	Manual,
+	Automatic,
+	SimManual,
+	SimAuto
+} ControlState;
 
-typedef struct SystemInput
-{	plcbit EStop;
-	plcbit Auto;
-	plcbit Stop;
-	plcbit Pause;
-	plcbit Power;
-} SystemInput;
+typedef struct MashToHLT
+{	plcbit Start;
+	float HLTTemp;
+} MashToHLT;
+
+typedef struct TempCont
+{	struct MpTempController Ctrl;
+	struct MpTempControllerParType Ptr;
+	struct MTBasicsPWM PWM;
+} TempCont;
 
 typedef struct SystemStatus
 {	plcbit Automatic;
@@ -35,10 +34,25 @@ typedef struct SystemStatus
 	plcbit On;
 } SystemStatus;
 
-typedef struct System
-{	struct SystemInput i;
-	struct SystemStatus Stat;
-} System;
+typedef struct SystemInput
+{	plcbit ResetError;
+	plcbit EStop;
+	plcbit Auto;
+	plcbit Stop;
+	plcbit Pause;
+	plcbit Start;
+} SystemInput;
+
+typedef struct ProcControl
+{	float setPower;
+	float currPower;
+	float currTemp;
+	float SetTemp;
+	struct TempCont TempCtrl;
+	enum ControlState State;
+	struct SystemStatus Status;
+	struct SystemInput i;
+} ProcControl;
 
 
 
@@ -55,5 +69,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Global.typ\\\" scope \\\"global\\\"\\n\"")
 __asm__(".previous");
 
 
-#endif /* _BUR_1636770814_1_ */
+#endif /* _BUR_1636910752_1_ */
 

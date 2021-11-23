@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?AutomationRuntimeIOSystem Version = 2.5.0.7?>
 <ChannelConfiguration xmlns="http://www.br-automation.com/AR/IO">
-  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20CP0482" ModuleID="17">
+  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20CP0482" ModuleID="14">
     <Channel ID="SerialNumber_CPU" Description="Serial number of CPU board" Ext="/HW" Address="0" Direction="IN" Type="UDINT" ChannelType="GenericFuncCall" Function="HwGetSerialNumber" Sig_St_Udint="1" />
     <Channel ID="ModuleID_CPU" Description="Module ID of CPU board" Ext="/HW" Address="1" Direction="IN" Type="UINT" ChannelType="ModuleIDCpu" Sig_St_Uint="1" />
     <Channel ID="HardwareVariant" Description="Hardware variant" Ext="/HW" Address="2" Direction="IN" Type="UINT" ChannelType="HardwareVariant" Sig_St_Uint="1" />
@@ -25,7 +25,7 @@
     <Channel ID="IF3.CycleIdleTime" Description="Unoccupied time during one POWERLINK cycle [µs]" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="IF3.CycleCongestionCount" Description="allways 0, available for legacy projects" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
   </Module>
-  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20BB52" ModuleID="4">
+  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20BB52" ModuleID="1">
     <Channel ID="ModuleID_BB" Description="Module ID bus base" Ext="/HW" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" ChannelType="ModuleID" />
     <Channel ID="IF6.CycleCount" Description="Number of bus cycles" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
     <Channel ID="IF6.BreakCount" Description="Number of bus cycles with set break signal" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
@@ -57,24 +57,16 @@
     <Channel ID="IF6.AsyncFrameSpareSize" Description="Size reserve within asynchronous frame [Bytes]" FromVersion="A3.08" Ext="/INFO" Address="0x8000011B" Direction="IN" Type="DINT" Sig_St_Dint="1" />
     <Channel ID="IF6.BusLengthConfigured" Description="Configured bus length [m]" FromVersion="A3.08" Ext="/INFO" Address="0x8000011C" Direction="IN" Type="DINT" Sig_St_Dint="1" />
   </Module>
-  <Module ID="IF6.ST1" Hardware="X20DI9371" HardwareModuleName="X20DI9371" ModuleID="23" Simulatable="true">
+  <Module ID="IF6.ST1" Hardware="X20cDI4371" HardwareModuleName="X20cDI4371" ModuleID="41" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
     <Channel ID="HardwareVariant" Description="Hardware variant" FromVersion="A3.08" Ext="/INFO" Address="12" Direction="IN" Type="UINT" Sig_St_Uint="1" />
     <Channel ID="FirmwareVersion" Description="Firmware version" FromVersion="A3.08" Ext="/INFO" Address="14" Direction="IN" Type="UINT" Sig_St_Uint="1" />
-    <Channel ID="DigitalInput01" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="0" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput02" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="1" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput03" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="2" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput04" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="3" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput05" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="4" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput06" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="5" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput07" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="6" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput08" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="1" BitOffset="7" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput09" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="2" BitOffset="0" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput10" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="2" BitOffset="1" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput11" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="2" BitOffset="2" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
-    <Channel ID="DigitalInput12" Description="24 VDC, 0.1 to 25 ms switching delay, sink" FromVersion="V2.92" Ext="/FIXED" Address="2" BitOffset="3" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
+    <Channel ID="DigitalInput01" Description="24 VDC, 0.1 to 25 ms switching delay, sink" Ext="/FIXED" Address="1" BitOffset="0" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
+    <Channel ID="DigitalInput02" Description="24 VDC, 0.1 to 25 ms switching delay, sink" Ext="/FIXED" Address="1" BitOffset="1" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
+    <Channel ID="DigitalInput03" Description="24 VDC, 0.1 to 25 ms switching delay, sink" Ext="/FIXED" Address="1" BitOffset="2" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
+    <Channel ID="DigitalInput04" Description="24 VDC, 0.1 to 25 ms switching delay, sink" Ext="/FIXED" Address="1" BitOffset="3" Direction="IN" Type="BOOL" Sig_Dig_24VDC="1" />
     <Channel ID="BusModuleId" Description="Module ID of bus module" FromVersion="A4.81" Ext="/INFO" Address="0x80000180" Direction="IN" Type="UINT" Sig_St_Uint="1" Diagnose="/DIAG" />
     <Channel ID="ModeOfOperation" Description="Status of module" FromVersion="A4.81" Ext="/INFO" Address="0x80000181" Direction="IN" Type="USINT" Sig_St_Usint="1" Diagnose="/DIAG" />
     <Channel ID="ModeOfOperationChangeTime" Description="Time of last change of channel ModeOfOperation" FromVersion="A4.81" Ext="/INFO" Address="0xC0000181" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
@@ -89,16 +81,16 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="IF6.ST2" Hardware="X20AT4232" HardwareModuleName="X20AT4232" ModuleID="1" Simulatable="true">
+  <Module ID="IF6.ST2" Hardware="X20cAT4222" HardwareModuleName="X20cAT4222" ModuleID="34" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
     <Channel ID="HardwareVariant" Description="Hardware variant" FromVersion="A3.08" Ext="/INFO" Address="12" Direction="IN" Type="UINT" Sig_St_Uint="1" />
     <Channel ID="FirmwareVersion" Description="Firmware version" FromVersion="A3.08" Ext="/INFO" Address="14" Direction="IN" Type="UINT" Sig_St_Uint="1" />
-    <Channel ID="Temperature01" Description="NTC10K, 2-wire connection" Address="0" Direction="IN" Type="INT" Sig_Temp_m30C_p100C_1_10C="1" />
-    <Channel ID="Temperature02" Description="NTC10K, 2-wire connection" Address="2" Direction="IN" Type="INT" Sig_Temp_m30C_p100C_1_10C="1" />
-    <Channel ID="Temperature03" Description="NTC10K, 2-wire connection" Address="4" Direction="IN" Type="INT" Sig_Temp_m30C_p100C_1_10C="1" />
-    <Channel ID="Temperature04" Description="NTC10K, 2-wire connection" Address="6" Direction="IN" Type="INT" Sig_Temp_m30C_p100C_1_10C="1" />
+    <Channel ID="Temperature01" Description="PT100, PT1000, 3-wire connection" Address="0" Direction="IN" Type="INT" Sig_Temp_PT100_m200C_p850C="1" />
+    <Channel ID="Temperature02" Description="PT100, PT1000, 3-wire connection" Address="2" Direction="IN" Type="INT" Sig_Temp_PT100_m200C_p850C="1" />
+    <Channel ID="Temperature03" Description="PT100, PT1000, 3-wire connection" Address="4" Direction="IN" Type="INT" Sig_Temp_PT100_m200C_p850C="1" />
+    <Channel ID="Temperature04" Description="PT100, PT1000, 3-wire connection" Address="6" Direction="IN" Type="INT" Sig_Temp_PT100_m200C_p850C="1" />
     <Channel ID="StatusInput01" Description="Status of analog inputs" Ext="/PSEUDOCYCLIC" Address="30" Direction="IN" Type="USINT" Sig_St_Byte="1" />
     <Channel ID="BusModuleId" Description="Module ID of bus module" FromVersion="A4.81" Ext="/INFO" Address="0x80000180" Direction="IN" Type="UINT" Sig_St_Uint="1" Diagnose="/DIAG" />
     <Channel ID="ModeOfOperation" Description="Status of module" FromVersion="A4.81" Ext="/INFO" Address="0x80000181" Direction="IN" Type="USINT" Sig_St_Usint="1" Diagnose="/DIAG" />
@@ -114,7 +106,7 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="IF6.ST3" Hardware="X20DO8332" HardwareModuleName="X20DO8332" ModuleID="26" Simulatable="true">
+  <Module ID="IF6.ST3" Hardware="X20DO8332" HardwareModuleName="X20DO8332" ModuleID="20" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
@@ -150,7 +142,7 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="PS1" Hardware="X20PS9600" HardwareModuleName="X20PS9600" ModuleID="29">
+  <Module ID="PS1" Hardware="X20PS9600" HardwareModuleName="X20PS9600" ModuleID="23">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />

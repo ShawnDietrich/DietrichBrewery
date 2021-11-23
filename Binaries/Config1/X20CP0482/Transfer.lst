@@ -3,12 +3,13 @@
 <Transfer xmlns="http://br-automation.co.at/AS/Transfer">
   <OperatingSystem Version="B4.91"/>
   <Hardware Target="SG4"/>
+  <Operation Delete="MashTun.br"/>
   <Operation Delete="HMIProgram.br"/>
   <Operation Delete="BrewingSeq.br"/>
   <Operation Delete="HLT.br"/>
   <Operation Delete="Kettle.br"/>
-  <Operation Delete="mvLoader.br"/>
   <Operation Delete="Functions.br"/>
+  <Operation Delete="mvLoader.br"/>
   <Operation Delete="AsIODiag.br"/>
   <Operation Delete="MTBasics.br"/>
   <Operation Delete="MpTemp.br"/>
@@ -47,10 +48,11 @@
   <Operation Download="MpTemp.br" Memory="UserROM"/>
   <Operation Download="MTBasics.br" Memory="UserROM"/>
   <Operation Download="AsIODiag.br" Memory="UserROM"/>
-  <Operation Download="Functions.br" Memory="UserROM"/>
   <Operation Download="mvLoader.br" Memory="UserROM"/>
+  <Operation Download="Functions.br" Memory="UserROM"/>
   <Operation Download="Kettle.br" Memory="UserROM"/>
   <Operation Download="HLT.br" Memory="UserROM"/>
   <Operation Download="BrewingSeq.br" Memory="UserROM"/>
   <Operation Download="HMIProgram.br" Memory="UserROM"/>
+  <Operation Download="MashTun.br" Memory="UserROM"/>
 </Transfer>

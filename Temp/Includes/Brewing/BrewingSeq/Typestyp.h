@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1636554198_6_
-#define _BUR_1636554198_6_
+#ifndef _BUR_1636908338_8_
+#define _BUR_1636908338_8_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Brewing/BrewingSeq/Types.typ\\\" scope \\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1636554198_6_ */
+#endif /* _BUR_1636908338_8_ */
 

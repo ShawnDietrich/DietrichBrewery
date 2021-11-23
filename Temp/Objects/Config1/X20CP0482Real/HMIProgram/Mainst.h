@@ -66,7 +66,3 @@ typedef struct {
 } _4byte_bit_field_;
 #endif
 
-_BUR_PUBLIC plcbit Device(plcbit AutoMode, plcbit pbExpected, plcbit AutoExpected, plcbit(* Output));
-_BUR_LOCAL plcbit pbMashPump;
-_GLOBAL plcbit AutoMode;
-_GLOBAL plcbit MashPump;

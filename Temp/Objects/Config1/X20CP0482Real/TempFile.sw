@@ -2,10 +2,10 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="Kettle" Source="TempControl.Kettle.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Kettle" Source="ProcessControl.Kettle.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
-    <Task Name="HLT" Source="TempControl.HLT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="HLT" Source="ProcessControl.HLT.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
@@ -47,5 +47,6 @@
     <LibraryObject Name="fileio" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="AsIODiag" Source="Libraries.AsIODiag.lby" Memory="UserROM" Language="binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

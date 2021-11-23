@@ -1,2 +1,8 @@
-[1115/115154:ERROR:renderer_main.cc(212)] Running without renderer sandbox
-[1115/115321:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[1120/121518:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[1120/121928:WARNING:dns_config_service_win.cc(654)] Failed to read DnsConfig.
+[1120/121934:WARNING:dns_config_service_win.cc(654)] Failed to read DnsConfig.
+[1120/122044:WARNING:dns_config_service_win.cc(654)] Failed to read DnsConfig.
+[1120/122049:WARNING:dns_config_service_win.cc(654)] Failed to read DnsConfig.
+[1123/111248:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[1123/111252:ERROR:ipc_channel_win.cc(412)] pipe error: 232
+[1123/111458:ERROR:renderer_main.cc(212)] Running without renderer sandbox

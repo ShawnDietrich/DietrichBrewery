@@ -18,7 +18,7 @@ extern "C"
 
 
 /* Prototyping of functions and function blocks */
-_BUR_PUBLIC plcbit Device(plcbit AutoMode, plcbit pbExpected, plcbit AutoExpected, plcbit* Output);
+_BUR_PUBLIC plcbit Device(plcbit AutoMode, plcbit AutoExpected, plcbit pbExpected, plcbit* Output);
 
 
 #ifdef __cplusplus

@@ -1,0 +1,10 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/AsIODiag/AsIODiag.fun
+$(AS_PROJECT_PATH)/Logical/ProcessControl/MashTun/Variables.var
+$(AS_PROJECT_PATH)/Logical/Global.var
+$(AS_PROJECT_PATH)/Logical/Global.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpBase/MpBase.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTempError.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/MTBasics/MTBasics.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MTBasics/MTBasics.fun

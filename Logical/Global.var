@@ -1,6 +1,6 @@
-(*System Control*)
+(*Between Programs*)
 VAR
-	sys : System;
+	FromMashCyc : MashToHLT;
 END_VAR
 (*Output Mapping*)
 VAR
@@ -15,8 +15,7 @@ VAR
 END_VAR
 (*Temperature Controller Variables*)
 VAR
-	contKettle : TemperatureController;
-	contHLT : TemperatureController;
+	rawMashTemp : INT;
 	rawKettleTemp : INT;
 	rawHLTTemp : INT;
 END_VAR

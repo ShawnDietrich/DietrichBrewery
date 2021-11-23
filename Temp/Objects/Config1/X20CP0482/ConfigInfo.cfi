@@ -6,14 +6,14 @@
     <Task
       Name="Kettle"
       Disable="false"
-      Source="TempControl.Kettle"
+      Source="ProcessControl.Kettle"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Types.typ" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\Kettle\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\Kettle\Variables.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\Kettle\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -21,14 +21,14 @@
     <Task
       Name="HLT"
       Disable="false"
-      Source="TempControl.HLT"
+      Source="ProcessControl.HLT"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Types.typ" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\HLT\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\TempControl\HLT\Variables.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\HLT\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -41,11 +41,11 @@
       Source="Brewing.BrewingSeq"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Types.typ" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\Brewing\BrewingSeq\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\Brewing\BrewingSeq\Variables.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\Brewing\BrewingSeq\Variables.var" />
     </Task>
     <Task
       Name="HMIProgram"
@@ -53,11 +53,23 @@
       Source="HMIControl.HMIProgram"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Types.typ" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\HMIControl\HMIProgram\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\Logical\HMIControl\HMIProgram\Variables.var" />
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\HMIControl\HMIProgram\Variables.var" />
+    </Task>
+    <Task
+      Name="MashTun"
+      Disable="false"
+      Source="ProcessControl.MashTun"
+      Language="IEC">
+      <InternalFile
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.var" />
+      <File
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\MashTun\Types.typ" />
+      <File
+        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\MashTun\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass

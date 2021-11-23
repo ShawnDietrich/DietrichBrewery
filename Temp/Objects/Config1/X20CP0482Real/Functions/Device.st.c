@@ -1,8 +1,8 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
-#include "C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/Functions/Devicest.h"
-#line 1 "C:/projects/DietrichBrewing/Logical/Libraries/Functions/Device.nodebug"
-#line 3 "C:/projects/DietrichBrewing/Logical/Libraries/Functions/Device.st"
+#include "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/Functions/Devicest.h"
+#line 1 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/Libraries/Functions/Device.nodebug"
+#line 3 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/Libraries/Functions/Device.st"
 plcbit Device(plcbit AutoMode, plcbit pbExpected, plcbit AutoExpected, plcbit(* Output)){plcbit __AS__Device=0;plcbit Expected=0;{
 
 if(((AutoMode^1)&(AutoExpected^1))){
@@ -28,7 +28,7 @@ if((AutoExpected&(pbExpected^1))){
 
 ((*(Output))=Expected);
 }return __AS__Device;}
-#line 27 "C:/projects/DietrichBrewing/Logical/Libraries/Functions/Device.nodebug"
+#line 27 "C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/Libraries/Functions/Device.nodebug"
 
 void __AS__ImplInitDevice_st(void){}
 
@@ -47,6 +47,7 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.typ\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Types.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/runtime/runtime.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/astime/astime.fun\\\" scope \\\"global\\\"\\n\"");
@@ -59,6 +60,7 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.fun\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Functions.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/operator/operator.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/runtime/runtime.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/astime/astime.var\\\" scope \\\"global\\\"\\n\"");
@@ -71,7 +73,8 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/sys_lib/sys_lib.var\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MTTypes/MTTypes.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Functions/Constants.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/Functions/Device.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/projects/DietrichBrewing/Temp/Objects/Config1/X20CP0482/Functions/Device.st.c\\\" \\\"C:/projects/DietrichBrewing/Logical/Libraries/Functions/Device.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/Functions/Device.st.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Temp/Objects/Config1/X20CP0482/Functions/Device.st.c\\\" \\\"C:/Users/Shawn/Documents/GitHub/Dietrich Brewery/Logical/Libraries/Functions/Device.st\\\"\\n\"");
 __asm__(".ascii \"plcexport \\\"Device\\\" FUN\\n\"");
 __asm__(".previous");
