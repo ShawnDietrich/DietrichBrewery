@@ -1,3 +1,4 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/AsIODiag/AsIODiag.fun
 $(AS_PROJECT_PATH)/Logical/ProcessControl/MashTun/Variables.var
 $(AS_PROJECT_PATH)/Logical/Global.var

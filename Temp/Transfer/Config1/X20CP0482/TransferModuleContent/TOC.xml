@@ -5,7 +5,7 @@
 			<Folder Name="IAT_Data" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
 					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="MainPageContent_binding.binding" Size="8809" HashValue="D2A9A7FDFD46512BDB7CA6A55AC6C205" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="MainPageContent_binding.binding" Size="8610" HashValue="B7EC6B3C7B453477923E96F8FD6C8F87" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="__SystemVariables.sessionVar" Size="3484" HashValue="4F27B2AC736714506A4AD35EE4C9300A" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="vis_0.vis" Size="1274" HashValue="A34659D15187C6E5E8A7F995DF7A7724" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
@@ -524,8 +524,8 @@
 							<File Name="sinon.js" Size="208950" HashValue="B53B6EE79E2568DC68166087370FCC64" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="release" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="brease.js" Size="824568" HashValue="FD6C6C4898F7DFB986416FE16332225A" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease_core.min.css" Size="384899" HashValue="5FA481087BC3D890A7ABDF6669F2C111" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease.js" Size="826980" HashValue="028AF19E27379299B801DA86FD270B61" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease_core.min.css" Size="380920" HashValue="A97F8CDACB14FF7C135493B1F72EA0F4" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="system" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
@@ -1087,6 +1087,26 @@
 									<File Name="Rectangle.html" Size="73" HashValue="D1F6EA2AB0E2DA64E70A7FFB97584A1D" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Rectangle.js" Size="1928" HashValue="98F15F4726D00D2BEEECF11FE2E75567" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
+								<Folder Name="TextOutput" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1775" HashValue="F2809EF71B011F54A80AC59738089585" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TextOutput.json" Size="18214" HashValue="99F891A24E6E0FCD60E9DE699CCACAC5" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput.style" Size="1976" HashValue="7ED8F3A260A1D92E8C555B7902390C1E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput.widget" Size="18590" HashValue="CE5A2421313DB3DFACEDB5F90B5D4F1B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput.xsd" Size="3570" HashValue="E6DFDF82AC888F5A84DCBE8AEBF64CBE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_EventsActions.xsd" Size="3317" HashValue="5991161167216DAB8A5B2604263AF144" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_Styles.xsd" Size="2091" HashValue="6754A8AA65DF236CAF1CBE25D565743F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_base.scss" Size="893" HashValue="BE844FF992798425C89BCE61201EA5E1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_default.sass.css" Size="1020" HashValue="9D8448EB154F7CBC8C9C00E0535F0553" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_default.scss" Size="979" HashValue="5C1DB8FBE70166462CF0794585D4C3B9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_doc.html" Size="27623" HashValue="7DA222A6DC2A5725B01F1F691A61F467" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="TextOutput.html" Size="85" HashValue="93AD9D8CF16759B4EF20ED0D8576D023" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="TextOutput.js" Size="2442" HashValue="008EBE9CD5809D96D7A322456344C9F9" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
 								<Folder Name="ToggleButton" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ToggleButton.sass.css" Size="753" HashValue="7655DEAEE810C8502477680B7D807FBB" ProjectDependent="1" IgnoreDifference="0" />
@@ -1411,8 +1431,8 @@
 										<File Name="widgetPathMapping.xml" Size="287" HashValue="A4A11225B5B93BFD67C3B7B74C327EBF" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets.content" Size="788" HashValue="AB030E909BC6A9CB64B7463E2651A981" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets.css" Size="872" HashValue="D01B3705B2046BE13E82AC99EEEF391D" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="widgets.html" Size="1100" HashValue="D21767B149BD4BBA2BEF6E8CEA569E76" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="widgets.scss" Size="1221" HashValue="EFED0642057E877679950615532B0A48" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="widgets.html" Size="1103" HashValue="A78C712DAD0E2B170BA2E1861E17FC7F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="widgets.scss" Size="1282" HashValue="A3D516D6C1CE852C275D3956905B9499" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets_css.xml" Size="925" HashValue="EE4B246A179BD05BC429AD84F1205C7C" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
@@ -1420,7 +1440,7 @@
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="GreenStatusIndicator.json" Size="7886" HashValue="1544E62A11DEB2FC90212D783B52ED92" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GreenStatusIndicator.style" Size="798" HashValue="983FF33C0A2D6FECF3507FE004FD563B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GreenStatusIndicator.style" Size="814" HashValue="18E06829763E89BB61068CE8E6DEC5A5" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GreenStatusIndicator.widget" Size="8376" HashValue="96E1D7278F6ABCAF36ECCD44E289DE73" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GreenStatusIndicator.xsd" Size="1234" HashValue="934BFB7A1EB81B9EC6C98C045322BDB5" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GreenStatusIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
@@ -1431,15 +1451,15 @@
 										<File Name="GreenStatusIndicator_default.scss" Size="276" HashValue="991281D4C66B92A52F3047D84A862CB9" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="GreenStatusIndicator.html" Size="127" HashValue="3325D9EA0E042DDB9F64C242F96F92BB" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="GreenStatusIndicator.js" Size="1816" HashValue="D3C028A9CBDCB5C95FF7196C73B02EC7" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="GreenStatusIndicator.js" Size="1885" HashValue="E7142D749B4D2B99CA3F75ACEA24A8AB" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="RedStatusIndicator" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="content" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="widgetPathMapping.xml" Size="287" HashValue="A4A11225B5B93BFD67C3B7B74C327EBF" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets.content" Size="786" HashValue="AEA1299805C3C9DE7A85FA9B6AB14F90" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets.css" Size="871" HashValue="BE02D8FE320FEF20A7921253B5B63E54" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="widgets.html" Size="1100" HashValue="8CFF296E49A57469DF04F5908E25E17C" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="widgets.scss" Size="1181" HashValue="9726F6C1E6B83F85BBBDF618A2F34A2C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="widgets.html" Size="1103" HashValue="29C80D24E6DFEC6EA4B6FAD4F0E691B6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="widgets.scss" Size="1242" HashValue="7DA606F4A783E859A784E504804E3061" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="widgets_css.xml" Size="924" HashValue="513FAE60C63694D69085BEBD3AF1332B" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
@@ -1447,7 +1467,7 @@
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="RedStatusIndicator.json" Size="7866" HashValue="FE84B69A53276E78CC997B70568BEAFE" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="RedStatusIndicator.style" Size="796" HashValue="F1A15FAF0C7CC0F6FAE592DDF26E5507" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="RedStatusIndicator.style" Size="812" HashValue="0972BF9E42B584A7C8C673BF2D6D83DE" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="RedStatusIndicator.widget" Size="8364" HashValue="FA87AFF2BB93EB3D8FC401EA23793128" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="RedStatusIndicator.xsd" Size="1228" HashValue="C04630ED4044DA8D83CF34F054C64649" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="RedStatusIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
@@ -1458,7 +1478,7 @@
 										<File Name="RedStatusIndicator_default.scss" Size="270" HashValue="E83F844F064322A545DA1B6525ECACEB" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="RedStatusIndicator.html" Size="125" HashValue="15FB7A4EEE89CBA03339D381EBA03F07" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="RedStatusIndicator.js" Size="1810" HashValue="ABCCB1E91149E5CEB06DC4A25F143307" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="RedStatusIndicator.js" Size="1879" HashValue="F4B057FCF92DE661584812C373F0BD49" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 							</Folder>
 						</Folder>
@@ -1469,7 +1489,7 @@
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1" IgnoreDifference="0">
 						<Folder Name="mappView" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="MainPageContent.html" Size="35107" HashValue="D0DA155C39E6F9666D8A6E4317190214" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="MainPageContent.html" Size="23227" HashValue="351C3E2D89E11B5AF23994F747BA383C" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 					</Folder>
 					<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
@@ -1549,7 +1569,7 @@
 			<Folder Name="OPCUA" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="Generated" ProjectDependent="1" IgnoreDifference="0">
-						<File Name="OpcUaMap.uar.gz" Size="891" HashValue="36A5F93881B0D46F991F01B4120A8CBF" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="OpcUaMap.uar.gz" Size="915" HashValue="FE79074A1DA413129C61C87EADF36662" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IgnoreDifference="0">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1" IgnoreDifference="0" />
@@ -1626,37 +1646,37 @@
 			<File Name="arsimproxy.dll" Size="212992" HashValue="CD1EBBCF73331BD76AB4B749245C184E" ProjectDependent="1" IgnoreDifference="0" />
 		</Class>
 		<Memory Name="SYSROM">
-			<Module Name="::$$sysconf" Type="129" Size="70164" Modified="2021-11-14 12:44:16" Version="4.91" ProjectDependent="1" Reboot="1" />
-			<Module Name="::TCData" Type="209" Size="4179928" Modified="2021-11-23 11:29:54" Version="1.00" ProjectDependent="1" />
-			<Module Name="::arconfig" Type="132" Size="4952" Modified="2021-11-14 12:44:09" Version="1.00" ProjectDependent="1" Reboot="1" />
-			<Module Name="::asfw" Type="67" Size="916700" Modified="2021-11-14 12:44:16" Version="1.00" ProjectDependent="1" Reboot="1" />
-			<Module Name="::ashwd" Type="67" Size="4376" Modified="2021-11-14 12:44:17" Version="1.00" ProjectDependent="1" Reboot="1" />
+			<Module Name="::$$sysconf" Type="129" Size="70164" Modified="2021-12-03 08:02:19" Version="4.91" ProjectDependent="1" Reboot="1" />
+			<Module Name="::TCData" Type="209" Size="4179928" Modified="2021-12-03 08:02:20" Version="1.00" ProjectDependent="1" />
+			<Module Name="::arconfig" Type="132" Size="4952" Modified="2021-12-03 08:02:18" Version="1.00" ProjectDependent="1" Reboot="1" />
+			<Module Name="::asfw" Type="67" Size="916700" Modified="2021-12-03 08:02:19" Version="1.00" ProjectDependent="1" Reboot="1" />
+			<Module Name="::ashwd" Type="67" Size="4376" Modified="2021-12-03 08:02:19" Version="1.00" ProjectDependent="1" Reboot="1" />
 		</Memory>
 		<Memory Name="USERROM">
 			<Module Name="::ArSsl" Type="18" Size="13436" Modified="2021-04-20 08:21:48" Version="4.91" ProjectDependent="1" />
 			<Module Name="::ArSvcReg" Type="18" Size="78216" Modified="2016-12-09 07:57:34" Version="4.91" ProjectDependent="1" />
 			<Module Name="::AsIODiag" Type="18" Size="52264" Modified="2021-04-20 08:22:41" Version="4.91" ProjectDependent="1" />
 			<Module Name="::AsIecCon" Type="18" Size="17432" Modified="2021-04-20 08:22:34" Version="4.91" ProjectDependent="1" />
-			<Module Name="::BrewingSeq" Type="17" Size="2148" Modified="2021-11-23 11:29:47" Version="1.00" ProjectDependent="1" />
-			<Module Name="::Config" Type="136" Size="11864" Modified="2021-11-14 12:44:25" Version="5.12" ProjectDependent="1" />
-			<Module Name="::Config_1" Type="136" Size="1100" Modified="2021-11-14 12:44:25" Version="5.121" ProjectDependent="1" />
-			<Module Name="::FWRules" Type="136" Size="456" Modified="2021-11-14 12:44:25" Version="1.00" ProjectDependent="1" />
+			<Module Name="::BrewingSeq" Type="17" Size="2148" Modified="2021-12-03 08:02:12" Version="1.00" ProjectDependent="1" />
+			<Module Name="::Config" Type="136" Size="11864" Modified="2021-12-03 08:02:19" Version="5.12" ProjectDependent="1" />
+			<Module Name="::Config_1" Type="136" Size="1100" Modified="2021-12-03 08:02:19" Version="5.121" ProjectDependent="1" />
+			<Module Name="::FWRules" Type="136" Size="456" Modified="2021-12-03 08:02:19" Version="1.00" ProjectDependent="1" />
 			<Module Name="::FileIO" Type="18" Size="25496" Modified="2021-04-20 08:24:35" Version="4.91" ProjectDependent="1" />
-			<Module Name="::Functions" Type="18" Size="1468" Modified="2021-11-23 13:03:06" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HLT" Type="17" Size="10980" Modified="2021-11-23 12:44:05" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HMIProgram" Type="17" Size="1988" Modified="2021-11-23 11:29:47" Version="1.00" ProjectDependent="1" />
-			<Module Name="::Kettle" Type="17" Size="10028" Modified="2021-11-23 11:29:46" Version="1.00" ProjectDependent="1" />
+			<Module Name="::Functions" Type="18" Size="1468" Modified="2021-12-03 08:02:12" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HLT" Type="17" Size="10980" Modified="2021-12-03 08:02:12" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HMIProgram" Type="17" Size="1988" Modified="2021-12-03 08:02:12" Version="1.00" ProjectDependent="1" />
+			<Module Name="::Kettle" Type="17" Size="10028" Modified="2021-12-03 08:02:12" Version="1.00" ProjectDependent="1" />
 			<Module Name="::MTBasics" Type="18" Size="80568" Modified="2020-08-18 12:41:07" Version="5.12" ProjectDependent="1" />
 			<Module Name="::MTTypes" Type="18" Size="364" Modified="2017-02-21 11:08:12" Version="1.034" ProjectDependent="1" />
-			<Module Name="::MashTun" Type="17" Size="10684" Modified="2021-11-23 13:09:27" Version="1.00" ProjectDependent="1" />
+			<Module Name="::MashTun" Type="17" Size="11804" Modified="2021-12-03 12:53:05" Version="1.00" ProjectDependent="1" />
 			<Module Name="::MpBase" Type="18" Size="555280" Modified="2020-07-10 14:16:02" Version="5.12" ProjectDependent="1" />
 			<Module Name="::MpTemp" Type="18" Size="234860" Modified="2020-08-18 08:21:30" Version="5.12" ProjectDependent="1" />
-			<Module Name="::Role" Type="136" Size="760" Modified="2021-11-14 12:44:25" Version="1.00" ProjectDependent="1" />
-			<Module Name="::User" Type="136" Size="648" Modified="2021-11-14 12:44:25" Version="1.00" ProjectDependent="1" />
-			<Module Name="::ashwac" Type="136" Size="212" Modified="2021-11-14 12:44:25" Version="1.00" ProjectDependent="1" />
+			<Module Name="::Role" Type="136" Size="760" Modified="2021-12-03 08:02:19" Version="1.00" ProjectDependent="1" />
+			<Module Name="::User" Type="136" Size="648" Modified="2021-12-03 08:02:19" Version="1.00" ProjectDependent="1" />
+			<Module Name="::ashwac" Type="136" Size="212" Modified="2021-12-03 08:02:18" Version="1.00" ProjectDependent="1" />
 			<Module Name="::astime" Type="18" Size="24304" Modified="2021-04-20 08:23:46" Version="4.91" ProjectDependent="1" />
 			<Module Name="::brsystem" Type="18" Size="23780" Modified="2021-04-20 08:24:09" Version="4.91" ProjectDependent="1" />
-			<Module Name="::iomap" Type="50" Size="16908" Modified="2021-11-23 11:29:53" Version="1.00" ProjectDependent="1" />
+			<Module Name="::iomap" Type="50" Size="16908" Modified="2021-12-03 08:02:18" Version="1.00" ProjectDependent="1" />
 			<Module Name="::mvLoader" Type="18" Size="5064" Modified="2020-06-30 11:28:40" Version="1.00" ProjectDependent="1" />
 			<Module Name="::runtime" Type="18" Size="29340" Modified="2021-04-20 08:24:37" Version="4.91" ProjectDependent="1" />
 			<Module Name="::standard" Type="18" Size="11576" Modified="2021-04-20 08:24:43" Version="4.91" ProjectDependent="1" />

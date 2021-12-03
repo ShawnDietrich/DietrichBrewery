@@ -4,6 +4,11 @@ VAR
 	pbMashPump : BOOL;
 	PumpExp : BOOL;
 	StartMash : BOOL;
-	MashTime : TIME;
 	TimePre : DINT;
+	MashACC : STRING[80];
+	TmrRe : STRING[80];
+	TmrRemain : STRING[80];
+	CharNumPos : INT;
+	MillNumPos : INT;
+	NumStart : INT;
 END_VAR

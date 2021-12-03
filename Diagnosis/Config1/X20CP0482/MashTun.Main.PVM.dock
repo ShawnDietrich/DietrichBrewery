@@ -1,11 +1,11 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=MashTun 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index=190 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index=201 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
                                    mProc                              ProcControl    0 "                                                               *"    0   24    1    0    1    1         
                                 setPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
                                currPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
                                 currTemp                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                                 SetTemp                                     REAL    0 "                                                           100.0"    1    8    1   10    0    0         
+                                 SetTemp                                     REAL    0 "                                                            60.0"    1    8    1   10    0    0         
                                 TempCtrl                                 TempCont    0 "                                                               *"    1   24    1    0    0    0         
                                     Ctrl                         MpTempController    0 "                                                               *"    2   24    1    0    0    0         
                                   MpLink                                    UDINT    0 "                                                               *"    3    7    1   10    0    0         
@@ -204,3 +204,14 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index
                                 MashPump                                     BOOL    3 "                                                           FALSE"    0    1    1    2    0    0         
                               pbMashPump                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
                                  PumpExp                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
+                                 MashTmr                                      TON    0 "                                                               *"    0   24    1    0    1    1         
+                                      IN                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      PT                                     TIME    0 "                                                           T#01h"    1   12    1    1    0    0         
+                                       Q                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      ET                                     TIME    0 "                                                           T#0ms"    1   12    1    1    0    0         
+                               StartTime                                     TIME    0 "                                                 T#45m_49s_340ms"    1   12    1    1    0    0         
+                                       M                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Restart                                    UDINT    0 "                                                              36"    1    7    1   10    0    0         
+                               TmrRemain                               STRING[80]    0 "                                                       '59m 13s'"    0    9   81    1    1    0         
+                                   TmrRe                               STRING[80]    0 "                                               'T#59m_13s_400ms'"    0    9   81    1    1    0         
+                              MillNumPos                                      INT    0 "                                                               8"    0    3    1   10    1    0         

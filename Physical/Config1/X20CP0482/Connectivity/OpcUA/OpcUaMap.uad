@@ -88,6 +88,8 @@
           </Variable>
         </Variable>
         <Variable Name="TimePre" />
+        <Variable Name="StartMash" />
+        <Variable Name="TmrRemain" />
       </Task>
     </Module>
   </DefaultView>

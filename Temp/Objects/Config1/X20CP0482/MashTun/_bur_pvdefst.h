@@ -456,6 +456,25 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
+struct TON
+{	plctime PT;
+	plctime ET;
+	plctime StartTime;
+	unsigned long Restart;
+	plcbit IN;
+	plcbit Q;
+	plcbit M;
+};
+_BUR_PUBLIC void TON(struct TON* inst);
+_BUR_LOCAL struct TON MashTmr;
 _BUR_LOCAL ProcControl mProc;
 _BUR_LOCAL plcbit pbMashPump;
 _BUR_LOCAL plcbit PumpExp;
+_BUR_LOCAL plcbit StartMash;
+_BUR_LOCAL signed long TimePre;
+_BUR_LOCAL plcstring MashACC[81];
+_BUR_LOCAL plcstring TmrRe[81];
+_BUR_LOCAL plcstring TmrRemain[81];
+_BUR_LOCAL signed short CharNumPos;
+_BUR_LOCAL signed short MillNumPos;
+_BUR_LOCAL signed short NumStart;

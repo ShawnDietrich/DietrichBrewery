@@ -7,11 +7,7 @@
   <widget name="widgets.brease.NumericOutput" />
   <widget name="widgets.brease.NumericInput" />
   <widget name="widgets.brease.Label" />
-  <widget name="widgets.widgetlibrary_0.GreenStatusIndicator" />
-  <widget name="widgets.brease.Ellipse" />
-  <widget name="widgets.brease.Rectangle" />
-  <widget name="widgets.widgetlibrary_0.RedStatusIndicator" />
-  <widget name="widgets.brease.PushButton" />
+  <widget name="widgets.brease.TextOutput" />
   <widget name="widgets.brease.MessageBox" />
   <widget name="widgets.brease.Window" />
   <widget name="widgets.brease.DialogWindow" />

@@ -26,26 +26,26 @@ if(mProc.Status.Automatic){
 }
 
 
-if(mProc.i.Start){
-(pbMashPump=PumpExp);
-}else{
-(PumpExp=pbMashPump);
+if((~mProc.i.Start&Edge0000100000&1?((Edge0000100000=mProc.i.Start&1),1):((Edge0000100000=mProc.i.Start&1),0))){
+(pbMashPump=0);
+(StartMash=0);
+(MashTmr.IN=0);
+(mProc.i.Start=0);
 }
 
 
 switch(mProc.State){
 
 case 2:{
-if((~mProc.i.Start&Edge0000100000&1?((Edge0000100000=mProc.i.Start&1),1):((Edge0000100000=mProc.i.Start&1),0))){
-(pbMashPump=0);
-}
-
 
 (mProc.currTemp=(((signed long)(rawMashTemp))/((signed long)(1000))));
+(PumpExp=pbMashPump);
+
 }break;case 3:{
 
 (mProc.currTemp=(((signed long)(rawMashTemp))/((signed long)(1000))));
-(FromMashCyc.HLTTemp=mProc.SetTemp);
+(FromMashCyc.HLTTemp=(mProc.SetTemp+15));
+(pbMashPump=PumpExp);
 
 
 if(((mProc.currTemp<mProc.SetTemp))){
@@ -53,6 +53,29 @@ if(((mProc.currTemp<mProc.SetTemp))){
 }else{
 (PumpExp=0);
 }
+
+
+(MashTmr.PT=(plctime)(TimePre*60000));
+
+(MashTmr.IN=StartMash);
+
+
+time2str((MashTmr.PT-MashTmr.ET),TmrRe,81);
+
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)DELETE(TmrRe,2,1); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)REPLACE(TmrRemain," ",1,FIND(TmrRemain,"_")); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)REPLACE(TmrRemain," ",1,FIND(TmrRemain,"_")); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)DELETE(TmrRemain,6,8); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+
+
+if(MashTmr.Q){
+(StartMash=0);
+(mProc.i.Start=0);
+}
+
 
 }break;case 0:{
 
@@ -62,14 +85,15 @@ if(((mProc.currTemp<mProc.SetTemp))){
 
 (MashPump=PumpExp);
 
+TON(&MashTmr);
 }}
-#line 60 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.nodebug"
-#line 62 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.st"
+#line 84 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.nodebug"
+#line 86 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 65 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.nodebug"
+#line 89 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/MashTun/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

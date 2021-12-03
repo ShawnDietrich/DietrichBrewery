@@ -532,11 +532,30 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
+_BUR_PUBLIC plcstring* time2str(plctime IN, plcstring pStr[81], unsigned long len);
+struct TON
+{	plctime PT;
+	plctime ET;
+	plctime StartTime;
+	unsigned long Restart;
+	plcbit IN;
+	plcbit Q;
+	plcbit M;
+};
+_BUR_PUBLIC void TON(struct TON* inst);
+_BUR_PUBLIC plcstring* DELETE(plcstring IN[32768], signed short L, signed short P);
+_BUR_PUBLIC plcstring* REPLACE(plcstring IN1[32768], plcstring IN2[32768], signed short L, signed short P);
+_BUR_PUBLIC signed short FIND(plcstring IN1[32768], plcstring IN2[32768]);
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
+_BUR_LOCAL struct TON MashTmr;
 _BUR_LOCAL ProcControl mProc;
 _BUR_LOCAL plcbit pbMashPump;
 _BUR_LOCAL plcbit PumpExp;
+_BUR_LOCAL plcbit StartMash;
+_BUR_LOCAL signed long TimePre;
+_BUR_LOCAL plcstring TmrRe[81];
+_BUR_LOCAL plcstring TmrRemain[81];
 _GLOBAL MashToHLT FromMashCyc;
 _GLOBAL plcbit MashPump;
 _GLOBAL signed short rawMashTemp;

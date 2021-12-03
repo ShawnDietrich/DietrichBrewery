@@ -18,14 +18,14 @@ PROGRAM _CYCLIC
 		ELSIF mProc.Status.Manual THEN
 			mProc.State := SimManual;
 		END_IF
-	END_IF
-	
-	
-	//Match the pump status with the state
-	IF mProc.i.Start THEN
-		pbMashPump := PumpExp;
-	ELSE
-		PumpExp := pbMashPump;
+	END_IF 
+
+	//Turn off pump when switching auto and manual
+	IF EDGENEG(mProc.i.Start) THEN
+		pbMashPump 		:= FALSE;
+		StartMash 		:= FALSE;
+		MashTmr.IN		:= FALSE;
+		mProc.i.Start 	:= FALSE;
 	END_IF
 	
 	
@@ -34,22 +34,43 @@ PROGRAM _CYCLIC
 		SimManual:
 			//Figure out how to simulate the temperature
 			mProc.currTemp := rawMashTemp / 1000;
+			PumpExp := pbMashPump;
 			
 		SimAuto:
 			//Figure out how to simulate the temperature
 			mProc.currTemp := rawMashTemp / 1000;
-			FromMashCyc.HLTTemp := mProc.SetTemp;
+			FromMashCyc.HLTTemp := mProc.SetTemp + 15;
+			pbMashPump := PumpExp;
 			
 			//Stop pump if the mash temp gets too high
 			IF mProc.currTemp < mProc.SetTemp THEN
-				PumpExp 	:= TRUE;
+				PumpExp	:= TRUE;
 			ELSE
-				PumpExp 	:= FALSE;
-			END_IF
-		
-			MashTime := DINT_TO_TIME(TimePre);
+				PumpExp	:= FALSE;
+			END_IF 
+			
+			//Mash timer 
+			MashTmr.PT := DINT_TO_TIME(TimePre*60000);
 			//Start Mash Timer 
-			MashTmr(StartMash, MashTime);
+			MashTmr.IN := StartMash;
+			
+			//Calculate and display the remaining time
+			TmrRe := TIME_TO_STRING(MashTmr.PT - MashTmr.ET);
+			//Remove the T#
+			TmrRemain := DELETE(TmrRe,2,1);
+			// Find the first '_' in string
+			TmrRemain := REPLACE(TmrRemain, ' ',1,FIND(TmrRemain,'_'));
+			//Find the second '_' in string
+			TmrRemain := REPLACE(TmrRemain, ' ',1,FIND(TmrRemain,'_'));
+			//Remove everything after seconds
+			TmrRemain := DELETE(TmrRemain,6,8);
+			
+			
+			IF MashTmr.Q THEN
+				StartMash := FALSE;
+				mProc.i.Start := FALSE;
+			END_IF
+			
 				
 		Manual:
 		
@@ -59,6 +80,7 @@ PROGRAM _CYCLIC
 		
 	MashPump := PumpExp;
 	
+	MashTmr();
 END_PROGRAM
 
 PROGRAM _EXIT

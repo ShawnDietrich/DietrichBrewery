@@ -156,7 +156,7 @@
 	@include elemLeft(8);
 }
 #MainPageContent_NumericOutput1 {
-	@include elemAutoWidth(120);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericOutput1 {
 	@include elemAutoHeight(40);
@@ -203,7 +203,7 @@
 	@include elemLeft(8);
 }
 #MainPageContent_NumericInput1 {
-	@include elemWidth(120);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput1 {
 	@include elemHeight(40);
@@ -470,114 +470,6 @@
 		font-size: 15px;
 	}
 }
-#MainPageContent_GroupBox12 {
-	@include elemTop(397);
-}
-#MainPageContent_GroupBox12 {
-	@include elemLeft(16);
-}
-#MainPageContent_GroupBox12 {
-	@include elemWidth(289);
-}
-#MainPageContent_GroupBox12 {
-	@include elemHeight(144);
-}
-#MainPageContent_GroupBox12 {
-		z-index: 5;
-}
-#MainPageContent_GroupBox12 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox12 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox12 {
-		border-color: rgba(227, 197, 78, 1);
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-color: rgba(227, 197, 78, 1);
-	}
-}
-#MainPageContent_GroupBox12 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_GreenStatusIndicator1 {
-	@include elemTop(20);
-}
-#MainPageContent_GreenStatusIndicator1 {
-	@include elemLeft(10);
-}
-#MainPageContent_GreenStatusIndicator1 {
-	@include elemWidth(131);
-}
-#MainPageContent_GreenStatusIndicator1 {
-	@include elemHeight(13);
-}
-#MainPageContent_GreenStatusIndicator1 {
-		z-index: 0;
-}
-#MainPageContent_GreenStatusIndicator1ΘstatOn{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘstatOn{left:0px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘstatOn{z-index:1}#MainPageContent_GreenStatusIndicator1ΘstatOn{width:12px}#MainPageContent_GreenStatusIndicator1ΘstatOn{height:12px}#MainPageContent_GreenStatusIndicator1ΘstatOn{background-color:lime}#MainPageContent_GreenStatusIndicator1ΘstatOff{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘstatOff{left:0px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘstatOff{z-index:0}#MainPageContent_GreenStatusIndicator1ΘstatOff{width:12px}#MainPageContent_GreenStatusIndicator1ΘstatOff{height:12px}#MainPageContent_GreenStatusIndicator1ΘstatOff{background-color:#fff}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{left:12px;position:absolute}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{width:300px}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{height:12px}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{z-index:2}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{font-size:12px}#MainPageContent_GreenStatusIndicator1ΘtxtLabel{font-weight:normal}
-#MainPageContent_RedStatusIndicator1 {
-	@include elemTop(51);
-}
-#MainPageContent_RedStatusIndicator1 {
-	@include elemLeft(10);
-}
-#MainPageContent_RedStatusIndicator1 {
-	@include elemWidth(105);
-}
-#MainPageContent_RedStatusIndicator1 {
-	@include elemHeight(16);
-}
-#MainPageContent_RedStatusIndicator1 {
-		z-index: 1;
-}
-#MainPageContent_RedStatusIndicator1ΘstatOn{top:0px;position:absolute}#MainPageContent_RedStatusIndicator1ΘstatOn{left:0px;position:absolute}#MainPageContent_RedStatusIndicator1ΘstatOn{z-index:1}#MainPageContent_RedStatusIndicator1ΘstatOn{width:12px}#MainPageContent_RedStatusIndicator1ΘstatOn{height:12px}#MainPageContent_RedStatusIndicator1ΘstatOn{background-color:red}#MainPageContent_RedStatusIndicator1ΘstatOff{top:0px;position:absolute}#MainPageContent_RedStatusIndicator1ΘstatOff{left:0px;position:absolute}#MainPageContent_RedStatusIndicator1ΘstatOff{z-index:0}#MainPageContent_RedStatusIndicator1ΘstatOff{width:12px}#MainPageContent_RedStatusIndicator1ΘstatOff{height:12px}#MainPageContent_RedStatusIndicator1ΘstatOff{background-color:#fff}#MainPageContent_RedStatusIndicator1ΘtxtLabel{top:0px;position:absolute}#MainPageContent_RedStatusIndicator1ΘtxtLabel{left:12px;position:absolute}#MainPageContent_RedStatusIndicator1ΘtxtLabel{width:300px}#MainPageContent_RedStatusIndicator1ΘtxtLabel{height:12px}#MainPageContent_RedStatusIndicator1ΘtxtLabel{z-index:2}#MainPageContent_RedStatusIndicator1ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_RedStatusIndicator1ΘtxtLabel{font-size:12px}#MainPageContent_RedStatusIndicator1ΘtxtLabel{font-weight:normal}
-#MainPageContent_PushButton1 {
-	@include elemAutoWidth(100);
-}
-#MainPageContent_PushButton1 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_PushButton1 {
-	@include elemTop(23);
-}
-#MainPageContent_PushButton1 {
-	@include elemLeft(165);
-}
-#MainPageContent_PushButton1 {
-		z-index: 2;
-}
-#MainPageContent_PushButton1 {
-	@include border-radius(5px);
-}
-#MainPageContent_RedStatusIndicator3 {
-	@include elemTop(81);
-}
-#MainPageContent_RedStatusIndicator3 {
-	@include elemLeft(10);
-}
-#MainPageContent_RedStatusIndicator3 {
-	@include elemWidth(119);
-}
-#MainPageContent_RedStatusIndicator3 {
-	@include elemHeight(14);
-}
-#MainPageContent_RedStatusIndicator3 {
-		z-index: 3;
-}
-#MainPageContent_RedStatusIndicator3ΘstatOn{top:0px;position:absolute}#MainPageContent_RedStatusIndicator3ΘstatOn{left:0px;position:absolute}#MainPageContent_RedStatusIndicator3ΘstatOn{z-index:1}#MainPageContent_RedStatusIndicator3ΘstatOn{width:12px}#MainPageContent_RedStatusIndicator3ΘstatOn{height:12px}#MainPageContent_RedStatusIndicator3ΘstatOn{background-color:red}#MainPageContent_RedStatusIndicator3ΘstatOff{top:0px;position:absolute}#MainPageContent_RedStatusIndicator3ΘstatOff{left:0px;position:absolute}#MainPageContent_RedStatusIndicator3ΘstatOff{z-index:0}#MainPageContent_RedStatusIndicator3ΘstatOff{width:12px}#MainPageContent_RedStatusIndicator3ΘstatOff{height:12px}#MainPageContent_RedStatusIndicator3ΘstatOff{background-color:#fff}#MainPageContent_RedStatusIndicator3ΘtxtLabel{top:0px;position:absolute}#MainPageContent_RedStatusIndicator3ΘtxtLabel{left:12px;position:absolute}#MainPageContent_RedStatusIndicator3ΘtxtLabel{width:300px}#MainPageContent_RedStatusIndicator3ΘtxtLabel{height:12px}#MainPageContent_RedStatusIndicator3ΘtxtLabel{z-index:2}#MainPageContent_RedStatusIndicator3ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_RedStatusIndicator3ΘtxtLabel{font-size:12px}#MainPageContent_RedStatusIndicator3ΘtxtLabel{font-weight:normal}
 #MainPageContent_GroupBox4 {
 	@include elemTop(10);
 }
@@ -732,10 +624,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput3 {
-	@include elemLeft(19);
+	@include elemLeft(6);
 }
 #MainPageContent_NumericOutput3 {
-	@include elemAutoWidth(110);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericOutput3 {
 	@include elemAutoHeight(40);
@@ -782,10 +674,10 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput3 {
-	@include elemLeft(19);
+	@include elemLeft(6);
 }
 #MainPageContent_NumericInput3 {
-	@include elemWidth(110);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput3 {
 	@include elemHeight(40);
@@ -914,52 +806,28 @@
 		border-bottom-style: outset;
 	}
 }
-#MainPageContent_NumericOutput4 {
-	@include elemAutoWidth(100);
-}
-#MainPageContent_NumericOutput4 {
-	@include elemTop(15);
-}
-#MainPageContent_NumericOutput4 {
-	@include elemLeft(24);
-}
-#MainPageContent_NumericOutput4 {
-	@include elemAutoHeight(40);
-}
-#MainPageContent_NumericOutput4 {
-		z-index: 0;
-}
-#MainPageContent_NumericOutput4 {
-		border-width: 2px;
-}
-#MainPageContent_NumericOutput4 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericOutput4 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#MainPageContent_NumericOutput4 {
-		border-style: outset;
-}
-#MainPageContent_NumericOutput4 {
-	input{
-	@include text-alignment(center);
-	}
-}
 #MainPageContent_Label7 {
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label7 {
-	@include elemTop(16);
+	@include elemTop(20);
 }
 #MainPageContent_Label7 {
-	@include elemLeft(154);
+	@include elemLeft(135);
 }
 #MainPageContent_Label7 {
-	@include elemAutoWidth(162);
+	@include elemAutoWidth(124);
 }
 #MainPageContent_Label7 {
-		z-index: 1;
+		z-index: 0;
+}
+#MainPageContent_Label7 {
+	@include text-alignment-all('left');
+}
+#MainPageContent_Label7 {
+	span{
+		padding: 0px;
+	}
 }
 #MainPageContent_NumericInput4 {
 	@include elemWidth(100);
@@ -968,13 +836,13 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput4 {
-	@include elemLeft(24);
+	@include elemLeft(6);
 }
 #MainPageContent_NumericInput4 {
 	@include elemHeight(40);
 }
 #MainPageContent_NumericInput4 {
-		z-index: 2;
+		z-index: 1;
 }
 #MainPageContent_NumericInput4 {
 	@include border-radius(5px);
@@ -991,13 +859,71 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label8 {
-	@include elemLeft(154);
+	@include elemLeft(135);
 }
 #MainPageContent_Label8 {
-	@include elemAutoWidth(171);
+	@include elemAutoWidth(133);
 }
 #MainPageContent_Label8 {
+		z-index: 2;
+}
+#MainPageContent_Label8 {
+	@include text-alignment-all('left');
+}
+#MainPageContent_Label8 {
+	span{
+		padding: 0px;
+	}
+}
+#MainPageContent_TextOutput1 {
+	@include elemAutoWidth(100);
+}
+#MainPageContent_TextOutput1 {
+	@include elemTop(15);
+}
+#MainPageContent_TextOutput1 {
+	@include elemLeft(6);
+}
+#MainPageContent_TextOutput1 {
+	@include elemAutoHeight(40);
+}
+#MainPageContent_TextOutput1 {
 		z-index: 3;
+}
+#MainPageContent_TextOutput1 {
+		border-width: 2px;
+}
+#MainPageContent_TextOutput1 {
+	@include border-radius(5px);
+}
+#MainPageContent_TextOutput1 {
+		border-color: rgba(85, 85, 85, 1);
+}
+#MainPageContent_TextOutput1 {
+	&:before{
+		border-color: rgba(85, 85, 85, 1);
+	}
+}
+#MainPageContent_TextOutput1 {
+	&:after{
+		border-color: rgba(85, 85, 85, 1);
+	}
+}
+#MainPageContent_TextOutput1 {
+		border-style: solid;
+}
+#MainPageContent_TextOutput1 {
+	&:before{
+		border-style: solid;
+	}
+}
+#MainPageContent_TextOutput1 {
+	&:after{
+		border-style: solid;
+	}
+}
+#MainPageContent_TextOutput1 {
+	@include text-alignment-all('center');
 }
 #MainPageContent_ToggleSwitch9 {
 	@include elemTop(602);
@@ -1153,10 +1079,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput5 {
-	@include elemLeft(19);
+	@include elemLeft(7);
 }
 #MainPageContent_NumericOutput5 {
-	@include elemAutoWidth(110);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericOutput5 {
 	@include elemAutoHeight(40);
@@ -1197,16 +1123,21 @@
 		z-index: 1;
 }
 #MainPageContent_Label9 {
-	@include text-alignment-all('right');
+	@include text-alignment-all('left');
+}
+#MainPageContent_Label9 {
+	span{
+		padding: 0px;
+	}
 }
 #MainPageContent_NumericInput5 {
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput5 {
-	@include elemLeft(19);
+	@include elemLeft(7);
 }
 #MainPageContent_NumericInput5 {
-	@include elemWidth(110);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput5 {
 	@include elemHeight(40);
@@ -1238,7 +1169,12 @@
 		z-index: 3;
 }
 #MainPageContent_Label10 {
-	@include text-alignment-all('right');
+	@include text-alignment-all('left');
+}
+#MainPageContent_Label10 {
+	span{
+		padding: 0px;
+	}
 }
 #MainPageContent_GroupBox9 {
 	@include elemTop(205);
@@ -1289,7 +1225,7 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput6 {
-	@include elemLeft(24);
+	@include elemLeft(7);
 }
 #MainPageContent_NumericOutput6 {
 	@include elemAutoHeight(40);
@@ -1318,16 +1254,21 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label11 {
-	@include elemTop(16);
+	@include elemTop(20);
 }
 #MainPageContent_Label11 {
-	@include elemLeft(154);
+	@include elemLeft(138);
 }
 #MainPageContent_Label11 {
 	@include elemAutoWidth(162);
 }
 #MainPageContent_Label11 {
 		z-index: 1;
+}
+#MainPageContent_Label11 {
+	span{
+		padding: 0px;
+	}
 }
 #MainPageContent_NumericInput6 {
 	@include elemWidth(100);
@@ -1336,7 +1277,7 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput6 {
-	@include elemLeft(24);
+	@include elemLeft(7);
 }
 #MainPageContent_NumericInput6 {
 	@include elemHeight(40);
@@ -1359,13 +1300,18 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label12 {
-	@include elemLeft(154);
+	@include elemLeft(138);
 }
 #MainPageContent_Label12 {
 	@include elemAutoWidth(171);
 }
 #MainPageContent_Label12 {
 		z-index: 3;
+}
+#MainPageContent_Label12 {
+	span{
+		padding: 0px;
+	}
 }
 #MainPageContent_ToggleSwitch11 {
 	@include elemTop(602);
@@ -1526,114 +1472,6 @@
 		font-size: 15px;
 	}
 }
-#MainPageContent_GroupBox13 {
-	@include elemTop(397);
-}
-#MainPageContent_GroupBox13 {
-	@include elemLeft(17);
-}
-#MainPageContent_GroupBox13 {
-	@include elemWidth(289);
-}
-#MainPageContent_GroupBox13 {
-	@include elemHeight(144);
-}
-#MainPageContent_GroupBox13 {
-		z-index: 5;
-}
-#MainPageContent_GroupBox13 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox13 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox13 {
-		border-color: rgba(227, 197, 78, 1);
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-color: rgba(227, 197, 78, 1);
-	}
-}
-#MainPageContent_GroupBox13 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_GreenStatusIndicator2 {
-	@include elemTop(20);
-}
-#MainPageContent_GreenStatusIndicator2 {
-	@include elemLeft(10);
-}
-#MainPageContent_GreenStatusIndicator2 {
-	@include elemWidth(131);
-}
-#MainPageContent_GreenStatusIndicator2 {
-	@include elemHeight(13);
-}
-#MainPageContent_GreenStatusIndicator2 {
-		z-index: 0;
-}
-#MainPageContent_GreenStatusIndicator2ΘstatOn{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘstatOn{left:0px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘstatOn{z-index:1}#MainPageContent_GreenStatusIndicator2ΘstatOn{width:12px}#MainPageContent_GreenStatusIndicator2ΘstatOn{height:12px}#MainPageContent_GreenStatusIndicator2ΘstatOn{background-color:lime}#MainPageContent_GreenStatusIndicator2ΘstatOff{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘstatOff{left:0px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘstatOff{z-index:0}#MainPageContent_GreenStatusIndicator2ΘstatOff{width:12px}#MainPageContent_GreenStatusIndicator2ΘstatOff{height:12px}#MainPageContent_GreenStatusIndicator2ΘstatOff{background-color:#fff}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{top:0px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{left:12px;position:absolute}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{width:300px}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{height:12px}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{z-index:2}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{font-size:12px}#MainPageContent_GreenStatusIndicator2ΘtxtLabel{font-weight:normal}
-#MainPageContent_RedStatusIndicator2 {
-	@include elemTop(51);
-}
-#MainPageContent_RedStatusIndicator2 {
-	@include elemLeft(10);
-}
-#MainPageContent_RedStatusIndicator2 {
-	@include elemWidth(105);
-}
-#MainPageContent_RedStatusIndicator2 {
-	@include elemHeight(16);
-}
-#MainPageContent_RedStatusIndicator2 {
-		z-index: 1;
-}
-#MainPageContent_RedStatusIndicator2ΘstatOn{top:0px;position:absolute}#MainPageContent_RedStatusIndicator2ΘstatOn{left:0px;position:absolute}#MainPageContent_RedStatusIndicator2ΘstatOn{z-index:1}#MainPageContent_RedStatusIndicator2ΘstatOn{width:12px}#MainPageContent_RedStatusIndicator2ΘstatOn{height:12px}#MainPageContent_RedStatusIndicator2ΘstatOn{background-color:red}#MainPageContent_RedStatusIndicator2ΘstatOff{top:0px;position:absolute}#MainPageContent_RedStatusIndicator2ΘstatOff{left:0px;position:absolute}#MainPageContent_RedStatusIndicator2ΘstatOff{z-index:0}#MainPageContent_RedStatusIndicator2ΘstatOff{width:12px}#MainPageContent_RedStatusIndicator2ΘstatOff{height:12px}#MainPageContent_RedStatusIndicator2ΘstatOff{background-color:#fff}#MainPageContent_RedStatusIndicator2ΘtxtLabel{top:0px;position:absolute}#MainPageContent_RedStatusIndicator2ΘtxtLabel{left:12px;position:absolute}#MainPageContent_RedStatusIndicator2ΘtxtLabel{width:300px}#MainPageContent_RedStatusIndicator2ΘtxtLabel{height:12px}#MainPageContent_RedStatusIndicator2ΘtxtLabel{z-index:2}#MainPageContent_RedStatusIndicator2ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_RedStatusIndicator2ΘtxtLabel{font-size:12px}#MainPageContent_RedStatusIndicator2ΘtxtLabel{font-weight:normal}
-#MainPageContent_PushButton2 {
-	@include elemAutoWidth(100);
-}
-#MainPageContent_PushButton2 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_PushButton2 {
-	@include elemTop(23);
-}
-#MainPageContent_PushButton2 {
-	@include elemLeft(165);
-}
-#MainPageContent_PushButton2 {
-		z-index: 2;
-}
-#MainPageContent_PushButton2 {
-	@include border-radius(5px);
-}
-#MainPageContent_RedStatusIndicator4 {
-	@include elemTop(81);
-}
-#MainPageContent_RedStatusIndicator4 {
-	@include elemLeft(10);
-}
-#MainPageContent_RedStatusIndicator4 {
-	@include elemWidth(119);
-}
-#MainPageContent_RedStatusIndicator4 {
-	@include elemHeight(14);
-}
-#MainPageContent_RedStatusIndicator4 {
-		z-index: 3;
-}
-#MainPageContent_RedStatusIndicator4ΘstatOn{top:0px;position:absolute}#MainPageContent_RedStatusIndicator4ΘstatOn{left:0px;position:absolute}#MainPageContent_RedStatusIndicator4ΘstatOn{z-index:1}#MainPageContent_RedStatusIndicator4ΘstatOn{width:12px}#MainPageContent_RedStatusIndicator4ΘstatOn{height:12px}#MainPageContent_RedStatusIndicator4ΘstatOn{background-color:red}#MainPageContent_RedStatusIndicator4ΘstatOff{top:0px;position:absolute}#MainPageContent_RedStatusIndicator4ΘstatOff{left:0px;position:absolute}#MainPageContent_RedStatusIndicator4ΘstatOff{z-index:0}#MainPageContent_RedStatusIndicator4ΘstatOff{width:12px}#MainPageContent_RedStatusIndicator4ΘstatOff{height:12px}#MainPageContent_RedStatusIndicator4ΘstatOff{background-color:#fff}#MainPageContent_RedStatusIndicator4ΘtxtLabel{top:0px;position:absolute}#MainPageContent_RedStatusIndicator4ΘtxtLabel{left:12px;position:absolute}#MainPageContent_RedStatusIndicator4ΘtxtLabel{width:300px}#MainPageContent_RedStatusIndicator4ΘtxtLabel{height:12px}#MainPageContent_RedStatusIndicator4ΘtxtLabel{z-index:2}#MainPageContent_RedStatusIndicator4ΘtxtLabel{justify-content:flex-start;text-align:left;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}#MainPageContent_RedStatusIndicator4ΘtxtLabel{font-size:12px}#MainPageContent_RedStatusIndicator4ΘtxtLabel{font-weight:normal}
 #MainPageContent_GroupBox10 {
 	@include elemTop(10);
 }
@@ -1788,10 +1626,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput7 {
-	@include elemLeft(19);
+	@include elemLeft(11);
 }
 #MainPageContent_NumericOutput7 {
-	@include elemAutoWidth(110);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericOutput7 {
 	@include elemAutoHeight(40);
@@ -1835,10 +1673,10 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput7 {
-	@include elemLeft(19);
+	@include elemLeft(11);
 }
 #MainPageContent_NumericInput7 {
-	@include elemWidth(110);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput7 {
 	@include elemHeight(40);

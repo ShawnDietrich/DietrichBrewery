@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1637684816_3_
-#define _BUR_1637684816_3_
+#ifndef _BUR_1638536523_6_
+#define _BUR_1638536523_6_
 
 #include <bur/plctypes.h>
 
@@ -19,5 +19,5 @@ __asm__(".ascii \"iecfile \\\"Logical/ProcessControl/MashTun/Types.typ\\\" scope
 __asm__(".previous");
 
 
-#endif /* _BUR_1637684816_3_ */
+#endif /* _BUR_1638536523_6_ */
 
