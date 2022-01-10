@@ -6,3 +6,6 @@
 [1123/111248:ERROR:renderer_main.cc(212)] Running without renderer sandbox
 [1123/111252:ERROR:ipc_channel_win.cc(412)] pipe error: 232
 [1123/111458:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0110/074107:ERROR:renderer_main.cc(212)] Running without renderer sandbox
+[0110/074109:ERROR:ipc_channel_win.cc(412)] pipe error: 232
+[0110/074111:ERROR:renderer_main.cc(212)] Running without renderer sandbox
