@@ -114,4 +114,82 @@
 <Target xsi:type="brease" refId="MainPageContent_TextOutput1" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
 </Binding>
   </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.i.Auto" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch11" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.i.Auto" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch11" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.i.Start" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch12" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.i.Start" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch12" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.currTemp" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericOutput5" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.currTemp" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericOutput5" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.SetTemp" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput5" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.SetTemp" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput5" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.currPower" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericOutput6" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.currPower" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericOutput6" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.setPower" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput6" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:Proc.setPower" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput6" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:StartKettle" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch14" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:StartKettle" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_ToggleSwitch14" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:TimePre" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput8" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding><Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Kettle:TimePre" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_NumericInput8" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
+  <Content id="MainPageContent">
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Kettle:TmrRemain" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Target xsi:type="brease" refId="MainPageContent_TextOutput2" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+</Binding>
+  </Content>
 </BindingDefinition>

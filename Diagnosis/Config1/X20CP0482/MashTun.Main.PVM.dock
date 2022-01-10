@@ -1,11 +1,11 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=MashTun 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index=201 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index=209 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
-                                   mProc                              ProcControl    0 "                                                               *"    0   24    1    0    1    1         
-                                setPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                               currPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                                currTemp                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                                 SetTemp                                     REAL    0 "                                                            60.0"    1    8    1   10    0    0         
+                                   mProc                              ProcControl    0 "                                                               *"    0   24    1    0    1    0         
+                                setPower                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
+                               currPower                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
+                                currTemp                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
+                                 SetTemp                                     REAL    0 "                                                               *"    1    8    1   10    0    0         
                                 TempCtrl                                 TempCont    0 "                                                               *"    1   24    1    0    0    0         
                                     Ctrl                         MpTempController    0 "                                                               *"    2   24    1    0    0    0         
                                   MpLink                                    UDINT    0 "                                                               *"    3    7    1   10    0    0         
@@ -185,33 +185,41 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=113 Type=0 Scope=0 Force=0 Index
                            OnTimeCounter                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
                                UpdateOld                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
                                EnableOld                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
-                                   State                                     DINT    0 "                                                               2"    1    4    1   10    0    0 e,0,Manu
+                                   State                                     DINT    0 "                                                               *"    1    4    1   10    0    0 e,0,Manu
 
-                                  Status                             SystemStatus    0 "                                                               *"    1   24    1    0    0    1         
-                               Automatic                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                  Manual                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
-                                 Running                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                 Stopped                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                  Paused                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                      On                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                       i                              SystemInput    0 "                                                               *"    1   24    1    0    0    1         
-                              ResetError                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                   EStop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                    Auto                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                    Stop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                   Pause                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                   Start                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                  Status                             SystemStatus    0 "                                                               *"    1   24    1    0    0    0         
+                               Automatic                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                  Manual                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                 Running                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                 Stopped                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                  Paused                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                      On                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                       i                              SystemInput    0 "                                                               *"    1   24    1    0    0    0         
+                              ResetError                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                   EStop                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                    Auto                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                    Stop                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                   Pause                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
+                                   Start                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
                                 MashPump                                     BOOL    3 "                                                           FALSE"    0    1    1    2    0    0         
                               pbMashPump                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
                                  PumpExp                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
                                  MashTmr                                      TON    0 "                                                               *"    0   24    1    0    1    1         
                                       IN                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                      PT                                     TIME    0 "                                                           T#01h"    1   12    1    1    0    0         
+                                      PT                                     TIME    0 "                                                       T#01h_30m"    1   12    1    1    0    0         
                                        Q                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
                                       ET                                     TIME    0 "                                                           T#0ms"    1   12    1    1    0    0         
-                               StartTime                                     TIME    0 "                                                 T#45m_49s_340ms"    1   12    1    1    0    0         
+                               StartTime                                     TIME    0 "                                                 T#02m_57s_140ms"    1   12    1    1    0    0         
                                        M                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                 Restart                                    UDINT    0 "                                                              36"    1    7    1   10    0    0         
-                               TmrRemain                               STRING[80]    0 "                                                       '59m 13s'"    0    9   81    1    1    0         
-                                   TmrRe                               STRING[80]    0 "                                               'T#59m_13s_400ms'"    0    9   81    1    1    0         
-                              MillNumPos                                      INT    0 "                                                               8"    0    3    1   10    1    0         
+                                 Restart                                    UDINT    0 "                                                              43"    1    7    1   10    0    0         
+                               TmrRemain                               STRING[80]    0 "                                                        '1:30:0'"    0    9   81    1    1    0         
+                                   TmrRe                               STRING[80]    0 "                                                              ''"    0    9   81    1    1    0         
+                              MillNumPos                                      INT    0 "                                                               0"    0    3    1   10    1    0         
+                                   TmrDT                            TIMEStructure    0 "                                                               *"    0   24    1    0    1    1         
+                                     day                                     SINT    0 "                                                               0"    1    2    1   10    0    0         
+                                    hour                                    USINT    0 "                                                               1"    1    5    1   10    0    0         
+                                  minute                                    USINT    0 "                                                              30"    1    5    1   10    0    0         
+                                  second                                    USINT    0 "                                                               0"    1    5    1   10    0    0         
+                                millisec                                     UINT    0 "                                                               0"    1    6    1   10    0    0         
+                                microsec                                     UINT    0 "                                                               0"    1    6    1   10    0    0         
+                              RemainTime                            DATE_AND_TIME    0 "                                          DT#1970-01-01-00:00:00"    0   11    1    1    1    0         

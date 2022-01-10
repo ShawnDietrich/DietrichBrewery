@@ -11,4 +11,9 @@ VAR
 	CharNumPos : INT;
 	MillNumPos : INT;
 	NumStart : INT;
+	TmrDT : TIMEStructure;
+	RemainTime : DATE_AND_TIME;
+	HrRe : STRING[4];
+	MinRe : STRING[4];
+	SecRe : STRING[4];
 END_VAR

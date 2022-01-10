@@ -449,6 +449,18 @@ typedef struct ProcControl
 } ProcControl;
 #endif
 
+#ifndef __AS__TYPE_TIMEStructure
+#define __AS__TYPE_TIMEStructure
+typedef struct TIMEStructure
+{	signed char day;
+	unsigned char hour;
+	unsigned char minute;
+	unsigned char second;
+	unsigned short millisec;
+	unsigned short microsec;
+} TIMEStructure;
+#endif
+
 #ifndef __AS__TYPE_MpComIdentType
 #define __AS__TYPE_MpComIdentType
 typedef struct MpComIdentType
@@ -456,4 +468,22 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
+struct TON
+{	plctime PT;
+	plctime ET;
+	plctime StartTime;
+	unsigned long Restart;
+	plcbit IN;
+	plcbit Q;
+	plcbit M;
+};
+_BUR_PUBLIC void TON(struct TON* inst);
 _BUR_LOCAL ProcControl Proc;
+_BUR_LOCAL struct TON KettleTmr;
+_BUR_LOCAL plctime TimePre;
+_BUR_LOCAL plcbit StartKettle;
+_BUR_LOCAL TIMEStructure TmrDT;
+_BUR_LOCAL plcstring HrRe[5];
+_BUR_LOCAL plcstring MinRe[5];
+_BUR_LOCAL plcstring SecRe[5];
+_BUR_LOCAL plcstring TmrRemain[11];

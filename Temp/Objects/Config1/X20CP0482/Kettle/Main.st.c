@@ -11,17 +11,104 @@ void __BUR__ENTRY_INIT_FUNCT__(void){{
 #line 7 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.Parameters))=((unsigned long)(&Proc.TempCtrl.Ptr)));
+((*(unsigned long*)&(Proc.TempCtrl.Ctrl.MpLink))=((unsigned long)(&Cfg_KettleTemp)));
+
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
+
+
+
+
+(Proc.Status.Automatic=Proc.i.Auto);
+(Proc.Status.Manual=(Proc.i.Auto^1));
+
+
+if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
+if(Proc.Status.Automatic){
+(Proc.State=3);
+}else if(Proc.Status.Manual){
+(Proc.State=2);
+}
+}
+
+
+switch(Proc.State){
+
+case 3:{
+
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+(Proc.TempCtrl.Ctrl.Simulate=1);
+
+(Proc.TempCtrl.Ctrl.ActualTemperature=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.TempCtrl.Ctrl.SetTemperature=Proc.SetTemp);
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.currPower=Proc.TempCtrl.Ctrl.Info.Simulation.HeatValue);
+(HLTHeater=Proc.TempCtrl.Ctrl.Info.Simulation.Heat);
+
+}break;case 2:{
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
+
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
+(Proc.currPower=Proc.TempCtrl.PWM.DutyCycle);
+
+}break;case 1:{
+(Proc.TempCtrl.PWM.Enable=1);
+(Proc.TempCtrl.Ctrl.Enable=0);
+(Proc.TempCtrl.Ctrl.ActualTemperature=(rawHLTTemp*1000));
+(Proc.currPower=Proc.TempCtrl.Ctrl.HeatValue);
+(Proc.currTemp=(rawHLTTemp*1000));
+
+}break;case 0:{
+(Proc.TempCtrl.PWM.Enable=0);
+(Proc.TempCtrl.Ctrl.Enable=1);
+
+(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
+(Proc.TempCtrl.PWM.MinPulseWidth=1.00000001490116119385E-01);
+(Proc.TempCtrl.PWM.Period=1.00000000000000000000E+00);
+(Proc.currTemp=(rawHLTTemp*1000));
+
+}break;}
+
+
+(KettleTmr.PT=(plctime)(TimePre*60000));
+
+(KettleTmr.IN=StartKettle);
+
+
+TIME_TO_TIMEStructure((KettleTmr.PT-KettleTmr.ET),((unsigned long)(&TmrDT)));
+usint2str(TmrDT.hour,HrRe,5);
+usint2str(TmrDT.minute,MinRe,5);
+usint2str(TmrDT.second,SecRe,5);
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(HrRe,":"); for(zzIndex=0; zzIndex<10l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,MinRe); for(zzIndex=0; zzIndex<10l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,":"); for(zzIndex=0; zzIndex<10l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,SecRe); for(zzIndex=0; zzIndex<10l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+
+
+
+if(KettleTmr.Q){
+(StartKettle=0);
+(Proc.i.Start=0);
+}
+
 
 MpTempController(&Proc.TempCtrl.Ctrl);
 MTBasicsPWM(&Proc.TempCtrl.PWM);
+TON(&KettleTmr);
 }}
-#line 12 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.nodebug"
-#line 14 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.st"
+#line 99 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.nodebug"
+#line 101 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 17 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.nodebug"
+#line 104 "C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/ProcessControl/Kettle/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

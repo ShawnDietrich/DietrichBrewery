@@ -2,13 +2,13 @@ WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=HLT
 Position X=0 Y=0 Width=0 Height=0 TabWidth Name=81 Type=0 Scope=0 Force=0 Index=2 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
                              FromMashCyc                                MashToHLT    0 "                                                               *"    0   24    1    0    0    1         
-                                   Start                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
-                                 HLTTemp                                     REAL    0 "                                                           100.0"    1    8    1   10    0    0         
+                                   Start                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                 HLTTemp                                     REAL    0 "                                                            78.0"    1    8    1   10    0    0         
                                     Proc                              ProcControl    0 "                                                               *"    0   24    1    0    1    1         
                                 setPower                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
-                               currPower                                     REAL    0 "                                                      4.64169359"    1    8    1   10    0    0         
-                                currTemp                                     REAL    0 "                                                      26.0906429"    1    8    1   10    0    0         
-                                 SetTemp                                     REAL    0 "                                                           100.0"    1    8    1   10    0    0         
+                               currPower                                     REAL    0 "                                                      22.6665764"    1    8    1   10    0    0         
+                                currTemp                                     REAL    0 "                                                      62.8772545"    1    8    1   10    0    0         
+                                 SetTemp                                     REAL    0 "                                                            78.0"    1    8    1   10    0    0         
                                 TempCtrl                                 TempCont    0 "                                                               *"    1   24    1    0    0    0         
                                     Ctrl                         MpTempController    0 "                                                               *"    2   24    1    0    0    0         
                                   MpLink                                    UDINT    0 "                                                               *"    3    7    1   10    0    0         
@@ -188,7 +188,7 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=81 Type=0 Scope=0 Force=0 Index=
                            OnTimeCounter                                     REAL    0 "                                                               *"    4    8    1   10    0    0         
                                UpdateOld                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
                                EnableOld                                     BOOL    0 "                                                               *"    4    1    1    2    0    0         
-                                   State                                     DINT    0 "                                                               2"    1    4    1   10    0    0 e,0,Manu
+                                   State                                     DINT    0 "                                                               3"    1    4    1   10    0    0 e,0,Manu
 
                                   Status                             SystemStatus    0 "                                                               *"    1   24    1    0    0    0         
                                Automatic                                     BOOL    0 "                                                               *"    2    1    1    2    0    0         
@@ -200,7 +200,7 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=81 Type=0 Scope=0 Force=0 Index=
                                        i                              SystemInput    0 "                                                               *"    1   24    1    0    0    1         
                               ResetError                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                    EStop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                    Auto                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Auto                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
                                     Stop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                    Pause                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                   Start                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Start                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         

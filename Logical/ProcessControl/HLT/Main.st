@@ -7,7 +7,7 @@ PROGRAM _CYCLIC
 	//Initilize Temp Controller FB
 	Proc.TempCtrl.Ctrl.Parameters := ADR(Proc.TempCtrl.Ptr);
 	Proc.TempCtrl.Ctrl.MpLink := ADR(Cfg_HLTTemp);
-	//Map Variables ASasds dadasdadadawaswdawdawdsawdsawdaw
+	//Map Variables
 	Proc.TempCtrl.Ctrl.Control := Proc.i.Start;
 	Proc.TempCtrl.Ctrl.ErrorReset := Proc.i.ResetError;
 	

@@ -26,17 +26,17 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\widgets\brease\numpad\meta\numpad_copied.markerfile" LastWriteTime="2021-12-03 13:02:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\widgets\brease\keyboard\meta\keyboard_copied.markerfile" LastWriteTime="2021-12-03 13:02:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\widgets\brease\datetimepicker\meta\datetimepicker_copied.markerfile" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job" LastWriteTime="2021-12-03 17:54:34" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job" LastWriteTime="2022-01-10 21:23:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile" LastWriteTime="1601-01-01 00:00:00" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\transformations\eventbinding\parametertypemapping.xml" LastWriteTime="2021-12-03 17:54:36" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json" LastWriteTime="2021-12-03 17:54:36" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2021-12-03 17:54:36" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\mainpagecontent_binding.binding._markerfile" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\transformations\eventbinding\parametertypemapping.xml" LastWriteTime="2022-01-10 21:23:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json" LastWriteTime="2022-01-10 21:23:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2022-01-10 21:23:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\mainpagecontent_binding.binding._markerfile" LastWriteTime="2022-01-10 21:23:12" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validateeventbindings._markerfile" LastWriteTime="2021-12-03 13:02:30" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\__systemvariables.sessionvar" LastWriteTime="2021-12-03 13:02:30" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\vis_0.vis" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.widgets._markerfile" LastWriteTime="2021-12-03 17:54:46" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.widgets._markerfile" LastWriteTime="2022-01-10 21:23:28" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css" LastWriteTime="2022-01-10 21:23:12" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\config.mappviewcfg" LastWriteTime="2021-11-20 17:12:02" />
   </Rule>
   <Rule ID=".mappView_IntegrationBuild">
@@ -186,7 +186,7 @@
     <CommandLine Parameter="-category CopyDirectory -i &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/Widgets/brease/DateTimePicker&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/BRVisu/widgets/brease/DateTimePicker&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/BRVisu/widgets/brease/DateTimePicker/meta/DateTimePicker_Copied.markerFile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job" LastWriteTime="2021-12-03 17:54:34" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job" LastWriteTime="2022-01-10 21:23:10" />
     <CommandLine Parameter="-category BulkCopy -i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/IAT_MEDIA.job&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/IAT_MEDIA.job._markerfile&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/IAT_MEDIA.job._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\index.html">
@@ -201,7 +201,7 @@
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\transformations\eventbinding\parametertypemapping.xml" LastWriteTime="2020-09-29 11:34:04" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\widgetlibrary.mapping" LastWriteTime="2020-09-29 11:10:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2021-12-03 17:54:30" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2022-01-10 21:23:02" />
     <CommandLine Parameter=" &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/Transformations/eventbinding/ParameterTypeMapping.xml&quot; &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/Widgets/brease/WidgetLibrary.mapping&quot;  -category &quot;MappingMerge&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/Transformations/eventbinding/ParameterTypeMapping.xml&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json._markerfile">
@@ -212,16 +212,16 @@
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json">
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\visualizat.vis" LastWriteTime="2021-11-20 17:12:02" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile" LastWriteTime="2022-01-10 21:23:12" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2022-01-10 21:23:12" />
     <CommandLine Parameter="-i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Physical/Config1/X20CP0482/mappView/Visualizat.vis&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/vis_0.json&quot; -indexFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/BR.IAT.indexfile&quot; -fileList &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/vis_0_json.bin&quot; -logicalDir &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile">
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\main.page" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2022-01-10 21:23:12" />
     <CommandLine Parameter="-i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/mappView/Visualization/Pages/Main/Main.page&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/MainPage.page._markerfile&quot; -schemaset &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/Schemas/page/engineering/PageDefinition.xmlschemaset&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile">
@@ -230,7 +230,7 @@
     <CommandLine Parameter="-i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Logical/mappView/Layouts/Layout.layout&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/DesktopLayout.layout._markerfile&quot; -schemaset &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/Schemas/layout/Layout.xmlschemaset&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2021-12-03 17:54:30" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2022-01-10 21:23:02" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\widgets\brease\groupbox\meta\groupbox_copied.markerfile" LastWriteTime="2021-12-03 13:02:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\widgets\brease\toggleswitch\meta\toggleswitch_copied.markerfile" LastWriteTime="2021-12-03 13:02:10" />
@@ -243,24 +243,24 @@
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css">
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" LastWriteTime="2022-01-10 21:23:12" />
     <CommandLine Parameter="-command &quot;buildStyleableProperties&quot; -i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/BRVisu/css/pages/MAPPVIEW/VISUALIZATION/PAGES/MAIN/CONTENT.scss&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/BRVisu/css/pages/MAPPVIEW/VISUALIZATION/PAGES/MAIN/CONTENT.scss.css&quot; -iatc &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1/IATC&quot; -domain &quot;C:/BrAutomation/AS410/AS/TechnologyPackages/mappView/5.12.1&quot; -workingDir &quot;.&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validatebindings._markerfile">
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2021-12-03 16:16:08" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2022-01-10 21:11:30" />
     <CommandLine Parameter="-category &quot;bindings&quot; -iatFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/IatFiles.bin&quot; -opcUaFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/opcUaFileList.bin&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/ValidateBindings._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\duplicatebindingsfinder._markerfile">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validatebindings._markerfile" LastWriteTime="2021-12-03 16:16:14" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2021-12-03 16:16:08" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validatebindings._markerfile" LastWriteTime="2022-01-10 21:11:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2022-01-10 21:11:30" />
     <CommandLine Parameter="-iatFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/IatFiles.bin&quot; -category &quot;bindings&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/DuplicateBindingsFinder._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\mainpagecontent_binding.binding._markerfile">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2021-12-03 16:16:08" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" LastWriteTime="2022-01-10 21:11:30" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\transformations_copy._markerfile" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2021-12-03 17:54:30" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" LastWriteTime="2022-01-10 21:23:02" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\numericinput\meta\numericinput.widget" LastWriteTime="2020-09-29 11:10:02" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\numericoutput\meta\numericoutput.widget" LastWriteTime="2020-09-29 11:10:10" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\toggleswitch\meta\toggleswitch.widget" LastWriteTime="2020-09-29 11:10:18" />
@@ -278,7 +278,7 @@
     <CommandLine Parameter="-iatFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/IatFiles.bin&quot; -category &quot;stylessets&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/DuplicateStylesSetsFinder._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\duplicatestylesfinder._markerfile">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\br.iat.widgetsfile" LastWriteTime="2021-12-03 15:03:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\br.iat.widgetsfile" LastWriteTime="2022-01-10 18:48:44" />
     <CommandLine Parameter="-iatFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/IatFiles.bin&quot; -category &quot;styles&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/DuplicateStylesFinder._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\__systemvariables.sessionvar">
@@ -295,7 +295,7 @@
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.widgets._markerfile">
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\.mappview_prerequisites._markerfile" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\br.iat.widgetsfile" LastWriteTime="2021-12-03 15:03:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\br.iat.widgetsfile" LastWriteTime="2022-01-10 18:48:44" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\area_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\body_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\dialog_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
@@ -305,7 +305,7 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\scrollbar_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\startupprogressbar_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\tooltip_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2022-01-10 21:23:12" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\css\brease_main.sass.css" LastWriteTime="2020-09-29 11:09:16" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\css\brease_suffix.sass.css" LastWriteTime="2020-09-29 11:09:16" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\system\widgets\contentloader\css\contentloader.sass.css" LastWriteTime="2020-09-29 11:09:16" />
@@ -584,7 +584,7 @@
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\webviewer\meta\webviewer_default.sass.css" LastWriteTime="2020-09-29 11:10:26" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\window\meta\window_default.sass.css" LastWriteTime="2020-09-29 11:10:26" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\widgets\brease\xyjoystick\meta\xyjoystick_default.sass.css" LastWriteTime="2020-09-29 11:10:26" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css" LastWriteTime="2022-01-10 21:23:12" />
     <CommandLine Parameter="-workingDir &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/build/node_modules/.bin&quot; -gruntCommand &quot;breaseBuildAs --buildpath=&quot;&quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot&quot;&quot;&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/wwwRoot/grunt.widgets._markerfile&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css">
@@ -598,7 +598,7 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\scrollbar_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\startupprogressbar_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\types\tooltip_default.scss.css" LastWriteTime="2021-12-03 13:02:28" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2021-12-03 17:54:36" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" LastWriteTime="2022-01-10 21:23:12" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\css\brease_main.sass.css" LastWriteTime="2020-09-29 11:09:16" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\css\brease_suffix.sass.css" LastWriteTime="2020-09-29 11:09:16" />
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\iatc\brvisu\system\widgets\contentloader\css\contentloader.sass.css" LastWriteTime="2020-09-29 11:09:16" />
@@ -884,9 +884,9 @@
     <CommandLine Parameter="-category CopyFile -i &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Physical/Config1/X20CP0482/mappView/Config.mappviewcfg&quot; -o &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/server/Config.mappviewcfg&quot; -markerFile &quot;C:/projects/DietrichBrewing/DietrichBrewery-master/DietrichBrewery-master/Temp/Objects/Config1/X20CP0482/.mappView/data/server/Config.mappviewcfg&quot; -cultureName &quot;en-CA&quot; -uiCultureName &quot;en-US&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\opcuamap\opcuamap.uar">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\connectivity\opcua\opcuamap.uad" LastWriteTime="2021-12-03 14:59:42" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\connectivity\opcua\opcuamap.uad" LastWriteTime="2022-01-10 21:06:50" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\hlt\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.sw" LastWriteTime="2021-11-23 16:13:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
@@ -894,32 +894,34 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\hlt\variables.var" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\hmicontrol\hmiprogram\variables.var" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\Connectivity\OpcUA\OpcUaMap.uad&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\OpcUaMap\OpcUaMap.uar&quot; -H &quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot; -B B4.91 -c Config1 -P &quot;$(AS_PROJECT_PATH)&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\ashwac.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ashwac.br&quot; -L &quot;AsIecCon: V*, AsIODiag: V*, astime: V*, brsystem: V*, Functions: V*, MpBase: V5.12.0, MpTemp: V5.12.0, MTBasics: V5.12.0, MTTypes: V1.03.4, operator: V*, runtime: V*, standard: V*, sys_lib: V*&quot; -c &quot;Config1&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -M IA32 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -s &quot;Config1&quot; -T SG4 " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\sysconf.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot;  -c &quot;Config1&quot; -sysconf -S &quot;X20CP0482&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\sysconf.br&quot; -T SG4 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -s &quot;Config1&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\asfw.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <Prerequisite ID="c:\brautomation\as410\upgrades\modified.txt" LastWriteTime="2021-11-12 18:34:40" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot;  -v V1.00.0 -S &quot;X20CP0482&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\asfw.br&quot; -T SG4 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -c &quot;Config1&quot; -zip -s &quot;Config1&quot; -firmware -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\ashwd.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <Prerequisite ID="c:\brautomation\as410\upgrades\modified.txt" LastWriteTime="2021-11-12 18:34:40" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot;  -v V1.00.0 -S &quot;X20CP0482&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ashwd.br&quot; -T SG4 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -c &quot;Config1&quot; -zip -s &quot;Config1&quot; -hwd -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\arconfig.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\iomap.iom" LastWriteTime="2021-11-20 17:12:00" />
-    <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot; &quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\IoMap.iom&quot;  -arconfig -C &quot;/RT=1000 /AM=*&quot; -D &quot;/IF=COM1 /BD=57600 /PA=2 /IT=20 /RS=0&quot; -c &quot;Config1&quot; -v V1.00.0 -S &quot;X20CP0482&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\arconfig.br&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ChannelConfiguration.xml&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HardwareConfiguration.xml&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ReActionTechnologyConfiguration.xml&quot; -T SG4 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -s &quot;Config1&quot; " />
+    <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\Hardware.hw&quot; &quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\IoMap.iom&quot;  -arconfig -C &quot;/COMT=2500 /RT=1000 /AM=* /SDT=5 /DAIP=172.30.48.50 /REPO=11159 /ANSL=1 /PT=11169&quot; -D &quot;/IF=tcpip /LOPO=11159 /SA=1&quot; -c &quot;Config1&quot; -v V1.00.0 -S &quot;X20CP0482&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\arconfig.br&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ChannelConfiguration.xml&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HardwareConfiguration.xml&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\ReActionTechnologyConfiguration.xml&quot; -T SG4 -B B4.91 -P &quot;$(AS_PROJECT_PATH)&quot; -s &quot;Config1&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mvloader.br">
     <Prerequisite ID="c:\brautomation\as410\as\technologypackages\mappview\5.12.1\transfer\modules\sg4\ia32\mvloader.br" LastWriteTime="2020-06-30 09:28:40" />
@@ -932,7 +934,7 @@
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iomap.br">
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\iomap.iom" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\pvmap.vvm" LastWriteTime="2021-11-20 17:12:00" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2021-12-03 15:59:38" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\hardware.hw" LastWriteTime="2022-01-10 21:12:44" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.sw" LastWriteTime="2021-11-23 16:13:10" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\channelconfiguration.xml" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
@@ -973,16 +975,22 @@
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\mappServices\Config_1.mpalarmxcore&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Config_1.br&quot; -zip -B B4.91 -z 5.12.1 -P &quot;$(AS_PROJECT_PATH)&quot; -c &quot;Config1&quot; " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\kettle.ox" LastWriteTime="2021-12-03 13:02:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\kettle.ox" LastWriteTime="2022-01-10 21:22:32" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.per" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Kettle.ox&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle.br&quot; -v V1.00.0 -f &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\NT.ofs&quot; -offsetLT &quot;$(AS_PROJECT_PATH)\Binaries\Config1\X20CP0482\LT.ofs&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -extConstants -d &quot;runtime: V* - V*,asieccon: V* - V*&quot; -r Cyclic1 -p 2 -s &quot;ProcessControl.Kettle&quot; -L &quot;AsIecCon: V*, AsIODiag: V*, astime: V*, brsystem: V*, Functions: V*, MpBase: V5.12.0, MpTemp: V5.12.0, MTBasics: V5.12.0, MTTypes: V1.03.4, operator: V*, runtime: V*, standard: V*, sys_lib: V*&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="VolatileMemory" Value="65535" />
     <AdditionalBuildTrigger Key="PermanentAnalogMemory" Value="0" />
@@ -990,86 +998,122 @@
     <AdditionalBuildTrigger Key="RemanentMemory" Value="0" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\kettle.ox">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\a.out" LastWriteTime="2021-12-03 13:02:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\a.out" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\a.out&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Kettle.ox&quot; -T SG4 -r Cyclic1 -G V4.1.2  -B B4.91 " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\a.out">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.o" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter=" -link &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.o&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\_bur_pvdef.st.o&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\a.out&quot; -G V4.1.2  -T SG4 -M IA32 &quot;-Wl,$(AS_PROJECT_PATH)\Temp\Archives\Config1\X20CP0482\libFunctions.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\SG4\Ia32\libMTBasics.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIecCon.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIODiag.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libsys_lib.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libbrsystem.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\SG4\Ia32\libMpTemp.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libastime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libstandard.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\SG4\Ia32\libMTTypes.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\SG4\Ia32\libMpBase.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libruntime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\liboperator.a&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -nostdlib &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\lib\libm.a&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.c">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\main.st" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\main.st" LastWriteTime="2022-01-10 21:22:18" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle\Main.st&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.c&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.Kettle&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -pointers -extComments -extBitAccess -extConstants -D _SG4 -l &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle\Variables.var&quot; -g &quot;$(AS_PROJECT_PATH)\Logical\Global.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempError.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempAlarm.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Functions.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Global.var&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\AS_TempDecl\Config1\GlobalComponents\MpComponents.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Constants.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.var&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.c" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.c" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.c&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.o&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.Kettle&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -I &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl\Kettle&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes&quot; -ansi -D _DEFAULT_INCLUDES -D _SG4 -fPIC -O0 -g -Wall -w -include &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Libraries.h&quot; -ansic -x c -P &quot;$(AS_PROJECT_PATH)&quot;" />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.c">
     <Prerequisite ID="c:\brautomation\as410\as\gnuinst\v4.1.2\4.9\i386-elf\include\bur\_bur_pvdef.st" LastWriteTime="2021-01-20 09:54:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\include\bur\_bur_pvdef.st&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\_bur_pvdef.st.c&quot; -S &quot;Main.st&quot;  -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.Kettle&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -pointers -extComments -extBitAccess -extConstants -D _SG4 -l &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle\Variables.var&quot; -g &quot;$(AS_PROJECT_PATH)\Logical\Global.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempError.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempAlarm.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Functions.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Global.var&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\AS_TempDecl\Config1\GlobalComponents\MpComponents.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Constants.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.var&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.c" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\_bur_pvdef.st.c" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle\main.st.o" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemperror.typ" LastWriteTime="2021-11-20 17:11:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2021-11-20 17:12:00" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\kettle\variables.var" LastWriteTime="2022-01-10 21:18:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappcontrol\config.tempcontroller" LastWriteTime="2021-11-20 17:12:02" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\_bur_pvdef.st.c&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Kettle\_bur_pvdef.st.o&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.Kettle&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -I &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\Kettle&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl\Kettle&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes&quot; -trigraphs -fno-asm -D _DEFAULT_INCLUDES -D _SG4 -fPIC -O0 -g -Wall -include &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Libraries.h&quot; -P &quot;$(AS_PROJECT_PATH)&quot;" />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\hlt.ox" LastWriteTime="2021-12-03 13:02:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\hlt.ox" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.per" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
@@ -1089,7 +1133,7 @@
     <AdditionalBuildTrigger Key="RemanentMemory" Value="0" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\hlt.ox">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\a.out" LastWriteTime="2021-12-03 13:02:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\a.out" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1104,8 +1148,8 @@
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HLT\a.out&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HLT\HLT.ox&quot; -T SG4 -r Cyclic2 -G V4.1.2  -B B4.91 " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\a.out">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1120,7 +1164,7 @@
     <CommandLine Parameter=" -link &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HLT\Main.st.o&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HLT\_bur_pvdef.st.o&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\HLT\a.out&quot; -G V4.1.2  -T SG4 -M IA32 &quot;-Wl,$(AS_PROJECT_PATH)\Temp\Archives\Config1\X20CP0482\libFunctions.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\SG4\Ia32\libMTBasics.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIecCon.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIODiag.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libsys_lib.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libbrsystem.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\SG4\Ia32\libMpTemp.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libastime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libstandard.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\SG4\Ia32\libMTTypes.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\SG4\Ia32\libMpBase.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libruntime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\liboperator.a&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -nostdlib &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\lib\libm.a&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.c">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\hlt\main.st" LastWriteTime="2021-11-23 17:42:46" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\hlt\main.st" LastWriteTime="2022-01-10 19:24:20" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1136,7 +1180,7 @@
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.c" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.c" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1153,7 +1197,7 @@
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.c">
     <Prerequisite ID="c:\brautomation\as410\as\gnuinst\v4.1.2\4.9\i386-elf\include\bur\_bur_pvdef.st" LastWriteTime="2021-01-20 09:54:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1169,8 +1213,8 @@
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.c" LastWriteTime="2021-12-03 13:02:10" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2021-12-03 13:02:10" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\_bur_pvdef.st.c" LastWriteTime="2022-01-10 19:24:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1294,11 +1338,12 @@
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun.br">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\mashtun.ox" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\mashtun.ox" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.per" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1307,6 +1352,7 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\MashTun.ox&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun.br&quot; -v V1.00.0 -f &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\NT.ofs&quot; -offsetLT &quot;$(AS_PROJECT_PATH)\Binaries\Config1\X20CP0482\LT.ofs&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -extConstants -d &quot;runtime: V* - V*,asieccon: V* - V*&quot; -r Cyclic4 -p 4 -s &quot;ProcessControl.MashTun&quot; -L &quot;AsIecCon: V*, AsIODiag: V*, astime: V*, brsystem: V*, Functions: V*, MpBase: V5.12.0, MpTemp: V5.12.0, MTBasics: V5.12.0, MTTypes: V1.03.4, operator: V*, runtime: V*, standard: V*, sys_lib: V*&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="VolatileMemory" Value="65535" />
     <AdditionalBuildTrigger Key="PermanentAnalogMemory" Value="0" />
@@ -1314,10 +1360,11 @@
     <AdditionalBuildTrigger Key="RemanentMemory" Value="0" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\mashtun.ox">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\a.out" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\a.out" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1326,14 +1373,16 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\a.out&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\MashTun.ox&quot; -T SG4 -r Cyclic4 -G V4.1.2  -B B4.91 " />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\a.out">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2021-12-03 17:53:04" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.o" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1342,13 +1391,15 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter=" -link &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.o&quot; &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\_bur_pvdef.st.o&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\a.out&quot; -G V4.1.2  -T SG4 -M IA32 &quot;-Wl,$(AS_PROJECT_PATH)\Temp\Archives\Config1\X20CP0482\libFunctions.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\SG4\Ia32\libMTBasics.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIecCon.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libAsIODiag.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libsys_lib.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libbrsystem.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\SG4\Ia32\libMpTemp.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libastime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libstandard.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\SG4\Ia32\libMTTypes.a&quot; &quot;-Wl,$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\SG4\Ia32\libMpBase.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\libruntime.a&quot; &quot;-Wl,C:\BrAutomation\AS\System\B0491\SG4\Ia32\liboperator.a&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -nostdlib &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\lib\libm.a&quot;" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.c">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\main.st" LastWriteTime="2021-12-03 16:49:54" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\main.st" LastWriteTime="2022-01-10 19:16:46" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1357,14 +1408,16 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun\Main.st&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.c&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.MashTun&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -pointers -extComments -extBitAccess -extConstants -D _SG4 -l &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun\Variables.var&quot; -g &quot;$(AS_PROJECT_PATH)\Logical\Global.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempError.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempAlarm.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Functions.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Global.var&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\AS_TempDecl\Config1\GlobalComponents\MpComponents.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Constants.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.var&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.c" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.c" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1373,15 +1426,17 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.c&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.o&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.MashTun&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -I &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl\MashTun&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes&quot; -ansi -D _DEFAULT_INCLUDES -D _SG4 -fPIC -O0 -g -Wall -w -include &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Libraries.h&quot; -ansic -x c -P &quot;$(AS_PROJECT_PATH)&quot;" />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.c">
     <Prerequisite ID="c:\brautomation\as410\as\gnuinst\v4.1.2\4.9\i386-elf\include\bur\_bur_pvdef.st" LastWriteTime="2021-01-20 09:54:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1390,15 +1445,17 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\include\bur\_bur_pvdef.st&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\_bur_pvdef.st.c&quot; -S &quot;Main.st&quot;  -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.MashTun&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -pointers -extComments -extBitAccess -extConstants -D _SG4 -l &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun\Variables.var&quot; -g &quot;$(AS_PROJECT_PATH)\Logical\Global.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempError.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTempAlarm.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Types.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.typ&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Functions.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.fun&quot; &quot;$(AS_PROJECT_PATH)\Logical\Global.var&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\AS_TempDecl\Config1\GlobalComponents\MpComponents.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\operator\operator.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\runtime\runtime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\astime\astime.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIecCon\AsIecCon.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpTemp\MpTemp.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MpBase\MpBase.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTBasics\MTBasics.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\brsystem\brsystem.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\sys_lib\sys_lib.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\MTTypes\MTTypes.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\Functions\Constants.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\standard\standard.var&quot; &quot;$(AS_PROJECT_PATH)\Logical\Libraries\AsIODiag\AsIODiag.var&quot; -P &quot;$(AS_PROJECT_PATH)&quot; " />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.o">
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.c" LastWriteTime="2021-12-03 17:53:04" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\_bur_pvdef.st.c" LastWriteTime="2022-01-10 19:24:52" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun\main.st.o" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\standard\standard.fun" LastWriteTime="2021-11-20 17:12:00" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\asiodiag\asiodiag.fun" LastWriteTime="2021-11-20 17:11:56" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2021-12-03 15:43:40" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\processcontrol\mashtun\variables.var" LastWriteTime="2022-01-10 19:03:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.var" LastWriteTime="2021-11-23 16:21:16" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\global.typ" LastWriteTime="2021-11-20 17:11:56" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mpbase\mpbase.typ" LastWriteTime="2021-11-20 17:11:58" />
@@ -1407,6 +1464,7 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mptemp\mptemp.fun" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.typ" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\mtbasics\mtbasics.fun" LastWriteTime="2021-11-20 17:11:58" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\logical\libraries\astime\astime.typ" LastWriteTime="2021-11-20 17:11:58" />
     <CommandLine Parameter="&quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\_bur_pvdef.st.c&quot;  -o &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\MashTun\_bur_pvdef.st.o&quot; -T SG4 -M IA32 -B B4.91 -G V4.1.2  -s &quot;ProcessControl.MashTun&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -specs &quot;C:\BrAutomation\AS410\AS\gnuinst\V4.1.2\4.9\i386-elf\specs\I386specs_brelf&quot; -I &quot;$(AS_PROJECT_PATH)\Logical\ProcessControl\MashTun&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl\MashTun&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes\ProcessControl&quot; &quot;$(AS_PROJECT_PATH)\Temp\Includes&quot; -trigraphs -fno-asm -D _DEFAULT_INCLUDES -D _SG4 -fPIC -O0 -g -Wall -include &quot;$(AS_PROJECT_PATH)\Temp\Objects\Config1\X20CP0482\Libraries.h&quot; -P &quot;$(AS_PROJECT_PATH)&quot;" />
     <AdditionalBuildTrigger Key="IecDeclarationsInAnsiC" Value="False" />
   </Rule>
@@ -1483,18 +1541,18 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\arconfig.br" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mvloader.br" LastWriteTime="2020-06-30 09:28:40" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\udbdef.br" LastWriteTime="2021-01-20 09:54:58" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iomap.br" LastWriteTime="2021-12-03 13:02:18" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iomap.br" LastWriteTime="2022-01-10 21:14:28" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\tcdata.br" LastWriteTime="2021-12-03 13:02:20" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\role.br" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\user.br" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\fwrules.br" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\config.br" LastWriteTime="2021-12-03 13:02:18" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\config_1.br" LastWriteTime="2021-12-03 13:02:18" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle.br" LastWriteTime="2021-12-03 13:02:12" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt.br" LastWriteTime="2021-12-03 13:02:12" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettle.br" LastWriteTime="2022-01-10 21:22:32" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hlt.br" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\brewingseq.br" LastWriteTime="2021-12-03 13:02:12" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram.br" LastWriteTime="2021-12-03 13:02:12" />
-    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun.br" LastWriteTime="2021-12-03 17:53:04" />
+    <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mashtun.br" LastWriteTime="2022-01-10 19:24:52" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mptemp.br" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mpbase.br" LastWriteTime="2021-11-20 17:11:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\mtbasics.br" LastWriteTime="2021-11-20 17:11:58" />
@@ -1506,6 +1564,6 @@
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\standard.br" LastWriteTime="2021-04-20 08:27:20" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\asiodiag.br" LastWriteTime="2021-04-20 08:26:58" />
     <Prerequisite ID="$(AS_PROJECT_PATH)\physical\config1\x20cp0482\cpu.sw" LastWriteTime="2021-11-23 16:13:10" />
-    <CommandLine Parameter=" &quot;$(AS_PROJECT_PATH)\DietrichBrewing.apj&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -o &quot;$(AS_PROJECT_PATH)\Binaries&quot; -c &quot;Config1&quot; -i &quot;C:\BrAutomation\AS410&quot; -S &quot;X20CP0482&quot; -A &quot;X20CP04xx&quot; -pil -swFiles &quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\Cpu.sw&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -C &quot;/RT=1000 /AM=*&quot; -D &quot;/IF=COM1 /BD=57600 /PA=2 /IT=20 /RS=0&quot; -M IA32 -T SG4" />
+    <CommandLine Parameter=" &quot;$(AS_PROJECT_PATH)\DietrichBrewing.apj&quot; -t &quot;$(AS_PROJECT_PATH)\Temp&quot; -o &quot;$(AS_PROJECT_PATH)\Binaries&quot; -c &quot;Config1&quot; -i &quot;C:\BrAutomation\AS410&quot; -S &quot;X20CP0482&quot; -A &quot;X20CP04xx&quot; -pil -swFiles &quot;$(AS_PROJECT_PATH)\Physical\Config1\X20CP0482\Cpu.sw&quot; -Z &quot;mappView: 5.12.1, mapp: 5.12.1, mappControl: 5.12.0, Connectivity: n.d, UnitSystem: n.d, TextSystem: n.d, ProgrammingSystem: n.d, RemanentData: n.d, AAS: n.d&quot; -C &quot;/COMT=2500 /RT=1000 /AM=* /SDT=5 /DAIP=172.30.48.50 /REPO=11159 /ANSL=1 /PT=11169&quot; -D &quot;/IF=tcpip /LOPO=11159 /SA=1&quot; -M IA32 -T SG4" />
   </Rule>
 </RuleSetOptions>

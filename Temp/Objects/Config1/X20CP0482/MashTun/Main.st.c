@@ -60,15 +60,15 @@ if(((mProc.currTemp<mProc.SetTemp))){
 (MashTmr.IN=StartMash);
 
 
-time2str((MashTmr.PT-MashTmr.ET),TmrRe,81);
+TIME_TO_TIMEStructure((MashTmr.PT-MashTmr.ET),((unsigned long)(&TmrDT)));
+usint2str(TmrDT.hour,HrRe,5);
+usint2str(TmrDT.minute,MinRe,5);
+usint2str(TmrDT.second,SecRe,5);
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(HrRe,":"); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,MinRe); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,":"); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)CONCAT(TmrRemain,SecRe); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 
-{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)DELETE(TmrRe,2,1); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
-
-{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)REPLACE(TmrRemain," ",1,FIND(TmrRemain,"_")); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
-
-{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)REPLACE(TmrRemain," ",1,FIND(TmrRemain,"_")); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
-
-{int zzIndex; plcstring* zzLValue=(plcstring*)TmrRemain; plcstring* zzRValue=(plcstring*)DELETE(TmrRemain,6,8); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 
 
 if(MashTmr.Q){

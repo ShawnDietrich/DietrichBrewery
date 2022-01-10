@@ -55,17 +55,17 @@ PROGRAM _CYCLIC
 			MashTmr.IN := StartMash;
 			
 			//Calculate and display the remaining time
-			TmrRe := TIME_TO_STRING(MashTmr.PT - MashTmr.ET);
-			//Remove the T#
-			TmrRemain := DELETE(TmrRe,2,1);
-			// Find the first '_' in string
-			TmrRemain := REPLACE(TmrRemain, ' ',1,FIND(TmrRemain,'_'));
-			//Find the second '_' in string
-			TmrRemain := REPLACE(TmrRemain, ' ',1,FIND(TmrRemain,'_'));
-			//Remove everything after seconds
-			TmrRemain := DELETE(TmrRemain,6,8);
+			TIME_TO_TIMEStructure((MashTmr.PT - MashTmr.ET), ADR(TmrDT));
+			HrRe 	:= USINT_TO_STRING(TmrDT.hour);
+			MinRe 	:= USINT_TO_STRING(TmrDT.minute);
+			SecRe	:= USINT_TO_STRING(TmrDT.second);
+			TmrRemain := CONCAT(HrRe, ':');
+			TmrRemain := CONCAT(TmrRemain, MinRe);
+			TmrRemain := CONCAT(TmrRemain,':');
+			TmrRemain := CONCAT(TmrRemain, SecRe);
+		
 			
-			
+			//Mash Time is Done Rest Everything
 			IF MashTmr.Q THEN
 				StartMash := FALSE;
 				mProc.i.Start := FALSE;

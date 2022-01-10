@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1638546225_1_
-#define _BUR_1638546225_1_
+#ifndef _BUR_1641841443_1_
+#define _BUR_1641841443_1_
 
 #include <bur/plctypes.h>
 
@@ -13,6 +13,11 @@
 
 
 /* Variables */
+_BUR_LOCAL plcstring SecRe[5];
+_BUR_LOCAL plcstring MinRe[5];
+_BUR_LOCAL plcstring HrRe[5];
+_BUR_LOCAL plcdt RemainTime;
+_BUR_LOCAL struct TIMEStructure TmrDT;
 _BUR_LOCAL signed short NumStart;
 _BUR_LOCAL signed short MillNumPos;
 _BUR_LOCAL signed short CharNumPos;
@@ -41,5 +46,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1638546225_1_ */
+#endif /* _BUR_1641841443_1_ */
 

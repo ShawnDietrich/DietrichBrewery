@@ -42,7 +42,7 @@
 				<Folder Name="server" ProjectDependent="1">
 					<File Name="__SystemVariables.sessionVar" Size="3484" HashValue="4F27B2AC736714506A4AD35EE4C9300A" ProjectDependent="1"/>
 					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1"/>
-					<File Name="MainPageContent_binding.binding" Size="8610" HashValue="B7EC6B3C7B453477923E96F8FD6C8F87" ProjectDependent="1"/>
+					<File Name="MainPageContent_binding.binding" Size="14389" HashValue="764635C547BC85D9A7604A081720EB61" ProjectDependent="1"/>
 					<File Name="vis_0.vis" Size="1274" HashValue="A34659D15187C6E5E8A7F995DF7A7724" ProjectDependent="1"/>
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1">
@@ -567,8 +567,8 @@
 							</Folder>
 						</Folder>
 						<Folder Name="release" ProjectDependent="1">
-							<File Name="brease.js" Size="826980" HashValue="028AF19E27379299B801DA86FD270B61" ProjectDependent="1"/>
-							<File Name="brease_core.min.css" Size="380920" HashValue="A97F8CDACB14FF7C135493B1F72EA0F4" ProjectDependent="1"/>
+							<File Name="brease.js" Size="831347" HashValue="B0EE833CD541AFBF5EE006DA3DAAE936" ProjectDependent="1"/>
+							<File Name="brease_core.min.css" Size="382195" HashValue="CCCF4CA8EF37FC4F04DB402CE9608F5B" ProjectDependent="1"/>
 						</Folder>
 						<Folder Name="system" ProjectDependent="1">
 							<Folder Name="brease" ProjectDependent="1">
@@ -950,6 +950,30 @@
 										<Folder Name="libs" ProjectDependent="1">
 											<File Name="MpLinkHandler.js" Size="12519" HashValue="C397658E0EF904FCE65F2220D8024C94" ProjectDependent="1"/>
 										</Folder>
+									</Folder>
+								</Folder>
+								<Folder Name="DateTimeOutput" ProjectDependent="1">
+									<File Name="DateTimeOutput.html" Size="78" HashValue="6D0D4C5AAA102CBA15C321046D876F53" ProjectDependent="1"/>
+									<File Name="DateTimeOutput.js" Size="8237" HashValue="DFA23CF79B1D26E8BC1B85497ACFE7B9" ProjectDependent="1"/>
+									<Folder Name="css" ProjectDependent="1">
+										<File Name="DateTimeOutput.sass.css" Size="569" HashValue="BB72B5DD3F74F3D129A3B9EE9282E7B7" ProjectDependent="1"/>
+										<File Name="DateTimeOutput.scss" Size="370" HashValue="3B78CEC2322C56C1D34ECCC2EDCB2BA7" ProjectDependent="1"/>
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1">
+										<File Name="ClassInfo.js" Size="1146" HashValue="EC3908712F3C19EED13B89013C1EB3AE" ProjectDependent="1"/>
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1">
+										<File Name="DateTimeOutput.json" Size="15660" HashValue="D695FA91A175DEB839575FD2005F18E9" ProjectDependent="1"/>
+										<File Name="DateTimeOutput.style" Size="6684" HashValue="FBAD0D21E529F81AFE4E9CFF8FAD10C2" ProjectDependent="1"/>
+										<File Name="DateTimeOutput.widget" Size="17268" HashValue="8FCFB19388761388DBBE881733005F9A" ProjectDependent="1"/>
+										<File Name="DateTimeOutput.xsd" Size="3029" HashValue="A9B2188B9BA96E4C98595B7A26B3877C" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_base.scss" Size="678" HashValue="C9502027751410B6EBB128AAF34FD865" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_default.sass.css" Size="573" HashValue="A6DE39DCC17CA358B4D9C29C457AE781" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_default.scss" Size="772" HashValue="449EA04359A0B59132DCA640B1CFF241" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_doc.html" Size="24690" HashValue="5A43387FB1EF2C07B426A9B87E720892" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_EventsActions.xsd" Size="4216" HashValue="C00FEB2D0A7DAC3421AC950C280E8788" ProjectDependent="1"/>
+										<File Name="DateTimeOutput_Styles.xsd" Size="2004" HashValue="4BCDA2BB91CEB34AC8F65377121E14CE" ProjectDependent="1"/>
 									</Folder>
 								</Folder>
 								<Folder Name="DateTimePicker" ProjectDependent="1">
@@ -1528,7 +1552,7 @@
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1">
 						<Folder Name="mappView" ProjectDependent="1">
-							<File Name="MainPageContent.html" Size="23227" HashValue="351C3E2D89E11B5AF23994F747BA383C" ProjectDependent="1"/>
+							<File Name="MainPageContent.html" Size="25347" HashValue="1CB3B63EC8F453ED0D0BF1C51EA52BE0" ProjectDependent="1"/>
 						</Folder>
 					</Folder>
 					<Folder Name="server" ProjectDependent="1">
@@ -1605,7 +1629,7 @@
 			<Folder Name="OPCUA" ProjectDependent="1" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1">
 					<Folder Name="Generated" ProjectDependent="1">
-						<File Name="OpcUaMap.uar.gz" Size="915" HashValue="FE79074A1DA413129C61C87EADF36662" ProjectDependent="1"/>
+						<File Name="OpcUaMap.uar.gz" Size="975" HashValue="E9C243B4C1A708F0A0EF780365956ECD" ProjectDependent="1"/>
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1"/>

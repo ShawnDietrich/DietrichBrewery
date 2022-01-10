@@ -241,7 +241,7 @@
 </LN>
 <LN ID="%IW.IF6.ST2.Temperature01" Type="INT">
 <Prod Device="IF6.ST2" DPName="Temperature01" Kind="io"/>
-<Cons Device="TC#2-CPYDEV" DPName="::rawHLTTemp" Kind="pv"/>
+<Cons Device="TC#1-CPYDEV" DPName="::rawHLTTemp" Kind="pv"/>
 </LN>
 <LN ID="%IW.IF6.ST2.Temperature02" Type="INT">
 <Prod Device="IF6.ST2" DPName="Temperature02" Kind="io"/>
@@ -314,7 +314,7 @@
 <Cons Device="IF6.ST3" DPName="DigitalOutput01" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput02" Type="BOOL">
-<Prod Device="TC#2-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
+<Prod Device="TC#1-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput02" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput03" Type="BOOL">

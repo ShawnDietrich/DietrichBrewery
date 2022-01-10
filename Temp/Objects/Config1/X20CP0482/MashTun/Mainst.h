@@ -525,6 +525,18 @@ typedef struct ProcControl
 } ProcControl;
 #endif
 
+#ifndef __AS__TYPE_TIMEStructure
+#define __AS__TYPE_TIMEStructure
+typedef struct TIMEStructure
+{	signed char day;
+	unsigned char hour;
+	unsigned char minute;
+	unsigned char second;
+	unsigned short millisec;
+	unsigned short microsec;
+} TIMEStructure;
+#endif
+
 #ifndef __AS__TYPE_MpComIdentType
 #define __AS__TYPE_MpComIdentType
 typedef struct MpComIdentType
@@ -532,7 +544,8 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
-_BUR_PUBLIC plcstring* time2str(plctime IN, plcstring pStr[81], unsigned long len);
+_BUR_PUBLIC unsigned long TIME_TO_TIMEStructure(plctime TIME1, unsigned long pTIMEStructure);
+_BUR_PUBLIC plcstring* usint2str(unsigned char IN, plcstring pStr[81], unsigned long len);
 struct TON
 {	plctime PT;
 	plctime ET;
@@ -543,9 +556,7 @@ struct TON
 	plcbit M;
 };
 _BUR_PUBLIC void TON(struct TON* inst);
-_BUR_PUBLIC plcstring* DELETE(plcstring IN[32768], signed short L, signed short P);
-_BUR_PUBLIC plcstring* REPLACE(plcstring IN1[32768], plcstring IN2[32768], signed short L, signed short P);
-_BUR_PUBLIC signed short FIND(plcstring IN1[32768], plcstring IN2[32768]);
+_BUR_PUBLIC plcstring* CONCAT(plcstring IN1[32768], plcstring IN2[32768]);
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
 _BUR_LOCAL struct TON MashTmr;
@@ -554,8 +565,11 @@ _BUR_LOCAL plcbit pbMashPump;
 _BUR_LOCAL plcbit PumpExp;
 _BUR_LOCAL plcbit StartMash;
 _BUR_LOCAL signed long TimePre;
-_BUR_LOCAL plcstring TmrRe[81];
 _BUR_LOCAL plcstring TmrRemain[81];
+_BUR_LOCAL TIMEStructure TmrDT;
+_BUR_LOCAL plcstring HrRe[5];
+_BUR_LOCAL plcstring MinRe[5];
+_BUR_LOCAL plcstring SecRe[5];
 _GLOBAL MashToHLT FromMashCyc;
 _GLOBAL plcbit MashPump;
 _GLOBAL signed short rawMashTemp;

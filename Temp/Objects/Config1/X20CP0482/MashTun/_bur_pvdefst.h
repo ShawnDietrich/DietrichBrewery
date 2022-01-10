@@ -449,6 +449,18 @@ typedef struct ProcControl
 } ProcControl;
 #endif
 
+#ifndef __AS__TYPE_TIMEStructure
+#define __AS__TYPE_TIMEStructure
+typedef struct TIMEStructure
+{	signed char day;
+	unsigned char hour;
+	unsigned char minute;
+	unsigned char second;
+	unsigned short millisec;
+	unsigned short microsec;
+} TIMEStructure;
+#endif
+
 #ifndef __AS__TYPE_MpComIdentType
 #define __AS__TYPE_MpComIdentType
 typedef struct MpComIdentType
@@ -478,3 +490,8 @@ _BUR_LOCAL plcstring TmrRemain[81];
 _BUR_LOCAL signed short CharNumPos;
 _BUR_LOCAL signed short MillNumPos;
 _BUR_LOCAL signed short NumStart;
+_BUR_LOCAL TIMEStructure TmrDT;
+_BUR_LOCAL plcdt RemainTime;
+_BUR_LOCAL plcstring HrRe[5];
+_BUR_LOCAL plcstring MinRe[5];
+_BUR_LOCAL plcstring SecRe[5];
