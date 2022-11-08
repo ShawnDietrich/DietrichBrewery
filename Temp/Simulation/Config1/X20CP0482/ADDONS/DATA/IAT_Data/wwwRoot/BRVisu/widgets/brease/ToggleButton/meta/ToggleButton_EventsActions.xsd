@@ -28,6 +28,12 @@
 			<xs:extension base="s1:widgets.brease.ToggleButton.Action.widgetMethod"></xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="widgets.brease.ToggleButton.Action.Focus">
+		<xs:complexContent>
+			<xs:extension base="s1:widgets.brease.ToggleButton.Action.widgetMethod">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="widgets.brease.ToggleButton.Action.GetValueBool">
 		<xs:complexContent>
 			<xs:extension base="s1:widgets.brease.ToggleButton.ReadAction.widgetMethod">
@@ -83,7 +89,7 @@
 		<xs:complexContent>
 			<xs:extension base="s1:widgets.brease.ToggleButton.Action.widgetMethod">
 				<xs:attribute name="text" type="var:String" use="required"></xs:attribute>
-				<xs:attribute name="keepKey" type="var:Boolean" use="required"></xs:attribute>
+				<xs:attribute name="keepKey" type="var:Boolean" use="optional"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -98,7 +104,7 @@
 		<xs:complexContent>
 			<xs:extension base="s1:widgets.brease.ToggleButton.Action.widgetMethod">
 				<xs:attribute name="text" type="var:String" use="required"></xs:attribute>
-				<xs:attribute name="keepKey" type="var:Boolean" use="required"></xs:attribute>
+				<xs:attribute name="keepKey" type="var:Boolean" use="optional"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -149,6 +155,8 @@
 			<xs:enumeration value="DisabledClick"></xs:enumeration>
 			<xs:enumeration value="DoubleClick"></xs:enumeration>
 			<xs:enumeration value="EnableChanged"></xs:enumeration>
+			<xs:enumeration value="FocusIn"></xs:enumeration>
+			<xs:enumeration value="FocusOut"></xs:enumeration>
 			<xs:enumeration value="MouseDown"></xs:enumeration>
 			<xs:enumeration value="MouseUp"></xs:enumeration>
 			<xs:enumeration value="OnDragEnd"></xs:enumeration>

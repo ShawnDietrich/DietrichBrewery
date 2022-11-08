@@ -44,6 +44,7 @@ define(['brease/objects/Response', 'brease/core/Utils'], function (Response, Uti
         }
         if (this.xhr.status === 0) { // http status
             console.log('%chttp status 0 for server connection!', 'color:#fa00f1;');
+            window._connectionErrorHandler();
         } else {
             if (typeof this.callback === 'function') {
                 this.callback(Response.fromXHR(this.xhr.responseText), this.callbackInfo);
@@ -53,6 +54,7 @@ define(['brease/objects/Response', 'brease/core/Utils'], function (Response, Uti
     }
 
     function _ontimeout() {
+        window._connectionErrorHandler();
         _freeUp.call(this);
     }
 

@@ -1,6 +1,6 @@
 define([
     'widgets/brease/KeyBoard/libs/external/wanakana'
-], function (wanakana) {
+], function (Wanakana) {
 
     'use strict';
 
@@ -8,7 +8,7 @@ define([
      * @class widgets.brease.KeyBoard.RomajiToKana
      * #Description
      * Converts romaji input to kana
-     * @extends Class
+     * @extends Object
      */
     var RomajiToKana = function () {
             this.value = '';
@@ -22,12 +22,10 @@ define([
     };
     p.parseInput = function (value) {
         var arrPhoneticChars = [],
-            hiraganaChar = wanakana.toKana(value, {
-                IMEMode: true,
+            hiraganaChar = Wanakana.toKana(value, {
                 passRomaji: true
             }),
-            katakanaChar = wanakana.toKatakana(hiraganaChar, {
-                IMEMode: true,
+            katakanaChar = Wanakana.toKatakana(hiraganaChar, {
                 passRomaji: true
             });
         if (hiraganaChar.length > 0) {

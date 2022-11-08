@@ -10,23 +10,22 @@ define(['brease/events/BreaseEvent',
     'brease/controller/libs/LoadCycle',
     'brease/controller/libs/ScrollManager',
     'brease/controller/ZoomManager',
-    'brease/controller/libs/Areas',
+    'brease/controller/libs/AreaManager',
     'brease/controller/libs/Containers',
     'brease/controller/libs/Themes',
     'brease/controller/libs/LogCode',
     'brease/controller/objects/Client',
     'brease/controller/objects/PageType',
-    'brease/controller/objects/AssignTypes',
+    'brease/controller/objects/AssignType',
     'brease/controller/objects/VisuStatus',
     'brease/datatype/ZoomType',
-    'brease/objects/AreaInfo',
     'brease/controller/Preloader',
     'brease/controller/ContentManager',
     'brease/controller/objects/ContentStatus',
     'brease/controller/ContentControlObserver',
     'brease/controller/libs/ContentValidator',
     'brease/controller/libs/ContentHelper'],
-function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, PageLogger, PageCycle, LoadCycle, ScrollManager, zoomManager, Areas, containers, Themes, LogCode, Client, PageType, AssignTypes, VisuStatus, ZoomType, AreaInfo, Preloader, contentManager, ContentStatus, ContentControlObserver, ContentValidator, contentHelper) {
+function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, PageLogger, PageCycle, LoadCycle, ScrollManager, zoomManager, AreaManager, containers, Themes, LogCode, Client, PageType, AssignType, VisuStatus, ZoomType, Preloader, contentManager, ContentStatus, ContentControlObserver, ContentValidator, contentHelper) {
 
     'use strict';
 
@@ -41,6 +40,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             init: function init(runtimeService, config, ScrollManagerHelper, injectedContentManager, injectedLoaderPool) {
                 if (this.logger === undefined) {
                     brease.appElem.addEventListener(BreaseEvent.PAGE_CHANGE, _pageChangeRequest.bind(this));
+                    brease.appElem.addEventListener(BreaseEvent.PAGE_LOADED, _pageLoadedHandler.bind(this));
                     this.logger = new PageLogger(this, config);
                 }
                 if (injectedLoaderPool) {
@@ -68,7 +68,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                 if (_loadCycle) { _loadCycle.reset(); }
                 if (_pageCycle) { _pageCycle.reset(); }
                 containers.reset();
-                Areas.reset();
+                AreaManager.reset();
             },
 
             start: function start(visuId, rootContainer, cachingConfig) {
@@ -81,7 +81,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                     loaderPool: _loaderPool
                 });
                 document.body.removeEventListener(BreaseEvent.VISU_ACTIVATED, _visuActivatedListener);
-                Areas.injectDependencies(ScrollManager, rootContainer.id);
+                AreaManager.injectDependencies(ScrollManager, rootContainer.id);
                 $.when(
                     _visuModel.activateVisu(visuId, { visuId: visuId, rootContainer: rootContainer })
                 ).then(_activateStartVisuSuccess, _activateStartVisuFailed);
@@ -108,9 +108,11 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             * @return {Boolean} return.success
             * @return {String} return.code
             */
-            loadPage: function loadPage(pageId, container, config) {
+            loadPage: function loadPage(pageId, container, embedCall) {
                 var response;
-                if (!container) {
+                if (brease.config.preLoadingState === true) {
+                    response = { success: false, code: LogCode.PRELOADING_ACTIVE };
+                } else if (!container) {
                     response = { success: false, code: LogCode.CONTAINER_NOT_FOUND };
                     this.logger.log(response.code, { pageId: pageId, isStartPage: (_visuModel.startPageId === pageId) });
                 } else {
@@ -119,7 +121,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                     if (page !== undefined) {
                         var previousRequest = containers.getLatestRequest(container.id);
                         containers.setLatestRequest(container.id, pageId);
-                        response = _loadPage.call(this, page, container, config);
+                        response = _loadPage.call(this, page, container, embedCall);
                         if (response.success !== true) {
                             containers.setLatestRequest(container.id, previousRequest);
                         }
@@ -255,13 +257,13 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                 var areaId = 'A0',
                     layoutId = widgetId,
                     pageId = 'virtualPage_' + widgetId,
-                    areaObj = Areas.getArea(widgetId, layoutId, areaId, 'Page');
+                    areaObj = AreaManager.getArea(widgetId, layoutId, areaId, 'Page');
 
                 if (areaObj) {
                     if (areaObj.div) {
                         brease.pageController.emptyContainer(areaObj.div);
                     }
-                    Areas.remove(areaObj.id);
+                    AreaManager.remove(areaObj.id);
                 }
                 _visuModel.removeLayout(layoutId);
                 _visuModel.removePage(pageId);
@@ -280,7 +282,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             getContentScrollOffset: function (contentId) {
                 var areaDiv = $('[data-brease-contentid="' + contentId + '"]').closest('.LayoutArea');
                 if (areaDiv.length > 0) {
-                    return Areas.scrollManager.getScrollPosition(areaDiv[0]);
+                    return AreaManager.scrollManager.getScrollPosition(areaDiv[0]);
                 } else {
                     console.iatWarn('getContentScrollOffset: no layout found for content ' + contentId);
                     return undefined;
@@ -328,7 +330,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             /**
             * @method getNavById
             * @param {String} id id of navigation
-            * @return {Object} navigation navigation object
+            * @return {Object} navigation object
             */
             getNavById: function getNavById(id) {
                 return _visuModel.getNavById(id);
@@ -420,7 +422,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             },
 
             getAreaDivId: function getAreaDivId(containerId, layoutId, areaId, pageType) {
-                return Areas.getAreaDivId(containerId, layoutId, areaId, pageType);
+                return AreaManager.getAreaDivId(containerId, layoutId, areaId, pageType);
             },
 
             loadHTML: function loadHTML(url, loopParams) {
@@ -445,7 +447,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             },
 
             refreshArea: function (id) {
-                var area = Areas.get(id);
+                var area = AreaManager.get(id);
                 if (area) {
                     area.refresh();
                 }
@@ -466,7 +468,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                 var areaId = 'A0',
                     layoutId = widgetId,
                     pageId = 'virtualPage_' + widgetId,
-                    areaObj = Areas.getArea(widgetId, layoutId, areaId, 'Page'),
+                    areaObj = AreaManager.getArea(widgetId, layoutId, areaId, 'Page'),
                     pageObj = _visuModel.getPageById(pageId),
                     loaderId = areaObj.innerBox.firstChild.id,
                     assignment = _visuModel.findAssignment(pageObj, areaId),
@@ -477,16 +479,27 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                 _initializeContent(loaderId, contentChange, areaObj, assignment);
             },
 
-            isContentPending: function (contentId) {
-                return this.contentManager.isPending(contentId);
-            },
-
+            /**
+             * @method isContentToBeRemoved
+             * Checks if a content will be removed in page change or if it will still be present on next page.
+             * This method can be only used while pageChange is in progress! (isPageChangeInProgress)
+             * @param {String} contentId 
+             * @returns 
+             */
             isContentToBeRemoved: function (contentId) {
-                return _pageCycle.inProgress && _contentsToRemove.indexOf(contentId) !== -1;
+                return this.isPageChangeInProgress() && _contentsToRemove.indexOf(contentId) !== -1;
             },
 
             isCycleActive: function () {
                 return _pageCycle.inProgress;
+            },
+
+            /**
+             * @method isPageChangeInProgress
+             * @returns Returns true while root page loading is in progress.
+             */
+            isPageChangeInProgress: function () {
+                return _pageCycle.inProgress || _pageLoadInProgress;
             },
 
             addCycleFinishedListener: function (method, data) {
@@ -498,11 +511,15 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
 
                 _pageCycle.removeEventListener('CycleFinished', method);
             },
-            getModel: function () {
-                return [_visuModel, _pageCycle, _loaderPool];
-            },
 
+            /**
+            * @method loadContent
+            * @param {Object} area
+            * @param {Assignment} assignment
+            */
             loadContent: function (area, assignment) {
+                // add latest areaId in which the content was loaded
+                contentManager.setArea(assignment.contentId, area.id);
                 var deferred = new Deferred(Deferred.TYPE_SINGLE, [area, assignment]),
                     content = _visuModel.getContentById(assignment.contentId);
 
@@ -514,6 +531,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             }
         },
         _contentsToRemove = [],
+        _pageLoadInProgress = false,
         _loadCycle = new LoadCycle(),
         _pageCycle, _loaderPool, _visuModel, _rootContainer;
 
@@ -532,22 +550,12 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         PageController.rootContainer = rootContainer;
         PageController.setTheme(_visuModel.startThemeId);
 
-        var _preloader = new Preloader(PageController.contentManager, _loaderPool, brease.config.visu.bootProgressBar),
-            contentsToPreload = _preloader.getContentsToPreload();
+        var preloader = new Preloader(PageController.contentManager, _loaderPool, brease.config.visu.bootProgressBar);
 
-        if (contentsToPreload.length > 0) {
-            brease.config.preLoadingState = true;
-            _preloader.init().then(function () {
-                _preloader.startProcessingQueue().done(function () {
-                    brease.config.preLoadingState = false;
-                    $('#splashscreen').remove();
-                    PageController.loadPage(_visuModel.startPageId, rootContainer);
-                });
-            });
-        } else {
+        preloader.start().then(function () {
             $('#splashscreen').remove();
             PageController.loadPage(_visuModel.startPageId, rootContainer);
-        }
+        });
     }
 
     function _activateStartVisuFailed(visuStatus, code, callbackInfo) {
@@ -623,15 +631,12 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         return false;
     }
 
-    function _loadPage(page, container, config) {
+    function _loadPage(page, container, embedCall) {
+        //embedCall=true => load of a Page embedded in assignment 
         var activeContents = [],
             response,
-            embedCall = (config && config.embedCall), // =load of a Page embedded in assignment
             isAllowedDialog = _isAllowedDialog(page),
             pendingContents = (embedCall) ? [] : this.contentManager.getPendingContents();
-
-        //console.log('%c' + '_loadPage:' + page.id + ',' + container.id, 'color:#00cccc');
-        //console.log('%c' + 'inProgress:' + _pageCycle.inProgress + ', pendingContents:' + pendingContents.length + ',embedCall:' + embedCall, 'color:#00cccc');
 
         // A&P 629100: strategy for loadPage: not allowed as long one content is pending
         if ((_pageCycle.inProgress === false && _loadCycle.inProgress === false && pendingContents.length === 0) || embedCall === true || isAllowedDialog === true) {
@@ -654,6 +659,9 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                     //console.log('%c' + 'contentsToLoad:' + JSON.stringify(contentsToLoad), 'color:#cc9900');
                     //console.log('%c' + 'contentsToRemove:' + JSON.stringify(contentsToRemove), 'color:#cc9900');
                     _loaderPool.startTagMode(contentsToLoad);
+                    if (container.isSameNode(this.rootContainer)) {
+                        _pageLoadInProgress = true;
+                    }
                     if (currentPage === undefined || page.layout !== currentPage.layout) {
                         _emptyContainer.call(this, container);
                         layoutChange = true;
@@ -751,13 +759,14 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             _validateClient();
         }
         _loaderPool.endTagMode();
+        _visuModel.deactivateEmbeddedVisusWithoutActiveContent();
         containers.initPageLoadEvent(callbackInfo);
     }
 
     function _validateClient() {
         var allActivated = _visuModel.allActivated();
 
-        //console.always('_validateClient,allAcivated:' + allAcivated);
+        //console.always('_validateClient,allActivated:' + allActivated);
         if (allActivated) {
             Client.setValid(true);
         } else {
@@ -766,10 +775,10 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
     }
 
     function _visuActivatedListener() {
-        var allAcivated = _visuModel.allActivated();
+        var allActivated = _visuModel.allActivated();
 
-        //console.always('_visuActivatedListener,allAcivated:' + allAcivated);
-        if (allAcivated) {
+        //console.always('_visuActivatedListener,allActivated:' + allActivated);
+        if (allActivated) {
             document.body.removeEventListener(BreaseEvent.VISU_ACTIVATED, _visuActivatedListener);
             Client.setValid(true);
         }
@@ -802,7 +811,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         }
 
         if (page && areaDivId && areaDiv && area && assignment) {
-            _zoomAndStyle.call(this, page, Areas.get(areaDivId), assignment);
+            _zoomAndStyle.call(this, page, AreaManager.get(areaDivId), assignment);
         }
     }
 
@@ -834,7 +843,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         //console.log("_createLayout:", layoutId, container.id, pageType);
         var containerId = container.id;
         if (container.id !== this.rootContainer.id && pageType !== PageType.DIALOG) {
-            container = Areas.get(container.id).contentContainer;
+            container = AreaManager.get(container.id).contentContainer;
         }
 
         var layoutDivId = this.getLayoutDivId(container.id, layoutId),
@@ -850,7 +859,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             layoutDiv.setAttribute('data-brease-layoutId', layoutId);
 
             for (var areaId in layoutObj.areas) {
-                layoutDiv.appendChild(Areas.add(containerId, layoutId, layoutObj.areas[areaId], pageType).div);
+                layoutDiv.appendChild(AreaManager.add(containerId, layoutId, layoutObj.areas[areaId], pageType).div);
             }
             ScrollManager.remove(containerId);
             CoreUtils.prependChild(container, layoutDiv);
@@ -885,12 +894,12 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
 
         for (var areaId in page.assignments) {
             var assignment = page.assignments[areaId],
-                areaObj = layout.areas[areaId];
-            if (areaObj !== undefined) {
+                area = layout.areas[areaId];
+            if (area !== undefined) {
                 var actAssignment = _findAssignment(currentPage, assignment.areaId);
                 if (assignment && actAssignment && (actAssignment.contentId !== assignment.contentId || actAssignment.type !== assignment.type)) {
-                    var area = Areas.getArea(container.id, currentPage.layout, areaId, currentPage.type);
-                    _emptyContainer.call(this, area.div);
+                    var areaObj = AreaManager.getArea(container.id, currentPage.layout, areaId, currentPage.type);
+                    _emptyContainer.call(this, areaObj.div);
                 }
                 omittedAreas.splice(omittedAreas.indexOf(areaId), 1);
             }
@@ -903,9 +912,9 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
 
     function _removeOmittedAreas(omittedAreas, container, page) {
         for (var i = 0; i < omittedAreas.length; i += 1) {
-            var omittedArea = Areas.getArea(container.id, page.layout, omittedAreas[i], page.type);
-            omittedArea.hide();
-            _emptyContainer.call(this, omittedArea.div);
+            var omittedAreaObj = AreaManager.getArea(container.id, page.layout, omittedAreas[i], page.type);
+            omittedAreaObj.hide();
+            _emptyContainer.call(this, omittedAreaObj.div);
         }
     }
 
@@ -915,16 +924,16 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             omittedAreas = Object.keys(layout.areas);
         for (var areaId in page.assignments) {
             var assignment = page.assignments[areaId],
-                areaObj = layout.areas[areaId];
+                area = layout.areas[areaId];
 
-            if (areaObj !== undefined) {
-                var area = Areas.getArea(container.id, page.layout, assignment.areaId, page.type);
-                _loadBaseContent.call(this, assignment, area);
-                area.setStyle((assignment.style || 'default'));
-                area.show();
+            if (area !== undefined) {
+                var areaObj = AreaManager.getArea(container.id, page.layout, assignment.areaId, page.type);
+                _loadBaseContent.call(this, assignment, areaObj);
+                areaObj.setStyle((assignment.style || 'default'));
+                areaObj.show();
                 omittedAreas.splice(omittedAreas.indexOf(areaId), 1);
             } else {
-                if (assignment.type === AssignTypes.CONTENT) {
+                if (assignment.type === AssignType.CONTENT) {
                     _pageCycle.remove(assignment.contentId);
                 }
                 this.logger.log(LogCode.AREA_NOT_FOUND, {
@@ -942,20 +951,22 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         $(messageArea).html(text);
     }
 
-    function _loadBaseContent(assignment, area) {
+    function _loadBaseContent(assignment, areaObj) {
 
         var self = this;
 
         switch (assignment.type) {
-            case AssignTypes.CONTENT:
+            case AssignType.CONTENT:
                 if (this.contentManager.getActiveState(assignment.contentId) <= ContentStatus.initialized) {
                     this.contentManager.setActiveState(assignment.contentId, ContentStatus.inQueue);
                 }
-                PageController.loadContent(area, assignment).done(function _loadContentSuccess(loaderId, contentChange, area, assignment) {
+                // eslint-disable-next-line no-unused-vars
+                PageController.loadContent(areaObj, assignment).done(function _loadContentSuccess(loaderId, contentChange, area, assignment) {
                     // set area properties and apply zoomFactor
                     _initializeContent.apply(null, arguments);
                     _pageCycle.remove(assignment.contentId);
-
+                    
+                // eslint-disable-next-line no-unused-vars
                 }).fail(function _loadContentFail(code, messageArea, area, assignment) {
 
                     if (code === LogCode.CONTENT_NOT_FOUND) {
@@ -970,19 +981,19 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
                 });
                 break;
 
-            case AssignTypes.PAGE:
+            case AssignType.PAGE:
                 var pageId = assignment.contentId;
-                _internalPageLoad.call(this, pageId, area.div);
-                _zoomAndStyle.call(this, _visuModel.getPageById(pageId), area, assignment);
+                _internalPageLoad.call(this, pageId, areaObj.div);
+                _zoomAndStyle.call(this, _visuModel.getPageById(pageId), areaObj, assignment);
                 _updateZoomFactor(_visuModel.getVisuByStartpage(pageId));
                 break;
 
-            case AssignTypes.VISU:
+            case AssignType.VISU:
 
                 var visuId = assignment.contentId;
                 $.when(_visuModel.activateVisu(visuId, {
                     visuId: visuId,
-                    area: area,
+                    area: areaObj,
                     assignment: assignment
                 })).then(_activateEmbeddedVisuSuccess, _activateEmbeddedVisuFailed);
                 break;
@@ -1123,13 +1134,21 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
     }
 
     function _internalPageLoad(pageId, container) {
-        return this.loadPage(pageId, container, { embedCall: true });
+        return this.loadPage(pageId, container, true);
     }
 
     function _pageChangeRequest(e) {
         var container = document.getElementById(e.detail.containerId);
         if (container !== null) {
             this.loadPage(e.detail.pageId, document.getElementById(e.detail.containerId));
+        }
+    }
+
+    function _pageLoadedHandler(e) {
+        // fallback in case visu not loaded
+        var rootContainerId = this.rootContainer !== undefined ? this.rootContainer.id : brease.appElem.id;
+        if (e.detail.containerId === rootContainerId) {
+            _pageLoadInProgress = false;
         }
     }
 
@@ -1141,7 +1160,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
 
             collection = $container.find('.LayoutArea');
             for (i = 0, l = collection.length; i < l; i += 1) {
-                var area = Areas.get(collection[i].id);
+                var area = AreaManager.get(collection[i].id);
                 if (area) {
                     area.dispose();
                 }
@@ -1232,7 +1251,7 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
             containers.dispose(loaderElem.id);
         });
 
-        $.when(contentHelper.deactivateFinished(activeContents)).then(function (deactivateResult) {
+        $.when(contentHelper.deactivateFinished(activeContents)).then(function () {
             def.resolve();
         });
 
@@ -1248,6 +1267,8 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         PageController.loadContent(area, assignment).done(function _loadContentSuccess() {
             //console.log('_loadContent.done:', loaderId, contentChange, area, assignment);
             // set area properties and apply zoomFactor
+            
+            _visuModel.deactivateEmbeddedVisusWithoutActiveContent();
             _initializeContent.apply(null, arguments);
             _resolve.call(self, def, true);
 

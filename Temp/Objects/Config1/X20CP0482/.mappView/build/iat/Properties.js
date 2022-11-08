@@ -1,4 +1,3 @@
-/*global module*/
 (function () {
 
     'use strict';
@@ -60,6 +59,10 @@
             },
             width: {
                 type: 'AutoSize',
+                use: 'optional' 
+            },
+            tabIndex: {
+                type: 'Integer',
                 use: 'optional' 
             }
         };

@@ -4,6 +4,7 @@ define(function () {
 
     var Extensions = {
         bak: {
+            console: window.console,
             log: window.console.log,
             info: window.console.info,
             warn: window.console.warn,
@@ -21,6 +22,7 @@ define(function () {
                                 track = file.split(':');
                             _logToStorage('log', Date.now(), arguments[0], track[0], track[1], arguments[1]);
                         }
+                        Extensions.bak.log.apply(Extensions.bak.console, arguments);
                     };
                     console.debug = function () {
 
@@ -32,6 +34,7 @@ define(function () {
                                 track = file.split(':');
                             _logToStorage('debug', Date.now(), arguments[0], track[0], track[1], '#0000ff');
                         }
+                        Extensions.bak.debug.apply(Extensions.bak.console, arguments);
                     };
                     console.warn = function () {
 
@@ -43,6 +46,7 @@ define(function () {
                                 track = file.split(':');
                             _logToStorage('warn', Date.now(), arguments[0], track[0], track[1], '#000', '#fffbe6');
                         }
+                        Extensions.bak.warn.apply(Extensions.bak.console, arguments);
                     };
                 } else {
                     Extensions.console.reset();
@@ -130,6 +134,39 @@ define(function () {
 
     $.containsOrEquals = function (container, contained) {
         return container === contained || $.contains(container, contained);
+    };
+
+    // for compatibility (if jquery-ui is removed)
+    $.fn.zIndex = function (zIndex) {
+        if (zIndex !== undefined) {
+            var int = parseInt(zIndex, 10);
+            if (!isNaN(int)) {
+                return this.css('zIndex', int);
+            }
+        }
+
+        if (this.length) {
+            var elem = $(this[ 0 ]), position, value;
+            while (elem.length && elem[ 0 ] !== document) {
+                // Ignore z-index if position is set to a value where z-index is ignored by the browser
+                // This makes behavior of this function consistent across browsers
+                // WebKit always returns auto if the element is positioned
+                position = elem.css('position');
+                if (position === 'absolute' || position === 'relative' || position === 'fixed') {
+                    // IE returns 0 when zIndex is not specified
+                    // other browsers return a string
+                    // we ignore the case of nested elements with an explicit value of 0
+                    // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+                    value = parseInt(elem.css('zIndex'), 10);
+                    if (!isNaN(value) && value !== 0) {
+                        return value;
+                    }
+                }
+                elem = elem.parent();
+            }
+        }
+
+        return 0;
     };
 
     return Extensions;

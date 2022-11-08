@@ -1,4 +1,3 @@
-/*global define*/
 define(['ace/ext/searchbox'],
     function (SearchBox) {
 
@@ -158,6 +157,7 @@ define(['ace/ext/searchbox'],
             //Paste command
             textEditor.editor.commands.addCommand({
                 name: 'vPaste',
+                scrollIntoView: 'cursor',
                 exec: function (editor) {
                     editor.insert(textEditor.getClipboardText());
                 }

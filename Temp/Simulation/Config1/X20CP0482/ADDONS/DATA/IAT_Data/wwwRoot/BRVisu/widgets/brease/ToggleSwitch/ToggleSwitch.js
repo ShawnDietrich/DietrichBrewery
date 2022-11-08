@@ -51,7 +51,7 @@ define([
         unchecked: false
     };
 
-    p.init = function () {
+    p.init = function () {        
         if (this.settings.omitClass !== true) {
             this.addInitialClass('breaseToggleSwitch');
         }
@@ -59,8 +59,8 @@ define([
 
         this.el.empty().append(this.slider);
 
-        this._setWidth = this.setWidth;
-        this._setHeight = this.setHeight;
+        this.calculatedHeight = this.settings.height;
+        this.calculatedWidth = this.settings.width;
 
         _appendWrapper(this);
         _appendText(this);
@@ -68,31 +68,29 @@ define([
 
         SuperClass.prototype.init.call(this);
 
-        this.adjustWrapper();
-
-        if (brease.config.editMode === true) {
-            var widget = this;
-            require(['widgets/brease/ToggleSwitch/libs/EditorHandles'], function (EditorHandles) {
-                var editorHandles = new EditorHandles(widget);
-                widget.getHandles = function () {
-                    return editorHandles.getHandles();
-                };
-                // workaround
-                widget.designer.getSelectionDecoratables = function () {
-                    return editorHandles.getSelectionDecoratables();
-                };
-            });
-        }
+        this.adjustInitSize();
     };
 
-    p.setWidth = function (w) {
-        SuperClass.prototype._setWidth.call(this, w);
-        this.adjustSize();
-    };
-
-    p.setHeight = function (h) {
-        SuperClass.prototype._setHeight.call(this, h);
-        this.adjustSize();
+    p._initEditor = function () {
+        var widget = this;
+        this.elem.addEventListener(BreaseEvent.WIDGET_STYLE_PROPERTIES_CHANGED, function () {
+            widget.calculatedWidth = widget._getCalculatedWidgetWidth();
+            widget.calculatedHeight = widget._getCalculatedWidgetHeight();
+            // change sliderWidth in toggled true state => first reset margin otherwise width gets not applied
+            widget.slider.css('margin-left', 0);
+            widget._calculateWidgetSize();
+            widget.adjustSize();
+        });
+        require(['widgets/brease/ToggleSwitch/libs/EditorHandles'], function (EditorHandles) {
+            var editorHandles = new EditorHandles(widget);
+            widget.getHandles = function () {
+                return editorHandles.getHandles();
+            };
+            // workaround
+            widget.designer.getSelectionDecoratables = function () {
+                return editorHandles.getSelectionDecoratables();
+            };
+        });
     };
 
     /**
@@ -100,7 +98,7 @@ define([
      * @iatStudioExposed
      * Sets the visible text. This method can remove an optional textkey.
      * @param {String} text
-     * @param {Boolean} keepKey Set true, if textkey should not be removed
+     * @param {Boolean} [keepKey=false] Set true, if textkey should not be removed
      */
     p.setText = function (text, keepKey) {
         this.settings.text = text;
@@ -119,6 +117,8 @@ define([
 
         if (this.textEl !== undefined) {
             _textUpdate(this);
+            this._calculateWidgetSize();
+            this.adjustSize();
         }
     };
 
@@ -136,7 +136,7 @@ define([
      * @iatStudioExposed
      * Sets the visible text for checked state. This method can remove an optional textkey.
      * @param {String} text
-     * @param {Boolean} keepKey Set true, if textkey should not be removed
+     * @param {Boolean} [keepKey=false] Set true, if textkey should not be removed
      */
     p.setMouseDownText = function (text, keepKey) {
         this.settings.mouseDownText = text;
@@ -155,6 +155,8 @@ define([
 
         if (this.textEl !== undefined) {
             _textUpdate(this);
+            this._calculateWidgetSize(true);
+            this.adjustSize();
         }
     };
 
@@ -195,12 +197,11 @@ define([
      * @param {ImagePath} image
      */
     p.setImage = function (image) {
-
         var widget = this;
 
         if (image !== undefined && image !== '') {
             this.settings.image = image;
-            if (UtilsImage.isStylable(image)) {
+            if (UtilsImage.isStylable(image) && widget.settings.useSVGStyling) {
                 widget.imgEl.hide();
                 UtilsImage.getInlineSvg(image).then(function (svgElement) {
                     widget.svgEl.replaceWith(svgElement);
@@ -219,6 +220,12 @@ define([
 
     };
 
+    p.setStyle = function (style) {
+        SuperClass.prototype.setStyle.call(this, style);
+        this._calculateWidgetSize();
+        this.adjustSize();
+    };
+
     /**
      * @method setMouseDownImage
      * @iatStudioExposed
@@ -226,12 +233,11 @@ define([
      * @param {ImagePath} mouseDownImage
      */
     p.setMouseDownImage = function (mouseDownImage) {
-
         var widget = this;
 
         if (mouseDownImage !== undefined && mouseDownImage !== '') {
             this.settings.mouseDownImage = mouseDownImage;
-            if (UtilsImage.isStylable(mouseDownImage)) {
+            if (UtilsImage.isStylable(mouseDownImage) && widget.settings.useSVGStyling) {
                 widget.checkedImgEl.hide();
                 UtilsImage.getInlineSvg(mouseDownImage).then(function (svgElement) {
                     widget.checkedSvgEl.replaceWith(svgElement);
@@ -250,7 +256,6 @@ define([
     };
 
     p.toggle = function (status, omitSubmit) {
-
         var sendChange = false;
 
         status = toggleStatus.call(this, status);
@@ -271,11 +276,11 @@ define([
         if (sendChange === true && omitSubmit !== true) {
             /**
              * @event ValueChanged
+             * @iatStudioExposed
+             * Fired when the status of the widget is changed by user interaction
              * @param {Integer} newValue
              * @param {Boolean} newValueBool
              * @param {Integer} newValueInteger
-             * @iatStudioExposed
-             * Fired when the status of the widget is changed by user interaction
              */
             var ev = this.createEvent('ValueChanged', {
                 newValue: this.getValue(),
@@ -285,16 +290,23 @@ define([
             ev.dispatch();
             this.submitChange();
         }
-        this.dispatchEvent(new CustomEvent(BreaseEvent.CHANGE, { bubbles: true, cancelable: true, detail: { checked: this.isChecked() } }));
+        this.dispatchEvent(new CustomEvent(BreaseEvent.CHANGE, { bubbles: true,
+            cancelable: true,
+            detail: { checked: this.isChecked()
+            }
+        }));
 
-        var padding = parseInt(this.el.css('padding'), 10),
+        var padding = parseInt(this.el.css('padding-right'), 10) + parseInt(this.el.css('padding-left'), 10),
             border = parseInt(this.el.css('border-right-width'), 10) + parseInt(this.el.css('border-left-width'), 10);
 
         if (this.settings.value === SuperClass.values.checked) {
-            this.slider.css('margin-left', this.settings.width - this.slider.outerWidth() - padding - border);
+            this.slider.css('margin-left', this.calculatedWidth - this.sliderWidth - padding - border);
         } else {
             this.slider.css('margin-left', 0);
         }
+
+        this._calculateWidgetSize(false);
+        this.adjustSize();
     };
 
     p._downHandler = function (e) {
@@ -306,7 +318,9 @@ define([
 
     p._upHandler = function (e) {
         SuperClass.prototype._upHandler.apply(this, arguments);
-        if (this.isDisabled || brease.config.editMode || Utils.getPointerId(e) !== this.pointerId) { return; }
+        if (this.isDisabled || brease.config.editMode || Utils.getPointerId(e) !== this.pointerId) {
+            return;
+        }
         if (this.currentTargetClicked === e.currentTarget) {
             _setToggleStatusStyle(this, !this.settings.value);
         }
@@ -341,11 +355,20 @@ define([
         }
     };
 
+    p.adjustInitSize = function () {
+        this._calculateWidgetSize();
+        if (this.settings.height === 'auto' || this.settings.width === 'auto') {
+            this.adjustSize();
+        } else {
+            this.adjustWrapper();
+        }
+    };
+
     p.adjustSize = function () {
         //Reset margin for slider
         this.slider.css('margin-left', 0);
-        this.elem.style.width = parseInt(this.settings.width, 10) + 'px';
-        this.elem.style.height = parseInt(this.settings.height, 10) + 'px';
+        this.elem.style.width = parseInt(this.calculatedWidth, 10) + 'px';
+        this.elem.style.height = parseInt(this.calculatedHeight, 10) + 'px';
         this.adjustSlider();
         this.adjustWrapper();
     };
@@ -356,29 +379,166 @@ define([
     };
 
     p.adjustWrapper = function () {
-        var padding = parseInt(this.el.css('padding'), 10),
-            border = parseInt(this.el.css('border-width'), 10);
+        var padding = parseInt(this.el.css('padding-left'), 10),
+            border = parseInt(this.el.css('border-left-width'), 10);
         if (this.wrapperBefore !== undefined && this.wrapperAfter !== undefined) {
-            this.wrapperBefore.css('width', parseInt(this.settings.width, 10) - parseInt(this.slider.outerWidth(), 10) - 3 * padding - 2 * border)
-                .css('left', parseInt(this.slider.outerWidth(), 10) + padding + 'px');       
-            this.wrapperAfter.css('width', parseInt(this.settings.width, 10) - parseInt(this.slider.outerWidth(), 10) - 3 * padding - 2 * border)
-                .css('left', -parseInt(this.settings.width, 10) + parseInt(this.slider.outerWidth(), 10) + 2 * padding + 2 * border + 'px');
+            this.wrapperBefore.css('width', parseInt(this.calculatedWidth, 10) - this.sliderWidth - 3 * padding - 2 * border)
+                .css('left', this.sliderWidth + padding + 'px');
+            this.wrapperAfter.css('width', parseInt(this.calculatedWidth, 10) - this.sliderWidth - 3 * padding - 2 * border)
+                .css('left', -parseInt(this.calculatedWidth, 10) + this.sliderWidth + 2 * padding + 2 * border + 'px');
         }
     };
 
     p.adjustSlider = function () {
-        var padding = parseInt(this.el.css('padding'), 10),
+        var padding = parseInt(this.el.css('padding-right'), 10) + parseInt(this.el.css('padding-left'), 10),
             border = parseInt(this.el.css('border-right-width'), 10) + parseInt(this.el.css('border-left-width'), 10);
         if (this.settings.value === SuperClass.values.checked) {
-            this.slider.css('margin-left', parseInt(this.settings.width, 10) - parseInt(this.slider.outerWidth(), 10) - padding - border);
+            this.slider.css('margin-left', parseInt(this.calculatedWidth, 10) - this.sliderWidth - padding - border);
         } else {
             this.slider.css('margin-left', 0);
         }
     };
 
+    p._calculateWidgetSize = function () {
+        this.sliderWidth = this._getSliderWidth();
+        this.calculatedHeight = this._getCalculatedWidgetHeight();
+        this.calculatedWidth = this._getCalculatedWidgetWidth();
+    };
+
+    p._getCalculatedWidgetHeight = function () {
+        var calculatedHeight;
+        if (this.settings.height === 'auto') {
+            var cssProperties = window.getComputedStyle(this.elem),
+                padding = parseInt(cssProperties.getPropertyValue('padding-top'), 10) + parseInt(cssProperties.getPropertyValue('padding-bottom'), 10),
+                border = parseInt(cssProperties.getPropertyValue('border-top-width'), 10) + parseInt(cssProperties.getPropertyValue('border-bottom-width'), 10),
+                imageHeight = parseInt(this.imgEl.css('height'), 10),
+                textHeight = this._getTextHeight();
+
+            calculatedHeight = textHeight < imageHeight ? imageHeight : textHeight;
+            calculatedHeight = calculatedHeight + padding + border;
+
+            if (this.settings.minHeight !== undefined) {
+                calculatedHeight = calculatedHeight < this.settings.minHeight ? this.settings.minHeight : calculatedHeight;
+            }
+
+            if (this.settings.maxHeight !== undefined) {
+                calculatedHeight = calculatedHeight > this.settings.maxHeight ? this.settings.maxHeight : calculatedHeight;
+            }
+        } else {
+            calculatedHeight = this.settings.height;
+        }
+        return calculatedHeight;
+    };
+
+    p._getCalculatedWidgetWidth = function () {
+        var calculatedWidth;
+        if (this.settings.width === 'auto') {
+            var cssProperties = window.getComputedStyle(this.elem),
+                padding = parseInt(cssProperties.getPropertyValue('padding-right'), 10) + parseInt(cssProperties.getPropertyValue('padding-left'), 10),
+                border = parseInt(cssProperties.getPropertyValue('border-right-width'), 10) + parseInt(cssProperties.getPropertyValue('border-left-width'), 10),
+                imageWidth = this._getImageWidth(),
+                textWidth = this._getTextWidth();
+                
+            calculatedWidth = imageWidth + textWidth + this.sliderWidth + padding + border;
+
+            if (this.settings.minWidth !== undefined) {
+                calculatedWidth = calculatedWidth < this.settings.minWidth ? this.settings.minWidth : calculatedWidth;
+            }
+
+            if (this.settings.maxWidth !== undefined) {
+                calculatedWidth = calculatedWidth > this.settings.maxWidth ? this.settings.maxWidth : calculatedWidth;
+            }
+        } else {
+            calculatedWidth = this.settings.width;
+        }
+        return calculatedWidth;
+    };
+
+    p._getTextHeight = function () {
+        var textHeight = 0,
+            text,
+            cssProperties;
+
+        if (!this.settings.value) {
+            cssProperties = window.getComputedStyle(this.textEl[0]);
+            text = brease.language.unescapeText(this.settings.text);
+        } else {
+            cssProperties = window.getComputedStyle(this.checkedTextEl[0]);
+            text = brease.language.unescapeText(this.settings.mouseDownText);
+        }
+        var textEl = _createTextElement.call(this, cssProperties);
+
+        textEl.text(text);
+
+        this.el.append(textEl);
+        textHeight = Math.ceil(textEl[0].clientHeight);
+        textEl.remove();
+
+        return textHeight;
+    };
+
+    p._getTextWidth = function () {
+        var textWidth = 0,
+            text,
+            cssProperties;
+
+        if (!this.settings.value) {
+            cssProperties = window.getComputedStyle(this.textEl[0]);
+            text = brease.language.unescapeText(this.settings.text);
+        } else {
+            cssProperties = window.getComputedStyle(this.checkedTextEl[0]);
+            text = brease.language.unescapeText(this.settings.mouseDownText);
+        }
+        var textEl = _createTextElement.call(this, cssProperties);
+        textEl.text(text);
+
+        this.el.append(textEl);
+        textWidth = Math.ceil(textEl[0].clientWidth) + 3;
+        textEl.remove();
+
+        return textWidth;
+    };
+
+    p._getSliderWidth = function () {
+        var sliderWidth = 0;
+        if (this.settings.sliderWidth && !Utils.isPercentageValue(this.settings.sliderWidth)) {
+            sliderWidth = this.settings.sliderWidth;
+        } else {
+            sliderWidth = parseInt(this.slider.outerWidth(), 10);
+        }
+        return sliderWidth;
+    };
+
+    p._getImageWidth = function () {
+        var imageWidth = 0;
+
+        if (this.settings.image) {
+            if (this.settings.imageWidth) {
+                imageWidth = parseInt(this.settings.imageWidth, 10);
+            } else {
+                imageWidth = parseInt(this.imgEl.css('width'), 10);
+            }
+        }
+        return imageWidth;
+    };
+
     /*PRIVATE
      **FUNCTIONS*/
 
+    // used for size calculations of text if size is auto
+    function _createTextElement(cssProperties) {
+        var textEl = $('<span/>'),
+            styles = {
+                'font-family': cssProperties.getPropertyValue('font-family'),
+                'font-size': cssProperties.getPropertyValue('font-size'),
+                'font-weight': cssProperties.getPropertyValue('font-weight'),
+                'font-style': cssProperties.getPropertyValue('font-style'),
+                'height': 'auto',
+                'width': 'auto',
+                'position': 'absolute'
+            };
+        return textEl.css(styles);
+    }
     function _appendWrapper(widget) {
 
         widget.wrapperBefore = $('<div/>').addClass('wrapper');
@@ -389,7 +549,7 @@ define([
         widget.svgEl = $('<svg/>').hide();
         widget.checkedSvgEl = $('<svg/>').hide();
 
-        if (UtilsImage.isStylable(widget.settings.image)) {
+        if (UtilsImage.isStylable(widget.settings.image) && widget.settings.useSVGStyling) {
             UtilsImage.getInlineSvg(widget.settings.image).then(function (svgElement) {
                 widget.svgEl.replaceWith(svgElement);
                 widget.svgEl = svgElement;
@@ -399,7 +559,7 @@ define([
             widget.imgEl.attr('src', widget.settings.image).show();
         }
 
-        if (UtilsImage.isStylable(widget.settings.mouseDownImage)) {
+        if (UtilsImage.isStylable(widget.settings.mouseDownImage) && widget.settings.useSVGStyling) {
             UtilsImage.getInlineSvg(widget.settings.mouseDownImage).then(function (svgElement) {
                 widget.checkedSvgEl.replaceWith(svgElement);
                 widget.checkedSvgEl = svgElement;
@@ -422,7 +582,6 @@ define([
     function _appendText(widget) {
 
         widget.textEl = $('<span/>').addClass('before');
-
         widget.checkedTextEl = $('<span/>').addClass('after');
 
         widget.wrapperBefore.append(widget.textEl);
@@ -432,8 +591,8 @@ define([
     }
 
     function _textUpdate(widget) {
-        widget.textEl.text(widget.settings.text);
-        widget.checkedTextEl.text(widget.settings.mouseDownText);
+        widget.textEl.text(brease.language.unescapeText(widget.settings.text));
+        widget.checkedTextEl.text(brease.language.unescapeText(widget.settings.mouseDownText));
     }
 
     function _setToggleStatusStyle(widget, value) {

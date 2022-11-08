@@ -24,18 +24,19 @@ define([
     var p = AxisView.prototype;
 
     /**
+     * @method
      * The create Function is Creating the Element setup
      *
      * This function is unsing following function from UtilsAxis:
      * {@link widgets.brease.common.libs.redux.utils.UtilsAxis#createCombinedAxis UtilsAxis.createCombinedAxis}
      *
-     * @param props structure with all necessary information to create an Axis
+     * @param {Object} props structure with all necessary information to create an Axis
      * @param {HTMLElement} props.elem HTMLElement where the Axis should be added
      * @param {UInteger} props.height height of Axis-Container
      * @param {UInteger} props.width width of Axis-Container
      * @param {brease.enum.TickStyle} props.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} props.orientation Orientation of the Widget
-     * @param props.scale scale for the Axis
+     * @param {Object} props.scale scale for the Axis
      * @param {Number} props.limitMin minimumLimit for Axis
      * @param {Number} props.limitMax maximumLimit for Axis
      * @param {UInteger} props.majorTicks amount of Ticks to be shown on Axis
@@ -53,18 +54,19 @@ define([
     };
 
     /**
+     * @method
      * The render function is updating the View
      *
      * This function is unsing following function from UtilsAxis:
      * {@link widgets.brease.common.libs.redux.utils.UtilsAxis#updateCombinedAxis UtilsAxis.updateCombinedAxis}
      *
-     * @param props structure with all necessary information to create an Axis
+     * @param {Object} props structure with all necessary information to create an Axis
      * @param {HTMLElement} props.elem HTMLElement where the Axis should be added
      * @param {UInteger} props.height height of Axis-Container
      * @param {UInteger} props.width width of Axis-Container
      * @param {brease.enum.TickStyle} props.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} props.orientation Orientation of the Widget
-     * @param props.scale scale for the Axis
+     * @param {Object} props.scale scale for the Axis
      * @param {Number} props.limitMin minimumLimit for Axis
      * @param {Number} props.limitMax maximumLimit for Axis
      * @param {UInteger} props.majorTicks amount of Ticks to be shown on Axis

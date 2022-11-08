@@ -3,6 +3,7 @@
 <xs:complexType name="widgets.brease.KeyBoardRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="-1" />
 			<xs:attribute name="height" use="optional" type="types:Size" default="473" />
 			<xs:attribute name="width" use="optional" type="types:Size" default="957" />
 		</xs:restriction>
@@ -28,6 +29,10 @@
 			<xs:attribute name="shadow" use="optional" type="types:Shadow" default="none" />
 			<xs:attribute name="buttonBackGroundGradient" use="optional" type="types:Gradient" default="" />
 			<xs:attribute name="buttonMouseDownBackGroundGradient" use="optional" type="types:Gradient" default="" />
+			<xs:attribute name="imeBackColor" use="optional" type="types:Color" default="#333333" />
+			<xs:attribute name="imeBackGroundGradient" use="optional" type="types:Gradient" default="" />
+			<xs:attribute name="imeBorderColor" use="optional" type="types:ColorCollection" default="#fff" />
+			<xs:attribute name="imeTextColor" use="optional" type="types:Color" default="#fff" />
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>

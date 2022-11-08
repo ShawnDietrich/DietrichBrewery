@@ -30,7 +30,7 @@ $text-color: #3E3E47;
         overflow: hidden;
         @include text-overflow(ellipsis);
         white-space: nowrap;
-        color: white;
+        color: #fff;
         font-size: 15px;
         margin: 0;
     }

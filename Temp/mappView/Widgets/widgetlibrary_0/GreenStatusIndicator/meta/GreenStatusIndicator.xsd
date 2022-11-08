@@ -3,6 +3,7 @@
 <xs:complexType name="widgets.widgetlibrary_0.GreenStatusIndicatorRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="0" />
 			<xs:attribute name="height" use="optional" type="types:Size" default="12" />
 			<xs:attribute name="width" use="optional" type="types:Size" default="300" />
 		</xs:restriction>

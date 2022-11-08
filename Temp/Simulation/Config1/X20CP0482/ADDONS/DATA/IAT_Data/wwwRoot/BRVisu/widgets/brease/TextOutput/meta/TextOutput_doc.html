@@ -242,6 +242,28 @@ If false, text will never wrap to the next line. The text continues on the same 
 <td class="parameter_tab"></td>
 </tr>
 <tr>
+<td class="parameter_tab">tabIndex</td>
+<td class="parameter_tab">sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+or if autofocus should be disabled (-1)
+</td>
+<td class="parameter_tab">Behavior</td>
+<td class="parameter_tab">Integer</td>
+<td class="parameter_tab">-1</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="true parameter_tab">true</td>
+<td class="false parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">tooltip</td>
 <td class="parameter_tab">reference to a tooltip for a widget
 </td>
@@ -664,25 +686,25 @@ If false, text will never wrap to the next line. The text continues on the same 
 <tbody>
 <tr>
 <td class="parameter_tab">Click</td>
-<td class="parameter_tab"><p>Fired when element is clicked on.</p>
+<td class="parameter_tab">Fired when element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
 
 
 
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
 
 
 
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'</p>
+<p>vertical position of click in pixel i.e '10px'
 
 
 
@@ -693,24 +715,27 @@ If false, text will never wrap to the next line. The text continues on the same 
 </tr>
 <tr>
 <td class="parameter_tab">DisabledClick</td>
-<td class="parameter_tab"><p>Fired when disabled element is clicked on.</p>
+<td class="parameter_tab">Fired when disabled element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
+
 </p>
 </li>
 <li>hasPermission: Boolean
-<p><p>defines if the state is caused due to missing</p>
+<p>defines if the state is caused due to missing roles of the current user
+
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
+
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'
-roles of the current user</p>
+<p>vertical position of click in pixel i.e '10px'
+
 </p>
 </li>
 </ul>
@@ -718,11 +743,11 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">EnableChanged</td>
-<td class="parameter_tab"><p>Fired when operability of the widget changes.</p>
+<td class="parameter_tab">Fired when operability of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>operability</p>
+<p>operability
 
 
 
@@ -732,16 +757,28 @@ roles of the current user</p>
 </td>
 </tr>
 <tr>
+<td class="parameter_tab">FocusIn</td>
+<td class="parameter_tab">Fired when the widgets gets focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">FocusOut</td>
+<td class="parameter_tab">Fired when the widgets lost focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">OnDragEnd</td>
-<td class="parameter_tab"><p>Fired when element has OnDragEnd.</p>
+<td class="parameter_tab">Fired when element has OnDragEnd.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget where the drag operation has ended</p>
+<p>content id of the widget where the drag operation has ended
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget where the drag operation has ended</p>
+<p>id of the widget where the drag operation has ended
 </p>
 </li>
 </ul>
@@ -749,15 +786,15 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragEnter</td>
-<td class="parameter_tab"><p>Fired when element has onDragEnter.</p>
+<td class="parameter_tab">Fired when element has onDragEnter.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been entering the droppable widget</p>
+<p>content id of the widget that has been entering the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been entering the droppable widget</p>
+<p>id of the widget that has been entering the droppable widget
 </p>
 </li>
 </ul>
@@ -765,15 +802,15 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragLeave</td>
-<td class="parameter_tab"><p>Fired when element has OnDragLeave.</p>
+<td class="parameter_tab">Fired when element has OnDragLeave.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been leaving the droppable widget</p>
+<p>content id of the widget that has been leaving the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been leaving the droppable widget</p>
+<p>id of the widget that has been leaving the droppable widget
 </p>
 </li>
 </ul>
@@ -781,15 +818,15 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragStart</td>
-<td class="parameter_tab"><p>Fired when element has OnDragStart.</p>
+<td class="parameter_tab">Fired when element has OnDragStart.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget where the drag operation has been started</p>
+<p>content id of the widget where the drag operation has been started
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget where the drag operation has been started</p>
+<p>id of the widget where the drag operation has been started
 </p>
 </li>
 </ul>
@@ -797,15 +834,15 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDrop</td>
-<td class="parameter_tab"><p>Fired when element has OnDrop.</p>
+<td class="parameter_tab">Fired when element has OnDrop.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been dropped on the droppable widget</p>
+<p>content id of the widget that has been dropped on the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been dropped on the droppable widget</p>
+<p>id of the widget that has been dropped on the droppable widget
 </p>
 </li>
 </ul>
@@ -813,11 +850,11 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">VisibleChanged</td>
-<td class="parameter_tab"><p>Fired when the visibility of the widget changes.</p>
+<td class="parameter_tab">Fired when the visibility of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>visibility</p>
+<p>visibility
 
 
 
@@ -842,8 +879,15 @@ roles of the current user</p>
 </thead>
 <tbody>
 <tr>
+<td class="parameter_tab">Focus</td>
+<td class="parameter_tab">Sets focus on the widget element, if it can be focused and keyboardOperation=true
+</td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">SetEnable</td>
-<td class="parameter_tab"><p>Sets the state of property «enable»</p>
+<td class="parameter_tab">Sets the state of property «enable»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
@@ -869,7 +913,7 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetValue</td>
-<td class="parameter_tab"><p>sets the output text</p>
+<td class="parameter_tab">sets the output text
 </td>
 <td class="parameter_tab"><ul>
 <li>value: String
@@ -882,7 +926,7 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetVisible</td>
-<td class="parameter_tab"><p>Sets the state of property «visible»</p>
+<td class="parameter_tab">Sets the state of property «visible»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean

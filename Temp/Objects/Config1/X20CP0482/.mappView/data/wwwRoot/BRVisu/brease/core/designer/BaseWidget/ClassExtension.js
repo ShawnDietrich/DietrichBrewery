@@ -91,8 +91,24 @@ define(['brease/core/Utils'], function (Utils) {
                         isResizable: function () {
                             return self.isResizable.apply(self, arguments);
                         },
+                        // defines if a change of width should also change height and vice versa
+                        isSquare: function () {
+                            return false;
+                        },
                         getHandles: function () {
                             return self.getHandles.apply(self, arguments);
+                        },
+                        // called if a property should be changed via property grid
+                        // should return properties which need to be changed
+                        // returns always width and height for square widgets (isSquare()) if any is changed
+                        trySetProperty: function (name, value) {
+                            var changeset = {};
+                            changeset[name] = value;
+                            if (self.designer.isSquare()) {
+                                if (name === 'height') changeset['width'] = value;
+                                if (name === 'width') changeset['height'] = value;
+                            }
+                            return changeset;
                         }
                     };
 
@@ -137,7 +153,7 @@ define(['brease/core/Utils'], function (Utils) {
                             if (Array.isArray(allowedParents)) {
                                 return allowedParents.indexOf('*') !== -1 || allowedParents.indexOf(requestedParent) !== -1;
                             } else {
-                                console.warn('Meta data of ' + parent.elem.id + ' missing!');
+                                console.warn('isAllowedIn: meta data of widget instance missing!');
                                 return false;
                             }
                         }

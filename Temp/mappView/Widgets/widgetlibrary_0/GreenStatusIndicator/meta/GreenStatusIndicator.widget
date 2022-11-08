@@ -34,6 +34,9 @@
 		<Children>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="SetEnable" read="false">
 				<Description>Sets the state of property «enable»</Description>
 				<Arguments>
@@ -70,14 +73,13 @@
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -88,6 +90,12 @@ roles of the current user						</Description>
 						<Description>operability</Description>
 					</Argument>
 				</Arguments>
+			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 			<Event name="VisibleChanged">
 				<Description>Fired when the visibility of the widget changes.</Description>
@@ -108,6 +116,7 @@ roles of the current user						</Description>
 			<Property name="permissionView" type="RoleCollection" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Accessibility">
 				<Description>restricts visibility to users, which have given roles</Description>
 			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="0"/>
 			<Property name="tooltip" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>reference to a tooltip for a widget</Description>
 			</Property>

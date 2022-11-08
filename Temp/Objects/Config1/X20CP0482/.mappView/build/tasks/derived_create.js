@@ -1,4 +1,3 @@
-/*global module*/
 module.exports = function (grunt) {
 
     'use strict';
@@ -177,7 +176,7 @@ module.exports = function (grunt) {
         var obj = {
             name: widgetXMLObject['$']['name'],
             library: libraryName,
-			category: widgetXMLObject['$']['category'],
+            category: widgetXMLObject['$']['category'],
             props: widgetXMLObject['Widget'][0]['$']
         };
         obj.dir = ROOT + '/' + obj.library + '/' + obj.name; // <%ROOT%>/widgetLibrary/widgetName
@@ -336,12 +335,12 @@ module.exports = function (grunt) {
         widgetInfo.meta.filePath = widgetObject.filePath + '.js';
         widgetInfo.meta.inheritance.unshift(widgetObject.type);
         widgetInfo.dependencies.widgets.unshift(widgetObject.filePath + '.js');
-		if (widgetObject.category) {
-			if (!Array.isArray(widgetInfo.categories.Category)) {
+        if (widgetObject.category) {
+            if (!Array.isArray(widgetInfo.categories.Category)) {
                 widgetInfo.categories.Category = [];
             }
             widgetInfo.categories.Category.push(widgetObject.category);
-		}
+        }
         libraryUtils.patchLocalMediaPath(widgetObject.props, widgetInfo.properties, widgetObject.library, DataTypes);
         _overwriteDefaults(widgetObject, 'props', widgetInfo.properties, 'defaultValue');
         _overwriteDefaults(widgetObject, 'styleProps', widgetInfo.styleproperties.StyleProperty, 'default');

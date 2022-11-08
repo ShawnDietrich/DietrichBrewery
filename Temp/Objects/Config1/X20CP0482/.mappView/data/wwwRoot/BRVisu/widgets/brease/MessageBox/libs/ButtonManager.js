@@ -19,19 +19,36 @@ define(['brease/core/Class', 'brease/events/BreaseEvent', 'brease/enum/Enum', 'w
             this.arElem[key] = {
                 el: $('#' + widget.elem.id + '_messageBox_' + key)
             };
+            this.arElem[key].elem = this.arElem[key].el[0];
             this.arElem[key].textEl = this.arElem[key].el.find('span');
         }
         this.setTexts();
+        if (brease.config.visu.keyboardOperation) {
+            this._initKeyboardOperation();
+        }
+    };
+
+    p._initKeyboardOperation = function () {
+        for (var key in buttons) {
+            this.arElem[key].elem.tabIndex = 0;
+            this.arElem[key].elem.classList.add('breaseFocusable');
+        }
     };
     
     p.addEventListeners = function () {
         this.footer.on(BreaseEvent.CLICK, '.messageBoxButton', this._bind('btnClickHandler'));
         this.footer.on(BreaseEvent.MOUSE_DOWN, '.messageBoxButton', this._bind('btnDownHandler'));
+        if (brease.config.visu.keyboardOperation) {
+            this.footer.on('keydown', '.messageBoxButton', this._bind('keydownHandler'));
+        }
     };
 
     p.removeEventListeners = function () {
         this.footer.off(BreaseEvent.CLICK, '.messageBoxButton', this._bind('btnClickHandler'));
         this.footer.off(BreaseEvent.MOUSE_DOWN, '.messageBoxButton', this._bind('btnDownHandler'));
+        if (brease.config.visu.keyboardOperation) {
+            this.footer.off('keydown', '.messageBoxButton', this._bind('keydownHandler'));
+        }
     };
 
     p.setTexts = function () {
@@ -94,6 +111,29 @@ define(['brease/core/Class', 'brease/events/BreaseEvent', 'brease/enum/Enum', 'w
             this.btnCallback.call(this.widget, Enum.MessageBoxState[buttons[key].state]);
         }
 
+    };
+
+    p.keydownHandler = function (e) {
+        if (e.key === 'Enter') {
+            var key = e.target.getAttribute('data-key');
+            if (key) {
+                this.arElem[key].el.addClass('active');
+                this.activeButton = key;
+            }
+            brease.docEl.on('keyup', this._bind('keyupHandler'));
+        }
+    };
+
+    p.keyupHandler = function (e) {
+        if (e.key === 'Enter') {
+            brease.docEl.off('keyup', this._bind('keyupHandler'));
+            this.arElem[this.activeButton].el.removeClass('active');
+            var key = e.target.getAttribute('data-key');
+            if (key === this.activeButton) {
+                this.btnCallback.call(this.widget, Enum.MessageBoxState[buttons[key].state]);
+            }
+            this.activeButton = '';
+        }
     };
 
     function _stopEvent(e) {

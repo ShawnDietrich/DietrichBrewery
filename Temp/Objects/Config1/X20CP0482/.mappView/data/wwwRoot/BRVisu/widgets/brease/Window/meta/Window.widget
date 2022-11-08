@@ -35,6 +35,9 @@
 		<Children>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="ShowTooltip" read="false"/>
 		</Methods>
 		<Events>
@@ -45,16 +48,21 @@
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
+			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 		</Events>
 		<Properties>
@@ -66,7 +74,7 @@ clicks on it. The default behavior will raise the window automaically when the u
 				<Description>Initial option to enable widget.</Description>
 			</Property>
 			<Property name="modal" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" defaultValue="true">
-				<Description>If true, the window will be modal, in the meaning that no interaction with beneath page is possible. A semi transparent overlay between window and parent application will catch user actions.&lt;br/&gt;
+				<Description>If true, the window will be modal, in the meaning that no interaction with beneath page is possible. A semi transparent overlay between window and parent application will catch user actions.
 It depends on settings &apos;showCloseButton&apos; and &apos;forceInteraction&apos; how the user can close the window.				</Description>
 			</Property>
 			<Property name="permissionOperate" type="RoleCollection" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Accessibility">
@@ -76,8 +84,8 @@ It depends on settings &apos;showCloseButton&apos; and &apos;forceInteraction&ap
 				<Description>restricts visibility to users, which have given roles</Description>
 			</Property>
 			<Property name="position" type="Object" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" defaultValue="{&apos;horizontal&apos;:&apos;center&apos;, &apos;vertical&apos;:&apos;middle&apos;}">
-				<Description>Horizontal and vertical position of the Window.&lt;br/&gt;
-Either a string (horizontal:left/center/right, vertical:top/middle/bottom) or an integer.&lt;br/&gt;
+				<Description>Horizontal and vertical position of the Window.
+Either a string (horizontal:left/center/right, vertical:top/middle/bottom) or an integer.
 Example :
 
 &lt;pre&gt;&lt;code&gt;  {&apos;horizontal&apos;: &apos;center&apos;, &apos;vertical&apos;: 105}
@@ -85,6 +93,10 @@ Example :
 			</Property>
 			<Property name="style" type="StyleReference" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="default">
 				<Description>reference to a style for this widget type</Description>
+			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="-1">
+				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
+or if autofocus should be disabled (-1)				</Description>
 			</Property>
 			<Property name="tooltip" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>reference to a tooltip for a widget</Description>

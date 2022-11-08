@@ -9,18 +9,19 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
     };
 
     Value.prototype = new EventDispatcher();
-    
-    Value.prototype.setConfig = function (numberFormat, useDigitGrouping, separators) {
-        this.settings.numberFormat = numberFormat;
-        this.settings.useDigitGrouping = useDigitGrouping;
-        this.settings.separators = separators;
+
+    Value.prototype.setConfig = function (config) {
+        for (var key in config) {
+            this.settings[key] = config[key];
+        }
     };
 
     Value.prototype.changeListener = function (e) {
         this.initialSetValue(e.detail.value);
     };
-    
+
     Value.prototype.initialSetValue = function (value) {
+        this.value = undefined;
         this.setValue(value);
         this.outputIsInitialized = false;
     };
@@ -28,11 +29,11 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
     Value.prototype.setValue = function (value) {
         _internalSetValue.call(this, value);
     };
-    
+
     Value.prototype.getValue = function () {
         return this.value;
     };
-    
+
     Value.prototype.getStringValue = function () {
         return this.strValue;
     };
@@ -68,7 +69,7 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
     };
 
     function _processAction(action, buttonValue) {
-            
+
         switch (action) {
 
             case 'delete':
@@ -79,6 +80,9 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
                 break;
             case 'sign':
                 _processSign.call(this, this.strValue);
+                break;
+            case 'clear':
+                _processClear.call(this);
                 break;
 
             case 'value':
@@ -91,7 +95,7 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
         if (actString === brease.settings.noValueString && this.outputIsInitialized === false) {
             _internalSetValue.call(this, 0);
         } else {
-            _setValueAsString.call(this, actString.substring(0, actString.length - 1)); 
+            _setValueAsString.call(this, actString.substring(0, actString.length - 1));
         }
     }
 
@@ -114,6 +118,10 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
             _setSign.call(this, -1);
         }
         _setValueAsString.call(this, newString, true);
+    }
+
+    function _processClear() {
+        _setValueAsString.call(this, '0');
     }
 
     function _processValue(actString, buttonValue) {
@@ -144,12 +152,17 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
             _setSign.call(this, -1);
         }
         if (this.value !== oldValue || this.strValue !== oldStrValue) {
-
-            this.dispatchEvent({ type: 'ValueChanged', 
+            /**
+            * @event ValueChanged 
+            * @param {Number} value  
+            * @param {String} strValue  
+            */
+            this.dispatchEvent({
+                type: 'ValueChanged',
                 detail: {
                     'value': this.value,
                     'strValue': this.strValue
-                } 
+                }
             });
         }
     }
@@ -171,12 +184,13 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
         } else {
             _setSign.call(this, 1);
         }
-        
-        this.dispatchEvent({ type: 'ValueChanged', 
+
+        this.dispatchEvent({
+            type: 'ValueChanged',
             detail: {
                 'value': this.value,
                 'strValue': this.strValue
-            } 
+            }
         });
         if (omitInit !== true) {
             this.outputIsInitialized = true;
@@ -187,10 +201,16 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
         var oldSign = this.sign;
         this.sign = sign;
         if (this.sign !== oldSign) {
-            this.dispatchEvent({ type: 'SignChanged', 
+            /**
+            * @event SignChanged 
+            * @param {String} sign   
+            */
+            this.dispatchEvent({
+                type: 'SignChanged',
                 detail: {
                     'sign': this.sign
-                } }); 
+                }
+            });
         }
     }
 

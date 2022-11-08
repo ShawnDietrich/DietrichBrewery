@@ -24,6 +24,7 @@ define([
     };
 
     /**
+     * @method 
      * Sorts the Elements inside the container based on the input of the JSON String
      * @param {String} JSONString input of the JSON String
      * @param {HTMLElement} container jQuery Element of Container
@@ -44,6 +45,7 @@ define([
     };
 
     /**
+     * @method 
      * Returns you the JSON String of the Current order of the Widgets inside the Container
      * @param {HTMLElement} container jQuery Element of Container
      * @return {String} Returns the JSON String :  [{'wRef': 'id', 's': 0/1}]

@@ -1,4 +1,3 @@
-/*global require,module*/
 (function () {
     'use strict';
     var md = require('markdown-it')();
@@ -17,7 +16,7 @@
                     pathDepth = name.split('.').length - 1,
                     prePath = '';
 
-                for (var i = 0; i < pathDepth; i += 1) {
+                for (let i = 0; i < pathDepth; i += 1) {
                     prePath += '../';
                 }
 
@@ -49,8 +48,7 @@
                     xsd += '</tbody>' + lbr();
                     xsd += '</table>' + lbr();
                     xsd += '</div>' + lbr();
-                }
-                else {
+                } else {
                     xsd += '<div class="panel-heading"><h3>' + name + '</h3>' + ((widgetInfo.description) ? '<p style="font-size:1.2em">' + widgetInfo.description + '</p>' : '') + '</div>' + lbr();
                 }
 
@@ -107,7 +105,7 @@
                     xsd += '</thead>' + lbr();
                     xsd += '<tbody>' + lbr();
 
-                    for (i = 0; i < widgetInfo.styleproperties.StyleProperty.length; i += 1) {
+                    for (let i = 0; i < widgetInfo.styleproperties.StyleProperty.length; i += 1) {
                         prop = widgetInfo.styleproperties.StyleProperty[i].$;
                         desc = _buildDescription(widgetInfo.styleproperties.StyleProperty[i]);
                         xsd += '<tr>' + lbr();
@@ -130,7 +128,7 @@
 
                     xsd += '<tbody>' + lbr();
 
-                    for (i = 0; i < widgetInfo.styles.length; i += 1) {
+                    for (let i = 0; i < widgetInfo.styles.length; i += 1) {
                         prop = widgetInfo.styles[i];
                         xsd += '<tr>' + lbr();
                         xsd += '<td class="parameter_tab">' + prop.$.name + '</td>' + lbr();
@@ -362,7 +360,7 @@
     function writeProperties(header, properties) {
         var xsd = '';
         xsd += '<div class="panel panel-default">' + lbr();
-        xsd += ' <div class="panel-heading"><h3>' + header +'</h3></div>' + lbr();
+        xsd += ' <div class="panel-heading"><h3>' + header + '</h3></div>' + lbr();
 
         xsd += '<table class="table table-bordered parameter_tab">' + lbr();
         xsd += '<thead>' + lbr();
@@ -497,6 +495,7 @@
     function hexToRgb(hex) {
         // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
         var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        // eslint-disable-next-line no-unused-vars
         hex = hex.replace(shorthandRegex, function (m, r, g, b) {
             return r + r + g + g + b + b;
         });

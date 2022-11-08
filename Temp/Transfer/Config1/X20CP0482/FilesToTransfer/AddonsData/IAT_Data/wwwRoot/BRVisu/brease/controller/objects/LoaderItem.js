@@ -5,8 +5,9 @@ define(function () {
     /**
     * @class brease.objects.LoaderItem
     * @alternateClassName LoaderItem
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new LoaderItem instance.
     * @param {String} id
     * @param {String} contentId

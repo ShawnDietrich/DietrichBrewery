@@ -16,6 +16,26 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
 
     return {
 
+        checkFileExists: function (url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = XHRPool.getXHR({});
+                var basicReadyStateChangeHandler = xhr.onreadystatechange;
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === XMLHttpRequest.DONE) {
+                        if ((this.status >= 200 && this.status < 400)) {
+                            resolve();
+                        } else {
+                            reject(new Error(this.status));
+                        }
+                        xhr.onreadystatechange = basicReadyStateChangeHandler;
+                        xhr.onreadystatechange();
+                    }
+                };
+                xhr.open('HEAD', url);
+                xhr.send(null, function () {});
+            });
+        },
+
         /************************
         *** BINDING related ****
         ************************/
@@ -55,12 +75,19 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
             request.send(null, callback);
         },
 
+        getAutoLogOut: function (callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _clientService + 'autoLogOut');
+            request.send(null, callback);
+        },
+
         loadVisuData: function (visuId, callback, callbackInfo) {
             $.getJSON('/' + visuId + '.json', function (data) {
                 callback({
                     success: true,
                     visuData: data
                 }, callbackInfo);
+            // eslint-disable-next-line no-unused-vars
             }).fail(function (jqxhr, textStatus, error) {
                 console.log('error:' + JSON.stringify({ status: textStatus, errorMessage: error.toString() }));
                 callback({ success: false, status: textStatus }, callbackInfo);
@@ -104,7 +131,8 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
                     'refId': widgetId,
                     'attribute': widgetAttribute,
                     'property': nodeAttribute
-                }] }), callback);
+                }]
+            }), callback);
         },
 
         /*#######################
@@ -215,8 +243,8 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
         /***********************
         *** MeasurementSystem related ***
         ***********************/
-        loadMeasurementSystemList: function (callback) {
-            var request = XHRPool.getXHR();
+        loadMeasurementSystemList: function (callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
             request.open('GET', _clientService + 'getMeasurementSystemList');
             request.send(null, callback);
         },
@@ -295,6 +323,71 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
             }), callback);
         },
 
+        changePassword: function (userName, oldPassword, newPassword, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('POST', _baseUrl + 'users/' + userName + '/changePassword');
+            request.send(JSON.stringify({
+                Data: {
+                    'old': oldPassword,
+                    'new': newPassword
+                }
+            }), callback);
+        },
+
+        loadPasswordPolicies: function (callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _clientService + 'passwordPolicy');
+            request.send(null, callback);
+        },
+        loadUserList: function (details, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _baseUrl + 'users?details=' + details);
+            request.send(null, callback);
+        },
+        loadUserData: function (userName, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _baseUrl + 'users/' + userName);
+            request.send(null, callback);
+        },
+
+        loadAvailableRoles: function (callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _baseUrl + 'roles');
+            request.send(null, callback);
+        },
+        addUserToMpUserX: function (userName, password, fullName, roles, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('POST', _baseUrl + 'users');
+            request.send(JSON.stringify({
+                Data: {
+                    'userName': userName,
+                    'fullName': fullName,
+                    'roles': roles,
+                    'password': password
+                }
+            }), callback);
+        },
+
+        deleteUserFromMpUserX: function (userName, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('DELETE', _baseUrl + 'users/' + userName);
+            request.send(null, callback);
+        },
+
+        modifyUserFromMpUserX: function (userName, modifiedUserData, callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('PATCH', _baseUrl + 'users/' + userName);
+            request.send(JSON.stringify({
+                Data: modifiedUserData
+            }      
+            ), callback);
+        },
+        getUserSettingsFromMpUserX: function (callback, callbackInfo) {
+            var request = XHRPool.getXHR(callbackInfo);
+            request.open('GET', _clientService + 'userSettings');
+            request.send(null, callback);
+        },
+
         /*####################
         ### TextFormatter ###
         #####################*/
@@ -319,10 +412,10 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
         * @method setClientInformation
         * @param {String} data stringified info object
         */
-        setClientInformation: function (data) {
+        setClientInformation: function (data, callback) {
             var request = XHRPool.getXHR();
             request.open('POST', _clientService + 'setClientInformation');
-            request.send('{"Data":' + data + '}');
+            request.send('{"Data":' + data + '}', callback);
         },
 
         registerClient: function (visuId, callback) {

@@ -9,7 +9,7 @@
       <StyleElement attribute="background-color"/>
     </StyleProperty>
     <StyleProperty name="backGroundGradient" category="Appearance" type="Gradient">
-      <StyleElement attribute="background-image"></StyleElement>
+      <StyleElement attribute="@include backGroundGradient('$value')"></StyleElement>
     </StyleProperty>
 
     <StyleProperty name="backGround" type="ImagePath" category="StyleProperty">

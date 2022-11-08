@@ -1,41 +1,44 @@
-define(['brease/controller/objects/Client', 
-    'brease/core/Utils', 
+define(['brease/controller/objects/Client',
+    'brease/core/Utils',
     'brease/events/BreaseEvent',
     'brease/events/SocketEvent',
     'brease/events/SystemGestures',
     'brease/events/VirtualEvents',
-    'brease/controller/libs/LogCode', 
+    'brease/controller/libs/LogCode',
     'brease/services/libs/ServerCode',
     'brease/helper/Scroller',
-    'brease/controller/PopUpManager', 
-    'brease/controller/ZoomManager', 
-    'brease/helper/Messenger', 
+    'brease/controller/PopUpManager',
+    'brease/controller/ZoomManager',
+    'brease/controller/FocusManager',
+    'brease/helper/Messenger',
     'brease/helper/SystemMessage',
-    'brease/config', 
+    'brease/config',
     'brease/settings'],
-function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents, LogCode, ServerCode, Scroller, popupManager, zoomManager, Messenger, systemMessage, config, settings) {
-    /*jshint validthis:true, smarttabs:true, white:false */
+function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents, LogCode, ServerCode, Scroller, popupManager, zoomManager, focusManager, Messenger, systemMessage, config, settings) {
+
     'use strict';
 
     var _runtimeService,
         _services = {},
         _controller = {},
+        // populated with server information for client during startup 
+        _serverInfo = {},
 
         /**
-            * @class brease.brease
-            * @extends core.javascript.Object
-            * @alternateClassName brease
-            * Main application controller.  
-            * Available through global namespace (brease or window.brease).  
-            * Example of usage:
-            * 
-            *     <script>
-            *         brease.uiController.parse(widget.elem);
-            *         console.log(brease.language.getCurrentLanguage());
-            *     </script>
-            *  
-            * @singleton
-            */
+                * @class brease.brease
+                * @extends core.javascript.Object
+                * @alternateClassName brease
+                * Main application controller.  
+                * Available through global namespace (brease or window.brease).  
+                * Example of usage:
+                * 
+                *     <script>
+                *         brease.uiController.parse(widget.elem);
+                *         console.log(brease.language.getCurrentLanguage());
+                *     </script>
+                *  
+                * @singleton
+                */
 
         Brease = function Brease() {
 
@@ -51,13 +54,13 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         p = Brease.prototype;
 
     /**
-    * @method callWidget
-    * Method to invoke methods of widgets (shortcut for {@link brease.controller.UIController#method-callWidget UIController.callWidget})
-    * @param {String} id id of widget
-    * @param {String} method name of method
-    * @paramComment First two parameters are required, more are optional, dependent on the method invoked.
-    * @return {ANY} returnValue return value of method. Data type depends on the method invoked.
-    */
+        * @method callWidget
+        * Method to invoke methods of widgets (shortcut for {@link brease.controller.UIController#method-callWidget UIController.callWidget})
+        * @param {String} id id of widget
+        * @param {String} method name of method
+        * @paramComment First two parameters are required, more are optional, dependent on the method invoked.
+        * @return {ANY} returnValue return value of method. Data type depends on the method invoked.
+        */
     Utils.defineProperty(p, 'callWidget', function callWidget() {
         return brease.uiController.callWidget.apply(brease.uiController, arguments);
     });
@@ -80,14 +83,14 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         _defineControllers.call(this, controller);
 
         _initServices.call(this, runtimeService);
-        _initControllers.call(this, runtimeService, this.settings, systemMessage);
+        _initControllers.call(this, runtimeService, systemMessage);
 
     };
 
     // start of brease with a visualization
     p.startVisu = function (visuId) {
         //console.log('%c1) brease.startVisu(visuId=' + visuId + ')', 'color:#cc00cc;');
-        this.messenger.announce('START_VISU', { visuId: visuId });
+        this.messenger.announce(Messenger.START_VISU, { visuId: visuId });
         config.visuId = visuId;
         config.contentId = undefined;
         this.appView.html('');// empty appContainer only for visus, not for "content start"
@@ -97,7 +100,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
     // start of brease without a visualization, e.g. editor
     p.startContent = function (contentId) {
         //console.log('%c1) brease.startContent(contentId=' + contentId + ')', 'color:#cc00cc;');
-        this.messenger.announce('START_CONTENT', { contentId: contentId });
+        this.messenger.announce(Messenger.START_CONTENT, { contentId: contentId });
         config.contentId = contentId;
         config.visuId = undefined;
         _start.call(this);
@@ -107,16 +110,23 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         return Client.id;
     };
 
-    p.dispatchResize = function () {
+    /**
+    * @method dispatchResize
+    * dispatch an APP_RESIZE event
+    * @param {Object} [detail] optional detail for event
+    * @param {Boolean} detail.immediate setting this to true invokes the popupmanager to update dimensions immediately
+    */
+    p.dispatchResize = function (detail) {
         /**
-            * @event app_resize
-            * Fired when application root element (=brease.appElem) resizes  
-            * That means: either layout is changed or zoom=true and browser window resizes  
-            * Attention: for watching browser resizes in all cases you have to use window.onresize
-            * @param {String} type {@link brease.events.BreaseEvent#static-property-APP_RESIZE BreaseEvent.APP_RESIZE}
-            * @param {HTMLElement} target document.body
-            */
-        document.body.dispatchEvent(new CustomEvent(BreaseEvent.APP_RESIZE));
+        * @event app_resize
+        * Fired when application root element (=brease.appElem) resizes  
+        * That means: either layout is changed or zoom=true and browser window resizes  
+        * Attention: for watching browser resizes in all cases you have to use window.onresize
+        * @param {String} type {@link brease.events.BreaseEvent#static-property-APP_RESIZE BreaseEvent.APP_RESIZE}
+        * @param {HTMLElement} target document.body
+        * @param {Object} [detail]
+        */
+        document.body.dispatchEvent(new CustomEvent(BreaseEvent.APP_RESIZE, { detail: detail }));
     };
 
     function _start() {
@@ -133,44 +143,34 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
     function _defineElements() {
 
         /**
-            * @property {HTMLElement} appElem
-            * Reference to the root HTMLElement, namely document.getElementById('appContainer').
-            * @readonly
-            */
+                * @property {HTMLElement} appElem
+                * Reference to the root HTMLElement, namely document.getElementById('appContainer').
+                * @readonly
+                */
         Utils.defineProperty(this, 'appElem', document.getElementById('appContainer'));
         /**
-            * @property {jQuery} appView
-            * Reference to the jQuery object of root HTMLElement, namely $('#appContainer').
-            * @readonly
-            */
+                * @property {jQuery} appView
+                * Reference to the jQuery object of root HTMLElement, namely $('#appContainer').
+                * @readonly
+                */
         Utils.defineProperty(this, 'appView', $(this.appElem));
         /**
-            * @property {jQuery} bodyEl
-            * Reference to the jQuery object of document.body, namely $(document.body).
-            * @readonly
-            */
+                * @property {jQuery} bodyEl
+                * Reference to the jQuery object of document.body, namely $(document.body).
+                * @readonly
+                */
         Utils.defineProperty(this, 'bodyEl', $(document.body));
         Utils.defineProperty(this, 'docEl', $(document));
     }
 
     function _prepareDOM() {
-        if (!this.bodyEl.hasClass('system_brease_Scrollbar_style_default')) {
-            this.bodyEl.addClass('system_brease_Scrollbar_style_default');
-        }
-        if (!this.bodyEl.hasClass('system_brease_Body_style_default')) {
-            this.bodyEl.addClass('system_brease_Body_style_default');
-        }
-        if (!this.bodyEl.hasClass('system_brease_ModalDimmer_style_default')) {
-            this.bodyEl.addClass('system_brease_ModalDimmer_style_default');
-        }
+        Utils.addClass(document.body, 'system_brease_Scrollbar_style_default');
+        Utils.addClass(document.body, 'system_brease_Body_style_default');
+        Utils.addClass(document.body, 'system_brease_ModalDimmer_style_default');
     }
 
     function _defineSettings() {
-        /**
-            * @property {Object} settings
-            * @readonly
-            * @property {String} [settings.noKeyValue=''] This value is used internally to check if a textkey is set and can be used to reset a textkey in options.
-            */
+        // values and doku from brease/settings
         Utils.defineProperty(this, 'settings', settings);
     }
 
@@ -180,34 +180,36 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
             _controller[c] = controller[c];
         }
         /**
-            * @property {brease.helper.NumberFormatter} formatter
-            * Reference to the actual instance of singleton NumberFormatter
-            * @readonly
-            */
+                * @property {brease.helper.NumberFormatter} formatter
+                * Reference to the actual instance of singleton NumberFormatter
+                * @readonly
+                */
         _definePublicMethod(this, 'formatter', _controller);
         _definePublicMethod(this, 'action', _controller);
 
         /**
-            * @property {brease.controller.OverlayController} overlayController
-            * Reference to the actual instance of singleton OverlayController
-            * @readonly
-            */
+                * @property {brease.controller.OverlayController} overlayController
+                * Reference to the actual instance of singleton OverlayController
+                * @readonly
+                */
         _definePublicMethod(this, 'dialogController', _controller, 'overlayController');
         _definePublicMethod(this, 'overlayController', _controller);
 
         /**
-            * @property {brease.controller.PageController} pageController
-            * Reference to the actual instance of singleton PageController
-            * @readonly
-            */
+                * @property {brease.controller.PageController} pageController
+                * Reference to the actual instance of singleton PageController
+                * @readonly
+                */
         _definePublicMethod(this, 'pageController', _controller);
 
         /**
-            * @property {brease.controller.UIController} uiController
-            * Reference to the actual instance of singleton UIController
-            * @readonly
-            */
+                * @property {brease.controller.UIController} uiController
+                * Reference to the actual instance of singleton UIController
+                * @readonly
+                */
         _definePublicMethod(this, 'uiController', _controller);
+
+        _definePublicMethod(this, 'focusManager', { focusManager: focusManager });
     }
 
     function _definePublicMethod(obj, prop, source, sourceProp) {
@@ -225,29 +227,29 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
             _services[c] = services[c];
         }
         /**
-            * @property {Object} services
-            * @readonly
-            * @property {brease.services.MeasurementSystem} services.measurementSystem
-            * Reference to the actual instance of singleton MeasurementSystem service
-            
-            * @property {brease.services.Language} services.language
-            * Reference to the actual instance of singleton Language service
-
-            * @property {brease.services.User} services.user
-            * Reference to the actual instance of singleton user service
-
-            * @property {brease.services.Culture} services.culture
-            * Reference to the actual instance of singleton User service
-
-            * @property {brease.services.TextFormatter} services.textFormatter
-            * Reference to the actual instance of singleton textFormatter service
-
-            * @property {brease.services.Logger} services.logger
-            * Reference to the actual instance of singleton Logger service
-
-            * @property {brease.services.Opcua} services.opcua
-            * Reference to the actual instance of singleton Opcua service
-            */
+                * @property {Object} services
+                * @readonly
+                * @property {brease.services.MeasurementSystem} services.measurementSystem
+                * Reference to the actual instance of singleton MeasurementSystem service
+                
+                * @property {brease.services.Language} services.language
+                * Reference to the actual instance of singleton Language service
+    
+                * @property {brease.services.User} services.user
+                * Reference to the actual instance of singleton user service
+    
+                * @property {brease.services.Culture} services.culture
+                * Reference to the actual instance of singleton User service
+    
+                * @property {brease.services.TextFormatter} services.textFormatter
+                * Reference to the actual instance of singleton textFormatter service
+    
+                * @property {brease.services.Logger} services.logger
+                * Reference to the actual instance of singleton Logger service
+    
+                * @property {brease.services.Opcua} services.opcua
+                * Reference to the actual instance of singleton Opcua service
+                */
         _definePublicMethod(this, 'measurementSystem', _services);
         _definePublicMethod(this.services, 'measurementSystem', _services);
         _definePublicMethod(this, 'language', _services);
@@ -263,7 +265,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         _definePublicMethod(this.services, 'opcua', _services);
     }
 
-    function _initControllers(runtimeService, settings, systemMessage) {
+    function _initControllers(runtimeService, systemMessage) {
 
         _controller.bindingController.init(runtimeService);
         _controller.connectionController.init(runtimeService, systemMessage);
@@ -278,7 +280,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
 
         this.measurementSystem.init(runtimeService);
         this.language.init(runtimeService);
-        this.culture.init();
+        this.culture.init(runtimeService);
         this.user.init(runtimeService);
         this.textFormatter.init(runtimeService);
         this.loggerService.init(runtimeService);
@@ -290,14 +292,14 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         //console.log('%cregisterClient.response(' + JSON.stringify(response) + ')', 'color:green;');
 
         if (response !== undefined && response.status !== undefined && response.status.code === ServerCode.SUCCESS) {
-            brease.messenger.announce('REGISTER_CLIENT_SUCCESS', { response: response, clientId: response.ClientId });
+            brease.messenger.announce(Messenger.REGISTER_CLIENT_SUCCESS, { clientId: response.ClientId });
             Client.setId(response.ClientId);
             _startServices();
 
         } else {
             if (Client.isValid === undefined) {
                 Client.setValid(false);
-                brease.messenger.announce('REGISTER_CLIENT_FAILED', { response: response, visuId: config.visuId });
+                brease.messenger.announce(Messenger.REGISTER_CLIENT_FAILED, { response: response, visuId: config.visuId });
             }
             window.setTimeout(function () {
                 _runtimeService.registerClient(config.visuId, _registerClientResponse);
@@ -316,7 +318,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         ).then(function () {
             _loadCulture();
         }, function (message) {
-            brease.messenger.announce('START_SERVICES_FAILED', { message: message, cookies: _cookieTest() });
+            brease.messenger.announce(Messenger.START_SERVICES_FAILED, { message: message, cookies: _cookieTest() });
         });
     }
 
@@ -334,10 +336,10 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
     function _loadCulture() {
 
         brease.culture.isReady().then(function () {
-            brease.messenger.announce('START_SERVICES_SUCCESS', { clientId: Client.id });
+            brease.messenger.announce(Messenger.START_SERVICES_SUCCESS, { clientId: Client.id });
             _loadVisuData();
         }, function (message) {
-            brease.messenger.announce('START_SERVICES_FAILED', { message: message });
+            brease.messenger.announce(Messenger.START_SERVICES_FAILED, { message: message });
         });
     }
 
@@ -346,7 +348,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         //A&P 464480: visuData (contains watchdog configuration) has to be loaded before socket connection
         //console.log('%c4.) _loadVisuData(visuId=' + brease.config.visuId + ')', 'color:#cc00cc;');
         if (config.visuId) {
-            _controller.visuData.loadVisuData(brease.config.visuId, brease.appElem.id).then(
+            _controller.visuModel.loadVisuData(brease.config.visuId, brease.appElem.id).then(
                 function (visuConfig) {
                     _loadConfigurations(visuConfig);
                 },
@@ -363,10 +365,22 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
     function _loadConfigurations(visuConfig) {
         /* START-ORDER NR 5 */
         //console.log('%c5.) _loadConfigurations(visuId=' + brease.config.visuId + ')', 'color:#cc00cc;');
-        _services.configuration.loadConfigurations(visuConfig).then(_startConfigDependent, function () {
-            brease.messenger.announce('CONFIGURATION_LOAD_ERROR');
+        $.when(
+            _services.configuration.loadConfigurations(visuConfig),
+            _getServerInfo()
+        ).then(_startConfigDependent, function () {
+            brease.messenger.announce(Messenger.CONFIGURATION_LOAD_ERROR);
             _startConfigDependent();
         });
+    }
+
+    function _getServerInfo() {
+        var deferred = $.Deferred();
+        _runtimeService.getAutoLogOut(function (response) {
+            _serverInfo.autoLogOut = response.enabled;
+            deferred.resolve();
+        });
+        return deferred.promise();
     }
 
     function _startConfigDependent() {
@@ -376,6 +390,12 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         _controller.eventController.init(_runtimeService, _controller.bindingController);
         // set browser zoom after eventController.init, because body style is changed by Swipe.init (hammer)
         zoomManager.setBrowserZoom();
+        if (brease.config.isKeyboardOperationEnabled()) {
+            focusManager.start();
+            document.body.classList.add('system_brease_Focus_style_default');
+            document.body.classList.add('system_brease_ElementFocus_style_default');
+            document.body.classList.add('system_brease_Selection_style_default');
+        }
         _startSocket();
     }
 
@@ -383,10 +403,10 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         /* START-ORDER NR 6 */
         // A&P 454280: Snippets in Texts are not solved at visu startup
         /* socket connection has to be established befor the loading of user texts, 
-               in order that initial snippets can be solved (see A&P 454280) */
+                   in order that initial snippets can be solved (see A&P 454280) */
 
         //console.log('%c6.) startSocket', 'color:#cc00cc;');
-        brease.messenger.announce('SERVER_CONNECTION_START');
+        brease.messenger.announce(Messenger.SERVER_CONNECTION_START);
 
         // server sends SessionActivated event, when he is ready after socket start
         _runtimeService.addEventListener(SocketEvent.SESSION_ACTIVATED, _sessionActivatedHandler);
@@ -396,13 +416,13 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
             //console.time('TIME FOR sessionActivated');
             //console.log('%cstartSocket.success', 'color:green;');
         }, function () {
-            brease.messenger.announce('SERVER_CONNECTION_ERROR');
+            brease.messenger.announce(Messenger.SERVER_CONNECTION_ERROR);
         });
     }
 
     function _sessionActivatedHandler() {
         //console.timeEnd('TIME FOR sessionActivated');
-        brease.messenger.announce('SERVER_CONNECTION_SUCCESS');
+        brease.messenger.announce(Messenger.SERVER_CONNECTION_SUCCESS);
         _controller.bindingController.startListen();
         _serviceTextLoad();
     }
@@ -411,7 +431,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         /* START-ORDER NR 7 */
         /* loading texts after socket connection -> see NR 6 */
 
-        brease.messenger.announce('TEXT_LOAD_START');
+        brease.messenger.announce(Messenger.TEXT_LOAD_START);
         //console.log('%c7.) loadTexts', 'color:#cc00cc;');
         //console.time('TIME FOR loadTexts');
         $.when(
@@ -419,21 +439,21 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         ).then(function () {
             //console.timeEnd('TIME FOR loadTexts');
             //console.log('%cloadTexts.success', 'color:green;');
-            brease.messenger.announce('TEXT_LOAD_SUCCESS');
+            brease.messenger.announce(Messenger.TEXT_LOAD_SUCCESS);
             _resourcesLoadedHandler();
         }, function () {
-            brease.messenger.announce('TEXT_LOAD_ERROR');
+            brease.messenger.announce(Messenger.TEXT_LOAD_ERROR);
         });
     }
 
     function _resourcesLoadedHandler() {
 
         /**
-            * @event resources_loaded
-            * Fired when resources (languages, texts, cultures) are loaded   
-            * @param {String} type {@link brease.events.BreaseEvent#static-property-RESOURCES_LOADED BreaseEvent.RESOURCES_LOADED}
-            * @param {HTMLElement} target brease.appElem
-            */
+                * @event resources_loaded
+                * Fired when resources (languages, texts, cultures) are loaded   
+                * @param {String} type {@link brease.events.BreaseEvent#static-property-RESOURCES_LOADED BreaseEvent.RESOURCES_LOADED}
+                * @param {HTMLElement} target brease.appElem
+                */
         brease.appElem.dispatchEvent(new CustomEvent(BreaseEvent.RESOURCES_LOADED));
         $.when(
             _startContentIsActivated(),
@@ -466,17 +486,18 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
     }
 
     function _finishBreaseStart() {
-        _controller.infoController.start(config.visu.activityCount); // send client info after optional start content is ready
+        // send client info after optional start content is ready
+        _controller.infoController.start(_serverInfo.autoLogOut || config.visu.activityCount);
         if (config.visuId !== undefined) {
             brease.pageController.start(config.visuId, brease.appElem, config.ContentCaching);
         }
         /**
-            * @event app_ready
-            * Fired when application is ready  
-            * That means: resources (languages, texts, cultures) loaded and optional main content is active and parsed  
-            * @param {String} type {@link brease.events.BreaseEvent#static-property-APP_READY BreaseEvent.APP_READY}
-            * @param {HTMLElement} target brease.appElem
-            */
+                * @event app_ready
+                * Fired when application is ready  
+                * That means: resources (languages, texts, cultures) loaded and optional main content is active and parsed  
+                * @param {String} type {@link brease.events.BreaseEvent#static-property-APP_READY BreaseEvent.APP_READY}
+                * @param {HTMLElement} target brease.appElem
+                */
         brease.appElem.dispatchEvent(new CustomEvent(BreaseEvent.APP_READY, { bubbles: true }));
         /* START-ORDER NR 8 */
         //console.log('%c8.) startHeartbeat', 'color:#cc00cc;');

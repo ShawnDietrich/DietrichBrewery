@@ -23,7 +23,7 @@ define([
     };
 
     /**
-     * setImage
+     * @method setImage
      * The setImage function is handling the loading of Images
      * Furthermore it checks if the image is an svg or not
      * When everything is done the callbackFunction will be called with the Tag-Parameter --> In the Widget you just need to position it correctly
@@ -64,7 +64,7 @@ define([
     };
 
     /**
-     * createImgTag
+     * @method createImgTag
      * The createImgTag function is creating an ImgTag and adds the Class 'remove'
      * @return {HTMLElement} returns the jQuery Element of the ImgTag
      */
@@ -73,7 +73,7 @@ define([
     };
 
     /**
-     * createSvgTag
+     * @method createSvgTag
      * The createSvgTag function is creating an SvgTag and adds the Class 'remove'
      * @return {HTMLElement} returns the jQuery Element of the SvgTag
      */
@@ -82,7 +82,7 @@ define([
     };
 
     /**
-     * createImgSvgTags
+     * @method createImgSvgTags
      * The createImgSvgTags function is creating an SvgTag as well as an ImgTag and adds the Class 'remove'
      * @return {Object} Returns an Object with imgEl and svgEl inside
      */

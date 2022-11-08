@@ -22,8 +22,7 @@
         backslash_masked = "\\\\",
         lineBreak = "\\n",
         sequence = "\\u",
-        sequence_masked = "\\\\u",
-        id_regex= /\{COWI_ID\}/g;
+        sequence_masked = "\\\\u";
 
     function replaceBackslash(txt) {
         return txt.replace(backslash_regex, backslash_masked);
@@ -96,29 +95,32 @@
         return "" + ((sign === "-") ? sign : "") + txt;
     }
     
-    function replaceId(txt, by){
-      return "" + txt.replace(id_regex, by);
+    function replaceAll(str, find, replace) {
+      return "" + str.replace(new RegExp(find, 'g'), replace);
     }
   
   ]]>
   </msxsl:script>
 
   <xsl:param name="elpathdelimiter">/</xsl:param>
+  
+  <!-- folder where to find widgets (exception: inner widgets of compoundwidgets) -->
   <xsl:param name="basepath">../../BRVisu/</xsl:param>
 
   <!-- setParentContent -->
-  <!-- in the compound widget content transformation this is set to false: inner widgets get their parentContentId later from the compoundWidget instance -->
+  <!-- in the compoundwidget content transformation this is set to false: inner widgets get their parentContentId later from the compoundWidget instance -->
   <xsl:param name="setParentContent">true</xsl:param>
 
-  <!-- widgetFolders: for compound widget content transformation: xml file, which contains all paths to used widgets (created by compound_create) -->
+  <!-- widgetFolders: for compoundwidget content transformation: xml file, which contains all paths to used widgets inside the compoundwidget (created by compound_create) -->
   <xsl:param name="widgetFolders">none</xsl:param>
 
-  <!-- coWiPrefix: for compound widget content transformation -->
+  <!-- coWiPrefix: for compoundwidget content transformation -->
   <xsl:param name="coWiPrefix">none</xsl:param>
 
-  <!-- include in same directory, as href does not allow the use of a param-->
+  <!-- include in same directory, as href does not allow the use of a param -->
   <xsl:include href="HelperFunctions.xsl"/>
 
+  <!-- separator for id decoration (e.g. contentID_widgetID) -->
   <xsl:variable name="separator" select="'_'" />
 
   <xsl:output method="xml"
@@ -131,7 +133,7 @@
   <xsl:template match="/">
     <xsl:param name="contentId" select="iat:Content/@id" />
 
-    <!--transform all widget properties and wrap them in JS function calls in a script tag-->
+    <!--transform all widget properties and wrap them in JS function calls in a script tag -->
     <xsl:element name="script">
       <!--select all widgets independent of hierarchy-->
       <xsl:for-each select="//iat:Widget">
@@ -143,7 +145,7 @@
 
     <!--transform all widgets html-->
     <xsl:variable name="htmlResult">
-      <!--select only widgets of first level: nesting is handled recursively in template widgetHTML-->
+      <!--select only widgets of first level: nesting is handled recursively in template widgetHTML -->
       <xsl:for-each select="iat:Content/iat:Widgets/iat:Widget">
         <xsl:call-template name="widgetHTML">
           <xsl:with-param name="contentId" select="$contentId" />
@@ -284,6 +286,7 @@
             <xsl:with-param name="styleName" select="$styleName" />
             <xsl:with-param name="addStyleClass" select="$addStyleClass" />
             <xsl:with-param name="useDOM" select="$useDOM" />
+            <xsl:with-param name="widgetId" select="concat($contentId,'_',$widgetId)" />
           </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
@@ -296,13 +299,14 @@
 
         <xsl:for-each select="$content//script">
           <xsl:element name="script">
-            <xsl:value-of select="scriptEx:replaceId(string(./text()),$cowiId)" />
+            <xsl:value-of select="scriptEx:replaceAll(string(./text()),'{COWI_ID}', $cowiId)" />
           </xsl:element>
         </xsl:for-each>
 
         <xsl:for-each select="$content/*">
-          <xsl:call-template name="copyCompoundContent">
-            <xsl:with-param name="cowiId" select="$cowiId" />
+          <xsl:call-template name="copyWidgetContent">
+            <xsl:with-param name="widgetId" select="$cowiId" />
+            <xsl:with-param name="idPlaceholder" select="'{COWI_ID}'" />
           </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
@@ -310,16 +314,19 @@
   </xsl:template>
 
   <!-- for children of CompoundWidgets (recursive) -->
-  <xsl:template name="copyCompoundContent">
-    <xsl:param name="cowiId" />
+  <xsl:template name="copyWidgetContent">
+    <xsl:param name="widgetId" />
+    <xsl:param name="idPlaceholder" />
     <xsl:variable name="elName" select="name()"/>
     <xsl:variable name="id" select="@id"/>
 
     <xsl:if test="$elName!='script'">
       <xsl:element name="{$elName}">
-        <xsl:attribute name="id">
-          <xsl:value-of select="scriptEx:replaceId(string($id),$cowiId)" />
-        </xsl:attribute>
+        <xsl:if test="@id">
+          <xsl:attribute name="id">
+            <xsl:value-of select="scriptEx:replaceAll(string($id), $idPlaceholder, string($widgetId))" />
+          </xsl:attribute>
+        </xsl:if>
         <xsl:for-each select="@*">
           <xsl:if test="name()!='id'">
             <xsl:attribute name="{name()}">
@@ -328,8 +335,9 @@
           </xsl:if>
         </xsl:for-each>
         <xsl:for-each select="./*">
-          <xsl:call-template name="copyCompoundContent">
-            <xsl:with-param name="cowiId" select="$cowiId" />
+          <xsl:call-template name="copyWidgetContent">
+            <xsl:with-param name="widgetId" select="$widgetId" />
+            <xsl:with-param name="idPlaceholder" select="$idPlaceholder" />
           </xsl:call-template>
         </xsl:for-each>
       </xsl:element>
@@ -384,6 +392,7 @@
     <xsl:param name="styleName" />
     <xsl:param name="addStyleClass" />
     <xsl:param name="useDOM" />
+    <xsl:param name="widgetId" />
     <xsl:if test="$useDOM='true'">
       <xsl:copy-of select="@*[name()!='id' and name()!='class' and name()!='data-brease-widget' and substring(name(), 0, 17)!='data-instruction']"/>
     </xsl:if>
@@ -406,7 +415,12 @@
       </xsl:attribute>
     </xsl:if>
     <xsl:if test="$useDOM='true'">
-      <xsl:copy-of select="/*/*"/>
+      <xsl:for-each select="/*/*">
+        <xsl:call-template name="copyWidgetContent">
+          <xsl:with-param name="widgetId" select="$widgetId" />
+          <xsl:with-param name="idPlaceholder" select="'{WIDGET_ID}'" />
+        </xsl:call-template>
+      </xsl:for-each>
     </xsl:if>
   </xsl:template>
 
@@ -512,6 +526,12 @@
       <xsl:value-of select="$contentId"/>
       <xsl:text>"</xsl:text>
     </xsl:if>
+    
+    <!-- inside a cowi (=running transformation with coWiPrefix) 
+    add a reference to the cowi itself for all children -->
+    <xsl:if test="$coWiPrefix!='none'">
+      <xsl:text>,"parentCoWiId":"{COWI_ID}"</xsl:text>
+    </xsl:if>
 
     <xsl:if test="$addStyleClass='true'">
       <xsl:text>,"styleClassAdded":true</xsl:text>
@@ -565,7 +585,7 @@
       <xsl:choose>
 
         <!-- string type -->
-        <xsl:when test="$propType='String'">
+        <xsl:when test="$propType='String' or $propType='RegEx'">
           <xsl:value-of select="$quote"/>
           <xsl:call-template name="string-replace-specialAndQuote">
             <xsl:with-param name="text" select="string(.)" />
@@ -615,7 +635,8 @@
 
         <!-- empty string for RoleCollection; none empty RoleCollection is object type -->
         <xsl:when test="$propType='RoleCollection' and string-length(.)=0">
-          <xsl:value-of select="$quote"/><xsl:value-of select="$quote"/>
+          <xsl:value-of select="$quote"/>
+          <xsl:value-of select="$quote"/>
         </xsl:when>
 
         <!-- object types -->
@@ -860,6 +881,8 @@
   </xsl:template>
 
   <!-- find HTML file for widget (optional with inheritance) -->
+  <!-- normal content: all widgets can be found under basepath (that is BRVisu/widgets/) (brease widgets, custom widgets and compound and derived widgets are copied to this folder) -->
+  <!-- inner content of compoundwidget: widget paths are described in widgetPathMapping -->
   <xsl:template name="get-html-path">
     <xsl:param name="basepath" />
     <xsl:param name="xsiType" />

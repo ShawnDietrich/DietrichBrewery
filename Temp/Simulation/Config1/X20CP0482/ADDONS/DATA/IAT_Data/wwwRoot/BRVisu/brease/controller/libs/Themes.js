@@ -79,7 +79,7 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
         _finish(_latestRequest.themeId);
     }
 
-    function _finish(themeId) {
+    function _finish() {
         document.body.dispatchEvent(new CustomEvent(BreaseEvent.THEME_CHANGED, { detail: { themeId: _currentTheme } }));
     }
 

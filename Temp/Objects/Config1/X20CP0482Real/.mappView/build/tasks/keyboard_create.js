@@ -1,4 +1,3 @@
-/*global module*/
 module.exports = function (grunt) {
 
     'use strict';
@@ -31,17 +30,17 @@ module.exports = function (grunt) {
     grunt.registerTask('keyboard_create', 'task for creation of keyboard widgets', function (srcFile, targetFolder, corePath, libraryName) {
 
         // local iat modules
-        var patchKeyboard = _moduleRequire('iat/libs/keyboard_patchObj'),
-            keyboardJsPrepare = _moduleRequire('iat/libs/keyboard_jsPrepare'),
+        var patchKeyboard = _moduleRequire('libs/keyboard_patchObj'),
+            keyboardJsPrepare = _moduleRequire('libs/keyboard_jsPrepare'),
+            elemValidator = _moduleRequire('libs/keyboard_elementsValidator'),
             xsdPrepare = _moduleRequire('iat/xsdPrepare'),
             styleParser = _moduleRequire('iat/styleParser'),
             json2xml = _moduleRequire('iat/json2xml'),
             xsltTrans = _moduleRequire('iat/XSLTTransformation'),
-            jsPrepare = _moduleRequire('iat/jsPrepare'),
-            elemValidator = _moduleRequire('iat/libs/keyboard_elementsValidator');
+            jsPrepare = _moduleRequire('iat/jsPrepare');
         targetFolder = (targetFolder && targetFolder !== 'null') ? targetFolder : _modulePath.resolve(grunt.config('wwwRoot'), '/BRVisu/widgets');
         corePath = (corePath && corePath !== 'null') ? corePath : _modulePath.resolve(grunt.config('basePath'), '../BRVisu');
-        var coreWidgets = (corePath.indexOf('wwwRoot/BRVisu') !== -1) ? _modulePath.resolve(corePath, 'widgets') : _modulePath.resolve(corePath, '../../Widgets');
+        var coreWidgets = (corePath.indexOf(_modulePath.join('wwwRoot', 'BRVisu')) !== -1) ? _modulePath.join(corePath, 'widgets') : _modulePath.resolve(corePath, '../../Widgets');
 
         if (debug) {
             grunt.log.writeln('srcFile:' + srcFile);

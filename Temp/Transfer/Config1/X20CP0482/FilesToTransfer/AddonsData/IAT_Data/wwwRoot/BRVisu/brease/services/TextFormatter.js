@@ -1,19 +1,19 @@
-define(['brease/events/BreaseEvent', 'brease/core/Utils', 'brease/enum/Enum'], function (BreaseEvent, Utils, Enum) {
+define(function () {
 
     'use strict';
 
     /**
     * @class brease.services.TextFormatter
     * @extends core.javascript.Object
-    * TextFormatter Service; available via brease.textFormatter 
-    * Formatting Texts with a Formatstring and Arguments
-    *
-    * Example of usage:
+    * TextFormatter Service; available via brease.services.textFormatter  
+    * Formatting Texts with a Formatstring and Arguments  
+    *   
+    * Example of usage:  
     * 
     *       <script>
     *           require(['brease', 'brease/events/BreaseEvent'], function (brease, BreaseEvent) {
     *               
-    *               brease.textFormatter.format('text', [arguments]).then(        
+    *               brease.services.textFormatter.format('text', [arguments]).then(        
     *                   successCallBackFunction,
     *                   errorCallBackFunction
     *               });
@@ -55,7 +55,7 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils', 'brease/enum/Enum'], f
         *
         * @param {String} text format string or textID
         * @param {Array} args 
-        * @return {Object} deferrdObject
+        * @return {Promise}
         */
         format: function (text, args) {
             var _def = $.Deferred();

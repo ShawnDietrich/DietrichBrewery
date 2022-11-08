@@ -195,7 +195,7 @@
 		<StyleProperty name="padding" category="Layout" type="Padding" default="0 15px 0 15px">
 			<StyleElement attribute="padding"></StyleElement>
 			<Description>
-				ets a space around the displayed text. For further information, please see its type
+				Sets a space around the displayed text. For further information, please see its type
 			</Description>
 		</StyleProperty>
 		

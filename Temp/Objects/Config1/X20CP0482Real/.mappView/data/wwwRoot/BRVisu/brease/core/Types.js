@@ -1,4 +1,4 @@
-define(function () {
+define(['brease/core/Utils'], function (Utils) {
     
     'use strict';
 
@@ -25,8 +25,9 @@ define(function () {
         * For type 'Enum', a valid {@link brease.enum.EnumObject EnumObject} has to be included in options.  
         *
         * @param {ANY} value
-        * @param {String} type Data type of value
-        * @param {Object} [options] Additional options, like min/max for Numbers
+        * @param {String} type datatype of value  
+        * possible datatypes: 'Boolean', 'String', 'Integer', 'Number', 'Color', 'Enum'
+        * @param {Object} [options] additional options, like min/max for Numbers
         * @return {ANY}
         */
         parseValue: function (value, type, options) {
@@ -50,7 +51,7 @@ define(function () {
                     retVal = parseColor(value);
                     break;
                 case 'String':
-                    retVal = parseString(value);
+                    retVal = parseString(value, options);
                     break;
                 default:
 
@@ -100,7 +101,7 @@ define(function () {
 
     function parseBoolean(value, options) {
         var retVal = value;
-        if (value !== true && value !== false && options && (options.default === true || options.default === false)) {
+        if (value !== true && value !== false && value !== 1 && value !== 0 && options && (options.default === true || options.default === false)) {
             retVal = options.default;
         }
         retVal = !!((retVal === true || retVal === 1));
@@ -117,7 +118,10 @@ define(function () {
         return retVal;
     }
 
-    function parseString(value) {
+    function parseString(value, options) {
+        if (options !== undefined && options.default !== undefined && !Utils.isString(value)) {
+            return options.default;
+        }
         return '' + value;
     }
 
@@ -178,12 +182,36 @@ define(function () {
 */
 
 /**
+* @class core.javascript.Event
+* @alternateClassName Event
+* @embeddedClass
+* Core JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank" style="text-decoration:underline;">Event</a>
+*/
+
+/**
+* @class core.html.Element
+* @alternateClassName Element
+* @embeddedClass
+* @virtualNote 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element" target="_blank">Element</a>
+*/
+
+/**
 * @class core.html.HTMLElement
 * @alternateClassName HTMLElement
 * @embeddedClass
 * @virtualNote 
 * <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">HTML element</a>
 */
+
+/**
+* @class core.html.DOMRect
+* @alternateClassName DOMRect
+* @embeddedClass
+* @virtualNote 
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMRect" target="_blank">DOMRect</a>
+*/
+
 /**
 * @class core.html.Node
 * @embeddedClass
@@ -372,6 +400,16 @@ define(function () {
 * @virtualNote 
 * Single Pixel Value  
 * e.g. 2px  
+*/
+
+/**
+* @class core.datatype.StrictSignedPixelVal
+* @extends String
+* @alternateClassName StrictSignedPixelVal
+* @embeddedClass
+* @virtualNote 
+* Single Pixel Value  
+* e.g. -2px  
 */
 
 /**

@@ -67,6 +67,10 @@
   border-width: 2px;
 }
 
+.system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).active {
+  border-width: 2px;
+}
+
 .system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).checked {
   border-width: 2px;
 }
@@ -79,6 +83,10 @@
   border-color: #FD7B01;
 }
 
+.system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).active {
+  border-color: #FD7B01;
+}
+
 .system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).checked {
   border-color: #FD7B01;
 }
@@ -88,6 +96,10 @@
 }
 
 .system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode):active {
+  background-color: #DBDBDB;
+}
+
+.system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).active {
   background-color: #DBDBDB;
 }
 
@@ -108,6 +120,10 @@
 }
 
 .system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode):active span {
+  color: #000;
+}
+
+.system_brease_MessageBox_style_default .messageBoxButton:not(.disabled):not(.editMode).active span {
   color: #000;
 }
 

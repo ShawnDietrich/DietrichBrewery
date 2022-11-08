@@ -3,6 +3,7 @@
 <xs:complexType name="system.widgets.CompoundWidgetRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="0" />
 			<xs:attribute name="height" use="optional" type="types:Size" default="300" />
 			<xs:attribute name="width" use="optional" type="types:Size" default="400" />
 		</xs:restriction>

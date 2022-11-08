@@ -113,11 +113,11 @@ define([
         if (sendChange === true && omitSubmit !== true) {
             /**
             * @event ValueChanged
+            * @iatStudioExposed
+            * Fired when the status of the widget is changed by user interaction
             * @param {Integer} newValue
             * @param {Boolean} newValueBool
             * @param {Integer} newValueInteger
-            * @iatStudioExposed
-            * Fired when the status of the widget is changed by user interaction
             */
             var ev = this.createEvent('ValueChanged', {
                 newValue: this.getValue(),
@@ -160,7 +160,7 @@ define([
     /**
     * @method setValue
     * @iatStudioExposed
-    * Toggle button dependent of a value.  
+    * Toggle button dependent of a value. 
     * This method is used for binding. 
     * @param {Integer} value
     */
@@ -253,11 +253,10 @@ define([
 
         /**
         * @event MouseDown
+        * @iatStudioExposed
+        * Fired when widget enters mouseDown state
         * @param {String} horizontalPos horizontal position of mouse in pixel i.e '10px'
         * @param {String} verticalPos vertical position of mouse in pixel i.e '10px'
-        * @iatStudioExposed
-        * 
-        * Fired when widget enters mouseDown state
         */
         var ev = this.createMouseEvent('MouseDown', {}, e);
         ev.dispatch();

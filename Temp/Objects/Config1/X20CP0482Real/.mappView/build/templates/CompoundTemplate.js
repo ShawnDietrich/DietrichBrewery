@@ -39,10 +39,7 @@ __DEPENDENCIES__
 
     p.setInitialValues = function () {
         //__INITIAL_CALLS__
-    };
-    //__METHODS__
-    //__SETTER__
-    //__GETTER__
+    };//__METHODS__//__SETTER__//__GETTER__
 
     return WidgetClass;
 

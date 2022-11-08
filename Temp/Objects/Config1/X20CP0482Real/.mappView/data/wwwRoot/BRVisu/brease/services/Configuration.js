@@ -61,6 +61,8 @@ define(['brease/services/LoadedByBootstrapper', 'brease/events/BreaseEvent', 'br
         brease.config.gestures = _getGestures(configurations.gestures);
         brease.config.virtualKeyboards = _getVirtualKeyboards(configurations.virtualKeyboards);
         brease.config.visu.moveThreshold = _getMoveThreschold(configurations.moveThreshold);
+        brease.config.visu.keyboardOperation = _getKeyboardOperation(configurations.keyboardOperation);
+        brease.config.keyboardHandling = _getKeyboardHandling(configurations.keyboardOperation, configurations.keyboardHandling);
     }
 
     function _mergeMvConfig(configurations) {
@@ -104,6 +106,31 @@ define(['brease/services/LoadedByBootstrapper', 'brease/events/BreaseEvent', 'br
     }
     function _getMoveThreschold(moveThreshold) {
         return moveThreshold || undefined;
+    }
+
+    function _getKeyboardOperation(keyboardOperation) {
+        return (keyboardOperation === 'true' || keyboardOperation === true);
+    }
+
+    function _getKeyboardHandling(keyboardOperation, keyboardHandling) {
+        if (keyboardOperation === true) {
+            return _.defaults(keyboardHandling, { 
+                onStart: { 
+                    action: 'any' 
+                },
+                onEnd: { 
+                    action: 'focus' 
+                } 
+            });
+        }
+        return {
+            onStart: { 
+                action: undefined
+            },
+            onEnd: { 
+                action: undefined
+            } 
+        };
     }
 
     return Configuration;

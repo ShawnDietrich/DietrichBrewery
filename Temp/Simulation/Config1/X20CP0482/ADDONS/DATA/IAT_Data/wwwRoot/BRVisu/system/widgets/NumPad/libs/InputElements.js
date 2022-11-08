@@ -21,16 +21,23 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
     InputElements.prototype.valueChangedListener = function (e) {
         var value = (e && e.detail) ? e.detail.value : undefined;
         /**
-        * @event ValueChanged
-        * @param {Object} detail  
-        * @param {Number} detail.value  
-        * @param {String} type 'ValueChanged'
+        * @event ValueChanged 
+        * @param {Number} value  
         */
         this.dispatchEvent({ type: 'ValueChanged', 
             detail: {
                 'value': value
             } 
         }); 
+    };
+
+    InputElements.prototype.dispose = function () {
+        this.removeEventListener('ValueChanged');
+        this.elements.forEach(function (element) {
+            if (typeof element.dispose === 'function') {
+                element.dispose();
+            }
+        });
     };
 
     return InputElements;

@@ -6,8 +6,9 @@ define(function () {
     * @class brease.objects.Content
     * @alternateClassName Content
     * @extends Object
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new Content instance.
     * @param {String} id
     * @param {String} visuId

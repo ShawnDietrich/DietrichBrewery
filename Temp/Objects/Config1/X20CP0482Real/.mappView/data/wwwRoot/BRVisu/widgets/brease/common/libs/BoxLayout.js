@@ -10,49 +10,49 @@ define([
      *   using css classes.
      *
      *   Usage:         
-     *      1. You need to import the SCSS file "boxLayout.scss" 
-     *           e.g.: 
-     *               @import "../../common/css/boxLayout.scss";
-     *      2. require this class:
-     *           e.g.:
-     *               define(['widgets/brease/common/libs/BoxLayout'], function(BoxLayout){...});
-     *      2. You must create the box container and boxes in your widget and
-     *           put your content, you want to align inside the boxes
-     *           e.g.:
-     *               widget.boxContainer = BoxLayout.createBoxContainer();
-     *               widget.inputBox = BoxLayout.createBox();
-     *               widget.unitBox = BoxLayout.createBox();
-     *      3. Call the methods "setOrientation" and "setAlignment" to configure the layout
-     *           e.g.:
-     *               BoxLayout.setOrientation(widget.boxContainer, Enum.Orientation.LTR);
-     *
-     * @requires ../css/boxLayout.scss
-     *
-     *    Example:
-     *    - Box orientation
-     *          LeftToRight                           TopToBottom
-     *    _________________________          _________________________
-     *    |           |           |          |                       | 
-     *    |           |           |          |          Box1         | 
-     *    |   Box1    |    Box2   |   ->     |_______________________| 
-     *    |           |           |          |                       | 
-     *    |           |           |          |          Box2         | 
-     *    |___________|___________|          |_______________________|
-     *
-     *    - Box alignment
-     *            Center                              BottomRight
-     *    _________________________           _________________________ 
-     *    |           |           |           |           |           |
-     *    |           |           |           |           |           |
-     *    |   Box1    |    Box2   |           |           |           |
-     *    |           |           |   ->      |           |           |
-     *    |           |           |           |       Box1|       Box2|
-     *    |___________|___________|           |___________|___________|
-     *
-     *
+     *      1. You need to import the SCSS file "boxLayout.scss"  
+     *           e.g.:  
+     *               &#64;import "../../common/css/boxLayout.scss";  
+     *      2. require this class:  
+     *           e.g.:  
+     *               define(['widgets/brease/common/libs/BoxLayout'], function(BoxLayout){...});  
+     *      2. You must create the box container and boxes in your widget and  
+     *           put your content, you want to align inside the boxes  
+     *           e.g.:  
+     *               widget.boxContainer = BoxLayout.createBoxContainer();  
+     *               widget.inputBox = BoxLayout.createBox();  
+     *               widget.unitBox = BoxLayout.createBox();  
+     *      3. Call the methods "setOrientation" and "setAlignment" to configure the layout  
+     *           e.g.:  
+     *               BoxLayout.setOrientation(widget.boxContainer, Enum.Orientation.LTR);  
+     *  
+     * @requires ../css/boxLayout.scss  
+     *  
+     *    Example:  
+     *    - Box orientation  
+     *          LeftToRight                           TopToBottom  
+     *    _________________________          _________________________  
+     *    |           |           |          |                       |  
+     *    |           |           |          |          Box1         |  
+     *    |   Box1    |    Box2   |   ->     |_______________________|  
+     *    |           |           |          |                       |  
+     *    |           |           |          |          Box2         |  
+     *    |___________|___________|          |_______________________|  
+     *  
+     *    - Box alignment  
+     *            Center                              BottomRight  
+     *    _________________________           _________________________   
+     *    |           |           |           |           |           |  
+     *    |           |           |           |           |           |  
+     *    |   Box1    |    Box2   |           |           |           |  
+     *    |           |           |   ->      |           |           |  
+     *    |           |           |           |       Box1|       Box2|  
+     *    |___________|___________|           |___________|___________|  
+     *  
+     *  
      * @author  Alexander Gottfried                                             
      *
-     ********************************************************/
+     */
     var BoxLayout = {};
 
     BoxLayout.CONTAINER_CLASS = 'box-container';
@@ -84,6 +84,7 @@ define([
     }
 
     /**
+     * @method
      * Resets the classes of container to default value
      * @param {Object} elem The container DOM element
      */
@@ -104,6 +105,7 @@ define([
     };
 
     /**
+     * @method
      * Resets the classes of the box to default value
      * @param {Object} elem The box DOM element
      */
@@ -129,6 +131,7 @@ define([
     };
 
     /**
+     * @method
      * Creates a box container DOM element
      * @return {Object} The boxContainer DOM element
      */
@@ -139,6 +142,7 @@ define([
     };
 
     /**
+     * @method
      * Creates a box DOM element
      * @return {Object} The box DOM element
      */
@@ -149,9 +153,10 @@ define([
     };
 
     /**
+     * @method
      * Sets the orientation of the boxes inside the boxContainer
      * @param {Object} elem The box container element or one of its children
-     * @param {string} orientation The orientation which should be set. type of brease Enum.Orientation
+     * @param {String} orientation The orientation which should be set. type of brease Enum.Orientation
      */
     BoxLayout.setOrientation = function (elem, orientation) {
         var container = _findClosest(elem, this.CONTAINER_CLASS);
@@ -177,9 +182,10 @@ define([
     };
 
     /**
+     * @method
      * Sets the alignment of a box element
      * @param {Object} elem The box DOM element or one of its children
-     * @param {string} alignment The alignment which should be set
+     * @param {String} alignment The alignment which should be set
      */
     BoxLayout.setBoxAlign = function (elem, alignment) {
         var box = _findClosest(elem, this.BOX_CLASS);

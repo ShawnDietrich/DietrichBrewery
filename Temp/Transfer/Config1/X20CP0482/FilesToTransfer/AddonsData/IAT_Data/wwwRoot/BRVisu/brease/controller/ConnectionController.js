@@ -9,29 +9,27 @@ define(['brease/events/SocketEvent'], function (SocketEvent) {
     * @singleton
     */
     var ConnectionController = {
-            init: function (runtimeService, systemMessage, reconnectHandler, transferFinishedHandler) {
-                _reconnectHandler = reconnectHandler || window.location.reload.bind(window.location);
+            init: function (runtimeService, systemMessage, transferFinishedHandler) {
                 _transferFinishedHandler = transferFinishedHandler || window.location.reload.bind(window.location);
-                runtimeService.addEventListener(SocketEvent.CONNECTION_STATE_CHANGED, _connectionStateChangedHandler.bind(this, systemMessage));
+                runtimeService.addEventListener(SocketEvent.CONNECTION_STATE_CHANGED, _connectionStateChangedHandler.bind(this));
                 runtimeService.addEventListener(SocketEvent.TRANSFER_START, _transferStartHandler.bind(this, systemMessage));
                 runtimeService.addEventListener(SocketEvent.TRANSFER_FINISH, _transferFinishHandler.bind(this, systemMessage));
             }
         },
-        _transferInProcess = false,
-        _reconnectHandler, _transferFinishedHandler;
+        _transferInProcess = false, _transferFinishedHandler;
 
-    function _connectionStateChangedHandler(systemMessage, e) {
-        if (e.detail.state === true) {
-            systemMessage.clear();
-            _reconnectHandler();
-        } else if (_transferInProcess !== true) {
+    function _connectionStateChangedHandler(e) {
+        if (_transferInProcess !== true) {
             document.body.dispatchEvent(new CustomEvent(SocketEvent.CONNECTION_STATE_CHANGED, { detail: { state: e.detail.state } }));
-            systemMessage.showMessage(brease.language.getSystemTextByKey('BR/IAT/brease.common.connectionError.text'));
+            window._connectionErrorHandler(true, brease.language.getSystemTextByKey('BR/IAT/brease.common.connectionError.text'));
+        } else {
+            window._tryReconnect();
         }
     }
 
     function _transferStartHandler(systemMessage) {
         _transferInProcess = true;
+        window._connectionErrorHandler = function () {};
         systemMessage.showMessage(brease.language.getSystemTextByKey('BR/IAT/brease.common.transferStart'));
     }
 

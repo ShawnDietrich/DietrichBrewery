@@ -1,4 +1,3 @@
-/* global TouchEvent */
 define(['widgets/brease/common/DragDropHandler/libs/dragDropBase'], function (DragDropBase) {
     'use strict';
     function _callMouseEnterEvent(elem, e) {

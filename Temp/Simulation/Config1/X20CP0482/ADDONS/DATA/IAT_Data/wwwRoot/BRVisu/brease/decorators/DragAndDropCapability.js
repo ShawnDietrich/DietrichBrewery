@@ -16,9 +16,12 @@ function (Decorator, Utils, BreaseEvent, Enum, DragAndDropManager) {
     * A decorator class to add drag and drop functionality to widgets.
     * ##Example:
     *
-    *     define(function (require) {
-    *        var SuperClass = require('brease/core/BaseWidget'),
-    *            DragAndDropCapability = require('brease/decorators/DragAndDropCapability'),
+    *     define(['brease/core/BaseWidget', 'brease/decorators/DragAndDropCapability'],
+    *           function (SuperClass, DragAndDropCapability) {
+    *     
+    *        var WidgetClass = SuperClass.extend(function () {
+    *           SuperClass.apply(this, arguments);
+    *        }, defaultSettings),
     *            [...]
     *
     *        return DragAndDropCapability.decorate(WidgetClass);
@@ -174,8 +177,9 @@ function (Decorator, Utils, BreaseEvent, Enum, DragAndDropManager) {
     }
 
     function setState(state) {
-        //console.log('%c' + this.elem.id + '.dependencies[' + dependency + '].state=' + state, 'color:#cd661d');
-        this.dependencies[dependency].state = state;
+        if (this.dependencies[dependency]) {
+            this.dependencies[dependency].state = state;
+        }
     }
 
     return decoratorInstance;

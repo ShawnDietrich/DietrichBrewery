@@ -1,4 +1,7 @@
-define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent, Utils) {
+define(['brease/events/BreaseEvent',
+    'brease/events/SocketEvent',
+    'brease/core/Utils'], 
+function (BreaseEvent, SocketEvent, Utils) {
 
     'use strict';
 
@@ -13,13 +16,14 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
 
         init: function (runtimeService) {
             _runtimeService = runtimeService;
+            _runtimeService.addEventListener(SocketEvent.MEASUREMENT_SYSTEM_CHANGED, _measurementSystemChangedByServerHandler);
             return this;
         },
 
         isReady: function () {
-            _loadDeferred = $.Deferred();
-            _load();
-            return _loadDeferred.promise();
+            var deferred = $.Deferred();
+            _runtimeService.loadMeasurementSystemList(_loadMeasurementSystemListResponseHandler, { deferred: deferred });
+            return deferred.promise();
         },
 
         /**
@@ -33,15 +37,15 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
         },
 
         updateMeasurementSystems: function () {
-            _updateDeferred = $.Deferred();
+            var deferred = $.Deferred();
             if (_currentLanguage !== brease.language.getCurrentLanguage()) {
-                _runtimeService.loadMeasurementSystemList(_updateMeasurementSystemListResponseHandler);
+                _runtimeService.loadMeasurementSystemList(_updateMeasurementSystemListResponseHandler, { deferred: deferred });
                 _currentLanguage = brease.language.getCurrentLanguage();
             } else {
-                _updateDeferred.reject('language is current');
+                deferred.reject('language is current');
             }
 
-            return _updateDeferred.promise();
+            return deferred.promise();
 
         },
 
@@ -62,21 +66,20 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
         */
         switchMeasurementSystem: function (key) {
             //console.log('switchMeasurementSystem:', key);
-            _switchDeferred = $.Deferred();
+            var deferred = $.Deferred();
             if (_mms[key] === undefined) {
                 console.iatWarn('Measurement-System \u00BB' + key + '\u00AB is not defined!');
-                _switchDeferred.resolve({ success: false });
+                deferred.resolve({ success: false });
 
             } else if (_currentMeasurementSystem === key) {
                 //console.iatInfo('Measurement-System \u00BB' + key + '\u00AB is current!');
-                _switchDeferred.resolve({ success: true });
+                deferred.resolve({ success: true });
 
             } else {
-                _runtimeService.switchMeasurementSystem(key, _switchMeasurementSystemResponseHandler, { newKey: key });
-
+                _runtimeService.switchMeasurementSystem(key, _switchMeasurementSystemResponseHandler, { newKey: key, deferred: deferred });
             }
 
-            return _switchDeferred.promise();
+            return deferred.promise();
         }
     };
 
@@ -87,9 +90,6 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
     var _mms = {},
         _currentMeasurementSystem = '',
         _currentLanguage,
-        _switchDeferred,
-        _loadDeferred,
-        _updateDeferred,
         _runtimeService;
 
     function _finish(deferred, success, message) {
@@ -101,34 +101,29 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
         }
     }
 
-    function _load() {
-
-        _runtimeService.loadMeasurementSystemList(_loadMeasurementSystemListResponseHandler);
-    }
-
-    function _loadMeasurementSystemListResponseHandler(response) {
+    function _loadMeasurementSystemListResponseHandler(response, callbackInfo) {
 
         if (_.isObject(response) && response.success === true) {
             //console.log('_loadMeasurementSystemListResponseHandler:', response);
             _mms = response.measurementSystemList;
             _currentMeasurementSystem = response.current_measurementSystem;
             document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_LOADED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } }));
-            _finish(_loadDeferred, true);
+            _finish(callbackInfo.deferred, true);
         } else {
-            _finish(_loadDeferred, false, 'MeasurementSystems load error');
+            _finish(callbackInfo.deferred, false, 'MeasurementSystems load error');
         }
     }
 
-    function _updateMeasurementSystemListResponseHandler(response) {
+    function _updateMeasurementSystemListResponseHandler(response, callbackInfo) {
 
         if (_.isObject(response) && response.success === true) {
             //console.log('_updateMeasurementSystemListResponseHandler:', response);
             _mms = response.measurementSystemList;
             _currentMeasurementSystem = response.current_measurementSystem;
             document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_LOADED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } }));
-            _finish(_updateDeferred, true);
+            _finish(callbackInfo.deferred, true);
         } else {
-            _finish(_updateDeferred, false, 'MeasurementSystems load error');
+            _finish(callbackInfo.deferred, false, 'MeasurementSystems load error');
         }
     }
 
@@ -136,12 +131,24 @@ define(['brease/events/BreaseEvent', 'brease/core/Utils'], function (BreaseEvent
         //console.log('_switchMeasurementSystemResponseHandler:', callbackInfo);
         if (response.success === true) {
             _currentMeasurementSystem = callbackInfo.newKey;
-            _switchDeferred.resolve({ success: true });
+            callbackInfo.deferred.resolve({ success: true });
         } else {
             console.iatWarn('service switchMeasurementSystem failed!');
-            _switchDeferred.resolve({ success: false });
+            callbackInfo.deferred.resolve({ success: false });
         }
         document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_CHANGED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } }));
+    }
+
+    function _isValidMMSEvent(e) {
+        return e && e.detail && e.detail.currentMeasurementSystem !== undefined;
+    }
+    
+    function _measurementSystemChangedByServerHandler(serverEvent) {
+        if (!_isValidMMSEvent(serverEvent)) {
+            return;
+        }
+        _currentMeasurementSystem = serverEvent.detail.currentMeasurementSystem;
+        document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_CHANGED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } })); 
     }
 
     return MeasurementSystem;

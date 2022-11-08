@@ -45,11 +45,15 @@ define(['brease/services/libs/SocketResponse'], function (SocketResponse) {
     p.addEventListener = function () {
         this.socket.addEventListener.apply(this.socket, arguments);
     };
-    
+
     p.removeEventListener = function () {
         this.socket.removeEventListener.apply(this.socket, arguments);
     };
-    
+
+    p.checkFileExists = function () {
+        return this.services.checkFileExists.apply(this.services, arguments);
+    };
+
     /*#######################
      ### LANGUAGE related ###
      #######################*/
@@ -168,6 +172,42 @@ define(['brease/services/libs/SocketResponse'], function (SocketResponse) {
         this.services.loadUserRoles.apply(this.services, arguments);
     };
 
+    p.changePassword = function () {
+        this.services.changePassword.apply(this.services, arguments);
+    };
+
+    p.loadPasswordPolicies = function () {
+        this.services.loadPasswordPolicies.apply(this.services, arguments);
+    };
+
+    p.loadUserList = function () {
+        this.services.loadUserList.apply(this.services, arguments);
+    };
+
+    p.loadUserData = function () {
+        this.services.loadUserData.apply(this.services, arguments);
+    };
+
+    p.addUserToMpUserX = function () {
+        this.services.addUserToMpUserX.apply(this.services, arguments);
+    };
+
+    p.deleteUserFromMpUserX = function () {
+        this.services.deleteUserFromMpUserX.apply(this.services, arguments);
+    };
+
+    p.modifyUserFromMpUserX = function () {
+        this.services.modifyUserFromMpUserX.apply(this.services, arguments);
+    };
+
+    p.loadAvailableRoles = function () {
+        this.services.loadAvailableRoles.apply(this.services, arguments);
+    };
+
+    p.getUserSettingsFromMpUserX = function () {
+        this.services.getUserSettingsFromMpUserX.apply(this.services, arguments);
+    };
+
     /*####################
      ### TextFormatter ###
      #####################*/
@@ -248,7 +288,7 @@ define(['brease/services/libs/SocketResponse'], function (SocketResponse) {
         this.deactivateResponse.add(contentId, { callback: callback, callbackInfo: callbackInfo });
         var Parameter = {
             contentId: contentId,
-            visuId: visuId 
+            visuId: visuId
         };
         if (force === true) {
             Parameter.force = true;
@@ -379,6 +419,10 @@ define(['brease/services/libs/SocketResponse'], function (SocketResponse) {
 
     p.loadConfiguration = function () {
         this.services.loadConfiguration.apply(this.services, arguments);
+    };
+
+    p.getAutoLogOut = function () {
+        this.services.getAutoLogOut.apply(this.services, arguments);
     };
 
     /*#######################

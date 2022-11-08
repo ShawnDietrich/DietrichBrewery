@@ -173,12 +173,29 @@ function (_widgetFactory, _widgetParser, Enum, Utils) {
     * @param {String} contentId
     * @param {Function} callback
     */
-    _defineMethod(p, 'disposeInContent', function dispose() {
-        _widgetController.dispose.apply(_widgetController, arguments);
+    _defineMethod(p, 'disposeInContent', function disposeInContent() {
+        _widgetController.disposeInContent.apply(_widgetController, arguments);
     });
 
     _defineMethod(p, 'isWidgetCallable', function isWidgetCallable() {
         return _widgetController.isWidgetCallable.apply(_widgetController, arguments);
+    });
+
+    /**
+    * @method setWidgetPropertyIndependentOfState
+    * Method to set a widget property independent of the state of the widget.  
+    * If the widget is not yet initialized, the property is set as an initial value and considered at widget creation.  
+    * If no setterName is defined, the usual setterName is taken (e.g. 'value' -> 'setValue')
+    * @param {String} widgetId
+    * @param {String} propertyName
+    * @param {ANY} value
+    * @param {String} [setterName]
+    */
+    _defineMethod(p, 'setWidgetPropertyIndependentOfState', function setWidgetPropertyIndependentOfState(widgetId, propertyName, value, setterName) {
+        setterName = setterName || Utils.setter(propertyName);
+        if (brease.uiController.getWidgetState(widgetId) < Enum.WidgetState.INITIALIZED || brease.uiController.callWidget(widgetId, setterName, value) === null) {
+            brease.uiController.addWidgetOption(widgetId, propertyName, value);
+        }
     });
 
     /**
@@ -222,7 +239,7 @@ function (_widgetFactory, _widgetParser, Enum, Utils) {
     * @param {String} id id of widget
     * @param {String} method name of method
     * @paramComment First two parameters are required, more are optional, dependent on the method invoked.
-    * @return {ANY} returnValue return value of method. Data type depends on the method invoked.
+    * @return {ANY} return value of the called widget method. Data type depends on the method invoked.
     */
     _defineMethod(p, 'callWidget', function callWidget() {
         return _widgetController.callWidget.apply(_widgetController, arguments);
@@ -355,7 +372,7 @@ function (_widgetFactory, _widgetParser, Enum, Utils) {
     *    
     * On error the promise will be rejected with {@link brease.objects.ResponseStatus ResponseStatus}  
     */
-    _defineMethod(p, 'createBindings', function addWidgetOption() {
+    _defineMethod(p, 'createBindings', function createBindings() {
         return this.bindingController.createBindings.apply(this.bindingController, arguments);
     });
 
@@ -389,7 +406,7 @@ function (_widgetFactory, _widgetParser, Enum, Utils) {
     *    
     * On error the promise will be rejected with {@link brease.objects.ResponseStatus ResponseStatus}  
     */
-    _defineMethod(p, 'deleteBindings', function addWidgetOption() {
+    _defineMethod(p, 'deleteBindings', function deleteBindings() {
         return this.bindingController.deleteBindings.apply(this.bindingController, arguments);
     });
 

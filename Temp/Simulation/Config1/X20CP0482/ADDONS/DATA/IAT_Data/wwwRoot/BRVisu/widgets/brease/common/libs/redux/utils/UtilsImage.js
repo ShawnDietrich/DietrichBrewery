@@ -9,6 +9,7 @@ define(function () {
     var UtilsImage = {};
 
     /**
+     * @method 
      * This method takes a dataprovider and creates a list of strings containing
      * either the given images as provided or the index of the item of png type.
      * @param {Object[]} dataProvider
@@ -28,6 +29,7 @@ define(function () {
     };
 
     /**
+     * @method 
      * This method will create the necessary elements from the imageList
      * created in the createImageList and an imagePath.
      * @param {String[]} imageList

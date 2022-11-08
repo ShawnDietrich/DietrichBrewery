@@ -123,10 +123,15 @@ define(['brease/core/BaseWidget',
 
         document.body.addEventListener(BreaseEvent.THEME_CHANGED, this._bind('themeChangeHandler'));
     };
+    
+    p._onStylePropertiesChanged = function () {
+        this.refreshScroller();
+    };
 
     // override method called in BaseWidget.init
     p._initEditor = function () {
         var widget = this;
+        this.elem.addEventListener(BreaseEvent.WIDGET_STYLE_PROPERTIES_CHANGED, this._bind('_onStylePropertiesChanged'));
         require(['widgets/brease/Label/libs/EditorHandles'], function (EditorHandles) {
             var editorHandles = new EditorHandles(widget);
 
@@ -230,22 +235,20 @@ define(['brease/core/BaseWidget',
     };
 
     /**
-     * @method upodateText
+     * @method updateText
      * Updates the settings object and DOM element
      */
     p.updateText = function (text) {
         if (text !== null) {
             this.settings.text = Types.parseValue(text, 'String');
-            // Escape html to prevent code injection
-            var escapedHtml = _.escape(text);
-
-            var newText = escapedHtml;
             if (this.settings.multiLine) {
-                // Regexp for replacing \n to <br />
-                // Source: http://stackoverflow.com/questions/5076466/javascript-replace-n-with-br
-                newText = escapedHtml.replace(/\\n/g, '<br />');
+                // used for backwards compatibility browser will replace \n with <br/>
+                // see https://html.spec.whatwg.org/multipage/dom.html#the-innertext-idl-attribute
+                this.textEl.get(0).innerText = brease.language.unescapeText(this.settings.text);
+            } else {
+                // jQuery.text() uses textContent attribute internally
+                this.textEl.text(brease.language.unescapeText(this.settings.text));
             }
-            this.textEl.html(newText);
         }
         this.refreshScroller();
     };

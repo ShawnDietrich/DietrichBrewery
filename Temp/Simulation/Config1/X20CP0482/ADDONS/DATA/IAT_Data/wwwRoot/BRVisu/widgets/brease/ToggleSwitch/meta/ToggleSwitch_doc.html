@@ -221,7 +221,7 @@
 </tr>
 <tr>
 <td class="parameter_tab">multiLine</td>
-<td class="parameter_tab">If true, more than one line is possible.<br/>
+<td class="parameter_tab">If true, more than one line is possible.
 Text will wrap when necessary (if property wordWrap is set to true) or at explicit line breaks (\n).
 If false, text will never wrap to the next line. The text continues on the same line.
 </td>
@@ -306,6 +306,28 @@ If false, text will never wrap to the next line. The text continues on the same 
 <td class="parameter_tab"></td>
 </tr>
 <tr>
+<td class="parameter_tab">tabIndex</td>
+<td class="parameter_tab">sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+or if autofocus should be disabled (-1)
+</td>
+<td class="parameter_tab">Behavior</td>
+<td class="parameter_tab">Integer</td>
+<td class="parameter_tab">0</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="true parameter_tab">true</td>
+<td class="false parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">text</td>
 <td class="parameter_tab">Text which is displayed in the widget
 </td>
@@ -337,6 +359,27 @@ If false, text will never wrap to the next line. The text continues on the same 
 <td class="false parameter_tab">false</td>
 <td class="false parameter_tab">false</td>
 <td class="true parameter_tab">true</td>
+<td class="false parameter_tab">false</td>
+<td class="true parameter_tab">true</td>
+<td class="false parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">useSVGStyling</td>
+<td class="parameter_tab">Define if the image stylings (i.e imageColor) are applied - only valid when SVG Images are used.
+</td>
+<td class="parameter_tab">Appearance</td>
+<td class="parameter_tab">Boolean</td>
+<td class="parameter_tab">true</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
 <td class="false parameter_tab">false</td>
 <td class="true parameter_tab">true</td>
 <td class="false parameter_tab"></td>
@@ -391,7 +434,7 @@ If false, text will never wrap to the next line. The text continues on the same 
 </tr>
 <tr>
 <td class="parameter_tab">wordWrap</td>
-<td class="parameter_tab">If true, text will wrap when necessary.<br/>
+<td class="parameter_tab">If true, text will wrap when necessary.
 This property has no effect, if multiLine=false
 </td>
 <td class="parameter_tab">Behavior</td>
@@ -963,25 +1006,25 @@ This property has no effect, if multiLine=false
 <tbody>
 <tr>
 <td class="parameter_tab">Click</td>
-<td class="parameter_tab"><p>Fired when element is clicked on.</p>
+<td class="parameter_tab">Fired when element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
 
 
 
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
 
 
 
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'</p>
+<p>vertical position of click in pixel i.e '10px'
 
 
 
@@ -992,24 +1035,27 @@ This property has no effect, if multiLine=false
 </tr>
 <tr>
 <td class="parameter_tab">DisabledClick</td>
-<td class="parameter_tab"><p>Fired when disabled element is clicked on.</p>
+<td class="parameter_tab">Fired when disabled element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
+
 </p>
 </li>
 <li>hasPermission: Boolean
-<p><p>defines if the state is caused due to missing</p>
+<p>defines if the state is caused due to missing roles of the current user
+
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
+
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'
-roles of the current user</p>
+<p>vertical position of click in pixel i.e '10px'
+
 </p>
 </li>
 </ul>
@@ -1017,16 +1063,15 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">DoubleClick</td>
-<td class="parameter_tab">
+<td class="parameter_tab">Fired when element has double click.
 </td>
 <td class="parameter_tab"><ul>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'
-Fired when element has double click.</p>
+<p>vertical position of click in pixel i.e '10px'
 </p>
 </li>
 </ul>
@@ -1034,11 +1079,11 @@ Fired when element has double click.</p>
 </tr>
 <tr>
 <td class="parameter_tab">EnableChanged</td>
-<td class="parameter_tab"><p>Fired when operability of the widget changes.</p>
+<td class="parameter_tab">Fired when operability of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>operability</p>
+<p>operability
 
 
 
@@ -1048,17 +1093,28 @@ Fired when element has double click.</p>
 </td>
 </tr>
 <tr>
+<td class="parameter_tab">FocusIn</td>
+<td class="parameter_tab">Fired when the widgets gets focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">FocusOut</td>
+<td class="parameter_tab">Fired when the widgets lost focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">MouseDown</td>
-<td class="parameter_tab">
+<td class="parameter_tab">Fired when widget enters mouseDown state
 </td>
 <td class="parameter_tab"><ul>
 <li>horizontalPos: String
-<p><p>horizontal position of mouse in pixel i.e '10px'</p>
+<p>horizontal position of mouse in pixel i.e '10px'
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of mouse in pixel i.e '10px'
-Fired when widget enters mouseDown state</p>
+<p>vertical position of mouse in pixel i.e '10px'
 </p>
 </li>
 </ul>
@@ -1066,16 +1122,15 @@ Fired when widget enters mouseDown state</p>
 </tr>
 <tr>
 <td class="parameter_tab">MouseUp</td>
-<td class="parameter_tab">
+<td class="parameter_tab">Fired when widget enters mouseUp state
 </td>
 <td class="parameter_tab"><ul>
 <li>horizontalPos: String
-<p><p>horizontal position of mouse in pixel i.e '10px'</p>
+<p>horizontal position of mouse in pixel i.e '10px'
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of mouse in pixel i.e '10px'
-Fired when widget enters mouseUp state</p>
+<p>vertical position of mouse in pixel i.e '10px'
 </p>
 </li>
 </ul>
@@ -1083,15 +1138,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragEnd</td>
-<td class="parameter_tab"><p>Fired when element has OnDragEnd.</p>
+<td class="parameter_tab">Fired when element has OnDragEnd.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget where the drag operation has ended</p>
+<p>content id of the widget where the drag operation has ended
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget where the drag operation has ended</p>
+<p>id of the widget where the drag operation has ended
 </p>
 </li>
 </ul>
@@ -1099,15 +1154,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragEnter</td>
-<td class="parameter_tab"><p>Fired when element has onDragEnter.</p>
+<td class="parameter_tab">Fired when element has onDragEnter.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been entering the droppable widget</p>
+<p>content id of the widget that has been entering the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been entering the droppable widget</p>
+<p>id of the widget that has been entering the droppable widget
 </p>
 </li>
 </ul>
@@ -1115,15 +1170,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragLeave</td>
-<td class="parameter_tab"><p>Fired when element has OnDragLeave.</p>
+<td class="parameter_tab">Fired when element has OnDragLeave.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been leaving the droppable widget</p>
+<p>content id of the widget that has been leaving the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been leaving the droppable widget</p>
+<p>id of the widget that has been leaving the droppable widget
 </p>
 </li>
 </ul>
@@ -1131,15 +1186,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDragStart</td>
-<td class="parameter_tab"><p>Fired when element has OnDragStart.</p>
+<td class="parameter_tab">Fired when element has OnDragStart.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget where the drag operation has been started</p>
+<p>content id of the widget where the drag operation has been started
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget where the drag operation has been started</p>
+<p>id of the widget where the drag operation has been started
 </p>
 </li>
 </ul>
@@ -1147,15 +1202,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">OnDrop</td>
-<td class="parameter_tab"><p>Fired when element has OnDrop.</p>
+<td class="parameter_tab">Fired when element has OnDrop.
 </td>
 <td class="parameter_tab"><ul>
 <li>contentId: String
-<p><p>content id of the widget that has been dropped on the droppable widget</p>
+<p>content id of the widget that has been dropped on the droppable widget
 </p>
 </li>
 <li>widgetId: String
-<p><p>id of the widget that has been dropped on the droppable widget</p>
+<p>id of the widget that has been dropped on the droppable widget
 </p>
 </li>
 </ul>
@@ -1163,7 +1218,7 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">ValueChanged</td>
-<td class="parameter_tab">
+<td class="parameter_tab">Fired when the status of the widget is changed by user interaction
 </td>
 <td class="parameter_tab"><ul>
 <li>newValue: Integer
@@ -1175,7 +1230,7 @@ Fired when widget enters mouseUp state</p>
 </p>
 </li>
 <li>newValueInteger: Integer
-<p><p>Fired when the status of the widget is changed by user interaction</p>
+<p>
 </p>
 </li>
 </ul>
@@ -1183,11 +1238,11 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">VisibleChanged</td>
-<td class="parameter_tab"><p>Fired when the visibility of the widget changes.</p>
+<td class="parameter_tab">Fired when the visibility of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>visibility</p>
+<p>visibility
 
 
 
@@ -1212,8 +1267,15 @@ Fired when widget enters mouseUp state</p>
 </thead>
 <tbody>
 <tr>
+<td class="parameter_tab">Focus</td>
+<td class="parameter_tab">Sets focus on the widget element, if it can be focused and keyboardOperation=true
+</td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">GetValueBool</td>
-<td class="parameter_tab"><p>Get value dependent on state. false -> not checked, true -> checked.</p>
+<td class="parameter_tab">Get value dependent on state. false -> not checked, true -> checked.
 </td>
 <td class="parameter_tab"></td>
 <td class="parameter_tab">
@@ -1221,7 +1283,7 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">GetValueInteger</td>
-<td class="parameter_tab"><p>Get value dependent on state0 -> not checked, 1 -> checked.</p>
+<td class="parameter_tab">Get value dependent on state0 -> not checked, 1 -> checked.
 </td>
 <td class="parameter_tab"></td>
 <td class="parameter_tab">
@@ -1229,28 +1291,28 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">RemoveImage</td>
-<td class="parameter_tab"><p>Remove an image.</p>
+<td class="parameter_tab">Remove an image.
 </td>
 <td class="parameter_tab"></td>
 <td class="parameter_tab"></td>
 </tr>
 <tr>
 <td class="parameter_tab">RemoveMouseDownText</td>
-<td class="parameter_tab"><p>Remove mouseDownText.</p>
+<td class="parameter_tab">Remove mouseDownText.
 </td>
 <td class="parameter_tab"></td>
 <td class="parameter_tab"></td>
 </tr>
 <tr>
 <td class="parameter_tab">RemoveText</td>
-<td class="parameter_tab"><p>Remove text.</p>
+<td class="parameter_tab">Remove text.
 </td>
 <td class="parameter_tab"></td>
 <td class="parameter_tab"></td>
 </tr>
 <tr>
 <td class="parameter_tab">SetEnable</td>
-<td class="parameter_tab"><p>Sets the state of property «enable»</p>
+<td class="parameter_tab">Sets the state of property «enable»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
@@ -1263,7 +1325,7 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetImage</td>
-<td class="parameter_tab"><p>Sets an image.</p>
+<td class="parameter_tab">Sets an image.
 </td>
 <td class="parameter_tab"><ul>
 <li>image: ImagePath
@@ -1276,7 +1338,7 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetMouseDownImage</td>
-<td class="parameter_tab"><p>Sets the image when mouse down</p>
+<td class="parameter_tab">Sets the image when mouse down
 </td>
 <td class="parameter_tab"><ul>
 <li>mouseDownImage: ImagePath
@@ -1289,15 +1351,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetMouseDownText</td>
-<td class="parameter_tab"><p>Sets the visible text for checked state. This method can remove an optional textkey.</p>
+<td class="parameter_tab">Sets the visible text for checked state. This method can remove an optional textkey.
 </td>
 <td class="parameter_tab"><ul>
 <li>text: String
 <p>
 </p>
 </li>
-<li>keepKey: Boolean
-<p><p>Set true, if textkey should not be removed</p>
+<li>(optional) keepKey: Boolean
+<p>Set true, if textkey should not be removed
 </p>
 </li>
 </ul>
@@ -1319,15 +1381,15 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetText</td>
-<td class="parameter_tab"><p>Sets the visible text. This method can remove an optional textkey.</p>
+<td class="parameter_tab">Sets the visible text. This method can remove an optional textkey.
 </td>
 <td class="parameter_tab"><ul>
 <li>text: String
 <p>
 </p>
 </li>
-<li>keepKey: Boolean
-<p><p>Set true, if textkey should not be removed</p>
+<li>(optional) keepKey: Boolean
+<p>Set true, if textkey should not be removed
 </p>
 </li>
 </ul>
@@ -1336,8 +1398,8 @@ Fired when widget enters mouseUp state</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetValue</td>
-<td class="parameter_tab"><p>Toggle button dependent of a value.<br/>
-This method is used for binding.</p>
+<td class="parameter_tab">Toggle button dependent of a value.
+This method is used for binding.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Integer
@@ -1350,7 +1412,7 @@ This method is used for binding.</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetValueBool</td>
-<td class="parameter_tab"><p>Toggle button dependent of a value. false -> not checked, true -> checked.</p>
+<td class="parameter_tab">Toggle button dependent of a value. false -> not checked, true -> checked.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
@@ -1363,7 +1425,7 @@ This method is used for binding.</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetValueInteger</td>
-<td class="parameter_tab"><p>Toggle button dependent of a value. 0 -> not checked, 1 -> checked.</p>
+<td class="parameter_tab">Toggle button dependent of a value. 0 -> not checked, 1 -> checked.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Integer
@@ -1376,7 +1438,7 @@ This method is used for binding.</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetVisible</td>
-<td class="parameter_tab"><p>Sets the state of property «visible»</p>
+<td class="parameter_tab">Sets the state of property «visible»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean

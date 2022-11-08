@@ -7,7 +7,8 @@ define([
     'brease/core/Utils',
     'brease/helper/Scroller',
     'widgets/brease/common/libs/wfUtils/UtilsImage',
-    'brease/decorators/DragAndDropCapability'
+    'brease/decorators/DragAndDropCapability',
+    'widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents'
 ], function (SuperClass, BreaseEvent, languageDependency, Enum, Types, Utils, Scroller, UtilsImage, dragAndDropCapability) {
 
     'use strict';
@@ -45,8 +46,8 @@ define([
      * @cfg {ImagePath} image=''
      * @iatStudioExposed
      * @iatCategory Appearance 
-     * Image path for the Label  
-     * <br>When svg - graphics are used, be sure that in your *.svg-file height and width attributes are specified on the &lt;svg&gt; element.
+     * Image path for the Label
+     * When svg - graphics are used, be sure that in your *.svg-file height and width attributes are specified on the svg-element.
      * For more detailed information see https://www.w3.org/TR/SVG/struct.html (chapter 5.1.2)
      */
 
@@ -54,10 +55,17 @@ define([
      * @cfg {brease.enum.ImagePosition} imageAlign='left'
      * @iatStudioExposed
      * @iatCategory Appearance 
-     * imageAlign for the Label  
-     * defines the Position of the image relative to the text  
-     * possible values: left(left of text)/right(right of text)  
+     * imageAlign for the Label
+     * defines the Position of the image relative to the text
+     * possible values: left(left of text)/right(right of text)
      */
+
+    /**
+    * @cfg {Boolean} useSVGStyling=true
+    * @iatStudioExposed
+    * @iatCategory Appearance
+    * Define if the image stylings (i.e imageColor) are applied - only valid when SVG Images are used.
+    */
 
     /**
      * @cfg {Boolean} ellipsis=false
@@ -84,7 +92,7 @@ define([
      * @cfg {brease.enum.Direction} alignment='vertical'
      * @iatStudioExposed
      * @iatCategory Appearance
-     * Alignment of the Bar. Possible Values:  
+     * Alignment of the Bar. Possible Values:
      * horizontal: elements aligned from left to right. no line break
      * vertical: elements aligned from left to right. with line break
      */
@@ -104,6 +112,7 @@ define([
             borderRight: true,
             childPositioning: Enum.ChildPositioning.absolute,
             imageAlign: Enum.ImagePosition.left,
+            useSVGStyling: true,
             float: 'left',
             maxHeight: 0
         },
@@ -155,7 +164,7 @@ define([
         this._refreshScroller();
     };
 
-    p._startInitialisation = function (e) {
+    p._startInitialisation = function () {
         var widget = this;
         $.when(this.widgetReady.promise(), this.groupBoxReady.promise()).then(function successHandler() {
             
@@ -170,6 +179,11 @@ define([
                 widget.debouncedResize();
             }
         });
+    };
+    
+    p._onStylePropertiesChanged = function () {
+        _containerOffsetHandling(this);
+        this._refreshScroller();
     };
 
     /**
@@ -192,10 +206,10 @@ define([
     // override method called in BaseWidget.init
     p._initEditor = function () {
         var widget = this;
+        this.elem.addEventListener(BreaseEvent.WIDGET_STYLE_PROPERTIES_CHANGED, this._bind('_onStylePropertiesChanged'));
         this.elem.classList.add('iatd-outline');
         require(['widgets/brease/GroupBox/libs/EditorHandles'], function (EditorHandles) {
             var editorHandles = new EditorHandles(widget);
-
             widget.getHandles = function () {
                 return editorHandles.getHandles();
             }; 
@@ -335,6 +349,26 @@ define([
     };
 
     /**
+    * @method setUseSVGStyling
+    * Sets useSVGStyling
+    * @param {Boolean} useSVGStyling
+    */
+    p.setUseSVGStyling = function (useSVGStyling) {
+        this.settings.useSVGStyling = Types.parseValue(useSVGStyling, 'Boolean', { default: true });
+        _imageHandling(this);
+        _imageAlignHandling(this);
+    };
+
+    /**
+    * @method getUseSVGStyling
+    * Returns useSVGStyling
+    * @return {Boolean}
+    */
+    p.getUseSVGStyling = function () {
+        return this.settings.useSVGStyling;
+    };
+
+    /**
      * @method setAlignment
      * Sets alignment
      * @param {brease.enum.Direction} alignment
@@ -405,7 +439,7 @@ define([
             curInnerHeight = this.el.innerHeight(),
             initHeight = Types.parseValue(this.settings.height, 'Integer'),
             deltaSize = curWidgetSize - curInnerHeight,
-            groupBoxContentSize = _calculateContentSize(this) + (this.header ? _getHeaderHeight(this, this.header) : 0);
+            groupBoxContentSize = _calculateContentSize(this) + (this.header ? this.header.outerHeight() : 0);
 
         if (groupBoxContentSize < curInnerHeight && groupBoxContentSize > initHeight - deltaSize) {
             this.el.css('height', groupBoxContentSize + deltaSize + 'px');
@@ -424,7 +458,7 @@ define([
 
     };
 
-    p.sizeChanged = function (value) {
+    p.sizeChanged = function () {
         var sizeChangedEv = this.createEvent('SizeChanged');
         /**
          * @event sizeChanged
@@ -450,9 +484,9 @@ define([
         /**
          * @event MouseDown
          * @iatStudioExposed
+         * Fired when widget enters mouseDown state
          * @param {String} horizontalPos horizontal position of mouse in pixel i.e '10px'
          * @param {String} verticalPos vertical position of mouse in pixel i.e '10px'
-         * Fired when widget enters mouseDown state
          */
         var clickEv = this.createMouseEvent('MouseDown', {}, e);
         clickEv.dispatch();
@@ -468,9 +502,9 @@ define([
         /**
          * @event MouseUp
          * @iatStudioExposed
+         * Fired when widget enters mouseUp state
          * @param {String} horizontalPos horizontal position of mouse in pixel i.e '10px'
          * @param {String} verticalPos vertical position of mouse in pixel i.e '10px'
-         * Fired when widget enters mouseUp state
          */
         var clickEv = this.createMouseEvent('MouseUp', {}, e);
         clickEv.dispatch();
@@ -566,7 +600,7 @@ define([
     };
 
     //Equivalently this method, just as widgetAddedHandler, will tell us when a widget is removed
-    p.widgetRemovedHandler = function (e) {
+    p.widgetRemovedHandler = function () {
         _removeChildAtScroller(this);
     };
 
@@ -576,6 +610,7 @@ define([
         if (_isResizable.call(this)) {
             this.debouncedResize();
         }
+        this._refreshScroller();
     };
 
     p.suspend = function () {
@@ -637,21 +672,8 @@ define([
         } else {
             elHeader.addClass('no-text');
         }
-        if (widget.settings.image !== undefined) {
+        elImg = _loadImage(widget.settings.image, widget.settings.useSVGStyling);
 
-            if (UtilsImage.isStylable(widget.settings.image)) {
-                elImg = $('<svg />');
-                elImg.hide();
-                UtilsImage.getInlineSvg(widget.settings.image).then(function (svgElement) {
-                    elImg.replaceWith(svgElement);
-                    elImg = svgElement;
-                    elImg.show();
-                });
-            } else {
-                elImg = $('<img src="' + widget.settings.image + '"/>');
-            }
-        }
-        
         if (widget.settings.imageAlign === Enum.ImagePosition.left) {
             elHeader.addClass('image-left').append(elImg).append(elText);
         } else {
@@ -661,23 +683,29 @@ define([
         widget.textEl = elText;
     }
 
-    function _imageHandling(widget) {
+    function _loadImage(image, useSVGStyling) {
+        var imgEl;
+        if (typeof image !== 'string' || image.length === 0) return imgEl;
 
+        if (UtilsImage.isStylable(image) && useSVGStyling) {
+            imgEl = $('<svg />');
+            imgEl.hide();
+            UtilsImage.getInlineSvg(image).then(function (svgElement) {
+                imgEl.replaceWith(svgElement);
+                imgEl = svgElement;
+                imgEl.show();
+            });
+        } else {
+            imgEl = $('<img src="' + image + '"/>');
+        }
+        return imgEl;
+    }
+
+    function _imageHandling(widget) {
         if (widget.header) {
             widget.header.children('svg').remove();
             widget.header.children('img').remove();
-            var elImg;
-            if (UtilsImage.isStylable(widget.settings.image)) {
-                elImg = $('<svg />');
-                elImg.hide();
-                UtilsImage.getInlineSvg(widget.settings.image).then(function (svgElement) {
-                    elImg.replaceWith(svgElement);
-                    elImg = svgElement;
-                    elImg.show();
-                });
-            } else {
-                elImg = $("<img src='" + widget.settings.image + "'>");
-            }
+            var elImg = _loadImage(widget.settings.image, widget.settings.useSVGStyling);
             if (widget.settings.imageAlign === Enum.ImagePosition.right) {
                 widget.header.append(elImg);
             } else {
@@ -872,17 +900,13 @@ define([
         widget._refreshScroller();
     }
 
-    function _getHeaderHeight(widget, header) {
-        return header.outerHeight();
-    }
-
     function _calculateContentSize(widget) {
         var contentSize,
             maxContentSize = 0;
 
         widget.getContainer().children().each(function () {
             if (!this.classList.contains('remove')) {
-                contentSize = this.offsetTop + this.offsetHeight + parseInt(getComputedStyle(this).marginBottom);
+                contentSize = this.offsetTop + this.offsetHeight + parseInt(getComputedStyle(this).marginBottom, 10);
 
                 if (contentSize > maxContentSize) {
                     maxContentSize = contentSize;

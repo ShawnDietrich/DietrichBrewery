@@ -25,7 +25,7 @@
                 <w1:Description>Value to be set</w1:Description>
               </w1:Argument>
             </w1:Arguments>
-            <FilterInfo>Int16,Int32,LINT,Byte,SByte,UInt16,UInt32,ULINT,Float,Double,LWORD</FilterInfo>
+            <FilterInfo>Int16,Int32,LINT,Byte,SByte,UInt16,UInt32,ULINT,Float,Double,LWORD,Enumeration</FilterInfo>
           </AdvancedMethod>
           <AdvancedMethod name="AddValue" read="false">
             <w1:Description>Adds a value to the current value of node OpcUa attribute "value". </w1:Description>
@@ -57,7 +57,7 @@
           <AdvancedMethod name="GetValue" read="true">
             <w1:Description>Provides the value of attribute "value" for the referenced object</w1:Description>
             <w1:Arguments />
-            <FilterInfo>Int16,Int32,LINT,Byte,SByte,UInt16,UInt32,ULINT,Float,Double,LWORD,String,DateTime,Boolean</FilterInfo>
+            <FilterInfo>Int16,Int32,LINT,Byte,SByte,UInt16,UInt32,ULINT,Float,Double,LWORD,String,DateTime,Boolean,Enumeration</FilterInfo>
 	    <w1:Result type="DYNAMIC" />
           </AdvancedMethod>
         </Methods>

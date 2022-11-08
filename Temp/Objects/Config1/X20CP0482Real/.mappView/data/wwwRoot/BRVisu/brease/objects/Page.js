@@ -6,17 +6,31 @@ define(['brease/core/Utils'], function (Utils) {
     * @class brease.objects.Page
     * @alternateClassName Page
     * @extends Object
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new Page instance.
     * @param {String} id
-    * @param {String} type
+    * @param {PageType} type
+    * @param {String} visuId
+    * @param {Object} data
     */
     /**
     * @property {String} id
     */
     /**
-    * @property {String} type
+    * @property {String} visuId
+    * id of visu where page belongs to
+    */
+    /**
+    * @property {String} layout
+    * layoutId as projected in page xml
+    */
+    /**
+    * @property {PageType} type
+    */
+    /**
+    * @property {Object} assignments
     */
     var Page = function (id, type, visuId, data) {
         for (var key in data) {

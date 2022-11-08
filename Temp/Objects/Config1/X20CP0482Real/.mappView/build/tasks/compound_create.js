@@ -1,4 +1,3 @@
-/*global module*/
 module.exports = function (grunt) {
 
     'use strict';
@@ -32,16 +31,16 @@ module.exports = function (grunt) {
         // local iat modules
         var xsdPrepare = _moduleRequire('iat/xsdPrepare'),
             jsPrepare = _moduleRequire('iat/jsPrepare'),
-            cowiJsPrepare = _moduleRequire('iat/libs/cowi_jsPrepare'),
             styleParser = _moduleRequire('iat/styleParser'),
             xsltTrans = _moduleRequire('iat/XSLTTransformation'),
             json2xml = _moduleRequire('iat/json2xml'),
-            patchCoWi = _moduleRequire('iat/libs/cowi_patchObj'),
-            childWidgets = _moduleRequire('iat/childWidgets');
+            cowiJsPrepare = _moduleRequire('libs/cowi_jsPrepare'),
+            patchCoWi = _moduleRequire('libs/cowi_patchObj'),
+            childWidgets = _moduleRequire('libs/childWidgets');
 
         targetFolder = (targetFolder && targetFolder !== 'null') ? targetFolder : _modulePath.resolve(grunt.config('wwwRoot'), '/BRVisu/widgets');
         corePath = (corePath && corePath !== 'null') ? corePath : _modulePath.resolve(grunt.config('basePath'), '../BRVisu');
-            
+
         if (debug) {
             grunt.log.writeln('srcFile:' + srcFile);
             grunt.log.writeln('targetFolder:' + targetFolder);
@@ -74,6 +73,7 @@ module.exports = function (grunt) {
 
         _xmlConvert.xml2js(coWiXML, {
             trim: true
+        // eslint-disable-next-line no-unused-vars
         }, function (errArg, xmlObj) {
             
             if (debug) {
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
                 var ancestorWidget = grunt.file.readJSON(_modulePath.resolve(ancestorObject.metaDir, ancestorObject.name + '.json'));
 
                 // json of compoundWidget as result of ancestorWidget patched with additional info and not as result of a widget compiler
-                var widgetInfo = patchCoWi.run(ancestorWidget, widgetObject, childInfos, grunt, debug);
+                var widgetInfo = patchCoWi.run(ancestorWidget, widgetObject, childInfos, grunt, debug, targetFolder);
 
                 _writeFile(widgetObject.metaClassPath + '.json', JSON.stringify(widgetInfo));
 
@@ -211,8 +211,8 @@ module.exports = function (grunt) {
 
                 var widgetFolders = widgetPathMappingFile.replace(/ /g, '%20');
                 if (!xsltPath || xsltPath === 'null') {
-                    xsltPath = _modulePath.resolve(grunt.config('basePath'), '../../Transformations'); 
-                }
+                    xsltPath = _modulePath.resolve(grunt.config('basePath'), '../../Transformations');
+                }                
                 xsltTrans.transform(grunt, _modulePath.resolve(widgetObject.dir, 'content/widgets.html'), _modulePath.resolve(xsltPath, 'content/HTMLBuilder.xsl'), _modulePath.resolve(widgetObject.dir, 'content/widgets.content'), [{
                     name: 'basepath',
                     value: _modulePath.resolve(grunt.config('basePath'), '../../').replace(/ /g, '%20').replace(/\\/g, '/') + '/'
@@ -365,7 +365,7 @@ module.exports = function (grunt) {
         obj.commonProps = {
             width: compoundXML['$']['width'],
             height: compoundXML['$']['height'],
-			category: compoundXML['$']['category'],
+            category: compoundXML['$']['category'],
             description: compoundXML['$']['description']
         };
 

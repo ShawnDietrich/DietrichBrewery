@@ -7,7 +7,9 @@ define(['brease/datatype/Node', 'brease/core/Utils'], function (Node, Utils) {
     * @extends Object
     * Array of values with one unit for binding with arrays of OPC-UA nodes.  
     * <section>Example: var node = new ArrayNode([5,6,7,8,9], 'BAR', 0, 10); </section>
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new ArrayNode instance.
     * @param {Number[]} value
     * @param {String} unit

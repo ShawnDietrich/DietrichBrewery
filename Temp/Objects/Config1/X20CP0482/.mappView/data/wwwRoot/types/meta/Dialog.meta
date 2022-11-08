@@ -57,7 +57,7 @@ This image is shown next to the header text.
 - transparent
       </Description>
     </StyleProperty>
-    <StyleProperty name="backGroundGradient" category="Appearance" type="Gradient" default="none">
+    <StyleProperty name="backGroundGradient" category="Appearance" type="Gradient" default="">
       <Description>Background gradient for the dialog box.</Description>
       <StyleElement selector=".breaseDialogWindowContentBox .breaseLayout" attribute="background-image"></StyleElement>
     </StyleProperty>

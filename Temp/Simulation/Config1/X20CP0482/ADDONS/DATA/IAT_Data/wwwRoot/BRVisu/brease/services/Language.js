@@ -1,4 +1,8 @@
-define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/Utils', 'brease/config'], function (BreaseEvent, SocketEvent, Utils, config) {
+define(['brease/events/BreaseEvent',
+    'brease/events/SocketEvent', 
+    'brease/core/Utils',
+    'brease/config'], 
+function (BreaseEvent, SocketEvent, Utils, config) {
 
     'use strict';
 
@@ -81,7 +85,7 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
         * @return {String}
         */
         getText: function (textID, omitWarning) {
-            if (textID.indexOf('IAT/') === -1) {
+            if (!textID.startsWith('IAT/') && !textID.startsWith('BR/IAT/')) {
                 textID = 'IAT/' + textID;
             }
             var text = _texts[textID];
@@ -94,7 +98,7 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
                     return text;
                 } else {
                     console.iatWarn('undefined text ID:' + textID);
-                    return '$' + textID;
+                    return Language.TEXTKEYPREFIX + textID;
                 }
 
             } else {
@@ -237,7 +241,7 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
         * @return {Boolean}
         */
         isKey: function (text) {
-            return (Utils.isString(text) && text.substring(0, 1) === '$');
+            return (Utils.isString(text) && text.substring(0, 1) === Language.TEXTKEYPREFIX);
         },
 
         /**
@@ -285,6 +289,15 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
             } else if (callback !== undefined) {
                 callback(undefined);
             }
+        },
+        /**
+        * @method
+        * removes the excape sequence from control characters (currently only "\n")
+        * @param {String} text
+        * @return {String}
+        */
+        unescapeText: function (text) {
+            return Utils.isString(text) ? text.replace(/\\n/g, '\n') : '';
         }
     };
 
@@ -347,7 +360,7 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
                 _current.code = _languages.current_language;
                 _finish(true, 'languages and texts loaded successfully');
                 document.body.dispatchEvent(new CustomEvent(BreaseEvent.LANGUAGE_LOADED, { detail: { currentLanguage: _current.code } }));
-            }, function (message) {
+            }, function () {
                 // text load fail
                 console.log('fail:', arguments);
             });
@@ -366,7 +379,7 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
                 _current.code = newCode;
                 _languages.current_language = newCode;
                 document.body.dispatchEvent(new CustomEvent(BreaseEvent.LANGUAGE_CHANGED, { detail: { currentLanguage: _current.code } }));
-            }, function (message) {
+            }, function () {
                 // text load fail
                 console.log('fail:', arguments);
             });
@@ -395,9 +408,20 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
         return def.promise();
     }
 
+    function _isValidLanguageEvent(e) {
+        return e && e.detail && e.detail.currentLanguage !== undefined;
+    }
+    
     function _langChangedByServerHandler(serverEvent) {
-        _current.code = serverEvent.detail.currentLanguage;
-        document.body.dispatchEvent(new CustomEvent(BreaseEvent.LANGUAGE_CHANGED, { detail: { currentLanguage: _current.code } }));
+        if (!_isValidLanguageEvent(serverEvent)) {
+            return;
+        }
+        if (brease.config.editMode === true) {
+            _current.code = serverEvent.detail.currentLanguage;
+            document.body.dispatchEvent(new CustomEvent(BreaseEvent.LANGUAGE_CHANGED, { detail: { currentLanguage: _current.code } })); 
+        } else {
+            _switchLanguageResponseHandler({ success: true }, { code: serverEvent.detail.currentLanguage });
+        }
     }
 
     function _loadTextsResponseHandler(response, callbackInfo) {
@@ -428,6 +452,13 @@ define(['brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/core/U
         return (text !== undefined && text.indexOf('{') !== -1);
     }
 
+    Object.defineProperty(Language, 'TEXTKEYPREFIX', {
+        enumerable: true,
+        configurable: true,
+        writable: false,
+        value: '$'
+    });
+    
     return Language;
 
 });

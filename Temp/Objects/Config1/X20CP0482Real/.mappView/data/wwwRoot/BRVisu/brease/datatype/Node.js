@@ -7,7 +7,9 @@ define(['brease/core/Utils'], function (Utils) {
     * @extends Object
     * Value with unit for binding with OPC-UA nodes.  
     * <section>Example: var node = new Node(5, 'BAR', 0, 10);</section>
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new Node instance.
     * @param {Number} value
     * @param {String} unit
@@ -17,10 +19,10 @@ define(['brease/core/Utils'], function (Utils) {
     */
 
     /**
-    * @property {Number} value (required)
+    * @property {Number} value
     */
     /**
-    * @property {String} unit (required)
+    * @property {String} unit
     * Common code of unit of value.
     */
     /**

@@ -60,7 +60,7 @@
 	SIZE_OF_DOUBLED_MODULES			-> size of modules which are needed twice(old and new) while transfer
 	TOTAL_SIZE						-> size of the hole application (no user partition)
 	MAX_SIZE_OF_SYSTEM_PARTITION	-> maximal size for SYSTEM partition (bootloader supports maximal 1GB SYSTEM partition)
-	SIZE_OF_SYSTEM_PARTITION_RAW_2	-> free size for SYSTEM partition not limited
+	SIZE_OF_SYSTEM_PARTITION_RAW_2	-> free size for SYSTEM partition
 	DIFF_SIZE_OF_SYSTEM_PARTITION_2	-> difference size from max to raw size of SYSTEM partition.
 	SIZE_OF_USER_PARTITION_ENHANCED	-> size of USER partition with reserve plus unused space because of limitation
 	DIFF_SIZE_OF_SYSTEM_PARTITION_3	-> difference size from max to size plus reserve of SYSTEM partition.

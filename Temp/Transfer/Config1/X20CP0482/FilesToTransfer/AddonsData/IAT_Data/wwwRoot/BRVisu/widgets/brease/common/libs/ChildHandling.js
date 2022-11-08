@@ -14,6 +14,7 @@ define([
     var ChildHandling = {};
 
     /**
+     * @method
      * Add the given Class to each Widget of the widgetIDs input
      * @param {StringArray1D} widgetIDs inputStringArray with all WidgetIDs which should receive the classes
      * @param {String} classes String which contains the classes which should be applied to each Widget from widgetIDs input
@@ -27,6 +28,7 @@ define([
     };
 
     /**
+     * @method
      * Removes the given Class to each Widget of the widgetIDs input
      * @param {StringArray1D} widgetIDs inputStringArray with all WidgetIDs which should receive the classes
      * @param {String} classes String which contains the classes which should be applied to each Widget from widgetIDs input
@@ -40,6 +42,7 @@ define([
     };
 
     /**
+     * @method
      * Returns the Widget IDs as well an Instance of each as Object.
      * @param {HTMLElement} container jQuery Element of the Container where it should look for child-widgets
      * @return {Object} {id: [widgetID1, widgetID2,...], instance: [inst1, inst2,..]}
@@ -63,10 +66,11 @@ define([
     };
 
     /**
+     * @method
      * Sets the same Parameter for the provided Widgets
      * @param {StringArray1D} widgetIDs Array with all the WidgetIDs which should receive the parameter
-     * @param {String} fnName: function-Name of the Function which should be called e.g. 'setStyle'
-     * @param {Arguments} parameter can be everything like String, Object, Array --> the Function which gets called needs to support the datatype / structure
+     * @param {String} fnName function-Name of the Function which should be called e.g. 'setStyle'
+     * @param {ANY} parameter can be everything like String, Object, Array --> the Function which gets called needs to support the datatype / structure
      */
     ChildHandling.setSameParameterForAllChilds = function setSameParameterForAllChilds(widgetIDs, fnName, parameter) {
         widgetIDs.forEach(function (widgetId) {
@@ -75,16 +79,18 @@ define([
     };
 
     /**
+     * @method
      * Sets the Parameter for the provided Widget
      * @param {String} widgetId String with WidgetId which should receive the parameter
-     * @param {String} fnName: function-Name of the Function which should be called e.g. 'setStyle'
-     * @param {Arguments} parameter can be everything like String, Object, Array --> the Function which gets called needs to support the datatype / structure
+     * @param {String} fnName function-Name of the Function which should be called e.g. 'setStyle'
+     * @param {ANY} parameter can be everything like String, Object, Array --> the Function which gets called needs to support the datatype / structure
      */
     ChildHandling.setParameterForChild = function setParameterForChild(widgetId, fnName, parameter) {
         brease.callWidget(widgetId, fnName, parameter);
     };
 
     /**
+     * @method
      * Check if all the Children are done with the Initialization
      * @param {StringArray1D} widgetIDs Array with widgetIDs which should be checked if already initialized
      * @param {Function} callBackFn the function which is called when all children are done with initialization
@@ -103,7 +109,7 @@ define([
             if (brease.uiController.getWidgetState(widgetId) >= Enum.WidgetState.INITIALIZED && brease.uiController.getWidgetState(widgetId) !== Enum.WidgetState.SUSPENDED) {
                 d.resolve();
             } else {
-                elem.addEventListener(BreaseEvent.WIDGET_INITIALIZED, function (e) {
+                elem.addEventListener(BreaseEvent.WIDGET_INITIALIZED, function () {
                     d.resolve();
                 });
             }

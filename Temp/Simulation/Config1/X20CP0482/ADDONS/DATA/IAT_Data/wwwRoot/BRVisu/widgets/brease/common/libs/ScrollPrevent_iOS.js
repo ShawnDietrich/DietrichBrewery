@@ -9,6 +9,7 @@ define(function () {
     var ScrollPrevent_iOS = {};
 
     /**
+     * @method 
      * This function should be callled while DragStart Event
      * It sets the Body-Position to 'fixed' if it's a mobile device
      */
@@ -19,6 +20,7 @@ define(function () {
     };
 
     /**
+     * @method 
      * This function should be callled while DragEnd Event
      * It resets the Body-Position to 'static'
      */

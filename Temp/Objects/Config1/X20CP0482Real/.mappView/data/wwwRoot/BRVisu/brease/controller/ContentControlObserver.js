@@ -12,7 +12,7 @@ define(['brease/events/BreaseEvent',
     */
     // A&P 665105 using a ContentCarousel Widget on a Content which is loaded
     // into a ContentControl Widget leads to a deadlock in the navigation if
-    // the nested ContentCarousel is not unloaded durign a page change
+    // the nested ContentCarousel is not unloaded during a page change
     var ContentControlObserver = function () { },
         p = ContentControlObserver.prototype,
         eventsAttached = false,

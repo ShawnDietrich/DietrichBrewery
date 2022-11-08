@@ -15,8 +15,8 @@ define([
     var clipboardText = '';
 
     /**
-     * Constructor that creates a new editor object and append it to element 
      * @method constructor
+     * Constructor that creates a new editor object and append it to element 
      * @param {Object} config settings for the TextEditor
      * @param {Object} config.element element in which the editor will be appended
      * @param {String} config.mode define the highlighting mode for the text
@@ -75,6 +75,7 @@ define([
         this.gutter = this.editor.renderer.$gutter;
         
         this.staticWordCompleter = {
+            // eslint-disable-next-line no-unused-vars
             getCompletions: function (editor, session, pos, prefix, callback) {
                 var wordList = list;
                 callback(null, wordList.map(function (word) {
@@ -119,16 +120,6 @@ define([
     TextEditor.prototype._addEventListenersKeyboard = function () {
         this.editor.on('focus', this.boundOnFocus);
         this.editor.on('blur', this.boundOnBlur);
-    };
-
-    /**
-     * @method _removeEventListenersKeyboard
-     * @private
-     * Remove the event listeners for the keyboard
-     */
-    TextEditor.prototype._removeEventListenersKeyboard = function () {
-        this.editor.off('focus', this.boundOnFocus);
-        this.editor.off('blur', this.boundOnBlur);
     };
 
     /**
@@ -338,6 +329,8 @@ define([
      * @param {Boolean} omitOption fo not use the predefined options
      */
     TextEditor.prototype.disableInteraction = function (dim, omitOption) {
+        // searchBox.hide() calls editor.focus and trigger focus which will open keyboard (A&P 697590) 
+        this.editor.off('focus', this.boundOnFocus);
         if (this.editor.searchBox !== undefined) {
             this.editor.searchBox.hide();
         }
@@ -362,7 +355,7 @@ define([
                 highlightGutterLine: false
             });
         }
-        this._removeEventListenersKeyboard();
+        this.editor.off('blur', this.boundOnBlur);
     };
 
     /**
@@ -409,6 +402,7 @@ define([
      */
     TextEditor.prototype.dispose = function () {
         if (this.editor !== undefined) {
+            this.editor.off('change', this.settings.onModified);
             $(this.editor.container).children().off();
             this.editor.destroy();
         }

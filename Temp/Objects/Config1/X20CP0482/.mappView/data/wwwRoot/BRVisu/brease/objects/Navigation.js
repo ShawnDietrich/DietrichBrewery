@@ -1,9 +1,29 @@
 define(['brease/controller/libs/LogCode'], function (LogCode) {
 
     'use strict';
-
-    var Navigation = function (navId, visuData, logger) {
-        this.id = navId;
+    /**
+    * @class brease.objects.Navigation
+    * @alternateClassName Navigation
+    * @extends Object
+    */
+    /**
+    * @method constructor
+    * Creates a new Navigation instance.
+    * @param {String} id
+    * @param {Object} visuData
+    * @param {Object} logger
+    */
+    /**
+    * @property {String} id
+    */
+    /**
+    * @property {Object} pages
+    */
+    /**
+    * @property {Object} swipes
+    */
+    var Navigation = function (id, visuData, logger) {
+        this.id = id;
         this.pages = {};
         this.swipes = {};
         _parseNavigation(this, visuData, logger);

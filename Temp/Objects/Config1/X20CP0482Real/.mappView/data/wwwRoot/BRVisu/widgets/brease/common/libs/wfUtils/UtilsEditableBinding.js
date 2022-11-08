@@ -10,10 +10,11 @@ define(function () {
     var UtilsEditableBinding = {};
 
     /**
+     * @method 
      * This Function is used for setting the correct parameters for the Framework to establish an editableBinding
-     * @param editable editable - input of setEditable function
-     * @param metaData metaData - input of setEditable function
-     * @param widget Instance of the Widget 
+     * @param {Boolean} editable editable - input of setEditable function
+     * @param {Object} metaData metaData - input of setEditable function
+     * @param {WidgetInstance} widget Instance of the Widget 
      * @param {StringArray1D} propertyArray In this array all the property-names should be listed for an editableBinding e.g. ['node', 'value',...]
      */
     UtilsEditableBinding.handleEditable = function (editable, metaData, widget, propertyArray) {

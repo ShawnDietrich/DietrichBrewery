@@ -6,8 +6,9 @@ define(function () {
     * @class system.widgets.common.KeyboardOptions
     * @alternateClassName KeyboardOptions
     * @extends Object
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new KeyboardOptions instance.
     */
     /**
@@ -24,6 +25,9 @@ define(function () {
     */
     /**
     * @property {Boolean} autoSize
+    */
+    /**
+    * @property {brease.enum.Docking} docking
     */
     var KeyboardOptions = function () {
     };

@@ -3,6 +3,7 @@
 <xs:complexType name="widgets.brease.TextOutputRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="-1" />
 			<xs:attribute name="height" use="optional" type="types:AutoSize" default="30" />
 			<xs:attribute name="width" use="optional" type="types:AutoSize" default="100" />
 		</xs:restriction>

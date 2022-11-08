@@ -169,7 +169,7 @@
 		</StyleProperty>
 		<StyleProperty name="mouseDownTextColor" category="Appearance" type="Color" default="#000000" >
 			<StyleElement selector="&amp;.active:not(.disabled):not(.editMode) span" attribute="color"></StyleElement>
-			<StyleElement selector="&amp;.checked:not(.disabled) span" attribute="color"></StyleElement>
+			<StyleElement selector="&amp;.active.checked:not(.disabled) span" attribute="color"></StyleElement>
 			<Description>
 				text color when widget is clicked
 			</Description>

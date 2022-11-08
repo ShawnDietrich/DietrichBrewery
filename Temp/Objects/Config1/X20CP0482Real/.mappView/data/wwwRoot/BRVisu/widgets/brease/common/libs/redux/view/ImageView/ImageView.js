@@ -19,9 +19,9 @@ define([
     /**
      * @method render
      * Renders the view
-     * @param parent DOM element for the parent View
-     * @param props Properties for the View
-     * @param props.image Path to the image
+     * @param {jQuery} parent DOM element for the parent View
+     * @param {Object} props Properties for the View
+     * @param {String} props.image Path to the image
      */
     p.render = function render(props, parent) {
         this.el = $(BoxLayout.createBox());

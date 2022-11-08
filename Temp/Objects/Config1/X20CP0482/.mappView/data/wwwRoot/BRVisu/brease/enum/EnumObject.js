@@ -5,7 +5,9 @@ define(function () {
     /**
     * @class brease.enum.EnumObject
     * @extends core.javascript.Function
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new EnumObject instance.  
     * ##Example
     *       var align = new EnumObject({
@@ -33,8 +35,12 @@ define(function () {
 
     /**
     * @method hasMember
-    * Check if EnumObject contains member
-    * @param {ANY} member
+    * Check if EnumObject contains member  
+    * ##Example  
+    *     var align = new EnumObject({ center: 'c', left: 'l', right: 'r' });  
+    *     expect(align.hasMember('c')).toBeTruthy();  
+    *     
+    * @param {ANY} member the value of a member
     * @return {Boolean}
     */
     Object.defineProperty(EnumObject.prototype, 'hasMember', {
@@ -47,7 +53,12 @@ define(function () {
     });
 
     /**
-    * @method getMembers
+    * @method getMembers  
+    * Get all member values of an EnumObject  
+    * ##Example  
+    *     var align = new EnumObject({ center: 'c', left: 'l', right: 'r' });  
+    *     expect(align.getMembers()).toEqual(["c", "l", "r"]);  
+    *     
     * @return {Array}
     */
     Object.defineProperty(EnumObject.prototype, 'getMembers', {
@@ -67,6 +78,12 @@ define(function () {
 
     /**
     * @method getKeyForValue
+    * Get the key for a member value  
+    * ##Example  
+    *     var align = new EnumObject({ center: 'c', left: 'l', right: 'r' });  
+    *     expect(align.getKeyForValue('c')).toEqual('center');  
+    *     
+    * @param {ANY} value
     * @return {String}
     */
     Object.defineProperty(EnumObject.prototype, 'getKeyForValue', {

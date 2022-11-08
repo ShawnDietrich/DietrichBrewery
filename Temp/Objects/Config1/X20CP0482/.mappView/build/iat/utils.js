@@ -1,4 +1,3 @@
-/*global __dirname*/
 (function () {
     'use strict';
 
@@ -8,6 +7,7 @@
     var path = require('path'),
         DataTypes = require(path.resolve(__dirname, './DataTypes')),
         widgetRegEx = /^[a-zA-Z][0-9A-Za-z_]*$/,
+        jRegex = /'/g,
         utils = {
 
             isAllowedWidgetName: function (name) {
@@ -112,6 +112,17 @@
                 }
 
                 return false;
+            },
+
+            parsePseudoJSON: function (str) {
+        
+                var obj;
+                try {
+                    return JSON.parse(str.replace(jRegex, '"'));
+                } catch (error) {
+                    
+                }
+                return obj;
             },
 
             defaultException: function defaultException(name) {

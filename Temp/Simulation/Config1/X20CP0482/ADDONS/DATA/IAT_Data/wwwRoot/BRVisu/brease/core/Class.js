@@ -20,8 +20,8 @@ define(['brease/core/Utils'], function (Utils) {
     * Method for classical inheritance.  
     * Example
     *
-    *       var SuperClass = require('widgets/brease/Button/Button'),
-    *           defaultSettings = {values: {checked: 1, unchecked: 0}, checked: false },
+    *       define(['widgets/brease/Button/Button'], SuperClass) {
+    *       var defaultSettings = {values: {checked: 1, unchecked: 0}, checked: false },
     *           WidgetClass = SuperClass.extend(function ToggleButton() {
     *               SuperClass.apply(this, arguments);
     *           }, defaultSettings);

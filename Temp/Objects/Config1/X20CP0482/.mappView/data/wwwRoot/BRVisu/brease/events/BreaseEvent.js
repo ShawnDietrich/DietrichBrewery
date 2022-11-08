@@ -57,12 +57,12 @@ define(function () {
     var breaseEvent = new BreaseEvent();
     
     /**
-    * @property {string} APP_READY='app_ready'
+    * @property {String} APP_READY='app_ready'
     * @readonly
     * @static
     */
     /**
-    * @property {string} APP_RESIZE='app_resize'
+    * @property {String} APP_RESIZE='app_resize'
     * @readonly
     * @static
     */
@@ -79,14 +79,22 @@ define(function () {
     _defineProperty(breaseEvent, 'VISU_DEACTIVATED', 'VisuDeactivated');
 
     /**
-    * @property {string} DISABLED_CLICK='disabled_click'
+    * @property {String} CONTENT_REMOVED='ContentRemoved'
+    * Fired after the content is removed from the DOM.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'CONTENT_REMOVED', 'ContentRemoved');
+
+    /**
+    * @property {String} DISABLED_CLICK='disabled_click'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'DISABLED_CLICK', 'disabled_click');
 
     /**
-    * @property {string} RESOURCES_LOADED='resources_loaded'
+    * @property {String} RESOURCES_LOADED='resources_loaded'
     * @readonly
     * @static
     */
@@ -96,7 +104,7 @@ define(function () {
     //Language.js
     _defineProperty(breaseEvent, 'LANGUAGE_LOADED', 'language_loaded');
     /**
-    * @property {string} LANGUAGE_CHANGED='language_changed'
+    * @property {String} LANGUAGE_CHANGED='language_changed'
     * @readonly
     * @static
     */
@@ -105,7 +113,7 @@ define(function () {
     //Culture.js
     _defineProperty(breaseEvent, 'CULTURE_LOADED', 'culture_loaded');
     /**
-    * @property {string} CULTURE_CHANGED='culture_changed'
+    * @property {String} CULTURE_CHANGED='culture_changed'
     * @readonly
     * @static
     */
@@ -120,32 +128,49 @@ define(function () {
     _defineProperty(breaseEvent, 'USER_LOADED', 'user_loaded');
     _defineProperty(breaseEvent, 'ROLES_CHANGED', 'roles_changed');
 
+    // BreaseEvent.CHANGEPASSWORDDIALOG_CLOSED needs a different value to ClientSystemEvent.CHANGEPASSWORDDIALOG_CLOSED
+    _defineProperty(breaseEvent, 'CHANGEPASSWORDDIALOG_CLOSED', 'change_password_dialog_closed');
+
     //Scroller.js
     _defineProperty(breaseEvent, 'SCROLL_START', 'scrollStart');
     _defineProperty(breaseEvent, 'SCROLL_END', 'scrollEnd');
     /**
-    * @property {string} VISIBILITY_CHANGED='visibility_changed'
+    * @property {String} VISIBILITY_CHANGED='visibility_changed'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'VISIBILITY_CHANGED', 'visibility_changed');
     
+    _defineProperty(breaseEvent, 'BEFORE_ENABLE_CHANGE', 'before_enable_change');
     _defineProperty(breaseEvent, 'ENABLE_CHANGED', 'EnableChanged');
+    _defineProperty(breaseEvent, 'BEFORE_VISIBLE_CHANGE', 'before_visible_change');
     _defineProperty(breaseEvent, 'VISIBLE_CHANGED', 'VisibleChanged');
+
+    _defineProperty(breaseEvent, 'FOCUS_IN', 'FocusIn');
+    _defineProperty(breaseEvent, 'FOCUS_OUT', 'FocusOut');
+
+    /**
+    * @property {String} BEFORE_FOCUS_MOVE='BeforeFocusMove'
+    * Will be fired to the widget element before the focus moves to antoher widget due to (shift+)tab or FocusNext action.
+    * Note: Will not be fired if focus is changed due to click or focus action.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'BEFORE_FOCUS_MOVE', 'BeforeFocusMove');
 
     //Logger.js
     _defineProperty(breaseEvent, 'LOG_MESSAGE', 'log_message');
 
     //UIController
     /**
-    * @property {string} CONTENT_PARSED='content_parsed'
+    * @property {String} CONTENT_PARSED='content_parsed'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'CONTENT_PARSED', 'content_parsed');
 
     /**
-    * @property {string} CONTENT_READY='content_ready'
+    * @property {String} CONTENT_READY='content_ready'
     * @readonly
     * @static
     */
@@ -153,14 +178,14 @@ define(function () {
     _defineProperty(breaseEvent, 'CONTENT_LOAD_ABORTED', 'content_load_aborted');
 
     /**
-    * @property {string} PROPERTY_CHANGED='property_changed'
+    * @property {String} PROPERTY_CHANGED='property_changed'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'PROPERTY_CHANGED', 'property_changed');
     _defineProperty(breaseEvent, 'INITIAL_VALUE_CHANGE_FINISHED', 'PropertyValueChangedFinished');
     /**
-    * @property {string} WIDGET_READY='widget_ready'
+    * @property {String} WIDGET_READY='widget_ready'
     * @readonly
     * @static
     */
@@ -168,15 +193,13 @@ define(function () {
     _defineProperty(breaseEvent, 'WIDGET_INITIALIZED', 'widget_initialized');
     _defineProperty(breaseEvent, 'WIDGET_DISPOSE', 'widget_dispose');
     _defineProperty(breaseEvent, 'WIDGET_UPDATED', 'widget_updated');
-    _defineProperty(breaseEvent, 'WIDGET_ADDED', 'widget_added');
-    _defineProperty(breaseEvent, 'WIDGET_REMOVED', 'widget_removed');
-    _defineProperty(breaseEvent, 'WIDGET_PROPERTIES_CHANGED', 'widget_properties_changed');
+
     _defineProperty(breaseEvent, 'PLUGIN_LOADED', 'plugin_loaded');
     _defineProperty(breaseEvent, 'SYSTEM_KEYBOARD_CHANGED', 'system_keyboard_changed');
 
     // Windows
     /**
-    * @property {string} CLOSED='window_closed'
+    * @property {String} CLOSED='window_closed'
     * @readonly
     * @static
     */
@@ -188,6 +211,10 @@ define(function () {
     _defineProperty(breaseEvent, 'DIALOG_CLOSED', 'dialog_closed');
     _defineProperty(breaseEvent, 'DIALOG_OPEN_ABORTED', 'dialog_open_aborted');
 
+    // MessageBox
+    _defineProperty(breaseEvent, 'MESSAGE_BOX_OPENED', 'message_box_open');
+    _defineProperty(breaseEvent, 'MESSAGE_BOX_CLOSED', 'message_box_close');
+
     // Tooltips
     _defineProperty(breaseEvent, 'TOOLTIPMODE_ACTIVE', 'tooltipMode_activate');
     _defineProperty(breaseEvent, 'TOOLTIPMODE_INACTIVE', 'tooltipMode_inactive');
@@ -198,13 +225,13 @@ define(function () {
     
     //Table.js
     /**
-    * @property {string} SORT_COMPLETED='sort_completed'
+    * @property {String} SORT_COMPLETED='sort_completed'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'SORT_COMPLETED', 'sort_completed');
     /**
-    * @property {string} ROW_SELECTED='row_selected'
+    * @property {String} ROW_SELECTED='row_selected'
     * @readonly
     * @static
     */
@@ -212,19 +239,19 @@ define(function () {
 
     //Fragment.js
     /**
-    * @property {string} FRAGMENT_LOADED='fragment_loaded'
+    * @property {String} FRAGMENT_LOADED='fragment_loaded'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'FRAGMENT_LOADED', 'fragment_loaded');
     /**
-    * @property {string} FRAGMENT_SHOW='fragment_show'
+    * @property {String} FRAGMENT_SHOW='fragment_show'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'FRAGMENT_SHOW', 'fragment_show');
     /**
-    * @property {string} FRAGMENT_HIDE='fragment_hide'
+    * @property {String} FRAGMENT_HIDE='fragment_hide'
     * @readonly
     * @static
     */
@@ -236,7 +263,7 @@ define(function () {
     _defineProperty(breaseEvent, 'THEME_CHANGED', 'theme_changed');
     _defineProperty(breaseEvent, 'NAVIGATION_DISPOSE', 'navDispose');
     /**
-    * @property {string} LOAD_ERROR='load_error'
+    * @property {String} LOAD_ERROR='load_error'
     * @readonly
     * @static
     */
@@ -250,13 +277,13 @@ define(function () {
     _defineProperty(breaseEvent, 'CURVE_CHANGE', 'curve_changed');
     
     /**
-    * @property {string} SUBMIT='value_submit'
+    * @property {String} SUBMIT='value_submit'
     * @readonly
     * @static
     */
     _defineProperty(breaseEvent, 'SUBMIT', 'value_submit');
     /**
-    * @property {string} CHANGE='change'
+    * @property {String} CHANGE='change'
     * @readonly
     * @static
     */
@@ -268,6 +295,47 @@ define(function () {
     _defineProperty(breaseEvent, 'TICK', 'tick');
     _defineProperty(breaseEvent, 'ALERT', 'alert');
     _defineProperty(breaseEvent, 'TAP_HOLD', 'taphold');
+    
+    /* content editor events - start */
+    /* These events are fired only in content editor (brease.config.editMode=true)!*/
+    
+    /**
+    * @property {String} WIDGET_ADDED='widget_added'
+    * The event is triggered on a container widget html element when a widget is added.  
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_ADDED', 'widget_added');
+
+    /**
+    * @property {String} WIDGET_REMOVED='widget_removed'
+    * The event is triggered on a container widget html element when a widget is removed.   
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_REMOVED', 'widget_removed');
+
+    /**
+    * @property {String} WIDGET_PROPERTIES_CHANGED='widget_properties_changed'
+    * The event is triggered on the widget html element when a not styleable property of the widget is 
+    * changed in the property grid.  
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_PROPERTIES_CHANGED', 'widget_properties_changed');
+    /**
+    * @property {String} WIDGET_STYLE_PROPERTIES_CHANGED='widget_style_properties_changed'
+    * The event is triggered on the widget html element when a style property of the widget is 
+    * changed in the property grid.  
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_STYLE_PROPERTIES_CHANGED', 'widget_style_properties_changed');
+    /* content editor events - end */
 
     return breaseEvent;
 

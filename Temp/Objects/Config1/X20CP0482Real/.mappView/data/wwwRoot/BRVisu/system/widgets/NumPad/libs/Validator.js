@@ -3,17 +3,18 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
     'use strict';
 
     var Validator = function () {
-        this.valid = true;      
+        this.valid = true;
         this.settings = {};
     };
 
     Validator.prototype = new EventDispatcher();
-    
-    Validator.prototype.setConfig = function (minValue, maxValue) {
-        this.settings.minValue = minValue;
-        this.settings.maxValue = maxValue;
+
+    Validator.prototype.setConfig = function (config) {
+        for (var key in config) {
+            this.settings[key] = config[key];
+        }
     };
-    
+
     Validator.prototype.changeListener = function (e) {
         this.check(e.detail.value);
     };
@@ -26,17 +27,17 @@ define(['brease/events/EventDispatcher'], function (EventDispatcher) {
         } else {
             this.valid = true;
         }
-        
+
         /**
         * @event Validation
-        * @param {Object} detail  
-        * @param {Boolean} detail.valid  
-        * @param {String} type 'Validation'
+        * @param {Boolean} valid  
         */
-        this.dispatchEvent({ type: 'Validation', 
+        this.dispatchEvent({
+            type: 'Validation',
             detail: {
                 'valid': this.valid
-            } });
+            }
+        });
     };
 
     return Validator;

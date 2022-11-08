@@ -170,15 +170,16 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
             }
         }
     }
-
+    
     function setState(state) {
-        //console.log('%c' + this.elem.id + '.dependencies[' + dependency + '].state=' + state, 'color:#cccc00');
-        this.dependencies[dependency].state = state;
-        if (state === Enum.Dependency.ACTIVE) {
-            addListener.call(this);
-        } else {
-            removeListener.call(this);
-            this.deactivateTooltipMode();
+        if (this.dependencies[dependency]) {
+            this.dependencies[dependency].state = state;
+            if (state === Enum.Dependency.ACTIVE) {
+                addListener.call(this);
+            } else {
+                removeListener.call(this);
+                this.deactivateTooltipMode();
+            }
         }
     }
 
@@ -193,7 +194,7 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
 
     // returns wether the widget has a valid tooltip configured and is allowed to display the tooltip
     function _hasTooltip() {
-        return (this.settings.tooltip.length > 0) &&
+        return (this.settings.tooltip && this.settings.tooltip.length > 0) &&
             (this.settings.parentContentId &&
                 this.settings.parentContentId !== brease.settings.globalContent);
     }
@@ -233,7 +234,7 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
         $(window).resize(function () {
             self.deactivateTooltipMode();
         });
-        $(window).on('mousewheel', function (e) {
+        $(window).on('mousewheel', function () {
             self.deactivateTooltipMode();
         });
     }
@@ -294,7 +295,6 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
             widgetRectTop = widgetElemClientRect.top - parentContainer.top,
             widgetRect = {
                 w: this.el.outerWidth() || widgetElemClientRect.width / elemZoom,
-                h: this.el.outerHeight() || widgetElemClientRect.height / elemZoom,
                 left: widgetRectLeft / elemZoom,
                 top: widgetRectTop / elemZoom
             };

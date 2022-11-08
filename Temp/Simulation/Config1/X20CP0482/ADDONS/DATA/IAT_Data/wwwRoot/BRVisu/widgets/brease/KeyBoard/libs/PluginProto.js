@@ -62,5 +62,5 @@ define([
      */
     p.dispose = function () { };
 
-    return new Plugin();
+    return Plugin;
 });

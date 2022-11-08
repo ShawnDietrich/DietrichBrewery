@@ -7,62 +7,67 @@ define(['brease/core/Utils'], function (Utils) {
     */
     
     /**
-    * @property {string} CONTENT_LOADED='ContentLoaded'
+    * @property {String} CONTENT_LOADED='ContentLoaded'
     * @readonly
     * @static
     */
     /**
-    * @property {string} DISABLED_CLICK='DisabledClick'
+    * @property {String} DISABLED_CLICK='DisabledClick'
     * @readonly
     * @static
     */
     /**
-    * @property {string} DIALOG_CLOSED='DialogClosed'
+    * @property {String} DIALOG_CLOSED='DialogClosed'
     * @readonly
     * @static
     */
     /**
-    * @property {string} DIALOG_OPENED='DialogOpened'
+    * @property {String} DIALOG_OPENED='DialogOpened'
     * @readonly
     * @static
     */
     /**
-    * @property {string} KEY_DOWN='KeyDown'
+    * @property {String} KEY_DOWN='KeyDown'
     * @readonly
     * @static
     */
     /**
-    * @property {string} KEY_PRESS='KeyPress'
+    * @property {String} KEY_PRESS='KeyPress'
     * @readonly
     * @static
     */
     /**
-    * @property {string} KEY_UP='KeyUp'
+    * @property {String} KEY_UP='KeyUp'
     * @readonly
     * @static
     */
     /**
-    * @property {string} LOGIN_FAILED='LoginFailed'
+    * @property {String} LOGIN_FAILED='LoginFailed'
     * @readonly
     * @static
     */
     /**
-    * @property {string} LOGIN_SUCCESS='LoginSuccess'
+    * @property {String} LOGIN_SUCCESS='LoginSuccess'
     * @readonly
     * @static
     */
     /**
-    * @property {string} SYSTEM_SWIPE='SystemSwipe'
+    * @property {String} SYSTEM_SWIPE='SystemSwipe'
     * @readonly
     * @static
     */
     /**
-    * @property {string} TOOLTIPMODE_ACTIVATED='TooltipModeActivated'
+    * @property {String} TOOLTIPMODE_ACTIVATED='TooltipModeActivated'
     * @readonly
     * @static
     */
     /**
-    * @property {string} TOOLTIPMODE_DEACTIVATED='TooltipModeDeactivated'
+    * @property {String} TOOLTIPMODE_DEACTIVATED='TooltipModeDeactivated'
+    * @readonly
+    * @static
+    */
+    /**
+    * @property {String} CHANGEPASSWORDDIALOG_CLOSED='ChangePasswordDialogClosed'
     * @readonly
     * @static
     */
@@ -80,6 +85,7 @@ define(['brease/core/Utils'], function (Utils) {
     Utils.defineProperty(ClientSystemEvent, 'SYSTEM_SWIPE', 'SystemSwipe');
     Utils.defineProperty(ClientSystemEvent, 'TOOLTIPMODE_ACTIVATED', 'TooltipModeActivated');
     Utils.defineProperty(ClientSystemEvent, 'TOOLTIPMODE_DEACTIVATED', 'TooltipModeDeactivated');
+    Utils.defineProperty(ClientSystemEvent, 'CHANGEPASSWORDDIALOG_CLOSED', 'ChangePasswordDialogClosed');
     return ClientSystemEvent;
 
 });

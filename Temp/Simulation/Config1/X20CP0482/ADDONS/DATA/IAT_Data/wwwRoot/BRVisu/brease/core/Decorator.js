@@ -24,8 +24,7 @@ define(function () {
 
     /**
     * @method decorate
-    * @localdoc
-    * decorate a widget class with some methods
+    * @localdoc decorate a widget class with some methods 
     * @param {brease.core.WidgetClass} widgetClass
     * @param {Object} initData Optional object, which is passed to the decorator method "init" of widget instances
     * @param {Object} staticData Optional object, which is saved in static WidgetClass data

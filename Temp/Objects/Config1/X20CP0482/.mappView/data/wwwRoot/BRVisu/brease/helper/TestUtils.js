@@ -1,27 +1,35 @@
 define(['brease/events/BreaseEvent',
+    'brease/enum/Enum',
+    'brease/core/Utils',
     'brease/controller/WidgetController',
     'brease/controller/PageController', 
     'brease/controller/BindingController', 
     'brease/controller/ActionController',
-    'brease/controller/EventController',
     'brease/controller/objects/Client',
     'brease/controller/libs/Utils',
+    'brease/controller/libs/ContentHelper',
     'brease/controller/WidgetParser',
+    'brease/controller/FileManager',
     'brease/model/BindingModel',
     'brease/services/RuntimeService',
-    'brease/helper/stubs/ServiceBridge'],
+    'brease/helper/stubs/ServiceBridge',
+    'brease/helper/jasmine/MatcherFactory'],
 function (BreaseEvent, 
+    Enum,
+    Utils,
     widgetController, 
     pageController, 
     bindingController, 
-    actionController, 
-    eventController,
+    actionController,
     client, 
     controllerUtils,
+    contentHelper,
     widgetParser,
+    fileManager,
     bindingModel,
     runtimeService, 
-    serviceBridge) {
+    serviceBridge,
+    matcherFactory) {
 
     'use strict';
     
@@ -31,7 +39,7 @@ function (BreaseEvent,
     function switchLang(lang, config) {
         _lang.key = lang;
         _lang.start = Date.now();
-        _lang.timeout = jasmine.getEnv().defaultTimeoutInterval;
+        _lang.timeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
         _lang.deferred = $.Deferred();
         _lang.config = config;
 
@@ -44,7 +52,7 @@ function (BreaseEvent,
         return _lang.deferred.promise();
     }
 
-    function switchLangReadyHandler(deferred) {
+    function switchLangReadyHandler() {
         document.body.removeEventListener(BreaseEvent.LANGUAGE_CHANGED, switchLangReadyHandler);
         checkLangReady();
     }
@@ -52,8 +60,8 @@ function (BreaseEvent,
     function checkLangReady() {
         var kbdEl = $('#breaseKeyBoard'),
             config = _lang.config,
-            waitForAttribute = (config && config.waitsFor === 'data-lang');
-
+            waitForAttribute = (config && config.waitFor === 'data-lang');
+            
         if (brease.language.getCurrentLanguage() === _lang.key && (waitForAttribute !== true || kbdEl.attr('data-lang') === _lang.key)) {
             _lang.deferred.resolve(); 
         } else { 
@@ -98,52 +106,90 @@ function (BreaseEvent,
     }
 
     function setConditions(conditions, callback, config) {
-        var preconditions = [];
+        var arConditions = [];
         if (conditions.lang !== undefined) {
-            preconditions.push(switchLang(conditions.lang, config));
+            arConditions.push(switchLang(conditions.lang, config));
         }
         if (conditions.mms !== undefined) {
-            preconditions.push(switchMMS(conditions.mms));
+            arConditions.push(switchMMS(conditions.mms));
         }
         if (conditions.culture !== undefined) {
-            preconditions.push(switchCulture(conditions.culture));
+            arConditions.push(switchCulture(conditions.culture));
         }
-        $.when.apply(null, preconditions).then(function () {
+        $.when.apply(null, arConditions).then(function () {
             callback();
         });
     }
 
     function runConditions(conditions, config) {
 
-        var ready = jasmine.createSpy();
-
-        runs(function () {
-            setConditions(conditions, ready, config);
+        return new Promise(function (resolve) {
+            setConditions(conditions, resolve, config);
         });
-
-        waitsFor(function () {
-            return ready.callCount > 0;
-        }, 'conditions to be set', 15000);
     }
+    /**
+    * @class brease.helper.TestUtils
+    * @extends core.javascript.Object
+    * Helper class for unit tests
+    * @singleton
+    */
 
     var TestUtils = {
 
+        specPath: function (widgetName, libPath, subLib) {
+            return libPath + widgetName + '.' + ((subLib !== undefined) ? subLib : widgetName);
+        },
+
+        isSpy: function (fn) {
+            return fn.isSpy === true || (fn.calls !== undefined && fn.and !== undefined);
+        },
+
+        /**
+        * @method preConditions
+        * method to set language and/or measurementSystem and/or culture before a testcase  
+        * it can be used on different levels of testcase notation:  
+        *    
+        * e.g. inside of a "it" or "beforeAll" (ATTENTION: use return statement here):  
+        * 
+        *     beforeAll(function () {
+        *         return TestUtils.preConditions('', { lang: 'de' }, { type: 'runs' });
+        *     });
+        * 
+        * e.g. as an "it" inside of a "describe" (ATTENTION: use NO return statement here):  
+        * 
+        *     describe('describe block', function () {
+        *         TestUtils.preConditions('with some description', { lang: 'de', culture: 'de' }, { type: 'it' });
+        *     });
+        * 
+        * e.g. as standalone "describe" (ATTENTION: use NO return statement here):  
+        * 
+        *     TestUtils.preConditions('with some description', { mms: 'imperial' }, { type: 'describe' });
+        * 
+        * @param {String} description description when used as "describe" block or "it" block  
+        * @param {Object} conditions contains conditions to be set
+        * @param {String} [conditions.lang] if language should be set
+        * @param {String} [conditions.mms] if measurementSystem should be set
+        * @param {String} [conditions.culture] if culture should be set
+        * @param {Object} config
+        * @param {String} config.type configuration of the usecase: "describe", "it" or "runs"; this type must match the real use of preConditions to function proper
+        * @param {String} config.waitFor can be set to "data-lang" for conditions.lang: in this case the promise is resolved when the attribute data-lang has the value of the new lang key in DOM of the keyboard
+        */
         preConditions: function (title, conditions, config) {
 
             if (!config || config.type === 'describe') {
                 describe(title, function () {
                     it('', function () {
-                        runConditions(conditions, config);
+                        return runConditions(conditions, config);
                     });
                 }); 
             }
             if (config && config.type === 'it') {
-                it('', function () {
-                    runConditions(conditions, config);
+                it(title, function () {
+                    return runConditions(conditions, config);
                 });
             }
             if (config && config.type === 'runs') {
-                runConditions(conditions, config);
+                return runConditions(conditions, config);
             }
         },
 
@@ -166,13 +212,15 @@ function (BreaseEvent,
                 parentConfig.color = (parentConfig.color) ? parentConfig.color : '#999999';
                 parentConfig.parent = (parentConfig.parent !== undefined) ? parentConfig.parent : true;
                 return function (spec, config) {
-                    if (!config) {
-                        config = {};
-                    }
-                    if (console[parentConfig.method]) {
-                        console[parentConfig.method]('%c' + ((config.prefix) ? config.prefix : '') + ((parentConfig.parent) ? spec.suite.parentSuite.description + spec.suite.description : '') + spec.description + ((config.suffix) ? config.suffix : ''), 'color:' + parentConfig.color);
-                    } else {
-                        console.log('%c' + ((config.prefix) ? config.prefix : '') + ((parentConfig.parent) ? spec.suite.parentSuite.description + spec.suite.description : '') + spec.description + ((config.suffix) ? config.suffix : ''), 'color:' + parentConfig.color);
+                    if (spec && spec.suite) {
+                        if (!config) {
+                            config = {};
+                        }
+                        if (console[parentConfig.method]) {
+                            console[parentConfig.method]('%c' + ((config.prefix) ? config.prefix : '') + ((parentConfig.parent) ? spec.suite.parentSuite.description + spec.suite.description : '') + spec.description + ((config.suffix) ? config.suffix : ''), 'color:' + parentConfig.color);
+                        } else {
+                            console.log('%c' + ((config.prefix) ? config.prefix : '') + ((parentConfig.parent) ? spec.suite.parentSuite.description + spec.suite.description : '') + spec.description + ((config.suffix) ? config.suffix : ''), 'color:' + parentConfig.color);
+                        }
                     }
                 };
             } else {
@@ -194,16 +242,18 @@ function (BreaseEvent,
         log: function (flag, color, method) {
             if (flag) {
                 return function (spec, config) {
-                    if (!config) {
-                        config = {};
-                    }
-                    var message;
-                    if (console[method]) {
-                        message = '%c########### ' + ((config.prefix) ? config.prefix : '') + spec.description + ((config.suffix) ? config.suffix : '');
-                        console[method](message, 'color:' + (color || '#999999'));
-                    } else {
-                        message = '%c########### ' + ((config.prefix) ? config.prefix : '') + spec.description + ((config.suffix) ? config.suffix : '');
-                        console.log(message, 'color:' + (color || '#999999'));
+                    if (spec) {
+                        if (!config) {
+                            config = {};
+                        }
+                        var message;
+                        if (console[method]) {
+                            message = '%c########### ' + ((config.prefix) ? config.prefix : '') + spec.description + ((config.suffix) ? config.suffix : '');
+                            console[method](message, 'color:' + (color || '#999999'));
+                        } else {
+                            message = '%c########### ' + ((config.prefix) ? config.prefix : '') + spec.description + ((config.suffix) ? config.suffix : '');
+                            console.log(message, 'color:' + (color || '#999999'));
+                        }
                     }
                 };
             } else {
@@ -212,9 +262,16 @@ function (BreaseEvent,
         },
 
         logSuite: function (suite) {
-            var prefix = (brease.config.jenkins === true) ? '\n[' : '[';
-            var suffix = (brease.config.jenkins === true) ? ']' : ']';
-            console.debug(prefix + ((suite && suite.spec && typeof suite.spec.replace === 'function') ? suite.spec.replace(/\./g, '/') : 'undefined') + suffix);
+            var prefix = (brease.config.jenkins === true) ? '\n[' : '[',
+                suffix = (brease.config.jenkins === true) ? ']' : ']',
+                message = '';
+
+            if (suite && suite.spec && typeof suite.spec.replace === 'function') {
+                message = suite.spec.replace(/\./g, '/');
+            } else if (suite.name) {
+                message = suite.name;
+            }
+            console.debug(prefix + message + suffix);
         },
 
         console: function (action, callThrough, config) {
@@ -304,20 +361,34 @@ function (BreaseEvent,
             if (Array.isArray(arType)) {
                 var matcher = {};
                 arType.forEach(function (type) {
-                    if (_customMatcher[type]) {
-                        matcher[type] = _customMatcher[type];
+                    if (objMatcher[type]) {
+                        matcher[type] = objMatcher[type];
                     }
                 });
-                
-                testcase.addMatchers(matcher);
+                matcherFactory.addMatchers(testcase, matcher);
             }
+        },
+
+        resetAppContainer: function () {
+            brease.appView.css({
+                width: 'initial',
+                height: '1px',
+                'min-height': '1px',
+                position: 'absolute',
+                transform: 'none',
+                display: 'inline-block',
+                top: '0px',
+                left: '0px',
+                'font-size': '12px',
+                'z-index': 0
+            });
         },
 
         resetFramework: function () {
 
             brease.config.editMode = false;
             brease.config.preLoadingState = false;
-            jasmine.getEnv().defaultTimeoutInterval = 20000;
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
             serviceBridge.testServices.reset();
             pageController.reset();
             widgetController.reset(true);
@@ -326,75 +397,135 @@ function (BreaseEvent,
             pageController.init(runtimeService);
             bindingController.init(runtimeService);
             brease.uiController.bindingController = bindingController;
-            actionController.init(runtimeService);
+            actionController.init(runtimeService, contentHelper);
             client.init(runtimeService);
             client.setValid(true);
+            TestUtils.resetAppContainer();
         },
 
         /**
-        * @method createWidgets
+        * @method loadWidgetClass
+        * Load a WidgetClass like it would be loaded at runtime (WidgetClass is then decorated with some meta info) 
+        * @param {brease.objects.ClassName} className
+        * @return {Promise}
+        * On success the promise will be resolved with the {@link brease.core.WidgetClass WidgetClass} 
+        */
+        loadWidgetClass: function (className) {
+            return new Promise(function (resolve, reject) {
+                var widgetPath = fileManager.getPathByClass(className);
+                fileManager.loadJSFiles(widgetPath, true).done(function (WidgetClass) {
+                    resolve(WidgetClass);
+                }).fail(function () {
+                    reject();
+                });
+            });
+        },
+
+        /**
+        * @method createWidgetsV3
         * create a bunch of widgets and wait for their ready events  
-        * usable in two different ways:  
+        * usable in different ways:  
         *
-        * TestUtils.createWidgets(...).then(function () {
-        *   (do something with the newly created widgets)
-        * });
+        *     beforeAll(function () { 
+        *       return TestUtils.createWidgetsV3(widgets, targetId, brease.appElem, contentId);
+        *     });
+        * 
+        * or       
+        *     beforeAll(async function () { 
+        *         widgets = await TestUtils.createWidgetsV3(widgets, targetId, brease.appElem, contentId);
+        *     });                   
         *
-        * or standalone as a runs/waitsFor bundle:  
+        * or
+        * 
+        *     beforeAll(function () { 
+        *        return TestUtils.createWidgetsV3(widgets, targetId, brease.appElem, contentId) 
+        *        .then(function () {
+        *           (do something with the newly created widgets)
+        *        });
+        *     });
+        * 
+        * or                          
         *
-        * runs(function () {...});
-        * TestUtils.createWidgets(...);
-        * runs(function () {...});
+        *     beforeAll(function () { 
+        *        return Promise.resolve().then(function () {
+        *           (do something before widget creation)
+        *        }).then(function () { 
+        *           return TestUtils.createWidgetsV3(widgets, targetId, brease.appElem, contentId);
+        *        });
+        *     });
         *
         * @param {WidgetConfig[]} widgets
         * @param {String} targetId Either the id of the HTMLElement which should be created to contain the widgets, or id of an already existing target.
         * @param {HTMLElement/jQuery/Selector} container Container where the target should be appended (can be null, if target already exists)
         * @param {String} [contentId] contentId for widget creation
-        * @param {Object} targetConfig height and width of the HTMLElement which contains the widgets.
-        * @return {Promise}
+        * @param {Object} [objCss] css for the HTMLElement which contains the widgets.
+        * @return {Promise} Object with widget instances with key=widgetId and value=instance
         */
-        createWidgets: function (widgets, targetId, container, contentId, targetConfig) {
+        createWidgetsV3: function (widgets, targetId, container, contentId, objCss) {
 
-            var callback, target,
-                deferred = new $.Deferred(),
-                widgetIds = widgets.map(function (item) {
-                    return item.id;
-                });
-
-            runs(function () {
-                callback = jasmine.createSpy();
-                target = $('#' + targetId);
-                
+            return new Promise(function (resolve, reject) {
+                var callback = jasmine.createSpy(), 
+                    target = $('#' + targetId),
+                    widgetIds = widgets.map(function (item) { return item.id; });
+                    
                 if (target.length > 0) {
                     target = target[0];
                 } else {
                     target = $('<div id="' + targetId + '" style="height:0px; overflow:hidden;" />').appendTo(container)[0];
-                    if (targetConfig) {
-                        $(target).css({ height: targetConfig.height, width: targetConfig.width });    
+                    if (objCss) {
+                        $(target).css(objCss);    
                     }
                 }
-                target.addEventListener(BreaseEvent.WIDGET_READY, function (e) {
-                       
+                var listener = function (e) {
                     if (widgetIds.indexOf(e.target.id) !== -1) {
                         callback();
+                        if (callback.calls.count() === widgets.length) {
+                            target.removeEventListener(BreaseEvent.WIDGET_READY, listener, true);
+                            let widgetInstances = {};
+                            widgetIds.forEach(id => {
+                                widgetInstances[id] = brease.callWidget(id, 'widget');
+                            });
+                            resolve(widgetInstances);
+                        }
                     }
-                }, true);
-                if (contentId !== undefined) {
-                    brease.uiController.createWidgets(target, widgets.slice(0), true, contentId); 
-                } else {
-                    brease.uiController.createWidgets(target, widgets.slice(0), true); 
+                };
+                target.addEventListener(BreaseEvent.WIDGET_READY, listener, true);
+                try {
+                    if (contentId !== undefined) {
+                        brease.uiController.createWidgets(target, widgets.slice(0), true, contentId); 
+                    } else {
+                        brease.uiController.createWidgets(target, widgets.slice(0), true); 
+                    }
+                } catch (e) {
+                    console.error('%c' + e, 'color: red');
+                    reject(e);
                 }
             });
+        },
 
-            waitsFor(function () {
-                return callback.callCount >= widgets.length;
-            }, 'widget creation', 3000);
-
-            runs(function () {
-                expect(callback.callCount).toEqual(widgets.length);
-                deferred.resolve();
+        /**
+        * @method createWidget
+        * create single widget
+        *  
+        *     beforeAll(async function () { 
+        *         widget = await TestUtils.createWidgetsV3(widgetConfig, targetId, brease.appElem, contentId);
+        *     });                   
+        *
+        * @param {WidgetConfig} widgetConfig
+        * @param {String} targetId Either the id of the HTMLElement which should be created to contain the widgets, or id of an already existing target.
+        * @param {HTMLElement/jQuery/Selector} container Container where the target should be appended (can be null, if target already exists)
+        * @param {String} [contentId] contentId for widget creation
+        * @param {Object} [targetConfig] height and width of the HTMLElement which contains the widgets.
+        * @param {Integer} targetConfig.height
+        * @param {Integer} targetConfig.width
+        * @return {Promise} Object with widget instances with key=widgetId and value=instance
+        */
+        createWidget: function (widgetConfig, targetId, container, contentId, targetConfig) {
+            return new Promise(function (resolve) {
+                TestUtils.createWidgetsV3([widgetConfig], targetId, container, contentId, targetConfig).then((widgets) => {
+                    resolve(widgets[widgetConfig.id]);
+                });
             });
-            return deferred.promise();
         },
 
         /**
@@ -406,28 +537,26 @@ function (BreaseEvent,
         *   (do something with the newly created widgets)
         * });
         *
-        * or standalone as a runs/waitsFor bundle:  
+        * or standalone as async/await:  
         *
-        * runs(function () {...});
-        * TestUtils.addContent(...);
-        * runs(function () {...});
+        * beforeAll(async function () {
+        * await TestUtils.addContent(...);
+        * });
         *
         * @param {String} url
         * @param {String} targetId Either the id of the HTMLElement which should be created to contain the widgets, or id of an already existing target.
         * @param {HTMLElement/jQuery/Selector} container Container where the target should be appended (can be null, if target already exists)
-        * @param {String} [contentId] contentId for widget creation
+        * @param {String} contentId contentId for widget creation
         * @param {Object} targetConfig height and width of the HTMLElement which contains the widgets.
         * @return {Promise}
         */
         addContent: function (url, targetId, container, contentId, targetConfig) {
             var callback = jasmine.createSpy(), 
-                loadSpy = jasmine.createSpy(),
                 target, 
                 html,
-                widgetIds = [],
-                deferred = new $.Deferred();
+                widgetIds = [];
 
-            runs(function () {
+            return new Promise(function (resolve) {
                 var $target = $('#' + targetId);
                 if ($target.length > 0) {
                     target = $target[0];
@@ -439,39 +568,55 @@ function (BreaseEvent,
                 }
                 brease.pageController.loadHTML(url).done(function (loadedHtml) {
                     html = loadedHtml;
-                    loadSpy();
+                    resolve();
                 });
+            })
+                .then(function () {
+                    return new Promise(function (resolve) {
+                        controllerUtils.appendHTML(target, html);
+                        $(target).find('[data-brease-widget]').each(function () {
+                            widgetIds.push(this.id);
+                        });
+
+                        target.addEventListener(BreaseEvent.WIDGET_READY, function (e) {
+                            if (widgetIds.indexOf(e.target.id) !== -1) {
+                                callback();
+                            }
+                            if (callback.calls.count() >= widgetIds.length) {
+                                resolve();
+                            }
+                        }, true);
+                        widgetParser.parse(target, false, contentId);
+                    });
+                });
+        },
+
+        widgetsReady: function (arWidgetIds) {
+            var widgetIds = new Set(arWidgetIds);
+
+            widgetIds.forEach(function (widgetId) {
+                if (brease.uiController.getWidgetState(widgetId) === Enum.WidgetState.READY) {
+                    widgetIds.delete(widgetId);
+                }
             });
 
-            waitsFor(function () {
-                return loadSpy.callCount === 1;
-            }, 'content html loaded', 5000);
-
-            runs(function () {
-
-                controllerUtils.appendHTML(target, html);
-                $(target).find('[data-brease-widget]').each(function () {
-                    widgetIds.push(this.id);
-                });
-
-                target.addEventListener(BreaseEvent.WIDGET_READY, function (e) {
-                    if (widgetIds.indexOf(e.target.id) !== -1) {
-                        callback();
+            return new Promise(function (resolve) {
+                var readyHandler = function (e) {
+                    if (widgetIds.has(e.target.id)) {
+                        widgetIds.delete(e.target.id);
+                        check();
                     }
-                }, true);
-                widgetParser.parse(target, false, contentId);
-            });
+                };
 
-            waitsFor(function () {
-                return callback.callCount >= widgetIds.length;
-            }, 'widgets ready', 5000);
-
-            runs(function () {
-                console.log('all widgets ready');
-                expect(callback.callCount).toEqual(widgetIds.length);
-                deferred.resolve();
+                var check = function () {
+                    if (widgetIds.size === 0) {
+                        document.body.removeEventListener(BreaseEvent.WIDGET_READY, readyHandler);
+                        resolve();
+                    }
+                };
+                document.body.addEventListener(BreaseEvent.WIDGET_READY, readyHandler);
+                check();
             });
-            return deferred.promise();
         },
 
         /*
@@ -496,27 +641,243 @@ function (BreaseEvent,
                 this.fn = undefined;
                 this.args = undefined;
             }
-        }
+        },
 
+        /**
+        * @method
+        * Find all css class names of an HTMLElement which contain a specified string.  
+        * @param {HTMLElement} elem
+        * @param {String} str
+        * @return {String[]}
+        */
+        findStyleClasses: function (elem, str) {
+            var stylePattern = new RegExp('.*' + str + '.*');
+            return Array.from(elem.classList).filter(function (cl) {
+                return stylePattern.test(cl);
+            });
+        },
+
+        /**
+         * Creates a promise which resolves after timeout.
+         * @param {Integer} t timeout in ms
+         * @returns {Promise}
+         */
+        promisedTimeout: function (t) {
+            return new Promise(function (resolve) {
+                window.setTimeout(resolve, t);
+            });
+        },
+
+        /**
+         * Create a promise for a event which resolves when the event is fired or timeout occurs.
+         * @param {HTMLElement} elem Event target
+         * @param {String} event Event type
+         * @param {Object} options additional options for special cases
+         * @param {Integer} option.timeout (optional) Resolve timeout if event is not fired. 3000 if not configured
+         * @param {Function} option.resolveOn (optional) Return true in the provided event handler if the promise should be resolved
+         * @param {Boolean} option.capture (optional) Set to true if the event handler should be triggerd on capture phase
+         * @returns {Promise} resolves with event argument.
+         */
+        promisedEvent: function (elem, event, { timeout = 3000, capture = false, resolveOn = () => true } = {}) {
+            let eventHandler, timeoutId;
+            return new Promise((resolve, reject) => {
+                if (elem === undefined || event === undefined) {
+                    reject(new Error('promisedEvent elem or event is undefined!'));
+                }
+                eventHandler = function (e) {
+                    if (resolveOn(e)) {
+                        elem.removeEventListener(event, eventHandler, capture);
+                        window.clearTimeout(timeoutId);
+                        resolve(e);
+                    }
+                };
+                elem.addEventListener(event, eventHandler, capture);
+                timeoutId = window.setTimeout(() => {
+                    elem.removeEventListener(event, eventHandler, capture);
+                    reject(new Error(`promisedEvent ${event} not fired within ${timeout}ms`));
+                }, timeout);
+            });
+        },
+
+        contentsActivated: function (arContentId) {
+            
+            return new Promise(function (resolve) {
+                var activatedSpy = jasmine.createSpy(), 
+                    listener = function (e) {
+                        if (arContentId.indexOf(e.detail.contentId) !== -1) {
+                            activatedSpy();
+                            if (activatedSpy.calls.count() === arContentId.length) {
+                                document.body.removeEventListener(BreaseEvent.CONTENT_ACTIVATED, listener);
+                                resolve();
+                            }
+                        }
+                    };
+                document.body.addEventListener(BreaseEvent.CONTENT_ACTIVATED, listener);
+                arContentId.forEach(function (contentId) {
+                    bindingController.activateContent(contentId);
+                });
+            });
+        },
+
+        contentsDeactivated: function (arContentId) {
+            
+            return new Promise(function (resolve) {
+                var activatedSpy = jasmine.createSpy(), 
+                    listener = function (e) {
+                        if (arContentId.indexOf(e.detail.contentId) !== -1) {
+                            activatedSpy();
+                            if (activatedSpy.calls.count() === arContentId.length) {
+                                document.body.removeEventListener(BreaseEvent.CONTENT_DEACTIVATED, listener);
+                                resolve();
+                            }
+                        }
+                    };
+                document.body.addEventListener(BreaseEvent.CONTENT_DEACTIVATED, listener);
+                arContentId.forEach(function (contentId) {
+                    bindingController.deactivateContent(contentId);
+                });
+            });
+        },
+
+        /**
+         * @method
+         * This method replaces the polling waitsFor from jasmine 1.3
+         * @param {*} condition 
+         * @param {Integer} interval the interval at which the function is being called at
+         * @param {Integer} timeout the timeout of the function, where the function fails and error message + derscription message is printed
+         * @param {String} description error message if function fails
+         */
+        pollAndWait: function (condition, interval, timeout, description) {
+            description = Utils.isString(description) ? description : (Utils.isString(interval) ? interval : (Utils.isString(timeout) ? timeout : ''));
+            interval = (isNaN(interval)) ? 10 : parseInt(interval, 10);
+            timeout = (isNaN(timeout)) ? 3000 : parseInt(timeout, 10);
+            // console.alwaysWarn('description:' + description);
+            // console.alwaysWarn('interval:' + interval);
+            // console.alwaysWarn('timeout:' + timeout);
+            return new Promise(function (resolve, reject) {
+                var iv = window.setInterval(function () {
+                    if (condition()) {
+                        window.clearInterval(iv);
+                        window.clearTimeout(to);
+                        resolve();
+                    }
+                }, interval);
+                var to = window.setTimeout(function () {
+                    window.clearInterval(iv);
+                    console.alwaysWarn('pollAndWait timed out' + ((description) ? '(' + description + ')' : ''));
+                    reject(new Error('timeout'));
+                }, timeout);
+            });
+        },
+        
+        /**
+         * @method
+         * This method adds some predefined spyStrategies.  
+         * Against the docu of jasmine, it's not possible to add the strategy in a beforeAll. It's mandatory to use a beforeEach.
+         * 
+         *     beforeEach(function () {
+         *        TestUtils.addSpyStrategy('callThroughAndThen');
+         *     });
+         * 
+         * @param {String} strategyName predefined name of the strategy
+         */
+        addSpyStrategy: function (strategyName) {
+            if (strategyName === 'callThroughAndThen') {
+                jasmine.addSpyStrategy('callThroughAndThen', function (context, spy, thenFn) {
+                    return function () {
+                        var result = spy.and.originalFn.apply(context, spy.calls.mostRecent().args);
+                        thenFn.apply(null, arguments);
+                        return result;
+                    };
+                });
+            }
+        },
+        /**
+         * @method
+         * shortcut for the spy strategy callThroughAndThen
+         * @param {Object} context object on which should be spied
+         * @param {String} methodName name of method on which should be spied on
+         * @param {Function} thenFn function which should be called after the spy
+         */
+        spyOnCallThroughAndThen: function (context, methodName, thenFn) {
+            var spy = spyOn(context, methodName);
+            spy.and.callThroughAndThen(context, spy, thenFn);
+        },
+
+        asyncSpyOn: function (context, method, config) {
+            return new Promise(function (resolve) {
+                if (TestUtils.isSpy(context[method])) {
+                    var spy = context[method];
+                    spy.calls.reset();
+                    if (config.callThrough) {
+                        spy.and.callFake(function () {
+                            spy.and.originalFn.apply(context, spy.calls.mostRecent().args);
+                            resolve();
+                        });
+                    } else {
+                        spy.and.callFake(resolve);
+                    }
+                } else {
+                    if (config.callThrough) {
+                        TestUtils.spyOnCallThroughAndThen(context, method, resolve);
+                    } else {
+                        spyOn(context, method).and.callFake(resolve);
+                    }
+                }
+            });
+        }
     };
     TestUtils.deferStub.call = TestUtils.deferStub._call.bind(TestUtils.deferStub);
     TestUtils.deferStub.release = TestUtils.deferStub._release.bind(TestUtils.deferStub);
 
+    // returns the index at which an element in the array of strings first occurs or -1 if it does not occur.
+    function arraysHaveSameMembers(x, y) {
+        var equal = Array.isArray(x) && Array.isArray(y) && x.length === y.length;
+        for (var i = 0; i < x.length; i += 1) {
+            equal = equal && (y.indexOf(x[i]) !== -1);
+        }
+        return equal;
+    }
+
     var _customMatcher = {
-        toEqualArray: function (array) {
-            this.message = function () {
-                return 'Expected ' + JSON.stringify(this.actual) + ' to be array ' + JSON.stringify(array) + '.';
+        toEqualArray: function (actual, expected) {
+            return {
+                pass: arraysHaveSameMembers(actual, expected),
+                message: 'Expected ' + JSON.stringify(actual) + ' to equal ' + JSON.stringify(expected) + '.'
             };
-            var arraysHaveSameMembers = function (x, y) {
-                var equal = Array.isArray(x) && Array.isArray(y) && x.length === y.length;
-                for (var i = 0; i < x.length; i += 1) {
-                    equal = equal && (y.indexOf(x[i]) !== -1);
+        },
+        toEqualDefinedProperties: function (actual, expected) {
+            var keys1 = Object.keys(actual).filter(function valueIsDefined(key) {
+                    return actual[key] !== undefined;
+                }),
+                keys2 = Object.keys(expected).filter(function valueIsDefined(key) {
+                    return expected[key] !== undefined;
+                });
+            if (!arraysHaveSameMembers(keys1, keys2)) {
+                return {
+                    pass: false,
+                    message: 'Objects do not have the same properties'
+                };
+            }
+            for (var i = 0; i < keys1.length; i += 1) {
+                if (actual[keys1[i]] !== expected[keys1[i]]) {
+                    return {
+                        pass: false,
+                        message: 'Objects have different property ' + keys1[i]
+                    };
                 }
-                return equal;
+            }
+            return {
+                pass: true
             };
-            return arraysHaveSameMembers(this.actual, array);
         }
     };
+
+    var objMatcher = {};
+
+    for (var matcherName in _customMatcher) {
+        objMatcher[matcherName] = matcherFactory.createMatcher(_customMatcher[matcherName]);
+    }
 
     return TestUtils;
 

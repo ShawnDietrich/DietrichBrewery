@@ -87,7 +87,7 @@ clicks on it. The default behavior will raise the window automaically when the u
 </tr>
 <tr>
 <td class="parameter_tab">modal</td>
-<td class="parameter_tab">If true, the window will be modal, in the meaning that no interaction with beneath page is possible. A semi transparent overlay between window and parent application will catch user actions.<br/>
+<td class="parameter_tab">If true, the window will be modal, in the meaning that no interaction with beneath page is possible. A semi transparent overlay between window and parent application will catch user actions.
 It depends on settings 'showCloseButton' and 'forceInteraction' how the user can close the window.
 </td>
 <td class="parameter_tab"></td>
@@ -151,8 +151,8 @@ It depends on settings 'showCloseButton' and 'forceInteraction' how the user can
 </tr>
 <tr>
 <td class="parameter_tab">position</td>
-<td class="parameter_tab">Horizontal and vertical position of the Window.<br/>
-Either a string (horizontal:left/center/right, vertical:top/middle/bottom) or an integer.<br/>
+<td class="parameter_tab">Horizontal and vertical position of the Window.
+Either a string (horizontal:left/center/right, vertical:top/middle/bottom) or an integer.
 Example :
 
 <pre><code>  {'horizontal': 'center', 'vertical': 105}
@@ -183,6 +183,28 @@ Example :
 <td class="parameter_tab">StyleReference</td>
 <td class="parameter_tab">default</td>
 <td class="true parameter_tab">true</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="true parameter_tab">true</td>
+<td class="false parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">tabIndex</td>
+<td class="parameter_tab">sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+or if autofocus should be disabled (-1)
+</td>
+<td class="parameter_tab">Behavior</td>
+<td class="parameter_tab">Integer</td>
+<td class="parameter_tab">-1</td>
+<td class="false parameter_tab">false</td>
 <td class="false parameter_tab">false</td>
 <td class="false parameter_tab">false</td>
 <td class="false parameter_tab">false</td>
@@ -356,28 +378,43 @@ Example :
 <tbody>
 <tr>
 <td class="parameter_tab">DisabledClick</td>
-<td class="parameter_tab"><p>Fired when disabled element is clicked on.</p>
+<td class="parameter_tab">Fired when disabled element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
+
 </p>
 </li>
 <li>hasPermission: Boolean
-<p><p>defines if the state is caused due to missing</p>
+<p>defines if the state is caused due to missing roles of the current user
+
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
+
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'
-roles of the current user</p>
+<p>vertical position of click in pixel i.e '10px'
+
 </p>
 </li>
 </ul>
 </td>
+</tr>
+<tr>
+<td class="parameter_tab">FocusIn</td>
+<td class="parameter_tab">Fired when the widgets gets focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">FocusOut</td>
+<td class="parameter_tab">Fired when the widgets lost focus
+</td>
+<td class="parameter_tab"></td>
 </tr>
 </tbody>
 </table>
@@ -394,6 +431,13 @@ roles of the current user</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="parameter_tab">Focus</td>
+<td class="parameter_tab">Sets focus on the widget element, if it can be focused and keyboardOperation=true
+</td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
 <tr>
 <td class="parameter_tab">ShowTooltip</td>
 <td class="parameter_tab">

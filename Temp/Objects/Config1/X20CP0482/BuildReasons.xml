@@ -1,25 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BuildReasons>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile">
+    <BuildReason>Target "iat_media.job._markerfile" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validatebindings._markerfile">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" differs.
+</BuildReason>
+  </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile">
     <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
 </BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile">
-    <BuildReason>Target "iat_media.job._markerfile" does not exist</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\mainpagecontent_binding.binding._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\server\-1662823413.binding._markerfile">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\physical\config1\x20cp0482\mappview\mainpagecontent.binding" differs.
 </BuildReason>
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\transformations\eventbinding\parametertypemapping.xml">
     <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\visualization\pages\main\content.content" differs.
 </BuildReason>
   </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\duplicatebindingsfinder._markerfile">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\validatebindings._markerfile" differs.
+</BuildReason>
+  </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile">
     <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" differs.
 </BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css">
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\mainpagecontent.scss.css">
     <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\contents\mappview\mainpagecontent._markerfile" differs.
 </BuildReason>
   </Rule>
@@ -28,11 +36,11 @@
 </BuildReason>
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\brease_core.css">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" differs.
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\mainpagecontent.scss.css" differs.
 </BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.widgets._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\visualization\pages\main\content.scss.css" differs.
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\grunt.breasecsso._markerfile">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\brvisu\css\pages\mappview\mainpagecontent.scss.css" differs.
 </BuildReason>
   </Rule>
   <Rule ID=".mappView_Build">

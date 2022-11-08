@@ -68,6 +68,7 @@ define([
         * @event VisibleChanged
         * @inheritdoc
         */
+        // eslint-disable-next-line no-unused-vars
         WidgetClass = SuperClass.extend(function DateTimePicker(elem, options, deferredInit, inherited) {
             if (inherited === true) {
                 SuperClass.call(this, null, null, true, true);
@@ -83,6 +84,36 @@ define([
 
         p = WidgetClass.prototype;
 
+    WidgetClass.minWidth = 84;
+    WidgetClass.borderWidth = 9;
+
+    var components = {
+        year: {
+            elName: 'DateTimePickerYear',
+            pattern: ['y']
+        },
+        month: {
+            elName: 'DateTimePickerMonth',
+            pattern: ['M']
+        },
+        day: {
+            elName: 'DateTimePickerDay',
+            pattern: ['d']
+        },
+        hour: {
+            elName: 'DateTimePickerHour',
+            pattern: ['h', 'H']
+        },
+        minute: {
+            elName: 'DateTimePickerMinute',
+            pattern: ['m']
+        },
+        second: {
+            elName: 'DateTimePickerSecond',
+            pattern: ['s']
+        }
+    };
+
     function _loadHTML(widget) {
         require(['text!' + widget.settings.html], function (html) {
             widget.deferredInit(document.body, html);
@@ -90,7 +121,7 @@ define([
         });
     }
 
-    /**
+    /*
     * Public Methods
     */
 
@@ -151,15 +182,8 @@ define([
             },
             digits: 2
         }, this._bind('_setSecond'));
-
-        this.dtpw = {
-            year: 0,
-            month: 0,
-            day: 0,
-            hour: 0,
-            minute: 0,
-            second: 0
-        };
+        
+        resetComponentWidth.call(this);
 
         this.DateTimePickerString = this.el.find('.actDate');
         this.btnEnter = this.el.find('.dateTimePickerEnter').on(BreaseEvent.CLICK, this._bind('_submitValue')).on(BreaseEvent.MOUSE_DOWN, this._bind(_addEnter));
@@ -225,7 +249,7 @@ define([
         options = _validatePositions(options);
         // calculate the corresponding width depending on date-format
         options.format = this._addOptionsDateTimeFormat(options);
-        options.width = _calculateWidth.call(this, options);
+        options.width = _calculateWidth.call(this, options.format);
         if (this.height === undefined || options.width === undefined) {
             options.height = this.el.outerHeight();
             this.height = options.height;
@@ -243,16 +267,17 @@ define([
     };
 
     p.themeChangeHandler = function () {
-        this.dtpw = {
-            year: 0,
-            month: 0,
-            day: 0,
-            hour: 0,
-            minute: 0,
-            second: 0
-        };
+        resetComponentWidth.call(this);
         this.height = undefined;
     };
+
+    function resetComponentWidth() {
+        var instance = this;
+        instance.dtpw = {};
+        Object.keys(components).forEach(function (item) {
+            instance.dtpw[item] = 0;
+        });
+    }
 
     p.dispose = function () {
         this.el.find('#breaseDateTimePickerButtons').off();
@@ -262,7 +287,7 @@ define([
         SuperClass.prototype.dispose.apply(this, arguments);
     };
 
-    /**
+    /*
     * Private Methods
     */
     p._submitValue = function (e) {
@@ -301,41 +326,15 @@ define([
             format = this.settings.dateTimeFormat;
         }
 
-        if (format.indexOf('y') !== -1) {
-            this.DateTimePickerYear.show();
-        } else {
-            this.DateTimePickerYear.hide();
-        }
+        var instance = this;
+        Object.keys(components).forEach(function (item) {
+            if (_hasFormat.call(instance, item, format)) {
+                instance[components[item].elName].show();
+            } else {
+                instance[components[item].elName].hide();
+            }
+        });
 
-        if (format.indexOf('M') !== -1) {
-            this.DateTimePickerMonth.show();
-        } else {
-            this.DateTimePickerMonth.hide();
-        }
-
-        if (format.indexOf('d') !== -1) {
-            this.DateTimePickerDay.show();
-        } else {
-            this.DateTimePickerDay.hide();
-        }
-
-        if (format.indexOf('H') !== -1 || format.indexOf('h') !== -1) {
-            this.DateTimePickerHour.show();
-        } else {
-            this.DateTimePickerHour.hide();
-        }
-
-        if (format.indexOf('m') !== -1) {
-            this.DateTimePickerMinute.show();
-        } else {
-            this.DateTimePickerMinute.hide();
-        }
-
-        if (format.indexOf('s') !== -1) {
-            this.DateTimePickerSecond.show();
-        } else {
-            this.DateTimePickerSecond.hide();
-        }
         this._setPosition();
     };
 
@@ -345,12 +344,10 @@ define([
 
     p._setHour = function (val) {
         this.value.setHours(val);
-
     };
 
     p._setMinute = function (val) {
         this.value.setMinutes(val);
-
     };
 
     p._setSecond = function (val) {
@@ -363,7 +360,6 @@ define([
     };
 
     p._setMonth = function (val) {
-
         this.value.setMonth(val);
         _checkDateIntegrity.call(this);
     };
@@ -426,7 +422,6 @@ define([
     }
 
     function _checkDateIntegrity() {
-        /*jshint validthis: true */
         if (this.DateTimePickerDay && this.check) {
             var thisDay = this.value.getDate(),
                 dayOfPicker = this.DateTimePickerDay.getValue();
@@ -500,39 +495,41 @@ define([
         }
         return options;
     }
-    function _calculateWidth(options) {
-        if (options.format.indexOf('y') !== -1 && this.dtpw.year === 0) {
-            this.dtpw.year = this.DateTimePickerYear.$el.outerWidth();
-        } else if (options.format.indexOf('y') === -1) {
-            this.dtpw.year = 0;
+
+    function _hasFormat(item, format) {
+        var pattern = components[item].pattern;
+        for (var i = 0; i < pattern.length; i += 1) {
+            if (format.indexOf(pattern[i]) !== -1) {
+                return true;
+            }
         }
-        if (options.format.indexOf('M') !== -1 && this.dtpw.month === 0) {
-            this.dtpw.month = this.DateTimePickerMonth.$el.outerWidth();
-        } else if (options.format.indexOf('M') === -1) {
-            this.dtpw.month = 0;
+        return false;
+    }
+
+    function _calcWidth(item, format) {
+        var hasItem = _hasFormat.call(this, item, format);
+
+        if (!hasItem) {
+            return 0;
+        } else {
+            if (this.dtpw[item] === 0) {
+                return this[components[item].elName].$el.outerWidth();
+            } else {
+                return this.dtpw[item];
+            }
         }
-        if (options.format.indexOf('d') !== -1 && this.dtpw.day === 0) {
-            this.dtpw.day = this.DateTimePickerDay.$el.outerWidth();
-        } else if (options.format.indexOf('d') === -1) {
-            this.dtpw.day = 0;
-        }
-        if ((options.format.indexOf('H') !== -1 || options.format.indexOf('h') !== -1) && this.dtpw.hour === 0) {
-            this.dtpw.hour = this.DateTimePickerHour.$el.outerWidth();
-        } else if (options.format.indexOf('h') === -1 && options.format.indexOf('H') === -1) {
-            this.dtpw.hour = 0;
-        }
-        if (options.format.indexOf('m') !== -1 && this.dtpw.minute === 0) {
-            this.dtpw.minute = this.DateTimePickerMinute.$el.outerWidth();
-        } else if (options.format.indexOf('m') === -1) {
-            this.dtpw.minute = 0;
-        }
-        if (options.format.indexOf('s') !== -1 && this.dtpw.second === 0) {
-            this.dtpw.second = this.DateTimePickerSecond.$el.outerWidth();
-        } else if (options.format.indexOf('s') === -1) {
-            this.dtpw.second = 0;
-        }
-        var result = this.dtpw.year + this.dtpw.month + this.dtpw.day + this.dtpw.hour + this.dtpw.minute + this.dtpw.second + 18; // border-with included;
-        return (result === 18) ? 84 : result;
+    }
+
+    function _calculateWidth(format) {
+        var instance = this;
+        Object.keys(components).forEach(function (item) {
+            instance.dtpw[item] = _calcWidth.call(instance, item, format);
+        });
+        
+        var border = WidgetClass.borderWidth * 2,
+            result = this.dtpw.year + this.dtpw.month + this.dtpw.day + this.dtpw.hour + this.dtpw.minute + this.dtpw.second;
+        
+        return (result === 0) ? WidgetClass.minWidth : result + border;
     }
 
     var instance = new WidgetClass();

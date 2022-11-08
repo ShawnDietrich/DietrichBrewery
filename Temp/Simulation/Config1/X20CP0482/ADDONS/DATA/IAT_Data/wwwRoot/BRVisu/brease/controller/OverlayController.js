@@ -2,9 +2,11 @@ define(['brease/events/BreaseEvent',
     'brease/core/Utils',
     'brease/enum/Enum',
     'brease/core/Types',
+    'brease/model/VisuModel',
     'brease/controller/FileManager',
-    'brease/controller/libs/ContentHelper'],
-function (BreaseEvent, Utils, Enum, Types, fileManager, contentHelper) {
+    'brease/controller/libs/ContentHelper',
+    'system/widgets/ChangePasswordDialog/ChangePasswordDialog'],
+function (BreaseEvent, Utils, Enum, Types, visuModel, fileManager, contentHelper, ChangePasswordDialog) {
 
     'use strict';
 
@@ -41,6 +43,7 @@ function (BreaseEvent, Utils, Enum, Types, fileManager, contentHelper) {
             init: function () {
 
                 this.ready = $.Deferred();
+                this.ChangePasswordDialogClass = ChangePasswordDialog;
 
                 var systemWidgets = ['widgets/brease/DialogWindow/DialogWindow', 'widgets/brease/MessageBox/MessageBox', 'widgets/brease/DateTimePicker/DateTimePicker', 'system/widgets/ContentLoader/ContentLoader'];
                 fileManager.loadOverlays(systemWidgets).done(function (DialogWindowClass, MessageBoxClass) {
@@ -285,6 +288,7 @@ function (BreaseEvent, Utils, Enum, Types, fileManager, contentHelper) {
                         notActiveContentsInDialog = contentHelper.extractNotActive(contentsInDialog);
 
                     if (notActiveContentsInDialog.length > 0) {
+                        console.iatWarn('Dialog ' + dialogId + ' open aborted! Not active contents: ' + notActiveContentsInDialog);
                         document.body.dispatchEvent(new CustomEvent(BreaseEvent.DIALOG_OPEN_ABORTED, { detail: { arContentId: notActiveContentsInDialog } }));
                     }
                     var activeContentsInDialog = contentHelper.extractActive(contentsInDialog);
@@ -292,6 +296,7 @@ function (BreaseEvent, Utils, Enum, Types, fileManager, contentHelper) {
                         dWindow.widget.onClose(),
                         contentHelper.deactivateFinished(activeContentsInDialog)
                     ).then(function () {
+                        visuModel.deactivateEmbeddedVisusWithoutActiveContent();
                         // dispatch dialog id to event controller for ClientSystemEvent.DIALOG_CLOSED
                         document.body.dispatchEvent(new CustomEvent(BreaseEvent.DIALOG_CLOSED, { bubbles: true, cancelable: true, detail: { dialogId: dialogId, horizontalPos: dialogPosition.x, verticalPos: dialogPosition.y } }));
                     });
@@ -299,6 +304,17 @@ function (BreaseEvent, Utils, Enum, Types, fileManager, contentHelper) {
                     _dialogs[dialogId] = undefined;
                     dWindow.used = false;
                 }
+            },
+
+            openChangePasswordDialog: function (userName, showPolicy) {
+                var def = $.Deferred(),
+                    widget = new this.ChangePasswordDialogClass();
+
+                $.when(widget.isParsed()).then(function () {
+                    widget.show(userName, showPolicy);
+                    def.resolve(true);
+                });
+                return def.promise();
             }
         },
         _messageBoxPool = [],

@@ -1,4 +1,8 @@
-define(['libs/iscroll-probe', 'brease/core/Utils', 'brease/events/BreaseEvent'], function (IScroll, Utils, BreaseEvent) {
+define(['libs/iscroll-probe',
+    'brease/core/Utils',
+    'brease/events/BreaseEvent',
+    'brease/helper/ScrollUtils'], 
+function (IScroll, Utils, BreaseEvent, ScrollUtils) {
 
     'use strict';
     /**
@@ -80,9 +84,16 @@ define(['libs/iscroll-probe', 'brease/core/Utils', 'brease/events/BreaseEvent'],
                     });
                     scroller.on('destroy', function () {
                         document.body.removeEventListener(BreaseEvent.APP_RESIZE, this.boundUpdateZoomFactor);
+                        this.wrapper.removeEventListener(BreaseEvent.FOCUS_IN, this.boundFocusIn);
+                        this.wrapper.removeEventListener('scroll', handleNativeScroll);
                     });
                     scroller.boundUpdateZoomFactor = scroller.breaseUpdateZoomFactor.bind(scroller);
                     document.body.addEventListener(BreaseEvent.APP_RESIZE, scroller.boundUpdateZoomFactor);
+                    scroller.boundFocusIn = onFocusIn.bind(scroller);
+                    scroller.wrapper.addEventListener(BreaseEvent.FOCUS_IN, scroller.boundFocusIn);
+                    // prevent native scrolling on the wrapper since scrolling programatically also works for containers
+                    // with css overflow = hidden
+                    scroller.wrapper.addEventListener('scroll', handleNativeScroll);
                     _popupManager.update();
                     if (noObserver !== true) {
                         addObserver(wrapper, scroller);
@@ -226,5 +237,34 @@ define(['libs/iscroll-probe', 'brease/core/Utils', 'brease/events/BreaseEvent'],
         console.iatWarn('trying to add a scroller to a null object:' + selector);
     }
 
+    function onFocusIn(e) {
+        var widgetElem = e.target,
+            elemOutsideScrollArea = ScrollUtils.checkElemOutsideScrollArea(widgetElem, this.wrapper),
+            notActive = !widgetElem.matches(':active');
+
+        // check if element receives focus 
+        // => scroll element into view if it's not completely in view
+        if (notActive) {
+            // args: elem, time, offsetX, offsetY
+            // offsetX = true => horizontal center element in the wrapper element
+            // offsetY = true => vertical center element in the wrapper element
+            var offsetX = elemOutsideScrollArea.horizontal && this.hasHorizontalScroll === true,
+                offsetY = elemOutsideScrollArea.vertical && this.hasVerticalScroll === true;
+
+            if (offsetX || offsetY) {
+                this.scrollToElement(widgetElem, 0, offsetX, offsetY);
+            }
+        
+            var elemOutsideViewport = ScrollUtils.checkElemOutsideViewport(widgetElem);
+            if (elemOutsideViewport.x !== 0 || elemOutsideViewport.y !== 0) {
+                window.scrollBy(elemOutsideViewport.x, elemOutsideViewport.y);
+            }
+        }
+    }
+    
+    function handleNativeScroll(e) {
+        e.preventDefault();
+    }
+    
     return Scroller;
 });

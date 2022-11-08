@@ -237,6 +237,7 @@
 
     <StyleProperty name="buttonBorderStyle" type="BorderStyle" category="Appearance">
       <StyleElement selector=".messageBoxButton" attribute="border-style"></StyleElement>
+      <StyleElement selector=".messageBoxButton.active" attribute="border-style"></StyleElement>
       <StyleElement selector=".messageBoxButton:active" attribute="border-style"></StyleElement>
       <StyleElement selector=".messageBoxButton.checked" attribute="border-style"></StyleElement>
       <StyleElement selector=".messageBoxButton.disabled" attribute="border-style"></StyleElement>
@@ -271,6 +272,7 @@
     </StyleProperty>
     <StyleProperty name="mouseDownButtonBorderWidth" category="Appearance" type="PixelValCollection" default="2px">
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="border-width"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="border-width"></StyleElement>
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="border-width"></StyleElement>
       <Description>
         border width for MessageBox buttons in mousedown state
@@ -285,6 +287,7 @@
     </StyleProperty>
     <StyleProperty name="mouseDownButtonBorderColor" category="Appearance" type="ColorCollection" default="#FD7B01" >
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="border-color"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="border-color"></StyleElement>
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="border-color"></StyleElement>
       <Description>
         border color for MessageBox buttons in mousedown state
@@ -298,6 +301,7 @@
     </StyleProperty>
     <StyleProperty name="mouseDownButtonBackColor" category="Appearance" type="Color" default="#DBDBDB" >
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="background-color"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="background-color"></StyleElement>
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="background-color"></StyleElement>
       <Description>
         background color for MessageBox buttons in mousedown state
@@ -312,6 +316,7 @@
     </StyleProperty>
     <StyleProperty name="mouseDownButtonBackGroundGradient" category="Appearance" type="Gradient" >
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="background-image"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="background-image"></StyleElement>
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="background-image"></StyleElement>
       <Description>
         background gradient for MessageBox buttons in mousedown state
@@ -329,6 +334,7 @@
     <StyleProperty name="mouseDownButtonTextColor" category="Appearance" type="Color" default="#000">
 
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active span" attribute="color"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active span" attribute="color"></StyleElement>
       <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked span" attribute="color"></StyleElement>
       <Description>
         text color for MessageBox buttons in mousedown state

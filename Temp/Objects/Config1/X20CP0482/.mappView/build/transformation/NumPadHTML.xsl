@@ -38,6 +38,7 @@
       <xsl:apply-templates select="numpad:Section"/>
       <xsl:apply-templates select="numpad:Label"/>
       <xsl:apply-templates select="numpad:NodeInfo"/>
+      <xsl:apply-templates select="numpad:UnitInfo"/>
       <xsl:apply-templates select="numpad:Value"/>
       <xsl:apply-templates select="numpad:Slider"/>
       <xsl:apply-templates select="numpad:ValueButton"/>
@@ -57,6 +58,9 @@
         <xsl:with-param name="prefix" select="position()"/>
       </xsl:apply-templates>
       <xsl:apply-templates select="numpad:NodeInfo">
+        <xsl:with-param name="prefix" select="position()"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="numpad:UnitInfo">
         <xsl:with-param name="prefix" select="position()"/>
       </xsl:apply-templates>
       <xsl:apply-templates select="numpad:Value">
@@ -83,6 +87,9 @@
         <xsl:with-param name="prefix" select="'H'"/>
       </xsl:apply-templates>
       <xsl:apply-templates select="numpad:NodeInfo">
+        <xsl:with-param name="prefix" select="'H'"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="numpad:UnitInfo">
         <xsl:with-param name="prefix" select="'H'"/>
       </xsl:apply-templates>
     </header>
@@ -131,6 +138,24 @@
     </label>
   </xsl:template>
 
+  <xsl:template match="numpad:UnitInfo">
+    <xsl:param name="prefix"></xsl:param>
+    <label>
+      <xsl:attribute name="id">
+        <xsl:value-of select="$widgetName"/>
+        <xsl:if test="$prefix">
+          <xsl:text>_S</xsl:text>
+          <xsl:value-of select="$prefix"/>
+        </xsl:if>
+        <xsl:text>_UnitInfo</xsl:text>
+        <xsl:value-of select="position()"/>
+      </xsl:attribute>
+      <xsl:attribute name="class">
+        <xsl:value-of select="'unitInfo'"/>
+      </xsl:attribute>
+    </label>
+  </xsl:template>
+
   <xsl:template match="numpad:Value">
     <xsl:param name="prefix"></xsl:param>
     <div>
@@ -174,6 +199,13 @@
         <xsl:text>_Slider</xsl:text>
         <xsl:value-of select="position()"/>
       </xsl:attribute>
+        <xsl:for-each select="@*">
+          <xsl:if test="name()!='top' and name()!='left' and name()!='width' and name()!='height' and name()!='zIndex'">
+            <xsl:attribute name="data-{name()}">
+              <xsl:value-of select="."/>
+            </xsl:attribute>
+          </xsl:if>
+        </xsl:for-each>
     </div>
   </xsl:template>
 

@@ -5,16 +5,18 @@ define([
     'brease/enum/Enum',
     'brease/core/Types',
     'brease/datatype/Node',
+    'brease/controller/libs/KeyActions',
     'brease/controller/KeyboardManager',
     'brease/events/BreaseEvent',
     'brease/config/NumberFormat',
     'widgets/brease/NumericInput/libs/Config',
     'brease/core/Utils',
     'widgets/brease/common/libs/BoxLayout',
+    'widgets/brease/common/libs/wfUtils/UtilsObject',
     'brease/decorators/DragAndDropCapability',
     'widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents',
     'widgets/brease/common/DragDropProperties/libs/DraggablePropertiesEvents'
-], function (SuperClass, languageDependency, measurementSystemDependency, Enum, Types, Node, keyboardManager, BreaseEvent, NumberFormat, Config, Utils, BoxLayout, dragAndDropCapability) {
+], function (SuperClass, languageDependency, measurementSystemDependency, Enum, Types, Node, KeyActions, keyboardManager, BreaseEvent, NumberFormat, Config, Utils, BoxLayout, UtilsObject, dragAndDropCapability) {
 
     'use strict';
 
@@ -82,14 +84,19 @@ define([
         this.isMouseDown = false;
 
         // extend settings
-        this.settings.tabIndex = 1;
-        this.settings.regexp = new RegExp('^\\s*(\\+|-)?((\\d+(\\' + separators.dsp + '\\d+)?)|(\\d+(\\' +
-                separators.dsp + ')?))\\s*$');
+        // this.settings.tabIndex = (this.getKeyboard()) ? 1 : -1;
+        this.settings.inputTabIndex = (!this._getUseKeyboardOperations()) ? 1 : -1;
+        // Actual RegExp used below: ^[-.]?\d*(?:[.]\d*?)?$
+        this.settings.regexp = new RegExp('^[-' + separators.dsp + ']?\\d*(?:[' + separators.dsp + ']\\d*?)?$');
         this.settings.unitSymbol = '';
-        this.settings.nodeObject = _createNodeObject(this, this.settings.node);
-        this.settings.unitObject = _parseObject(this, this.settings.unit);
-        this.settings.formatObject = _parseObject(this, this.settings.format);
+        this.settings.nodeObject = _createNodeObject(this.settings.node);
+        this.settings.unitObject = UtilsObject.parseObject(this.settings.unit, _failMessage.call(this, this.settings.unit, 'unit'));
+        this.settings.formatObject = UtilsObject.createFormatObject(this.defaultSettings.format, this.settings.format, _failMessage.call(this, this.settings.format, 'format'));
         this.settings.readonly = Types.parseValue(this.settings.readonly, 'Boolean', { default: false });
+        _updateRange.call(this);
+
+        // initialize Internal Data
+        this._setNumpadSubmitAction(false);
 
         _initDom(this);
         _initEventHandler(this);
@@ -105,25 +112,22 @@ define([
     //#region getter / setter
 
     /**
-     * Sets value with unit for node binding.
      * @method setNode
+     * Sets value with unit for node binding.
      * @param {brease.datatype.Node} node The node to be set
      */
     p.setNode = function (node) {
         if (Utils.isObject(node)) {
-
             // Update nodeObject
             if (!this.settings.nodeObject) {
-                this.settings.nodeObject = _createNodeObject(this, node);
+                this.settings.nodeObject = _createNodeObject(node);
             } else {
-                // round value to decimal places of format
-                var roundValue = _roundValue(this, node.value);
-
-                this.settings.nodeObject.setValue(roundValue);
+                this.settings.nodeObject.setValue(node.value);
                 this.settings.nodeObject.setMinValue(node.minValue);
                 this.settings.nodeObject.setMaxValue(node.maxValue);
                 this.settings.nodeObject.setUnit(node.unit);
             }
+            _updateRange.call(this);
 
             // If unit of node is not configured unit, request new value for node,
             //  otherwise resolve node change
@@ -144,8 +148,8 @@ define([
     };
 
     /**
-     * Returns value with unit of node binding.
      * @method getNode 
+     * Returns value with unit of node binding.
      * @return {brease.datatype.Node} The current node of the widget
      */
     p.getNode = function () {
@@ -172,15 +176,12 @@ define([
         }
         // END_A&P 512985: NumericOutput does not update BOOL value binding, value always 0
 
-        // round value to decimal places of format
-        var roundValue = _roundValue(this, value);
-
         // set value
         var nodeObj = this.settings.nodeObject;
         if (nodeObj) {
-            nodeObj.setValue(roundValue);
+            nodeObj.setValue(value);
         } else {
-            this.settings.value = roundValue;
+            this.settings.value = value;
         }
 
         // render value
@@ -188,9 +189,9 @@ define([
     };
 
     /**
+     * @method getValue
      * Gets value which is displayed in the widget.
      * @iatStudioExposed
-     * @method getValue
      * @return {Number} value
      */
     p.getValue = function () {
@@ -203,9 +204,9 @@ define([
         return this.settings.value;
     };
 
-    /**
-     * Sets the minimum permissible value for value binding. 
+    /** 
      * @method setMinValue
+     * Sets the minimum permissible value for value binding.
      * @param {Number} minValue The minValue to be set
      */
     p.setMinValue = function (minValue) {
@@ -215,11 +216,12 @@ define([
         } else {
             this.settings.minValue = minValue;
         }
+        _updateRange.call(this);
     };
 
     /**
-     * Gets the minimum permissible value for value binding.
      * @method getMinValue 
+     * Gets the minimum permissible value for value binding.
      * @return {Number} minValue
      */
     p.getMinValue = function () {
@@ -242,6 +244,7 @@ define([
         } else {
             this.settings.maxValue = maxValue;
         }
+        _updateRange.call(this);
     };
 
     /**
@@ -285,7 +288,7 @@ define([
 
         if (format) {
             this.settings.format = format;
-            this.settings.formatObject = _parseObject(this, format);
+            this.settings.formatObject = UtilsObject.createFormatObject(this.defaultSettings.format, format, _failMessage.call(this, format, 'format'));
             _renderValue(this);
         }
         _updateLangDependency(this);
@@ -308,8 +311,13 @@ define([
     p.setKeyboard = function (keyboard) {
         this.settings.keyboard = keyboard;
         if (keyboard) {
-            // dispose hardware keyboard events
-            _removeKeyboardEventHandler(this);
+            if (this._getUseKeyboardOperations()) {
+                // init hardware keyboard
+                _initKeyboardEventHandler(this);
+            } else {
+                // dispose hardware keyboard events
+                _removeKeyboardEventHandler(this);
+            }
             // init numpad
             var self = this;
             _createNumPadAsync(this).then(function () {
@@ -330,6 +338,33 @@ define([
      */
     p.getKeyboard = function () {
         return this.settings.keyboard;
+    };
+
+    p._getKeyboardOpen = function () {
+        return this.internalData.keyboardOpen;
+    };
+
+    p._setKeyboardOpen = function (keyboardOpen) {
+        this.internalData.keyboardOpen = keyboardOpen;
+    };
+
+    p._getNumpadSubmitAction = function () {
+        // internalData.numpadSubmitAction --> a Submit action has been sent via the Numpad
+        // this can be used to prevent an additional click event from being triggered
+        return this.internalData.numpadSubmitAction;
+    };
+
+    p._setNumpadSubmitAction = function (value) {
+        this.internalData.numpadSubmitAction = value;
+    };
+
+    /**
+     * @method _getUseKeyboardOperations 
+     * Gets if the keyboard operations are in use or if onscreen keyboard should be used.
+     * @return {Boolean}
+     */
+    p._getUseKeyboardOperations = function () {
+        return brease.config.visu.keyboardOperation;
     };
 
     /**
@@ -407,8 +442,8 @@ define([
     };
 
     /**
-     * Sets if changes, such as entry of a different value, should be submitted to the server immediately.
      * @method setSubmitOnChange
+     * Sets if changes, such as entry of a different value, should be submitted to the server immediately.
      * @param {Boolean} submitOnChange The submitOnChange value to be set
      */
     p.setSubmitOnChange = function (submitOnChange) {
@@ -416,8 +451,8 @@ define([
     };
 
     /**
-     * Gets if changes, such as entry of a different value, should be submitted to the server immediately.
      * @method getSubmitOnChange 
+     * Gets if changes, such as entry of a different value, should be submitted to the server immediately.
      * @return {Boolean} Current submitOnChange value
      */
     p.getSubmitOnChange = function () {
@@ -425,13 +460,14 @@ define([
     };
 
     /**
-     * Sets the unit format for the widget.
      * @method setUnit
+     * Sets the unit format for the widget.
      * @param {brease.config.MeasurementSystemUnit} unit The unit value to be set
+     * @returns {Promise}
      */
     p.setUnit = function (unit) {
         this.settings.unit = unit;
-        this.settings.unitObject = _parseObject(this, unit);
+        this.settings.unitObject = UtilsObject.parseObject(unit, _failMessage.call(this, this.settings.unit, 'unit'));
         _updateLangDependency(this);
 
         var self = this;
@@ -439,11 +475,12 @@ define([
         self.unitChangePromise.then(function () {
             self.unitChangePromise = null;
         });
+        return self.unitChangePromise;
     };
 
     /**
-     * Returns the unit format for the widget.
      * @method getUnit 
+     * Returns the unit format for the widget.
      * @return {brease.config.MeasurementSystemUnit} Current unit value
      */
     p.getUnit = function () {
@@ -451,8 +488,8 @@ define([
     };
 
     /**
-     * Sets the position of the unit.
      * @method setUnitAlign
+     * Sets the position of the unit.
      * @param {brease.enum.ImageAlign} unitAlign The unitAlign value to be set
      */
     p.setUnitAlign = function (unitAlign) {
@@ -462,8 +499,8 @@ define([
     };
 
     /**
-     * Gets the position of the unit.
      * @method getUnitAlign 
+     * Gets the position of the unit.
      * @return {brease.enum.ImageAlign} Current unitAlign value
      */
     p.getUnitAlign = function () {
@@ -471,8 +508,8 @@ define([
     };
 
     /**
-     * Sets the minimum width of the unit's area.
      * @method setUnitWidth 
+     * Sets the minimum width of the unit's area.
      * @param {Size} value The unitWidth value to be set
      */
     p.setUnitWidth = function (value) {
@@ -481,8 +518,8 @@ define([
     };
 
     /**
-     * Gets the minimum width of the unit's area.
      * @method getUnitWidth 
+     * Gets the minimum width of the unit's area.
      * @return {Size} Current unitWidth value
      */
     p.getUnitWidth = function () {
@@ -490,8 +527,8 @@ define([
     };
 
     /**
-     * Sets whether number grouping should take place.
      * @method setUseDigitGrouping
+     * Sets whether number grouping should take place.
      * @param {Boolean} useDigitGrouping The useDigitGrouping value to be set
      */
     p.setUseDigitGrouping = function (useDigitGrouping) {
@@ -500,8 +537,8 @@ define([
     };
 
     /**
-     * Gets whether number grouping should take place.
      * @method getUseDigitGrouping 
+     * Gets whether number grouping should take place.
      * @return {Boolean} Current useDigitGrouping value
      */
     p.getUseDigitGrouping = function () {
@@ -509,8 +546,8 @@ define([
     };
 
     /**
-     * Sets whether the widget is readonly or not.
      * @method setReadonly
+     * Sets whether the widget is readonly or not.
      * @param {Boolean} value The readonly value to be set
      */
     p.setReadonly = function (value) {
@@ -525,8 +562,8 @@ define([
     };
 
     /**
-     * Gets whether the widget is readonly or not.
      * @method getReadonly 
+     * Gets whether the widget is readonly or not.
      * @return {Boolean} Current readonly value
      */
     p.getReadonly = function () {
@@ -574,9 +611,9 @@ define([
         });
         /**
          * @event ValueChanged
-         * @param {Number} value
          * @iatStudioExposed
          * Fired when index changes.
+         * @param {Number} value
          */
         var ev = this.createEvent('ValueChanged', { value: this.getValue() });
         ev.dispatch();
@@ -589,8 +626,8 @@ define([
         /**
          * @event change
          * Fired when value is changed by user    
-         * @param {Number} value
          * See at {@link brease.events.BreaseEvent#static-property-CHANGE BreaseEvent.CHANGE} for event type  
+         * @param {Number} value
          * @eventComment
          */
         widget.dispatchEvent(new CustomEvent(BreaseEvent.CHANGE, { detail: { value: widget.getValue() } }));
@@ -614,36 +651,65 @@ define([
             _setInputWidth(this);
         }
     };
-    
-    p.disable = function () {
-        if (this.getKeyboard() === false || this.getReadonly()) {
-            this.inputEl.attr('tabindex', -1);
+
+    p._enableHandler = function (enableState) {
+      
+        if (enableState === true) {
+            
+            if (this.getKeyboard() === false && this.getReadonly() === false) {
+                this.inputEl.attr('tabindex', this.settings.inputTabIndex);
+            }
+
+        } else {
+            
+            if (this.getKeyboard() === false || this.getReadonly()) {
+                this.inputEl.attr('tabindex', -1);
+            }
+            this._hideNumPad();
         }
-        SuperClass.prototype.disable.apply(this, arguments);
+        SuperClass.prototype._enableHandler.apply(this, arguments); 
     };
 
-    p.enable = function () {
-        if (this.getKeyboard() === false && this.getReadonly() === false) {
-            this.inputEl.attr('tabindex', this.settings.tabIndex);
+    p._visibleHandler = function (visibleState) {
+        if (!this.isVisible()) {
+            this._hideNumPad();
         }
-        SuperClass.prototype.enable.apply(this, arguments);
+        SuperClass.prototype._visibleHandler.apply(this, arguments);
     };
 
     p._clickHandler = function (e) {
+        this._handleFocus(e);
+        SuperClass.prototype._clickHandler.call(this, e);
+    };
+
+    p._handleFocus = function (e) {
         if (!this.isDisabled && !this.getReadonly() && brease.config.editMode !== true) {
-            if (this.getKeyboard()) {
-                this._showNumPad(this);
+            var orgE = Utils.getOriginalEvent(e);
+            if (KeyActions.getActionForKey(orgE.key) === Enum.KeyAction.Accept) {
+                if (!this._getNumpadSubmitAction()) {
+                    this._focusWithTab();
+                } else {
+                    this._setNumpadSubmitAction(false);
+                }
             } else {
-                this._onFocusIn();
+                if (this.getKeyboard() && !(orgE instanceof KeyboardEvent)) {
+                    this._cancelNewValueOnEscape();
+                    this._showNumPad(this);
+                } else {
+                    this._onFocusIn();
+                }
             }
         }
-        SuperClass.prototype._clickHandler.call(this, e);
     };
 
     p.dispose = function () {
         _disposeNumPad(this);
+        _removeKeyboardEventHandler(this);
         this.inputEl.off();
         this.inputEl.off('change', this._bind('_inputChangeHandler'));
+        this.elem.removeEventListener(BreaseEvent.BEFORE_FOCUS_MOVE, this._bind('_onBeforeFocusMove'));
+        this.elem.removeEventListener(BreaseEvent.BEFORE_ENABLE_CHANGE, this._bind('_onBeforeStateChange'));
+        this.elem.removeEventListener(BreaseEvent.BEFORE_VISIBLE_CHANGE, this._bind('_onBeforeStateChange'));
         SuperClass.prototype.dispose.apply(this, arguments);
     };
 
@@ -703,8 +769,8 @@ define([
     };
 
     /**
-     * Reset value to the value given by the server.<br/>This will only make sense, if submitOnChange=false
      * @method resetValue
+     * Reset value to the value given by the server.<br/>This will only make sense, if submitOnChange=false
      */
     p.resetValue = function () {
         this.setValue(this.settings.nodeObject.getValue());
@@ -714,18 +780,36 @@ define([
 
     //#region hardware keyboard functions
 
+    p._focusWithTab = function () {
+        if (this.el.hasClass('active')) {
+            this.elem.focus();        
+        } else {
+            this._onFocusIn();
+        }
+    };
+
     p._onFocusIn = function (e) {
         if (this.isDisabled === true) {
             this.inputEl.blur();
         } else {
+            //We need to check for active class so that when the input is focused for the first
+            //time we delete the input, but at a later stage we do not reset it.
+            if (!this.elem.classList.contains('active') && this._getUseKeyboardOperations()) {
+                this.inputEl.val('');
+            }
             this.focusInTime = Date.now();
             this.inputEl[0].focus();
             this.inputEl[0].addEventListener('keypress', this._bind('_onKeyPress'));
             this.inputEl[0].addEventListener('keyup', this._bind('_onKeyUp'));
             this.el.addClass('active');
+
         }
     };
 
+    /**
+     * @method _onFocusOut
+     * This method will handle the focus out event of the input element
+     */
     p._onFocusOut = function (e) {
         // A&P 684494 if clicked on div prevent focus out:
         // mouse: mouseDown -> focusOut -> mouseUp -> click -> focusIn => no focus out while mouse down
@@ -737,18 +821,53 @@ define([
         }
     };
 
+    /**
+     * @method _focusOut
+     * This method will handle the focus out of the input element
+     */
     p._focusOut = function () {
         var newValue = brease.formatter.parseFloat(this.inputEl.val(), brease.user.getSeparators());
 
-        newValue = _validateValue(this, newValue, this.getValue());
-
-        this.setValue(newValue);
-        _dispatchChangeEvent(this);
-        if (this.getSubmitOnChange() === true || this.forceSend === true) {
-            this.submitChange();
+        if (brease.config.keyboardHandling.onEnd.action === 'accept' && !this.internalData.enterOut) { 
+            _renderValue(this);
+        } else {
+            newValue = _validateValue(this, newValue, this.getValue());
+            newValue = _roundValue(this, newValue);
+            // no rounding in setValue any more, therefore we need an explicit call here
+            this.setValue(newValue);
+            _dispatchChangeEvent(this);
+            if (this.getSubmitOnChange() === true && this.elem.classList.contains('active')) {
+                //We check for class active so that submitChange isnt called when escape is pressed
+                //and focus is lost
+                this.submitChange();
+            }
+           
         }
-        this.forceSend = false;
         this.removeFocus();
+        this.internalData.enterOut = false;
+    };
+
+    /**
+     * @method _onBeforeFocusMove
+     * This method will close the numpad before focus moves to next widget
+     * Note1: can not use focusout as this is also called if the user clicks the numpad buttons
+     * Note2: will not be called if the focus is changed manually with click on other widget or focus action
+     */
+    p._onBeforeFocusMove = function () {
+        if (this._getKeyboardOpen()) {
+            this.numPad.hide();
+        }
+    };
+
+    /**
+     * @method _onBeforeStateChange
+     * This method cancels the input if the widget gets disabled or invisible 
+     */
+    p._onBeforeStateChange = function (e) {
+        if (!e.detail.value && this.elem.classList.contains('active')) {
+            this._cancelNewValueOnEscape();
+            this.inputEl.blur();
+        }
     };
 
     p._onMouseDown = function (e) {
@@ -758,37 +877,78 @@ define([
     };
 
     p._onMouseUp = function (e) {
-        if (this.el.has(e.target).length === 0 && e.target !== this.elem) {
+        if (this.el.has(e.target).length === 0 && e.target !== this.elem && !(Utils.getOriginalEvent(e) instanceof KeyboardEvent)) {
             // html standard behaviour on inputs do not loose focus on mouseup outside
             this._onFocusIn();
         }
         $(window).off(BreaseEvent.MOUSE_UP, this._bind('_onMouseUp'));
         this.isMouseDown = false;
     };
-
+    
     p._onKeyUp = function (e) {
         var pattern = new RegExp('\\' + brease.user.getSeparators().gsp, 'g');
         var newValue = this.inputEl.val().replace(pattern, '');
-        if (newValue !== '' && newValue !== '-' && newValue !== '+' && this.settings.regexp !== undefined &&
-                this.settings.regexp.test(newValue) === false) {
+
+        if (!this._validateKeyInputValue(newValue)) {
             this.inputEl.val(this.oldValue);
         }
     };
 
+    p._validateKeyInputValue = function (value) {
+        if (value !== '' && value !== '-' && value !== '+' && this.settings.regexp !== undefined && this.settings.regexp.test(value) === false) {
+            return false;
+        }
+        return true;
+    };
+
     p._onKeyPress = function (e) {
-        var code = e.keyCode || e.which;
-        if (code === 13) { // 13 Enter keycode
-            this.forceSend = true;
+        if (KeyActions.getActionForKey(e.key) === Enum.KeyAction.Accept && !this._getUseKeyboardOperations()) { // 13 Enter keycode
+            // A&P 697705:  attribut "forceSend" always forced an immediate transmission to the server.
+            //              Also with submitOnChange=false.
             this.inputEl.blur();
             return;
         }
-        this.oldValue = this.inputEl.val();
+        var val = this.inputEl.val();
+        if (typeof val === 'number') this.oldValue = val;
     };
 
     p.removeFocus = function () {
         this.inputEl[0].removeEventListener('keypress', this._bind('_onKeyPress'));
         this.inputEl[0].removeEventListener('keyup', this._bind('_onKeyUp'));
         this.el.removeClass('active');
+    };
+    
+    p._handleFocusKeyDown = function (e) {
+        //This flag must be set because if someone clicks outside the widget
+        //the focusout event will treat this as an "enter" action and submit
+        //the value
+        if (brease.config.keyboardHandling.onEnd.action === 'accept' && KeyActions.getActionForKey(e.key) === Enum.KeyAction.Accept && this.elem.classList.contains('active')) {
+            this.internalData.enterOut = true;
+        }
+
+        SuperClass.prototype._handleFocusKeyDown.apply(this, arguments);
+        //Look for escape and quit
+        if (KeyActions.getActionForKey(e.key) === Enum.KeyAction.Cancel) {
+            if (this.elem.classList.contains('active')) {
+                // would otherwise also close dialog if widget is in dialog
+                e.stopPropagation();
+            } 
+            this._cancelNewValueOnEscape();
+        //Look for Enter, Tab, Shift, Ctrl and Alt - do not enter click
+        } else if (brease.config.keyboardHandling.onStart.action === 'any' && this._isPrintable(e.key) && !this._getKeyboardOpen()) {
+            // this._onFocusIn(e);
+            this._handleFocus(e);
+        }
+    };
+
+    p._isPrintable = function (key) {
+        return key.length === 1;
+    };
+
+    p._cancelNewValueOnEscape = function () {
+        _renderValue(this);
+        this.removeFocus();
+        this.elem.focus();
     };
 
     //#endregion hardware keyboard functions
@@ -800,21 +960,23 @@ define([
             this._generateNumPadSettings();
             _initNumPadEvents(this);
             this.numPad.show(this.numPadSettings, this.elem);
+            this._setKeyboardOpen(true);
             this.el.addClass('active');
         }
     };
 
     p._hideNumPad = function () {
-        if (_isNumPadReady(this)) {
-            this.numpad.hide();
+        if (_isNumPadReady(this) && this.getKeyboard() && this.el.hasClass('active')) {
+            this.numPad.hide();
         }
     };
 
     p._generateNumPadSettings = function () {
         this.numPadSettings = {
-            minValue: this.getMinValue(),
-            maxValue: this.getMaxValue(),
-            value: this.getValue(),
+            minValue: this.range.min,
+            maxValue: this.range.max,
+            
+            value: this.getValue(), 
             useDigitGrouping: this.getUseDigitGrouping(),
             limitViolationPolicy: this.getLimitViolationPolicy(),
             position: {
@@ -827,6 +989,7 @@ define([
             },
             header: this.settings.header,
             format: this.settings.formatObject,
+            unit: this.settings.unitObject,
 
             // additional attributes to identify binding in NumPad
             contentId: this.settings.parentContentId,
@@ -850,15 +1013,20 @@ define([
 
     p._onNumPadClose = function () {
         _removeNumPadEvents(this);
+        this._setKeyboardOpen(false);
         this.el.removeClass('active');
+        this._cancelNewValueOnEscape();
     };
 
     p._onNumPadSubmit = function (event) {
-        this.setValue(event.detail.value);
+        var value = _roundValue(this, event.detail.value);
+        // no rounding in setValue any more, therefore we need an explicit call here
+        this.setValue(value);
+        this._setNumpadSubmitAction(true); 
         _dispatchChangeEvent(this);
         if (this.getSubmitOnChange()) {
             this.submitChange();
-        }
+        }     
     };
 
     //#endregion NumPad functions
@@ -877,9 +1045,9 @@ define([
             value: '',
             type: 'text',
             autocomplete: 'off',
-            tabindex: (this.getKeyboard() === false && this.getReadonly() === false) ? this.settings.tabIndex : -1
+            tabindex: (this.getKeyboard() === false && this.getReadonly() === false) ? this.settings.inputTabIndex : -1
         };
-        if (this.getKeyboard() || this.getReadonly()) {
+        if ((this.getKeyboard() && !this._getUseKeyboardOperations()) || this.getReadonly()) {
             inputOptions.readonly = 'readonly';
         }
 
@@ -931,6 +1099,11 @@ define([
 
     function _initEventHandler(widget) {
         widget.inputEl.on('change', widget._bind('_inputChangeHandler'));
+        if (widget._getUseKeyboardOperations()) {
+            widget.elem.addEventListener(BreaseEvent.BEFORE_FOCUS_MOVE, widget._bind('_onBeforeFocusMove'));
+            widget.elem.addEventListener(BreaseEvent.BEFORE_ENABLE_CHANGE, widget._bind('_onBeforeStateChange'));
+            widget.elem.addEventListener(BreaseEvent.BEFORE_VISIBLE_CHANGE, widget._bind('_onBeforeStateChange'));
+        }
     }
 
     function _initKeyboardEventHandler(widget) {
@@ -945,13 +1118,29 @@ define([
         widget.el.off(BreaseEvent.MOUSE_DOWN, widget._bind('_onMouseDown'));
     }
 
-    function _createNodeObject(widget, nodeJson) {
+    function _createNodeObject(nodeJson) {
         if (nodeJson) {
-            // round value to decimal places of format
-            var roundValue = _roundValue(widget, nodeJson.value);
-            return new Node(roundValue, nodeJson.unit, nodeJson.minValue, nodeJson.maxValue, nodeJson.id);
+            return new Node(nodeJson.value, nodeJson.unit, nodeJson.minValue, nodeJson.maxValue, nodeJson.id);
         }
         return null;
+    }
+
+    // updates the internal range with rounded values (see A&P 721975, 728950)
+    function _updateRange() {
+        this.range = {
+            min: this.getMinValue(),
+            max: this.getMaxValue()
+        };
+        if (!Utils.isNumeric(this.range.min)) {
+            this.range.min = this.settings.minValue;
+        }
+        if (!Utils.isNumeric(this.range.max)) {
+            this.range.max = this.settings.maxValue;
+        }
+        if (this.settings.formatObject.default && this.settings.formatObject.default.decimalPlaces >= 0) {
+            this.range.min = _formatValue(this.range.min, _getNumberFormat(this).decimalPlaces, 'min');
+            this.range.max = _formatValue(this.range.max, _getNumberFormat(this).decimalPlaces, 'max');
+        }
     }
 
     //#region render functions
@@ -1081,15 +1270,15 @@ define([
             newValue = oldValue;
         }
 
-        if (newValue > self.getMaxValue() || newValue < self.getMinValue()) {
+        if (newValue > self.range.max || newValue < self.range.min) {
             switch (self.getLimitViolationPolicy()) {
                 case Enum.LimitViolationPolicy.SET_TO_LIMIT:
                 case Enum.LimitViolationPolicy.SET_TO_LIMIT_AND_SUBMIT: {
-                    if (newValue > self.getMaxValue()) {
-                        newValue = self.getMaxValue();
+                    if (newValue > self.range.max) {
+                        newValue = self.range.max;
                     }
-                    if (newValue < self.getMinValue()) {
-                        newValue = self.getMinValue();
+                    if (newValue < self.range.min) {
+                        newValue = self.range.min;
                     }
                     break;
                 }
@@ -1128,40 +1317,22 @@ define([
     }
 
     function _roundValue(widget, value) {
-        var numberFormat = _getNumberFormat(widget);
-        var roundValue = value;
+        var numberFormat = _getNumberFormat(widget),
+            roundValue = value;
         if (Utils.isNumeric(value)) {
             roundValue = Utils.roundTo(value, numberFormat.decimalPlaces);
-        } else {
-            roundValue = brease.settings.noValueString;
         }
         return roundValue;
     }
 
+    function _formatValue(minValue, decimalPlaces, type) {
+        var value = brease.formatter.findPossibleFormattedValue(minValue, decimalPlaces, type);
+        return brease.formatter.roundToFormat(value, decimalPlaces);
+    }
     function _getUnitCommonCode(widget) {
         var unitObj = widget.settings.unitObject;
         if (unitObj) {
             return unitObj[brease.measurementSystem.getCurrentMeasurementSystem()];
-        }
-        return null;
-    }
-
-    function _parseObject(widget, variable) {
-        if (Utils.isObject(variable) || variable === null) {
-            return variable;
-        } else if (brease.language.isKey(variable)) {
-            try {
-                var unitTextKey = brease.language.parseKey(variable);
-                return JSON.parse(brease.language.getTextByKey(unitTextKey).replace(/'/g, '"'));
-            } catch (error) {
-                console.iatWarn(widget.elem.id + ': String "' + variable + '" is invalid!');
-            }
-        } else if (Utils.isString(variable)) {
-            try {
-                return JSON.parse(variable.replace(/'/g, '"'));
-            } catch (error) {
-                console.iatWarn(widget.elem.id + ': String "' + variable + '" is invalid!');
-            }
         }
         return null;
     }
@@ -1220,6 +1391,10 @@ define([
             _removeNumPadEvents(widget);
             widget.numPad = null;
         }
+    }
+
+    function _failMessage(str, type) {
+        return this.elem.id + ': ' + type + ' string "' + str + '" is invalid!';
     }
 
     //#region async methods

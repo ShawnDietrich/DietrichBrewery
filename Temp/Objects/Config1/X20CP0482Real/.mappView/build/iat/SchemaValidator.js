@@ -1,4 +1,3 @@
-/*global require,module,console*/
 (function () {
     
     'use strict';

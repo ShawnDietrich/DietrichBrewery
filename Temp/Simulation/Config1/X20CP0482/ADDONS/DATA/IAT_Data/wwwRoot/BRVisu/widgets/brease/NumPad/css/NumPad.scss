@@ -5,7 +5,7 @@ $border-outer-color: #333;
 $text-color: "#3E3E47";
 $slider-color: $active-color;
 $btn-active-color: $active-color;
-$errorColor: red;
+$errorColor: #ff0000;
 
 $outwidth: 58px;
 
@@ -123,7 +123,7 @@ $outwidth: 58px;
         }
     }
 
-    @import '../libs/NumPadSlider.scss';
+    @import '../../../../system/widgets/NumPad/libs/NumPadSlider.scss';
 
     .breaseNumpadSlider {
         top: 68px;

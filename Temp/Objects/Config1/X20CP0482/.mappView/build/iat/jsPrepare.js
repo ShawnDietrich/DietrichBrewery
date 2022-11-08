@@ -1,4 +1,3 @@
-/*global require,module,__dirname*/
 (function () {
     'use strict';
 

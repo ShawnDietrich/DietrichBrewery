@@ -507,6 +507,7 @@ define([
             dataAdapter.graphs[i].xScale = dataAdapter.xScales[xAxisWidgetId];
             dataAdapter.graphs[i].coordinates = valueWidget._coordinates();
             dataAdapter.graphs[i].interpolationType = valueWidget.getInterpolationType();
+            dataAdapter.graphs[i].isHidden = valueWidget.isHidden;
         }
     }
 
@@ -578,9 +579,9 @@ define([
     }
 
     function _updateZoomLevelLimits(dataAdapter) {
-
+        var axisId;
         // update y-axes
-        for (var axisId in dataAdapter.widget.chartItems.yAxis) {
+        for (axisId in dataAdapter.widget.chartItems.yAxis) {
 
             dataAdapter.yAxisAreas[axisId].info.minZoomLevel = dataAdapter.widget.getMinZoomLevel() / 100;
             dataAdapter.yAxisAreas[axisId].info.maxZoomLevel = dataAdapter.widget.getMaxZoomLevel() / 100;

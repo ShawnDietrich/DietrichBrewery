@@ -16,6 +16,7 @@
 				<File>brease/helper/Scroller.js</File>
 				<File>widgets/brease/common/libs/wfUtils/UtilsImage.js</File>
 				<File>brease/decorators/DragAndDropCapability.js</File>
+				<File>widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents.js</File>
 			</Files>
 			<Widgets>
 				<Widget>widgets/brease/GroupBox/GroupBox.js</Widget>
@@ -41,6 +42,9 @@
 			<Child>*</Child>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="SetEnable" read="false">
 				<Description>Sets the state of property «enable»</Description>
 				<Arguments>
@@ -82,14 +86,13 @@
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -101,25 +104,31 @@ roles of the current user						</Description>
 					</Argument>
 				</Arguments>
 			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
+			</Event>
 			<Event name="MouseDown">
+				<Description>Fired when widget enters mouseDown state</Description>
 				<Arguments>
 					<Argument name="horizontalPos" type="String" index="0" required="true">
 						<Description>horizontal position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="1" required="true">
-						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;
-Fired when widget enters mouseDown state						</Description>
+						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
 			<Event name="MouseUp">
+				<Description>Fired when widget enters mouseUp state</Description>
 				<Arguments>
 					<Argument name="horizontalPos" type="String" index="0" required="true">
 						<Description>horizontal position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="1" required="true">
-						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;
-Fired when widget enters mouseUp state						</Description>
+						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -167,7 +176,7 @@ Fired when widget enters mouseUp state						</Description>
 		</Events>
 		<Properties>
 			<Property name="alignment" type="brease.enum.Direction" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="vertical">
-				<Description>Alignment of the Bar. Possible Values:&lt;br/&gt;
+				<Description>Alignment of the Bar. Possible Values:
 horizontal: elements aligned from left to right. no line break
 vertical: elements aligned from left to right. with line break				</Description>
 			</Property>
@@ -184,13 +193,13 @@ vertical: elements aligned from left to right. with line break				</Description>
 				<Description>Floating of the childelements if childPositioning=relative</Description>
 			</Property>
 			<Property name="image" type="ImagePath" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
-				<Description>Image path for the Label&lt;br/&gt;
-&lt;br&gt;When svg - graphics are used, be sure that in your *.svg-file height and width attributes are specified on the &amp;lt;svg&amp;gt; element.
+				<Description>Image path for the Label
+When svg - graphics are used, be sure that in your *.svg-file height and width attributes are specified on the svg-element.
 For more detailed information see https://www.w3.org/TR/SVG/struct.html (chapter 5.1.2)				</Description>
 			</Property>
 			<Property name="imageAlign" type="brease.enum.ImagePosition" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="left">
-				<Description>imageAlign for the Label&lt;br/&gt;
-defines the Position of the image relative to the text&lt;br/&gt;
+				<Description>imageAlign for the Label
+defines the Position of the image relative to the text
 possible values: left(left of text)/right(right of text)				</Description>
 			</Property>
 			<Property name="maxHeight" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="0">
@@ -205,11 +214,18 @@ possible values: left(left of text)/right(right of text)				</Description>
 			<Property name="style" type="StyleReference" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="default">
 				<Description>reference to a style for this widget type</Description>
 			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="-1">
+				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
+or if autofocus should be disabled (-1)				</Description>
+			</Property>
 			<Property name="text" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>text for the Label</Description>
 			</Property>
 			<Property name="tooltip" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>reference to a tooltip for a widget</Description>
+			</Property>
+			<Property name="useSVGStyling" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="true">
+				<Description>Define if the image stylings (i.e imageColor) are applied - only valid when SVG Images are used.</Description>
 			</Property>
 			<Property name="visible" type="Boolean" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
 				<Description>change visibility</Description>

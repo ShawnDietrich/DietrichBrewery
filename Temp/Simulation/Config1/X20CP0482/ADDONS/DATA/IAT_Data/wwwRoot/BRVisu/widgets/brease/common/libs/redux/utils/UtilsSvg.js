@@ -9,6 +9,7 @@ define(function () {
     var UtilsSvg = {};
 
     /**
+     * @method 
     * This function sets the viewBox attribute of a svg
     * @param {SVG} svg 
     * @param {String} viewBox 

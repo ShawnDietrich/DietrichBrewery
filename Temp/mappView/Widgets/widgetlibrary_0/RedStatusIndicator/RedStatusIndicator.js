@@ -39,8 +39,8 @@ define(['system/widgets/CompoundWidget/CompoundWidget', 'brease/core/Types', 'te
 
         propertyMapping = {
             
-            Status: { statOn: 'visible' }, 
-            Label: { txtLabel: 'text' }
+            Status: { 'statOn': 'visible' }, 
+            Label: { 'txtLabel': 'text' }
         },
 
         WidgetClass = SuperClass.extend(function RedStatusIndicator() {
@@ -58,11 +58,8 @@ define(['system/widgets/CompoundWidget/CompoundWidget', 'brease/core/Types', 'te
     p.setInitialValues = function () {
         
     };
-    
-    
     p.setStatus = function (value) { this.settings['Status'] = value; this.setChildProps('Status', value); };
     p.setLabel = function (value) { this.settings['Label'] = value; this.setChildProps('Label', value); };
-    
 
     return WidgetClass;
 

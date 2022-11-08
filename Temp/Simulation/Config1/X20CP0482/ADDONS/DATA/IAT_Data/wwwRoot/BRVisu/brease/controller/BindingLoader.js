@@ -1,9 +1,8 @@
 define(['brease/events/BreaseEvent', 
     'brease/enum/Enum', 
     'brease/objects/Subscription',
-    'brease/controller/objects/ContentStatus',
-    'brease/events/SocketEvent'], 
-function (BreaseEvent, Enum, Subscription, ContentStatus, SocketEvent) {
+    'brease/controller/objects/ContentStatus'], 
+function (BreaseEvent, Enum, Subscription, ContentStatus) {
 
     'use strict';
 
@@ -16,8 +15,8 @@ function (BreaseEvent, Enum, Subscription, ContentStatus, SocketEvent) {
             },
 
             startListen: function () {
-                document.body.addEventListener(BreaseEvent.VISU_ACTIVATED, _visuActivatedListener);
-                document.body.addEventListener(BreaseEvent.VISU_DEACTIVATED, _visuActivatedListener);
+                document.body.addEventListener(BreaseEvent.VISU_ACTIVATED, _visuStateChangedListener);
+                document.body.addEventListener(BreaseEvent.VISU_DEACTIVATED, _visuStateChangedListener);
             },
 
             loadSubscriptions: function (contentId, deferred) {
@@ -140,7 +139,7 @@ function (BreaseEvent, Enum, Subscription, ContentStatus, SocketEvent) {
         }
     }
 
-    function _visuActivatedListener() {
+    function _visuStateChangedListener() {
         _runtimeService.getSessionEventSubscription(_loadSessionEventSubscriptionsResponseHandler);
     }
 

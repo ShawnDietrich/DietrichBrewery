@@ -32,8 +32,6 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
 
             this.maxSlots = (maxSlots !== undefined) ? Math.max(0, parseInt(maxSlots, 10)) : settings.cachingSlotsDefault;
             this.maxSlots = Math.min(this.maxSlots, settings.cachingSlotsMax);
-            //this.maxSlots = 0;
-            console.iatDebugLog('LoaderPool.maxSlots=' + this.maxSlots);
         };
 
         LoaderPool.prototype.loadContent = function (content, $target, deferred) {
@@ -146,6 +144,7 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
                     }
 
                     this.locker.appendChild(loaderElem);
+                    document.body.dispatchEvent(new CustomEvent(BreaseEvent.CONTENT_REMOVED, { detail: { contentId: contentId } }));
                 }
             } else {
                 widgetController.callWidget(loaderElem.id, 'onBeforeSuspend');
@@ -169,6 +168,7 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
                         //console.log('tag as flush');
                     }
                     this.locker.appendChild(loaderElem);
+                    document.body.dispatchEvent(new CustomEvent(BreaseEvent.CONTENT_REMOVED, { detail: { contentId: contentId } }));
                 }
             } else {
                 widgetController.callWidget(loaderElem.id, 'onBeforeDispose');
@@ -261,9 +261,14 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
                 } catch (e) {
                     CoreUtils.logError(e);
                 } finally {
+                    var contentId = widgetController.callWidget(loaderElem.id, 'getContentId');
                     loaderItem.tag = '';
                     loaderItem.inUse = false;
-                    this.locker.appendChild(loaderElem);
+                    // suspendLoader (tagMode) uses same container for suspend so locker may already contain it
+                    if (!this.locker.contains(loaderElem)) {
+                        this.locker.appendChild(loaderElem);
+                        document.body.dispatchEvent(new CustomEvent(BreaseEvent.CONTENT_REMOVED, { detail: { contentId: contentId } }));
+                    }
                 }
 
             } else {
@@ -310,7 +315,6 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
                             widgetController.callWidget(loaderObj.id, 'wake');
                         } else {
                             //console.log('%c' + 'content not completely ready -> load(' + content.id + '' + content.path + ')', 'color:#00cccc');
-                            // widgetFactory.disposeInContent(document.getElementById(loaderObj.id), content.id);
                             widgetController.callWidget(loaderObj.id, 'load', content.path, content.id, true);
                         }
                     } else if (widgetController.callWidget(loaderObj.id, 'widget').suspended) {

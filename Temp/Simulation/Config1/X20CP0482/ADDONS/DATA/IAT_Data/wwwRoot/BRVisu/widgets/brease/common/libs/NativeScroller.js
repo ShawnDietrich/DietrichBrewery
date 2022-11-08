@@ -336,12 +336,12 @@ define([
      * @method _momentum
      * @private
      * Method taken from iScroll library
-     * @param {*} current
-     * @param {*} start
-     * @param {*} time
-     * @param {*} lowerMargin
-     * @param {*} wrapperSize
-     * @param {*} deceleration
+     * @param {Number} current
+     * @param {Number} start
+     * @param {Number} time
+     * @param {Number} lowerMargin
+     * @param {Number} wrapperSize
+     * @param {Number} deceleration
      * @returns {Object} the destination and duration of how long the scroller should scroll
      */
     p._momentum = function (current, start, time, lowerMargin, wrapperSize, deceleration) {

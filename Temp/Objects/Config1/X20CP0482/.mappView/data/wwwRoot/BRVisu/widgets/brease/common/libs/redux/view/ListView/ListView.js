@@ -1,7 +1,8 @@
 define([
     'widgets/brease/common/libs/redux/view/ItemView/ItemView',
-    'brease/helper/Scroller'
-], function (ItemView, Scroller) {
+    'brease/helper/Scroller',
+    'brease/events/BreaseEvent'
+], function (ItemView, Scroller, BreaseEvent) {
 
     'use strict';
 
@@ -19,16 +20,16 @@ define([
     /**
      * @method render
      * Renders the View
-     * @param parent DOM element for the parent View
-     * @param props Properties for the View
+     * @param {jQuery} parent DOM element for the parent View
+     * @param {Object} props Properties for the View
      *
-     * @param props.status Status of the view
-     * @param props.status.visible Indicate if the view is visible
-     * @param props.status.enable Indicate if the view is enable for interaction
+     * @param {Object} props.status Status of the view
+     * @param {Boolean} props.status.visible Indicate if the view is visible
+     * @param {Boolean} props.status.enable Indicate if the view is enable for interaction
      *
-     * @param props.items Configuration for the items
-     * @param props.text Configuration for the text used by the items
-     * @param props.image Configuration for the images used by the items
+     * @param {Object} props.items Configuration for the items
+     * @param {Object} props.text Configuration for the text used by the items
+     * @param {Object} props.image Configuration for the images used by the items
      */
     p.render = function render(props, parent) {
 
@@ -37,6 +38,12 @@ define([
         this.elList = $('<div class="ListView List"></div>');
         this.elContainer.append(this.elList);
 
+        if (brease.config.isKeyboardOperationEnabled() && !brease.appElem.contains(parent[0])) {
+            // prevent focusout if clicked on list
+            this.elContainer.on(BreaseEvent.MOUSE_DOWN, function (e) {
+                e.preventDefault();
+            });
+        }
         //Array of view items
         this.items = [];
 

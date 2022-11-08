@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.10.3.60 SP"?>
+<?AutomationStudio Version="4.12.2.93"?>
 <ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
   <TaskClass
     Name="Cyclic#1">
     <Task
-      Name="Kettle"
+      Name="KettleCont"
       Disable="false"
-      Source="ProcessControl.Kettle"
+      Source="ProcessControl.KettleControl"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\Kettle\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\Kettle\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
     Name="Cyclic#2">
     <Task
-      Name="HLT"
+      Name="HLTControl"
       Disable="false"
-      Source="ProcessControl.HLT"
+      Source="ProcessControl.HLTControl"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HLTControl\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\HLT\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\HLT\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -41,11 +41,11 @@
       Source="Brewing.BrewingSeq"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\Brewing\BrewingSeq\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\Brewing\BrewingSeq\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Variables.var" />
     </Task>
     <Task
       Name="HMIProgram"
@@ -53,23 +53,23 @@
       Source="HMIControl.HMIProgram"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\HMIControl\HMIProgram\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\HMIControl\HMIProgram\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\HMIControl\HMIProgram\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\HMIControl\HMIProgram\Variables.var" />
     </Task>
     <Task
-      Name="MashTun"
+      Name="MashTunCon"
       Disable="false"
-      Source="ProcessControl.MashTun"
+      Source="ProcessControl.MashTunControl"
       Language="IEC">
       <InternalFile
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\MashTunCon\Main.st.var" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\MashTun\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\Types.typ" />
       <File
-        Path="C:\projects\DietrichBrewing\DietrichBrewery-master\DietrichBrewery-master\Logical\ProcessControl\MashTun\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass

@@ -3,6 +3,7 @@
 <xs:complexType name="widgets.brease.GroupBoxRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="-1" />
 			<xs:attribute name="height" use="optional" type="types:Size" default="150" />
 			<xs:attribute name="width" use="optional" type="types:Size" default="200" />
 		</xs:restriction>
@@ -27,6 +28,7 @@
 			<xs:attribute name="imageAlign" use="optional" type="types:brease.enum.ImagePosition" default="left" />
 			<xs:attribute name="maxHeight" use="optional" type="types:Integer" default="0" />
 			<xs:attribute name="text" use="optional" type="types:String" default="" />
+			<xs:attribute name="useSVGStyling" use="optional" type="types:Boolean" default="true" />
 			<xs:attribute name="imageHeight" use="optional" type="types:ImageSize" default="0" />
 			<xs:attribute name="imageWidth" use="optional" type="types:ImageSize" default="0" />
 			<xs:attribute name="borderWidth" use="optional" type="types:PixelValCollection" default="1px" />

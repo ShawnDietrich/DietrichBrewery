@@ -1,15 +1,16 @@
 define(['brease/events/EventDispatcher', 
     'brease/services/libs/ServerCommand',
+    'brease/services/libs/Watchdog',
     'brease/events/SocketEvent'], 
-function (EventDispatcher, ServerCommand, SocketEvent) {
+function (EventDispatcher, ServerCommand, Watchdog, SocketEvent) {
 
     'use strict';
 
     var _enabled = false,
-        _baseUrl = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         _config,
         _callback,
-        _socket;
+        _socket,
+        _watchdog;
 
     function _startSocket(SocketClass, initialTimeout) {
         if ('WebSocket' in window) {
@@ -26,7 +27,7 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
                 if (!SocketClass) {
                     SocketClass = window.WebSocket;
                 }
-                _socket = new SocketClass(socketType + _config.host + ':' + _config.port + '?watchdog=' + _config.watchdog);
+                _socket = new SocketClass(socketType + _config.host + ':' + _config.port + '?watchdog=' + _watchdog.getTimeout());
 
                 _socket.onmessage = _onSocketMessage;
 
@@ -44,20 +45,18 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
                         window.clearTimeout(cmto);
                         _socketError('socketClosedBeforeSuccess');
                     } else {
-                        _stopTimer();
-                        _stopHeartbeat();
+                        _watchdog.stop();
                         _processSocketMessage({
                             type: SocketEvent.CONNECTION_STATE_CHANGED,
                             detail: {
                                 state: false
                             }
                         });
-                        window.setTimeout(_tryReconnect, 1000);
                     }
                 };
 
                 _socket.onerror = function (e) {
-                    console.log('SOCKET ERROR[' + e.type + ']:' + e.message);
+                    _socketError('SOCKET ERROR[' + e.type + ']:' + e.message);
                 };
 
             } catch (e) {
@@ -69,73 +68,60 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
     }
 
     function _onSocketMessage(event) {
-
-        if (event.data !== 'pong') {
-            var info;
-            try {
-                info = JSON.parse(event.data);
-            } catch (e) {
-                console.warn(socketModule.MESSAGES['parsererror'] + '\n' + e.message);
-            }
-            if (info) {
-                if (info.Command === socketModule.COMMAND.GET_UPDATE || info.Command === socketModule.COMMAND.SYSTEM) {
+        if (event.data === 'pong') {
+            _processSocketMessage({
+                type: SocketEvent.PONG
+            });
+            return;
+        }
+        var info;
+        try {
+            info = JSON.parse(event.data);
+        } catch (e) {
+            console.warn(socketModule.MESSAGES['parsererror'] + '\n' + e.message);
+        }
+        if (info) {
+            if (info.Command === socketModule.COMMAND.GET_UPDATE || info.Command === socketModule.COMMAND.SYSTEM) {
+                _processSocketMessage({
+                    type: info.Data.event,
+                    detail: info.Data.eventArgs
+                });
+            } else if (info.Command === socketModule.COMMAND.EVENT) {
+                if (info.Data !== undefined) {
                     _processSocketMessage({
                         type: info.Data.event,
                         detail: info.Data.eventArgs
                     });
-                } else if (info.Command === socketModule.COMMAND.EVENT) {
-                    if (info.Data !== undefined) {
-                        _processSocketMessage({
-                            type: info.Data.event,
-                            detail: info.Data.eventArgs
-                        });
-                    }
-
-                } else if (info.Command === socketModule.COMMAND.ACTION) {
-                    _processSocketMessage({
-                        type: info.Command,
-                        detail: info.Data
-                    });
-                } else if (info.Command === socketModule.COMMAND.ACTIVATE_CONTENT || info.Command === socketModule.COMMAND.DEACTIVATE_CONTENT) {
-                    // Example command from Server:
-                    // { Command: "activatecontent", Data: {contentId: "con1", visuId: "vis1"},
-                    //   Resource: "services/client", status: {code: 0, message: ""} }
-                    var detail = info.Data;
-                    detail.status = info.status;
-                    _processSocketMessage({
-                        type: info.Command,
-                        detail: detail
-                    });
-                } else if (info.Command === socketModule.COMMAND.SUBSCRIBE || info.Command === socketModule.COMMAND.UNSUBSCRIBE) {
-                    _processSocketMessage({
-                        type: info.Command,
-                        detail: info.Data
-                    });
                 }
+
+            } else if (info.Command === socketModule.COMMAND.ACTION) {
+                _processSocketMessage({
+                    type: info.Command,
+                    detail: info.Data
+                });
+            } else if (info.Command === socketModule.COMMAND.ACTIVATE_CONTENT || info.Command === socketModule.COMMAND.DEACTIVATE_CONTENT) {
+                // Example command from Server:
+                // { Command: "activatecontent", Data: {contentId: "con1", visuId: "vis1"},
+                //   Resource: "services/client", status: {code: 0, message: ""} }
+                var detail = info.Data;
+                detail.status = info.status;
+                _processSocketMessage({
+                    type: info.Command,
+                    detail: detail
+                });
+            } else if (info.Command === socketModule.COMMAND.SUBSCRIBE || info.Command === socketModule.COMMAND.UNSUBSCRIBE) {
+                _processSocketMessage({
+                    type: info.Command,
+                    detail: info.Data
+                });
             }
         }
-        if (_heartbeat !== undefined) {
-            _startTimer();
-        }
     }
 
-    var _heartbeat, _timer, _closingTimer;
+    var _closingTimer;
 
-    function _startTimer() {
-        _stopTimer();
-        if (_config.watchdog >= 10000) {
-            _timer = window.setTimeout(_socketTimeout, _config.watchdog);
-        }
-    }
-
-    function _stopTimer() {
-        if (_timer) {
-            window.clearTimeout(_timer);
-        }
-    }
-
-    function _socketTimeout() {
-        if (_socket.readyState === _socket.OPEN) {
+    function _onWatchdogTimeout() {
+        if (_socket.readyState === WebSocket.OPEN) {
             _socket.close();
             _closingTimer = window.setTimeout(function name() {
                 if (_socket.readyState === _socket.CLOSING) {
@@ -148,47 +134,7 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
         }
     }
 
-    function _startHeartbeat() {
-        if (_config.watchdog >= 10000) {
-            _sendHeartbeat();
-            _heartbeat = window.setInterval(_sendHeartbeat, _config.watchdog / 2);
-        }
-        _startTimer();
-    }
-
-    function _stopHeartbeat() {
-        if (_heartbeat) {
-            window.clearInterval(_heartbeat);
-        }
-    }
-
-    function _sendHeartbeat() {
-        if (_socket.readyState === _socket.OPEN) {
-            _socket.send('ping');
-        }
-    }
-
-    function _tryReconnect() {
-        $.ajax({
-            type: 'GET',
-            url: _baseUrl + window.location.pathname,
-            async: true,
-            complete: function (xhr, textStatus) {
-                if (textStatus === 'error') {
-                    window.setTimeout(_tryReconnect, 1000);
-                } else {
-                    _startSocket();
-                    _processSocketMessage({
-                        type: SocketEvent.CONNECTION_STATE_CHANGED,
-                        detail: { state: true }
-                    });
-                }
-            }
-        });
-    }
-
     function _processSocketMessage(event) {
-
         socketModule.dispatchEvent(event);
     }
 
@@ -198,6 +144,12 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
             console.log(message);
         }
         _callback(false);
+        _processSocketMessage({
+            type: SocketEvent.CONNECTION_STATE_CHANGED,
+            detail: {
+                state: false
+            }
+        });
     }
 
     var socketModule = new EventDispatcher();
@@ -221,12 +173,9 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
         _config = {
             sockets: {},
             port: window.location.port,
-            host: window.location.hostname,
-            watchdog: 10000
+            host: window.location.hostname
         };
-        if (brease.config.watchdog !== undefined && (brease.config.watchdog === 0 || brease.config.watchdog >= 10000)) {
-            _config.watchdog = brease.config.watchdog;
-        }
+        _watchdog = new Watchdog(this);
 
         if (_enabled !== true) {
             _enabled = true;
@@ -234,7 +183,8 @@ function (EventDispatcher, ServerCommand, SocketEvent) {
         }
     };
     socketModule.startHeartbeat = function () {
-        _startHeartbeat();
+        _watchdog.start(_socket);
+        this.addEventListener(SocketEvent.WATCHDOG_TIMEOUT, _onWatchdogTimeout);
     };
     socketModule.MESSAGES = {
         timedOutInitially: 'socket connection timed out!',

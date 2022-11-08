@@ -54,6 +54,19 @@ define(['brease/objects/Subscription'], function (Subscription) {
             return _bindings.elements.get(_refId(target));
         },
 
+        hasDynamicBinding: function (targetOrSource) {
+            var iterator = _bindings.elements.entries(),
+                result = iterator.next();
+            while (!result.done) {
+                var binding = result.value[1];
+                if (_bindingEntityEquals(binding.target, targetOrSource) || _bindingEntityEquals(binding.source, targetOrSource)) {
+                    return true;
+                }
+                result = iterator.next();
+            }
+            return false;
+        },
+
         removeDynamicBinding: function (target) {
 
             var targetId = _refId(target),
@@ -192,9 +205,7 @@ define(['brease/objects/Subscription'], function (Subscription) {
         },
 
         reset: function () {
-            var clientEvents = _events.session['_client'];
             _init();
-            _events.session['_client'] = clientEvents;
         }
 
     };
@@ -213,6 +224,10 @@ define(['brease/objects/Subscription'], function (Subscription) {
 
     function _refId(obj) {
         return obj.type + '||' + obj.refId + '||' + obj.attribute;
+    }
+
+    function _bindingEntityEquals(a, b) {
+        return a.type === b.type && a.refId === b.refId && a.attribute === b.attribute;
     }
 
     function _init() {
@@ -235,7 +250,7 @@ define(['brease/objects/Subscription'], function (Subscription) {
 
     _init();
 
-    if (brease.config.mocked) {
+    if (brease.config && brease.config.mocked) {
         window.bindingModel = {
             subscriptions: _subscriptions,
             bindings: _bindings,

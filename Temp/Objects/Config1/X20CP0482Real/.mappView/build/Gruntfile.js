@@ -1,4 +1,4 @@
-/*global __dirname,module*/
+/*global __dirname*/
 module.exports = function (grunt) {
 
     'use strict';
@@ -10,6 +10,8 @@ module.exports = function (grunt) {
     if (grunt.file.exists(logFile)) {
         require('logfile-grunt')(grunt, { filePath: logFile, clearLogFile: true });
     }
+    
+    const sass = require('node-sass');
 
     _require.init({ root: __dirname });
 
@@ -36,7 +38,8 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 includePaths: ['dynamically set in task'],
-                outputStyle: 'compressed'
+                outputStyle: 'compressed',
+                implementation: sass
             },
 
             derivedWidget: {
@@ -133,6 +136,7 @@ module.exports = function (grunt) {
                     mainConfigFile: '<%= projectPath %>require_config.js',
                     out: '<%= projectPath %>release/brease.js',
                     include: '<%= requirejs.modules %>',
+                    // eslint-disable-next-line no-unused-vars
                     onBuildWrite: function (moduleName, path, contents) {
                         path = path.substring(path.lastIndexOf('BRVisu'));
                         if (path.includes('EditorHandles.js') || 
@@ -143,6 +147,7 @@ module.exports = function (grunt) {
                             path.includes('/doc/') ||
                             path.includes('/ASHelp/') ||
                             path.includes('/Test/') ||
+                            path.includes('/jasmine/') ||
                             path.includes('helper/stubs') ||
                             path.includes('helper/TestUtils') ||
                             (path.includes('BRVisu/libs/') && !path.includes('require.js') && !path.includes('globalize') && !path.includes('polyfill'))) {
@@ -178,35 +183,53 @@ module.exports = function (grunt) {
             }
         },
 
-        csso: {
-            themes: {
-                options: {
-                    restructure: true
+        cssmin: {
+            options: {
+                mergeIntoShorthands: false,
+                sourceMap: false,
+                report: 'min',
+                compatibility: {
+                    properties: {
+                        zeroUnits: false,
+                        colors: false
+                    }
                 },
-                expand: true,
-                cwd: '<%= projectPath %>release',
-                src: ['*.css'],
-                dest: '<%= projectPath %>release',
-                ext: '.min.css'
+                level: { 
+                    1: {
+                        all: false,
+                        removeWhitespace: true
+                    },
+                    2: {
+                        all: false,
+                        mergeAdjacentRules: true, //necessary
+                        mergeIntoShorthands: false,
+                        mergeNonAdjacentRules: false, //see AuP723965
+                        mergeSemantically: false, //takes too much time
+                        overrideProperties: true, //necessary
+                        removeEmpty: true, //necessary
+                        reduceNonAdjacentRules: false, 
+                        removeDuplicateRules: true,
+                        mergeMedia: false, 
+                        removeDuplicateFontRules: false,
+                        removeDuplicateMediaBlocks: false, 
+                        removeUnusedAtRules: false,
+                        restructureRules: false
+                    } }
+            },
+            themes: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= projectPath %>release/',
+                    src: '*.css',
+                    dest: '<%= projectPath %>release/',
+                    ext: '.min.css'
+                }]
             },
             brease: {
-                options: {
-                    restructure: true
-                },
                 expand: true,
                 cwd: '<%= projectPath %>css/',
                 src: ['brease_core.css'],
-                dest: '<%= projectPath %>release',
-                ext: '.min.css'
-            },
-            splittedcss: {
-                options: {
-                    restructure: true
-                },
-                expand: true,
-                cwd: '<%= basePath %>/temp/css/',
-                src: ['*.css'],
-                dest: '<%= basePath %>/temp/css/',
+                dest: '<%= projectPath %>release/',
                 ext: '.min.css'
             }
         },
@@ -221,7 +244,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-csso');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-concat');
 

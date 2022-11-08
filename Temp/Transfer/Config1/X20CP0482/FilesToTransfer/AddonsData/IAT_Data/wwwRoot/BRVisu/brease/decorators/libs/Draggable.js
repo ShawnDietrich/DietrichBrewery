@@ -48,7 +48,9 @@ define(function () {
     };
     // get intersecting element for drag enter and drag leave event
     p.updateIntersection = function (e) {
-        this.setIntersectionElement($(document.elementFromPoint(e.clientX, e.clientY)).closest('.droppableItem').get(0));
+        if (Number.isFinite(e.clientX) && Number.isFinite(e.clientY)) {
+            this.setIntersectionElement($(document.elementFromPoint(e.clientX, e.clientY)).closest('.droppableItem').get(0));
+        }
     };
     // update the element the draggable is currently intersecting with
     // needed because there is no native drag enter and drag leave on touch devices

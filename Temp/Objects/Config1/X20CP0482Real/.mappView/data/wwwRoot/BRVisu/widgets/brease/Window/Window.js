@@ -98,10 +98,13 @@ define([
         //console.log(((this.elem) ? this.elem.id : 'undefined') + '.show:refElement:' + ((refElement) ? refElement.id : '') + '/options:' + JSON.stringify(options));
         var self = this;
         this.closeDeferred = $.Deferred();
-        //this.setStyle(this.settings.style);
         popupManager.addWindow(self.elem.id, self.settings.windowType);
         this.refElement = (refElement) ? ((refElement.jquery) ? refElement : $(refElement)) : undefined;
+        // A&P 704805:widgets should have only one css style class: therefore the old class is removed here, 
+        // as this.setStyle does not remove it, if new style is already set in this.settings:
+        this.el.removeClass(this.settings.stylePrefix + '_style_' + this.settings.style); 
         this.settings = $.extend(true, {}, this.instanceSettings, options);
+        
         if (this.settings.header !== undefined && brease.language.isKey(this.settings.header.text)) {
             this.settings.header.textkey = brease.language.parseKey(this.settings.header.text);
         }
@@ -126,7 +129,7 @@ define([
         this._setPosition();
         this._afterCalculationHook();
         _updateModalOverlays();
-        brease.bodyEl.on(BreaseEvent.CLICK, self._bind('_documentClickHandler'));
+        brease.bodyEl.on(BreaseEvent.CLICK + ' ' + BreaseEvent.DISABLED_CLICK, self._bind('_documentClickHandler'));
         this.dispatchEvent(new CustomEvent(BreaseEvent.WINDOW_SHOW, { detail: { id: this.elem.id }, bubbles: true }));
         this.header.on(BreaseEvent.MOUSE_DOWN, this._bind('_headerDownHandler'));
         // A&P 680800 allow the possibility to prevent a DialogWindow from moving above the MotionKeyPad
@@ -159,6 +162,20 @@ define([
         }
     };
 
+    p.setModal = function (value) {
+        this.settings.modal = value;
+        if (value === false) {
+            this._removeModal(); 
+        } else if (!this.dimmer) {
+            var maxIndex = popupManager.getHighestZindex();
+            this._setModal(maxIndex); 
+        }
+    };
+
+    p.setForceInteraction = function (value) {
+        this.settings.forceInteraction = value;
+    };
+
     /**
     * @method onBeforeHide
     * hook before the window gets hidden  
@@ -180,7 +197,7 @@ define([
             this.el.removeClass(this.settings.cssClass);
         }
         this.resetStyles();
-        brease.bodyEl.off(BreaseEvent.CLICK, self._bind('_documentClickHandler'));
+        brease.bodyEl.off(BreaseEvent.CLICK + ' ' + BreaseEvent.DISABLED_CLICK, self._bind('_documentClickHandler'));
         this.removeCloseOnLostContent();
         this._removeModal();
         popupManager.removeWindow(self.elem.id);
@@ -421,8 +438,9 @@ define([
             elWidth = boundingRect.width,
             elHeight = boundingRect.height,
             globalDim = popupManager.getDimensions(),
-            refWidth = _getRefWidth(this.settings.pointOfOrigin, this.refElement, globalDim.appWidth),
-            refHeight = _getRefHeight(this.settings.pointOfOrigin, this.refElement, globalDim.appHeight),
+            windowOrigin = this.settings.pointOfOrigin === Enum.PointOfOrigin.WINDOW,
+            refWidth = _getRefWidth(this.settings.pointOfOrigin, this.refElement, windowOrigin === true ? globalDim.winWidth : globalDim.appWidth),
+            refHeight = _getRefHeight(this.settings.pointOfOrigin, this.refElement, windowOrigin === true ? globalDim.winHeight : globalDim.appHeight),
             hasArrow = (this.settings.pointOfOrigin === Enum.PointOfOrigin.ELEMENT && this.refElement !== undefined),
             left, top, refOffset;
         if (!this.settings.position.hasOwnProperty('horizontalDialog')) {
@@ -435,7 +453,7 @@ define([
             position = _calcPositionAtTarget(this.settings, elWidth, elHeight, refOffset, refWidth, refHeight);
         }
 
-        position = _respectBoundaries(position, elWidth, elHeight, elemExtension);
+        position = _respectBoundaries(position, elWidth, elHeight, elemExtension, this.settings.pointOfOrigin);
         offset = this._getOffset();
         left = position.x + offset;
         top = position.y + offset;
@@ -627,7 +645,7 @@ define([
         if (this.closeButton) {
             this.closeButton.off();
         }
-        brease.bodyEl.off(BreaseEvent.CLICK, this._bind('_documentClickHandler'));
+        brease.bodyEl.off(BreaseEvent.CLICK + ' ' + BreaseEvent.DISABLED_CLICK, this._bind('_documentClickHandler'));
         if (this.dimmer) {
             this.dimmer.remove();
         }
@@ -834,11 +852,11 @@ define([
         return position;
     }
 
-    function _respectBoundaries(position, elWidth, elHeight, elemExtension) {
+    function _respectBoundaries(position, elWidth, elHeight, elemExtension, pointOfOrigin) {
         var globalDim = popupManager.getDimensions(),
             appDim = brease.appElem.getBoundingClientRect(),
-            maxWidth = Math.min(_getRefWidth(Enum.PointOfOrigin.APP, undefined, appDim.width), globalDim.winWidth),
-            maxHeight = Math.min(_getRefHeight(Enum.PointOfOrigin.APP, undefined, appDim.height), globalDim.winHeight);
+            maxWidth = pointOfOrigin !== Enum.PointOfOrigin.WINDOW ? Math.min(_getRefWidth(Enum.PointOfOrigin.APP, undefined, appDim.width), globalDim.winWidth) : globalDim.winWidth,
+            maxHeight = pointOfOrigin !== Enum.PointOfOrigin.WINDOW ? Math.min(_getRefHeight(Enum.PointOfOrigin.APP, undefined, appDim.height), globalDim.winHeight) : globalDim.winHeight;
 
         if (position.x + elWidth + elemExtension.right > maxWidth) {
             position.x = maxWidth - (elWidth + elemExtension.right);
@@ -858,7 +876,7 @@ define([
     // A&P 617780: getoffset() : gets the current coordinates of the first element in the set of matched elements, RELATIVE TO THE DOCUMENT, so we  have to call getBoundingClientRect().
     // element.getBoundingClientRect(): returns the size of an element and its position relative to the viewport
     function _getRefOffsetRelativeToViewPort(pointOfOrigin, refElement) {
-        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP) {
+        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP && pointOfOrigin !== Enum.PointOfOrigin.WINDOW) {
             var boundingClientRect = refElement[0].getBoundingClientRect();
             return {
                 top: boundingClientRect.top,
@@ -872,7 +890,7 @@ define([
     }
 
     function _getRefOffsetRelativeToDocument(pointOfOrigin, refElement) {
-        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP) {
+        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP && pointOfOrigin !== Enum.PointOfOrigin.WINDOW) {
             return refElement.offset();
         } else {
             return {
@@ -881,7 +899,7 @@ define([
         }
     }
     function _getRefWidth(pointOfOrigin, refElement, appWidth) {
-        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP) {
+        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP && pointOfOrigin !== Enum.PointOfOrigin.WINDOW) {
             return refElement[0].getBoundingClientRect().width;
         } else {
             // e.g. for MessageBox before any page is loaded
@@ -889,7 +907,7 @@ define([
         }
     }
     function _getRefHeight(pointOfOrigin, refElement, appHeight) {
-        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP) {
+        if (refElement !== undefined && pointOfOrigin !== Enum.PointOfOrigin.APP && pointOfOrigin !== Enum.PointOfOrigin.WINDOW) {
             return refElement[0].getBoundingClientRect().height;
         } else {
             // e.g. for MessageBox before any page is loaded

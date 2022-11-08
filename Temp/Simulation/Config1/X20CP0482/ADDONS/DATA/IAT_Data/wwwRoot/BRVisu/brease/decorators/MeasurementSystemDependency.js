@@ -16,12 +16,10 @@ define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/enum/Enum'
     * A decorator class to add functionality of measurement system dependency to widgets.
     * ##Example:  
     *
-    *     define(function (require) {
-    *        var SuperClass = require('brease/core/BaseWidget'),
-    *            measurementSystemDependency = require('brease/decorators/MeasurementSystemDependency'),    
-    *            [...]
+    *     define(['brease/core/BaseWidget', 'brease/decorators/MeasurementSystemDependency'],
+    *           function (SuperClass, measurementSystemDependency) {
     *     
-    *        WidgetClass = SuperClass.extend(function NumericInput() {
+    *        var WidgetClass = SuperClass.extend(function NumericInput() {
     *           SuperClass.apply(this, arguments);
     *        }, defaultSettings),
     *     
@@ -107,12 +105,13 @@ define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/enum/Enum'
     }
 
     function setState(state) {
-        //console.log('%c' + this.elem.id + '.dependencies[' + dependency + '].state=' + state, 'color:#cc00cc');
-        this.dependencies[dependency].state = state;
-        if (state === Enum.Dependency.ACTIVE) {
-            addListener.call(this);
-        } else {
-            removeListener.call(this);
+        if (this.dependencies[dependency]) {
+            this.dependencies[dependency].state = state;
+            if (state === Enum.Dependency.ACTIVE) {
+                addListener.call(this);
+            } else {
+                removeListener.call(this);
+            }
         }
     }
 

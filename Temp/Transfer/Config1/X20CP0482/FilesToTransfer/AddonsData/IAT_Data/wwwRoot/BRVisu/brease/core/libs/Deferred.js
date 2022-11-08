@@ -13,6 +13,7 @@ define(function () {
         }
         this._done = [];
         this._fail = [];
+        this._then = [];
     };
     Deferred.TYPE_SINGLE = 'singleShot';
     Deferred.TYPE_MULTI = 'multiShot';
@@ -24,9 +25,16 @@ define(function () {
                 list[i].apply(null, data);
                 i = i - 1;
             }
-            if (this.type === Deferred.TYPE_SINGLE && list.length > 0) {
+            
+            i = this._then.length - 1;
+            while (i >= 0) {
+                this._then[i].apply(null, data);
+                i = i - 1;
+            }
+            if (this.type === Deferred.TYPE_SINGLE && (list.length > 0 || (Array.isArray(this._then) && this._then.length > 0))) {
                 this.terminate();
             }
+            this._then = null;
             this._done = null;
             this._fail = null;
         },
@@ -89,6 +97,27 @@ define(function () {
                     }
                 } else if (this._fail) {
                     this._fail.push(callback);
+                }
+            }
+            return this;
+        },
+        then: function (callback) {
+            if (typeof callback === 'function') {
+                if (this.failData || this.doneData) {
+                    if (this.failData) {
+                        callback.apply(null, this.failData);
+                        if (this.type === Deferred.TYPE_SINGLE) {
+                            this.terminate();
+                        }
+                    }
+                    if (this.doneData) {
+                        callback.apply(null, this.doneData);
+                        if (this.type === Deferred.TYPE_SINGLE) {
+                            this.terminate();
+                        }
+                    }
+                } else if (this._then) {
+                    this._then.push(callback);
                 }
             }
             return this;

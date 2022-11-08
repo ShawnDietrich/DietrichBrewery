@@ -1,4 +1,3 @@
-/*global module,__dirname*/
 (function () {
 
     'use strict';
@@ -149,7 +148,7 @@
                     'name': params[i].name,
                     'type': _normalizeType(params[i].type),
                     'index': i,
-                    'description': params[i].doc || '',
+                    'description': cleanDoc(params[i].doc) || '',
                     'optional': (params[i].optional === true)
                 };
             if (params[i].default !== undefined) {
@@ -243,6 +242,8 @@
     function addStringFromArray(info, attrName, config) {
         if (Array.isArray(config) === true) {
             info[attrName] = (config[0] + '').trim();
+        } else if (config !== undefined) {
+            info[attrName] = config;
         }
     }
 
@@ -259,8 +260,27 @@
                 .replace(/"/gm, '&quot;')
                 .replace(/'/gm, '&apos;');
         }
+        // if a not projectable property of Array type has no default value: add empty array as default value
+        if (!info.projectable && DataTypes.isArrayType(info.type) && (cfg.default === null || cfg.default === undefined)) {
+            info['defaultValue'] = '[]';
+        }
     }
 
+    // for AS widget descriptions
+    function cleanDescription(value) {
+        if (utils.isString(value)) {
+            if (value.lastIndexOf('.') === value.length - 1) {
+                value = value.substring(0, value.length - 1);
+            }
+            value = value.replace(/\r\n/g, ' '); 
+            value = value.replace(/\n/g, ' '); 
+            return value.replace(/ {2,}/g, ' '); 
+        } else {
+            return value;
+        }
+    }
+
+    // for cfg
     function _parseDoc(doc) {
         var ret = '',
             override = '<p><strong>Defined in override';
@@ -273,8 +293,25 @@
             }
             ret = ret.replace(/<p>/g, '');
             ret = ret.replace(/<\/p>/g, '');
+            ret = ret.replace(/<br\/>/g, '');
+            ret = ret.replace(/&lt;br\/&gt;/g, '');
+            //ret = cleanDoc(ret);
         }
         return ret;
+    }
+    
+    // for rest
+    function cleanDoc(str) {
+        if (str) {
+            str = str.replace(/<br\/>/g, '');
+            str = str.replace(/&lt;br\/&gt;/g, '');
+            str = removeTags(str);
+        }
+        return str;
+    }
+    
+    function removeTags(html) {
+        return html.replace(/<\/?("[^"]*"|'[^']*'|[^>])*(>|$)/g, '');
     }
 
     function _parseProperty(prop) {
@@ -334,7 +371,7 @@
                 }
                 let tag1 = info[0];
                 let tag2 = info[1];
-                let value = iatMeta[i].doc;
+                let value = iatMeta[i].doc.trim();
                 switch (tag1) {
                     case 'category':
                         let values = value.split(',');
@@ -346,7 +383,7 @@
                         }
                         break;
                     case 'description':
-                        widgetInfo['descriptions'][tag2] = value;
+                        widgetInfo['descriptions'][tag2] = cleanDescription(value);
                         break;
                     case 'studio':
                         if (['requires', 'mixins', 'parents', 'children', 'superClass', 'inheritance'].indexOf(tag2) === -1) {
@@ -448,13 +485,19 @@
                 'name': member.name,
                 'originalName': member.name,
                 'read': (member.name.toLowerCase().indexOf('get') === 0), // currently methods which start with 'get' are read actions
-                'description': member.doc || '',
+                'description': cleanDoc(member.doc) || '',
                 'iatStudioExposed': (member.iatStudioExposed === true)
             };
-            if (Array.isArray(member.paramMeta)) {
-                var paramMeta = _parseParamMeta(member.paramMeta, 'method', member.name, widgetInfo, grunt);
-            }
+
+            // if the method has method parameters
             if (Array.isArray(member.params)) {
+                
+                var paramMeta;
+                // if the method has meta data for method parameters
+                if (Array.isArray(member.paramMeta)) {
+                    paramMeta = _parseParamMeta(member.paramMeta, 'method', member.name, widgetInfo, grunt);
+                }
+
                 let args = _parseArguments(member.params, paramMeta, 'method', allowArrays, grunt);
                 if (args.length > 0) {
                     info['parameter'] = args;
@@ -466,7 +509,7 @@
                     type: member.return.type
                 };
                 if (member.return.doc) {
-                    info['result'].description = member.return.doc;
+                    info['result'].description = cleanDoc(member.return.doc);
                 }
             }
             if (info.read === true && !member.return) {
@@ -487,18 +530,25 @@
             }
             let info = {
                 'name': member.name,
-                'description': member.doc || ''
+                'description': cleanDoc(member.doc) || ''
             };
+            if (!info.description || info.description.trim() === '') {
+                grunt.log.writeln('> ' + widgetInfo.name + '.' + info.name + ' -> event without description');
+            }
             if (member.deprecated) {
                 info.deprecated = true;
             }
             if (member.aprolMeta) {
                 addAprolMeta(info, member.aprolMeta);
             }
-            if (Array.isArray(member.paramMeta)) {
-                var paramMeta = _parseParamMeta(member.paramMeta, 'event', member.name, widgetInfo, grunt);
-            }
+            
+            // if the event has event parameters
             if (Array.isArray(member.params)) {
+                var paramMeta;
+                // if the event has meta data for event parameters
+                if (Array.isArray(member.paramMeta)) {
+                    paramMeta = _parseParamMeta(member.paramMeta, 'event', member.name, widgetInfo, grunt);
+                }
                 let args = _parseArguments(member.params, paramMeta, 'event', allowArrays, grunt);
                 if (args.length > 0) {
                     info['parameter'] = args;

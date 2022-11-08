@@ -87,6 +87,9 @@ define([
                     self.widget.settings.width = updatedBox.size;
                     self.widget.settings.top = updatedBox.top;
                     self.widget.settings.left = updatedBox.left;
+                    if (Utils.isFunction(self.onResizeHandler)) {
+                        self.onResizeHandler(self.widget);
+                    }
 
                     _redrawWidget(self);
                 },
@@ -110,13 +113,18 @@ define([
         return [this.widget.elem];
     };
 
+    p.onResize = function (handler) {
+        this.onResizeHandler = handler;
+    };
+
     function _redrawWidget(self) {
         self.widget.el.css('top', parseInt(self.widget.settings.top, 10));
         self.widget.el.css('left', parseInt(self.widget.settings.left, 10));
         self.widget.el.css('height', self.widget.settings.height);
         self.widget.el.css('width', self.widget.settings.width);
-        if (self.widget.renderer !== undefined && Utils.isFunction(self.widget.renderer.setSize)) {
-            self.widget.renderer.setSize(self.widget.settings.height, self.widget.settings.width);      
+        
+        if (self.widget.renderer !== undefined && Utils.isFunction(self.widget._redrawInEditor)) {
+            self.widget._redrawInEditor(self.widget.settings.height, self.widget.settings.width);      
         }
     }
 

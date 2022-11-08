@@ -10,7 +10,7 @@ define(['brease/core/Utils', 'brease/enum/Enum'], function (Utils, Enum) {
             var isEmpty = false,
                 expectsContent = html.indexOf('>CONTENT<') !== -1;
 
-            this.wrapper.innerHTML = html;
+            this.wrapper.innerHTML = html.replace(/{WIDGET_ID}/g, id);
             var node = this.wrapper.firstChild;
             node.id = id;
             node.setAttribute('data-brease-widget', classPath);

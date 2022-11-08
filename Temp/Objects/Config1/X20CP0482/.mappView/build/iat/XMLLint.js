@@ -1,4 +1,3 @@
-/*global require,module*/
 (function () {
     
     'use strict';
@@ -7,8 +6,9 @@
 
     var XMLLint = {
 
-        check: function check(grunt, schemaPath, xmlPath, debug) {
-            var xmlint = grunt.config('basePath') + '/bin/xmllint.exe',
+        check: function check(grunt, schemaPath, xmlPath, config, basePath) {
+            basePath = basePath || grunt.config('basePath');
+            var xmlint = basePath + '/bin/xmllint.exe',
                 args = [
                     '--noout',
                     '--schema',
@@ -17,7 +17,11 @@
                 ];
 
             var child = child_process.spawnSync(xmlint, args),
+                debug = config === true || (config !== undefined && config.debug === true),
+                fail = config === undefined || (config !== undefined && config.fail === true),
+                out = config === undefined || (config !== undefined && config.out === true),
                 errmessage;
+
             if (child.status === 0) {
                 if (debug) {
                     grunt.log.writeln(child.stderr.toString().trim()); 
@@ -40,7 +44,7 @@
                         errmessage = 'Error in Schema compilation';
                         break;
                     case 6:
-                        errmessage = 'Error writing ouput';
+                        errmessage = 'Error writing output';
                         break;
                     case 7:
                         errmessage = 'Error in pattern';
@@ -49,16 +53,25 @@
                         errmessage = 'Error in Reader Registration';
                         break;
                     case 9:
-                        errmessage = 'Outof memory Error';
+                        errmessage = 'Out of memory error';
                         break;
                 }
-                grunt.log.writeln(child.stderr.toString().red);
-                grunt.fail.warn('Error checking Schema (Code ' + child.status + '): "' + errmessage + '"');
+                if (out) {
+                    grunt.log.writeln(child.stderr.toString().red); 
+                }
+                if (fail) {
+                    grunt.fail.warn('Error checking Schema (Code ' + child.status + '): "' + errmessage + '"'); 
+                }
             } else {
-                grunt.log.writeln(child);
-                grunt.fail.warn('Error checking Schema: (Code ' + child.status + ') UnknownError ');
+                if (out) {
+                    grunt.log.writeln(child); 
+                }
+                if (fail) {
+                    grunt.fail.warn('Error checking Schema: (Code ' + child.status + ') UnknownError '); 
+                }
 
             }
+            return child.status;
         }
 
     };

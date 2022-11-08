@@ -1,0 +1,3 @@
+VAR
+	Proc : ProcControl;
+END_VAR

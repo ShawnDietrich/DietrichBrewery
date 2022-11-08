@@ -1,11 +1,11 @@
-/*global brease*/
 define([
     'brease/core/Class',
+    'brease/core/Utils',
     'brease/events/BreaseEvent',
+    'widgets/brease/common/libs/ChartUtils',
     'libs/d3/d3',
-    'globalize',
-    'widgets/brease/common/libs/ChartUtils'
-], function (SuperClass, BreaseEvent, d3, _globalize, ChartUtils) {
+    'globalize'
+], function (SuperClass, Utils, BreaseEvent, ChartUtils, d3) {
 
     'use strict';
 
@@ -19,19 +19,20 @@ define([
      * false
      */
 
-    var defaultSettings = {},
-
-        ModuleClass = SuperClass.extend(function EditorGrid(widget, configuration) {
+    var ModuleClass = SuperClass.extend(function EditorGrid(widget, configuration) {
             SuperClass.call(this);
             this.widget = widget;
             if (!configuration.mainContainer) {
-                this.parentWidget = brease.callWidget(widget.el.parents(':eq(1)')[0].id, 'widget');
-                this.areas = (this.parentWidget) ? this.parentWidget.editorGrid.areas : null;
+                var parentWidgetElem = Utils.parentWidgetElem(widget.elem);
+                if (parentWidgetElem) {
+                    this.parentWidget = brease.callWidget(parentWidgetElem.id, 'widget'); 
+                }
+                this.areas = (this.parentWidget && this.parentWidget.editorGrid) ? this.parentWidget.editorGrid.areas : null;
             }
             this.children = {};
             this.configuration = configuration;
             this.init();
-        }, defaultSettings),
+        }, {}),
 
         p = ModuleClass.prototype;
 
@@ -41,13 +42,17 @@ define([
     };
 
     p.dispose = function () {
-        this.widget.el.off(BreaseEvent.WIDGET_ADDED, this._bind('childrenAdded'));
-        this.widget.el.off(BreaseEvent.WIDGET_REMOVED, this._bind('childrenRemoved'));
+        if (this.widget && this.widget.el) {
+            this.widget.el.off(BreaseEvent.WIDGET_ADDED, this._bind('childrenAdded'));
+            this.widget.el.off(BreaseEvent.WIDGET_REMOVED, this._bind('childrenRemoved'));
+        }
+        this.widget = undefined;
+        this.children = undefined;
     };
 
-    p.childrenAdded = function (event) {
-        if (event.target === this.widget.elem) {
-            var widgetId = event.detail.widgetId,
+    p.childrenAdded = function (e) {
+        if (e.target === this.widget.elem) {
+            var widgetId = e.detail.widgetId,
                 widget = brease.callWidget(widgetId, 'widget');
             if (!this.children.hasOwnProperty(widgetId)) {
                 this.children[widgetId] = widget;
@@ -55,9 +60,9 @@ define([
         }
     };
 
-    p.childrenRemoved = function (event) {
-        if (event.target === this.widget.elem) {
-            var widgetId = event.detail.widgetId;
+    p.childrenRemoved = function (e) {
+        if (e.target === this.widget.elem) {
+            var widgetId = e.detail.widgetId;
             if (this.children.hasOwnProperty(widgetId)) {
                 delete this.children[widgetId];
             }

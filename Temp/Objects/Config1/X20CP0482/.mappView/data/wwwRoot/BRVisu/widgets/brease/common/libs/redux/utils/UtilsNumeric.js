@@ -14,6 +14,7 @@ define([
     var UtilsNumeric = {};
 
     /**
+     * @method 
      * This function returns the formated Number based on the Format and currently selected MeasurementSystem
      * @param {Number} value Number which should apply the format
      * @param {brease.config.MeasurementSystemFormat} format Format e.g. {'metric':{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial-us' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }}
@@ -25,6 +26,7 @@ define([
     };
 
     /**
+     * @method 
      * This function return the amount of DecimalPlaces based on the format and currently selected MeasurementSystem
      * @param {brease.config.MeasurementSystemFormat} format Format e.g. {'metric':{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial-us' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }}
      */

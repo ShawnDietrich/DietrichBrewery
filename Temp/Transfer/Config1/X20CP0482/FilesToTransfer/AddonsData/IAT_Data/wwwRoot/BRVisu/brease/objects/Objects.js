@@ -115,10 +115,10 @@ define(function () {
     * @virtualNote
     */
     /**
-    * @property {core.datatype.DateTime} [startTime]
+    * @property {core.datatype.DateTime} startTime
     */
     /**
-    * @property {core.datatype.DateTime} [endTime]
+    * @property {core.datatype.DateTime} endTime
     */
 
     /**
@@ -129,10 +129,10 @@ define(function () {
     * @virtualNote
     */
     /**
-    * @property {String} nodeId (required)
+    * @property {String} nodeId
     */
     /**
-    * @property {brease.config.UnitCode} [unit]
+    * @property {brease.config.UnitCode} unit
     */
 
     /**

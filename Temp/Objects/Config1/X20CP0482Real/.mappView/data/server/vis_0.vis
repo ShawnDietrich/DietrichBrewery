@@ -8,7 +8,7 @@
     <!--<Navigation refId="" />-->
   </Navigations>  
   <BindingsSets>
-    <BindingsSet refId="MainPageContent_binding" />
+    <BindingsSet refId="-1662823413" />
   </BindingsSets>
   <EventBindingsSets>
     <!--<EventBindingsSet refId="" />-->

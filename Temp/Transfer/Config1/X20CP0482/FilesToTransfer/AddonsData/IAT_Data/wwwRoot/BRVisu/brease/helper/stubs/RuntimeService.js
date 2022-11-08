@@ -40,7 +40,7 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
         }
     };
 
-    p.resetData = function (key, value, type) {
+    p.resetData = function () {
         this.data = Utils.deepCopy(data);
     };
 
@@ -60,7 +60,7 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
     };
 
     p.activateVisu = function (visuId, callback, callbackInfo) {
-        console.warn('activateVisu:' + visuId);
+        console.warn('%cactivateVisu:' + visuId, 'color:darkgreen');
         if (data.visusWithoutLicense.indexOf(visuId.toLowerCase()) !== -1) {
             window.setTimeout(activateFailResponse.bind(this, callback, callbackInfo), 50);
         } else {
@@ -72,7 +72,7 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
     };
 
     p.activateContent = function (contentId, visuId, callback, callbackInfo) {
-        console.log('activateContent:' + contentId + ',visuId=' + visuId);
+        //console.log('activateContent:' + contentId + ',visuId=' + visuId);
 
         window.setTimeout(activateResponse.bind(this, callback, callbackInfo), data.timeout.activateContentResponse);
         window.setTimeout(activateEvent.bind(this, {
@@ -82,7 +82,7 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
     };
 
     p.deactivateContent = function (contentId, visuId, callback, callbackInfo) {
-        console.log('deactivateContent:' + contentId + ',visuId=' + visuId);
+        //console.log('deactivateContent:' + contentId + ',visuId=' + visuId);
         window.setTimeout(activateResponse.bind(this, callback, callbackInfo), 50);
         window.setTimeout(activateEvent.bind(this, {
             visuId: visuId.toLowerCase(),
@@ -90,18 +90,25 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
         }, SocketEvent.CONTENT_DEACTIVATED), 100);
     };
 
-    p.deactivateVisu = function (visuId) {
-        console.log('deactivateVisu:' + visuId);
+    p.deactivateVisu = function (visuId, callback, callbackInfo) {
+        console.warn('%cdeactivateVisu:' + visuId, 'color:red');
+        
+        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), 50);
+        window.setTimeout(activateEvent.bind(this, {
+            visuId: visuId.toLowerCase()
+        }, SocketEvent.VISU_DEACTIVATED), 150);
     };
 
     p.getSessionEventSubscription = function () {
         return { success: true, eventSubscriptions: [] };
     };
 
+    // eslint-disable-next-line no-unused-vars
     p.getEventSubscription = function (contentId, visuId, callback, callbackInfo) {
         callback({ 'status': { 'code': 0, 'message': '' }, 'success': true, 'eventSubscriptions': this.eventSubscriptions[contentId] }, callbackInfo);
     };
 
+    // eslint-disable-next-line no-unused-vars
     p.getSubscription = function (contentId, visuId, callback, callbackInfo) {
         callback({ 'status': { 'code': 0, 'message': '' }, 'success': true, 'subscriptions': this.subscriptions[contentId] }, callbackInfo);
     };
@@ -159,7 +166,63 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
         }, type);
     };
 
+    p.triggerServerChange = function (type, key) {
+        if (type === 'language') {
+            this.langModule.current_language = key;
+            this.dispatchEvent({
+                event: SocketEvent.LANGUAGE_CHANGED,
+                detail: { currentLanguage: key }
+            }, SocketEvent.LANGUAGE_CHANGED); 
+        }
+        
+        if (type === 'mms') {
+            this.mmsModule.currentMeasurementSystem = key;
+            this.dispatchEvent({
+                event: SocketEvent.MEASUREMENT_SYSTEM_CHANGED,
+                detail: { currentMeasurementSystem: key }
+            }, SocketEvent.MEASUREMENT_SYSTEM_CHANGED); 
+        }
+        
+    };
+
     p.actionResponse = function () {};
+
+    p.initMmsModule = function (mmsModule, config) {
+        var self = this;
+        this.mmsModule = mmsModule; 
+        this.timeout = (config && config.timeout !== undefined) ? config.timeout : 0;
+
+        this.loadMeasurementSystemList = function (callback, callbackInfo) {
+            if (self.timeout === 0) {
+                callback({
+                    'current_measurementSystem': self.mmsModule.currentMeasurementSystem,
+                    'measurementSystemList': self.mmsModule.measurementSystems,
+                    success: self.mmsModule.loadSuccess
+                }, callbackInfo);
+            } else {
+                window.setTimeout(function (currentMeasurementSystem, measurementSystems) {
+                    callback({
+                        'current_measurementSystem': currentMeasurementSystem,
+                        'measurementSystemList': measurementSystems,
+                        success: self.mmsModule.loadSuccess
+                    }, callbackInfo);
+                }, config.timeout, self.mmsModule.currentMeasurementSystem, Utils.deepCopy(self.mmsModule.measurementSystems));
+            }
+        };
+
+        this.switchMeasurementSystem = function (mmsKey, callback, callbackInfo) {
+            if (self.mmsModule.switchSuccess) {
+                self.mmsModule.currentMeasurementSystem = mmsKey;
+            }
+            callback({ success: self.mmsModule.switchSuccess }, callbackInfo);
+        };
+        this.switchLanguage = function (langKey) {
+            self.mmsModule.currentLanguage = langKey;
+            for (var key in self.mmsModule.measurementSystems) {
+                self.mmsModule.measurementSystems[key].description = self.mmsModule.texts[self.mmsModule.currentLanguage][key];
+            }
+        };
+    };
 
     p.initLangModule = function (langModule) {
         var self = this;
@@ -198,7 +261,9 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
     };
 
     function activateResponse(callback, callbackInfo) {
-        callback({ status: { code: 0 }, success: true }, callbackInfo);
+        if (typeof callback === 'function') {
+            callback({ status: { code: 0 }, success: true }, callbackInfo);
+        }
     }
 
     function activateFailResponse(callback, callbackInfo) {

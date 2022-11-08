@@ -1,4 +1,3 @@
-/*global define*/
 define(['brease/enum/Enum'], function (Enum) {
 
     'use strict';
@@ -20,7 +19,7 @@ define(['brease/enum/Enum'], function (Enum) {
      * @cfg {Boolean} submitOnChange=true
      * @iatStudioExposed
      * @iatCategory Behavior
-     * Determines if changes, triggered by user input, should be sent immediately to the server.<br/>
+     * Determines if changes, triggered by user input, should be sent immediately to the server.
      */
     
     /**
@@ -50,8 +49,7 @@ define(['brease/enum/Enum'], function (Enum) {
      * @iatStudioExposed
      * @bindable
      * @iatCategory Appearance
-     * brease.config.NumberFormat for every measurement system.
-     * Read more about <a href="../FAQ/FormatNumber.html">Number Formats</a>
+     * NumberFormat for every measurement system.
      */
 
     /**
@@ -102,12 +100,12 @@ define(['brease/enum/Enum'], function (Enum) {
      */
 
     /**
-     * @cfg {StyleReference} numPadStyle='default'
-     * @iatStudioExposed
-     * @iatCategory Appearance
-     * @typeRefId widgets.brease.NumPad
-     * Style of the related NumPad
-     */
+    * @cfg {StyleReference} numPadStyle='default'
+    * @iatStudioExposed
+    * @iatCategory Appearance
+    * @typeRefId ~system.widgets.NumPad
+    * Style for the NumPad which is configured in current visualization. References all styles of the brease NumPad and of all custom NumPads.  
+    */
 
     /**
      * @cfg {Boolean} ellipsis=false
@@ -137,6 +135,21 @@ define(['brease/enum/Enum'], function (Enum) {
      * Defines the position of the unitText.  
      */
 
+    /**
+     * @cfg {Integer} tabIndex=0
+     * @iatStudioExposed
+     * @iatCategory Behavior 
+     * sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+     * or if autofocus should be disabled (-1)
+     */
+
+    /**
+    * @cfg {Boolean} useFocusWithin=true
+    * This option should be used to prevent focus events on the widget if the focus is
+    * moved to a inner element of the widget. It also sets the focusWithin class so focus style
+    * is still drawn on widget.
+    */
+
     var config = {
         numpadPosition: Enum.Position.right,
         submitOnChange: true,
@@ -159,7 +172,9 @@ define(['brease/enum/Enum'], function (Enum) {
         node: null,
         numPadStyle: 'default',
         unitWidth: '0',
-        unitTextAlign: 'center'
+        unitTextAlign: 'center',
+        tabIndex: 0,
+        useFocusWithin: true
     };
 
     return config;

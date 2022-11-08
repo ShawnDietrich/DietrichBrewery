@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpTemp 5.12.0 */
+/* MpTemp 5.16.0 */
 
 #ifndef _MPTEMP_
 #define _MPTEMP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpTemp_VERSION
-#define _MpTemp_VERSION 5.12.0
+#define _MpTemp_VERSION 5.16.0
 #endif
 
 #include <bur/plctypes.h>
@@ -99,7 +99,8 @@ typedef enum MpTempTuningModeEnum
 	mpTEMP_TUNING_MODE_HEAT = 1,
 	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
 	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
-	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4
+	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
+	mpTEMP_TUNING_MODE_OSC_COOL = 5
 } MpTempTuningModeEnum;
 
 typedef enum MpTempTuningStateEnum
@@ -125,6 +126,27 @@ typedef enum MpTempZoneTypeEnum
 	mpTEMP_ZONE_TYPE_COOL = 1,
 	mpTEMP_ZONE_TYPE_HEAT_COOL = 2
 } MpTempZoneTypeEnum;
+
+typedef enum MpTempSoftStartModeEnum
+{	mpTEMP_SOFTSTART_MOD_POWER_LIM = 0,
+	mpTEMP_SOFTSTART_MOD_SLEW_RATE = 1
+} MpTempSoftStartModeEnum;
+
+typedef enum MpTempSoftStartEnableEnum
+{	mpTEMP_SOFTSTART_USE_GROUP = 0,
+	mpTEMP_SOFTSTART_USE_ZONE = 1,
+	mpTEMP_SOFTSTART_NOT_USED = 2
+} MpTempSoftStartEnableEnum;
+
+typedef enum MpTempSoftStartStateEnum
+{	mpTEMP_SOFTSTART_HEATING = 0,
+	mpTEMP_SOFTSTART_HOLD_TEMP = 1,
+	mpTEMP_SOFTSTART_REACHED_TEMP = 2,
+	mpTEMP_SOFTSTART_FINISHED = 3,
+	mpTEMP_SOFTSTART_EXCLUDED = 4,
+	mpTEMP_SOFTSTART_SKIPPED = 5,
+	mpTEMP_SOFTSTART_OFF = 6
+} MpTempSoftStartStateEnum;
 
 typedef enum MpTempErrorEnum
 {	mpTEMP_NO_ERROR = 0,
@@ -249,6 +271,20 @@ typedef struct MpTempPFMType
 {	struct MpTempPFMParType Cool;
 } MpTempPFMType;
 
+typedef struct MpTempSoftStartSettingsType
+{	enum MpTempSoftStartModeEnum Mode;
+	float ReducedMaximumHeatOutput;
+	float SlewRate;
+	float FilterTime;
+	float DelayTime;
+	plcbit QuickStart;
+} MpTempSoftStartSettingsType;
+
+typedef struct MpTempSoftStartControllerType
+{	enum MpTempSoftStartEnableEnum Type;
+	struct MpTempSoftStartSettingsType Settings;
+} MpTempSoftStartControllerType;
+
 typedef struct MpTempControllerConfigType
 {	enum MpTempZoneTypeEnum Type;
 	float AmbientTemperature;
@@ -263,6 +299,7 @@ typedef struct MpTempControllerConfigType
 	struct MpTempControllerFilterType TemperatureFilter;
 	struct MpTempSignalModulationType SignalModulation;
 	struct MpTempPFMType PFMParameters;
+	struct MpTempSoftStartControllerType SoftStart;
 } MpTempControllerConfigType;
 
 typedef struct MpTempPWMScheduleParType
@@ -277,10 +314,18 @@ typedef struct MpTempPWMScheduleType
 	struct MpTempPWMScheduleParType Cool;
 } MpTempPWMScheduleType;
 
+typedef struct MpTempSoftStartGroupType
+{	plcbit Enable;
+	float Temperature;
+	float HoldTime;
+	struct MpTempSoftStartSettingsType Settings;
+} MpTempSoftStartGroupType;
+
 typedef struct MpTempGroupConfigType
 {	plcbit EnableLoadBalancing;
 	float MaxHeatPower;
 	struct MpTempPWMScheduleType PWMScheduleParameters;
+	struct MpTempSoftStartGroupType SoftStart;
 } MpTempGroupConfigType;
 
 typedef struct MpTempHCMConfigType
@@ -422,6 +467,22 @@ typedef struct MpTempControllerHCMInfoType
 	float AverageCurrentL3;
 } MpTempControllerHCMInfoType;
 
+typedef struct MpTempSoftStartCtrlInfoType
+{	enum MpTempSoftStartStateEnum State;
+} MpTempSoftStartCtrlInfoType;
+
+typedef struct MpTempSystemInfoType
+{	struct MpTempSystemType Parameters;
+	struct MpTempSystemCharacteristicsType Type;
+} MpTempSystemInfoType;
+
+typedef struct MpTempParameterizationInfoType
+{	struct MpTempPIDType Controller;
+	struct MpTempSystemInfoType System;
+	struct MpTempProfileType Profile;
+	struct MpTempControllerFilterType KalmanFilter;
+} MpTempParameterizationInfoType;
+
 typedef struct MpTempControllerInfoType
 {	float SetTemperature;
 	float FeedForwardHeat;
@@ -433,6 +494,8 @@ typedef struct MpTempControllerInfoType
 	struct MpTempSimulationInfoType Simulation;
 	struct MpTempDiagType Diag;
 	struct MpTempControllerHCMInfoType HCM;
+	struct MpTempSoftStartCtrlInfoType SoftStart;
+	struct MpTempParameterizationInfoType Parameterization;
 } MpTempControllerInfoType;
 
 typedef struct MpTempGroupProfileInfoType
@@ -448,10 +511,15 @@ typedef struct MpTempGroupPowerType
 	plcbit InLimitation;
 } MpTempGroupPowerType;
 
+typedef struct MpTempSoftStartGroupInfoType
+{	enum MpTempSoftStartStateEnum State;
+} MpTempSoftStartGroupInfoType;
+
 typedef struct MpTempGroupInfoType
 {	struct MpTempGroupProfileInfoType Profile;
 	struct MpTempGroupPowerType HeatPower;
 	struct MpTempDiagType Diag;
+	struct MpTempSoftStartGroupInfoType SoftStart;
 } MpTempGroupInfoType;
 
 typedef struct MpTempHCMInfoType

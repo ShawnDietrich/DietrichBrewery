@@ -9,6 +9,7 @@ define(function () {
     var UtilsJSON = {};
 
     /**
+     * @method 
      * This method will parse a string into a json object and return this.
      * If the string is incorrect json it will return an empty object
      * @param {String} jsonData string that should be converted into an object
@@ -28,6 +29,7 @@ define(function () {
     };
 
     /**
+     * @method 
      * This method will stringify a json object and return the string version of it.
      * If the object is incorrect json it will return an empty string
      * @param {Object} objectData string that should be converted into an object

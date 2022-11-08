@@ -30,6 +30,8 @@ define(['brease/core/Utils', 'brease/enum/Enum'], function (Utils, Enum) {
     Utils.defineProperty(instance, 'NESTED_CONTENT_CONTROL_FOUND', 'NESTED_CONTENT_CONTROL_FOUND');
     Utils.defineProperty(instance, 'CLIENT_INVALID_WIDGET_LOCATION', 'CLIENT_INVALID_WIDGET_LOCATION');
     Utils.defineProperty(instance, 'CLIENT_WIDGET_INITIALIZATION_FAILED', 'CLIENT_WIDGET_INITIALIZATION_FAILED');
+    Utils.defineProperty(instance, 'PRELOADING_ACTIVE', 'PRELOADING_ACTIVE');
+    Utils.defineProperty(instance, 'CLIENT_FOCUS_ACTION_FAIL', 'CLIENT_FOCUS_ACTION_FAIL');
 
     var logs = {
         PAGE_NOT_FOUND: {
@@ -134,6 +136,11 @@ define(['brease/core/Utils', 'brease/enum/Enum'], function (Utils, Enum) {
         },
         CLIENT_WIDGET_INITIALIZATION_FAILED: {
             code: Enum.EventLoggerId.CLIENT_WIDGET_INITIALIZATION_FAILED,
+            severity: Enum.EventLoggerSeverity.WARNING,
+            verboseLevel: Enum.EventLoggerVerboseLevel.OFF
+        },
+        CLIENT_FOCUS_ACTION_FAIL: {
+            code: Enum.EventLoggerId.CLIENT_FOCUS_ACTION_FAIL,
             severity: Enum.EventLoggerSeverity.WARNING,
             verboseLevel: Enum.EventLoggerVerboseLevel.OFF
         }

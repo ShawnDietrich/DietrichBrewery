@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.12.2.93"?>
 <ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
   <TaskClass
     Name="Cyclic#1">
@@ -9,11 +9,11 @@
       Source="ProcessControl.Kettle"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\Kettle\Main.st.var" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\Kettle\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\Kettle\Types.typ" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\Kettle\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\Kettle\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -24,11 +24,11 @@
       Source="ProcessControl.HLT"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HLT\Main.st.var" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\HLT\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLT\Types.typ" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\ProcessControl\HLT\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLT\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass
@@ -41,11 +41,11 @@
       Source="Brewing.BrewingSeq"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\BrewingSeq\Main.st.var" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\Brewing\BrewingSeq\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Types.typ" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\Brewing\BrewingSeq\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Variables.var" />
     </Task>
     <Task
       Name="HMIProgram"
@@ -53,11 +53,23 @@
       Source="HMIControl.HMIProgram"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\HMIControl\HMIProgram\Types.typ" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\HMIControl\HMIProgram\Types.typ" />
       <File
-        Path="C:\Users\Shawn\Documents\GitHub\Dietrich Brewery\Logical\HMIControl\HMIProgram\Variables.var" />
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\HMIControl\HMIProgram\Variables.var" />
+    </Task>
+    <Task
+      Name="MashTun"
+      Disable="false"
+      Source="ProcessControl.MashTun"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Objects\Config1\X20CP0482\MashTun\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTun\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTun\Variables.var" />
     </Task>
   </TaskClass>
   <TaskClass

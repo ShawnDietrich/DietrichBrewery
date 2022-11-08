@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 define(['brease/helper/stubs/Server', 
     'brease/helper/stubs/WebSocket', 
     'brease/controller/objects/VisuStatus', 
@@ -174,6 +175,17 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
             }
         },
 
+        checkFileExists: function (url) {
+            return new Promise(function (resolve, reject) {
+                if (url.indexOf('libs/cultures/globalize.culture.un.js') === -1) {
+                    resolve();
+                } else {
+                    reject(new Error(404));
+                }
+                
+            });
+        },
+
         /************************
         *** BINDING related ****
         ************************/
@@ -192,7 +204,7 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
             if (subscriptions.length > 0) {
                 ServerStub.addSubscriptions({ contentId: contentId, subscriptions: subscriptions });
             }
-            callback(response, callbackInfo);
+            callback(response, callbackInfo);    
         },
         deleteBindings: function (contentId, visuId, targets, callback, callbackInfo) {
             var response = { status: { code: 0 }, bindingsStatus: [] },
@@ -327,6 +339,12 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
             }, callbackInfo);
         },
 
+        getAutoLogOut: function (callback, callbackInfo) {
+            callback({
+                enabled: false
+            }, callbackInfo);
+        },
+
         loadVisuData: function (visuId, callback, callbackInfo) {
 
             if (brease.config.mockType === 'project') {
@@ -455,10 +473,10 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
         /***********************
         *** MeasurementSystem related ***
         ***********************/
-        loadMeasurementSystemList: function (callback) {
+        loadMeasurementSystemList: function (callback, callbackInfo) {
             var response = ServerStub.getMMSystems();
             response.success = true;
-            callback(response);
+            callback(response, callbackInfo);
         },
 
         switchMeasurementSystem: function (key, callback, callbackInfo) {
@@ -532,6 +550,17 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
             callback({
                 success: true, roles: _roles[user.currentUser.userID] || ['Everyone']
             }, callbackInfo);
+        },
+
+        loadPasswordPolicies: function (callback, callbackInfo) {
+            callback({ success: false }, callbackInfo);
+        },
+
+        loadUserList: function (details, callback, callbackInfo) {
+            callback({ success: false }, callbackInfo);
+        },
+        loadUserData: function (userName, callback, callbackInfo) {
+            callback({ success: false }, callbackInfo);
         },
 
         formatText: function (text, args, callback) {

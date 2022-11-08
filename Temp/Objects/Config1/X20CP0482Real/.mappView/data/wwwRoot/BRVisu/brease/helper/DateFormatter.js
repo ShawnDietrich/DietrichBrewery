@@ -1,4 +1,4 @@
-define(['globalize'], function (globalize) {
+define(['globalize'], function () {
 
     'use strict';
 
@@ -58,6 +58,7 @@ define(['globalize'], function (globalize) {
         */
         clearFormat: function (fString) {
             if (fString.indexOf("'") !== -1) {
+                // eslint-disable-next-line no-unused-vars
                 return fString.split("'").filter(function (word, index) {
                     return index % 2 === 0;
                 }).join('');

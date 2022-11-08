@@ -3,7 +3,7 @@ define(function () {
     'use strict';
 
     /**
-     * @class widgets.brease.common.libs.redux.reducers.Text.TextActions
+     * @class widgets.brease.common.libs.redux.reducers.List.ListActions
      * @iatMeta studio:visible
      * false
      */
@@ -46,6 +46,20 @@ define(function () {
         toggleListStatus: function toggleListStatus() {
             return {
                 type: ListBoxActions.TOGGLE_LIST_STATUS
+            };
+        },
+        // Sets the list into connection dropped mode
+        SET_LIST_OFFLINE: 'SET_LIST_OFFLINE',
+        setListOffline: function setListOffline() {
+            return {
+                type: ListBoxActions.SET_LIST_OFFLINE
+            };
+        },
+        // Sets the list into connection establisehd mode
+        SET_LIST_ONLINE: 'SET_LIST_ONLINE',
+        setListOnline: function setListOnline() {
+            return {
+                type: ListBoxActions.SET_LIST_ONLINE
             };
         },
         //Close the líst

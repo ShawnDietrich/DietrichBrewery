@@ -9,11 +9,19 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent'], function (Utils, Brea
     * @singleton
     */
     var PopUpManager = {
-
+        debounceTime: 200,
         init: function () {
             _updateDimensions();
-            document.body.addEventListener(BreaseEvent.APP_RESIZE, _.debounce(_updateDimensions, 200));
-            $(window).on('resize', _.debounce(_updateDimensions, 200));
+            var debouncedUpdateDimensions = _.debounce(_updateDimensions, PopUpManager.debounceTime);
+            document.body.addEventListener(BreaseEvent.APP_RESIZE, function (e) {
+                if (e.detail && e.detail.immediate) {
+                    debouncedUpdateDimensions.cancel();
+                    _updateDimensions();
+                } else {
+                    debouncedUpdateDimensions();
+                }
+            });
+            $(window).on('resize', debouncedUpdateDimensions);
         },
 
         /**

@@ -1,4 +1,3 @@
-/*global define*/
 define(['brease/enum/Enum'], function (Enum) {
 
     'use strict';

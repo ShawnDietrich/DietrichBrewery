@@ -51,6 +51,9 @@
 .messageBoxButton:not(.disabled):not(.editMode):active {
 	border-width: 2px;
 }
+.messageBoxButton:not(.disabled):not(.editMode).active {
+	border-width: 2px;
+}
 .messageBoxButton:not(.disabled):not(.editMode).checked {
 	border-width: 2px;
 }
@@ -60,6 +63,9 @@
 .messageBoxButton:not(.disabled):not(.editMode):active {
 	border-color: #FD7B01;
 }
+.messageBoxButton:not(.disabled):not(.editMode).active {
+	border-color: #FD7B01;
+}
 .messageBoxButton:not(.disabled):not(.editMode).checked {
 	border-color: #FD7B01;
 }
@@ -67,6 +73,9 @@
 	background-color: #DBDBDB;
 }
 .messageBoxButton:not(.disabled):not(.editMode):active {
+	background-color: #DBDBDB;
+}
+.messageBoxButton:not(.disabled):not(.editMode).active {
 	background-color: #DBDBDB;
 }
 .messageBoxButton:not(.disabled):not(.editMode).checked {
@@ -82,6 +91,9 @@
 	color: #000;
 }
 .messageBoxButton:not(.disabled):not(.editMode):active span {
+	color: #000;
+}
+.messageBoxButton:not(.disabled):not(.editMode).active span {
 	color: #000;
 }
 .messageBoxButton:not(.disabled):not(.editMode).checked span {

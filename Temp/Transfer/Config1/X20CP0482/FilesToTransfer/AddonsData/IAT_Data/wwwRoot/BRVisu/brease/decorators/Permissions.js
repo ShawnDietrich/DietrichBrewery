@@ -1,4 +1,7 @@
-define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/core/Utils', 'brease/enum/Enum'], function (Decorator, BreaseEvent, Utils, Enum) {
+define(['brease/core/Decorator', 
+    'brease/events/BreaseEvent',
+    'brease/enum/Enum'], 
+function (Decorator, BreaseEvent, Enum) {
 
     'use strict';
 
@@ -10,11 +13,13 @@ define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/core/Utils
     * A decorator class to add permissions to a widget class
     * ##Example:  
     *
-    *     define(function (require) {
-    *        var SuperClass = require('brease/core/BaseWidget'),
-    *            permissions = require('brease/decorators/Permissions'),
-    *     
-    *        [...]
+    *     define(['brease/core/BaseWidget', 'brease/decorators/Permissions'],
+    *           function (SuperClass, permissions) {
+    * 
+    *        var WidgetClass = SuperClass.extend(function () {
+    *           SuperClass.apply(this, arguments);
+    *        }, defaultSettings),
+    *            [...] 
     *     
     *        return permissions.decorate(WidgetClass, undefined, {
     *           permissions: {
@@ -132,12 +137,13 @@ define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/core/Utils
     }
 
     function setState(state) {
-        //console.log('%c' + this.elem.id + '.dependencies[' + dependency + '].state=' + state, 'color:#cd661d');
-        this.dependencies[dependency].state = state;
-        if (state === Enum.Dependency.ACTIVE) {
-            addListener.call(this);
-        } else {
-            removeListener.call(this);
+        if (this.dependencies[dependency]) {
+            this.dependencies[dependency].state = state;
+            if (state === Enum.Dependency.ACTIVE) {
+                addListener.call(this);
+            } else {
+                removeListener.call(this);
+            }
         }
     }
 

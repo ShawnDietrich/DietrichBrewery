@@ -1,9 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.10.3.60 SP"?>
+<?AutomationStudio Version="4.12.2.93"?>
 <LibraryInfos>
+  <Library
+    Name="Acp10man"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.2" />
+  <Library
+    Name="Acp10par"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.2" />
+  <Library
+    Name="AsARCfg"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
+  <Library
+    Name="AsEPL"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
   <Library
     Name="AsIecCon"
     IsDeployed="false"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
+  <Library
+    Name="AsIO"
+    IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
@@ -15,12 +45,30 @@
     Version="" />
   <Library
     Name="astime"
-    IsDeployed="false"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
+  <Library
+    Name="AsZip"
+    IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
   <Library
     Name="brsystem"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
+  <Library
+    Name="CoTrace"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.0" />
+  <Library
+    Name="FileIO"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
@@ -36,19 +84,19 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.12.0" />
+    Version="5.16.0" />
   <Library
     Name="MpTemp"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.12.0" />
+    Version="5.16.0" />
   <Library
     Name="MTBasics"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.12.0" />
+    Version="5.16.0" />
   <Library
     Name="MTTypes"
     IsDeployed="true"
@@ -56,8 +104,20 @@
     UseAsStatic="false"
     Version="1.03.4" />
   <Library
+    Name="NcGlobal"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.2" />
+  <Library
     Name="operator"
     IsDeployed="false"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="" />
+  <Library
+    Name="powerlnk"
+    IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
@@ -67,6 +127,12 @@
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
+  <Library
+    Name="SfDomain"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.0" />
   <Library
     Name="standard"
     IsDeployed="true"
@@ -79,4 +145,10 @@
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
+  <Library
+    Name="ViBase"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.16.1" />
 </LibraryInfos>

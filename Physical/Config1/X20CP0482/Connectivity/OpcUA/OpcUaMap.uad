@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.91">
+<OpcUaSource FileVersion="9" ArVersion="B4.93">
   <Aliases>
     <ACLAliases />
     <EURangeViolationAliases />
@@ -24,26 +24,12 @@
         <Variable Name="pbKettleHeater" />
         <Variable Name="pbSysPower" />
       </Task>
-      <Task Name="Kettle">
+      <Task Name="KettleCont">
         <Variable Name="Proc">
           <Variable Name="setPower" />
           <Variable Name="currPower" />
-          <Variable Name="currTemp" EngineeringUnitId="1" />
-          <Variable Name="SetTemp" EngineeringUnitId="1" />
-          <Variable Name="TempCtrl">
-            <Variable Name="Ctrl">
-              <Variable Name="SetTemperature" />
-              <Variable Name="ActualTemperature" />
-              <Variable Name="Enable" />
-              <Variable Name="ErrorReset" />
-              <Variable Name="Control" />
-              <Variable Name="Tune" />
-              <Variable Name="Active" />
-              <Variable Name="Error" />
-              <Variable Name="Heat" />
-              <Variable Name="HeatValue" />
-            </Variable>
-          </Variable>
+          <Variable Name="currTemp" />
+          <Variable Name="SetTemp" />
           <Variable Name="i">
             <Variable Name="ResetError" />
             <Variable Name="EStop" />
@@ -57,26 +43,12 @@
         <Variable Name="TmrRemain" />
         <Variable Name="TimePre" />
       </Task>
-      <Task Name="HLT">
+      <Task Name="HLTControl">
         <Variable Name="Proc">
           <Variable Name="setPower" />
           <Variable Name="currPower" />
-          <Variable Name="currTemp" EngineeringUnitId="1" />
-          <Variable Name="SetTemp" EngineeringUnitId="1" />
-          <Variable Name="TempCtrl">
-            <Variable Name="Ctrl">
-              <Variable Name="Enable" />
-              <Variable Name="ErrorReset" />
-              <Variable Name="SetTemperature" />
-              <Variable Name="ActualTemperature" />
-              <Variable Name="Control" />
-              <Variable Name="Tune" />
-              <Variable Name="Active" />
-              <Variable Name="Error" />
-              <Variable Name="Heat" />
-              <Variable Name="HeatValue" />
-            </Variable>
-          </Variable>
+          <Variable Name="currTemp" />
+          <Variable Name="SetTemp" />
           <Variable Name="i">
             <Variable Name="ResetError" />
             <Variable Name="EStop" />
@@ -87,9 +59,13 @@
           </Variable>
         </Variable>
       </Task>
-      <Task Name="MashTun">
+      <Task Name="MashTunCon">
         <Variable Name="pbMashPump" />
         <Variable Name="mProc">
+          <Variable Name="setPower" />
+          <Variable Name="currPower" />
+          <Variable Name="currTemp" />
+          <Variable Name="SetTemp" />
           <Variable Name="i">
             <Variable Name="ResetError" />
             <Variable Name="EStop" />
@@ -98,28 +74,12 @@
             <Variable Name="Pause" />
             <Variable Name="Start" />
           </Variable>
-          <Variable Name="setPower" />
-          <Variable Name="currPower" />
-          <Variable Name="currTemp" />
-          <Variable Name="SetTemp" />
-          <Variable Name="Status">
-            <Variable Name="Manual" />
-            <Variable Name="Running" />
-            <Variable Name="Stopped" />
-            <Variable Name="Paused" />
-            <Variable Name="On" />
-            <Variable Name="Automatic" />
-          </Variable>
-        </Variable>
-        <Variable Name="TimePre" />
-        <Variable Name="StartMash" />
-        <Variable Name="TmrRemain" />
-        <Variable Name="TmrDT">
-          <Variable Name="hour" />
-          <Variable Name="minute" />
-          <Variable Name="second" />
         </Variable>
         <Variable Name="RemainTime" />
+        <Variable Name="TimePre" />
+        <Variable Name="TmrDT" />
+        <Variable Name="TmrRemain" />
+        <Variable Name="StartMash" />
       </Task>
     </Module>
   </DefaultView>

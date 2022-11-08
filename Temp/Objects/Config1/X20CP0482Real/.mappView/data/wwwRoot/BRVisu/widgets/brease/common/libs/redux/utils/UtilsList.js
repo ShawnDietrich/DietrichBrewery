@@ -12,6 +12,7 @@ define([
     var UtilsList = {};
 
     /**
+     * @method 
      * This method takes a non parsed dataprovider and parses each object separately and returns
      * the entire configuration.
      * If one item failes it will not be part of the returned configuration.
@@ -28,7 +29,7 @@ define([
                 } catch (err) {
                     console.log('Error in JSON at', err);
                 }
-            } else if (typeof  dataProvider[i] === 'object') {
+            } else if (typeof dataProvider[i] === 'object') {
                 data.push(dataProvider[i]);
             }
         }
@@ -57,6 +58,7 @@ define([
     };
 
     /**
+     * @method 
      * This method calculates the height of the list given the number of items available, how many should be
      * visible, the how heigh one item is and if the height should fit to items or not.
      * @param {Boolean} fitHeight2Items
@@ -72,6 +74,7 @@ define([
     };
 
     /**
+     * @method 
      * This method will take all languages from the language system and convert these
      * into a dataprovider that the dropdownbox can understand with necessary information
      * It also sorts the data alafabetically after the language key. Should be used in the 
@@ -80,7 +83,7 @@ define([
      * @returns {Object[]} sorted list of the languages
      */
     UtilsList.getDataProviderForLanguage = function (languages) {
-        var dataProvider = Object.keys(languages).map(function (key, index) {
+        var dataProvider = Object.keys(languages).map(function (key) {
             return {
                 value: key,
                 text: languages[key].description,
@@ -92,6 +95,7 @@ define([
     };
 
     /**
+     * @method 
      * This method will take all measurements from the measurement system and convert these
      * into a dataprovider that the dropdownbox can understand with necessary information
      * It also sorts the data alafabetically after the measurement key. Should be used in the 
@@ -100,7 +104,7 @@ define([
      * @returns {Object[]} sorted list of the systems
      */
     UtilsList.getDataProviderForMeasurement = function (systems) {
-        var dataProvider = Object.keys(systems).map(function (key, index) {
+        var dataProvider = Object.keys(systems).map(function (key) {
             return {
                 value: key,
                 text: systems[key].description,
@@ -111,6 +115,7 @@ define([
     };
 
     /**
+     * @method 
      * This method will take the display settings and generate the correct
      * setup for that specific type
      * @param {brease.enum.DropDownDisplaySettings} displaySettings
@@ -133,6 +138,7 @@ define([
     };
 
     /**
+     * @method 
      * This method compares two values where these can either both be of the same type
      * or they can be of two contradicting types. Both should be fine.
      * I.e. 1 === true returns true

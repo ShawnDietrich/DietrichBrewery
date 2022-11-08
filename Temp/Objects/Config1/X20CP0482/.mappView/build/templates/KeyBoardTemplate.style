@@ -83,11 +83,29 @@
     <StyleProperty name="buttonMouseDownBackGroundGradient" category="Appearance" type="Gradient" default="" >
       <StyleElement selector="button.active" attribute="@include backGroundGradient('$value')"></StyleElement>
     </StyleProperty>
+    <StyleProperty name="buttonCheckedBackColor" category="Appearance" type="Color" default="#FFA800" >
+      <StyleElement selector="button.selected:not(.active)" attribute="background-color"></StyleElement>
+    </StyleProperty>
+    <StyleProperty name="buttonCheckedBackGroundGradient" category="Appearance" type="Gradient" default="" >
+      <StyleElement selector="button.selected:not(.active)" attribute="@include backGroundGradient('$value')"></StyleElement>
+    </StyleProperty>
     <StyleProperty name="buttonBackGround" category="Appearance" type="ImagePath" default="" >
       <StyleElement selector="button:not(.active)" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
     </StyleProperty>
     <StyleProperty name="buttonMouseDownBackGround" category="Appearance" type="ImagePath" default="" >
       <StyleElement selector="button.active" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
+    </StyleProperty>
+		<StyleProperty name="buttonShadow" type="Shadow" category="Appearance" default="none">
+			<StyleElement selector="button" attribute="@include box-shadow($value)"></StyleElement>
+      <StyleElement selector="button.active" attribute="@include box-shadow($value)"></StyleElement>
+      <StyleElement selector="button.selected" attribute="@include box-shadow($value)"></StyleElement>
+		</StyleProperty>
+    <StyleProperty name="buttonMouseDownShadow" type="Shadow" category="Appearance" default="none">
+      <StyleElement selector="button.active" attribute="@include box-shadow($value)"></StyleElement>
+      <StyleElement selector="button.selected" attribute="@include box-shadow($value)"></StyleElement>
+    </StyleProperty>
+    <StyleProperty name="buttonCheckedShadow" type="Shadow" category="Appearance" default="none">
+      <StyleElement selector="button.selected:not(.active)" attribute="@include box-shadow($value)"></StyleElement>
     </StyleProperty>
     <StyleProperty name="buttonTextColor" category="Appearance" type="Color" default="#000000" >
       <StyleElement selector="button span" attribute="color"></StyleElement>
@@ -145,6 +163,9 @@
     <StyleProperty name="shiftMouseDownBackgroundImage" category="Appearance" type="ImagePath" default="">
       <StyleElement selector="div.active[data-action=shift]" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
       <StyleElement selector="div.selected[data-action=shift]" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
+    </StyleProperty>
+    <StyleProperty name="capsLockBackGroundImage" category="Appearance" type="ImagePath" default="">
+      <StyleElement selector="div.selected[data-action=shift]:not(.active)" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
     </StyleProperty>
 
     <!-- special button -->

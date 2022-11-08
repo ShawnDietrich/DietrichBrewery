@@ -32,21 +32,22 @@ define(['brease/core/Utils'], function (Utils) {
     };
 
     p.addEventListener = function (type, listener, unshift, data) {
-
-        var listeners = this.getListeners();
-        if (listeners[type] === undefined) {
-            listeners[type] = [];
-        }
-        if (data) {
-            this.addData(type, listener, data);
-        }
-
-        if (listeners[type].indexOf(listener) === -1) {
-            if (unshift === true) {
-                listeners[type].unshift(listener);
-            } else {
-                listeners[type].push(listener);
+        if (Utils.isString(type) && type !== '') {
+            var listeners = this.getListeners();
+            if (listeners[type] === undefined) {
+                listeners[type] = [];
             }
+            if (data) {
+                this.addData(type, listener, data);
+            }
+
+            if (listeners[type].indexOf(listener) === -1) {
+                if (unshift === true) {
+                    listeners[type].unshift(listener);
+                } else {
+                    listeners[type].push(listener);
+                }
+            } 
         }
 
     };
@@ -84,19 +85,25 @@ define(['brease/core/Utils'], function (Utils) {
     };
 
     p.dispatchEvent = function (event, type) {
+        
         var self = this,
             eventType = (type !== undefined) ? type : event.type;
 
-        if (event.type === undefined) {
-            event.type = eventType;
-        }
-        var arListeners = this.getListeners()[eventType];
+        if (Utils.isString(eventType) && eventType !== '') {
+            if (event.type === undefined) {
+                event.type = eventType;
+            }
+            var arListeners = this.getListeners()[eventType];
 
-        if (arListeners !== undefined) {
-            arListeners.slice(0).forEach(function (listener) {
-                event.data = self.getData(eventType, listener);
-                listener(event);
-            });
+            if (arListeners !== undefined) {
+                arListeners.slice(0).forEach(function (listener) {
+                    var data = self.getData(eventType, listener);
+                    if (data) {
+                        event.data = data; 
+                    }
+                    listener(event);
+                });
+            } 
         }
     };
 

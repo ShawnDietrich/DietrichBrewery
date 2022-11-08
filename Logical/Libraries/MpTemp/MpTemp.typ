@@ -69,7 +69,8 @@ TYPE
 		mpTEMP_TUNING_MODE_HEAT := 1, (*Step tuning for only the heating unit is performed to obtain the heating system, profile and PID parameters.*)
 		mpTEMP_TUNING_MODE_HEAT_COOL := 2, (*Step tuning for heating and cooling unit is performed to obtain both heating as well as cooling system, profile and PID parameters.*)
 		mpTEMP_TUNING_MODE_OSC_HEAT := 3, (*Oscillation tuning around the setpoint for only the heating unit is performed to obtain the heating PID parameters and the integrator preloading value.*)
-		mpTEMP_TUNING_MODE_OSC_HEAT_COOL := 4 (*Oscillation tuning around the setpoint for the heating and cooling unit is performed to obtain the heating as well as cooling PID parameters and the integrator preloading value.*)
+		mpTEMP_TUNING_MODE_OSC_HEAT_COOL := 4, (*Oscillation tuning around the setpoint for the heating and cooling unit is performed to obtain the heating as well as cooling PID parameters and the integrator preloading value.*)
+		mpTEMP_TUNING_MODE_OSC_COOL := 5 (*Oscillation tuning around the setpoint for only the cooling unit is performed to obtain the cooling PID parameters.*)
 		);
 	MpTempTuningStateEnum : 
 		( (*Possible states of the tuning.*)
@@ -95,6 +96,27 @@ TYPE
 		mpTEMP_ZONE_TYPE_COOL := 1, (*The temperature zone consists only of a cooling unit.*)
 		mpTEMP_ZONE_TYPE_HEAT_COOL := 2 (*The temperature zone consists of a heating unit as well as cooling unit.*)
 		);
+	MpTempSoftStartModeEnum : 
+		( (*Different working principles of the soft start.*)
+		mpTEMP_SOFTSTART_MOD_POWER_LIM := 0, (*The soft start is based on a heat power limitation.*)
+		mpTEMP_SOFTSTART_MOD_SLEW_RATE := 1 (*The soft start is based on a defined gradient.*)
+		);
+	MpTempSoftStartEnableEnum : 
+		( (*Different using options of the soft start.*)
+		mpTEMP_SOFTSTART_USE_GROUP := 0, (*For this zone the soft start parameters of the group are used.*)
+		mpTEMP_SOFTSTART_USE_ZONE := 1, (*The soft start parameters for this zone are configured individually.*)
+		mpTEMP_SOFTSTART_NOT_USED := 2 (*The soft start for this zone is deactivated.*)
+		);
+	MpTempSoftStartStateEnum : 
+		( (*Possible step chain states for the soft start.*)
+		mpTEMP_SOFTSTART_HEATING := 0, (*Heating up to soft-start temperature.*)
+		mpTEMP_SOFTSTART_HOLD_TEMP := 1, (*All zones are hold at the soft-start temperature.*)
+		mpTEMP_SOFTSTART_REACHED_TEMP := 2, (*This zone has already reached the soft-start temperature.*)
+		mpTEMP_SOFTSTART_FINISHED := 3, (*The soft start is finished. *)
+		mpTEMP_SOFTSTART_EXCLUDED := 4, (*This zone is skipped due to configuration settings.*)
+		mpTEMP_SOFTSTART_SKIPPED := 5, (*This zone is skipped due to preconditions.*)
+		mpTEMP_SOFTSTART_OFF := 6 (*The soft start is not used*)
+		);
 END_TYPE
 
 (*********** Config ********** *)
@@ -114,11 +136,13 @@ TYPE
 		TemperatureFilter : MpTempControllerFilterType; (*Parameters for the temperature filter.*)
 		SignalModulation : MpTempSignalModulationType; (*Parameters for the signal modulation.*)
 		PFMParameters : MpTempPFMType; (*Parameters for PFM.*)
+		SoftStart : MpTempSoftStartControllerType; (*Soft start parameters of the zone.*)
 	END_STRUCT;
 	MpTempGroupConfigType : 	STRUCT  (*Configuration parameters for the group.*)
 		EnableLoadBalancing : BOOL := TRUE; (*Enables/Disables load balancing for the grouped zones.*)
 		MaxHeatPower : REAL := 30.0; (*Average maximum permissible output power of the grouped zones per PWM period. [kW].*)
 		PWMScheduleParameters : MpTempPWMScheduleType; (*Parameters that determine the behavior of the PWM schedule.*)
+		SoftStart : MpTempSoftStartGroupType; (*Soft start parameters of the group.*)
 	END_STRUCT;
 	MpTempHCMConfigType : 	STRUCT  (*Configuration parameters for heating current monitoring.*)
 		CurrentSensingConcept : MpTempHCMConceptEnum := mpTEMP_HCM_CONCEPT_CCS; (*Defines which type of heating current monitoring is used.*)
@@ -260,6 +284,24 @@ TYPE
 		Enable : BOOL := TRUE; (*Enables temperature filtering.*)
 		NoiseReduction : REAL := 1; (*Suppression of measurement noise. The noise is suppressed more by increasing the value. Info: Too much noise suppression can have a negative effect on the control quality.*)
 	END_STRUCT;
+	MpTempSoftStartControllerType : 	STRUCT  (*Soft start parameters of the controller.*)
+		Type : MpTempSoftStartEnableEnum; (*Different soft start enable-modes for the controller.*)
+		Settings : MpTempSoftStartSettingsType; (*Setting the working principle of the soft start as well as the required parameters.*)
+	END_STRUCT;
+	MpTempSoftStartSettingsType : 	STRUCT  (*Setting the working principle of the soft start as well as the required parameters.*)
+		Mode : MpTempSoftStartModeEnum; (*Setting the working principle of the soft start.*)
+		ReducedMaximumHeatOutput : REAL; (*Specified reduced maximum heat output for the soft start. This heating power will be applied.*)
+		SlewRate : REAL; (*Specified slew rate for the soft start.*)
+		FilterTime : REAL; (*Specified filter time for the soft start.*)
+		DelayTime : REAL; (*Specified delay time for the soft start.*)
+		QuickStart : BOOL; (*Specified quick start for the soft start.*)
+	END_STRUCT;
+	MpTempSoftStartGroupType : 	STRUCT  (*Soft start parameters of the group.*)
+		Enable : BOOL; (*Enables the soft start at the group.*)
+		Temperature : REAL; (*The soft start temperature needs to be the same for every zone within the group.*)
+		HoldTime : REAL; (*For this time span the plant will be hold on the soft start temperature.*)
+		Settings : MpTempSoftStartSettingsType; (*Setting the working principle of the soft start as well as the required parameters.*)
+	END_STRUCT;
 END_TYPE
 
 (*********** Info ***********)
@@ -276,11 +318,14 @@ TYPE
 		Simulation : MpTempSimulationInfoType; (*Contains information about simulation.*)
 		Diag : MpTempDiagType; (*Diagnostic structure for the status ID.*)
 		HCM : MpTempControllerHCMInfoType; (*Contains the currents identified during the HCM measurement. *)
+		SoftStart : MpTempSoftStartCtrlInfoType; (*Information about the soft start.*)
+		Parameterization : MpTempParameterizationInfoType; (*Contains information about the current parameterization.*)
 	END_STRUCT;
 	MpTempGroupInfoType : 	STRUCT  (*Information about the group component.*)
 		Profile : MpTempGroupProfileInfoType; (*Contains information about the profile.*)
 		HeatPower : MpTempGroupPowerType; (*Contains information about the power limitation.*)
 		Diag : MpTempDiagType; (*Diagnostic structure of the function block.*)
+		SoftStart : MpTempSoftStartGroupInfoType; (*Information about the soft start*)
 	END_STRUCT;
 	MpTempHCMInfoType : 	STRUCT  (*Information about the HCM component.*)
 		State : MpTempHCMStateEnum; (*Current state of HCM.*)
@@ -297,7 +342,7 @@ TYPE
 		Severity : MpComSeveritiesEnum; (*Describes the type of information supplied by the status ID (success, information, warning, error)*)
 		Code : UINT; (*Code for the status ID. This error number can be used to search for additional information in the help system*)
 	END_STRUCT;
-	MpTempTuningInfoType : 	STRUCT  (*information about the tuning.*)
+	MpTempTuningInfoType : 	STRUCT  (*Information about the tuning.*)
 		State : MpTempTuningStateEnum; (*Current state of the tuning procedure.*)
 		PIDParameters : MpTempPIDType; (*PID parameters identified by tuning.*)
 		SystemParameters : MpTempSystemType; (*System parameters identified by tuning.*)
@@ -349,5 +394,21 @@ TYPE
 	END_STRUCT;
 	MpTempTuningFilterType : 	STRUCT  (*Information about the recommended filter settings that were identified during tuning.*)
 		NoiseReduction : REAL := 1.0; (*Recommended suppression of measurement noise that is determined during tuning. *)
+	END_STRUCT;
+	MpTempSoftStartGroupInfoType : 	STRUCT  (*Information about the soft start for the group.*)
+		State : MpTempSoftStartStateEnum; (*Current state of the soft start at the group.*)
+	END_STRUCT;
+	MpTempSoftStartCtrlInfoType : 	STRUCT  (*Information about the soft start for the controller.*)
+		State : MpTempSoftStartStateEnum; (*Current state of the soft start at the controller. *)
+	END_STRUCT;
+	MpTempSystemInfoType : 	STRUCT  (*Information about the currently used system data.*)
+		Parameters : MpTempSystemType; (*Currently used system parameters.*)
+		Type : MpTempSystemCharacteristicsType; (*System characteristics of the currently used system.*)
+	END_STRUCT;
+	MpTempParameterizationInfoType : 	STRUCT  (*Information about the current parameterization of the function block.*)
+		Controller : MpTempPIDType; (*Current parameterization of the PID controller.*)
+		System : MpTempSystemInfoType; (*Current parameterization of the system data.*)
+		Profile : MpTempProfileType; (*Current parameterization of the profile data.*)
+		KalmanFilter : MpTempControllerFilterType; (*Current parameterization of the Kalman filter.*)
 	END_STRUCT;
 END_TYPE

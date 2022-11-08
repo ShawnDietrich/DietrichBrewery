@@ -101,12 +101,13 @@ define(['brease/core/Decorator', 'brease/events/BreaseEvent', 'brease/enum/Enum'
     }
 
     function setState(state) {
-        //console.log('%c' + this.elem.id + '.dependencies[' + dependency + '].state=' + state, 'color:#cccc00');
-        this.dependencies[dependency].state = state;
-        if (state === Enum.Dependency.ACTIVE) {
-            addListener.call(this);
-        } else {
-            removeListener.call(this);
+        if (this.dependencies[dependency]) {
+            this.dependencies[dependency].state = state;
+            if (state === Enum.Dependency.ACTIVE) {
+                addListener.call(this);
+            } else {
+                removeListener.call(this);
+            }
         }
     }
 

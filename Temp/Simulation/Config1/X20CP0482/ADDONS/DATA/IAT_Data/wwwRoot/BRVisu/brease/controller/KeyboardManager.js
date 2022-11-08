@@ -1,10 +1,11 @@
-define(['widgets/brease/KeyBoard/KeyBoard',
-    'widgets/brease/NumPad/NumPad',
+define([
     'brease/events/BreaseEvent',
     'system/widgets/KeyBoard/libs/LayoutSelector',
     'system/widgets/common/keyboards/KeyboardType',
-    'brease/core/ClassUtils'],
-function (BreaseKeyboardClass, BreaseNumPadClass, BreaseEvent, LayoutSelector, KeyboardType, ClassUtils) {
+    'brease/core/ClassUtils',
+    'widgets/brease/NumPad/NumPad',
+    'widgets/brease/KeyBoard/KeyBoard'],
+function (BreaseEvent, LayoutSelector, KeyboardType, ClassUtils, BreaseNumPadClass) {
 
     'use strict';
 
@@ -203,7 +204,7 @@ function (BreaseKeyboardClass, BreaseNumPadClass, BreaseEvent, LayoutSelector, K
                     document.body.addEventListener(BreaseEvent.WIDGET_READY, _onKeyBoardReady);
                 }
                 currentKeyBoardClass = newKeyBoardClassPath;
-            }, function fail(e) { });
+            }, function fail() { });
         }
     }
 
@@ -222,7 +223,7 @@ function (BreaseKeyboardClass, BreaseNumPadClass, BreaseEvent, LayoutSelector, K
         if (CustomNumPadClassPath) {
             require([CustomNumPadClassPath], function success(CustomNumPadClass) {
                 _instantiateNumPad(CustomNumPadClass);
-            }, function fail(e) { });
+            }, function fail() { });
         } else {
             _instantiateNumPad(BreaseNumPadClass);
         }

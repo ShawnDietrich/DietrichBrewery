@@ -1,10 +1,11 @@
 define(['widgets/brease/Window/Window',
     'widgets/brease/MessageBox/libs/ButtonManager', 
-    'brease/enum/Enum', 
+    'brease/enum/Enum',
+    'brease/events/BreaseEvent',
     'brease/controller/PopUpManager', 
     'brease/core/Utils', 
     'text!widgets/brease/MessageBox/MessageBox.html'], 
-function (SuperClass, ButtonManager, Enum, popupManager, Utils) {
+function (SuperClass, ButtonManager, Enum, BreaseEvent, popupManager, Utils) {
 
     'use strict';
 
@@ -147,6 +148,7 @@ function (SuperClass, ButtonManager, Enum, popupManager, Utils) {
         this.buttonManager.addEventListeners();
         this.setIcon();
         this._setDimensions();
+        this.dispatchEvent(new CustomEvent(BreaseEvent.MESSAGE_BOX_OPENED, { detail: { id: this.elem.id }, bubbles: true }));
         return this.deferred.promise();
     };
 
@@ -157,6 +159,7 @@ function (SuperClass, ButtonManager, Enum, popupManager, Utils) {
     p.hide = function () {
         this.buttonManager.removeEventListeners();
         SuperClass.prototype.hide.call(this);
+        this.dispatchEvent(new CustomEvent(BreaseEvent.MESSAGE_BOX_CLOSED, { detail: { id: this.elem.id }, bubbles: true }));
     };
     /**
        * @method setStyle
@@ -168,7 +171,7 @@ function (SuperClass, ButtonManager, Enum, popupManager, Utils) {
         SuperClass.prototype.setStyle.apply(this, arguments);
     };
     /**
-    * @method setContent
+    * @method _setContent
     * sets Content
     */
     p._setContent = function () {

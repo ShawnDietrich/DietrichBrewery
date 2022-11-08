@@ -37,7 +37,7 @@ define([
     */
 
     /**
-    * @cfg {String} arrow=''
+    * @cfg {Object} arrow
     * An arrow for relatively positioned windows to point to the opener element.  
     * @cfg {String} arrow.width=0
     * Size of the arrow triangle from base to top.  
@@ -195,7 +195,7 @@ define([
 */
 /**
 * @cfg {brease.config.MeasurementSystemFormat} format  
-* brease.config.NumberFormat for every measurement system
+* NumberFormat for every measurement system
 */
 /**
 * @cfg {Boolean} useDigitGrouping  

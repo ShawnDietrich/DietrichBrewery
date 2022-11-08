@@ -14,7 +14,7 @@
       <Description>background color</Description>
       <StyleElement attribute="background-color"/>
     </StyleProperty>
-    <StyleProperty name="backGroundGradient" type="Gradient" default="none" category="Appearance" >
+    <StyleProperty name="backGroundGradient" type="Gradient" default="" category="Appearance" >
       <Description>background gradient</Description>
       <StyleElement attribute="background-image"></StyleElement>
     </StyleProperty>

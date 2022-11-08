@@ -80,32 +80,47 @@ define(['brease/core/BaseWidget',
     /**
      * @cfg {Boolean} ellipsis=false
      * @iatStudioExposed
-     * @iatCategory Behavior 
+     * @iatCategory Behavior
      * If true, overflow of text is symbolized with an ellipsis. This option has no effect, if wordWrap = true.
      */
 
     /**
      * @cfg {Boolean} wordWrap=false
      * @iatStudioExposed
-     * @iatCategory Behavior 
-     * If true, text will wrap when necessary.  
+     * @iatCategory Behavior
+     * If true, text will wrap when necessary.
      * This property has no effect, if multiLine=false
      */
 
     /**
     * @cfg {Boolean} breakWord=false
     * @iatStudioExposed
-    * @iatCategory Behavior 
+    * @iatCategory Behavior
      * Allows lines to be broken within words if an otherwise unbreakable string is too long to fit.
     */
 
     /**
      * @cfg {Boolean} multiLine=false
      * @iatStudioExposed
-    * @iatCategory Behavior 
-     * If true, more than one line is possible.  
+    * @iatCategory Behavior
+     * If true, more than one line is possible.
      * Text will wrap when necessary (if property wordWrap is set to true) or at explicit line breaks (\n).
      * If false, text will never wrap to the next line. The text continues on the same line.
+     */
+
+    /**
+    * @cfg {Boolean} useSVGStyling=true
+    * @iatStudioExposed
+    * @iatCategory Appearance
+    * Define if the image stylings (i.e imageColor) are applied - only valid when SVG Images are used.
+    */
+
+    /**
+     * @cfg {Integer} tabIndex=0
+     * @iatStudioExposed
+     * @iatCategory Behavior 
+     * sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+     * or if autofocus should be disabled (-1)
      */
 
     var defaultSettings = {
@@ -113,7 +128,9 @@ define(['brease/core/BaseWidget',
             ellipsis: false,
             wordWrap: false,
             multiLine: false,
-            breakWord: false
+            breakWord: false,
+            useSVGStyling: true,
+            tabIndex: 0
         },
 
         WidgetClass = SuperClass.extend(function Button() {
@@ -148,7 +165,7 @@ define(['brease/core/BaseWidget',
     * @iatStudioExposed
     * Sets the visible text. This method can remove an optional textkey.
     * @param {String} text
-    * @param {Boolean} keepKey Set true, if textkey should not be removed
+    * @param {Boolean} [keepKey=false] Set true, if textkey should not be removed
     * @paramMeta text:localizable=true
     */
     p.setText = function (text, keepKey) {
@@ -170,7 +187,7 @@ define(['brease/core/BaseWidget',
         }
 
         if (this.textEl) {
-            this.textEl.text(text);
+            this.textEl.text(brease.language.unescapeText(text));
         }
         
         this.setClasses();
@@ -190,7 +207,7 @@ define(['brease/core/BaseWidget',
     * @iatStudioExposed
     * Sets the visible text for pressed state. This method can remove an optional textkey.
     * @param {String} text
-    * @param {Boolean} keepKey Set true, if textkey should not be removed
+    * @param {Boolean} [keepKey=false] Set true, if textkey should not be removed
     * @paramMeta text:localizable=true
     */
     p.setMouseDownText = function (text, keepKey) {
@@ -215,9 +232,9 @@ define(['brease/core/BaseWidget',
 
             if (this.downtextEl) {
                 if (this.settings.mouseDownText === '') {
-                    this.downtextEl.text(this.settings.text);
+                    this.downtextEl.text(brease.language.unescapeText(this.settings.text));
                 }
-                this.downtextEl.text(text);
+                this.downtextEl.text(brease.language.unescapeText(text));
             }
             this.setClasses();
         } else if (this.downtextEl !== undefined) {
@@ -447,6 +464,9 @@ define(['brease/core/BaseWidget',
         //console.debug(WidgetClass.name + '[id=' + this.elem.id + '].setImage:', image, this.settings.imageAlign, Enum.ImageAlign.left);
         var widget = this;
 
+        this.imgEl.hide();
+        this.svgEl.hide();
+
         if (image !== undefined && image !== '') {
 
             if (omitSettings !== true) {
@@ -459,8 +479,7 @@ define(['brease/core/BaseWidget',
                 }
             }
 
-            if (UtilsImage.isStylable(image)) {
-                this.imgEl.hide();
+            if (UtilsImage.isStylable(image) && this.settings.useSVGStyling) {
                 this.imageDeferred = UtilsImage.getInlineSvg(image);
                 this.imageDeferred.done(function (svgElement) {
                     widget.svgEl.replaceWith(svgElement);
@@ -468,15 +487,12 @@ define(['brease/core/BaseWidget',
                     widget.svgEl.show();
                 });
             } else {
-                this.imgEl.show();
-                this.svgEl.hide();
                 this.imgEl.attr('src', image);
+                this.imgEl.show();
             }
             this.setClasses();
         } else {
             this.settings.image = undefined;
-            this.imgEl.hide();
-            this.svgEl.hide();
         }
     };
 
@@ -523,6 +539,25 @@ define(['brease/core/BaseWidget',
         this.setClasses();
     };
 
+    /**
+    * @method setUseSVGStyling
+    * Sets useSVGStyling
+    * @param {Boolean} useSVGStyling
+    */
+    p.setUseSVGStyling = function (useSVGStyling) {
+        this.settings.useSVGStyling = Types.parseValue(useSVGStyling, 'Boolean', { default: true });
+        this.setImage(this.settings.image, false);
+    };
+
+    /**
+    * @method getUseSVGStyling
+    * Returns useSVGStyling
+    * @return {Boolean}
+    */
+    p.getUseSVGStyling = function () {
+        return this.settings.useSVGStyling;
+    };
+
     p._initEventHandler = function () {
         SuperClass.prototype._initEventHandler.apply(this, arguments);
         if (this.el) {
@@ -552,9 +587,9 @@ define(['brease/core/BaseWidget',
         /**
         * @event DoubleClick
         * @iatStudioExposed
+        * Fired when element has double click.
         * @param {String} horizontalPos horizontal position of click in pixel i.e '10px'
         * @param {String} verticalPos vertical position of click in pixel i.e '10px'
-        * Fired when element has double click.
         */
         var ev = this.createMouseEvent('DoubleClick', {}, e);
         ev.dispatch();
@@ -575,9 +610,9 @@ define(['brease/core/BaseWidget',
         /**
         * @event MouseDown
         * @iatStudioExposed
+        * Fired when widget enters mouseDown state
         * @param {String} horizontalPos horizontal position of mouse in pixel i.e '10px'
         * @param {String} verticalPos vertical position of mouse in pixel i.e '10px'
-        * Fired when widget enters mouseDown state
         */
         var ev = this.createMouseEvent('MouseDown', {}, e);
         ev.dispatch();
@@ -621,9 +656,9 @@ define(['brease/core/BaseWidget',
         /**
         * @event MouseUp
         * @iatStudioExposed
+        * Fired when widget enters mouseUp state
         * @param {String} horizontalPos horizontal position of mouse in pixel i.e '10px'
         * @param {String} verticalPos vertical position of mouse in pixel i.e '10px'
-        * Fired when widget enters mouseUp state
         */
         var ev = this.createMouseEvent('MouseUp', {}, e);
         ev.dispatch();

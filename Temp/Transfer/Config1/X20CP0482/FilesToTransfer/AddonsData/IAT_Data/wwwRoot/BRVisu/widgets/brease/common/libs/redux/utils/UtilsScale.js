@@ -15,10 +15,11 @@ define([
     var UtilsScale = {};
 
     /**
+     * @method 
      * This function creates an d3 linear scale
      * @param {NumberArray1D} domain e.g. [0,100] Value (only 2 values are allowed)
      * @param {NumberArray1D} range e.g. [100,200] PixelValues (only 2 values are allowed without px)
-     * @return scale
+     * @return {Object} scale
      */
     UtilsScale.createScaleLinear = function (domain, range) {
         return d3.scale.linear().domain(domain).range(range);
@@ -26,8 +27,9 @@ define([
     };
 
     /**
+     * @method 
      * This function updates the Domain of the Scale
-     * @param scale scale-object which should be updated
+     * @param {Object} scale scale-object which should be updated
      * @param {NumberArray1D} newDomain e.g. [25,75] Value (only 2 values are allowed)
      */
     UtilsScale.updateDomain = function (scale, newDomain) {
@@ -35,8 +37,9 @@ define([
     };
 
     /**
+     * @method 
      * This function updates the Range of the Scale
-     * @param scale scale-object which should be updated
+     * @param {Object} scale scale-object which should be updated
      * @param {NumberArray1D} newRange e.g. [75,150] PixelValues (only 2 values are allowed without px)
      */
     UtilsScale.updateRange = function (scale, newRange) {

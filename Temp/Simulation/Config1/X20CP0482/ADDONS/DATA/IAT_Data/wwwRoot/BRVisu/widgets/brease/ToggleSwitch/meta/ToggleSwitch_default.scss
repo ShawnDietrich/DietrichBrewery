@@ -89,13 +89,10 @@ svg {
 &:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .after {
 	color: #FFFFFF;
 }
-&.disabled span {
+&.disabled:not(.checked) span {
 	color: #989898;
 }
-&.disabled.active span {
-	color: #989898;
-}
-&.disabled:checked span {
+&.disabled:not(.checked).active span {
 	color: #989898;
 }
 &.checked:not(.disabled) {

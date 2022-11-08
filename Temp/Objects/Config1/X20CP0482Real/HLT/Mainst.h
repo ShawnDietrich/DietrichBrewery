@@ -66,6 +66,14 @@ typedef struct {
 } _4byte_bit_field_;
 #endif
 
+#ifndef __AS__TYPE_MashToHLT
+#define __AS__TYPE_MashToHLT
+typedef struct MashToHLT
+{	plcbit Start;
+	float HLTTemp;
+} MashToHLT;
+#endif
+
 #ifndef __AS__TYPE_MpComInternalDataType
 #define __AS__TYPE_MpComInternalDataType
 typedef struct MpComInternalDataType
@@ -302,6 +310,52 @@ typedef struct MpTempControllerHCMInfoType
 } MpTempControllerHCMInfoType;
 #endif
 
+#ifndef __AS__TYPE_MpTempSoftStartStateEnum
+#define __AS__TYPE_MpTempSoftStartStateEnum
+typedef enum MpTempSoftStartStateEnum
+{	mpTEMP_SOFTSTART_HEATING = 0,
+	mpTEMP_SOFTSTART_HOLD_TEMP = 1,
+	mpTEMP_SOFTSTART_REACHED_TEMP = 2,
+	mpTEMP_SOFTSTART_FINISHED = 3,
+	mpTEMP_SOFTSTART_EXCLUDED = 4,
+	mpTEMP_SOFTSTART_SKIPPED = 5,
+	mpTEMP_SOFTSTART_OFF = 6,
+} MpTempSoftStartStateEnum;
+#endif
+
+#ifndef __AS__TYPE_MpTempSoftStartCtrlInfoType
+#define __AS__TYPE_MpTempSoftStartCtrlInfoType
+typedef struct MpTempSoftStartCtrlInfoType
+{	MpTempSoftStartStateEnum State;
+} MpTempSoftStartCtrlInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempSystemInfoType
+#define __AS__TYPE_MpTempSystemInfoType
+typedef struct MpTempSystemInfoType
+{	MpTempSystemType Parameters;
+	MpTempSystemCharacteristicsType Type;
+} MpTempSystemInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempControllerFilterType
+#define __AS__TYPE_MpTempControllerFilterType
+typedef struct MpTempControllerFilterType
+{	plcbit Enable;
+	float NoiseReduction;
+} MpTempControllerFilterType;
+#endif
+
+#ifndef __AS__TYPE_MpTempParameterizationInfoType
+#define __AS__TYPE_MpTempParameterizationInfoType
+typedef struct MpTempParameterizationInfoType
+{	MpTempPIDType Controller;
+	MpTempSystemInfoType System;
+	MpTempProfileType Profile;
+	MpTempControllerFilterType KalmanFilter;
+} MpTempParameterizationInfoType;
+#endif
+
 #ifndef __AS__TYPE_MpTempControllerInfoType
 #define __AS__TYPE_MpTempControllerInfoType
 typedef struct MpTempControllerInfoType
@@ -315,6 +369,8 @@ typedef struct MpTempControllerInfoType
 	MpTempSimulationInfoType Simulation;
 	MpTempDiagType Diag;
 	MpTempControllerHCMInfoType HCM;
+	MpTempSoftStartCtrlInfoType SoftStart;
+	MpTempParameterizationInfoType Parameterization;
 } MpTempControllerInfoType;
 #endif
 
@@ -353,6 +409,7 @@ typedef enum MpTempTuningModeEnum
 	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
 	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
 	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
+	mpTEMP_TUNING_MODE_OSC_COOL = 5,
 } MpTempTuningModeEnum;
 #endif
 
@@ -527,6 +584,9 @@ typedef struct MpComIdentType
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
 _BUR_LOCAL ProcControl Proc;
+_GLOBAL MashToHLT FromMashCyc;
 _GLOBAL plcbit HLTHeater;
 _GLOBAL signed short rawHLTTemp;
 _GLOBAL MpComIdentType Cfg_HLTTemp;
+_LOCAL plcbit Edge0000100000;
+_LOCAL plcbit Edge0000100001;

@@ -42,9 +42,6 @@ define(['brease/core/Class'
 
                 finish: function () {
                     _updateView(self);
-                    setTimeout(function () {
-                        self.widget.refreshScroller();
-                    }, 100);
                     return _compareSettings(self);
                 },
 

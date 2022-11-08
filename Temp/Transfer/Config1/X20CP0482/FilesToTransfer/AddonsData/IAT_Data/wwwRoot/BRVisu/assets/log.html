@@ -99,9 +99,9 @@
                 savedate = _formatDate(now);
 
             var visuId = '',
-                referrer = document.referrer;
-            if (referrer.indexOf('visuId') !== -1) {
-                visuId = _extract('visuId', referrer);
+                referrer = document.referrer.toLowerCase();
+            if (referrer.indexOf('visuid') !== -1) {
+                visuId = _extract('visuid', referrer);
             }
 
             saveAs(blob, savedate + '_' + navigator.platform + ((visuId) ? '_' + visuId : 'undefinedVisu') + "_TP" + TPVersion + "_log.json");
@@ -117,39 +117,37 @@
         }
 
         function _setReferrerParams() {
-            var visuId, debug, storageLog,
-                referrer = document.referrer;
-            if (referrer.indexOf('visuId') !== -1) {
-                visuId = _extract('visuId', referrer);
+            var visuId, 
+            referrer = document.referrer.toLowerCase();
+   
+            if (referrer.indexOf('visuid') !== -1) {
+                visuId = _extract('visuid', referrer);
             }
             if (visuId) { $('#inVisuId').val(visuId); }
-
-            if (referrer.indexOf('debug') !== -1) {
-                debug = _extract('debug', referrer);
+            if(referrer.indexOf('watchdog=0')!==-1){
+                $('#check_watchdog').prop("checked", true);
             }
-            if (debug === 'true') {
-                $('#inDebug').prop("checked", true);
-            } else {
-                $('#inDebug').prop("checked", false);
-            }
-            if (referrer.indexOf('storageLog') !== -1) {
-                storageLog = _extract('storageLog', referrer);
-            }
-            if (storageLog === 'true') {
-                $('#inStorage').prop("checked", true);
-            } else {
-                $('#inStorage').prop("checked", false);
-            }
+            
+            ['debug', 'clientwarnings', 'devtool', 'storagelog'].forEach(function(item){
+                var value;
+                if (referrer.indexOf(item) !== -1) {
+                    value = _extract(item, referrer);
+                }
+                $('#check_' + item).prop("checked", value === 'true');
+                
+            });
 
         }
 
         function _navigate(e) {
             var visuId = $('#inVisuId').val(),
-                debug = document.getElementById('inDebug').checked,
-                watchdog = document.getElementById('inWatchdog').checked,
-                storageLog = document.getElementById('inStorage').checked;
+                debug = document.getElementById('check_debug').checked,
+                clientwarnings = document.getElementById('check_clientwarnings').checked,
+                devtool = document.getElementById('check_devtool').checked,
+                watchdog = document.getElementById('check_watchdog').checked,
+                storageLog = document.getElementById('check_storagelog').checked;
 
-            var url = "/index.html?visuId=" + visuId + ((watchdog) ? "&watchdog=0" : "") + "&debug=" + debug + "&storageLog=" + storageLog + '&t=' + Date.now();
+            var url = "/index.html?visuId=" + visuId + ((watchdog) ? "&watchdog=0" : "") + "&debug=" + debug+ "&clientWarnings=" + clientwarnings+ "&devtool=" + devtool + "&storageLog=" + storageLog + '&t=' + Date.now();
             document.location.href = url;
         }
 
@@ -214,9 +212,11 @@
     <div class="visuLink">
         <button id="btnNavigate">open Visu</button>
         <input type="text" value="Visu" id="inVisuId" />
-        <input type="checkbox" id="inDebug" checked="checked" /><label for="inDebug" class="big">debug</label>
-        <input type="checkbox" id="inStorage" checked="checked" /><label for="inStorage" class="big">storageLog</label>
-        <input type="checkbox" id="inWatchdog" /><label for="inWatchdog" class="big">watchdog=0</label>
+        <input type="checkbox" id="check_debug" checked="checked" /><label for="check_debug" class="big">debug</label>
+        <input type="checkbox" id="check_storagelog" checked="checked" /><label for="check_storagelog" class="big">storageLog</label>
+        <input type="checkbox" id="check_clientwarnings" checked="checked" /><label for="check_clientwarnings" class="big">clientWarnings</label>
+        <input type="checkbox" id="check_devtool" checked="checked" /><label for="check_devtool" class="big">devtool</label>
+        <input type="checkbox" id="check_watchdog" /><label for="check_watchdog" class="big">watchdog=0</label>
         <br />
         <input type="checkbox" id="inTime" /><label for="inTime" class="big">time</label>
         <input type="checkbox" id="inType" /><label for="inType" class="big">type</label>

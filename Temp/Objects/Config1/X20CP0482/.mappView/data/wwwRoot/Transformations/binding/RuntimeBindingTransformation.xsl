@@ -215,7 +215,7 @@ xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1">
         <xsl:value-of select="'br:brease'"/>
       </xsl:attribute>
       <xsl:attribute name="id">
-        <xsl:value-of select="'someId'"/>
+        <xsl:call-template name="getIdFromTarget" />
       </xsl:attribute>
       <!-- copy all the elements -->
       <xsl:for-each select="blt:Element | blt:Default">
@@ -234,6 +234,7 @@ xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1">
       </xsl:for-each>
       <xsl:copy-of select="../@attribute"/>
       <xsl:copy-of select="../@serverAlias"/>
+      <xsl:copy-of select="../@nameSpaceAlias"/>
       <xsl:copy-of select="../@samplingRate"/>
     </xsl:element>
   </xsl:template>
@@ -253,7 +254,7 @@ xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1">
         </xsl:choose>
       </xsl:attribute>
       <xsl:attribute name="id">
-        <xsl:value-of select="'someId'"/>
+        <xsl:call-template name="getIdFromTarget" />
       </xsl:attribute>
       <!-- copy all the elements -->
       <xsl:for-each select="blt:Element | blt:Default">
@@ -262,6 +263,17 @@ xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1">
     </xsl:element>
   </xsl:template>
 
+
+  <xsl:template name="getIdFromTarget">
+    <xsl:choose>
+      <xsl:when test="../../bdg:Target/@xsi:type = 'brease'">
+        <xsl:value-of select="concat(../../bdg:Target/@xsi:type, '*', ../../bdg:Target/@contentRefId, '_', ../../bdg:Target/@widgetRefId, '*', ../../bdg:Target/@attribute)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat(../../bdg:Target/@xsi:type, '*', ../../bdg:Target/@refId, '*', ../../bdg:Target/@attribute)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
   <xsl:template name="copyListElement">
     <!-- copy source-->

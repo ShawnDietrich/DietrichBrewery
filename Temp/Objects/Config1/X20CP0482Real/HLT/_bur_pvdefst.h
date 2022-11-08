@@ -234,6 +234,52 @@ typedef struct MpTempControllerHCMInfoType
 } MpTempControllerHCMInfoType;
 #endif
 
+#ifndef __AS__TYPE_MpTempSoftStartStateEnum
+#define __AS__TYPE_MpTempSoftStartStateEnum
+typedef enum MpTempSoftStartStateEnum
+{	mpTEMP_SOFTSTART_HEATING = 0,
+	mpTEMP_SOFTSTART_HOLD_TEMP = 1,
+	mpTEMP_SOFTSTART_REACHED_TEMP = 2,
+	mpTEMP_SOFTSTART_FINISHED = 3,
+	mpTEMP_SOFTSTART_EXCLUDED = 4,
+	mpTEMP_SOFTSTART_SKIPPED = 5,
+	mpTEMP_SOFTSTART_OFF = 6,
+} MpTempSoftStartStateEnum;
+#endif
+
+#ifndef __AS__TYPE_MpTempSoftStartCtrlInfoType
+#define __AS__TYPE_MpTempSoftStartCtrlInfoType
+typedef struct MpTempSoftStartCtrlInfoType
+{	MpTempSoftStartStateEnum State;
+} MpTempSoftStartCtrlInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempSystemInfoType
+#define __AS__TYPE_MpTempSystemInfoType
+typedef struct MpTempSystemInfoType
+{	MpTempSystemType Parameters;
+	MpTempSystemCharacteristicsType Type;
+} MpTempSystemInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempControllerFilterType
+#define __AS__TYPE_MpTempControllerFilterType
+typedef struct MpTempControllerFilterType
+{	plcbit Enable;
+	float NoiseReduction;
+} MpTempControllerFilterType;
+#endif
+
+#ifndef __AS__TYPE_MpTempParameterizationInfoType
+#define __AS__TYPE_MpTempParameterizationInfoType
+typedef struct MpTempParameterizationInfoType
+{	MpTempPIDType Controller;
+	MpTempSystemInfoType System;
+	MpTempProfileType Profile;
+	MpTempControllerFilterType KalmanFilter;
+} MpTempParameterizationInfoType;
+#endif
+
 #ifndef __AS__TYPE_MpTempControllerInfoType
 #define __AS__TYPE_MpTempControllerInfoType
 typedef struct MpTempControllerInfoType
@@ -247,6 +293,8 @@ typedef struct MpTempControllerInfoType
 	MpTempSimulationInfoType Simulation;
 	MpTempDiagType Diag;
 	MpTempControllerHCMInfoType HCM;
+	MpTempSoftStartCtrlInfoType SoftStart;
+	MpTempParameterizationInfoType Parameterization;
 } MpTempControllerInfoType;
 #endif
 
@@ -285,6 +333,7 @@ typedef enum MpTempTuningModeEnum
 	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
 	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
 	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
+	mpTEMP_TUNING_MODE_OSC_COOL = 5,
 } MpTempTuningModeEnum;
 #endif
 

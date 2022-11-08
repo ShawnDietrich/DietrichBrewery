@@ -14,20 +14,22 @@ define([
     var UtilsAxis = {};
 
     /**
-     * createSVGContainer creates the SVG Container.
+     * @method createSVGContainer
+     * creates the SVG Container.
      * @param {HTMLElement} elem HTMLElement where the SVG-Container should be appended
      * @param {Integer} height height of the SVG-Container
      * @param {Integer} width width of the SVG-Container
      * @return {HTMLElement} svgContainer
      */
-    UtilsAxis.createSVGContainer = function (elem, height, width, additionalClasses) {
+    UtilsAxis.createSVGContainer = function (elem, height, width) {
         var svgContainer = d3.select(elem).append('svg').attr('height', height).attr('width', width).attr('class', 'Axis');
         return svgContainer;
     };
 
     /**
-     * createAxisTop creates the Axis with Orientation Top
-     * @param scale scale-object of d3
+     * @method createAxisTop
+     * creates the Axis with Orientation Top
+     * @param {Object} scale scale-object of d3
      * @param {Number} limitMin minimumValue for Axis
      * @param {Number} limitMax maximumValue for Axis
      * @param {UInteger} majorTicks amount of Ticks to be shown 
@@ -45,8 +47,9 @@ define([
     };
 
     /**
-     * createAxisRight creates the Axis with Orientation Right
-     * @param scale scale-object of d3
+     * @method createAxisRight
+     * creates the Axis with Orientation Right
+     * @param {Object} scale scale-object of d3
      * @param {Number} limitMin minimumValue for Axis
      * @param {Number} limitMax maximumValue for Axis
      * @param {UInteger} majorTicks amount of Ticks to be shown 
@@ -64,8 +67,9 @@ define([
     };
 
     /**
-     * createAxisBottom creates the Axis with Orientation Bottom
-     * @param scale scale-object of d3
+     * @method createAxisBottom
+     * creates the Axis with Orientation Bottom
+     * @param {Object} scale scale-object of d3
      * @param {Number} limitMin minimumValue for Axis
      * @param {Number} limitMax maximumValue for Axis
      * @param {UInteger} majorTicks amount of Ticks to be shown 
@@ -83,8 +87,9 @@ define([
     };
 
     /**
-     * createAxisLeft creates the Axis with Orientation Left
-     * @param scale scale-object of d3
+     * @method createAxisLeft
+     * creates the Axis with Orientation Left
+     * @param {Object} scale scale-object of d3
      * @param {Number} limitMin minimumValue for Axis
      * @param {Number} limitMax maximumValue for Axis
      * @param {UInteger} majorTicks amount of Ticks to be shown 
@@ -102,9 +107,10 @@ define([
     };
 
     /**
-     * appendAxisHorizontal appends the Axis on horizontal position
+     * @method appendAxisHorizontal
+     * appends the Axis on horizontal position
      * @param {HTMLElement} svgContainer Reference to SVG-Element where the Axis should be appended
-     * @param axis (used for .call(axis))
+     * @param {Object} axis (used for .call(axis))
      * @param {Integer} offset offset-parameter for horizontal offset
      */
     UtilsAxis.appendAxisHorizontal = function (svgContainer, axis, offset) {
@@ -114,9 +120,10 @@ define([
     };
 
     /**
-     * appendAxisVertical appends the Axis on vertical position
+     * @method appendAxisVertical
+     * appends the Axis on vertical position
      * @param {HTMLElement} svgContainer Reference to SVG-Element where the Axis should be appended
-     * @param axis (used for .call(axis))
+     * @param {Object} axis (used for .call(axis))
      * @param {Integer} offset offset-parameter for vertical offset
      */
     UtilsAxis.appendAxisVertical = function (svgContainer, axis, offset) {
@@ -126,7 +133,8 @@ define([
     };
 
     /**
-     * showTickNumber shows / hiddes all Numbers from Ticks of given SVG-Container
+     * @method showTickNumber
+     * shows / hiddes all Numbers from Ticks of given SVG-Container
      * <b>ATTENTION: the selector is: selectAll('g.tick text')!</b>
      * @param {HTMLElement} svgContainer SVG-Container of Elements where the TickNumbers should be shown/hidden
      * @param {Boolean} showTickNumbers if true the Numbers will be shown
@@ -142,7 +150,8 @@ define([
     };
 
     /**
-     * showUnitSymbol shows / hiddes all unitSymbols of given SVG-Container
+     * @method showUnitSymbol
+     * shows / hiddes all unitSymbols of given SVG-Container
      * <b>ATTENTION: the selector is: selectAll('text.UnitSymbol')!</b>
      * @param {HTMLElement} svgContainer SVG-Container of Elements where the unit-Symbol should be shown/hidden
      * @param {Boolean} showUnitSymbols if true the symbols will be shown
@@ -157,14 +166,15 @@ define([
     };
 
     /**
-     * createCombinedAxis creates an Scale and Axis and appends it to parent
-     * @param configObject structure with all necessary information to create an Axis
+     * @method createCombinedAxis
+     * creates an Scale and Axis and appends it to parent
+     * @param {Object} configObject structure with all necessary information to create an Axis
      * @param {HTMLElement} configObject.elem HTMLElement where the Axis should be added
      * @param {UInteger} configObject.height height of Axis-Container
      * @param {UInteger} configObject.width width of Axis-Container
      * @param {brease.enum.TickStyle} configObject.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} configObject.orientation Orientation of the Widget
-     * @param configObject.scale scale for the Axis
+     * @param {Object} configObject.scale scale for the Axis
      * @param {Number} configObject.limitMin minimumLimit for Axis
      * @param {Number} configObject.limitMax maximumLimit for Axis
      * @param {UInteger} configObject.majorTicks amount of Ticks to be shown on Axis
@@ -198,14 +208,15 @@ define([
     };
 
     /**
-     * updateCombinedAxis updates the given Scale and Axis
-     * @param configObject structure with all necessary information to create an Axis
+     * @method updateCombinedAxis
+     * updates the given Scale and Axis
+     * @param {Object} configObject structure with all necessary information to create an Axis
      * @param {HTMLElement} configObject.elem HTMLElement where the Axis should be added
      * @param {UInteger} configObject.height height of Axis-Container
      * @param {UInteger} configObject.width width of Axis-Container
      * @param {brease.enum.TickStyle} configObject.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} configObject.orientation Orientation of the Widget
-     * @param configObject.scale scale for the Axis
+     * @param {Object} configObject.scale scale for the Axis
      * @param {Number} configObject.limitMin minimumLimit for Axis
      * @param {Number} configObject.limitMax maximumLimit for Axis
      * @param {UInteger} configObject.majorTicks amount of Ticks to be shown on Axis
@@ -238,14 +249,15 @@ define([
     };
 
     /**
-     * createCombinedAxisHorizontal creates the Scale and the Axis for Horizontal
-     * @param configObject structure with all necessary information to create an Axis
+     * @method createCombinedAxisHorizontal
+     * creates the Scale and the Axis for Horizontal
+     * @param {Object} configObject structure with all necessary information to create an Axis
      * @param {HTMLElement} configObject.elem HTMLElement where the Axis should be added
      * @param {UInteger} configObject.height height of Axis-Container
      * @param {UInteger} configObject.width width of Axis-Container
      * @param {brease.enum.TickStyle} configObject.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} configObject.orientation Orientation of the Widget
-     * @param configObject.scale scale for the Axis
+     * @param {Object} configObject.scale scale for the Axis
      * @param {Number} configObject.limitMin minimumLimit for Axis
      * @param {Number} configObject.limitMax maximumLimit for Axis
      * @param {UInteger} configObject.majorTicks amount of Ticks to be shown on Axis
@@ -288,14 +300,15 @@ define([
     };
 
     /**
-     * createCombinedAxisHorizontal creates the Scale and the Axis for Vertical
-     * @param configObject structure with all necessary information to create an Axis
+     * @method createCombinedAxisVertical
+     * creates the Scale and the Axis for Vertical
+     * @param {Object} configObject structure with all necessary information to create an Axis
      * @param {HTMLElement} configObject.elem HTMLElement where the Axis should be added
      * @param {UInteger} configObject.height height of Axis-Container
      * @param {UInteger} configObject.width width of Axis-Container
      * @param {brease.enum.TickStyle} configObject.tickPosition position of the Ticks
      * @param {brease.enum.Orientation} configObject.orientation Orientation of the Widget
-     * @param configObject.scale scale for the Axis
+     * @param {Object} configObject.scale scale for the Axis
      * @param {Number} configObject.limitMin minimumLimit for Axis
      * @param {Number} configObject.limitMax maximumLimit for Axis
      * @param {UInteger} configObject.majorTicks amount of Ticks to be shown on Axis

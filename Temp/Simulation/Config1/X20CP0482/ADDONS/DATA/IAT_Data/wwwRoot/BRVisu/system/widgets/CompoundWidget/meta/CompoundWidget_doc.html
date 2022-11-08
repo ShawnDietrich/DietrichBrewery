@@ -115,6 +115,27 @@
 <td class="parameter_tab"></td>
 </tr>
 <tr>
+<td class="parameter_tab">tabIndex</td>
+<td class="parameter_tab">
+</td>
+<td class="parameter_tab">Behavior</td>
+<td class="parameter_tab">Integer</td>
+<td class="parameter_tab">0</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="false parameter_tab">false</td>
+<td class="true parameter_tab">true</td>
+<td class="false parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">tooltip</td>
 <td class="parameter_tab">reference to a tooltip for a widget
 </td>
@@ -296,25 +317,25 @@
 <tbody>
 <tr>
 <td class="parameter_tab">Click</td>
-<td class="parameter_tab"><p>Fired when element is clicked on.</p>
+<td class="parameter_tab">Fired when element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
 
 
 
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
 
 
 
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'</p>
+<p>vertical position of click in pixel i.e '10px'
 
 
 
@@ -325,24 +346,27 @@
 </tr>
 <tr>
 <td class="parameter_tab">DisabledClick</td>
-<td class="parameter_tab"><p>Fired when disabled element is clicked on.</p>
+<td class="parameter_tab">Fired when disabled element is clicked on.
 </td>
 <td class="parameter_tab"><ul>
 <li>origin: String
-<p><p>id of widget that triggered this event</p>
+<p>id of widget that triggered this event
+
 </p>
 </li>
 <li>hasPermission: Boolean
-<p><p>defines if the state is caused due to missing</p>
+<p>defines if the state is caused due to missing roles of the current user
+
 </p>
 </li>
 <li>horizontalPos: String
-<p><p>horizontal position of click in pixel i.e '10px'</p>
+<p>horizontal position of click in pixel i.e '10px'
+
 </p>
 </li>
 <li>verticalPos: String
-<p><p>vertical position of click in pixel i.e '10px'
-roles of the current user</p>
+<p>vertical position of click in pixel i.e '10px'
+
 </p>
 </li>
 </ul>
@@ -350,11 +374,11 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">EnableChanged</td>
-<td class="parameter_tab"><p>Fired when operability of the widget changes.</p>
+<td class="parameter_tab">Fired when operability of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>operability</p>
+<p>operability
 
 
 
@@ -364,12 +388,24 @@ roles of the current user</p>
 </td>
 </tr>
 <tr>
+<td class="parameter_tab">FocusIn</td>
+<td class="parameter_tab">Fired when the widgets gets focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
+<td class="parameter_tab">FocusOut</td>
+<td class="parameter_tab">Fired when the widgets lost focus
+</td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">VisibleChanged</td>
-<td class="parameter_tab"><p>Fired when the visibility of the widget changes.</p>
+<td class="parameter_tab">Fired when the visibility of the widget changes.
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
-<p><p>visibility</p>
+<p>visibility
 
 
 
@@ -394,8 +430,15 @@ roles of the current user</p>
 </thead>
 <tbody>
 <tr>
+<td class="parameter_tab">Focus</td>
+<td class="parameter_tab">Sets focus on the widget element, if it can be focused and keyboardOperation=true
+</td>
+<td class="parameter_tab"></td>
+<td class="parameter_tab"></td>
+</tr>
+<tr>
 <td class="parameter_tab">SetEnable</td>
-<td class="parameter_tab"><p>Sets the state of property «enable»</p>
+<td class="parameter_tab">Sets the state of property «enable»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean
@@ -408,7 +451,7 @@ roles of the current user</p>
 </tr>
 <tr>
 <td class="parameter_tab">SetVisible</td>
-<td class="parameter_tab"><p>Sets the state of property «visible»</p>
+<td class="parameter_tab">Sets the state of property «visible»
 </td>
 <td class="parameter_tab"><ul>
 <li>value: Boolean

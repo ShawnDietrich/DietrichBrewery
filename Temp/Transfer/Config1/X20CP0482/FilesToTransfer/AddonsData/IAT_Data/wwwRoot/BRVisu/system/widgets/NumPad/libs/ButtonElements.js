@@ -14,13 +14,14 @@ define(['brease/events/EventDispatcher', 'brease/events/BreaseEvent', 'brease/co
 
         ButtonElements.prototype = new EventDispatcher();
 
-        ButtonElements.prototype.init = function (e) {
+        ButtonElements.prototype.init = function () {
             this.buttons = {
                 'sign': this.el.find('[data-action="sign"]'),
                 'comma': this.el.find('[data-action="comma"]'),
                 'delete': this.el.find('[data-action="delete"]'),
                 'enter': this.el.find('[data-action="enter"]'),
-                'close': this.el.find('[data-action="close"]')
+                'close': this.el.find('[data-action="close"]'),
+                'clear': this.el.find('[data-action="clear"]')
             };
             this.clickEventName = _getEventConfig(brease.config.virtualKeyboards);
         };
@@ -65,7 +66,7 @@ define(['brease/events/EventDispatcher', 'brease/events/BreaseEvent', 'brease/co
             brease.docEl.on(BreaseEvent.MOUSE_UP, this.buttonUpHandler);
         };
 
-        ButtonElements.prototype.buttonUpHandler = function (e) {
+        ButtonElements.prototype.buttonUpHandler = function () {
             brease.docEl.off(BreaseEvent.MOUSE_UP, this.buttonUpHandler);
             Utils.removeClass(this.activeButton, 'active');
             this.activeButton = undefined;
@@ -88,10 +89,8 @@ define(['brease/events/EventDispatcher', 'brease/events/BreaseEvent', 'brease/co
         ButtonElements.prototype.triggerAction = function (action, value) {
             /**
             * @event ButtonAction
-            * @param {Object} detail  
-            * @param {String} detail.action
-            * @param {String} detail.value
-            * @param {String} type 'ButtonAction'
+            * @param {String} action
+            * @param {String} value
             */
             this.dispatchEvent({
                 type: 'ButtonAction',

@@ -118,8 +118,28 @@ define(['brease/controller/objects/PageType'], function (PageType) {
             // eslint-disable-next-line no-unused-expressions
             elem.offsetHeight;
             elem.style.cssText = css;
-        }
+        },
 
+        /**
+         * Get the pageId and areaId for a content. No user defined (system) areas will be ignored!
+         * @param {String} contentId 
+         * @returns {Object} pageId and areaId of content
+         */
+        getContentPageAreaIds: function (contentId) {
+            var area = $('[data-brease-contentid="' + contentId + '"]').parent().closest('.LayoutArea[id^=root]'),
+                page = area.parent();
+            return {
+                areaId: area.attr('data-brease-areaid'),
+                pageId: page.attr('data-brease-pageid')
+            };
+        },
+
+        /** 
+         * @returns {Boolean} true if there is a active dimmer for a modal dialog or msgbox.
+         */
+        hasModalWindow: function () {
+            return document.body.querySelector('.breaseModalDimmer.active') !== null;
+        }
     };
 
     return Utils;

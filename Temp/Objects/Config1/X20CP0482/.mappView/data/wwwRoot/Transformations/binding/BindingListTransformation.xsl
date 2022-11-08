@@ -91,6 +91,7 @@ xmlns="http://www.br-automation.com/iat2015/bindingList/runtime/v2">
       </xsl:for-each>
       <xsl:copy-of select="../@attribute"/>
       <xsl:copy-of select="../@serverAlias"/>
+      <xsl:copy-of select="../@nameSpaceAlias"/>
       <xsl:copy-of select="../@samplingRate"/>
     </xsl:element>
   </xsl:template>
@@ -101,7 +102,7 @@ xmlns="http://www.br-automation.com/iat2015/bindingList/runtime/v2">
       <xsl:for-each select="@*">
         <xsl:choose>
           <!-- do not copy this attributes -->
-          <xsl:when test="name()='attribute' or name()='samplingRate' or name()='serverAlias'">
+          <xsl:when test="name()='attribute' or name()='samplingRate' or name()='serverAlias' or name()='nameSpaceAlias'">
           </xsl:when>
           <xsl:when test="name()='xsi:type' and .='session'">
             <xsl:attribute name="{name()}">

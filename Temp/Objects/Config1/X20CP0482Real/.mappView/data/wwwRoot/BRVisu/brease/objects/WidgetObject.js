@@ -6,8 +6,9 @@ define(function () {
     * @class brease.objects.WidgetObject
     * @alternateClassName WidgetObject
     * @extends Object
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new WidgetObject instance.
     * @param {String} id
     * @param {ContentReference} contentId

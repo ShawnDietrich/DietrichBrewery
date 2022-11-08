@@ -28,6 +28,7 @@ define([
     };
 
     /**
+     * @method 
      * Adds the Class for letting the Element shake
      * @param {StringArray1D} widgetIDs Array of WidgetIDs (including ContentId)
      */
@@ -44,6 +45,7 @@ define([
     };
 
     /**
+     * @method
      * Removes the Class for letting the Element shake
      * @param {StringArray1D} widgetIDs Array of WidgetIDs (including ContentId)
      */

@@ -4,8 +4,9 @@ define(['brease/events/EventHandler',
     'brease/events/SystemGestures',
     'brease/core/Utils',
     'brease/controller/objects/ContentStatus',
-    'brease/model/VisuModel'],
-function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, ContentStatus, _visuModel) {
+    'brease/model/VisuModel',
+    'brease/controller/libs/AreaManager'],
+function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, ContentStatus, _visuModel, AreaManager) {
 
     'use strict';
 
@@ -31,22 +32,23 @@ function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, C
 
             getAreaForPoint: function (point) {
 
-                var cpId = brease.pageController.getCurrentPage('appContainer'),
+                var cpId = brease.pageController.getCurrentPage(brease.appElem.id),
                     cp = brease.pageController.getPageById(cpId),
-                    layout = brease.pageController.getLayoutById(cp.layout),
-                    areas = [];
+                    areaObjects = [];
 
                 for (var areaId in cp.assignments) {
-                    var area = layout.areas[areaId];
-                    if (area.left <= point.left && point.left <= area.left + area.width && area.top <= point.top && point.top <= area.top + area.height) {
-                        areas.push(area);
+                    var areaObj = AreaManager.getArea(brease.appElem.id, cp.layout, areaId),
+                        rect = areaObj.div.getBoundingClientRect();
+
+                    if (rect.left <= point.left && point.left <= rect.left + rect.width && rect.top <= point.top && point.top <= rect.top + rect.height) {
+                        areaObjects.push(areaObj);
                     }
                 }
-                if (areas.length > 1) {
-                    areas.sort(function (a, b) { return b.zIndex - a.zIndex; });
+                if (areaObjects.length > 1) {
+                    areaObjects.sort(function (a, b) { return b.info.zIndex - a.info.zIndex; });
                 }
-                if (areas.length > 0) {
-                    return areas[0].id;
+                if (areaObjects.length > 0) {
+                    return areaObjects[0].info.id;
                 } else {
                     return undefined;
                 }
@@ -63,17 +65,19 @@ function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, C
         _initContentEvents(remove);
         _initDialogEvents(remove);
         _initTooltipEvents(remove);
+        _initPasswordEvents(remove);
     }
 
     function _initKeyEvents(remove) {
+        var options = { capture: true };
         if (remove) {
-            document.removeEventListener('keypress', _keyPressHandler);
-            document.removeEventListener('keyup', _keyUpHandler);
-            document.removeEventListener('keydown', _keyDownHandler);
+            document.removeEventListener('keypress', _keyPressHandler, options);
+            document.removeEventListener('keyup', _keyUpHandler, options);
+            document.removeEventListener('keydown', _keyDownHandler, options);
         } else {
-            document.addEventListener('keypress', _keyPressHandler);
-            document.addEventListener('keyup', _keyUpHandler);
-            document.addEventListener('keydown', _keyDownHandler);
+            document.addEventListener('keypress', _keyPressHandler, options);
+            document.addEventListener('keyup', _keyUpHandler, options);
+            document.addEventListener('keydown', _keyDownHandler, options);
         }
 
     }
@@ -141,12 +145,24 @@ function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, C
         }
     }
 
+    function _initPasswordEvents(remove) {
+        if (remove) {
+            document.body.removeEventListener(BreaseEvent.CHANGEPASSWORDDIALOG_CLOSED, _passwordChangeHandler);
+        } else {
+            document.body.addEventListener(BreaseEvent.CHANGEPASSWORDDIALOG_CLOSED, _passwordChangeHandler);
+        }
+    }
+
     function _tooltipModeActiveHandler() {
         _dispatchEvent(ClientSystemEvent.TOOLTIPMODE_ACTIVATED, {});
     }
 
     function _tooltipModeInactiveHandler() {
         _dispatchEvent(ClientSystemEvent.TOOLTIPMODE_DEACTIVATED, {});
+    }
+
+    function _passwordChangeHandler(e) {
+        _dispatchEvent(ClientSystemEvent.CHANGEPASSWORDDIALOG_CLOSED, { userName: e.detail.userName, result: e.detail.result });
     }
 
     function _startHandler(e) {

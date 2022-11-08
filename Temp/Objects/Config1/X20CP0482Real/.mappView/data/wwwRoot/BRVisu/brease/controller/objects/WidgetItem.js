@@ -6,8 +6,9 @@ define(function () {
     * @class brease.objects.WidgetItem
     * @alternateClassName WidgetItem
     * @extends brease.objects.Item
-    *
-    * @constructor
+    */
+    /**
+    * @method constructor
     * Creates a new WidgetItem instance.
     * @param {core.html.Node} node
     * @param {brease.enum.WidgetState} state

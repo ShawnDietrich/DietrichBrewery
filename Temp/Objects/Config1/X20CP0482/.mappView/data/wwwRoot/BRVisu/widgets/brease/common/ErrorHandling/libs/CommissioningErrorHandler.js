@@ -6,6 +6,9 @@ define(['brease/core/Class'], function (SuperClass) {
     * @class widgets.brease.common.ErrorHandling.libs.CommissioningErrorHandler
     * @extends brease.core.Class
     * Commissioning error module for all widgets. It provides functions to signal commissioning errors to the user. 
+    */
+    /**
+    * @method constructor
     * @param {Object} [widget] reference to widget creating the instance
     */
     var ErrorHandler = SuperClass.extend(function ErrorHandler(widget) {
@@ -31,9 +34,10 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-     * @method requiredBindingMissing used when a required binding is missing (e.g. mpLink)
+     * @method requiredBindingMissing 
+     * used when a required binding is missing (e.g. mpLink)
      * @param {String} property name of bindable property
-     * @param {String} [id] ifdifferent from  widget's id
+     * @param {String} [id] if different from  widget's id
      */
     p.requiredBindingMissing = function (arg1, arg2) {
         var id = _getWidgetId(this.widgetId, this.contentId),
@@ -46,9 +50,10 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method requiredBindingsMissing used when required bindings are missing
+    * @method requiredBindingsMissing 
+    * used when required bindings are missing
     * @param {String} properties name of bindable properties
-    * @param {String} [id] ifdifferent from  widget's id
+    * @param {String} [id] if different from  widget's id
     */
     p.requiredBindingsMissing = function (arg1) {
         var id = _getWidgetId(this.widgetId, this.contentId);
@@ -58,7 +63,8 @@ define(['brease/core/Class'], function (SuperClass) {
         _setErrorMessage(this, id, 'Binding for properties missing!');
     };
     /**
-   * @method requiredBindingNodesMissing used when required bindings are missing
+   * @method requiredBindingNodesMissing 
+   * used when required bindings are missing
    */
     p.requiredBindingNodesMissing = function () {
         var id = _getWidgetId(this.widgetId, this.contentId);
@@ -66,7 +72,8 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method invalidPropertyValue used when a property is invalid or creates a conflict the widget cannot handle. 
+    * @method invalidPropertyValue 
+    * used when a property is invalid or creates a conflict the widget cannot handle. 
     *         E.g. widgetRefId is not exisisting. 
     * @param {String} property name of property
     * @param {String} [id] if different from  widget's id
@@ -82,7 +89,8 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method requiredAncestorWidgetMissing  used when a child is missing the required ancestor. 
+    * @method requiredAncestorWidgetMissing  
+    * used when a child is missing the required ancestor. 
     * @param {String|Array} ancestorType name of unit property
     * @param {String} [id] if different from  widget's id
     */
@@ -103,7 +111,8 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method requiredParentWidgetMissing  used when a child is missing the required parent. 
+    * @method requiredParentWidgetMissing  
+    * used when a child is missing the required parent. 
     * @param {String|Array} parentType name of unit property
     * @param {String} [id] if different from  widget's id
     */
@@ -124,7 +133,8 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method requiredChildWidgetMissing  used when a parent is missing one or more required children. 
+    * @method requiredChildWidgetMissing  
+    * used when a parent is missing one or more required children. 
     * @param {String|Array} childType name of unit property
     * @param {String} [id] if different from  widget's id
     */
@@ -145,7 +155,8 @@ define(['brease/core/Class'], function (SuperClass) {
     };
 
     /**
-    * @method childrenConflict  used when a parent cannot handle the type, amount or combination of children
+    * @method childrenConflict
+    * used when a parent cannot handle the type, amount or combination of children
     * @param {String} childId id of child widget
     * @param {String} [id] if different from  widget's id
     */

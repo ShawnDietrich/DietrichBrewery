@@ -47,48 +47,6 @@ define(['brease/core/Utils',
             }
         },
 
-        loadWidgetClasses: function (classList, loadMetaData) {
-            var def = new Deferred(Deferred.TYPE_SINGLE);
-
-            function resolveClassList(className) {
-                var i = classList.indexOf(className);
-                classList.splice(i, 1);
-                if (classList.length === 0) {
-                    def.resolve();
-                }
-            }
-
-            if (classList.length > 0) {
-                
-                for (var i = classList.length - 1; i >= 0; i -= 1) {
-                    var className = classList[i],
-                        widgetPath = controller.getPathByClass(className);
-
-                    var files = [widgetPath.path];
-
-                    if (loadMetaData === true) {
-                        files.push(className + '/designer/ClassInfo');
-                    }
-
-                    if (_readyDef[className] === undefined) {
-                        _readyDef[className] = new Deferred();
-                        require(files, _loadJSsuccess.bind(null, className), _loadJSfail.bind(null, className));
-                    }
-                    _readyDef[className].done(function (WidgetClass, className) {
-                        resolveClassList(WidgetClass.defaults.className);
-                    }).fail(function (message, className) {
-                        resolveClassList(className);
-                    });
-                
-                } 
-            } else {
-                def.resolve();
-            }
-
-            return def;
-
-        },
-
         loadJSFiles: function (widgetPath, loadMetaData) {
             if (!widgetPath || !widgetPath.path || !widgetPath.class) {
                 var def = new Deferred();

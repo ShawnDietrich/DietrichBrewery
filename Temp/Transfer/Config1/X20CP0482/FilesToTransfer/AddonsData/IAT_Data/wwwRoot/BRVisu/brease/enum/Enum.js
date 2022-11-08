@@ -245,6 +245,42 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     });
 
     /** 
+    * @enum {String} brease.enum.KeyAction
+    * @iatMeta studio:visible
+    * false
+    */
+    /**
+    * @property {String} Accept='Accept' 
+    */
+    /**
+    * @property {String} Cancel='Cancel'
+    */
+    /**
+    * @property {String} ScrollDown='ScrollDown' 
+    */
+    /**
+    * @property {String} ScrollUp='ScrollUp'
+    */
+    /**
+    * @property {String} ScrollDownFast='ScrollDownFast'
+    */
+    /** 
+    * @property {String} ScrollUpFast='ScrollUpFast'
+    */
+    /** 
+    * @property {String} Close='Close'
+    */
+    _defineEnum('KeyAction', {
+        Accept: 'Accept',
+        Cancel: 'Cancel',
+        ScrollDown: 'ScrollDown',
+        ScrollUp: 'ScrollUp',
+        ScrollDownFast: 'ScrollDownFast',
+        ScrollUpFast: 'ScrollUpFast',
+        Close: 'Close'
+    });
+
+    /** 
     * @enum {Integer} brease.enum.Dependency
     * @iatMeta studio:visible
     * false
@@ -877,17 +913,24 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     /** 
     * @property {String} APP='application'
     * @iatStudioExposed
-    * position specifications are relative to the application, i.e. the browser window
+    * position specifications are relative to the application, i.e. the browser window if the app container is larger
+    * than the browser window otherwise relative to the app container
     */
     /** 
     * @property {String} CONTAINER='container'
     * @iatStudioExposed
     * position specifications are relative to the HTML-container of the positioned widget
     */
+    /** 
+    * @property {String} WINDOW='window'
+    * @iatStudioExposed
+    * position specifications are always relative to the browser window
+    */
     _defineEnum('PointOfOrigin', {
         APP: 'application',
         CONTAINER: 'container',
-        ELEMENT: 'element'
+        ELEMENT: 'element',
+        WINDOW: 'window'
     });
 
     /** 
@@ -1572,6 +1615,46 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
         new: 'new',
         old: 'old'
     });
+    
+    /** 
+     * @enum {String} brease.enum.UserListItemType 
+     * @alternateClassName UserListItemType 
+     * @iatMeta studio:visible 
+     * true 
+     */
+    /** 
+     * @property {String} userName='UserName' 
+     * @iatStudioExposed 
+     */
+    /** 
+     * @property {String} fullName='FullName' 
+     * @iatStudioExposed 
+     */
+    /** 
+     * @property {String} roles='Roles' 
+     * @iatStudioExposed 
+     */
+    /** 
+     * @property {String} isAdmin='IsAdmin' 
+     * @iatStudioExposed 
+     */
+    /** 
+     * @property {String} isLocked='IsLocked' 
+     * @iatStudioExposed 
+     */
+    /** 
+     * @property {String} lastLogin='LastLogin' 
+     * @iatStudioExposed 
+     */
+
+    _defineEnum('UserListItemType', {
+        userName: 'UserName',
+        fullName: 'FullName',
+        roles: 'Roles',
+        isAdmin: 'IsAdmin',
+        isLocked: 'IsLocked',
+        lastLogin: 'LastLogin'
+    });
 
     /** 
     * @enum {String} brease.enum.ChartZoomType 
@@ -1744,7 +1827,10 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
         CLIENT_VISU_ACTIVATE_FAILED: 32084, //OFF
         NESTED_CONTENT_CONTROL_FOUND: 32085, //OFF
         CLIENT_INVALID_WIDGET_LOCATION: 32086, //OFF
-        CLIENT_WIDGET_INITIALIZATION_FAILED: 32087 //OFF
+        CLIENT_WIDGET_INITIALIZATION_FAILED: 32087, //OFF
+        CLIENT_USER_CHANGEPASSWORD_OK: 32088, //OFF
+        CLIENT_USER_CHANGEPASSWORD_FAIL: 32089, //OFF
+        CLIENT_FOCUS_ACTION_FAIL: 32090 // OFF
     });
 
     /** 
@@ -1833,5 +1919,145 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
         'ZH-HK': 'zh-hk'
     });
 
+    /** 
+    * @enum {String} brease.enum.MappTableConfigurationType
+    * @iatMeta studio:visible
+    * false
+    */
+    /**
+    * @property {String} Filtering='filter' 
+    */
+    /**
+    * @property {String} Sorting='sort'  
+    */
+    /** 
+    * @property {String} Styling='style'  
+    */
+    /** 
+    * @property {String} AddUser='adduser' 
+    */
+    /** 
+    * @property {String} ModifyUser='modifyuser' 
+    */
+
+    _defineEnum('MappTableConfigurationType', {
+        Filtering: 'filter',
+        Sorting: 'sort',
+        Styling: 'style',
+        AddUser: 'adduser',
+        ModifyUser: 'modifyuser'
+    });
+
+    /** 
+    * @enum {Integer} brease.enum.MpUserXError
+    * @iatMeta studio:visible
+    * false
+    */
+    /**
+    * @property {Integer} BUSY=0
+    */
+    /**
+    * @property {Integer} SUCCESS=1
+    */
+    /**
+    * @property {Integer} INVALID_SESSION=104  
+    */
+    /**
+    * @property {Integer} PASSWORD_POLICIES_NOT_MET=106
+    */
+    /** 
+    * @property {Integer} USER_DOESNT_EXIST=200  
+    */
+    /** 
+    * @property {Integer} USER_ALREADY_EXISTS=201
+    */
+    /** 
+    * @property {Integer} INSUFFICIENT_RIGHTS=202 
+    */
+    /** 
+    * @property {Integer} ROLE_DOESNT_EXIST=203
+    */
+    /** 
+    * @property {Integer} TOO_MANY_ROLES=204
+    */
+    /** 
+    * @property {Integer} USERNAME_EMPTY=205
+    */
+    /** 
+    * @property {Integer} ACTION_NOT_ALLOWED=206
+    */
+    /** 
+    * @property {Integer} USER_CURRENTLY_LOGGED_IN=207 
+    */
+    /** 
+    * @property {Integer} USERNAME_TOO_SHORT=209 
+    */
+    _defineEnum('MpUserXError', {
+        BUSY: 0,
+        SUCCESS: 1,
+        INVALID_SESSION: 104,
+        PASSWORD_POLICIES_NOT_MET: 106,
+        USER_DOESNT_EXIST: 200,
+        USER_ALREADY_EXISTS: 201,
+        INSUFFICIENT_RIGHTS: 202,
+        ROLE_DOESNT_EXIST: 203,
+        TOO_MANY_ROLES: 204,
+        USERNAME_EMPTY: 205,
+        ACTION_NOT_ALLOWED: 206,
+        USER_CURRENTLY_LOGGED_IN: 207,
+        USERNAME_TOO_SHORT: 209
+
+    });
+
+    /** 
+    * @enum {String} brease.enum.ErrorCorrectionLevel
+    * @iatMeta studio:visible
+    * true
+    */
+    /**
+    * @property {String} low='low'
+    * @iatStudioExposed
+    * 7% of data bytes can be restored.
+    */
+    /**
+    * @property {String} medium='medium'
+    * @iatStudioExposed
+    * 15% of data bytes can be restored.
+    */
+    /**
+    * @property {String} quartile='quartile'
+    * @iatStudioExposed
+    * 25% of data bytes can be restored.
+    */
+    /**
+    * @property {String} high='high'
+    * @iatStudioExposed
+    * 30% of data bytes can be restored.
+    */
+    _defineEnum('ErrorCorrectionLevel', {
+        low: 'low',
+        medium: 'medium',
+        quartile: 'quartile',
+        high: 'high'
+    });
+
+    /** 
+    * @enum {String} brease.enum.Docking
+    * Docking value for virtual keyboards defined in the .vis file
+    * @iatMeta studio:visible
+    * false
+    */
+    /** 
+    * @property {String} NONE='none'
+    * keyboard position will remain unchanged
+    */
+    /** 
+    * @property {String} BOTTOM='bottom'
+    * keyboard will be positioned to the bottom of the browser window
+    */
+    _defineEnum('Docking', {
+        NONE: 'none',
+        BOTTOM: 'bottom'
+    });
     return Enum;
 });

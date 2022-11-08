@@ -1,8 +1,10 @@
 define(['widgets/brease/Window/Window',
     'brease/controller/PopUpManager',
     'brease/events/BreaseEvent',
-    'system/widgets/common/keyboards/NodeInfo'],
-function (SuperClass, PopUpManager, BreaseEvent, NodeInfo) {
+    'system/widgets/common/keyboards/NodeInfo', 
+    'system/widgets/common/keyboards/Docking',
+    'system/widgets/common/keyboards/KeyboardType'],
+function (SuperClass, PopUpManager, BreaseEvent, NodeInfo, Docking, KeyboardType) {
 
     'use strict';
 
@@ -40,8 +42,9 @@ function (SuperClass, PopUpManager, BreaseEvent, NodeInfo) {
         SuperClass.prototype.init.apply(this, arguments);
     };
 
-    p.show = function (options) {
-        SuperClass.prototype.show.apply(this, arguments);
+    p.show = function (options, refElement) {
+        options = Docking.applyConfig(KeyboardType.ALPHANUMERIC, options);
+        SuperClass.prototype.show.call(this, options, refElement);
         if (!this.inputEl) {
             this.inputEl = this.el.find('.ValueOutput');
         }
@@ -75,6 +78,12 @@ function (SuperClass, PopUpManager, BreaseEvent, NodeInfo) {
         this.hide();
     };
 
+    p._keyDownHandler = function (e) {
+        if (brease.config.visu.keyboardOperation && e.key === 'Escape') {
+            this.hide();
+        }
+    };
+
     function overlayOpenHandler() {
         // remove focus of input field
         // otherwise it would be possible to enter characters under the MessageBox via hard keyboard
@@ -97,12 +106,14 @@ function (SuperClass, PopUpManager, BreaseEvent, NodeInfo) {
         document.body.addEventListener(BreaseEvent.DIALOG_OPEN, this._bind(dialogOpenHandler));
         document.body.addEventListener(BreaseEvent.CLOSED, this._bind(overlayCloseHandler));
         document.body.addEventListener(BreaseEvent.WINDOW_SHOW, this._bind(overlayOpenHandler));
+        document.body.addEventListener('keydown', this._bind('_keyDownHandler'));
     }
 
     function removeListeners() {
         document.body.removeEventListener(BreaseEvent.DIALOG_OPEN, this._bind(dialogOpenHandler));
         document.body.removeEventListener(BreaseEvent.CLOSED, this._bind(overlayCloseHandler));
         document.body.removeEventListener(BreaseEvent.WINDOW_SHOW, this._bind(overlayOpenHandler));
+        document.body.removeEventListener('keydown', this._bind('_keyDownHandler'));
     }
 
     return WidgetClass;

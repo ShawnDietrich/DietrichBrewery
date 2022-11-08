@@ -20,6 +20,7 @@
   </xsl:template>
 
   <xsl:template match="numpad:NumPad">
+    <!-- import is working, because sass compiler in AS gets a list of includePaths, one of them is BRVisu/css/libs -->
     <xsl:text>@import "mixins.scss";
     .</xsl:text>
     <xsl:value-of select="$cssClassName"/>
@@ -73,6 +74,12 @@
         border-style: solid;
         border-width: 1px;
       }
+      .unitInfo {
+        position:absolute;
+        overflow: hidden;
+        display:block;
+        box-sizing: border-box;
+      }
 </xsl:text>
     <xsl:apply-templates select="numpad:Header" mode="class"/>
     <xsl:text>
@@ -82,6 +89,7 @@
     <xsl:apply-templates select="numpad:Section"/>
     <xsl:apply-templates select="numpad:Label"/>
     <xsl:apply-templates select="numpad:NodeInfo"/>
+    <xsl:apply-templates select="numpad:UnitInfo"/>
     <xsl:apply-templates select="numpad:Value"/>
     <xsl:apply-templates select="numpad:Slider"/>
     <xsl:apply-templates select="numpad:ValueButton"/>
@@ -122,6 +130,9 @@
     <xsl:apply-templates select="numpad:NodeInfo">
       <xsl:with-param name="prefix" select="'H'"/>
     </xsl:apply-templates>
+    <xsl:apply-templates select="numpad:UnitInfo">
+      <xsl:with-param name="prefix" select="'H'"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="numpad:Section">
@@ -146,6 +157,9 @@
       <xsl:with-param name="prefix" select="position()"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="numpad:NodeInfo">
+      <xsl:with-param name="prefix" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="numpad:UnitInfo">
       <xsl:with-param name="prefix" select="position()"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="numpad:Value">
@@ -239,6 +253,38 @@
     </xsl:call-template>
     <xsl:call-template name="multiLine">
       <xsl:with-param name="multiLine" select="@multiLine" />
+    </xsl:call-template>
+    <xsl:text>
+            }
+    </xsl:text>
+  </xsl:template>
+
+  <xsl:template match="numpad:UnitInfo">
+    <xsl:param name="prefix"></xsl:param>
+    <xsl:text>#</xsl:text>
+    <xsl:value-of select="$widgetName"/>
+    <xsl:if test="$prefix">
+      <xsl:text>_S</xsl:text>
+      <xsl:value-of select="$prefix"/>
+    </xsl:if>
+    <xsl:text>_UnitInfo</xsl:text>
+    <xsl:value-of select="position()"/>
+    <xsl:text> {
+            top:</xsl:text>
+    <xsl:value-of select="@top"/>
+    <xsl:text>px; left:</xsl:text>
+    <xsl:value-of select="@left"/>
+    <xsl:text>px;
+            width:</xsl:text>
+    <xsl:value-of select="@width"/>
+    <xsl:text>px; height:</xsl:text>
+    <xsl:value-of select="@height"/>
+    <xsl:text>px;</xsl:text>
+    <xsl:call-template name="zIndex">
+      <xsl:with-param name="zIndex" select="@zIndex" />
+    </xsl:call-template>
+    <xsl:call-template name="textAlign">
+      <xsl:with-param name="textAlign" select="@textAlign" />
     </xsl:call-template>
     <xsl:text>
             }
@@ -371,7 +417,8 @@
 
   <xsl:template match="numpad:Slider">
     <xsl:param name="prefix"></xsl:param>
-    <xsl:text>@import 'brease/NumPad/libs/NumPadSlider.scss';
+    <!-- import is working, because sass compiler in AS gets a list of includePaths, one of them is BRVisu/css/libs -->
+    <xsl:text>@import '../../system/widgets/NumPad/libs/NumPadSlider.scss';
   #</xsl:text>
     <xsl:value-of select="$widgetName"/>
     <xsl:if test="$prefix">

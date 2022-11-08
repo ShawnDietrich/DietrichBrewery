@@ -40,6 +40,9 @@
 		<Children>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="RemoveImage" read="false">
 				<Description>Remove an image.</Description>
 			</Method>
@@ -71,7 +74,7 @@
 				<Description>Sets the visible text for pressed state. This method can remove an optional textkey.</Description>
 				<Arguments>
 					<Argument name="text" type="String" index="0" required="true" localizable="true"/>
-					<Argument name="keepKey" type="Boolean" index="1" required="true">
+					<Argument name="keepKey" type="Boolean" index="1" required="false" defaultValue="false">
 						<Description>Set true, if textkey should not be removed</Description>
 					</Argument>
 				</Arguments>
@@ -85,7 +88,7 @@
 				<Description>Sets the visible text. This method can remove an optional textkey.</Description>
 				<Arguments>
 					<Argument name="text" type="String" index="0" required="true" localizable="true"/>
-					<Argument name="keepKey" type="Boolean" index="1" required="true">
+					<Argument name="keepKey" type="Boolean" index="1" required="false" defaultValue="false">
 						<Description>Set true, if textkey should not be removed</Description>
 					</Argument>
 				</Arguments>
@@ -120,25 +123,24 @@
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
 			<Event name="DoubleClick">
+				<Description>Fired when element has double click.</Description>
 				<Arguments>
 					<Argument name="horizontalPos" type="String" index="0" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="1" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-Fired when element has double click.						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -150,25 +152,31 @@ Fired when element has double click.						</Description>
 					</Argument>
 				</Arguments>
 			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
+			</Event>
 			<Event name="MouseDown">
+				<Description>Fired when widget enters mouseDown state</Description>
 				<Arguments>
 					<Argument name="horizontalPos" type="String" index="0" required="true">
 						<Description>horizontal position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="1" required="true">
-						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;
-Fired when widget enters mouseDown state						</Description>
+						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
 			<Event name="MouseUp">
+				<Description>Fired when widget enters mouseUp state</Description>
 				<Arguments>
 					<Argument name="horizontalPos" type="String" index="0" required="true">
 						<Description>horizontal position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="1" required="true">
-						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;
-Fired when widget enters mouseUp state						</Description>
+						<Description>vertical position of mouse in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -262,7 +270,7 @@ Fired when widget enters mouseUp state						</Description>
 				<Description>Text which is displayed in the widget when pressed</Description>
 			</Property>
 			<Property name="multiLine" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="false">
-				<Description>If true, more than one line is possible.&lt;br/&gt;
+				<Description>If true, more than one line is possible.
 Text will wrap when necessary (if property wordWrap is set to true) or at explicit line breaks (\n).
 If false, text will never wrap to the next line. The text continues on the same line.				</Description>
 			</Property>
@@ -275,17 +283,24 @@ If false, text will never wrap to the next line. The text continues on the same 
 			<Property name="style" type="StyleReference" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="default">
 				<Description>reference to a style for this widget type</Description>
 			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="0">
+				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
+or if autofocus should be disabled (-1)				</Description>
+			</Property>
 			<Property name="text" type="String" initOnly="false" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>Text which is displayed in the widget</Description>
 			</Property>
 			<Property name="tooltip" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>reference to a tooltip for a widget</Description>
 			</Property>
+			<Property name="useSVGStyling" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="true">
+				<Description>Define if the image stylings (i.e imageColor) are applied - only valid when SVG Images are used.</Description>
+			</Property>
 			<Property name="visible" type="Boolean" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
 				<Description>change visibility</Description>
 			</Property>
 			<Property name="wordWrap" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="false">
-				<Description>If true, text will wrap when necessary.&lt;br/&gt;
+				<Description>If true, text will wrap when necessary.
 This property has no effect, if multiLine=false				</Description>
 			</Property>
 		</Properties>
@@ -432,7 +447,7 @@ This property has no effect, if multiLine=false				</Description>
 			</StyleProperty>
 			<StyleProperty name="mouseDownTextColor" category="Appearance" type="Color" default="#000000">
 				<StyleElement selector="&amp;.active:not(.disabled):not(.editMode) span" attribute="color"/>
-				<StyleElement selector="&amp;.checked:not(.disabled) span" attribute="color"/>
+				<StyleElement selector="&amp;.active.checked:not(.disabled) span" attribute="color"/>
 				<Description>text color when widget is clicked</Description>
 			</StyleProperty>
 			<StyleProperty name="textAlign" category="Appearance" type="brease.enum.TextAlign" default="center">

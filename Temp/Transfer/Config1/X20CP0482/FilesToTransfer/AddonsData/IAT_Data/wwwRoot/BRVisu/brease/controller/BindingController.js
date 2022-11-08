@@ -183,6 +183,9 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
 
             createBindings: function (contentId, visuId, bindings) {
                 var def = $.Deferred();
+                bindings.forEach(function (binding) {
+                    bindingModel.addDynamicBinding(binding, contentId);
+                });
                 _runtimeService.createBindings(contentId, visuId, bindings, _createBindingsResponseHandler, { contentId: contentId, bindings: bindings, deferred: def });
                 return def.promise();
             },
@@ -225,14 +228,15 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
         if (response.status.code === ServerCode.SUCCESS) {
             for (var i = 0; i < callbackInfo.bindings.length; i += 1) {
                 binding = callbackInfo.bindings[i];
-                if (response.bindingsStatus[i].code === ServerCode.SUCCESS) {
-                    bindingModel.addDynamicBinding(binding, callbackInfo.contentId);
+                if (response.bindingsStatus[i].code === ServerCode.SUCCESS) {              
                     subscription = bindingModel.addDynamicSubscription(binding.target.refId, binding.target.attribute, callbackInfo.contentId);
                     arChanges.push(_valuesForSubscription(subscription, binding.target.refId, binding.target.attribute));
                     if (binding.source.type === 'brease') {
                         subscription = bindingModel.addDynamicSubscription(binding.source.refId, binding.source.attribute, callbackInfo.contentId);
                         arChanges.push(_valuesForSubscription(subscription, binding.source.refId, binding.source.attribute));
                     }
+                } else {
+                    bindingModel.removeDynamicBinding(binding.target);
                 }
             }
             callbackInfo.deferred.resolve(response.bindingsStatus);
@@ -434,12 +438,14 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
 
     function _parseValue(value, WidgetClass, methodName, attrName, widgetId) {
 
+        // if value is no string: value is returned unmodified 
         if (!Utils.isString(value)) {
             return value;
         }
 
         var actionName = methodName.substring(0, 1).toUpperCase() + methodName.substring(1);
 
+        // if we find no meta information: value is returned unmodified 
         if (WidgetClass.meta === undefined || WidgetClass.meta.actions === undefined || (WidgetClass.meta.actions[actionName] === undefined && WidgetClass.meta.actions[methodName] === undefined)) {
             return value;
         }
@@ -448,16 +454,19 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
         var parameter = action.parameter,
             param = parameter[Object.keys(parameter)[0]];
 
+        // if the type is no object type: value is returned unmodified 
         if (!param || Types.objectTypes.indexOf(param.type) === -1) {
             return value;
         }
-
-        try {
-            value = JSON.parse(value.replace(/'/g, '"'));
-        } catch (e) {
-            console.iatWarn('illegal data in binding: attribute: ' + attrName + ', widgetId:' + widgetId);
+        
+        // try to convert the string to an object
+        var obj = Utils.parsePseudoJSON(value, 'illegal data in binding: attribute: ' + attrName + ', widgetId:' + widgetId);
+        if (obj) {
+            // if the string can be converted to an object: object is returned
+            return obj;
         }
 
+        // if the string cannot be converted to an object: value is returned unmodified 
         return value;
     }
 
@@ -572,7 +581,8 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
     }
 
     function _serverSubscribeHandler(e) {
-        if (e.detail) {
+        // for dynamic bindings subscription already added in _createBindingsResponseHandler (A&P 722115 )
+        if (e.detail && !bindingModel.hasDynamicBinding(Object.assign(e.detail, { type: 'brease' }))) {
             bindingModel.addSubscription(Subscription.fromServerData({
                 attribute: e.detail.attribute,
                 refId: e.detail.refId

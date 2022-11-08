@@ -1,8 +1,6 @@
 define([
-    'brease/core/Class',
-    'brease/enum/Enum',
-    'brease/helper/Scroller'
-], function (SuperClass, Enum, Scroller) {
+    'brease/core/Class'
+], function (SuperClass) {
 
     'use strict';
 
@@ -23,17 +21,17 @@ define([
 
     p.getHandles = function () {
 
-        var self = this;
+        var instance = this;
         return {
             moveHandles: undefined, /* use default*/
             pointHandles: [],
             resizeHandles: [{
 
                 start: function () {
-                    _retainSettings(self);
+                    _retainSettings.call(instance);
                 },
 
-                update: function (newBox, direction) {
+                update: function (newBox) {
 
                     var updatedBox = {
                         width: newBox.width,
@@ -42,65 +40,62 @@ define([
                         left: newBox.left
                     };
 
-                    self.widget.settings.top = updatedBox.top;
-                    self.widget.settings.left = updatedBox.left;
-                    self.widget.settings.width = updatedBox.width;
-                    self.widget.settings.height = updatedBox.height;
+                    instance.widget.settings.top = updatedBox.top;
+                    instance.widget.settings.left = updatedBox.left;
+                    instance.widget.settings.width = updatedBox.width;
+                    instance.widget.settings.height = updatedBox.height;
 
-                    _redrawWidget(self);
+                    _redrawWidget.call(instance);
                 },
 
                 finish: function () {
-                    _redrawWidget(self);
-                    return _compareSettings(self);
+                    _redrawWidget.call(instance);
+                    return _compareSettings.call(instance);
                 },
 
                 handle: function () {
-                    return self.widget.elem;
+                    return instance.widget.elem;
                 }
             }]
         };
     };
 
     // private functions
-    function _redrawWidget(self) {
+    function _redrawWidget() {
 
-        self.widget.el.css('top', parseInt(self.widget.settings.top, 10))
-            .css('left', parseInt(self.widget.settings.left, 10))
-            .css('width', parseInt(self.widget.settings.width, 10))
-            .css('height', parseInt(self.widget.settings.height, 10));
+        this.widget.el.css('top', parseInt(this.widget.settings.top, 10))
+            .css('left', parseInt(this.widget.settings.left, 10))
+            .css('width', parseInt(this.widget.settings.width, 10))
+            .css('height', parseInt(this.widget.settings.height, 10));
 
-        if (self.widget.settings.childPositioning === Enum.ChildPositioning.relative && self.widget.container.children().hasClass('scrollWrapper')) {
-            self.widget._refreshScroller();
-        }
+        this.widget._refreshScroller();
     }
 
-    function _retainSettings(self) {
+    function _retainSettings() {
 
-        self.oldSettings.top = parseInt(self.widget.settings.top, 10);
-        self.oldSettings.left = parseInt(self.widget.settings.left, 10);
-        self.oldSettings.width = parseInt(self.widget.settings.width, 10);
-        self.oldSettings.height = parseInt(self.widget.settings.height, 10);
+        this.oldSettings.top = parseInt(this.widget.settings.top, 10);
+        this.oldSettings.left = parseInt(this.widget.settings.left, 10);
+        this.oldSettings.width = parseInt(this.widget.settings.width, 10);
+        this.oldSettings.height = parseInt(this.widget.settings.height, 10);
     }
 
-    function _compareSettings(self) {
+    function _compareSettings() {
 
         var returnValue = {};
 
-        if (self.widget.settings.top !== self.oldSettings.top) {
-            returnValue.top = self.widget.settings.top;
+        if (this.widget.settings.top !== this.oldSettings.top) {
+            returnValue.top = this.widget.settings.top;
         }
-        if (self.widget.settings.left !== self.oldSettings.left) {
-            returnValue.left = self.widget.settings.left;
+        if (this.widget.settings.left !== this.oldSettings.left) {
+            returnValue.left = this.widget.settings.left;
         }
-        if ((self.widget.settings.width !== self.oldSettings.width) || (self.widget.settings.height !== self.oldSettings.height)) {
-            returnValue.height = self.widget.settings.height;
-            returnValue.width = self.widget.settings.width;
+        if ((this.widget.settings.width !== this.oldSettings.width) || (this.widget.settings.height !== this.oldSettings.height)) {
+            returnValue.height = this.widget.settings.height;
+            returnValue.width = this.widget.settings.width;
         }
 
         return returnValue;
     }
         
     return ModuleClass;
-
 });

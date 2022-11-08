@@ -115,7 +115,7 @@ define([
         if (this.WSocket !== undefined) {
             if (this.WSocket.readyState === WebSocket.OPEN || this.WSocket.readyState === WebSocket.CONNECTING) {
                 this.WSocket.close();
-                this.WSocket.onmessage = function (e) { };
+                this.WSocket.onmessage = function () { };
                 this.WSocket = undefined;
             } else {
                 this.errorHandling(EnumErrors.UNEXPECTED_ERROR_CONNECTION);
@@ -135,10 +135,10 @@ define([
 
     p.dispose = function () {
         if (this.WSocket !== undefined) {
-            this.WSocket.onmessage = function (e) { };
-            this.WSocket.onopen = function (e) { };
-            this.WSocket.onclose = function (e) { };
-            this.WSocket.onerror = function (e) { };
+            this.WSocket.onmessage = function () { };
+            this.WSocket.onopen = function () { };
+            this.WSocket.onclose = function () { };
+            this.WSocket.onerror = function () { };
             this.disconnect();
         }     
         this.bytesQueued = 0;
@@ -215,23 +215,23 @@ define([
 
     //events to be overwritten
 
-    p.onMessageRecived = function (message) {
+    p.onMessageRecived = function () {
         //ToBe overwritten
     };
 
-    p.onConnect = function (e) {
+    p.onConnect = function () {
         //ToBe overwritten
     };
 
-    p.onDisconnect = function (errorNumber) {
+    p.onDisconnect = function () {
         //ToBe overwritten
     };
 
-    p.onConnectionFailed = function (errorNumber) {
+    p.onConnectionFailed = function () {
         //ToBe overwritten
     };
 
-    p.onWarning = function (e) {
+    p.onWarning = function () {
         //ToBe overwritten
     };
 
@@ -253,14 +253,14 @@ define([
         if (port < 0 || port > 65535) {
             return 1;
         }
-        if (self.location.protocol === 'http:') {
+        if (window.location.protocol === 'http:') {
             socketProtocol = 'ws://';
-        } else if (self.location.protocol === 'https:') {
+        } else if (window.location.protocol === 'https:') {
             socketProtocol = 'wss://';
         } else {
             return 2;
         }
-        return socketProtocol + self.location.host + '/ws2tcp?host=' + server + '&port=' + port;
+        return socketProtocol + window.location.host + '/ws2tcp?host=' + server + '&port=' + port;
     }
 
     //Buffer manipulation

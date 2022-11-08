@@ -8,7 +8,7 @@ define(['brease/controller/libs/Utils'], function (Utils) {
     */
     var ZoomManager = {
 
-        setBrowserZoom: function (flag) {
+        setBrowserZoom: function () {
             if (_visuConfigIsTrue('browserZoom')) {
                 brease.bodyEl.css({ 'touch-action': 'pinch-zoom', '-ms-touch-action': 'pinch-zoom' });
             } else {
@@ -48,14 +48,46 @@ define(['brease/controller/libs/Utils'], function (Utils) {
                     width: layoutObj.width + 'px',
                     height: layoutObj.height + 'px'
                 });
-                brease.dispatchResize();
+                brease.dispatchResize({ immediate: true });
             }
         },
 
         getAppZoom: function () {
             return _appZoom.scale;
-        }
+        },
 
+        /**
+        * @method
+        * Method to calculate the zoom factor of an element inside a container element, considering a given zoomFactor,
+        * where the child element is not allowed to exceed the container dimensions
+        * @param {Number} zoomFactor
+        * @param {Object} elem
+        * @param {Number} elem.width
+        * @param {Number} elem.height
+        * @param {Object} container
+        * @param {Number} container.width
+        * @param {Number} container.height
+        * @return {Number}
+        */
+        zoomFitContainerSize: function (zoomFactor, elem, container) {
+        // calculate elem dimensions with zoomFactor
+            var scaledWidth = zoomFactor * elem.width,
+                scaledHeight = zoomFactor * elem.height;
+
+            // then check if zoomed element exceeds container dimensions
+            var scaleXFactor = Number.MAX_SAFE_INTEGER, 
+                scaleYFactor = Number.MAX_SAFE_INTEGER;
+
+            if (scaledWidth > container.width) {
+                scaleXFactor = container.width / elem.width;
+            } // else: otherwise the value remains large and has no influence on factor = Math.min
+
+            if (scaledHeight > container.height) {
+                scaleYFactor = container.height / elem.height;
+            } // else: otherwise the value remains large and has no influence on factor = Math.min
+
+            return Math.min(scaleXFactor, scaleYFactor, zoomFactor);
+        }
     };
 
     function _visuConfigIsTrue(name) {
@@ -74,9 +106,9 @@ define(['brease/controller/libs/Utils'], function (Utils) {
                 $(window).on('resize', _.debounce(_appZoom.onResize, 150));
                 this.listening = true;
             }
-            this.zoom();
+            this.zoom(true);
         },
-        zoom: function zoom() {
+        zoom: function zoom(immediate) {
 
             // fix for older iOS Versions e.g. 11.1.1
             // this is needed that the body size is calculated in a proper way
@@ -113,8 +145,11 @@ define(['brease/controller/libs/Utils'], function (Utils) {
             // A&P 651385: wrong zoom factor on T50 and Android tablet
             // forceRepaint forces the browser to show the correct applied css
             Utils.forceRepaint(this.$rootContainer[0]);
-
-            brease.dispatchResize();
+            if (immediate) {
+                brease.dispatchResize({ immediate: true });
+            } else {
+                brease.dispatchResize();
+            }
         },
 
         windowResizeHandler: function () {

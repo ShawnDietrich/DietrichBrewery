@@ -22,6 +22,11 @@ define(['brease/core/Utils'], function (Utils) {
     * @static
     */
     /**
+    * @property {String} MEASUREMENT_SYSTEM_CHANGED='MeasurementSystemChanged'
+    * @readonly
+    * @static
+    */
+    /**
     * @property {String} PROPERTY_VALUE_CHANGED='PropertyValueChanged'
     * @readonly
     * @static
@@ -56,6 +61,11 @@ define(['brease/core/Utils'], function (Utils) {
     * @readonly
     * @static
     */
+    /**
+    * @property {String} VISU_DEACTIVATED='VisuDeactivated'
+    * @readonly
+    * @static
+    */
     /** 
     * @property {String} ACTION='action'
     * @readonly
@@ -71,12 +81,23 @@ define(['brease/core/Utils'], function (Utils) {
     * @readonly
     * @static
     */
+    /**
+    * @property {String} WATCHDOG_TIMEOUT='WatchdogTimeout'
+    * @readonly
+    * @static
+    */
+    /**
+    * @property {String} PONG='Pong'
+    * @readonly
+    * @static
+    */
 
     var SocketEvent = {};
 
     Utils.defineProperty(SocketEvent, 'CONTENT_ACTIVATED', 'ContentActivated');
     Utils.defineProperty(SocketEvent, 'CONTENT_DEACTIVATED', 'ContentDeactivated');
     Utils.defineProperty(SocketEvent, 'LANGUAGE_CHANGED', 'LanguageChanged');
+    Utils.defineProperty(SocketEvent, 'MEASUREMENT_SYSTEM_CHANGED', 'MeasurementSystemChanged');
     Utils.defineProperty(SocketEvent, 'PROPERTY_VALUE_CHANGED', 'PropertyValueChanged');
     Utils.defineProperty(SocketEvent, 'SESSION_ACTIVATED', 'SessionActivated');
     Utils.defineProperty(SocketEvent, 'CONNECTION_STATE_CHANGED', 'ConnectionStateChanged');
@@ -84,9 +105,12 @@ define(['brease/core/Utils'], function (Utils) {
     Utils.defineProperty(SocketEvent, 'TRANSFER_FINISH', 'TransferFinish');
     Utils.defineProperty(SocketEvent, 'USER_CHANGED', 'UserChanged');
     Utils.defineProperty(SocketEvent, 'VISU_ACTIVATED', 'VisuActivated');
+    Utils.defineProperty(SocketEvent, 'VISU_DEACTIVATED', 'VisuDeactivated');
     Utils.defineProperty(SocketEvent, 'ACTION', 'action');
     Utils.defineProperty(SocketEvent, 'SUBSCRIBE', 'subscribe');
     Utils.defineProperty(SocketEvent, 'UNSUBSCRIBE', 'unsubscribe');
+    Utils.defineProperty(SocketEvent, 'WATCHDOG_TIMEOUT', 'WatchdogTimeout');
+    Utils.defineProperty(SocketEvent, 'PONG', 'Pong');
 
     return SocketEvent;
 

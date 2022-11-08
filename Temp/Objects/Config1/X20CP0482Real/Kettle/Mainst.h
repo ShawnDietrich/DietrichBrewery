@@ -302,6 +302,52 @@ typedef struct MpTempControllerHCMInfoType
 } MpTempControllerHCMInfoType;
 #endif
 
+#ifndef __AS__TYPE_MpTempSoftStartStateEnum
+#define __AS__TYPE_MpTempSoftStartStateEnum
+typedef enum MpTempSoftStartStateEnum
+{	mpTEMP_SOFTSTART_HEATING = 0,
+	mpTEMP_SOFTSTART_HOLD_TEMP = 1,
+	mpTEMP_SOFTSTART_REACHED_TEMP = 2,
+	mpTEMP_SOFTSTART_FINISHED = 3,
+	mpTEMP_SOFTSTART_EXCLUDED = 4,
+	mpTEMP_SOFTSTART_SKIPPED = 5,
+	mpTEMP_SOFTSTART_OFF = 6,
+} MpTempSoftStartStateEnum;
+#endif
+
+#ifndef __AS__TYPE_MpTempSoftStartCtrlInfoType
+#define __AS__TYPE_MpTempSoftStartCtrlInfoType
+typedef struct MpTempSoftStartCtrlInfoType
+{	MpTempSoftStartStateEnum State;
+} MpTempSoftStartCtrlInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempSystemInfoType
+#define __AS__TYPE_MpTempSystemInfoType
+typedef struct MpTempSystemInfoType
+{	MpTempSystemType Parameters;
+	MpTempSystemCharacteristicsType Type;
+} MpTempSystemInfoType;
+#endif
+
+#ifndef __AS__TYPE_MpTempControllerFilterType
+#define __AS__TYPE_MpTempControllerFilterType
+typedef struct MpTempControllerFilterType
+{	plcbit Enable;
+	float NoiseReduction;
+} MpTempControllerFilterType;
+#endif
+
+#ifndef __AS__TYPE_MpTempParameterizationInfoType
+#define __AS__TYPE_MpTempParameterizationInfoType
+typedef struct MpTempParameterizationInfoType
+{	MpTempPIDType Controller;
+	MpTempSystemInfoType System;
+	MpTempProfileType Profile;
+	MpTempControllerFilterType KalmanFilter;
+} MpTempParameterizationInfoType;
+#endif
+
 #ifndef __AS__TYPE_MpTempControllerInfoType
 #define __AS__TYPE_MpTempControllerInfoType
 typedef struct MpTempControllerInfoType
@@ -315,6 +361,8 @@ typedef struct MpTempControllerInfoType
 	MpTempSimulationInfoType Simulation;
 	MpTempDiagType Diag;
 	MpTempControllerHCMInfoType HCM;
+	MpTempSoftStartCtrlInfoType SoftStart;
+	MpTempParameterizationInfoType Parameterization;
 } MpTempControllerInfoType;
 #endif
 
@@ -353,6 +401,7 @@ typedef enum MpTempTuningModeEnum
 	mpTEMP_TUNING_MODE_HEAT_COOL = 2,
 	mpTEMP_TUNING_MODE_OSC_HEAT = 3,
 	mpTEMP_TUNING_MODE_OSC_HEAT_COOL = 4,
+	mpTEMP_TUNING_MODE_OSC_COOL = 5,
 } MpTempTuningModeEnum;
 #endif
 
@@ -517,6 +566,18 @@ typedef struct ProcControl
 } ProcControl;
 #endif
 
+#ifndef __AS__TYPE_TIMEStructure
+#define __AS__TYPE_TIMEStructure
+typedef struct TIMEStructure
+{	signed char day;
+	unsigned char hour;
+	unsigned char minute;
+	unsigned char second;
+	unsigned short millisec;
+	unsigned short microsec;
+} TIMEStructure;
+#endif
+
 #ifndef __AS__TYPE_MpComIdentType
 #define __AS__TYPE_MpComIdentType
 typedef struct MpComIdentType
@@ -524,4 +585,30 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
+_BUR_PUBLIC unsigned long TIME_TO_TIMEStructure(plctime TIME1, unsigned long pTIMEStructure);
+_BUR_PUBLIC plcstring* usint2str(unsigned char IN, plcstring pStr[81], unsigned long len);
+struct TON
+{	plctime PT;
+	plctime ET;
+	plctime StartTime;
+	unsigned long Restart;
+	plcbit IN;
+	plcbit Q;
+	plcbit M;
+};
+_BUR_PUBLIC void TON(struct TON* inst);
+_BUR_PUBLIC plcstring* CONCAT(plcstring IN1[32768], plcstring IN2[32768]);
+_BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
+_BUR_PUBLIC plcbit DiagCpuIsARsim(void);
 _BUR_LOCAL ProcControl Proc;
+_BUR_LOCAL struct TON KettleTmr;
+_BUR_LOCAL plctime TimePre;
+_BUR_LOCAL plcbit StartKettle;
+_BUR_LOCAL TIMEStructure TmrDT;
+_BUR_LOCAL plcstring HrRe[5];
+_BUR_LOCAL plcstring MinRe[5];
+_BUR_LOCAL plcstring SecRe[5];
+_BUR_LOCAL plcstring TmrRemain[11];
+_GLOBAL plcbit HLTHeater;
+_GLOBAL signed short rawHLTTemp;
+_GLOBAL MpComIdentType Cfg_KettleTemp;

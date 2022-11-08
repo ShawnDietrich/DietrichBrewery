@@ -13,12 +13,14 @@
 				<File>brease/enum/Enum.js</File>
 				<File>brease/core/Types.js</File>
 				<File>brease/datatype/Node.js</File>
+				<File>brease/controller/libs/KeyActions.js</File>
 				<File>brease/controller/KeyboardManager.js</File>
 				<File>brease/events/BreaseEvent.js</File>
 				<File>brease/config/NumberFormat.js</File>
 				<File>widgets/brease/NumericInput/libs/Config.js</File>
 				<File>brease/core/Utils.js</File>
 				<File>widgets/brease/common/libs/BoxLayout.js</File>
+				<File>widgets/brease/common/libs/wfUtils/UtilsObject.js</File>
 				<File>brease/decorators/DragAndDropCapability.js</File>
 				<File>widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents.js</File>
 				<File>widgets/brease/common/DragDropProperties/libs/DraggablePropertiesEvents.js</File>
@@ -45,6 +47,9 @@
 		<Children>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="GetValue" read="true">
 				<Description>Gets value which is displayed in the widget.</Description>
 				<Result type="Number"/>
@@ -76,7 +81,7 @@
 			</Method>
 			<Method name="ShowTooltip" read="false"/>
 			<Method name="SubmitChange" read="false">
-				<Description>Send value to the server, if binding for this widget exists.&lt;br/&gt;
+				<Description>Send value to the server, if binding for this widget exists.
 Usage of this method will only make sense, if submitOnChange=false, as otherwise changes are submitted automatically.				</Description>
 			</Method>
 		</Methods>
@@ -102,14 +107,13 @@ Usage of this method will only make sense, if submitOnChange=false, as otherwise
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -120,6 +124,12 @@ roles of the current user						</Description>
 						<Description>operability</Description>
 					</Argument>
 				</Arguments>
+			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 			<Event name="OnDragEnd">
 				<Description>Fired when element has OnDragEnd.</Description>
@@ -177,10 +187,9 @@ roles of the current user						</Description>
 				</Arguments>
 			</Event>
 			<Event name="ValueChanged">
+				<Description>Fired when index changes.</Description>
 				<Arguments>
-					<Argument name="value" type="Number" index="0" required="true">
-						<Description>Fired when index changes.</Description>
-					</Argument>
+					<Argument name="value" type="Number" index="0" required="true"/>
 				</Arguments>
 			</Event>
 			<Event name="VisibleChanged">
@@ -203,8 +212,7 @@ roles of the current user						</Description>
 				<Description>Initial option to enable widget.</Description>
 			</Property>
 			<Property name="format" type="brease.config.MeasurementSystemFormat" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="{&apos;metric&apos;:{ &apos;decimalPlaces&apos; : 1, &apos;minimumIntegerDigits&apos; : 1 }, &apos;imperial&apos; :{ &apos;decimalPlaces&apos; : 1, &apos;minimumIntegerDigits&apos; : 1 }, &apos;imperial-us&apos; :{ &apos;decimalPlaces&apos; : 1, &apos;minimumIntegerDigits&apos; : 1 }}">
-				<Description>href=&quot;#!/api/brease.config.NumberFormat&quot; rel=&quot;brease.config.NumberFormat&quot; class=&quot;docClass&quot;&gt;brease.config.NumberFormat&lt;/a&gt; for every measurement system.
-Read more about &lt;a href=&quot;../FAQ/FormatNumber.html&quot;&gt;Number Formats				</Description>
+				<Description>NumberFormat for every measurement system.</Description>
 			</Property>
 			<Property name="keyboard" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
 				<Description>Determines if internal soft keyboard (=NumPad) should open</Description>
@@ -221,8 +229,8 @@ Read more about &lt;a href=&quot;../FAQ/FormatNumber.html&quot;&gt;Number Format
 			<Property name="node" type="brease.datatype.Node" initOnly="false" localizable="false" editableBinding="true" readOnly="false" required="false" projectable="true" category="Data" defaultValue="">
 				<Description>Value with unit for node binding.</Description>
 			</Property>
-			<Property name="numPadStyle" type="StyleReference" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" typeRefId="widgets.brease.NumPad" defaultValue="default">
-				<Description>Style of the related NumPad</Description>
+			<Property name="numPadStyle" type="StyleReference" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" typeRefId="~system.widgets.NumPad" defaultValue="default">
+				<Description>Style for the NumPad which is configured in current visualization. References all styles of the brease NumPad and of all custom NumPads.</Description>
 			</Property>
 			<Property name="numpadPosition" type="brease.enum.Position" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="right">
 				<Description>Determines the position of the NumPad relative to the input field.</Description>
@@ -240,7 +248,11 @@ Read more about &lt;a href=&quot;../FAQ/FormatNumber.html&quot;&gt;Number Format
 				<Description>reference to a style for this widget type</Description>
 			</Property>
 			<Property name="submitOnChange" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
-				<Description>Determines if changes, triggered by user input, should be sent immediately to the server.&lt;br/&gt;</Description>
+				<Description>Determines if changes, triggered by user input, should be sent immediately to the server.</Description>
+			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="0">
+				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
+or if autofocus should be disabled (-1)				</Description>
 			</Property>
 			<Property name="tooltip" type="String" initOnly="true" localizable="true" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="">
 				<Description>reference to a tooltip for a widget</Description>
@@ -396,7 +408,7 @@ Read more about &lt;a href=&quot;../FAQ/FormatNumber.html&quot;&gt;Number Format
 			</StyleProperty>
 			<StyleProperty name="padding" category="Layout" type="Padding" default="0 15px 0 15px">
 				<StyleElement attribute="padding"/>
-				<Description>ets a space around the displayed text. For further information, please see its type</Description>
+				<Description>Sets a space around the displayed text. For further information, please see its type</Description>
 			</StyleProperty>
 			<StyleProperty name="margin" category="Layout" type="Margin" default="0px">
 				<StyleElement attribute="margin"/>

@@ -1,20 +1,28 @@
-define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketEvent', 'brease/events/ClientSystemEvent', 'brease/enum/Enum'], function (Utils, BreaseEvent, SocketEvent, ClientSystemEvent, Enum) {
+define(['brease/core/Utils', 
+    'brease/events/BreaseEvent',
+    'brease/events/SocketEvent',
+    'brease/events/ClientSystemEvent',
+    'brease/enum/Enum',
+    'brease/services/libs/PasswordPolicies',
+    'brease/services/libs/UserData',
+    'brease/services/libs/UserDataList'], 
+function (Utils, BreaseEvent, SocketEvent, ClientSystemEvent, Enum, PasswordPolicies, UserData, UserDataList) {
 
     'use strict';
 
     /**
     * @class brease.services.User
     * @extends core.javascript.Object
-    * User service; available via brease.user 
-    * Authentification is a two step process
-    *   First step is to authenticate the username and pw
-    *   Second step is to set the user via setCurrentUser
-    * Example of usage:
+    * User service; available via brease.services.user  
+    * Authentification is a two step process  
+    *   First step is to authenticate the username and pw  
+    *   Second step is to set the user via setCurrentUser  
+    * Example of usage:  
     * 
     *       <script>
     *           require(['brease', 'brease/events/BreaseEvent'], function (brease, BreaseEvent) {
     *               
-    *               brease.user.authenticateUser('username', '****').then(        
+    *               brease.services.user.authenticateUser('username', '****').then(        
     *                   successCallBackFunction,
     *                   errorCallBackFunction
     *               });
@@ -52,14 +60,14 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         * @async
         * Async function to authenticate a user (first step of login)
         *
-        *       brease.user.authenticateUser('username', '****').then(        
+        *       brease.services.user.authenticateUser('username', '****').then(        
         *           function(user) {
         *               //Success Callback
         *           },
         *           function() {
         *               //Error Callback
         *           }
-        *       });
+        *       );
         *
         * @param {String} username
         * @param {String} password
@@ -76,14 +84,14 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         * @async
         * Async function to set a user (second step of login)
         *
-        *       brease.user.setCurrentUser('user').then(        
+        *       brease.services.user.setCurrentUser('user').then(        
         *           function() {
         *               //Success Callback
         *           },
         *           function() {
         *               //Error Callback
         *           }
-        *       });
+        *       );
         *
         * @param {Object} user User Object 
         * @return {Promise}
@@ -99,14 +107,14 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         * @async
         * Async function to get the current User
         *
-        *       brease.user.loadCurrentUser().then(        
+        *       brease.services.user.loadCurrentUser().then(        
         *           function(user) {
         *               //Success Callback
         *           },
         *           function() {
         *               //Error Callback
         *           }
-        *       });
+        *       );
         *
         * @return {Promise}
         */
@@ -123,7 +131,8 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
 
         /**
         * @method getCurrentUser
-        * @return {Object} _currentUser
+        * @return {Object} 
+        * @return {String} return.userID
         */
         getCurrentUser: function () {
             return _currentUser;
@@ -134,14 +143,14 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         * @async
         * Async function to set the default user
         *
-        *       brease.user.setDefaultUser().then(        
+        *       brease.services.user.setDefaultUser().then(        
         *           function(user) {
         *               //Success Callback
         *           },
         *           function() {
         *               //Error Callback
         *           }
-        *       });
+        *       );
         *
         * @return {Promise}
         */
@@ -163,8 +172,8 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
 
         /**
         * @method permission
-        * returns true if the two arrays intersect
-        * returns false if one of the arrays is empty or not an array
+        * returns true if the two arrays intersect  
+        * returns false if one of the arrays is empty or not an array  
         * @param {RoleCollection} value
         * @param {RoleCollection} arRoles
         * @return {Boolean}
@@ -208,19 +217,18 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         *  
         *  
         *       $.when(
-        *           brease.user.loadUserRoles()
+        *           brease.services.user.loadUserRoles()
         *       ).then(function (roles) {
         *           // Example return value: ["Administrators","Guest"]
         *       });
         *
-        * or
+        * or  
         *
-        *       brease.user.loadUserRoles(function(roles) {
+        *       brease.services.user.loadUserRoles(function(roles) {
         *           // Example return value: ["Administrators","Guest"]
         *       });
         * 
         * @param {Function} [callback]
-        *
         * @return {Promise}
         */
         loadUserRoles: function (callback) {
@@ -235,6 +243,216 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
             _deferAction = $.Deferred();
             _runtimeService.authenticateUser(username, password, _loginActionAuthResponseHandler);
             return _deferAction.promise();
+        },
+
+        /**
+        * @method changePassword
+        * @async
+        * Async function to change the password
+        *
+        *       brease.services.user.changePassword(userName, oldPassword, newPassword).then(        
+        *           function() {
+        *               //success callback
+        *           },
+        *           function() {
+        *               //error callback
+        *           }
+        *       );
+        *
+        * @param {String} userName
+        * @param {String} oldPassword
+        * @param {String} newPassword
+        * @return {Promise}
+        */
+        changePassword: function (userName, oldPassword, newPassword) {
+            _deferChange = $.Deferred();
+            _runtimeService.changePassword(userName, oldPassword, newPassword, _changePasswordResponseHandler, { userName: userName });
+            return _deferChange.promise();
+        },
+
+        /**
+        * @method loadPasswordPolicies
+        * @async
+        * Async function to load password policies
+        *
+        *       brease.services.user.loadPasswordPolicies().then(
+        *           function(policy) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        *
+        * @return {Promise}
+        */
+        loadPasswordPolicies: function () {
+            var def = $.Deferred();
+            _runtimeService.loadPasswordPolicies(_loadPasswordPoliciesResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method loadUserList
+        * @async
+        * Async function to load user list
+        *
+        *       brease.services.user.loadUserList(details).then(
+        *           function(userlist) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @param {Boolean} details
+        * @return {Promise}
+        */
+
+        loadUserList: function (details) {
+            var def = $.Deferred();
+            _runtimeService.loadUserList(details, _loadUserListResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method loadUserData
+        * @async
+        * Async function to load user data
+        *
+        *       brease.services.user.loadUserData(userName).then(
+        *           function(userdata) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @param {String} userName
+        * @return {Promise}
+        */
+
+        loadUserData: function (userName) {
+            var def = $.Deferred();
+            _runtimeService.loadUserData(userName, _loadUserDataResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method addUserToMpUserX
+        * @async
+        * Async function to add user data
+        *
+        *       brease.services.user.addUserToMpUserX(userName, password, fullName, roles).then(
+        *           function(status) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @param {String} userName
+        * @param {String} password
+        * @param {String} fullName
+        * @param {String[]} roles
+        * @return {Promise}
+        */
+
+        addUserToMpUserX: function (userName, password, fullName, roles) {
+            var def = $.Deferred();
+            _runtimeService.addUserToMpUserX(userName, password, fullName, roles, _addUserToMpUserXResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method deleteUserFromMpUserX
+        * @async
+        * Async function to load user data
+        *
+        *       brease.services.user.deleteUserFromMpUserX(userName).then(
+        *           function(status) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @param {String} userName
+        * @return {Promise}
+        */
+
+        deleteUserFromMpUserX: function (userName) {
+            var def = $.Deferred();
+            _runtimeService.deleteUserFromMpUserX(userName, _deleteUserFromMpUserXResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method modifyUserFromMpUserX
+        * @async
+        * Async function to modify user data
+        *
+        *       brease.services.user.modifyUserFromMpUserX(userName, modifiedUserData).then(
+        *           function(status) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @param {String} userName
+        * @param {Object} modifiedUserData
+        * @param {String} [modifiedUserData.fullName]
+        * @param {String[]} [modifiedUserData.roles]
+        * @param {String} [modifiedUserData.password]
+        * @param {Boolean} [modifiedUserData.isLocked]
+        * @return {Promise}
+        */
+        modifyUserFromMpUserX: function (userName, modifiedUserData) {
+            var def = $.Deferred();
+            _runtimeService.modifyUserFromMpUserX(userName, modifiedUserData, _modifyUserFromMpUserXResponseHandler, { deferred: def });
+            return def.promise();
+        },
+
+        /**
+        * @method loadAvailableRoles
+        * @async
+        * Async function to load available roles
+        *
+        *       brease.services.user.loadAvailableRoles().then(
+        *           function(roles) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @return {Promise}
+        */
+        loadAvailableRoles: function () {
+            var def = $.Deferred();
+            _runtimeService.loadAvailableRoles(_loadAvailableRolesResponseHandler, { deferred: def });
+            return def.promise();
+        },
+        /**
+        * @method getUserSettingsFromMpUserX
+        * @async
+        * Async function to get the properties EditUserWithSameLevel and UserNameMinLength
+        *
+        *       brease.services.user.getUserSettingsFromMpUserX().then(
+        *           function(data) {
+        *               //success callback
+        *           },
+        *           function(status) {
+        *               //error callback
+        *           }
+        *       );
+        * @return {Promise}
+        */
+        getUserSettingsFromMpUserX: function () {
+            var def = $.Deferred();
+            _runtimeService.getUserSettingsFromMpUserX(_getUserSettingsFromMpUserXResponseHandler, { deferred: def });
+            return def.promise();
         }
     };
 
@@ -268,6 +486,7 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
         _deferAuth,
         _deferUser,
         _deferAction,
+        _deferChange,
         _currentUser,
         _roles = [],
         _runtimeService;
@@ -277,6 +496,88 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
             _roles = responseData.roles.sort();
         }
         _resolve(callbackInfo.deferred, callbackInfo.callback, responseData.roles);
+    }
+
+    function _loadPasswordPoliciesResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(PasswordPolicies.fromServerData(responseData.policy));
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _loadUserListResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.status, UserDataList.fromServerData(responseData.users)); 
+        } else {
+            deferred.reject(responseData.status);  
+        }
+    }
+
+    function _loadUserDataResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(UserData.fromServerData(responseData.userinfo));
+        } else {
+            deferred.reject(responseData.status);  
+        }
+    }
+
+    function _addUserToMpUserXResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.status);
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _deleteUserFromMpUserXResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.status);
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _modifyUserFromMpUserXResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.status);
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _loadAvailableRolesResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.roles);
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _getUserSettingsFromMpUserXResponseHandler(responseData, callbackInfo) {
+        var deferred = callbackInfo.deferred;
+        if (responseData.success === true) {
+            deferred.resolve(responseData.settings);
+        } else {
+            deferred.reject(responseData.status);
+        }
+    }
+
+    function _changePasswordResponseHandler(responseData, callbackInfo) {
+        if (responseData.success === true) {
+            _deferChange.resolve(responseData.status, callbackInfo.userName);
+            //brease.loggerService.log(Enum.EventLoggerId.CLIENT_USER_CHANGEPASSWORD_OK, Enum.EventLoggerCustomer.BUR, Enum.EventLoggerVerboseLevel.OFF, Enum.EventLoggerSeverity.SUCCESS, [callbackInfo.userName]);
+        } else {
+            _deferChange.reject(responseData.status, callbackInfo.userName);
+            //brease.loggerService.log(Enum.EventLoggerId.CLIENT_USER_CHANGEPASSWORD_FAIL, Enum.EventLoggerCustomer.BUR, Enum.EventLoggerVerboseLevel.OFF, Enum.EventLoggerSeverity.ERROR, [callbackInfo.userName]);
+        }
     }
 
     function _resolve(deferred, callback, result) {
@@ -298,7 +599,7 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
 
             // load user roles after initial user load
             $.when(
-                brease.user.loadUserRoles()
+                User.loadUserRoles()
             ).then(function () {
                 _deferredReady.resolve();
             });
@@ -349,7 +650,7 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent', 'brease/events/SocketE
 
         // load user roles after user has changed
         $.when(
-            brease.user.loadUserRoles()
+            User.loadUserRoles()
         ).then(function () {
             document.body.dispatchEvent(new CustomEvent(BreaseEvent.ROLES_CHANGED));
         });

@@ -17,6 +17,7 @@ define(['brease/events/BreaseEvent'],
         LoaderPoolStub.prototype.findContentLoaderWithContent = function () { };
         LoaderPoolStub.prototype.startTagMode = function () { };
         LoaderPoolStub.prototype.endTagMode = function () { };
+        // eslint-disable-next-line no-unused-vars
         LoaderPoolStub.prototype.loadContent = function (contentId, container, deferred) {
             console.log('loadContent', contentId);
             deferred.resolve('', true);

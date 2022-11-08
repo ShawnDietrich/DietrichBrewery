@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _LIBRARIES_20211114122656_
-#define _LIBRARIES_20211114122656_
+#ifndef _LIBRARIES_20221030105349_
+#define _LIBRARIES_20221030105349_
 
 __asm__(".section \".plc\"");
 
@@ -19,17 +19,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/astime/astime.var\\\" scope \\\"
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIecCon/AsIecCon.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIecCon/AsIecCon.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIecCon/AsIecCon.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempError.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempAlarm.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/brsystem/brsystem.var\\\" scope \\\"global\\\"\\n\"");
@@ -48,6 +37,50 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10man/Acp10man.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10par/Acp10par.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsZip/AsZip.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsZip/AsZip.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsZip/AsZip.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/FileIO/FileIO.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/FileIO/FileIO.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/FileIO/FileIO.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsARCfg/AsARCfg.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsARCfg/AsARCfg.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsARCfg/AsARCfg.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/powerlnk/powerlnk.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/powerlnk/powerlnk.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/powerlnk/powerlnk.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsEPL/AsEPL.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsEPL/AsEPL.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsEPL/AsEPL.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomainError.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempError.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempAlarm.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\\"global\\\"\\n\"");
 
 /* Exported library functions and function blocks */
 #ifdef _OPERATOR_EXPORT
@@ -486,35 +519,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope 
 	__asm__(".ascii \"plcexport \\\"WSTRING_TO_LREAL\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"WSTRING_TO_STRING\\\" FUN\\n\"");
 #endif
-#ifdef _MPTEMP_EXPORT
-	__asm__(".ascii \"plcexport \\\"MpTempController\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempControllerConfig\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempGroup\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempGroupConfig\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempHCM\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempHCMConfig\\\" FUB\\n\"");
-#endif
-#ifdef _MPBASE_EXPORT
-	__asm__(".ascii \"plcexport \\\"MpComHandle\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpComVersion\\\" FUN\\n\"");
-#endif
-#ifdef _MTBASICS_EXPORT
-	__asm__(".ascii \"plcexport \\\"MTBasicsDT1\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsDT2\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsIntegrator\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsLevelController\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsLimiter\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsOscillationTuning\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPFM\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPID\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPT1\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPT2\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPWM\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsPWMSchedule\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsStepTuning\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsTimeDelay\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MTBasicsTransferFcn\\\" FUB\\n\"");
-#endif
 #ifdef _BRSYSTEM_EXPORT
 	__asm__(".ascii \"plcexport \\\"MEMInfo\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"MEMxInfo\\\" FUB\\n\"");
@@ -653,9 +657,234 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope 
 	__asm__(".ascii \"plcexport \\\"DiagCpuIsSimulated\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"DiagCpuIsARsim\\\" FUN\\n\"");
 #endif
+#ifdef _NCGLOBAL_EXPORT
+	__asm__(".ascii \"plcexport \\\"nccnccom\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_dir\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_inf\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_id\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_wr\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_cr\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncaccess\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncalloc\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncaction\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncglobal_action\\\" FUN\\n\"");
+#endif
+#ifdef _VIBASE_EXPORT
+	__asm__(".ascii \"plcexport \\\"ViBaseSaveDiagData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"ViBaseLoadApplication\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"ViBaseSaveApplication\\\" FUB\\n\"");
+#endif
+#ifdef _ASZIP_EXPORT
+	__asm__(".ascii \"plcexport \\\"zipArchive\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"zipExtract\\\" FUB\\n\"");
+#endif
+#ifdef _FILEIO_EXPORT
+	__asm__(".ascii \"plcexport \\\"FileCreate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileOpen\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileClose\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileRead\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileReadEx\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileWrite\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileWriteEx\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileRename\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileCopy\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileDelete\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileTruncate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirCreate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirOpen\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirClose\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirRead\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirReadEx\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirRename\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirCopy\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirDelete\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DirDeleteEx\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SetAttributes\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"GetAttributes\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DevMemInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DevLink\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"DevUnlink\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"GetVolumeLabel\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"GetVolumeSerialNo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"FileIoGetSysError\\\" FUN\\n\"");
+#endif
+#ifdef _ASARCFG_EXPORT
+	__asm__(".ascii \"plcexport \\\"CfgGetInaNode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetInaNode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetIPAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetIPAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSubnetMask\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSubnetMask\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetClusterIPAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetClusterIPAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDefaultGateway\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDefaultGateway\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetBroadcastAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetBroadcastAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetEthBaudrate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetEthBaudrate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetEthConfigMode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetEthConfigMode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetHostName\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetHostName\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetHostNameIf\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetHostNameIf\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetMacAddr\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetFTPServer\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetTimeOffset\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetTimeOffset\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSntpServer\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSntpClient\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSntpcData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSntpsData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetNtpServer\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetNtpsData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetNtpClient\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetNtpcData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetTimeZone\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetTimeZone\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetTimeZoneInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetTimeZoneEntry\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDst\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDst\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetCIFSDomain\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetCIFSDomain\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetCIFSDefaultuser\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetCIFSDefaultuser\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDhcpServer\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDhcpsData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDhcpsData\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDhcpcOption\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSdmStatus\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSdmStatus\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgClearNV\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSdmColor\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSdmColor\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSdmCustomData1\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSdmCustomData1\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetSdmCustomData2\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetSdmCustomData2\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebMimeType\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetWebMimeType\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebServerHttpsConfig\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebServerPort\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebServerDevice\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebAspGoform\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetWebAspGoform\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetWebServerStatus\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetWebServerStatus\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDnsMode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDnsMode\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDnsSuffix\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDnsSuffix\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgGetDnsAddress\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgSetDnsAddress\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgRouteAdd\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CfgRouteDelete\\\" FUB\\n\"");
+#endif
+#ifdef _POWERLNK_EXPORT
+	__asm__(".ascii \"plcexport \\\"plAction\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plState\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plAcycWrite\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plAcycInvite\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plAcycRead\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plAcycClose\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plAcycOpen\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plCEDelete\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plCECreate\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"plConfig\\\" FUN\\n\"");
+#endif
+#ifdef _ASEPL_EXPORT
+	__asm__(".ascii \"plcexport \\\"EplSDORead\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"EplSDOWrite\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"EplGetLocalNodeID\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"EplCreateObject\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"EplDeleteObject\\\" FUB\\n\"");
+#endif
+#ifdef _ASIO_EXPORT
+	__asm__(".ascii \"plcexport \\\"AsIODPStatus\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOSetForceValue\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOEnableForcing\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIODisableForcing\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOGlobalDisableForcing\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOFListDP\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOListDP\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"AsIOPVInfo\\\" FUB\\n\"");
+#endif
+#ifdef _MTBASICS_EXPORT
+	__asm__(".ascii \"plcexport \\\"MTBasicsDT1\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsDT2\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsIntegrator\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsLevelController\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsLimiter\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsOscillationTuning\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPFM\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPID\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPT1\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPT2\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPWM\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsPWMSchedule\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsStepTuning\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsTimeDelay\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MTBasicsTransferFcn\\\" FUB\\n\"");
+#endif
+#ifdef _SFDOMAIN_EXPORT
+	__asm__(".ascii \"plcexport \\\"SfDomainConnect\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainTransfer\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainCompletion\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainInfo\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainExchange\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainControl\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainTableCompletion\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionBool\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainLoadSafeOptions\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionBool\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSaveSafeOptions\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionSint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionSint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUsint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUsint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionInt\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionInt\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionDint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionDint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUdint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUdint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionString\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionString\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeNodeAvailability\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeNodeAvailability\\\" FUB\\n\"");
+#endif
+#ifdef _MPBASE_EXPORT
+	__asm__(".ascii \"plcexport \\\"MpComHandle\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpComVersion\\\" FUN\\n\"");
+#endif
+#ifdef _MPTEMP_EXPORT
+	__asm__(".ascii \"plcexport \\\"MpTempController\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempControllerConfig\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempGroup\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempGroupConfig\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempHCM\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempHCMConfig\\\" FUB\\n\"");
+#endif
+#ifdef _COTRACE_EXPORT
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigCreate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigLoad\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigSetTiming\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigOptionalParameter\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddDataPoint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddStartTrigger\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceRecorder\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceDataReadRecords\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceDataSaveCsv\\\" FUB\\n\"");
+#endif
 
 __asm__(".previous");
 
 
-#endif /* _LIBRARIES_20211114122656_ */
+#endif /* _LIBRARIES_20221030105349_ */
 

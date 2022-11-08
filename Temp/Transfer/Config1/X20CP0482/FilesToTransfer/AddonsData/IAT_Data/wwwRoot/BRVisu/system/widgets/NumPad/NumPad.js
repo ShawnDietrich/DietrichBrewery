@@ -1,31 +1,32 @@
-define(['widgets/brease/Window/Window', 
-    'brease/events/BreaseEvent', 
-    'brease/enum/Enum', 
-    'brease/core/Utils', 
-    'brease/config/NumberFormat', 
-    'widgets/brease/NumPad/libs/NumPadSlider', 
-    'widgets/brease/NumPad/libs/NumPadNumericValue',
-    'brease/decorators/MeasurementSystemDependency', 
+define(['widgets/brease/Window/Window',
+    'brease/events/BreaseEvent',
+    'brease/enum/Enum',
+    'brease/core/Utils',
+    'brease/config/NumberFormat',
+    'brease/decorators/MeasurementSystemDependency',
+    'system/widgets/NumPad/libs/NumPadSlider',
+    'system/widgets/NumPad/libs/NumPadNumericValue',
     'system/widgets/NumPad/libs/ValueProcessor',
-    'system/widgets/NumPad/libs/Validator', 
+    'system/widgets/NumPad/libs/Validator',
     'system/widgets/NumPad/libs/InputElements',
-    'system/widgets/NumPad/libs/OutputElements', 
-    'system/widgets/NumPad/libs/ButtonElements', 
-    'system/widgets/common/keyboards/NodeInfo'],
-function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericValue, measurementSystemDependency, ValueProcessor, Validator, InputElements, OutputElements, ButtonElements, NodeInfo) {
+    'system/widgets/NumPad/libs/OutputElements',
+    'system/widgets/NumPad/libs/ButtonElements',
+    'system/widgets/common/keyboards/NodeInfo',
+    'system/widgets/common/keyboards/UnitInfo'],
+function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, measurementSystemDependency, NumPadSlider, NumericValue, ValueProcessor, Validator, InputElements, OutputElements, ButtonElements, NodeInfo, UnitInfo) {
 
     'use strict';
 
     /**
-    * @class system.widgets.NumPad
-    * @extends widgets.brease.Window
-    *
-    * @iatMeta studio:visible
-    * false
-    * @iatMeta category:Category
-    * System
-    */
-   
+        * @class system.widgets.NumPad
+        * @extends widgets.brease.Window
+        *
+        * @iatMeta studio:visible
+        * false
+        * @iatMeta category:Category
+        * System
+        */
+
     var defaultSettings = {
             modal: true,
             showCloseButton: true,
@@ -42,6 +43,7 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
             precision: 6
         },
 
+        // eslint-disable-next-line no-unused-vars
         WidgetClass = SuperClass.extend(function NumPadBase(elem, options, deferredInit, inherited) {
             if (inherited === true) {
                 SuperClass.call(this, null, null, true, true);
@@ -59,7 +61,7 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
         }
         this.settings.windowType = 'NumPad';
         SuperClass.prototype.init.call(this, true);
-            
+
         this.settings.mms = brease.measurementSystem.getCurrentMeasurementSystem();
         this.settings.numberFormat = NumberFormat.getFormat(this.settings.format, this.settings.mms);
         this.settings.separators = brease.user.getSeparators();
@@ -74,13 +76,15 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
         this.inputElements = new InputElements();
         this.buttons = new ButtonElements(this);
         this.nodeInfo = new NodeInfo(this);
+        this.unitInfo = new UnitInfo(this.el);
 
         this.validator.addEventListener('Validation', this.outputElements.validListener.bind(this.outputElements));
+        this.validator.addEventListener('Validation', this.unitInfo.validListener.bind(this.unitInfo));
         this.inputElements.addEventListener('ValueChanged', this.value.changeListener.bind(this.value));
         this.value.addEventListener('ValueChanged', this.outputElements.changeListener.bind(this.outputElements));
         this.value.addEventListener('ValueChanged', this.validator.changeListener.bind(this.validator));
         this.value.addEventListener('SignChanged', this.buttons.signChangeListener.bind(this.buttons));
-            
+
         this.buttons.addEventListener('ButtonAction', this.value.actionListener.bind(this.value));
         this.buttons.addEventListener('ButtonAction', _buttonActionListener.bind(this));
     };
@@ -128,15 +132,16 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
     };
 
     /**
-        * @method show
-        * opens NumPad relative to opener (usually NumericInput)  
-        * @param {brease.objects.NumpadOptions} options
-        * @param {HTMLElement} refElement Either HTML element of opener widget or any HTML element for relative positioning.
-        */
-    p.show = function (options, refElement) { 
+            * @method show
+            * opens NumPad relative to opener (usually NumericInput)  
+            * @param {brease.objects.NumpadOptions} options
+            * @param {HTMLElement} refElement Either HTML element of opener widget or any HTML element for relative positioning.
+            */
+    p.show = function (options, refElement) {
         var validOptions = this.validatePositions(options);
         SuperClass.prototype.show.call(this, validOptions, refElement); // settings are extended in super call
         this.nodeInfo.show(validOptions);
+        this.unitInfo.show(validOptions.unit);
         this.closeOnLostContent(refElement);
 
         this.settings.mms = brease.measurementSystem.getCurrentMeasurementSystem();
@@ -152,17 +157,32 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
             this.settings.largeChange = 10 * this.settings.smallChange;
         }
 
-        this.validator.setConfig(this.settings.minValue, this.settings.maxValue);
+        this.validator.setConfig({
+            minValue: this.settings.minValue,
+            maxValue: this.settings.maxValue
+        });
 
         var lowestPossibleFormattedValue = _lowestPossibleFormattedValue.call(this, this.settings.minValue);
         this.minEl.html(_format.call(this, lowestPossibleFormattedValue));
         var highestPossibleFormattedValue = _highestPossibleFormattedValue.call(this, this.settings.maxValue);
         this.maxEl.html(_format.call(this, highestPossibleFormattedValue));
 
-        this.outputElements.setConfig(lowestPossibleFormattedValue, highestPossibleFormattedValue, this.settings.smallChange, this.settings.largeChange);
+        this.outputElements.setConfig({
+            minValue: lowestPossibleFormattedValue,
+            maxValue: highestPossibleFormattedValue,
+            smallChange: this.settings.smallChange,
+            largeChange: this.settings.largeChange,
+            numberFormat: this.settings.numberFormat,
+            useDigitGrouping: this.settings.useDigitGrouping,
+            separators: this.settings.separators
+        });
         this.outputElements.update();
 
-        this.value.setConfig(this.settings.numberFormat, this.settings.useDigitGrouping, this.settings.separators);
+        this.value.setConfig({
+            numberFormat: this.settings.numberFormat,
+            useDigitGrouping: this.settings.useDigitGrouping,
+            separators: this.settings.separators
+        });
         this.value.initialSetValue(this.settings.value);
 
         if (this.eventsAttached !== true) {
@@ -171,14 +191,15 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
     };
 
     /**
-        * @method setStyle
-        * Overwrites method from BaseWidget module  
-        * @param {StyleReference} style
-        */
+            * @method setStyle
+            * Overwrites method from BaseWidget module  
+            * @param {StyleReference} style
+            */
     p.setStyle = function (style) {
         // removes anything that starts with "stylePrefix"
         var self = this;
 
+        // eslint-disable-next-line no-unused-vars
         this.el.removeClass(function (index, className) {
             var regex = new RegExp('\\b' + self.settings.stylePrefix + '\\S+', 'g');
             return (className.match(regex) || []).join(' ');
@@ -202,8 +223,10 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
     p.dispose = function () {
         _removeEventListeners.call(this);
         this.nodeInfo.dispose();
+        this.unitInfo.dispose();
         this.validator.removeEventListener('Validation');
-        this.inputElements.removeEventListener('ValueChanged');
+        this.inputElements.dispose();
+        this.outputElements.dispose();
         this.value.removeEventListener('ValueChanged');
         this.value.removeEventListener('SignChanged');
         this.buttons.removeEventListener('ButtonAction');
@@ -223,6 +246,8 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
         if (e.keyCode === 8) {
             e.preventDefault();
             this._keyUpHandler(e);
+        } else if (brease.config.visu.keyboardOperation && e.key === 'Escape') {
+            this.hide();
         }
     };
 
@@ -246,18 +271,20 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
         this.hide();
     };
 
-    p.loadHTML = function () { 
+    p.loadHTML = function () {
         var self = this;
         require(['text!' + self.settings.html], function (html) {
             self.deferredInit(document.body, html, true);
 
-            var slider = new Slider(self);
-            self.outputElements.addElement(slider);
-            self.inputElements.addElement(slider);
+            var elements = NumPadSlider.createInstances(self.el);
+            elements.forEach(function (slider) {
+                self.outputElements.addElement(slider);
+                self.inputElements.addElement(slider);
+            });
 
             var numericOutput = new NumericValue(self);
             self.outputElements.addElement(numericOutput);
-                
+
             self.buttons.init();
 
             self.readyHandler();
@@ -297,9 +324,9 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
     }
 
     /*A&P 467975: when limitMax =4.2 you can not give in 4.2
-        * due to machine epsilon (Maschinengenauigkeit, floating point arithmetic) we have to round min/max
-        * we round to 6 (=settings.precision) significant figures
-        */
+            * due to machine epsilon (Maschinengenauigkeit, floating point arithmetic) we have to round min/max
+            * we round to 6 (=settings.precision) significant figures
+            */
     function _roundRangeValues() {
         this.settings.minValue = brease.formatter.roundToSignificant(this.settings.minValue, this.settings.precision);
         this.settings.maxValue = brease.formatter.roundToSignificant(this.settings.maxValue, this.settings.precision);
@@ -309,7 +336,7 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
     function _lowestPossibleFormattedValue(minValue) {
         return _findPossibleFormattedValue.call(this, minValue, 'min');
     }
-        
+
     // find the highest value that can be entered by user with current settings (decimalPlaces)
     function _highestPossibleFormattedValue(maxValue) {
         return _findPossibleFormattedValue.call(this, maxValue, 'max');
@@ -375,19 +402,19 @@ function (SuperClass, BreaseEvent, Enum, Utils, NumberFormat, Slider, NumericVal
                 }
             }
             /**
-            * @event value_submit
-            * Fired after user clicks 'enter' to submit value    
-            * @param {Object} detail  
-            * @param {Number} detail.value  
-            * @param {String} type {@link brease.events.BreaseEvent#static-property-SUBMIT BreaseEvent.SUBMIT}
-            * @param {HTMLElement} target element of widget
-            */
+                * @event value_submit
+                * Fired after user clicks 'enter' to submit value    
+                * @param {Object} detail  
+                * @param {Number} detail.value  
+                * @param {String} type {@link brease.events.BreaseEvent#static-property-SUBMIT BreaseEvent.SUBMIT}
+                * @param {HTMLElement} target element of widget
+                */
             if (submit === true) {
                 this.dispatchEvent(new CustomEvent(BreaseEvent.SUBMIT, { detail: { value: this.getValue() } }));
             }
             if (close === true) {
                 this.hide();
-            } 
+            }
         }
     }
 

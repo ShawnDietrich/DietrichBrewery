@@ -1,4 +1,3 @@
-/*global define*/
 define(['brease/enum/Enum'], function (Enum) {
 
     'use strict';
@@ -61,6 +60,14 @@ define(['brease/enum/Enum'], function (Enum) {
     * Determines if digit grouping should be used
     */
 
+    /**
+     * @cfg {Integer} tabIndex=-1
+     * @iatStudioExposed
+     * @iatCategory Behavior 
+     * sets if a widget should have autofocus enabled (0), the order of the focus (>0),
+     * or if autofocus should be disabled (-1)
+     */
+
     var config = {
         value: 0,
         maxValue: 100,
@@ -78,7 +85,8 @@ define(['brease/enum/Enum'], function (Enum) {
         unit: null,
         node: null,
         unitWidth: '0',
-        unitTextAlign: 'center'
+        unitTextAlign: 'center',
+        tabIndex: -1
     };
 
     return config;

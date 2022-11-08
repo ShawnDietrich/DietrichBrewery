@@ -6,14 +6,16 @@ define(function () {
 
         this.update = function () {
             this.updated = true;
+            this.def.resolve(true);
         };
 
         this.isUpdated = function () {
-            return this.updated;
+            return this.def.promise();
         };
 
         this.reset = function () {
             this.updated = false;
+            this.def = $.Deferred();
         };
 
     };

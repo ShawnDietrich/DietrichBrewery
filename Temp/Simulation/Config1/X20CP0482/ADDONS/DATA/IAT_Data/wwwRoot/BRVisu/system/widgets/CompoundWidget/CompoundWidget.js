@@ -22,6 +22,16 @@ define(['brease/core/BaseWidget', 'brease/events/BreaseEvent', 'brease/enum/Enum
     */
 
     /**
+    * @cfg {Boolean} focusable=false
+    * The CompoundWidget itself will not be added to the focus chain.
+    * Child widgets derive the tabIndex from its parent but the parent widget itself is not focusable.
+    */
+    /**
+    * @cfg {Integer} tabIndex=0
+    * @iatStudioExposed
+    * @iatCategory Behavior 
+    */
+    /**
     * @cfg {StyleReference} style
     * @hide
     */
@@ -29,12 +39,13 @@ define(['brease/core/BaseWidget', 'brease/events/BreaseEvent', 'brease/enum/Enum
     * @cfg {Boolean} omitClass
     * @hide
     */
-
     /**
     * @method setStyle
     * @hide
     */
     var defaultSettings = {
+            tabIndex: 0,
+            focusable: false,
             addContent: brease.config.editMode
         },
 

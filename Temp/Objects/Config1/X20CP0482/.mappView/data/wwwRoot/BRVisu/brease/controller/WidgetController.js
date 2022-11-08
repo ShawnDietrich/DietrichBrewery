@@ -53,7 +53,7 @@ function (Utils, factoryUtils, Enum, BreaseEvent, Queue, WidgetModel) {
                             widget.options = options;
                         }
                     } else {
-                        widget.options = Utils.extendOptionsToNew(widget.options, options);
+                        widget.options = Utils.extendOptions(widget.options, options);
                     }
                 } else {
                     if (copy === true) {
@@ -195,7 +195,7 @@ function (Utils, factoryUtils, Enum, BreaseEvent, Queue, WidgetModel) {
                         callback();
                     }
                     
-                } else if (target !== null) {
+                } else {
                     _warn('dispose');
                 }
             },
