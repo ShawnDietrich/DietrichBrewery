@@ -83,10 +83,10 @@ svg {
 &.disabled {
 	border-color: #FFFFFF #C8C8C8 #C8C8C8 #FFFFFF;
 }
-&:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .before {
+&:not(.disabled):not(.checked) .wrapper .before {
 	color: #FFFFFF;
 }
-&:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .after {
+&:not(.disabled):not(.checked) .wrapper .after {
 	color: #FFFFFF;
 }
 &.disabled:not(.checked) span {
@@ -110,42 +110,44 @@ svg {
 &.checked:not(.disabled) .breaseToggleSwitch_toggle {
 	color: #FFFFFF;
 }
-&.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
+&.checked:not(.disabled) .wrapper .before {
 	color: #FFFFFF;
 }
-&.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
+&.checked:not(.disabled) .wrapper .after {
 	color: #FFFFFF;
 }
-.breaseToggleSwitch_toggle .wrapper {
+.wrapper {
 	@include text-alignment(center);
 }
 	opacity: 1;
 	@include rotate(0deg);
-.breaseToggleSwitch_toggle .wrapper .before {
+.wrapper .before {
 	font-size: 12px;
 }
-.breaseToggleSwitch_toggle .wrapper .after {
+.wrapper .after {
 	font-size: 12px;
 }
-.breaseToggleSwitch_toggle .wrapper .before {
+.wrapper .before {
 	font-family: Arial;
 }
-.breaseToggleSwitch_toggle .wrapper .after {
+.wrapper .after {
 	font-family: Arial;
 }
-.breaseToggleSwitch_toggle .wrapper .before {
+.wrapper .before {
 	@include font-weight-bold(true);
 }
-.breaseToggleSwitch_toggle .wrapper .after {
+.wrapper .after {
 	@include font-weight-bold(true);
 }
-.breaseToggleSwitch_toggle .wrapper .before {
+.wrapper .before {
 	@include font-style-italic(false);
 }
-.breaseToggleSwitch_toggle .wrapper .after {
+.wrapper .after {
 	@include font-style-italic(false);
 }
+.contentWrapper {
 	padding: 2px;
+}
 	margin: 0px;
 &:not(.active):not(.checked) {
 	@include box-shadow(none);

@@ -8,8 +8,6 @@
 		<Dependencies>
 			<Files>
 				<File>brease/core/BaseWidget.js</File>
-				<File>brease/enum/Enum.js</File>
-				<File>brease/core/Types.js</File>
 				<File>brease/decorators/DragAndDropCapability.js</File>
 				<File>widgets/brease/common/DragDropProperties/libs/DraggablePropertiesEvents.js</File>
 				<File>widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents.js</File>
@@ -36,6 +34,9 @@
 		<Children>
 		</Children>
 		<Methods>
+			<Method name="Focus" read="false">
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+			</Method>
 			<Method name="SetEnable" read="false">
 				<Description>Sets the state of property «enable»</Description>
 				<Arguments>
@@ -76,14 +77,13 @@
 						<Description>id of widget that triggered this event</Description>
 					</Argument>
 					<Argument name="hasPermission" type="Boolean" index="1" required="true">
-						<Description>defines if the state is caused due to missing</Description>
+						<Description>defines if the state is caused due to missing roles of the current user</Description>
 					</Argument>
 					<Argument name="horizontalPos" type="String" index="2" required="true">
 						<Description>horizontal position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 					<Argument name="verticalPos" type="String" index="3" required="true">
-						<Description>vertical position of click in pixel i.e &apos;10px&apos;
-roles of the current user						</Description>
+						<Description>vertical position of click in pixel i.e &apos;10px&apos;</Description>
 					</Argument>
 				</Arguments>
 			</Event>
@@ -94,6 +94,12 @@ roles of the current user						</Description>
 						<Description>operability</Description>
 					</Argument>
 				</Arguments>
+			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 			<Event name="OnDragEnd">
 				<Description>Fired when element has OnDragEnd.</Description>
@@ -175,6 +181,10 @@ roles of the current user						</Description>
 			<Property name="style" type="StyleReference" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Appearance" defaultValue="default">
 				<Description>reference to a style for this widget type</Description>
 			</Property>
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="-1">
+				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
+or if autofocus should be disabled (-1)				</Description>
+			</Property>
 			<Property name="visible" type="Boolean" initOnly="false" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
 				<Description>change visibility</Description>
 			</Property>
@@ -245,6 +255,22 @@ roles of the current user						</Description>
 			<StyleProperty name="lineGradient" category="Appearance" type="Gradient" default="">
 				<StyleElement attribute="@include borderImageGradient(&apos;$value&apos;)"/>
 				<Description>Sets the border color of the widget as gradient. For further information, please check CSS Gradients</Description>
+			</StyleProperty>
+			<StyleProperty name="minWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="3">
+				<StyleElement attribute="@include elemMinWidth($value)"/>
+				<Description>minimum outer width of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="maxWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="4">
+				<StyleElement attribute="@include elemMaxWidth($value)"/>
+				<Description>maximum outer width of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="minHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="5">
+				<StyleElement attribute="@include elemMinHeight($value)"/>
+				<Description>minimum outer height of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="maxHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="6">
+				<StyleElement attribute="@include elemMaxHeight($value)"/>
+				<Description>maximum outer height of widget</Description>
 			</StyleProperty>
 		</StyleProperties>
 		<PropertyGroups>

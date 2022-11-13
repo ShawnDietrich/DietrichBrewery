@@ -42,6 +42,8 @@
         <Variable Name="StartKettle" />
         <Variable Name="TmrRemain" />
         <Variable Name="TimePre" />
+        <Variable Name="pbDown" />
+        <Variable Name="pbUp" />
       </Task>
       <Task Name="HLTControl">
         <Variable Name="Proc">
@@ -58,6 +60,7 @@
             <Variable Name="Start" />
           </Variable>
         </Variable>
+        <Variable Name="PumpExp" />
       </Task>
       <Task Name="MashTunCon">
         <Variable Name="pbMashPump" />
@@ -80,6 +83,10 @@
         <Variable Name="TmrDT" />
         <Variable Name="TmrRemain" />
         <Variable Name="StartMash" />
+      </Task>
+      <Task Name="FillingTan">
+        <Variable Name="HLTImgCont" />
+        <Variable Name="MashImgCont" />
       </Task>
     </Module>
   </DefaultView>

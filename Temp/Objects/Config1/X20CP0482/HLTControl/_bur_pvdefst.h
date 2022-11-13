@@ -505,4 +505,5 @@ typedef struct MpComIdentType
 } MpComIdentType;
 #endif
 
+_BUR_LOCAL plcbit PumpExp;
 _BUR_LOCAL ProcControl Proc;

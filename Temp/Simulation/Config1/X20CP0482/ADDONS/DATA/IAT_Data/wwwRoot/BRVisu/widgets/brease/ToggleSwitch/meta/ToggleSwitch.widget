@@ -12,6 +12,7 @@
 				<File>brease/core/Utils.js</File>
 				<File>brease/events/BreaseEvent.js</File>
 				<File>widgets/brease/common/libs/wfUtils/UtilsImage.js</File>
+				<File>brease/core/Types.js</File>
 			</Files>
 			<Widgets>
 				<Widget>widgets/brease/ToggleSwitch/ToggleSwitch.js</Widget>
@@ -455,8 +456,8 @@ This property has no effect, if multiLine=false				</Description>
 				<Description>Sets the color of the border when disabled</Description>
 			</StyleProperty>
 			<StyleProperty name="textColor" category="Appearance" type="Color" default="#FFFFFF" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector="&amp;:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .before" attribute="color"/>
-				<StyleElement selector="&amp;:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .after" attribute="color"/>
+				<StyleElement selector="&amp;:not(.disabled):not(.checked) .wrapper .before" attribute="color"/>
+				<StyleElement selector="&amp;:not(.disabled):not(.checked) .wrapper .after" attribute="color"/>
 				<Description>Sets the color of the text when enabled</Description>
 			</StyleProperty>
 			<StyleProperty name="disabledTextColor" category="Appearance" type="Color" default="#989898" owner="widgets.brease.ToggleButton">
@@ -479,12 +480,12 @@ This property has no effect, if multiLine=false				</Description>
 			</StyleProperty>
 			<StyleProperty name="mouseDownTextColor" category="Appearance" type="Color" default="#FFFFFF" owner="widgets.brease.ToggleSwitch">
 				<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle" attribute="color"/>
-				<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle .before" attribute="color"/>
-				<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle .after" attribute="color"/>
+				<StyleElement selector="&amp;.checked:not(.disabled) .wrapper .before" attribute="color"/>
+				<StyleElement selector="&amp;.checked:not(.disabled) .wrapper .after" attribute="color"/>
 				<Description>text color when widget is clicked</Description>
 			</StyleProperty>
 			<StyleProperty name="textAlign" category="Appearance" type="brease.enum.TextAlign" default="center" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper" attribute="@include text-alignment($value)"/>
+				<StyleElement selector=".wrapper" attribute="@include text-alignment($value)"/>
 				<Description>Alignment of the text</Description>
 			</StyleProperty>
 			<StyleProperty name="opacity" category="Appearance" type="Opacity" default="1" owner="widgets.brease.ToggleSwitch">
@@ -496,27 +497,27 @@ This property has no effect, if multiLine=false				</Description>
 				<Description>Rotation of widget.</Description>
 			</StyleProperty>
 			<StyleProperty name="fontSize" category="Font" type="PixelVal" default="12px" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="font-size"/>
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="font-size"/>
+				<StyleElement selector=".wrapper .before" attribute="font-size"/>
+				<StyleElement selector=".wrapper .after" attribute="font-size"/>
 				<Description>Fontsize of the text in pixel</Description>
 			</StyleProperty>
 			<StyleProperty name="fontName" category="Font" type="FontName" default="Arial" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="font-family"/>
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="font-family"/>
+				<StyleElement selector=".wrapper .before" attribute="font-family"/>
+				<StyleElement selector=".wrapper .after" attribute="font-family"/>
 				<Description>Fontname of the text</Description>
 			</StyleProperty>
 			<StyleProperty name="bold" category="Font" type="Boolean" default="true" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="@include font-weight-bold($value)"/>
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="@include font-weight-bold($value)"/>
+				<StyleElement selector=".wrapper .before" attribute="@include font-weight-bold($value)"/>
+				<StyleElement selector=".wrapper .after" attribute="@include font-weight-bold($value)"/>
 				<Description>If *true* font style is bold</Description>
 			</StyleProperty>
 			<StyleProperty name="italic" category="Font" type="Boolean" default="false" owner="widgets.brease.ToggleSwitch">
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="@include font-style-italic($value)"/>
-				<StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="@include font-style-italic($value)"/>
+				<StyleElement selector=".wrapper .before" attribute="@include font-style-italic($value)"/>
+				<StyleElement selector=".wrapper .after" attribute="@include font-style-italic($value)"/>
 				<Description>If *true* font style is italic</Description>
 			</StyleProperty>
 			<StyleProperty name="padding" category="Layout" type="Padding" default="2px" owner="widgets.brease.ToggleSwitch">
-				<StyleElement attribute="padding"/>
+				<StyleElement selector=".contentWrapper" attribute="padding"/>
 				<Description>Padding of the Widget</Description>
 			</StyleProperty>
 			<StyleProperty name="margin" category="Layout" type="Margin" default="0px">

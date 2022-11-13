@@ -62,16 +62,14 @@
             if ((!enableInDebug && /debug=true/.test(window.location)) || /autoReconnect=false/.test(window.location)) return;
 
             window._connectionErrorHandler = function () {};
-
-            var splashscreen = document.getElementById('splashscreen');
-            if (splashscreen) {
-                splashscreen.style.display = 'none'
+            var nodes = document.body.childNodes;
+            for(var i = 0; i < nodes.length; i++) {
+                if (nodes[i].nodeName.toLowerCase() == 'div') {
+                    nodes[i].style.display = 'none';
+                }
             }
-            document.getElementById('appContainer').style.display = 'none';
-
             var msgBoxElem = document.createElement('div');
             msgBoxElem.setAttribute('id', 'connectionFailedMsgBox');
-            msgBoxElem.setAttribute('style', 'z-index:' + (Math.pow(2,31)-1));
             var msgBoxTextElem = document.createElement('div');
             if (msg) {
                 msgBoxTextElem.innerHTML = msg;

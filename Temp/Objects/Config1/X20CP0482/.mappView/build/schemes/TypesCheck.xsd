@@ -37,6 +37,7 @@
 	<xs:attribute name="value_Opacity" type="types:Opacity"/>
 	<xs:attribute name="value_Rotation" type="types:Rotation"/>
 	<xs:attribute name="value_ImagePath" type="types:ImagePath"/>
+	<xs:attribute name="value_FileName" type="types:FileName"/>
 	<xs:attribute name="value_FilePath" type="types:FilePath"/>
 	<xs:attribute name="value_ImageSize" type="types:ImageSize"/>
 	<xs:attribute name="value_FontName" type="types:FontName"/>
@@ -133,6 +134,7 @@
 	<xs:attribute name="value_brease.enum.RangeMode" type="types:brease.enum.RangeMode"/>
 	<xs:attribute name="value_brease.enum.RenderingPolicy" type="types:brease.enum.RenderingPolicy"/>
 	<xs:attribute name="value_brease.enum.ScrollDirection" type="types:brease.enum.ScrollDirection"/>
+	<xs:attribute name="value_brease.enum.SecurityPolicy" type="types:brease.enum.SecurityPolicy"/>
 	<xs:attribute name="value_brease.enum.SelectMode" type="types:brease.enum.SelectMode"/>
 	<xs:attribute name="value_brease.enum.ShowData" type="types:brease.enum.ShowData"/>
 	<xs:attribute name="value_brease.enum.SizeMode" type="types:brease.enum.SizeMode"/>
@@ -357,7 +359,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" >
-      <xs:pattern value="(((#[0-9A-Fa-f]{6})|(#[0-9A-Fa-f]{3})|(rgba\((((25[0-5])|(2[01234][0-9])|([01][0-9][0-9])|([0-9]{1,2})),(\s)?){3}((0\.[0-9]{1,2})|1(\.0)?|0)\)))\s?){1,4}|(transparent)"></xs:pattern>
+      <xs:pattern value="(#[0-9A-Fa-f]{6})|(#[0-9A-Fa-f]{4})|(#[0-9A-Fa-f]{3})|rgba\((((0)*((25[0-5])|(2[0-4][0-9])|(1[0-9][0-9])|([1-9][0-9])|([0-9]))|(0)+),(\s)?){3}((0(\.)?([0-9]){1,2})|0|1(\.0)?)\)|(transparent)"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
 
@@ -547,6 +549,17 @@
     </xs:annotation>
     <xs:restriction base="xs:string" >
       <xs:pattern value="[^\\]*"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FileName">
+    <xs:annotation>
+      <xs:documentation>
+        name of a file
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" >
+      <xs:pattern value="[a-zA-Z0-9\-_]{1,}"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
 
@@ -930,6 +943,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" >
+    <xs:pattern value="(\{.*\})?"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
 
@@ -948,6 +962,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" >
+      <xs:pattern value="(\{([A-Z]|[a-z]|[0-9]|[:'{}, -])*\})?"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
 
@@ -1562,6 +1577,12 @@
 			<xs:enumeration value="left" />
 			<xs:enumeration value="right" />
 			<xs:enumeration value="top" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="brease.enum.SecurityPolicy">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="off" />
+			<xs:enumeration value="on" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="brease.enum.SelectMode">

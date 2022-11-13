@@ -5,5 +5,7 @@
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="File">MainPageContent.binding</Object>
+    <Object Type="File">StatusContent.binding</Object>
+    <Object Type="File">FillTankContent.binding</Object>
   </Objects>
 </Package>

@@ -313,7 +313,7 @@ define(['brease/core/BaseWidget', 'brease/enum/Enum', 'brease/events/BreaseEvent
                     controllerUtils.appendHTML(self.elem, html);
                 } catch (e) {
                     console.error(e);
-                    console.log('Content "' + self.settings.contentId + '": error in widget properties (ContentLoader.js)');
+                    console.log('Content "' + self.settings.contentId + '": error in brease.setOptions');
                 }
                 /**
                 * @event fragment_loaded
@@ -330,7 +330,7 @@ define(['brease/core/BaseWidget', 'brease/enum/Enum', 'brease/events/BreaseEvent
 
                 $.when(
                     brease.uiController.bindingController.activateContent(self.settings.contentId)
-                ).then(self._bind(_activateFinished));
+                ).then(self._bind(_activateFinished), self._bind(_activateFailed));
 
                 this.active = true;
             }
@@ -341,6 +341,18 @@ define(['brease/core/BaseWidget', 'brease/enum/Enum', 'brease/events/BreaseEvent
             $.when(
                 _parseContent.call(self, self.elem)
             ).then(self._bind(_contentReadyHandler));
+        }
+
+        function _activateFailed() {
+            /**
+            * @event activate_error
+            * Fired if an error occurs at activate content
+            * @param {Object} detail
+            * @param {String} detail.contentId id of content
+            * @param {HTMLElement} target element of ContentLoader
+            */
+            this.dispatchEvent(new CustomEvent(BreaseEvent.CONTENT_ACTIVATE_ERROR, { detail: { contentId: this.settings.contentId }, bubbles: true }));
+            this.el.html('ERROR: could not activate content "' + this.settings.contentId + '", check logger').css('visibility', 'visible');
         }
 
         function _loadFail(error) {

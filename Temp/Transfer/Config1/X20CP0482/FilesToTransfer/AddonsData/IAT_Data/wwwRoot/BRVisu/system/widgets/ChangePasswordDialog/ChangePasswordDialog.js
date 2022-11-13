@@ -19,6 +19,10 @@ define([
     * #Description
     * widget to show a dialog window
     * @extends widgets.brease.Window
+    * @requires widgets.brease.Label
+    * @requires widgets.brease.TextInput
+    * @requires widgets.brease.Password
+    * @requires widgets.brease.Button
     *
     * @iatMeta studio:visible
     * false
@@ -417,7 +421,7 @@ define([
         this.elem.addEventListener(BreaseEvent.WIDGET_READY, this._bind(_readyListener));
     }
 
-    function _parsedListener(e) {
+    function _parsedListener() {
         this.elem.removeEventListener(BreaseEvent.CONTENT_PARSED, this._bind(_parsedListener));
 
         this.buttons = new Elements({

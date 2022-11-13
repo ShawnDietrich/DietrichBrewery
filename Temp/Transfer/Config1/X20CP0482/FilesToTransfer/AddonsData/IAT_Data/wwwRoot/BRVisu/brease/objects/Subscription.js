@@ -8,6 +8,13 @@ define(function () {
     * @extends Object
     */
     /**
+    * @method constructor
+    * Creates a new Subscription instance.
+    * @param {String} elemId
+    * @param {String} attribute
+    * @param {String} contentId
+    */
+    /**
     * @property {String} elemId
     */
     /**

@@ -1,0 +1,63 @@
+#StatusContent_GroupBox1 {
+  top: 4px;
+  position: absolute;
+}
+
+#StatusContent_GroupBox1 {
+  left: 1px;
+  position: absolute;
+}
+
+#StatusContent_GroupBox1 {
+  width: 1597px;
+}
+
+#StatusContent_GroupBox1 {
+  height: 94px;
+}
+
+#StatusContent_GroupBox1 {
+  z-index: 0;
+}
+
+#StatusContent_GroupBox1 {
+  border-radius: 10px;
+}
+
+#StatusContent_GroupBox1 {
+  background-color: whitesmoke;
+}
+
+#StatusContent_GroupBox1 {
+  border-color: black;
+}
+
+#StatusContent_GroupBox1 > .header {
+  border-color: black;
+}
+
+#StatusContent_AlarmLine1 {
+  height: 80px;
+}
+
+#StatusContent_AlarmLine1 {
+  top: 6px;
+  position: absolute;
+}
+
+#StatusContent_AlarmLine1 {
+  left: 223px;
+  position: absolute;
+}
+
+#StatusContent_AlarmLine1 {
+  width: 1149px;
+}
+
+#StatusContent_AlarmLine1 {
+  z-index: 0;
+}
+
+#StatusContent_AlarmLine1.breaseAlarmLine .AlarmLineWrapper > div {
+  border-radius: 10px;
+}

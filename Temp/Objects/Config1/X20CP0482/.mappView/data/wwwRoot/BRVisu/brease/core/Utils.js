@@ -1,4 +1,4 @@
-define(function () {
+define(['DOMPurify', 'brease/enum/Enum'], function (DOMPurify, Enum) {
 
     'use strict';
 
@@ -92,21 +92,6 @@ define(function () {
     */
     Utils.extendOptions = function (obj1, obj2) {
         return _optionsExtend(_deepCopy(obj1), obj2);
-    };
-
-    Utils.toArray = function (obj, startIndex) {
-        var ar;
-        if (obj) {
-            var l = obj.length;
-            ar = [];
-            startIndex = (startIndex !== undefined) ? startIndex : 0;
-            if (l > startIndex) {
-                for (var i = startIndex; i < l; i += 1) {
-                    ar.push(obj[i]);
-                }
-            }
-        }
-        return ar;
     };
         
     Utils.uniqueArray = function (arr) {
@@ -215,26 +200,15 @@ define(function () {
         return obj;
     };
 
+    // used for unit tests to provide the same date for functions which request date
+    // e.g. in DateTimeoutput tests
     Utils.getActDate = function () {
         return new Date();
     };
 
-    Utils.setDate = function (dateObject, h, m, s, ms) {
-        if (dateObject !== undefined) {
-            if (typeof dateObject.setHours === 'function' && !isNaN(h)) {
-                dateObject.setHours(h);
-            }
-            if (typeof dateObject.setMinutes === 'function' && !isNaN(m)) {
-                dateObject.setMinutes(m);
-            }
-            if (typeof dateObject.setSeconds === 'function' && !isNaN(s)) {
-                dateObject.setSeconds(s);
-            }
-            if (typeof dateObject.setMilliseconds === 'function' && !isNaN(ms)) {
-                dateObject.setMilliseconds(ms);
-            }
-        }
-        return dateObject;
+    // used for unit tests to allow to spy on userAgent
+    Utils.getUserAgent = function () {
+        return navigator.userAgent;
     };
 
     var id = 1, 
@@ -338,7 +312,7 @@ define(function () {
     * @return {Boolean} 
     */
     Utils.isPercentageValue = function (value) {
-        return typeof value === 'string' && value.endsWith('%');
+        return Utils.isString(value) && value.endsWith('%');
     };
 
     /**
@@ -532,8 +506,8 @@ define(function () {
     */
     Utils.getChromeScale = function (elem) {
 
-        var userAgent = navigator.userAgent,
-            chromeIndex = navigator.userAgent.toLowerCase().indexOf('chrome'),
+        var userAgent = Utils.getUserAgent(),
+            chromeIndex = userAgent.toLowerCase().indexOf('chrome'),
             isChrome = chromeIndex !== -1,
             majorVersion = 0;
 
@@ -545,34 +519,6 @@ define(function () {
         } else {
             return Utils.getScaleFactor(elem);
         }
-
-    };
-
-    /**
-    * @method objToLogText
-    * @static
-    * Method to convert an object to an suitable text for the event logger
-    * @param {Object} obj
-    * @return {String}
-    */
-    Utils.objToLogText = function (obj) {
-        var text = '';
-
-        if (obj === undefined) {
-            return '';
-        } else if (typeof obj === 'object') {
-            for (var key in obj) {
-                if (obj[key] && obj[key].toString() === '[object Object]') {
-                    text += ((text !== '') ? ',' : '') + key + '={' + Utils.objToLogText(obj[key]) + '}';
-                } else {
-                    text += ((text !== '') ? ',' : '') + key + '=' + obj[key];
-                }
-            }
-        } else {
-            text = obj.toString();
-        }
-
-        return text;
     };
 
     Utils.logError = function (e) {
@@ -850,29 +796,13 @@ define(function () {
     };
 
     Utils.isVisible = function (elem) {
-        return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+        return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length) && window.getComputedStyle(elem).visibility !== 'hidden';
     };
 
     Utils.addTimestamp = function (url) {
     
         url += ((url.indexOf('?') !== -1) ? '&' : '?') + 't=' + Date.now();
         return url;
-    };
-
-    Utils.requestAnimationFrame = function (fn) {
-        if (typeof window.requestAnimationFrame === 'function') {
-            return window.requestAnimationFrame(fn);
-        } else {
-            return window.setTimeout(fn, 0);
-        }
-    };
-
-    Utils.cancelAnimationFrame = function (id) {
-        if (typeof window.cancelAnimationFrame === 'function') {
-            return window.cancelAnimationFrame(id);
-        } else {
-            return window.clearTimeout(id);
-        }
     };
 
     /**
@@ -982,6 +912,56 @@ define(function () {
     Utils.isT30 = function (userAgent) {
         return Utils.getBRPanelType(userAgent) === 'PPT30';
     };
+
+    /**
+    * @method hasSameOrigin
+    * @static
+    * Checks if the url has the same origin as baseURL.
+    * Can be used to block requests to thrid party servers.
+    * @param {String} src any url
+    * @return {Boolean}
+    */
+    Utils.hasSameOrigin = function (src) {
+        return new URL(document.baseURI).origin === new URL(src, document.baseURI).origin;
+    };
+
+    /**
+     * @method sanitizeHtml
+     * @static
+     * You can feed it with a string/node full of dirty HTML and it will return a string/node (unless configured otherwise) with clean HTML. 
+     * It will strip out everything that contains dangerous HTML and thereby prevent XSS attacks and other nastiness.
+     * The provided node will be santized "in place" so the original node is returned. Make sure this node is not attached to the dom before sanitize!
+     * Removed items will be logged.
+     * This method does nothing if config.WidgetData.securityPolicy=Enum.SecurityPolicy.OFF - dirty html is returned!
+     * @param {String|core.html.Node} dirty string or DOM node
+     */
+    Utils.sanitizeHtml = function (dirty) {
+        if (brease.config.WidgetData.securityPolicy === Enum.SecurityPolicy.OFF) {
+            return dirty;
+        }
+        var options = {
+            ADD_TAGS: ['foreignObject']
+        };
+        if (dirty instanceof Node) {
+            options.IN_PLACE = true;
+            options.RETURN_DOM = true;
+        }
+        var sanitized = DOMPurify.sanitize(dirty, options);
+
+        if (DOMPurify.removed.length) {
+            _logSanitizeHtmlWarning();
+        }
+        return sanitized;
+    };
+
+    function _logSanitizeHtmlWarning() {
+        var code = Enum.EventLoggerId.DOCUMENT_CONTENT_SANITIZED;
+        var verboseLevel = Enum.EventLoggerVerboseLevel.OFF;
+        var severity = Enum.EventLoggerSeverity.WARNING;
+        var nodeType = DOMPurify.removed[0].element ? 'element' : 'attribute';
+        var nodeName = DOMPurify.removed[0][nodeType].localName;
+        brease.loggerService.log(code, Enum.EventLoggerCustomer.BUR, verboseLevel, severity, [nodeType, nodeName]);
+    }
 
     function _methodName(prefix, attribute) {
         return prefix + attribute.substring(0, 1).toUpperCase() + attribute.substring(1);

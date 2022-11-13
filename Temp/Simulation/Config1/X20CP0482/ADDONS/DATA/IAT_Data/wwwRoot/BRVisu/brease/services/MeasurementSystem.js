@@ -17,6 +17,7 @@ function (BreaseEvent, SocketEvent, Utils) {
         init: function (runtimeService) {
             _runtimeService = runtimeService;
             _runtimeService.addEventListener(SocketEvent.MEASUREMENT_SYSTEM_CHANGED, _measurementSystemChangedByServerHandler);
+            document.body.addEventListener(BreaseEvent.LANGUAGE_CHANGED, updateMeasurementSystems);
             return this;
         },
 
@@ -32,21 +33,7 @@ function (BreaseEvent, SocketEvent, Utils) {
         * @return {Object}
         */
         getMeasurementSystems: function () {
-
             return Utils.deepCopy(_mms);
-        },
-
-        updateMeasurementSystems: function () {
-            var deferred = $.Deferred();
-            if (_currentLanguage !== brease.language.getCurrentLanguage()) {
-                _runtimeService.loadMeasurementSystemList(_updateMeasurementSystemListResponseHandler, { deferred: deferred });
-                _currentLanguage = brease.language.getCurrentLanguage();
-            } else {
-                deferred.reject('language is current');
-            }
-
-            return deferred.promise();
-
         },
 
         /**
@@ -65,14 +52,12 @@ function (BreaseEvent, SocketEvent, Utils) {
         * @param {String} key Key of one available Measurement-System (e.g. 'metric')
         */
         switchMeasurementSystem: function (key) {
-            //console.log('switchMeasurementSystem:', key);
             var deferred = $.Deferred();
             if (_mms[key] === undefined) {
                 console.iatWarn('Measurement-System \u00BB' + key + '\u00AB is not defined!');
                 deferred.resolve({ success: false });
 
             } else if (_currentMeasurementSystem === key) {
-                //console.iatInfo('Measurement-System \u00BB' + key + '\u00AB is current!');
                 deferred.resolve({ success: true });
 
             } else {
@@ -89,46 +74,51 @@ function (BreaseEvent, SocketEvent, Utils) {
 
     var _mms = {},
         _currentMeasurementSystem = '',
-        _currentLanguage,
         _runtimeService;
 
-    function _finish(deferred, success, message) {
+    function updateMeasurementSystems() {
+        _runtimeService.loadMeasurementSystemList(_updateMeasurementSystemListResponseHandler);
+    }
 
+    function _finish(callbackInfo, success, message) {
         if (success === true) {
-            deferred.resolve(message);
+            if (callbackInfo && callbackInfo.deferred) {
+                callbackInfo.deferred.resolve(message); 
+            }
         } else {
-            deferred.reject(message);
+            console.iatDebug(message);
+            if (callbackInfo && callbackInfo.deferred) {
+                callbackInfo.deferred.reject(message);
+            } 
         }
     }
 
     function _loadMeasurementSystemListResponseHandler(response, callbackInfo) {
 
         if (_.isObject(response) && response.success === true) {
-            //console.log('_loadMeasurementSystemListResponseHandler:', response);
             _mms = response.measurementSystemList;
             _currentMeasurementSystem = response.current_measurementSystem;
             document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_LOADED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } }));
-            _finish(callbackInfo.deferred, true);
+            _finish(callbackInfo, true);
         } else {
-            _finish(callbackInfo.deferred, false, 'MeasurementSystems load error');
+            _finish(callbackInfo, false, 'MeasurementSystems load error');
         }
     }
 
     function _updateMeasurementSystemListResponseHandler(response, callbackInfo) {
-
+        
         if (_.isObject(response) && response.success === true) {
-            //console.log('_updateMeasurementSystemListResponseHandler:', response);
             _mms = response.measurementSystemList;
             _currentMeasurementSystem = response.current_measurementSystem;
             document.body.dispatchEvent(new CustomEvent(BreaseEvent.MEASUREMENT_SYSTEM_LOADED, { detail: { currentMeasurementSystem: _currentMeasurementSystem } }));
-            _finish(callbackInfo.deferred, true);
+            _finish(callbackInfo, true);
         } else {
-            _finish(callbackInfo.deferred, false, 'MeasurementSystems load error');
+            _finish(callbackInfo, false, 'MeasurementSystems load error');
         }
     }
 
     function _switchMeasurementSystemResponseHandler(response, callbackInfo) {
-        //console.log('_switchMeasurementSystemResponseHandler:', callbackInfo);
+        
         if (response.success === true) {
             _currentMeasurementSystem = callbackInfo.newKey;
             callbackInfo.deferred.resolve({ success: true });

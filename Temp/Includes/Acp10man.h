@@ -1,8 +1,8 @@
-/* acp10man.h V5.16.2 */ 
+/* acp10man.h V5.19.1 */ 
 /* COPYRIGHT (C) B&R Industrial Automation GmbH */ 
 
 #ifndef ACP10MAN_H_VERSION 
-#define ACP10MAN_H_VERSION 0x5162 
+#define ACP10MAN_H_VERSION 0x5191 
 
 #include <ncglobal.h>
 #include <acp10par.h>

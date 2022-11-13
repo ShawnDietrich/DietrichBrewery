@@ -1,0 +1,4 @@
+VAR
+	PumpExp : BOOL;
+	Proc : ProcControl;
+END_VAR

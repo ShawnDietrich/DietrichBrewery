@@ -43,31 +43,45 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
     var FocusManager = {
         start: function () {
             _isStarted = true;
-            brease.appElem.addEventListener(BreaseEvent.PAGE_LOADED, _pageLoadedHandler);
+            document.body.addEventListener(BreaseEvent.PAGE_LOADED, _pageLoadedHandler);
             brease.appElem.addEventListener(ClientSystemEvent.CONTENT_LOADED, _contentLoadedHandler);
             brease.appElem.addEventListener(ClientSystemEvent.DIALOG_OPENED, _dialogOpenedHandler);
             brease.appElem.addEventListener(ClientSystemEvent.DIALOG_CLOSED, _dialogClosedHandler);
+            document.body.addEventListener(BreaseEvent.WIDGET_READY, _widgetReadyHandler);
+            document.body.addEventListener(BreaseEvent.FOCUS_ELEM_READY, _focusElemReadyHandler);
+            document.body.addEventListener(BreaseEvent.FOCUS_ELEM_DISPOSED, _focusElemDisposedHandler);
+
+            document.body.addEventListener(BreaseEvent.CLOSED, _windowClosedHandler);
+
             document.body.addEventListener(BreaseEvent.CONTENT_REMOVED, _contentRemovedHandler);
             document.body.addEventListener(BreaseEvent.MESSAGE_BOX_OPENED, _messageBoxOpenedHandler);
             document.body.addEventListener(BreaseEvent.MESSAGE_BOX_CLOSED, _messageBoxClosedHandler);
             document.body.addEventListener('focusin', _focusInHandler);
             document.body.addEventListener(BreaseEvent.BEFORE_ENABLE_CHANGE, _beforeEnableChangeHandler);
             document.body.addEventListener(BreaseEvent.BEFORE_VISIBLE_CHANGE, _beforeVisibleChangeHandler);
+            document.body.addEventListener(BreaseEvent.SHOW_MODAL, _showModalHandler);
+            document.body.addEventListener(BreaseEvent.HIDE_MODAL, _hideModalHandler);
+            document.body.addEventListener(BreaseEvent.TABINDEX_CHANGED, _handleTabIndexChanged);
             window.addEventListener('keydown', _onKeyDown);
         },
 
         stop: function () {
             _isStarted = false;
-            brease.appElem.removeEventListener(BreaseEvent.PAGE_LOADED, _pageLoadedHandler);
+            document.body.removeEventListener(BreaseEvent.PAGE_LOADED, _pageLoadedHandler);
             brease.appElem.removeEventListener(ClientSystemEvent.CONTENT_LOADED, _contentLoadedHandler);
             brease.appElem.removeEventListener(ClientSystemEvent.DIALOG_OPENED, _dialogOpenedHandler);
             brease.appElem.removeEventListener(ClientSystemEvent.DIALOG_CLOSED, _dialogClosedHandler);
             document.body.removeEventListener(BreaseEvent.MESSAGE_BOX_OPENED, _messageBoxOpenedHandler);
             document.body.removeEventListener(BreaseEvent.MESSAGE_BOX_CLOSED, _messageBoxClosedHandler);
+            document.body.removeEventListener(BreaseEvent.WIDGET_READY, _widgetReadyHandler);
             document.body.removeEventListener(BreaseEvent.CONTENT_REMOVED, _contentRemovedHandler);
             document.body.removeEventListener('focusin', _focusInHandler);
             document.body.removeEventListener(BreaseEvent.BEFORE_ENABLE_CHANGE, _beforeEnableChangeHandler);
             document.body.removeEventListener(BreaseEvent.BEFORE_VISIBLE_CHANGE, _beforeVisibleChangeHandler);
+            document.body.removeEventListener(BreaseEvent.SHOW_MODAL, _showModalHandler);
+            document.body.removeEventListener(BreaseEvent.HIDE_MODAL, _hideModalHandler);
+            document.body.removeEventListener(BreaseEvent.CLOSED, _windowClosedHandler);
+            document.body.removeEventListener(BreaseEvent.TABINDEX_CHANGED, _handleTabIndexChanged);
             window.removeEventListener('keydown', _onKeyDown);
         },
 
@@ -97,6 +111,16 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
             } else {
                 _msgBoxFocusChainStack.focusPrevious();
             }
+        },
+
+        /**
+        * Note that this can be different from document.activeElement.
+        * I.e. if you click on a non-focusable element, document.activeElement = document.body 
+        * but getFocusedElem will return the element that had the focus before.
+        * The focus chain knows only widgets and FocusElems where one of the two always has the focus.
+        */
+        getFocusedElem: function () {
+            return _focusChain.getFocusedElem();
         },
 
         /**
@@ -137,6 +161,28 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         var contentId = e.detail.contentId,
             widgets = _getFocusableWidgetsOfContent(contentId);
         _focusChain.add(contentId, widgets);
+    }
+
+    function _widgetReadyHandler(e) {
+        var widget = brease.callWidget(e.target.id, 'widget');
+        var contentId = widget.getParentContentId();
+
+        if (widget.settings.windowType === 'GenericDialog') {
+            _windowStack.push({ type: windowType.DIALOG, id: e.target.id });
+            _focusChain.addGenericDialog(e.target.id);
+        } else if (widget.settings._dynamicallyCreated || contentId === brease.settings.globalContent) {
+            _focusChain.addWidget(contentId, widget);
+        }
+    }
+
+    function _focusElemReadyHandler(e) {
+        var focusElem = e.detail;
+        _focusChain.addWidget(focusElem.getParentContentId(), focusElem);
+    }
+
+    function _focusElemDisposedHandler(e) {
+        var focusElem = e.detail;
+        _focusChain.removeWidget(focusElem.getParentContentId(), focusElem);
     }
 
     function _dialogOpenedHandler(e) {
@@ -180,6 +226,18 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         }
     }
 
+    function _windowClosedHandler(e) {
+        var windowWidget = brease.callWidget(e.detail.id, 'widget');
+        if (windowWidget.settings.windowType === 'GenericDialog') {
+            _removeFromWindowStack(e.detail.dialogId);
+            var preventFocus = _isMsgBoxOnTop();
+            _focusChain.removeGenericDialog(e.detail.id, preventFocus);
+            if (preventFocus) {
+                _msgBoxFocusChainStack.resetFocus();
+            }
+        }
+    }
+
     function _contentRemovedHandler(e) {
         _focusChain.remove(e.detail.contentId);
     }
@@ -197,8 +255,10 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
 
     function _focusInHandler(e) {
         if (!_isMsgBoxOnTop()) {
-            var targetWidgetElem = Utils.closestWidgetElem(e.target);
-            _focusChain.focus(targetWidgetElem);
+            if (!_focusChain.focus(e.target)) {
+                var targetWidgetElem = Utils.closestWidgetElem(e.target);
+                _focusChain.focus(targetWidgetElem);
+            }
         } else {
             _msgBoxFocusChainStack.focus(e.target);
         }
@@ -244,7 +304,7 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         // sort inner widgets
         for (var cowiId in cowiWidgets) {
             // sort widgets in place
-            _sortWidgets(cowiWidgets[cowiId]);
+            cowiWidgets[cowiId].sort(ControllerUtils.compareTabOrder);
         }
         return cowiWidgets;
     }
@@ -278,7 +338,7 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         var cowiWidgets = _extractCowiInnerWidgets(widgets);
 
         // sort remaining widgets (includes compound widgets)
-        widgets = _sortWidgets(widgets);
+        widgets.sort(ControllerUtils.compareTabOrder);
         
         // sort in inner widgets of compound widgets after the corresponding compound widgets
         widgets = _sortinCowiInnerWidgets(widgets, cowiWidgets);
@@ -289,21 +349,21 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         return widgets;
     }
 
-    // sorts array of widgets according to tabindex and position in DOM
-    function _sortWidgets(widgets) {
-        widgets.sort(function (a, b) {
-            var tabIndexA = a.getTabIndex(),
-                tabIndexB = b.getTabIndex();
-            if (tabIndexA === tabIndexB) {
-                return a.elem.compareDocumentPosition(b.elem) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-            } else if (tabIndexA === 0) {
-                return 1;
-            } else if (tabIndexB === 0) {
-                return -1;
-            }
-            return tabIndexA - tabIndexB;
+    function _showModalHandler(e) {
+        var widgets = Array.from(e.target.getElementsByClassName('breaseWidget')).map(function (elem) {
+            return brease.callWidget(elem.id, 'widget');
+        }).filter(function (widget) {
+            return widget.getTabIndex() >= 0 && widget.settings.focusable;
         });
-        return widgets;
+        _focusChain.pushModalWidgets(e.detail.id, widgets);
+    }
+
+    function _hideModalHandler(e) {
+        _focusChain.removeModalWidgets(e.detail.id);
+    }
+
+    function _handleTabIndexChanged(e) {
+        _focusChain.sortContent(e.detail.contentId);
     }
 
     function _showTabOrder(callback) {
@@ -321,19 +381,41 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
         createTabOrderStyleElem();
         _removeDataAttributes();
         for (var i = 0; i < widgets.length; ++i) {
-            widgets[i].elem.dataset.focuspos = i + 1;
-            widgets[i].elem.dataset.tabindex = widgets[i].getTabIndex();
+            var focuspos = i + 1;
+            var tabindex = widgets[i].getTabIndex();
+
+            if (widgets[i].elem.nodeName === 'svg') {
+                widgets[i].elem.appendChild(createForeignObject(focuspos, tabindex));
+            } else {
+                widgets[i].elem.dataset.focuspos = focuspos;
+                widgets[i].elem.dataset.tabindex = tabindex;
+            }
         }
         callback(widgets.map(function (widget) {
             return widget.elem.id;
         }));
     }
 
+    function createForeignObject(focuspos, tabindex) {
+        var foreignElem = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+        foreignElem.classList.add('svgTabOrderIndicator');
+        foreignElem.setAttribute('width', '100%');
+        foreignElem.setAttribute('height', '100%');
+        foreignElem.dataset.focuspos = focuspos;
+        foreignElem.dataset.tabindex = tabindex;
+        return foreignElem;
+        
+    }
+
     function _removeDataAttributes() {
         var widgetElems = document.body.querySelectorAll('[data-focuspos]');
         Array.prototype.slice.call(widgetElems).forEach(function (elem) {
-            elem.removeAttribute('data-focuspos');
-            elem.removeAttribute('data-tabindex');
+            if (elem.nodeName === 'foreignObject') {
+                elem.remove();
+            } else {
+                elem.removeAttribute('data-focuspos');
+                elem.removeAttribute('data-tabindex');
+            }
         });
     }
 
@@ -354,8 +436,12 @@ function (FocusChain, MsgBoxFocusChainStack, BreaseEvent, Utils, ClientSystemEve
                 'content: attr(data-focuspos);' +
                 '}' + 
                 '[data-tabindex="0"]::after {' +
-                'background: #FFFD9C; ' +
-                '}');
+                'background: #FFFD9C;}' + 
+                '.svgTabOrderIndicator {' +
+                'pointer-events: none;' +
+                'position: absolute;' +
+                'left: 0px;' +
+                'top: 0px;}');
         }
         document.head.appendChild(_tabOrderStyleElem);
     }

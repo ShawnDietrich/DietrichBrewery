@@ -1,4 +1,3 @@
-/*global define*/
 define(['widgets/brease/Button/Button',
     'widgets/brease/common/libs/wfUtils/UtilsEditableBinding'],
 function (SuperClass, UtilsEditableBinding) {

@@ -11,9 +11,16 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
             activateVisuSuccessResponseCode: 0,
             activateVisuFailResponseCode: ServerCode.NO_LICENSE,
             visusWithoutLicense: ['visuwithoutlicense'],
+            failingVisus: [],
             timeout: {
                 activateContentResponse: 50,
-                activateContentEvent: 100 
+                activateContentEvent: 100,
+                deactivateContentResponse: 50,
+                deactivateContentEvent: 100,
+                activateVisuResponse: 50,
+                activateVisuEvent: 100,
+                deactivateVisuResponse: 50,
+                deactivateVisuEvent: 100 
             }
         },
         RuntimeServiceStub = function RuntimeServiceStub(testData, subscriptions, eventSubscriptions) {
@@ -34,9 +41,9 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
 
     p.setData = function (key, value, type) {
         if (type === 'timeout') {
-            data.timeout[key] = value;
+            this.data.timeout[key] = value;
         } else {
-            data[key] = value;
+            this.data[key] = value;
         }
     };
 
@@ -61,42 +68,53 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
 
     p.activateVisu = function (visuId, callback, callbackInfo) {
         console.warn('%cactivateVisu:' + visuId, 'color:darkgreen');
-        if (data.visusWithoutLicense.indexOf(visuId.toLowerCase()) !== -1) {
-            window.setTimeout(activateFailResponse.bind(this, callback, callbackInfo), 50);
+        visuId = visuId.toLowerCase();
+        if (this.data.visusWithoutLicense.includes(visuId) || this.data.failingVisus.includes(visuId)) {
+            window.setTimeout(activateFailResponse.bind(this, callback, callbackInfo), this.data.timeout.activateVisuResponse);
         } else {
-            window.setTimeout(activateResponse.bind(this, callback, callbackInfo), 50);
+            window.setTimeout(activateResponse.bind(this, callback, callbackInfo), this.data.timeout.activateVisuResponse);
+            if (this.data.timeout.activateVisuEvent >= 0) {
+                window.setTimeout(activateEvent.bind(this, {
+                    visuId: visuId
+                }, SocketEvent.VISU_ACTIVATED), this.data.timeout.activateVisuEvent);
+            }
+        }
+    };
+
+    p.deactivateVisu = function (visuId, callback, callbackInfo) {
+        console.warn('%cdeactivateVisu:' + visuId, 'color:red');
+        
+        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), this.data.timeout.deactivateVisuResponse);
+        if (this.data.timeout.deactivateVisuEvent >= 0) {
             window.setTimeout(activateEvent.bind(this, {
                 visuId: visuId.toLowerCase()
-            }, SocketEvent.VISU_ACTIVATED), 150);
+            }, SocketEvent.VISU_DEACTIVATED), this.data.timeout.deactivateVisuEvent);
         }
     };
 
     p.activateContent = function (contentId, visuId, callback, callbackInfo) {
         //console.log('activateContent:' + contentId + ',visuId=' + visuId);
 
-        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), data.timeout.activateContentResponse);
-        window.setTimeout(activateEvent.bind(this, {
-            visuId: visuId.toLowerCase(),
-            contentId: contentId
-        }, SocketEvent.CONTENT_ACTIVATED), data.timeout.activateContentEvent);
+        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), this.data.timeout.activateContentResponse);
+        
+        if (this.data.timeout.activateContentEvent >= 0) {
+            window.setTimeout(activateEvent.bind(this, {
+                visuId: visuId.toLowerCase(),
+                contentId: contentId
+            }, SocketEvent.CONTENT_ACTIVATED), this.data.timeout.activateContentEvent);
+        }
     };
 
     p.deactivateContent = function (contentId, visuId, callback, callbackInfo) {
         //console.log('deactivateContent:' + contentId + ',visuId=' + visuId);
-        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), 50);
-        window.setTimeout(activateEvent.bind(this, {
-            visuId: visuId.toLowerCase(),
-            contentId: contentId
-        }, SocketEvent.CONTENT_DEACTIVATED), 100);
-    };
-
-    p.deactivateVisu = function (visuId, callback, callbackInfo) {
-        console.warn('%cdeactivateVisu:' + visuId, 'color:red');
+        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), this.data.timeout.deactivateContentResponse);
         
-        window.setTimeout(activateResponse.bind(this, callback, callbackInfo), 50);
-        window.setTimeout(activateEvent.bind(this, {
-            visuId: visuId.toLowerCase()
-        }, SocketEvent.VISU_DEACTIVATED), 150);
+        if (this.data.timeout.deactivateContentEvent >= 0) {
+            window.setTimeout(activateEvent.bind(this, {
+                visuId: visuId.toLowerCase(),
+                contentId: contentId
+            }, SocketEvent.CONTENT_DEACTIVATED), this.data.timeout.deactivateContentEvent);
+        }
     };
 
     p.getSessionEventSubscription = function () {
@@ -267,7 +285,7 @@ function (EventDispatcher, SocketEvent, VisuStatus, ServerCode, Utils) {
     }
 
     function activateFailResponse(callback, callbackInfo) {
-        callback({ status: { code: data.activateVisuFailResponseCode }, success: true }, callbackInfo);
+        callback({ status: { code: this.data.activateVisuFailResponseCode }, success: true }, callbackInfo);
     }
 
     function activateEvent(detail, type) {

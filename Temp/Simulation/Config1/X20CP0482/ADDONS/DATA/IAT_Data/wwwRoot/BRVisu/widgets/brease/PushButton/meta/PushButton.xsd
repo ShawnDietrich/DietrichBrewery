@@ -3,6 +3,7 @@
 <xs:complexType name="widgets.brease.PushButtonRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="0" />
 			<xs:attribute name="height" use="optional" type="types:AutoSize" default="30" />
 			<xs:attribute name="width" use="optional" type="types:AutoSize" default="100" />
 		</xs:restriction>
@@ -20,6 +21,7 @@
 			<xs:attribute name="mouseDownText" use="optional" type="types:String" default="" />
 			<xs:attribute name="multiLine" use="optional" type="types:Boolean" default="false" />
 			<xs:attribute name="text" use="optional" type="types:String" default="" />
+			<xs:attribute name="useSVGStyling" use="optional" type="types:Boolean" default="true" />
 			<xs:attribute name="wordWrap" use="optional" type="types:Boolean" default="false" />
 			<xs:attribute name="imageHeight" use="optional" type="types:ImageSize" default="0" />
 			<xs:attribute name="imageWidth" use="optional" type="types:ImageSize" default="0" />

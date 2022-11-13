@@ -14,6 +14,12 @@
 			<xs:extension base="s1:widgetMethod"></xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="widgets.brease.Rectangle.Action.Focus">
+		<xs:complexContent>
+			<xs:extension base="s1:widgets.brease.Rectangle.Action.widgetMethod">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="widgets.brease.Rectangle.Action.SetEnable">
 		<xs:complexContent>
 			<xs:extension base="s1:widgets.brease.Rectangle.Action.widgetMethod">
@@ -47,6 +53,8 @@
 			<xs:enumeration value="Click"></xs:enumeration>
 			<xs:enumeration value="DisabledClick"></xs:enumeration>
 			<xs:enumeration value="EnableChanged"></xs:enumeration>
+			<xs:enumeration value="FocusIn"></xs:enumeration>
+			<xs:enumeration value="FocusOut"></xs:enumeration>
 			<xs:enumeration value="OnDragEnd"></xs:enumeration>
 			<xs:enumeration value="OnDragEnter"></xs:enumeration>
 			<xs:enumeration value="OnDragLeave"></xs:enumeration>

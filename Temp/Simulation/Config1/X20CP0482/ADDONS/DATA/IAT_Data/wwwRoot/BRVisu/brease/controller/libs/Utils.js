@@ -135,10 +135,29 @@ define(['brease/controller/objects/PageType'], function (PageType) {
         },
 
         /** 
-         * @returns {Boolean} true if there is a active dimmer for a modal dialog or msgbox.
+         * @returns {Boolean} true if there is an active dimmer for a modal dialog or msgbox or Flyout.
          */
         hasModalWindow: function () {
             return document.body.querySelector('.breaseModalDimmer.active') !== null;
+        },
+
+        /**
+         * Compare the tab order of the widgets which have tabIndex >=0. This function can be directly used with Array.sort
+         * @param {Object} a widget with tabIndex >=0
+         * @param {Object} b widget with tabIndex >=0
+         * @returns returns a value > than 0, b is before a, returns a value ≤ 0, a is before b
+         */
+        compareTabOrder: function (a, b) {
+            var tabIndexA = a.getTabIndex(),
+                tabIndexB = b.getTabIndex();
+            if (tabIndexA === tabIndexB) {
+                return a.elem.compareDocumentPosition(b.elem) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+            } else if (tabIndexA === 0) {
+                return 1;
+            } else if (tabIndexB === 0) {
+                return -1;
+            }
+            return tabIndexA - tabIndexB;
         }
     };
 

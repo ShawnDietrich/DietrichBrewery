@@ -1,0 +1,4 @@
+VAR
+	MashImgCont : INT;
+	HLTImgCont : INT;
+END_VAR

@@ -171,6 +171,7 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
         p = BaseWidget.prototype;
 
     p.init = function (omitReadyEvent) {
+        //console.always('%c            ' + this.elem.id + '.init', 'color:#009900;');
         this.omitReadyEvent = omitReadyEvent;
         this._internalEnable();
         this.updateVisibility(true);
@@ -199,6 +200,7 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
 
     p._initEditor = function () {
         //override in Widgets if needed
+        this.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
     };
 
     p.addClassNames = function (classNames) {
@@ -333,7 +335,7 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
                 return this.events[eventName];
             }
         } else {
-            console.iatWarn('could not create Event');
+            console.iatWarn('could not create Event, className=' + this.settings.className + ', this.elem defined: ' + (this.elem !== null));
             return new EventHandler(EventHandler.DummyType);
         }
     };
@@ -769,7 +771,7 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
 
     p.dispose = function (keepBindingInformation) {
         this._removeKeyboardOperationListeners();
-        //console.warn('%c            ' + this.elem.id + '.dispose', 'color:#999999;');
+        //console.always('%c            ' + this.elem.id + '.dispose', 'color:#990000;');
         if (this.queue) {
             this.queue.length = 0;
         }
@@ -906,7 +908,7 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
             var eventHandler = this.createMouseEvent('DisabledClick', eventArgs, originalEvent);
             eventHandler.dispatch(false);
             
-            document.body.dispatchEvent(new CustomEvent(BreaseEvent.DISABLED_CLICK, {
+            var e = new CustomEvent(BreaseEvent.DISABLED_CLICK, {
                 detail: {
                     contentId: this.getParentContentId(),
                     hasPermission: eventArgs.hasPermission,
@@ -916,10 +918,16 @@ function (SuperClass, BreaseEvent, VirtualEvents, Utils, Enum, Types, KeyActions
                     verticalPos: eventHandler.data.eventArgs.verticalPos
                 },
                 bubbles: true
-            }));
+            });
+            _addPosition.call(this, e, originalEvent);
+            document.body.dispatchEvent(e);
             this._handleEvent(originalEvent);
         }
     };
+
+    function _addPosition(e, originalEvent) {
+        Utils.transferProperties(originalEvent, e, ['clientX', 'clientY', 'pageX', 'pageY', 'screenX', 'screenY']);
+    }
 
     p._internalEnable = function () {
         //console.log(this.elem.id + '._internalEnable');

@@ -66,11 +66,11 @@ function (SuperClass, PopUpManager, BreaseEvent, NodeInfo, Docking, KeyboardType
     };
 
     p.inputFocus = function () {
-        this.inputEl.focus();
+        this.inputEl.trigger('focus');
     };
 
     p.inputBlur = function () {
-        this.inputEl.blur();
+        this.inputEl.trigger('blur');
     };
 
     p.langChangeHandler = function () {

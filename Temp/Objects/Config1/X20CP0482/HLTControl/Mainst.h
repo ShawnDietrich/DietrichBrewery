@@ -583,8 +583,10 @@ typedef struct MpComIdentType
 
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
+_BUR_LOCAL plcbit PumpExp;
 _BUR_LOCAL ProcControl Proc;
 _GLOBAL MashToHLT FromMashCyc;
+_GLOBAL plcbit HLTPump;
 _GLOBAL plcbit HLTHeater;
 _GLOBAL signed short rawHLTTemp;
 _GLOBAL MpComIdentType Cfg_HLTTemp;

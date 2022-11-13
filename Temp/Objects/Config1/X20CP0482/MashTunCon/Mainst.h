@@ -622,4 +622,5 @@ _BUR_LOCAL plcstring SecRe[5];
 _GLOBAL MashToHLT FromMashCyc;
 _GLOBAL plcbit MashPump;
 _GLOBAL signed short rawMashTemp;
+_GLOBAL MpComIdentType Cfg_MashTemp_simulated;
 _LOCAL plcbit Edge0000100000;

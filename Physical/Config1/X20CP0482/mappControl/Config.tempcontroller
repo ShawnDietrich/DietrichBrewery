@@ -18,4 +18,9 @@
       <Selector ID="UserAlarm" Value="Yes" />
     </Selector>
   </Element>
+  <Element ID="Cfg_MashTemp_simulated" Type="tempcontroller">
+    <Group ID="TempController">
+      <Property ID="AmbientTemperature" Value="20" />
+    </Group>
+  </Element>
 </Configuration>

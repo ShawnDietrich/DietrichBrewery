@@ -122,7 +122,7 @@ svg {
 &.active:not(.disabled):not(.editMode) span {
 	color: #000000;
 }
-&.checked:not(.disabled) span {
+&.active.checked:not(.disabled) span {
 	color: #000000;
 }
 	@include text-alignment(center);

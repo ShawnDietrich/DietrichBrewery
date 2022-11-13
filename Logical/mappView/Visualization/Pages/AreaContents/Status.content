@@ -1,4 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="StatusContent" height="100" width="1600" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="4" left="1" width="1597" height="94" zIndex="0" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(0, 0, 0, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.AlarmLine" id="AlarmLine1" top="6" left="223" width="1149" zIndex="0" cellCornerRadius="10px">
+          <Widgets />
+        </Widget>
+      </Widgets>
+    </Widget>
+  </Widgets>
 </Content>

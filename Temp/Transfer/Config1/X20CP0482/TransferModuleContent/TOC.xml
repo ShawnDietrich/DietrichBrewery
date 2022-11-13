@@ -4,13 +4,32 @@
 		<Class Name="AddonsData">
 			<Folder Name="IAT_Data" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
-					<File Name="-1662823413.binding" Size="14574" HashValue="20897591FCCBDFBD0A68883F165173F3" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="-1662823413.binding" Size="10072" HashValue="14521C3AB5AD81E8E2596022615FDFBF" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="1970273527.binding" Size="507" HashValue="3D484307E606C335D3D731935759A4F2" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="893280410.binding" Size="279" HashValue="E2E97A1CA161035EAE829AC10C0F181E" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="__SystemVariables.sessionVar" Size="3679" HashValue="47F4015152DC77A4E81EB725C733FBD6" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.vis" Size="1262" HashValue="6077B0E35B211CBC29B6C34C7B38E0AA" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.vis" Size="1511" HashValue="9A4EEA0B8585689D7DA1E7376EF73EA7" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="BRVisu" ProjectDependent="1" IgnoreDifference="0">
+						<Folder Name="Media" ProjectDependent="1" IgnoreDifference="0">
+							<File Name="TankFill.png" Size="8061" HashValue="00ED585D56CA26545670B56892E7A486" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="arrow-down.png" Size="4388" HashValue="A8BEB43FB162FA7B00EF7DAE5C4FBEBA" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="arrow-up.png" Size="4271" HashValue="8E91E591D7EFDBFFDDCA47A1B3A4423B" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="distilling.png" Size="15395" HashValue="F4F987E4D0A47E404B09E8FE36E6455F" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="home.png" Size="11146" HashValue="10F23918BC5E75EF58F38CC6F42C1C3D" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="keg1-1.png" Size="10183" HashValue="B7F35CD57D1B3748EF87E01B098E2373" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="keg1-2.png" Size="10942" HashValue="BEBDF9C219285292E2AA328A1064B522" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="keg1-4.png" Size="11507" HashValue="0FC5E187B6B6ECF2889AA7BF337F3E12" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="kegempty.png" Size="11658" HashValue="F8F679FBA36B74E5DD5953828DD2F420" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="kettle.png" Size="17589" HashValue="2B1254D68C0FFB59A82162D78CFF8C19" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="recipes.png" Size="10151" HashValue="A878EE0FFCE1CF92F37CBE109D4728C2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="start-button-off.png" Size="12343" HashValue="5143CF6BDBC136736EE599B8298AA328" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="start-button-on.png" Size="17953" HashValue="61ADD865C02AB3DE3CAE5FA5E48FE77D" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="stopOff.png" Size="10968" HashValue="9B148D025BE13914493C5ED8B4BC7EE7" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="stopOn.png" Size="16592" HashValue="8903C979BB29C7746B399BFDBEE7C3B5" ProjectDependent="1" IgnoreDifference="0" />
+						</Folder>
 						<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
 								<File Name="bootstrap.min.css" Size="117150" HashValue="58A49B3689D699CB72FFDA7252D99FCB" ProjectDependent="1" IgnoreDifference="0" />
@@ -20,34 +39,10 @@
 								<File Name="icon.gif" Size="1568" HashValue="BD4DD6861469A7542F974B5A967CBE1B" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="trans.png" Size="123" HashValue="1A3B46454B7A3654B78B644D39320423" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
-							<Folder Name="js" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="bootstrap.min.js" Size="35452" HashValue="046BA2B5F4CFF7D2EAAA1AF55CAA9FD8" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="debugger.js" Size="3222" HashValue="1C0A4414AFFE94FCAB5F434C104D10A4" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="feature-test.js" Size="4767" HashValue="344B5DF2C35D8460A92692714BAF4902" ProjectDependent="1" IgnoreDifference="0" />
-							</Folder>
-							<Folder Name="monitor" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="monitor.html" Size="656" HashValue="79C2680921F44E4F3ABF91B23BD59875" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="monitor.js" Size="4400" HashValue="9D759BB03C960997ED18FCEBCAD3A29B" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="profiler.html" Size="15199" HashValue="1645999B924A585737E11819E38F2F6C" ProjectDependent="1" IgnoreDifference="0" />
-							</Folder>
-							<Folder Name="performance" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="FileSaver.js" Size="7912" HashValue="44B1EBE0D888E55572EAB845D666D83E" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="automator.js" Size="2987" HashValue="AEEC804A165D6B33FD6E4ABC2685C6F3" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="benchmarkmonitor.js" Size="3859" HashValue="74E1C5939D60F761068BF81C754D7257" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="gant.css" Size="888" HashValue="5C03545374EB720AEDF714369B44D257" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="gant.js" Size="13062" HashValue="317D7AF6B62C373956D0576B9B8F0647" ProjectDependent="1" IgnoreDifference="0" />
-							</Folder>
-							<File Name="browser-test.html" Size="3237" HashValue="505CE64469026CCE7D648A2ACC9A4C4A" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="connection.json" Size="35" HashValue="10FCDFBADA6743720F798A491616261B" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="log.html" Size="8661" HashValue="300045A9CD51BF4884836C5F04801094" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
-							<Folder Name="ASHelp" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="config.html" Size="4349" HashValue="65E9BBE6D5F7DAE574C077384800A0C3" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="datatypes.html" Size="11334" HashValue="3BBE0293DE0AE3BA62766CF3463C72ED" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="enum.html" Size="30471" HashValue="46664945492B09A79AA994040D13D3DE" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="types.html" Size="22360" HashValue="9E2DA217A37951C33BBFB201AA9A3F7D" ProjectDependent="1" IgnoreDifference="0" />
-							</Folder>
 							<Folder Name="config" ProjectDependent="1" IgnoreDifference="0">
 								<File Name="NumberFormat.js" Size="3651" HashValue="C8F53680297192630E12E8596E71EC49" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="SortFunctions.js" Size="1672" HashValue="502E9F327CFC3AC6EF71D4712A816ED1" ProjectDependent="1" IgnoreDifference="0" />
@@ -57,59 +52,61 @@
 								<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
 									<File Name="AreaManager.js" Size="7553" HashValue="38457B539EB859B8BB1478CBEEE5015E" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Containers.js" Size="7274" HashValue="6C6714A2B2D1D3B3827B15E3C64E5D94" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ContentHelper.js" Size="9821" HashValue="F029FB5257DA2C3D7D756D8596306380" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ContentHelper.js" Size="10067" HashValue="D165AEEFF11759266D9F63A2F012C22F" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="ContentValidator.js" Size="11145" HashValue="36FA63601211EDEC4DA680E10FB5B0DD" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="DialogQueue.js" Size="1402" HashValue="8CDC4149D1C0E7660DA0A00430142978" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="ErrorCode.js" Size="2061" HashValue="D96C64F3CB36259C4E933EF9EA104C69" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="FactoryUtils.js" Size="3979" HashValue="6EAE987E6C7753FE967A6BE40636F4FA" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="FocusChain.js" Size="19435" HashValue="451EF114219DFA96FD0AA07C1E3CD121" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="KeyActions.js" Size="1769" HashValue="2D86D6B3FC1882E10644E55BB8C05B02" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="FocusChain.js" Size="32166" HashValue="8C9256F6F0A9C3C57A54654E313668D0" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="FocusElem.js" Size="5359" HashValue="4DA798E83AD5167C12E461EE0BDFD751" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="KeyActions.js" Size="1873" HashValue="73BFF1033D8143AE7E3EFD5F70A040D2" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="LoadCycle.js" Size="4566" HashValue="1130548B796FF5EAE921792E6D5A62A1" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="LoaderPool.js" Size="21883" HashValue="AAE76F5DBAB0BC4BA518F254BF0AB3C4" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="LogCode.js" Size="7356" HashValue="FA7CFAC010BE983E1793A1881790CA67" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="LoaderPool.js" Size="22007" HashValue="D7CF04BCFCB006A67F9AAA0753B406EF" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="LogCode.js" Size="7695" HashValue="7F43ADE001AA92415E23EBA8E5DBF9F2" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="MsgBoxFocusChainStack.js" Size="3098" HashValue="869DC5399991E93006C306EA88793905" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="PageCycle.js" Size="8530" HashValue="ECC3F58EF4923D5C35375B4073B497EB" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="PageLogger.js" Size="7458" HashValue="697530128665CA57266CCA4A1B814235" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="PreCacheInfo.js" Size="3181" HashValue="62F7F67E205C682CC4AE532941C8FD93" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Queue.js" Size="3674" HashValue="52AE8C548BC53FCEE874FCF402E679E2" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ScrollManager.js" Size="7894" HashValue="F96456D68D9AC060EE103C73F7BD481F" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ScreenManager.js" Size="4342" HashValue="518863AEA7B63AADCC030E11552023ED" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ScrollManager.js" Size="8049" HashValue="D3938076EAC177D015569AB96D120F76" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Themes.js" Size="3008" HashValue="AFDFC3788F226347931918CA707B0D76" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="Utils.js" Size="5507" HashValue="D5B28F699273CF16EA76FC2059E04996" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Utils.js" Size="6379" HashValue="C25607AC0E305F7533AAAC41D78B0313" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="objects" ProjectDependent="1" IgnoreDifference="0">
 									<File Name="AssignType.js" Size="567" HashValue="79AA92F88DC4D9DB1CADF25CE9D51F72" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Client.js" Size="1106" HashValue="5F81F6F5911FAE58AC11AC90378CA2E0" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ContentStatus.js" Size="959" HashValue="78D0E2E2FF7868D8F3201DA14307B962" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ContentStatus.js" Size="1040" HashValue="228DAE59B1C8653C7590F21E43F1279E" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="LoaderItem.js" Size="637" HashValue="C3D102367064BE9EC0FC8F93824C45DB" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="PageType.js" Size="449" HashValue="B19473FC6EF6A03C51972FD86515F199" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="VisuStatus.js" Size="785" HashValue="70F6E6B2F33857AF7DF0AFD54341314F" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="WidgetItem.js" Size="984" HashValue="56FB4C43CD02EB60ED4AD893BDD56217" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
-								<File Name="ActionController.js" Size="27662" HashValue="C6F68BBD81AB1A6EFC97D13092A63F2F" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="BindingController.js" Size="27468" HashValue="E27466E510202192EC1D1EB4AEE0208D" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="ActionController.js" Size="28492" HashValue="0D5DC1D88939347931877C22C5849EBD" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="BindingController.js" Size="27510" HashValue="FDB64C2EE52C332A4C4A7E3362021855" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="BindingLoader.js" Size="6609" HashValue="D83A151D1249A7AED91269524E77483C" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="ConnectionController.js" Size="1863" HashValue="CC67550509EBE9F873671F233BA9CBBA" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="ContentControlObserver.js" Size="2972" HashValue="F6587E4C7DB38865B510F2A1E8A9FA3B" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="ContentManager.js" Size="8224" HashValue="E6A8B2D968F8FEDED398BEBB1B8C338D" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="EventController.js" Size="16136" HashValue="7EB8A2E3B8ED502C3F5D4974F39B6D38" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="FileManager.js" Size="11231" HashValue="0D83428DF0DA9FD496A5F590A8BD1328" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="FocusManager.js" Size="15086" HashValue="52607473E9165663DFBCBBF6288DE169" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="EventController.js" Size="16802" HashValue="47AD3B6A00FA98135371E053E8105451" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="FileManager.js" Size="11418" HashValue="20ED991BB13822D134246CA40F66E565" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="FocusManager.js" Size="19150" HashValue="7CC255F65A3DFBCA4F7294B93BD115A3" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="InfoController.js" Size="3536" HashValue="2341DC442E109FE5F0F635777410441F" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="KeyboardManager.js" Size="10326" HashValue="E304F5C71B6A5DC0EE105A7A32739B7C" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="KeyboardManager.js" Size="10296" HashValue="A7817305E78508338A1FF8BC66910A28" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="OverlayController.js" Size="15473" HashValue="0E45016703495A0991BF017149E3DD4A" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="PageController.js" Size="57411" HashValue="C509EA1509343990EC2135C42DB572D8" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="PopUpManager.js" Size="4364" HashValue="E7ED0C6220937AEA51C3190E51CFC991" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Preloader.js" Size="14504" HashValue="4680E50D4F4FF8300D91EED43023A945" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="UIController.js" Size="17183" HashValue="EAF95D95482BE00AC64B671E66494DBE" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="WidgetController.js" Size="22246" HashValue="F8D969D40A4ADD030DE4927217BD1C5B" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="WidgetFactory.js" Size="7764" HashValue="9F02114B67A8D607AC9B1E5B0217C434" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="PageController.js" Size="57781" HashValue="D9C5C1CD4F182DF96DD4A5F7887C2E50" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="PopUpManager.js" Size="4420" HashValue="3BCA3C1FF9DA882A90D24510DC5E8D24" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Preloader.js" Size="14601" HashValue="7C5D631123132189377D51BC486AD0D5" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="UIController.js" Size="17240" HashValue="DB582D104584593A2C3432313E7A88B1" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="WidgetController.js" Size="22462" HashValue="2C3427EE39E772B6500723B4EF2504EE" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="WidgetFactory.js" Size="7878" HashValue="331787BDD5893A4C236A32EF71FDB0D8" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="WidgetParser.js" Size="9154" HashValue="89158F81C232F922C78BA7189C08B3E7" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="ZoomManager.js" Size="6571" HashValue="45FF1A8F53EDEDDCB5060DFD8E467FAF" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="core" ProjectDependent="1" IgnoreDifference="0">
 								<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="BaseWidget" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ClassExtension.js" Size="7743" HashValue="2E41B8C82C1E06F7BD7D6967CBBEDF7A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ClassExtension.js" Size="8103" HashValue="97D7239E4116FCB45DFF345E245DAD0B" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ClassInfo.js" Size="126" HashValue="2E3AD0CD96FD7F72EFFD1FAEC28EE7BB" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="Brease" ProjectDependent="1" IgnoreDifference="0">
@@ -120,13 +117,13 @@
 									</Folder>
 								</Folder>
 								<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-									<File Name="AsyncProcess.js" Size="951" HashValue="1497498DC15E2D24FC1306D0D32F60F4" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="AsyncProcess.js" Size="924" HashValue="CFA4C5BBB5206BF84B4C64FF0BACC891" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Deferred.js" Size="4669" HashValue="A950222B4AF9211B4320519503C67917" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Extensions.js" Size="6857" HashValue="0AFE4EC0D118BB94A3EF7CBB1AD4D7FA" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<File Name="BaseWidget.html" Size="78" HashValue="E945B78333FFCB5BE401BB44504AF087" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="BaseWidget.js" Size="42508" HashValue="9655F30221E7F26A03034C637F78728C" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="BaseWidget.json" Size="7735" HashValue="1C1E6AB2BAEBFA7B7713C77A8B3C4579" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="BaseWidget.js" Size="43039" HashValue="C82E501F1249015753788F750D50B72C" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="BaseWidget.json" Size="7735" HashValue="B1752A5D3AA4549809FB34925A15D61D" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="BaseWidget.style" Size="2534" HashValue="BB1D12E33A04621D40D6E0EB6B798917" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="BaseWidget.widget" Size="8002" HashValue="368996F4C47EA5290A4D1A37C8C03867" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="BaseWidget_EventsActions.xsd" Size="3015" HashValue="6E32F5B604B1A4CFB65BA60091C3C9B5" ProjectDependent="1" IgnoreDifference="0" />
@@ -137,11 +134,11 @@
 								<File Name="ContainerWidget.js" Size="6678" HashValue="B18B37E6A2D0B179707D2A082663CE1E" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Decorator.js" Size="3273" HashValue="4914E56CB029747670825C818D216FA1" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="StringUtils.js" Size="4070" HashValue="1D341C01DFED0055B86ACB9278893A07" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Types.js" Size="22545" HashValue="877C7867FAB2F0B9C469D3E264459E8D" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Utils.js" Size="37053" HashValue="73056B4C6375966962DA0BC2EC529D1B" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Types.js" Size="22676" HashValue="502DFF2422A755DC89EC1FF0902EC329" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Utils.js" Size="37113" HashValue="AA3D9CD283871B743D0B4A289D4F4B9E" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="datatype" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="ArrayNode.js" Size="2197" HashValue="D2BBF6EC5C7E942C64F11373587C4BB0" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="ArrayNode.js" Size="2200" HashValue="A2FC8B06C3714C2FEC5762CC1D1CE250" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Node.js" Size="4629" HashValue="75A139A48F4DC18232CB55607763429C" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Notification.js" Size="778" HashValue="82299D4991F7FB8A15C4B5BAD87A6FDD" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="StructuredProperty.js" Size="1855" HashValue="EF293077420FA6F48845BBFCF546A2D7" ProjectDependent="1" IgnoreDifference="0" />
@@ -152,22 +149,23 @@
 									<File Name="DragAndDropManager.js" Size="8462" HashValue="9111635917D0B858A65D3A74C9D9062F" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Draggable.js" Size="6226" HashValue="1431165DC9715262DE34DE76A4F6B3C0" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
+								<File Name="ContentActivatedDependency.js" Size="4864" HashValue="89ADD833B5D7912CE6B538352D973165" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="CultureDependency.js" Size="4275" HashValue="D0E3C13734A88209EB75B6A3073C8BFA" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="DragAndDropCapability.js" Size="7744" HashValue="0BCF0600AF56CEFDA9145A9FB6D6687D" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="LanguageDependency.js" Size="4504" HashValue="EF018B05B621EE6CD5A701E450ED9DB5" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="MeasurementSystemDependency.js" Size="4644" HashValue="9A61322F1C671D0BB1E398389F7214DB" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Permissions.js" Size="6497" HashValue="3407BA25FE8B1923E95C9701AEBD8470" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="TooltipDependency.js" Size="21788" HashValue="F4447F1DBEBCBEC18CD35613B28D07BC" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="TooltipDependency.js" Size="21912" HashValue="08A23CDAE2832757BFAF1C8943A9596D" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="UserDependency.js" Size="4172" HashValue="C8394BC3CA2BF51681BE292CE7B317B9" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="VisibilityDependency.js" Size="5596" HashValue="01BDFBA29FC55D4D3A537AAC700E12E5" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="enum" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="Enum.js" Size="49359" HashValue="79E75C89877BA1E2C1B1F4CD8F0B8439" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="EnumObject.js" Size="3073" HashValue="C6AF3FFB1058B5BC5732E80355E5C15D" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Enum.js" Size="50022" HashValue="E248C752912346972B22F1C1FF841F97" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="EnumObject.js" Size="3071" HashValue="613E776A67343E3BDDD1AA5571E87E1B" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="events" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="BreaseEvent.js" Size="12838" HashValue="B4448CC460982C4084C3D3CB0169732F" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="ClientSystemEvent.js" Size="2668" HashValue="87277FD2CBA0C6DD8106AEBF1C6C0501" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="BreaseEvent.js" Size="15724" HashValue="52D0E7E71A0A4AAAF9BAF191302C65CC" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="ClientSystemEvent.js" Size="2843" HashValue="8C59AD892F2AD1181969633A3AA57E1E" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="DummyEvent.js" Size="935" HashValue="5E4201AA3EC5075ECBD909562D060DCA" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="EventDispatcher.js" Size="3520" HashValue="7CBD840A3BC3D895127775F3CB7AD65A" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="EventHandler.js" Size="4594" HashValue="133CC57355147B3C439098BEE20AAA3E" ProjectDependent="1" IgnoreDifference="0" />
@@ -180,23 +178,23 @@
 							<Folder Name="helper" ProjectDependent="1" IgnoreDifference="0">
 								<Folder Name="jasmine" ProjectDependent="1" IgnoreDifference="0">
 									<File Name="MatcherFactory.js" Size="1707" HashValue="C83F17D9A84724CB9E207CE871345709" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="spec_jasmine.js" Size="3059" HashValue="D58D44C1649EC3B3C761C6161DD5E22C" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="stubs" ProjectDependent="1" IgnoreDifference="0">
-									<File Name="BindingController.js" Size="8600" HashValue="DAE331CB038FFC46D797251E5F529C67" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="BindingController.js" Size="8641" HashValue="97B784834AC12B2573670F5309F610C1" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="LoaderPool.js" Size="1373" HashValue="79B6E2C4C26FB5C261858886B6D5A25C" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="RuntimeService.js" Size="11049" HashValue="C36DBB53999A3684C3754DD84A1C7026" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="Server.js" Size="23386" HashValue="1E511D1078FFC243F03CDDFE60D32552" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ServiceBridge.js" Size="22231" HashValue="FF07D223EB7E9F2D566BEA38D5CA7744" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="WebSocket.js" Size="6193" HashValue="3CF5AACE87AE82E6FAE09CEEF7CA387D" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="RuntimeService.js" Size="12045" HashValue="C51DFA1F379EE07B7FE595CA267F4E8A" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Server.js" Size="24391" HashValue="A41A1376D3D50E0BD1DA4E936853AACA" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ServiceBridge.js" Size="22277" HashValue="0B24CA7C286AE78B093726661AC642E7" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="WebSocket.js" Size="6393" HashValue="D842A3BBA1CDDF71E637A5660754653C" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<File Name="DateFormatter.js" Size="3328" HashValue="AD4EC3C77D528D8B55F0ED47CF43AC26" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Messenger.js" Size="5537" HashValue="1DCC1A02C4AF3352CE473862E3339FD3" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="NumberFormatter.js" Size="11063" HashValue="B5756943AB0446D27533709616CD6EC0" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="NumberFormatter.js" Size="11231" HashValue="E46E837DD9F0980C830AE57D57937396" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="ScrollUtils.js" Size="3795" HashValue="D25E169B88438F22167E668C8619B50A" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Scroller.js" Size="11770" HashValue="4B15D95C35EAC6D8D4FCAA0DC39F2087" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Scroller.js" Size="13053" HashValue="70099390606E1E46062C1FC4F0C15C78" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="SimpleQueue.js" Size="844" HashValue="3A3766759D4D53C53DCAB089317B4608" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="SystemMessage.js" Size="2140" HashValue="A1BD43218789EBE02C5EBD9BA6AD2E99" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="TestUtils.js" Size="38296" HashValue="20773B14EC4C36D05FDF9948D8D728CA" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Timer.js" Size="1342" HashValue="1286BC7A9B359C13C017BAE701D280FA" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="XHR.js" Size="2310" HashValue="FDFE577111DA7C4292D033F614CDF1B1" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="XHRPool.js" Size="807" HashValue="13FB0BD427EBCAC685703FA40A1BB2E5" ProjectDependent="1" IgnoreDifference="0" />
@@ -206,11 +204,11 @@
 							</Folder>
 							<Folder Name="model" ProjectDependent="1" IgnoreDifference="0">
 								<File Name="BindingModel.js" Size="9335" HashValue="A5EEBDEBCEA206407550F02E74594715" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="VisuModel.js" Size="21562" HashValue="BE2DF8FF8275A01C08881B839660CC1F" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="WidgetModel.js" Size="2758" HashValue="229BBB73B171EBDEB93530B022640F48" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="VisuModel.js" Size="22269" HashValue="7FA06EA315F66A8EE2B28184902A05D8" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="WidgetModel.js" Size="2835" HashValue="9D999CEFD003CD8C87D21F5A83303503" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="objects" ProjectDependent="1" IgnoreDifference="0">
-								<File Name="Area.js" Size="4072" HashValue="C97F0F49501AF2F1E471E9DE2E89FF45" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Area.js" Size="3988" HashValue="42DF2045F33EFF67A3A0C3BB7839F429" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Assignment.js" Size="762" HashValue="B23DFA242169E22AD7839921F12C5EB1" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Content.js" Size="1695" HashValue="5ED1D0B8F5614A174064A7C6A352395A" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Layout.js" Size="947" HashValue="6D22ACF0A3339D20F711A5173CC0CAD2" ProjectDependent="1" IgnoreDifference="0" />
@@ -218,9 +216,9 @@
 								<File Name="Objects.js" Size="6230" HashValue="A94EBC6C18A52AD0F1F6DCEB8E53B911" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Page.js" Size="1103" HashValue="F3A33C77D947F3261625EAA2B89F57FB" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Response.js" Size="1436" HashValue="097E634F788548C6947870617C800FDD" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Subscription.js" Size="2043" HashValue="3993B441EE7E66CEF303D2389C1E2D37" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Subscription.js" Size="2227" HashValue="7E75812F5390698941298CC257CA3933" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Visualization.js" Size="955" HashValue="6C635A89C0529D7509DDABBA607B972F" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="WidgetObject.js" Size="1617" HashValue="55B6387A4A19AB0B40A82C1652C81DB1" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="WidgetObject.js" Size="1721" HashValue="79A2121F958590991F3ED47A20545BF4" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
 							<Folder Name="services" ProjectDependent="1" IgnoreDifference="0">
 								<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
@@ -228,26 +226,27 @@
 									<File Name="ServerCode.js" Size="891" HashValue="1DE7D36D70776E0C636F14A0DD39D1B4" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="ServerCommand.js" Size="1809" HashValue="C24CD516237849AC4AE8C12E9CBDE9D8" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="SocketResponse.js" Size="1728" HashValue="061149E5DDB7E6304CCC529A74854045" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="User.js" Size="698" HashValue="E9D48AC0F324F1649DF68E203D1B9730" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="UserData.js" Size="2375" HashValue="13CDD7E46B7C922A185B1C693B747948" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="UserDataList.js" Size="1288" HashValue="560835C346DBA8C31E493BF3FE652946" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="Watchdog.js" Size="3327" HashValue="6D7D1281A4634964702537510D6384E7" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
-								<File Name="Configuration.js" Size="5176" HashValue="3E7A55D70B8809FA53FD5A045BBB9170" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Configuration.js" Size="5343" HashValue="8CF4B9ABC8A862F9FF4E0E537AE06C45" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Culture.js" Size="3933" HashValue="B9610A59ECE99581479E9064C9D0249D" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="Language.js" Size="16530" HashValue="355BD277958C54F1BBA8FF74F5DBD03B" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="Language.js" Size="16648" HashValue="5620B61CCE74D6AB0A051BEE896C6A2E" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="LoadedByBootstrapper.js" Size="846" HashValue="3F602BF424FFE8FD2B990D4E1DC7ED53" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Logger.js" Size="3838" HashValue="9AB1045F280D204BCF70C89A4C4677DB" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="MeasurementSystem.js" Size="6000" HashValue="684E786F3DE262885AE58C6EAA9696B1" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="MeasurementSystem.js" Size="5496" HashValue="F274B6D8A5F587B56018DB0848FEB8A4" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="Opcua.js" Size="7833" HashValue="F07AF0BF1FBBF352436FE9CC2ABE3FEC" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="RuntimeService.js" Size="14977" HashValue="B02E803783C55F9F88CCC3AF9CF28B57" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="ServiceBridge.js" Size="19207" HashValue="4DFB5D55A3175BE813D9A3DA0BDD7F79" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="ServiceBridge.js" Size="19324" HashValue="321E8E52889A5578E7FC48169A67E223" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="TextFormatter.js" Size="2247" HashValue="3E7B8A0ECDC4747627127E0C7C54C1A4" ProjectDependent="1" IgnoreDifference="0" />
-								<File Name="User.js" Size="23185" HashValue="439A169EEB4098E36B27A4010AB88BD5" ProjectDependent="1" IgnoreDifference="0" />
+								<File Name="UserService.js" Size="23456" HashValue="A34AD37E33869D8B73C4FB774A0DB6EF" ProjectDependent="1" IgnoreDifference="0" />
 								<File Name="WebSocket.js" Size="7484" HashValue="6E2CFBEF3C19E9FAE23AF011FD373D28" ProjectDependent="1" IgnoreDifference="0" />
 							</Folder>
-							<File Name="application.js" Size="7019" HashValue="2A05ED7A560A320F089940C2046885FE" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease.js" Size="21534" HashValue="D3C1399E928372EB3C656A863CE14A13" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="config.js" Size="821" HashValue="EBA8A9D1151A839447F1120368DA8D36" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="application.js" Size="7210" HashValue="60E993FC376562E61BE51A7A52B8CB46" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease.js" Size="21582" HashValue="5638477B7D64E58FC6C48C22FB8615E4" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="config.js" Size="856" HashValue="0D5834F2EC7578A6864062628813C2B3" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="settings.js" Size="1901" HashValue="C6309AFBDFF3813F12CC2ED422F1350A" ProjectDependent="1" IgnoreDifference="0" />
 							<Folder Name="iat" ProjectDependent="1" IgnoreDifference="0">
 								<Folder Name="build" ProjectDependent="1" />
@@ -506,11 +505,12 @@
 							<File Name="lodash.js" Size="510757" HashValue="1DDC0AB0ED40971755B3D52A130AEC77" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="platform.js" Size="40659" HashValue="6E2FD16C8F921D41DD76B3E021857846" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="polyfill.js" Size="14102" HashValue="FAB785522C22DF22F73F6288AD306879" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="purify.min.js" Size="18618" HashValue="64EA2EE70143EE87F4598CCE969D3D01" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="require.js" Size="17695" HashValue="1565AF44B896BC4C641F238FD800FC83" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="release" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="brease.js" Size="925564" HashValue="32ACCD73ED243BD1FD7F367897A570BF" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease_core.min.css" Size="423741" HashValue="8B4A948C01F44F5EA353D79878874B7B" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease.js" Size="1279170" HashValue="838022B8FCB4A48D470670D83E59E34B" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease_core.min.css" Size="443135" HashValue="24E2C41F0DBD40F4B2608C92BFBADA78" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="system" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
@@ -523,8 +523,8 @@
 							<Folder Name="widgets" ProjectDependent="1" IgnoreDifference="0">
 								<Folder Name="ChangePasswordDialog" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ChangePasswordDialog.sass.css" Size="5955" HashValue="9F26DFE1B5546EA2FA05B20A9CCF54DB" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ChangePasswordDialog.scss" Size="7492" HashValue="71909A3DAF438EAE7D50D55AE80B6EA3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.sass.css" Size="6566" HashValue="DACC2CF97D5A1563606DFFF2562A00EF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.scss" Size="7452" HashValue="23C482750B6A77507DA6066FEEE7EE81" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="943" HashValue="7285B2C8A2E338A336CFE3E3FBAE4FA1" ProjectDependent="1" IgnoreDifference="0" />
@@ -534,12 +534,12 @@
 										<File Name="Message.js" Size="1092" HashValue="224D0B995D69D47DF07CA91C9B5375EC" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="PoliciesResult.js" Size="941" HashValue="E8AD88D24321B689EA106F0BAF9CB724" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="PolicyView.js" Size="3574" HashValue="C59150CBEF25542D5A0224546FE80C33" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="Validator.js" Size="6171" HashValue="7E2962BE02B7139B375ABBD415A8EA3C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Validator.js" Size="6144" HashValue="7559A0BBB0F41C08CD0C43ADCD001360" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ChangePasswordDialog.json" Size="5492" HashValue="D9A1E45644E580B83924BB3064A6B8BD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.json" Size="5734" HashValue="14742B9D9B731CEAAC186E2021535AFF" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChangePasswordDialog.style.info" Size="138" HashValue="AF4CD8BB37B519A98DF2BCD9BD509C5D" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ChangePasswordDialog.widget" Size="4679" HashValue="13BA6E2102DA9464399C7771EA4D71D9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.widget" Size="4899" HashValue="B854A3F3799AAD866F5E480B3A2B04A0" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChangePasswordDialog.xsd" Size="1317" HashValue="427BD78DE467BAA2E18E0E3F00D9D551" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChangePasswordDialog_EventsActions.xsd" Size="1762" HashValue="50B395C61F415C0D590A4A3247CB0644" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChangePasswordDialog_base.scss" Size="77" HashValue="538E9AC25FB8589DBBEAE1E56CA421AF" ProjectDependent="1" IgnoreDifference="0" />
@@ -548,7 +548,7 @@
 										<File Name="ChangePasswordDialog_doc.html" Size="9605" HashValue="A1211BA82620BAF9C89C4A3A8C1B7EBE" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="ChangePasswordDialog.html" Size="9306" HashValue="93B7BF233BAE0FA589F53B1D34976F96" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ChangePasswordDialog.js" Size="20333" HashValue="C2828264AA14B9A6F85AAACB6666A9D8" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ChangePasswordDialog.js" Size="20492" HashValue="B077736AB88D5AF798C0F4B33522A7F8" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="CompoundWidget" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
@@ -560,14 +560,14 @@
 										<File Name="CompoundWidget.widget" Size="7955" HashValue="A019F40E22EE8036D7AD411DF62239AA" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget.xsd" Size="1109" HashValue="4A58680D0EFAF8D33596923EA1CBE7D1" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget_EventsActions.xsd" Size="2807" HashValue="0DA399BDFDF2E23FD646926E75B676D2" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="CompoundWidget_Styles.xsd" Size="613" HashValue="1C11D33A2C2774C832DC563FA8263713" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CompoundWidget_Styles.xsd" Size="638" HashValue="64A4CF73BB8EB6E4599A13CA0A0C97B7" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget_base.scss" Size="138" HashValue="527C1906D4A53B410976DC43DDFE5C18" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget_default.sass.css" Size="82" HashValue="FE98706E00A52AE39B4AE57B87AAE478" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget_default.scss" Size="232" HashValue="62DAF1D6D6E305FE1A87ABB1AF0FD4F3" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="CompoundWidget_doc.html" Size="14001" HashValue="DB7D163B0614BA8998AF4971E19AE0CD" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="CompoundWidget.html" Size="115" HashValue="C3E1E05A6D773FD5286CFB6C7938C0F1" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="CompoundWidget.js" Size="9089" HashValue="273C04FB9B8FC9C9F2406BEFAB68A8A0" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="CompoundWidget.js" Size="8505" HashValue="F2388DEA8F95B5CA9947E10463225E3D" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="ContentLoader" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -589,7 +589,7 @@
 										<File Name="ContentLoader_doc.html" Size="14278" HashValue="79CBECD1680330473FB44BCDC14BD7F9" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="ContentLoader.html" Size="77" HashValue="7D2BF0CFE2C8838D40187752AAF947EE" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ContentLoader.js" Size="16525" HashValue="980EA345A88E1F238D55833165E0BCE7" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ContentLoader.js" Size="17178" HashValue="9BDFE0A4E62A87633C50046E1B740AB1" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="KeyBoard" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
@@ -597,13 +597,15 @@
 									</Folder>
 									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
 										<Folder Name="external" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="cdict_zh_cn.js" Size="1062" HashValue="1143A0CCAAD7A0DC3ADD7B161B44663B" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="cdict_zh_hk.js" Size="1061" HashValue="73F1083EB60DA6B13EAAE7EAFE189F78" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dict_zh_cn.js" Size="4473532" HashValue="0A1D57089337004BAED37C7D6C678553" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dict_zh_hk.js" Size="4473362" HashValue="2426E7159983F99D3AE1935CE1149ACD" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="dictionaries.js" Size="651" HashValue="FBEDB454EB63C2A5DBD1EE34592AFD89" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="dictionaries.js" Size="1519" HashValue="333F5E9C646029D4570FE595B9C06844" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 										<File Name="Composer.js" Size="11878" HashValue="F9AC8F6DA11AABB8A0314713F99C389D" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="Converter.js" Size="7928" HashValue="A7AA6C989904D5DDD17CC0B08DD0EBC9" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="FocusManager.js" Size="3012" HashValue="30FFA1D5397E43694822A39596751561" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Converter.js" Size="8494" HashValue="93B83FA4BA4BB9540FEAE47CED59E065" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="FocusManager.js" Size="3039" HashValue="3EF752F643635C435C192FF11824182F" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="InputProcessor.js" Size="11063" HashValue="8C3B55B4185CA839FDF1DFE0146E91DF" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="InputValidator.js" Size="12491" HashValue="8E79174AAA012951696EA8317D2524BF" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyCollector.js" Size="18800" HashValue="019C8A5CAB9B150515DC187B58080097" ProjectDependent="1" IgnoreDifference="0" />
@@ -621,17 +623,17 @@
 										<File Name="KeyBoard_doc.html" Size="15653" HashValue="64EE981C2AE1A68427DB78D8E809BDCC" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="KeyBoard.html" Size="148" HashValue="C21748AFB5D9D88BA0EF6F1342A8B833" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="KeyBoard.js" Size="3927" HashValue="A7D22C32199C6B0C45E5F7A8E105BAC8" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="KeyBoard.js" Size="3945" HashValue="592DF3516F49460BB257D258AC6D92AA" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="NumPad" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="1161" HashValue="59314F6435DF789BE02E1027743D19FA" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ButtonElements.js" Size="4583" HashValue="B2CC526AD2E3EC18186EFA1578FDF39B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonElements.js" Size="4626" HashValue="2F26F69322FD9416B477165F0E9A4133" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="InputElements.js" Size="1348" HashValue="701431CE0A7FE9BED3A8FB1EB5652906" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPadNumericValue.js" Size="680" HashValue="46CE8EF56DE11BCC254E27BB1C8C1CDA" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumPadSlider.js" Size="19528" HashValue="B0E6CBE1853513E351057A7EA7496A9D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumPadSlider.js" Size="20209" HashValue="0CFC9BEA12F2A72A64814FD29A8A92D0" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPadSlider.scss" Size="3773" HashValue="2142C4CEC3BAD2C4D5017C43CA37CF8C" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="OutputElements.js" Size="1514" HashValue="68D532BD6B8B02DA2FFA22F1BE75C023" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Validator.js" Size="1074" HashValue="230B643948559C66F36293915D44D7E9" ProjectDependent="1" IgnoreDifference="0" />
@@ -665,6 +667,170 @@
 						</Folder>
 						<Folder Name="widgets" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
+								<Folder Name="AlarmLine" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="cat1.svg" Size="1044" HashValue="6AC851D16C0CC1ADE95046AAA3AA9AD3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="cat2.svg" Size="1442" HashValue="9BD100A3F4D8EE914C0B23FD99B6B472" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AlarmLine.sass.css" Size="748" HashValue="528F78B6D2D802233B113E3258CF79B8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine.scss" Size="1115" HashValue="4BBB32923882C6112A0FE0A8D2F2AE17" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3759" HashValue="013B3B5F53F4EB3468BA840DE29E79A0" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<Folder Name="config" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="Config.js" Size="4596" HashValue="2F2985AE0C2C9AF4FD752B356C34784B" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="InitState.js" Size="5643" HashValue="52D93D1266C3712A10CD356D1D47AA27" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="reducer" ProjectDependent="1" IgnoreDifference="0">
+											<Folder Name="AlarmLineConfigReducer" ProjectDependent="1" IgnoreDifference="0">
+												<File Name="AlarmLineConfigAction.js" Size="711" HashValue="E30E97318843DCDA74C9DA7B08D1F1B8" ProjectDependent="1" IgnoreDifference="0" />
+												<File Name="AlarmLineConfigReducer.js" Size="574" HashValue="978AD10E318048D6920E90CE415B40C6" ProjectDependent="1" IgnoreDifference="0" />
+											</Folder>
+											<Folder Name="AlarmLineReducer" ProjectDependent="1" IgnoreDifference="0">
+												<File Name="AlarmLineAction.js" Size="7867" HashValue="672ED79CEBCACCABC3D5B99A2F595C22" ProjectDependent="1" IgnoreDifference="0" />
+												<File Name="AlarmLineReducer.js" Size="8741" HashValue="42F0BEBA4081ED2E194BB14F9E3FCCE6" ProjectDependent="1" IgnoreDifference="0" />
+											</Folder>
+											<File Name="AlarmLineMainActions.js" Size="783" HashValue="F30F60BEF34E77917E98EBFAB4EA86DF" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="AlarmLineMainReducer.js" Size="1255" HashValue="7759D86E9CFEA0024B74A5C5D5998155" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="utils" ProjectDependent="1" IgnoreDifference="0">
+											<Folder Name="UtilsAlarm" ProjectDependent="1" IgnoreDifference="0">
+												<File Name="UtilsAlarm.js" Size="16899" HashValue="9683F29FABB56C011FDE271DC3184C46" ProjectDependent="1" IgnoreDifference="0" />
+											</Folder>
+											<File Name="Dialogue.js" Size="2480" HashValue="5E71CB634528FE0AAFB0C70A340DE5E5" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="DialogueTexts.js" Size="2217" HashValue="404930C0349CB76DA8415B6DE4C87275" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="EditorBehavior.js" Size="1917" HashValue="498026A38F96FFE75ECAC1101A6004AD" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="EditorHandles.js" Size="1956" HashValue="8E0195968109CBC04CBC78DD131F3D85" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="view" ProjectDependent="1" IgnoreDifference="0">
+											<Folder Name="AlarmLineView" ProjectDependent="1" IgnoreDifference="0">
+												<File Name="AlarmLineView.js" Size="8286" HashValue="E8C0EB8F59E26D8BF8D71D05EF5CA78E" ProjectDependent="1" IgnoreDifference="0" />
+											</Folder>
+										</Folder>
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AlarmLine.json" Size="33127" HashValue="50394A7829F644E3F534887C687508F4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine.style" Size="8493" HashValue="C6156B60E23053D5602860A982793207" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine.widget" Size="31254" HashValue="1FD995215112E073F11021406D93FDE8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine.xsd" Size="4571" HashValue="1533F4B0A3A58F33D56460A0E674B564" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_EventsActions.xsd" Size="6050" HashValue="718C78BE86AAFAD293915D8B4362E092" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_Styles.xsd" Size="2421" HashValue="13027376056F098EF25BB7F6017D6426" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_base.scss" Size="1577" HashValue="00461639ABEABD5F82B6A7F2ADB7DF32" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_default.sass.css" Size="1571" HashValue="EF19C0D0040255635CC69257A00F98A6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_default.scss" Size="1661" HashValue="2769A6E710EFB6DDE0AA75F6573AD89B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLine_doc.html" Size="37874" HashValue="A90815821488B8376B0D22375F69A1E5" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="AlarmLine.html" Size="81" HashValue="76DD5B1326D2D9438884406428D30FEF" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="AlarmLine.js" Size="39385" HashValue="8205557300EE111E0EADF3B98884281D" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="AlarmLineStyle" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1154" HashValue="26B23C0F1B45E911AC544CA4EE49D5B6" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AlarmLineStyle.json" Size="9808" HashValue="9180B7120023D45299CF8F4A1E0F6B4F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle.style" Size="2566" HashValue="FEC0D23B566D0E6AD2E01F71630A37F1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle.widget" Size="9930" HashValue="40CC46AD6FD3F21FEE461E8A10D9D7B9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle.xsd" Size="1473" HashValue="2061493175C585C49F8BF5E94DFB0291" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_EventsActions.xsd" Size="3127" HashValue="2FCBC62704038C86A5F0964BFA330DC3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_Styles.xsd" Size="976" HashValue="67A47AA588A443B1ACF7F2189309B220" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_base.scss" Size="602" HashValue="C6C444E58F9DE20FAAA5949C82E99D68" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_default.sass.css" Size="592" HashValue="B0898F50869139428AD0A664533BBF5B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_default.scss" Size="696" HashValue="35EE6A97C6D94C2EDB440FDCD0745CCE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmLineStyle_doc.html" Size="15714" HashValue="AFCAAFE236153240AD3B75B0CDCCE7F2" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="AlarmLineStyle.html" Size="85" HashValue="0E01494456D1F5839670E8D61603BF84" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="AlarmLineStyle.js" Size="575" HashValue="69066813DC2F6157AF56189001F7B228" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="AlarmList" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="act_ack.svg" Size="9853" HashValue="E2DB755CC0FD2D69503D6A02122FEDC7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="act_nack.svg" Size="9845" HashValue="9F1326AA9C6F31EE4E0D4FBA05CF3167" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="cat0.svg" Size="1060" HashValue="642E3041FD88413493DBE9691159DAE7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="cat1.svg" Size="962" HashValue="2FDD29AE764DEE59E3A07875F72ED575" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="cat2.svg" Size="1713" HashValue="8DF41F661EB0C4BB1CA77B8A4787459B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="nact_ack.svg" Size="9833" HashValue="5266B00AF0C0663F6FCCDC2668DB597A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="nact_nack.svg" Size="9835" HashValue="D670D53A249CA8809666E1B88A4F01C7" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="4692" HashValue="B34E71A827A7DA0B88C9D9F93E60BA51" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Config.js" Size="2882" HashValue="CCE13ACD978B9B8F11C0CFC46445E169" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Controller.js" Size="5787" HashValue="763BDFF835DF592383F700F962A612FB" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Dialogue.js" Size="2444" HashValue="1831E309243353969A2BB4EEF6349288" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DialogueTexts.js" Size="3153" HashValue="BE9991CD7AF9F11EA4108DA741BD1446" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="FilterSettings.js" Size="11793" HashValue="C154BBFDF4B50BF92CFE0B84B8187C7C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Model.js" Size="10635" HashValue="BF9E383A45194389CE93D026FF4476C1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Renderer.js" Size="9232" HashValue="DEA5BA8751CEC422AD74B0C22458BCC4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="StylingSettings.js" Size="13637" HashValue="3D3CA1A694EA9BB93AE5C5BFCC43950A" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AlarmList.json" Size="42106" HashValue="3966575AADF79479B883A3C81E0F65A3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList.style" Size="766" HashValue="4ACCEB2B69782CEC9243682547D3BFC2" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList.widget" Size="38672" HashValue="BE14CE8A5344C011A626EEEFD5CECBBF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList.xsd" Size="7048" HashValue="425FA64073C359434A4B9D50ABAF33A4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_EventsActions.xsd" Size="5894" HashValue="11C97B2FED6B481183D44F329294FB7F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_Styles.xsd" Size="4390" HashValue="52F704186234F80943D7A681DAED707D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_base.scss" Size="4025" HashValue="E0C16AC0D42B0709EAC615159677C233" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_default.sass.css" Size="4644" HashValue="862178ECA0AA21026DA1BE14C85FDEEE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_default.scss" Size="4109" HashValue="7C1F3C7D3E60E8C7119F9985F3B2F29F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmList_doc.html" Size="46050" HashValue="389C2D68551523589F133465CC11A220" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="AlarmList.html" Size="78" HashValue="F2B41E65873F8324E30DADCA7584E38A" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="AlarmList.js" Size="8863" HashValue="58069268FBFD550B67B84231ED0CE22D" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="AlarmListStyle" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1197" HashValue="B7AB1A839095351AA8A055D711C5C525" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AlarmListStyle.json" Size="9795" HashValue="761C5C20FC25CC6EAD8306A829B1BB6C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle.widget" Size="9964" HashValue="6AA5CF43B99045960263488D1DF18867" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle.xsd" Size="1472" HashValue="E1F032ADB582310B90E803F20C885035" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_EventsActions.xsd" Size="3127" HashValue="75DB588EFFB0B3648EDCB29404B64BEE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_Styles.xsd" Size="976" HashValue="87A9C2AFEE87B6218417DFABAFF2E767" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_base.scss" Size="444" HashValue="71C25462DB57660B0F5496000638B78F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_default.sass.css" Size="451" HashValue="28F4C980B4D43F0B3CC625A3953BA3B9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_default.scss" Size="538" HashValue="BD69EABE1D5594237027205C33B21101" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="AlarmListStyle_doc.html" Size="15780" HashValue="4D136067FEA85A7A92F9EF94DA134D27" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="AlarmListStyle.html" Size="85" HashValue="B3CA580657EB995999847E82417A4590" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="AlarmListStyle.js" Size="622" HashValue="A79EEF9F103DEAD510EACBCE3B31D461" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="BusyIndicator" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="busy-animated.gif" Size="115525" HashValue="00B4B40228D311A5457D5CC7282D295D" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="BusyIndicator.sass.css" Size="65" HashValue="1A6354DE7999AEBB171286BCC7D8B180" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator.scss" Size="180" HashValue="AD562762EA8D44D7B304F26A9853D47E" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1152" HashValue="BB5EBD0C52D4A1597350332B1D6DF89F" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="BusyIndicator.json" Size="7463" HashValue="AC70FD228F499833F59B62625D3E3918" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator.style" Size="804" HashValue="04EA17912CEC2895FC4772554FFA47CE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator.widget" Size="6477" HashValue="DCCD0A07843C04D324DBA1E3868BFFF0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator.xsd" Size="1021" HashValue="01708D8BC2E187A0EE989F613C972E3B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_EventsActions.xsd" Size="1998" HashValue="B63C4DDDCA9878D70F4C552193D1534E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_base.scss" Size="121" HashValue="CD67AFA3AFF085F084078A43FC8C4C5B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_default.sass.css" Size="68" HashValue="638285E5A6ABA587829293207AE3F5EC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_default.scss" Size="213" HashValue="7C9593B92AA56CC03B6C1E1B072DC1C8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BusyIndicator_doc.html" Size="12747" HashValue="94A731243416A3B87436612660903424" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="BusyIndicator.html" Size="75" HashValue="6AED62A459E799C276FD4836A4682238" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="BusyIndicator.js" Size="2223" HashValue="ED0E0C42155C511E1B23AD807EC045D9" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
 								<Folder Name="Button" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="Button.sass.css" Size="2358" HashValue="F54745E88AF5009E59DC49A22CA4EF9B" ProjectDependent="1" IgnoreDifference="0" />
@@ -680,41 +846,137 @@
 										<File Name="Button.xsd" Size="5505" HashValue="AD18C176B24CC067840BA3C2A8FF7F68" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_EventsActions.xsd" Size="5485" HashValue="28177FDE5EFA2A8634BBCBB7D86B1B9E" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="Button_Styles.xsd" Size="3316" HashValue="D05FC0D4052F23B9CAC0CBD46B022745" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Button_Styles.xsd" Size="3341" HashValue="88DBE4667A7BD83965F857F46EA5978B" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_base.scss" Size="2895" HashValue="E1079116E94FB14DB4DE8C6AE896850A" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_default.sass.css" Size="3175" HashValue="2D56FDF6F6D25B25B10B67D0AFED8D54" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_default.scss" Size="2973" HashValue="65312702D97DF76BD0A187F5A6B7EAC6" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Button_doc.html" Size="39112" HashValue="C5761157553765D220AF0573B5101D4F" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="Button.html" Size="77" HashValue="92F7FB66518A853A5AD3CDA8B6A2F658" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="Button.js" Size="26330" HashValue="51BE191775316BA51F3DBC3F567D2F96" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Button.js" Size="26501" HashValue="517113293B16338DB1D7BD901D7FEAEE" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="ButtonBar" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ButtonBar.sass.css" Size="821" HashValue="0A3436049A0D5D382D2BA2684245E249" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar.scss" Size="1112" HashValue="44B24F5856895F12B76D496CE59260B0" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1743" HashValue="B784BD7B09E63E3485AFDE049E8B3013" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="EditorHandles.js" Size="3455" HashValue="DFDFD2F113163AC4E2F28C6E96989C35" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ButtonBar.json" Size="14030" HashValue="43236308732CAAB601474F720251DC70" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar.style" Size="1955" HashValue="681A34D4659B04231B65AB56F62EFAD0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar.widget" Size="14070" HashValue="7489B82D8C2CC58C57BF3EE9CF9E5C2C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar.xsd" Size="2036" HashValue="CA518FE2445C27252B8D7270CFBF6FED" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_EventsActions.xsd" Size="4091" HashValue="8D95B8A693859A2BD4043B6E632C492F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_base.scss" Size="228" HashValue="4BA748E8E4FFC9E1CBEA3EB4DF53D962" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_default.sass.css" Size="125" HashValue="510146A99A98C17815784C09F7D1E0B6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_default.scss" Size="312" HashValue="C137469F350AC0F471C3FE7E550C3E18" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ButtonBar_doc.html" Size="22662" HashValue="2D9D96F8868681A05721D36DED1DEC02" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="ButtonBar.html" Size="80" HashValue="8803E49721C1FFC2F14190C296513F9A" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ButtonBar.js" Size="24218" HashValue="B043F488AEC6DD680BBB50D6BDCB7A18" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="CheckBox" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="CheckBox.sass.css" Size="2156" HashValue="EABA272F8B6C6C6A1A5D07642AC35907" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox.scss" Size="3136" HashValue="EBAD1B26F737B2D97D5502D1B17C5AE9" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3721" HashValue="34786BDDF1024044B32DB8E3FB19C9F5" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="CheckBox.json" Size="34771" HashValue="12FF3EADA65D920BE4A887214316E9CF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox.style" Size="12837" HashValue="4409E3B19B15BFD92109E4B8D6446D80" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox.widget" Size="37633" HashValue="6077818728177C3D6B4F1DC7950FA0AF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox.xsd" Size="6414" HashValue="943EFCD59DB51A3EE7036D861A5C464E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_EventsActions.xsd" Size="6702" HashValue="5D0729D8680B2864987BACE246022F3B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_Styles.xsd" Size="4024" HashValue="BAFBBE5D859E6C1D75AD35C374C55DC0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_base.scss" Size="2930" HashValue="CAFBE7C8F4D2777985E4E9EAB734F1BF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_default.sass.css" Size="3675" HashValue="2CEC9E7EE5D9F47FF0D40326EB95BAE8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_default.scss" Size="3012" HashValue="EB2E8494DBE2C8615A727C63EE551246" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="CheckBox_doc.html" Size="43496" HashValue="CAFF78ACC7F974FDDC1B6007F697C995" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="CheckBox.html" Size="72" HashValue="17A779D161E5E242C0A538D51DB33048" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="CheckBox.js" Size="11306" HashValue="0667EAFBD5182DAB14FACBF93E6E035A" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="DataHandlerWidget" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1160" HashValue="84292A71667A8436292C0B608D68DC55" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="DataHandlerWidget.json" Size="8433" HashValue="9506C9411E08DD0A438C306AF125023A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget.style" Size="762" HashValue="28F9B347E0E7DA3D2167018FAD03557D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget.widget" Size="8432" HashValue="279812E9A8CF06D0D3C933CD2096CC0B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget.xsd" Size="1031" HashValue="AC9F59F1000C9A3ACF7C0E2C2A2057E0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_EventsActions.xsd" Size="3175" HashValue="67B33B961CE6418BAC2031882B119C05" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_base.scss" Size="123" HashValue="6A8FD65AD722B87C3DCDE57D558703F0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_default.sass.css" Size="70" HashValue="B00431BCBE8C8172AED892B4B84126A4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_default.scss" Size="223" HashValue="62FDE0DCDEEB75021AEE188E02CC8B31" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataHandlerWidget_doc.html" Size="14282" HashValue="D05E3741BC42C0C7D9BED8266A39E480" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="DataHandlerWidget.html" Size="91" HashValue="036F2666250CB32421A70EE4CA8E901D" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="DataHandlerWidget.js" Size="7294" HashValue="AA167CB310F8C1C0C43832F0C5C11924" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="DateTimeInput" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="DateTimeInput.sass.css" Size="1006" HashValue="844D40671069E2AD759A85BB32C58C08" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput.scss" Size="1624" HashValue="97E8234678B0EAB7E7AA7F9CC6C9854B" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1670" HashValue="BC284B90800BD574E18523EF86B2752B" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="FocusHandler.js" Size="14783" HashValue="2614C23563D8080DFD2CC2DFAA73BB9E" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="DateTimeInput.json" Size="20892" HashValue="402EDF0AA71F128767AD87DB642C42E4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput.style" Size="9989" HashValue="5A154576553F923A9E2BAEC02DC9EF5D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput.widget" Size="21995" HashValue="4A9FA76064F594918708368AC91CD954" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput.xsd" Size="4375" HashValue="7628D947BA3C2723CDB3981BA414F8BA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_EventsActions.xsd" Size="4586" HashValue="09F822F63111BDF3282506C7A2EEF90E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_Styles.xsd" Size="2896" HashValue="EFA49D67F7154488DFE7613B7A38F5BC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_base.scss" Size="1303" HashValue="3965F8719F9CC8A1540F79AF557312C1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_default.sass.css" Size="1474" HashValue="B5B453AD2E4795B951A054C939EEB4B8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_default.scss" Size="1395" HashValue="EAC22D2B2654E8F667A279F7A73386AE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimeInput_doc.html" Size="29992" HashValue="A2C62BA2F54B7AC582AB6DA8B9B9D798" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="DateTimeInput.html" Size="73" HashValue="924BDFF93C2D17EF883EEE296BA5A5E6" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="DateTimeInput.js" Size="14645" HashValue="51C5916F8790B8776253BDA44B84393F" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="DateTimePicker" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="DateTimePicker.sass.css" Size="6093" HashValue="C516D3FCDEF4FA64EA5C1B0AB5355C02" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker.scss" Size="5068" HashValue="82E5817BDE3ABF1330576DC403F53B54" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker.sass.css" Size="6141" HashValue="BDBA91CE28A207B242AFE940D63054BF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker.scss" Size="5132" HashValue="9D9EEA8711CFBEF97B2A99C5611C0DCE" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="1177" HashValue="B196D5FE324AC253987028F71481FE14" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="SliderWheel.js" Size="5637" HashValue="B7F948637B5CA6C89B137174C8493A3B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="SliderWheel.js" Size="5799" HashValue="95398B0833A81F43CA2D8CA4B661BFBE" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="DateTimePicker.json" Size="19086" HashValue="745A582E1729E01456FF2064E5F7C054" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker.style" Size="12492" HashValue="FEB5AD40CF9A70FE52D3C97F5CAE63DD" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker.widget" Size="19717" HashValue="ED4BA601B6505FF6CBE2287C9D6D7169" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker.json" Size="18977" HashValue="B3FDF06B4C710EE8C52B58E0F342BC5B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker.style" Size="12358" HashValue="60DEF3E46E06E6C8467A86A4EE7A981D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker.widget" Size="19600" HashValue="D066F56BE652BC27233FFD3BCE352503" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="DateTimePicker.xsd" Size="3528" HashValue="BB0471219B5F0794848579E012FFF292" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="DateTimePicker_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="DateTimePicker_EventsActions.xsd" Size="2008" HashValue="4C90D080BC31F6872ED56A577E6DAAAD" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker_Styles.xsd" Size="2560" HashValue="6FAB5EF2EBA1AA4ED3059FB0F178A924" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker_base.scss" Size="4595" HashValue="A7A349BDFE4587D9B39CBBEE0EAF9E9C" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker_default.sass.css" Size="4415" HashValue="76649B67DDA55377A85A7998C7B665B4" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DateTimePicker_default.scss" Size="4689" HashValue="9710A248F11C0AF341E807F752E3C287" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker_Styles.xsd" Size="2585" HashValue="A911F5F8989A1916E46548C7D1532BC0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker_base.scss" Size="4506" HashValue="0E7C45831665EF1CC07E52F35EA61D85" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker_default.sass.css" Size="4288" HashValue="99862286AF0D4BC64558F6B34AE055A3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DateTimePicker_default.scss" Size="4600" HashValue="CDC78DC00B1F62C0231F174D0656817D" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="DateTimePicker_doc.html" Size="21557" HashValue="E8F2D5F09314C9B0978A0832D4ECE547" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="DateTimePicker.html" Size="871" HashValue="45A108A1C477834F3576761B26F842F0" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="DateTimePicker.js" Size="17601" HashValue="A517D5D85888B0F31697AC8F016DFACE" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="DateTimePicker.js" Size="18448" HashValue="B5E510C821C538F82DADCF9A3E2F07E2" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="DialogWindow" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -737,12 +999,89 @@
 										<File Name="DialogWindow_doc.html" Size="14698" HashValue="D4C5D8CEA752B5C546004B702B693154" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="DialogWindow.html" Size="450" HashValue="476D2C63D0B337AFC031E2EC71174FE6" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="DialogWindow.js" Size="12906" HashValue="5254A5911A12957BB849EB4F0BA11308" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="DialogWindow.js" Size="12984" HashValue="1A64CDED290A70297C795CCCB4175A09" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="DropDownBox" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="DropDownBox.sass.css" Size="2259" HashValue="C4FFF83B5FC0EA66B4FDD810BA0E488C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox.scss" Size="347" HashValue="A7DB75A4D40EDC9D3BF0419A65B01DD6" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3425" HashValue="CFD2AA3572BCE5C6388FA1FB2DEC0E51" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<Folder Name="config" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="Config.js" Size="4173" HashValue="383DBB53D81AE896133262084C7F6682" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="InitState.js" Size="3048" HashValue="A762CBC7BC0F081C5EA8FCCACBC4B242" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="reducer" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="DropDownBoxActions.js" Size="710" HashValue="485F2DEB91906FD23694A67B60F6ADC9" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="DropDownBoxReducer.js" Size="828" HashValue="FC0E32233B70FC256938D671E5DDB8A6" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="view" ProjectDependent="1" IgnoreDifference="0">
+											<Folder Name="DropDownBoxView" ProjectDependent="1" IgnoreDifference="0">
+												<File Name="DropDownBoxView.js" Size="19025" HashValue="DF900249D50F0ACA208451279F0DC583" ProjectDependent="1" IgnoreDifference="0" />
+												<File Name="DropDownBoxView.scss" Size="1301" HashValue="DEBAC6B6D06AA7898B36B7A2F49CFD09" ProjectDependent="1" IgnoreDifference="0" />
+											</Folder>
+										</Folder>
+										<File Name="FocusHandler.js" Size="13631" HashValue="4A6D05105B7817314994D8127901BB22" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="SubmitQueue.js" Size="887" HashValue="16FEF2BFF848B935CA20D1839D01DF56" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="DropDownBox.json" Size="33238" HashValue="A176A28AC789D868E075FE278F6662F9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox.style" Size="17026" HashValue="61878628F6608B374D0CBEA24EC900BB" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox.widget" Size="33061" HashValue="7297E598F2D3E2C0F15118ED422358DE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox.xsd" Size="6516" HashValue="96CB5F44CF02F6B6A9C6BAF1540378D0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_EventsActions.xsd" Size="6313" HashValue="B0D465858FDFED0232FE4689A8B37429" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_Styles.xsd" Size="4026" HashValue="3B84D521EAC861838B46D8E5E3228AC3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_base.scss" Size="3452" HashValue="05F15F75D070256968F0BEC9D602E36B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_default.sass.css" Size="4238" HashValue="CCB156C0A45150D1EF16C0DF8FEDD5E0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_default.scss" Size="3540" HashValue="4B0DA9E2BE31B8F55654922E7602048C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DropDownBox_doc.html" Size="42354" HashValue="F5A1BE75384A5898592A3EAAE8EBAB7E" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="DropDownBox.html" Size="75" HashValue="A70465438FAA14E60624EC5724763992" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="DropDownBox.js" Size="29206" HashValue="9E207F7839154C94D8204E08686CA7B6" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="GenericDialog" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="GenericDialog.sass.css" Size="1075" HashValue="6E8D3B87BE704AF6D4B1F4CE73EFC225" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog.scss" Size="1248" HashValue="0B396F7E8426E5A989F6969384261103" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1136" HashValue="71EC0EAF25A1EEB2524DF167E8A4E498" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<Folder Name="enum" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="dialogResultEnum.js" Size="249" HashValue="7F36DC0E11A9111ECF28E933F1C30232" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<Folder Name="models" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="dialogWidgetModel.js" Size="728" HashValue="1BCCE84DE4C31DAC077E038E234F62C7" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<File Name="config.js" Size="2783" HashValue="3939B22D27E8F2EDBAA424A110FAC4EE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="constants.js" Size="705" HashValue="DFF77287110CAEE4FBF9D09752104B72" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="renderer.js" Size="3963" HashValue="054EFFF4249881D567FD4938520610FA" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="GenericDialog.json" Size="10906" HashValue="71931C44FC964B3280EA99CF13FDA2CD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog.style" Size="2820" HashValue="D34123318B23DCFEFEBAE37C339D8F25" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog.widget" Size="10525" HashValue="9663874E78820B1770E3A86ADC56BE4E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog.xsd" Size="2030" HashValue="7E3F3E31773A4C0156DBD103B9ECB87D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_EventsActions.xsd" Size="1765" HashValue="43BADD053ED958394816648B8AA7431B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_Styles.xsd" Size="1177" HashValue="07247FD9E3B3280D9CF6F1F2FBDCA9EC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_base.scss" Size="762" HashValue="D4DDFEDD1ABFDE083E3F676468DD92C3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_default.sass.css" Size="718" HashValue="54D17139443A886DED63FAB922794BAE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_default.scss" Size="854" HashValue="5514950BB8C619467C65C909846D483B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GenericDialog_doc.html" Size="16759" HashValue="2D8CA2FF967613D8C810047905416F1C" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="GenericDialog.html" Size="79" HashValue="A9E561798E0CDCE6CBF3ED0DA1B04D56" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="GenericDialog.js" Size="17970" HashValue="DDBE098413537DAAAC67655C73363FF3" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="GroupBox" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="GroupBox.sass.css" Size="2209" HashValue="B0933A756F526622C575BA366C56319A" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox.scss" Size="2935" HashValue="5DFB38419AD3163E8C40BA7BCC22D5CC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.sass.css" Size="2231" HashValue="2C5ED35CC59AEE301BE5CFDEF96DECC7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.scss" Size="2976" HashValue="BDFF45B88E796F0C2686AB600C609B00" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="2274" HashValue="7415F3BA9BB394E9E42E6264055AA396" ProjectDependent="1" IgnoreDifference="0" />
@@ -751,20 +1090,80 @@
 										<File Name="EditorHandles.js" Size="3260" HashValue="D99173CA961ED15E6DB0525218E59684" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="GroupBox.json" Size="20867" HashValue="0F70F09FC920BFF5DB27660D51038F5A" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox.style" Size="7330" HashValue="FAC82112800997C5D922B02BC45FC80E" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox.widget" Size="20668" HashValue="287AADD347DE0D620C60DC08671D36FC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.json" Size="20948" HashValue="FCF2A202FE6256693DD84334DB1843C0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.style" Size="7442" HashValue="99DAA54A2EA4EB33D10803C62CD6C81A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox.widget" Size="20763" HashValue="77155C7B40AA8448FD9B6CA687AAACB5" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GroupBox.xsd" Size="4103" HashValue="9E6CC34C2E4D064C04C43E295CB1F19A" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GroupBox_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GroupBox_EventsActions.xsd" Size="3305" HashValue="C54F9F1F503F4FED7EEEAE49FBA9DED8" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox_Styles.xsd" Size="2172" HashValue="88FB66ECFA37D02CB886C540032474CF" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox_base.scss" Size="1129" HashValue="237A523E28B76FC87A11DBE4DA6CEE2A" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox_default.sass.css" Size="1115" HashValue="094FEF4675DA0C00BE7C45FA5205067E" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="GroupBox_default.scss" Size="1211" HashValue="C94248EC898CABB5A9C5DEE92F757C03" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_Styles.xsd" Size="2197" HashValue="CA79E6DD9469318997F475D8961ABCDA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_base.scss" Size="1186" HashValue="921C4B9850E752370783D6C6E45B2AA5" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_default.sass.css" Size="1200" HashValue="4EC5BA5494F4E3939AFB42020F6CC00A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="GroupBox_default.scss" Size="1268" HashValue="5E866F501FC3766D2DCDAF5159A35D63" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="GroupBox_doc.html" Size="29765" HashValue="F5D1EE226F4BAFBCF61DBA40248EAC8B" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="GroupBox.html" Size="77" HashValue="C203E3FBBBC6B928B39F0EDD6C434FC8" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="GroupBox.js" Size="31460" HashValue="35593FE7F65453DB6FEBE5543693059A" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="GroupBox.js" Size="31753" HashValue="9B58F8F5A1F54EBA307986140F3404F6" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="Image" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Image.sass.css" Size="156" HashValue="C7D56D1B9248C66B67F998879441570F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image.scss" Size="139" HashValue="B330D6BCF303F2593F7B0CC2E5A6C40D" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1492" HashValue="5B15F4F3470E5B1A3B0AE35C0FFD45A2" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<Folder Name="config" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="Config.js" Size="1028" HashValue="1CD9D1D7798F4139178B684C118BA974" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<File Name="EditorHandles.js" Size="1447" HashValue="927B5C8C023C2F46EC281C9222347DC3" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Image.json" Size="15615" HashValue="05E9ADEF1D30FABC362AB17442935EB0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image.style" Size="4685" HashValue="D049E675E98E9279A798F1171F62DDBE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image.widget" Size="16462" HashValue="5ADE3D07792D597F43C9A9C8C6995BC7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image.xsd" Size="2638" HashValue="58E1D7FA64B39B2C9D7C37E093D2E42E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_EventsActions.xsd" Size="3558" HashValue="FDF307D371E6C81A86553D738293557D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_Styles.xsd" Size="1419" HashValue="4FF39AD65EA69794A39A261641ADBBC1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_base.scss" Size="477" HashValue="BB15635945EF3C24E5C2E075FF743D7E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_default.sass.css" Size="346" HashValue="0D2321313DAA59463CAF4BF29249FF43" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_default.scss" Size="553" HashValue="59959D3D8B812E07D8A25233756E47DD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Image_doc.html" Size="24888" HashValue="FCE811567EC9AA03E4645FD3B1C37A74" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="Image.html" Size="69" HashValue="3B70DFE890613C44412FCD9C0B31A91E" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Image.js" Size="5834" HashValue="AE89808327C22198F4955CA5D9FE2DE5" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="ImageList" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ImageList.sass.css" Size="160" HashValue="11127E9E7337BEEEB9CA990390E739CD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList.scss" Size="143" HashValue="EACA8D9C8434E5610EF7833CCA151F5D" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1910" HashValue="B00F5621F420C260C860BCC6AEFB7DE5" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<Folder Name="config" ProjectDependent="1" IgnoreDifference="0">
+											<File Name="Config.js" Size="1656" HashValue="4601B6165E16307FC4FDFF34DA5BE889" ProjectDependent="1" IgnoreDifference="0" />
+										</Folder>
+										<File Name="EditorHandles.js" Size="1447" HashValue="927B5C8C023C2F46EC281C9222347DC3" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ImageList.json" Size="16861" HashValue="F21D8A243D53C4222DE33809505A3693" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList.style" Size="3468" HashValue="11AA3B83BB38EEE47BBFD62C45CCB499" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList.widget" Size="16681" HashValue="7998588450E0A6DDEC635D114035B482" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList.xsd" Size="2618" HashValue="23F7C031C8273675813D1BBE34642A42" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_EventsActions.xsd" Size="3702" HashValue="DBDF4C95E038DB087D57AA41F77A1581" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_Styles.xsd" Size="1423" HashValue="351F1825C387931DCC5EC7E336E8FED1" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_base.scss" Size="363" HashValue="BCF548EDF5E6DF40ED22FF58E13FEA56" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_default.sass.css" Size="294" HashValue="D7EB00FA8D5899BCDE51C1D8DD6F6299" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_default.scss" Size="447" HashValue="FE6C1DA7CE928E6A2D1E7C577C9E6F5E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ImageList_doc.html" Size="24877" HashValue="03126A7A1256EE0E57379FB88BEED30A" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="ImageList.html" Size="73" HashValue="7D5FF0361C74399D5AB9E38A618EAE53" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ImageList.js" Size="8045" HashValue="4204EF795F0C7EC65144ECB2A483FE97" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="KeyBoard" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
@@ -825,7 +1224,7 @@
 										</Folder>
 										<Folder Name="converter" ProjectDependent="1" IgnoreDifference="0">
 											<File Name="KanaToKanji.js" Size="2226" HashValue="06C2F018F0235208A980D210A73354AD" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="converter_zh_chs.js" Size="2384" HashValue="3173AA5DF22E4B42A2356C3BE21B9BD4" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="converter_zh_chs.js" Size="2868" HashValue="03896D5B5701BB119A7246081220CF73" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 										<Folder Name="external" ProjectDependent="1" IgnoreDifference="0">
 											<Folder Name="dictionaries" ProjectDependent="1" IgnoreDifference="0">
@@ -849,7 +1248,7 @@
 										<File Name="KeyBoard.xsd" Size="3083" HashValue="EE91C6F146BA2AD5AA030FAFD5AA5718" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyBoard_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyBoard_EventsActions.xsd" Size="1948" HashValue="E3DB36E03A49266AA8A8DE1CEE0F767B" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="KeyBoard_Styles.xsd" Size="2156" HashValue="0A45AEE9DCF3F7FB1C0744BDE2A5A7FE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="KeyBoard_Styles.xsd" Size="2181" HashValue="25EFE3F427CDB3DEA28816F007DA2C6E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyBoard_base.scss" Size="2836" HashValue="89E9B5364068BE2A57B4908103B081C9" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyBoard_default.sass.css" Size="3486" HashValue="51752A39F2859F37633AD205F569528E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="KeyBoard_default.scss" Size="2918" HashValue="6720F77840DF004B5F5C2E20D16CF29F" ProjectDependent="1" IgnoreDifference="0" />
@@ -876,14 +1275,14 @@
 										<File Name="Label.xsd" Size="3621" HashValue="8EEF54343335B2822E664D3072E56E15" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_EventsActions.xsd" Size="3553" HashValue="0F77B25DA883E44066D36E92E6C649DE" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="Label_Styles.xsd" Size="2086" HashValue="8EC22657D8A180D362F196BF02C9877D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Label_Styles.xsd" Size="2111" HashValue="6C6FAA70681F8AD3BE554FDE04B63F20" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_base.scss" Size="887" HashValue="3C271BC5A9E90BBBA456B4041F49FE8D" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_default.sass.css" Size="848" HashValue="6D20A998249C35B5EBBA47C27C446BEA" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_default.scss" Size="963" HashValue="9F12C34D0889077B5DB3C3614B9ED12E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Label_doc.html" Size="28754" HashValue="89C06E1BBD909DBED9D7BD42179FA3CC" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="Label.html" Size="80" HashValue="D3076440461E772F59C543D5A6C3FA87" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="Label.js" Size="14371" HashValue="1D7DCC263BED31D711B0FA5F72577905" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Label.js" Size="14476" HashValue="2C825A9210E3A07696334B739E146EDD" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="MessageBox" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
@@ -932,6 +1331,25 @@
 									<File Name="MessageBox.html" Size="1215" HashValue="14022C4C04753D1FEB73FEB61CD7CC81" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="MessageBox.js" Size="7908" HashValue="84C5D5290AA45DC3BAC19FD5A27A3D2D" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
+								<Folder Name="NavigationButton" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3154" HashValue="01265C807E23C9F5FA2103F5331A515D" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="NavigationButton.json" Size="32497" HashValue="7C7DDC97E2E8342809F635F63DD3A1B0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton.widget" Size="33192" HashValue="F2E1DD147484A97AEE1311B38F80A49C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton.xsd" Size="6766" HashValue="C29407CF21F11AD39DC2CB755ED7D4CD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_EventsActions.xsd" Size="6048" HashValue="23C832308251C9EEFE9F7184FABA2A5C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_Styles.xsd" Size="4331" HashValue="AEFEB0ED31258DDA4F6F88C99CD14FD4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_base.scss" Size="3231" HashValue="580E40401F29356391CFC4D2931E2C61" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_default.sass.css" Size="3815" HashValue="BE66A969F59E148B235BDE73414E09FC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_default.scss" Size="3329" HashValue="4629E9847F1018293DB851113CE3E85F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NavigationButton_doc.html" Size="43141" HashValue="4F140EB9F8A5FC5FCCE94F0DA9C191A6" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="NavigationButton.html" Size="90" HashValue="E9AEF1E1B20BDB01624B44AAD299FBD8" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="NavigationButton.js" Size="7356" HashValue="8D3CDF01ECB8AB79B945E1F5D78FCEDE" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
 								<Folder Name="NumPad" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
 										<Folder Name="img" ProjectDependent="1" IgnoreDifference="0">
@@ -953,7 +1371,7 @@
 										<File Name="NumPad.xsd" Size="5249" HashValue="26F533865ED252CBF9875F3B1A24C5AD" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPad_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPad_EventsActions.xsd" Size="1928" HashValue="6331B41828D2A3199A72CD82785BA96D" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumPad_Styles.xsd" Size="4202" HashValue="0F1D84DE303F7C2771FC523FC7948851" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumPad_Styles.xsd" Size="4227" HashValue="498F5A47E4AC02460BA846EBD1EDC1BA" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPad_base.scss" Size="4227" HashValue="B15673751FF1FB17CB4E56CD302048F4" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPad_default.sass.css" Size="6547" HashValue="63BA2F5146B69EC342999CC6B75B637E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumPad_default.scss" Size="4305" HashValue="8823001BFF6AA357DBCA18D95227CB60" ProjectDependent="1" IgnoreDifference="0" />
@@ -974,20 +1392,20 @@
 										<File Name="Config.js" Size="5256" HashValue="AD046EACB470688AD0BBC0393705821F" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="NumericInput.json" Size="30297" HashValue="701BC207C669F3CAA6FA7E0F0BEB272E" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput.style" Size="9757" HashValue="753D922EA3F43B415BEA14E27B56E2E3" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput.widget" Size="27098" HashValue="41CCE87CF43AE54BD6F4865FBC8CE586" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput.xsd" Size="5675" HashValue="37C626E4984ACDD62FCF1E4149040861" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.json" Size="31093" HashValue="C56E5E61285E4B9CD23CE6863A3EE7DD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.style" Size="10971" HashValue="F4BC25504BA32C0EF814901C4E20FFDC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.widget" Size="28216" HashValue="19F7E32FC488EDC991B0C92449370F9C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput.xsd" Size="6013" HashValue="215309F512163C219DF1C2E618800580" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericInput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericInput_EventsActions.xsd" Size="4792" HashValue="26376156BB69247C3F187598D504904D" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput_Styles.xsd" Size="2958" HashValue="619933412261BA19E685856A9B05CA24" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput_base.scss" Size="1501" HashValue="F633E715B9BA773E11DC9C49C621F078" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput_default.sass.css" Size="2050" HashValue="9CF69025F3C73745AAB06D4978C9A2FB" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput_default.scss" Size="1591" HashValue="361C0440103BAD842A2525A9508DE208" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericInput_doc.html" Size="39119" HashValue="F50D9DAD4FECD2F818A7819A49F26536" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_Styles.xsd" Size="2983" HashValue="E8A1C328B579C8D09A561D2D63F84BA4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_base.scss" Size="1619" HashValue="5CDDF536F571D60889F8C0F9F39871CE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_default.sass.css" Size="2110" HashValue="8E54EF3B6CF646E6162CD05F75B48C6A" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_default.scss" Size="1709" HashValue="2344DF7964BDBB96B936400E0961ED07" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericInput_doc.html" Size="41899" HashValue="E1783052E14C5A7C1110BECD10F9CED5" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="NumericInput.html" Size="76" HashValue="EA4C3AD285AFC7F9BBF77457C2E4ACDE" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="NumericInput.js" Size="51033" HashValue="C079B8BE177B78110DFBB9B7FD64D3BD" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="NumericInput.js" Size="51939" HashValue="A844BC3EB51B395D1D6A56760826E996" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="NumericOutput" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -1001,20 +1419,176 @@
 										<File Name="config.js" Size="1894" HashValue="A77985A76BDC75AF1CB153C0B92AD205" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="NumericOutput.json" Size="25376" HashValue="68D86F017F933CF96783B10490F77EC2" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.json" Size="25532" HashValue="6B9185D97E77F4C6438F35736FB6BFCB" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericOutput.style" Size="5259" HashValue="966D967CA65F824980EE76843C34B8E1" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericOutput.widget" Size="24667" HashValue="5C5F4F2775B957E0A33933802369A49F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput.widget" Size="24815" HashValue="874D1E11CE16CBC4E1923C094F9F11DA" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericOutput.xsd" Size="4537" HashValue="837E6254BE792C3CD2955942C157ACF5" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericOutput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericOutput_EventsActions.xsd" Size="3699" HashValue="BB203186AC3930ED16788F981D7B7FAA" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericOutput_Styles.xsd" Size="2091" HashValue="D805063B765E486A7916CE5910599819" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericOutput_base.scss" Size="820" HashValue="087A795FA17E8835CB1F3DA23DFA2DEE" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericOutput_default.sass.css" Size="908" HashValue="8A6A19F91F75368609988310C76FDF58" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NumericOutput_default.scss" Size="912" HashValue="C3E6747DD69851988E56AF28B24DD3FC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_Styles.xsd" Size="2116" HashValue="392FD0D6073CE2431BED604BD78F2F03" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_base.scss" Size="820" HashValue="F6BA44BF35D83E5E2F8208C2C6A18E32" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_default.sass.css" Size="908" HashValue="B8A11BF584B4F37A69E3DDDB8E149F56" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NumericOutput_default.scss" Size="912" HashValue="757CE0FB44D8ECA8931216D1361BCCF6" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="NumericOutput_doc.html" Size="34519" HashValue="665CD048D871E3346BC30B2A0AA384F1" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="NumericOutput.html" Size="77" HashValue="81E8174788ED113209C1FC3E6285E3B4" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="NumericOutput.js" Size="1924" HashValue="8BC36A97931AF8B37A1134D36CE5FA1D" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="Password" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="2031" HashValue="30C74A1081329365DD1D246044E4CC49" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Password.json" Size="24247" HashValue="49E1CE77321303CCB567377F6EBC6E54" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password.style" Size="4592" HashValue="EBD1B0458C64356AB69DC358A04B0844" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password.widget" Size="24605" HashValue="24E8FC73E93DA79E8D6D9B8F391161DA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password.xsd" Size="4649" HashValue="A6F16F39225E86933D12751A75B29FB5" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_EventsActions.xsd" Size="4688" HashValue="4B1C3759EA3188A0986CB182C3C0C8D9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_Styles.xsd" Size="2984" HashValue="5686E73513215C5A71B4F1AE8C0BA08B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_base.scss" Size="1435" HashValue="3F420E2BA7503820A292E660321A633D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_default.sass.css" Size="1780" HashValue="F3DFF1B2B1D12FF82110BA402F9D0B8D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_default.scss" Size="1517" HashValue="B359342DF5A438C49349B580A2083B22" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Password_doc.html" Size="33532" HashValue="C9453A3BC9738BE51CC888604D41E397" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="Password.html" Size="72" HashValue="273D6F009694BF7748B70AA86F9181D3" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Password.js" Size="1478" HashValue="7B374E75E2474E1BB60F5EE149221D3D" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="PushButton" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="2787" HashValue="678D1CAC278F9D94BEB94D9EF0447CB4" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="PushButton.json" Size="29041" HashValue="A015A459BA6209F86660813215ABD020" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton.widget" Size="30153" HashValue="1AB2806C82C59FD6CFB784376263D068" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton.xsd" Size="5517" HashValue="FF5C26C9CD1E87C2557BE82AEEBF605D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_EventsActions.xsd" Size="5605" HashValue="AC99E0913FF721090381B617C8E70273" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_Styles.xsd" Size="3345" HashValue="0BF664A5921C6FCCE0901D49CDB964A6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_base.scss" Size="2899" HashValue="9331AF647C8725D72AA8C5CDFA4B2F96" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_default.sass.css" Size="3327" HashValue="5C8B83AC705352D83EA2C9999C170FAA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_default.scss" Size="2985" HashValue="8683A77C833CBFF91159BB25637AF6C6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PushButton_doc.html" Size="39797" HashValue="B80EF25A34218D3E083446D740EAD494" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="PushButton.html" Size="84" HashValue="48D596E095DFCC1EB1224FDEA1298560" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="PushButton.js" Size="1866" HashValue="DBD65B270827F92A4957A3DC358A2FA3" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="Rectangle" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Rectangle.sass.css" Size="140" HashValue="2AD4EF5D66491896998EBA19BDE5C156" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle.scss" Size="177" HashValue="06BE62F61D9A3305B686193057413436" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1105" HashValue="2AD495F50A3233DA86C1ED4A2886DEC0" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Rectangle.json" Size="13995" HashValue="E9076F0ADB823958078B17165353A86D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle.style" Size="5241" HashValue="75BCA03B7C0211AE2BA28E8E49E3C956" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle.widget" Size="15339" HashValue="14B4C06BEAD24B779AD84A2F100A3C68" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle.xsd" Size="2453" HashValue="EE16BD24F9BDFDD62566EA53CB52ECE0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_EventsActions.xsd" Size="3100" HashValue="94C75CA37D92509835D67660B27A3646" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_Styles.xsd" Size="1520" HashValue="AC0FF65CECC61BDC6E21F39A5B8E30F4" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_base.scss" Size="501" HashValue="D9D335564CCC6A9568260FC124EA04D8" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_default.sass.css" Size="286" HashValue="593217489A7C494E56A59C47D6313856" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_default.scss" Size="585" HashValue="CAC5E8696279E910645B3240D80EF08D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Rectangle_doc.html" Size="22040" HashValue="C1ED31EB003B753AF166F266476B7116" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="Rectangle.html" Size="73" HashValue="D1F6EA2AB0E2DA64E70A7FFB97584A1D" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Rectangle.js" Size="1861" HashValue="DE136DC78B301427D2CF8463E1324EBC" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="TableWidget" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Add.svg" Size="928" HashValue="5CBC26775C588F00DFA5EB577B8B4764" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ArrowDown.svg" Size="721" HashValue="265986E8793F3C56D9ECACB6C273364F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ArrowLeft.svg" Size="723" HashValue="5A2F25AF4C6417A5A6A40AAD8359CE3C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ArrowRight.svg" Size="725" HashValue="14CABF4F491BAD4003E92C866BC32AFF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ArrowUp.svg" Size="723" HashValue="5D345584386B597CD6B6B037A6062CF3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Delete.svg" Size="4645" HashValue="B3F82F3CC34CF20EE0C7C6E068545B9E" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TableWidget.sass.css" Size="1860" HashValue="05D56C99BE7E1660CE8B423CB12A69D6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget.scss" Size="3669" HashValue="F3D89A8C3D29E6BB583529572CF0D100" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="3539" HashValue="902778725151097D57CB7329AB48770D" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ConfigBuilder.js" Size="12268" HashValue="B314077983116CEF286B219647B54CF9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Controller.js" Size="23557" HashValue="97CA113369B9900A6686133C50BCF220" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataTable.js" Size="10218" HashValue="AB9FF1FA68C9C47B58BFE31D4680C486" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Dialogue.js" Size="6416" HashValue="2E152049B3841BB4FBE114B5A07AD45C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DialogueTexts.js" Size="2537" HashValue="9F2A3CF6F6AA56814C3EFA0E692828AB" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="EditorBehavior.js" Size="2245" HashValue="7178C6E2EAAD5CC7A8508437EBF5A00F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="EditorHandles.js" Size="1968" HashValue="163CB2A0553B4B6DC511526205FF1A39" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="FilterSettings.js" Size="48877" HashValue="997AF8892FF4B5702102ADD0078ECC9D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="FocusHandler.js" Size="22710" HashValue="1175F203A760ACBAE3ADF23A3D2F6E48" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Model.js" Size="8279" HashValue="E30BA7E62956BA1E066C8AC9F9849802" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PageEventDispatcher.js" Size="5504" HashValue="D4CE795B9E5A03D5DD4E8C0DA0961DEB" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Renderer.js" Size="57839" HashValue="542B986E390974655BC6A1A8BCB62D67" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="SortingSettings.js" Size="32671" HashValue="28ABDDBD044A5902F5F1799B37E67350" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="StylingSettings.js" Size="25294" HashValue="43087AC7ED62A33C86EB525F3E4AA384" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextRetriever.js" Size="1789" HashValue="3FB1D49F4FDCFF5493501D47E14742C6" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TableWidget.json" Size="34887" HashValue="B5648852F102C965FB9612864C0D7C2C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget.style" Size="17342" HashValue="A2C43BCA53CE30A4EBC45E92773D0718" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget.widget" Size="32770" HashValue="0BCFBCC31A7F5A15B57368B655067CFD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget.xsd" Size="6582" HashValue="68289558819603678A4E03C45DC02A72" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_EventsActions.xsd" Size="4899" HashValue="93DCAC161AACC6A8E42910ED756897D3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_Styles.xsd" Size="4392" HashValue="7F201F27ADDD6348A54538F46F46382D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_base.scss" Size="4027" HashValue="E2ABA9F274A34C44EE42186DDBF2E09F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_default.sass.css" Size="4732" HashValue="D974F6E514D4168A3782FFBCCD263127" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_default.scss" Size="4115" HashValue="BC6889BD4BAB1E09C1CF963ACA41DBFA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidget_doc.html" Size="38008" HashValue="BDB561AF8233A752D85E720ED65D7325" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="TableWidget.html" Size="83" HashValue="095A10DF9580107BA267C515B377D11C" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="TableWidget.js" Size="27175" HashValue="34E97A176FD842FCAA0AF635C729454B" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="TableWidgetStyle" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="1158" HashValue="4FF3D11DA6D847690237936EE4CB0041" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TableWidgetStyle.json" Size="9684" HashValue="C2A9177FA385C2E6628D64CEEF376439" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle.style" Size="2698" HashValue="5E16ACAFB85C30C8A05C80DBB120DF74" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle.widget" Size="9813" HashValue="FDFCA4957F4D0AAF884CBA56461B02F6" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle.xsd" Size="1478" HashValue="EB939214E4CC2BE90CABE63DD943C73B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_EventsActions.xsd" Size="3159" HashValue="269F582A8FFC0919AAA5CBA76E7DAEB7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_Styles.xsd" Size="978" HashValue="863EE80106DD0E3EFFD1AA5265B4EC00" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_base.scss" Size="446" HashValue="6194D77A9ECFF1E745F3D0FD96E6738B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_default.sass.css" Size="461" HashValue="41F68C8BFD97536EB6390E1999735640" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_default.scss" Size="544" HashValue="29BB558FF1B93AE32ADD552F01B0E7BF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TableWidgetStyle_doc.html" Size="15784" HashValue="9BFF7E9C65DEAC9D76C2D5B8A53CB18E" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="TableWidgetStyle.html" Size="87" HashValue="E3AC5C45FEAA46C66D9267FFB539A183" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="TableWidgetStyle.js" Size="637" HashValue="534820676C67886BD10C87FB2855D455" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="TextInput" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TextInput.sass.css" Size="1329" HashValue="EAA3879EFF1285BA6D0B99778D405467" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput.scss" Size="2152" HashValue="BA84B8CF7349486C33997BC8E100CC11" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="2004" HashValue="D318CCD1E22D035F52C546B2849032C2" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="TextInput.json" Size="24129" HashValue="B5A3117EAB33A27E32D62C685EB40A69" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput.style" Size="11524" HashValue="536B8A1B34A9E04BCBC6DCDCCAC8C454" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput.widget" Size="24422" HashValue="EA89EA992C2AE258A603F95D63CAFBED" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput.xsd" Size="4689" HashValue="06DF52B7507143A1C3EDEA2569E7BACA" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_EventsActions.xsd" Size="4714" HashValue="C85D09C7070A39965ECC1D243E1CE3E0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_Styles.xsd" Size="2985" HashValue="4EEC566CF1EFD9BCCABE06923E3A61C9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_base.scss" Size="1473" HashValue="E090DA75CC835BF7856AFA980D354D2F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_default.sass.css" Size="1839" HashValue="B2C570938E582458E54A579574E77A0E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_default.scss" Size="1557" HashValue="67FF61A4F83AF3059C30E2645D11A6DE" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextInput_doc.html" Size="33498" HashValue="BD1C5569CA2939603D69B04C50BF5F97" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="TextInput.html" Size="73" HashValue="3714F627DB3590D715C9ACAD2B01582A" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="TextInput.js" Size="29786" HashValue="02121D68968BE15914557CDD5E7BF258" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="TextOutput" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
@@ -1027,7 +1601,7 @@
 										<File Name="TextOutput.xsd" Size="3656" HashValue="6C1EBFC43B363DCA9BEA1B4478919974" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="TextOutput_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="TextOutput_EventsActions.xsd" Size="3645" HashValue="076E928F1FB53351E9BFA48E351B4D27" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="TextOutput_Styles.xsd" Size="2091" HashValue="6754A8AA65DF236CAF1CBE25D565743F" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="TextOutput_Styles.xsd" Size="2116" HashValue="79B7546ADEB78B26DD28ED07B447D1E8" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="TextOutput_base.scss" Size="893" HashValue="BE844FF992798425C89BCE61201EA5E1" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="TextOutput_default.sass.css" Size="889" HashValue="5248882C3567AAF19C0D0CF0E8CAA718" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="TextOutput_default.scss" Size="979" HashValue="5C1DB8FBE70166462CF0794585D4C3B9" ProjectDependent="1" IgnoreDifference="0" />
@@ -1051,7 +1625,7 @@
 										<File Name="ToggleButton.xsd" Size="6679" HashValue="3121BC64AD4434AE21EA571ACF33AED3" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleButton_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleButton_EventsActions.xsd" Size="7725" HashValue="2631308C6DBB138BF0E1ADFCB7FC423C" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleButton_Styles.xsd" Size="4302" HashValue="447B3B6981CA9A43B4AEAB71577CCD3D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleButton_Styles.xsd" Size="4327" HashValue="63BFC7CCC8F4B8145EE9B3352076D4ED" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleButton_base.scss" Size="3227" HashValue="0C8414F644B501E2222099DF865DB040" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleButton_default.sass.css" Size="3655" HashValue="3649E054C71FBFDA74917303AC6A96D9" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleButton_default.scss" Size="3317" HashValue="65CB4A8C300AABA9CB39299457DC9BC2" ProjectDependent="1" IgnoreDifference="0" />
@@ -1062,30 +1636,27 @@
 								</Folder>
 								<Folder Name="ToggleSwitch" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ToggleSwitch.sass.css" Size="2269" HashValue="B7A332A47719D9C09F5A9474A2A701B4" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch.scss" Size="2504" HashValue="D6F419C8F1DC20BF9429AB13CEBF408C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch.sass.css" Size="2764" HashValue="D696F7A21F4195FD4B7471D9BEDCCE36" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch.scss" Size="3270" HashValue="FE0AFDE695F21F8DDCBAAD7C2685344B" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="3234" HashValue="B53DC06D152ADB7077A4B927E2F3A0AE" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
-									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="EditorHandles.js" Size="2628" HashValue="7CCB1D86B1384D9383CA2CBA2F559262" ProjectDependent="1" IgnoreDifference="0" />
-									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
-										<File Name="ToggleSwitch.json" Size="34580" HashValue="1AFDC61ED5E567AC3CDB685255BEB2BA" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch.style" Size="10726" HashValue="0D26741886A713ECE84E362E380F9F47" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch.widget" Size="38223" HashValue="A22EFD9244A6D65E3398F3868D6C10BF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch.json" Size="34317" HashValue="6DB7F6422D34BCE2B4DE1427145E9D01" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch.style" Size="10382" HashValue="C4E9BA48B2F5EC74C87D89FD3FB5D8B9" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch.widget" Size="37973" HashValue="1F744C3D6EDFFFF511BAA837A4CC4136" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleSwitch.xsd" Size="6365" HashValue="393328BBCE2933C36FCAEF4A2E29D435" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleSwitch_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleSwitch_EventsActions.xsd" Size="7725" HashValue="E1F9328E1E1CC8EAAD6FA56A40E98BF3" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch_Styles.xsd" Size="3882" HashValue="4F6A49E9FA8D9B2913512057AE97FEB5" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch_base.scss" Size="3875" HashValue="F8F32D2D13B41B6DF5F1F338339363D6" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch_default.sass.css" Size="4383" HashValue="14B14B487B1BC0CE73561781A7E28752" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="ToggleSwitch_default.scss" Size="3965" HashValue="8D7DA243E9EF64D6FCA4E467690583FB" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch_Styles.xsd" Size="3907" HashValue="26D670E1846617E06BFFDD6B035F7F76" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch_base.scss" Size="3580" HashValue="A9B68BD0AF65A40D3A2A2431BB6877EC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch_default.sass.css" Size="4127" HashValue="3647C8447C3BBD443A2C3A8E57ED7FC3" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ToggleSwitch_default.scss" Size="3670" HashValue="928DCA24BD541B7D8944333B6AA2AC93" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ToggleSwitch_doc.html" Size="44253" HashValue="53332D5B37EBAE717775FF22B44990D5" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
-									<File Name="ToggleSwitch.html" Size="76" HashValue="57EFE6E109D18968FCD914A8BCDC11CD" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="ToggleSwitch.js" Size="22722" HashValue="E2421D934B689B27338CDCBC3ACA7A05" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ToggleSwitch.html" Size="488" HashValue="17EB8A5802B6768B75BBA4ABC87C765E" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ToggleSwitch.js" Size="14155" HashValue="96A312C128799864C994129C82925DA1" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="Window" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -1097,7 +1668,7 @@
 									</Folder>
 									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="Config.js" Size="6292" HashValue="E5A15C3AFA9233CDC19A2343E5764B26" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DragHandler.js" Size="3507" HashValue="C7364653C9FD917A528463E9D882C710" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DragHandler.js" Size="3477" HashValue="F3DC0CB20F8DB8858535469ACEDB5945" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="Window.json" Size="9150" HashValue="0ADAB5FAC500A7CBBA3D44EE7A0CDEB8" ProjectDependent="1" IgnoreDifference="0" />
@@ -1112,7 +1683,7 @@
 										<File Name="Window_doc.html" Size="15649" HashValue="B91BA667047D007604FA7F860E061E79" ProjectDependent="1" IgnoreDifference="0" />
 									</Folder>
 									<File Name="Window.html" Size="201" HashValue="91A5BB93C585D543BF44F8C3E4CB8B52" ProjectDependent="1" IgnoreDifference="0" />
-									<File Name="Window.js" Size="37876" HashValue="497CE744FF04ABA7D3D9AC7F33EC20CF" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="Window.js" Size="38138" HashValue="B84FF426F3E61B37E3DF664AB05F701B" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
 								<Folder Name="common" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="BusyIndicatorHandler" ProjectDependent="1" IgnoreDifference="0">
@@ -1124,7 +1695,7 @@
 										<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
 											<File Name="dragDropArgs.js" Size="438" HashValue="69DC29E2A5B7DC9030636C65010E88D8" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dragDropBase.js" Size="24278" HashValue="6E4097915A6B050F5807B138E496B2B4" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="dragDropHandler.js" Size="1204" HashValue="B215A4B80BCD9C52DACD5CD14E07BC9A" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="dragDropHandler.js" Size="962" HashValue="C92638E2A62DF4F044B19E20F1F89AAC" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dragDropPointer.js" Size="3718" HashValue="D85B3C4F0363EFFBB2D123F22A765314" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dragDropTouch.js" Size="6010" HashValue="1D75FBD8B0ED4D4143D18ED430B0F124" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="draggable.js" Size="558" HashValue="047EB749B8993B7737B0A5BD6DBBDAB2" ProjectDependent="1" IgnoreDifference="0" />
@@ -1132,7 +1703,7 @@
 											<File Name="droppable.js" Size="762" HashValue="1CE3E42401E487D38BBB3516D82BFAE6" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="droppableSettings.js" Size="292" HashValue="99C89B0BBA509E38257460F61415F5A5" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="eventListenerModel.js" Size="199" HashValue="317B21122B79D3AE9CF22BFF509AB4DE" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="utils.js" Size="2362" HashValue="BB361F48F1BEB89135A2516AF664CCC0" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="utils.js" Size="2013" HashValue="8C81070B72EC02E5D75F7B6CAC5F3791" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 									</Folder>
 									<Folder Name="DragDropProperties" ProjectDependent="1" IgnoreDifference="0">
@@ -1145,12 +1716,12 @@
 									</Folder>
 									<Folder Name="ErrorHandling" ProjectDependent="1" IgnoreDifference="0">
 										<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-											<File Name="CommissioningErrorHandler.js" Size="7259" HashValue="74D0605099722882B8172DBC256A2429" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="CommissioningErrorHandler.js" Size="7241" HashValue="CCB6B490C7392B50F40AC83332CA124C" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 									</Folder>
 									<Folder Name="MpLinkHandler" ProjectDependent="1" IgnoreDifference="0">
 										<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
-											<File Name="MpLinkHandler.js" Size="12519" HashValue="C397658E0EF904FCE65F2220D8024C94" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="MpLinkHandler.js" Size="12525" HashValue="7B2970FD2636FDCBDD3EA4BDBE4220FC" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 									</Folder>
 									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
@@ -1165,15 +1736,16 @@
 										<Folder Name="external" ProjectDependent="1" IgnoreDifference="0">
 											<Folder Name="syncfusion" ProjectDependent="1" IgnoreDifference="0">
 												<Folder Name="common" ProjectDependent="1" IgnoreDifference="0">
-													<File Name="ej.core.js" Size="77180" HashValue="401832BB42E640DA71AD8C7D4F68F827" ProjectDependent="1" IgnoreDifference="0" />
-													<File Name="ej.data.js" Size="179875" HashValue="29C6909410449A4497219E1D9E6DF499" ProjectDependent="1" IgnoreDifference="0" />
-													<File Name="ej.globalize.js" Size="66066" HashValue="D467263A9EF3C88BC3D8DAB5DE85255B" ProjectDependent="1" IgnoreDifference="0" />
-													<File Name="ej.scroller.js" Size="80978" HashValue="E35D8B5AB9A75EF3F311BE0C278D749C" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ej.core.js" Size="77180" HashValue="D729239E26E11522A1417E6BFAE679ED" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ej.data.js" Size="179875" HashValue="BC3BAE685E4B4D3C64ADF6BF444BB44D" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ej.globalize.js" Size="66066" HashValue="48789D240D0AAD557C3BC3066686840E" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ej.scroller.js" Size="81062" HashValue="0D08CF66B02BE98A6042C351C15EAAF4" ProjectDependent="1" IgnoreDifference="0" />
 												</Folder>
 												<Folder Name="datavisualization" ProjectDependent="1" IgnoreDifference="0">
-													<File Name="ej.chart.js" Size="2631115" HashValue="0785285E8E99B9F3399E495F37BF8931" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ej.chart.js" Size="2632486" HashValue="1D73106A3D7AB2D3048E1A8EEA180BAE" ProjectDependent="1" IgnoreDifference="0" />
 												</Folder>
 											</Folder>
+											<File Name="LineReduction.js" Size="3793" HashValue="4BCECB9BB7866C598A601934E2DF2FBF" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="Sortable.js" Size="50354" HashValue="F6BC6389228661AD6089875B2CFE84B4" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="Sortable.js Adaptions.txt" Size="250" HashValue="04808896D426448BB5387A88E33785B4" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="dataTables.scroller.js" Size="40279" HashValue="B0A71EAEA3E98636A0B9ADEBFB300F8D" ProjectDependent="1" IgnoreDifference="0" />
@@ -1271,10 +1843,10 @@
 												<File Name="UtilsDataHandler.js" Size="381" HashValue="0D33C88CE9F346569D90F42D6E2BDF69" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsImage.js" Size="1807" HashValue="88EE516D49E755572567B1537FB47590" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsJSON.js" Size="1650" HashValue="9E1269D4D7A3A6C5AE6A5491A4A9655A" ProjectDependent="1" IgnoreDifference="0" />
-												<File Name="UtilsList.js" Size="6361" HashValue="389F7EA8AA493276939AE6B0210A0F83" ProjectDependent="1" IgnoreDifference="0" />
+												<File Name="UtilsList.js" Size="6344" HashValue="AFA0F0B1A1E1C7ED91A3D0309E9C80AC" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsNumeric.js" Size="1869" HashValue="4C1ABB9775A8DA67A1403EFFA7019F65" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsScale.js" Size="1591" HashValue="B92E7D789FB10C8F2735FF4116421CDF" ProjectDependent="1" IgnoreDifference="0" />
-												<File Name="UtilsSize.js" Size="1103" HashValue="0670516850BDFF80659E2FF34E854843" ProjectDependent="1" IgnoreDifference="0" />
+												<File Name="UtilsSize.js" Size="4378" HashValue="41497B4414587EF33C9070C7D48921B3" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsStyle.js" Size="218" HashValue="133BB3BBBF1E9E31333E7F37AA2C0134" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsSvg.js" Size="626" HashValue="F2E5ED1309A087A92996B4E194F98133" ProjectDependent="1" IgnoreDifference="0" />
 												<File Name="UtilsText.js" Size="1564" HashValue="106BFE6977F3C1247774BEA3A2D0156A" ProjectDependent="1" IgnoreDifference="0" />
@@ -1285,12 +1857,12 @@
 													<File Name="AxisView.scss" Size="151" HashValue="9A64CDB41330111154790F55B0A4A3A4" ProjectDependent="1" IgnoreDifference="0" />
 												</Folder>
 												<Folder Name="HTMLView" ProjectDependent="1" IgnoreDifference="0">
-													<File Name="HTMLView.js" Size="1578" HashValue="68DB02400FC0FE2511AF615DA38D78EF" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="HTMLView.js" Size="1589" HashValue="6C8893725E2EF3DC6BF4AA0A8FD9E124" ProjectDependent="1" IgnoreDifference="0" />
 													<File Name="HTMLView.scss" Size="777" HashValue="65C19107376C701D6480C62586F80E5A" ProjectDependent="1" IgnoreDifference="0" />
 												</Folder>
 												<Folder Name="ImageView" ProjectDependent="1" IgnoreDifference="0">
 													<File Name="ImageView.js" Size="1773" HashValue="27844CC5064B0A98293AD7CD4ABFBFE2" ProjectDependent="1" IgnoreDifference="0" />
-													<File Name="ImageView.scss" Size="395" HashValue="2D156190D4FB2C8C542591EE7013AA96" ProjectDependent="1" IgnoreDifference="0" />
+													<File Name="ImageView.scss" Size="475" HashValue="325036BB7DA12591AC5E68B164BA7CFC" ProjectDependent="1" IgnoreDifference="0" />
 												</Folder>
 												<Folder Name="ItemView" ProjectDependent="1" IgnoreDifference="0">
 													<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
@@ -1324,25 +1896,26 @@
 										<Folder Name="wfUtils" ProjectDependent="1" IgnoreDifference="0">
 											<File Name="SVGCache.js" Size="882" HashValue="934A22F76849E25D0F0433F9D3131F73" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="UtilsCommon.js" Size="1892" HashValue="79AABB59B5F29B306B05CB1F7419A1A6" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="UtilsEditableBinding.js" Size="1283" HashValue="EC3191940A8CF12252EDB6B4869C1400" ProjectDependent="1" IgnoreDifference="0" />
-											<File Name="UtilsImage.js" Size="7415" HashValue="75569802955DD87F39153FC5504C48C9" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="UtilsEditableBinding.js" Size="2467" HashValue="7F80BC007ED0FE559F868ACAA740532E" ProjectDependent="1" IgnoreDifference="0" />
+											<File Name="UtilsImage.js" Size="8205" HashValue="1FC0ACEEA4E98918DD8C2C7A830662DE" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="UtilsLocalize.js" Size="2367" HashValue="7ED2C92D467F297A212497914C4EDCD8" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="UtilsObject.js" Size="1410" HashValue="F905006E1E063269DC174CB0B4FB0A5C" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="Utils_FileTransfer.js" Size="1809" HashValue="B3F00DD9570F7F87EAE42F3C2D49C0E4" ProjectDependent="1" IgnoreDifference="0" />
 											<File Name="broken.svg" Size="1632" HashValue="2D6B4549FF7E2907C7345C94EDC7AC7D" ProjectDependent="1" IgnoreDifference="0" />
 										</Folder>
 										<File Name="BindingSync.js" Size="5168" HashValue="5BBE08610ACB3AD7B8202BF1350FDC5F" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="BoxLayout.js" Size="8738" HashValue="971E8F969E059E34482E85063E25F00B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BoxLayout.js" Size="8818" HashValue="D5E1FAAA008EBDB2BD89FD45901B7EA0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BreaseResizeObserver.js" Size="2642" HashValue="BB4F2C152D81DE9669834E88A5E49FAD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="BreaseTextMetrics.js" Size="1052" HashValue="1C5E59DCF84ACB9A404B788ACB012E8F" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChartUtils.js" Size="12038" HashValue="470F00AD414EE352C13413AF37B58D19" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ChildHandling.js" Size="4993" HashValue="DA957B66503205AD8DF05D089B824DA7" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="DataAdapter.js" Size="25394" HashValue="C564E5FAAA3148F8CBEF42A5AF1708DC" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="EditorGrid.js" Size="15933" HashValue="8C689C5DA2BF33FE182512D00873F3E4" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="EditorHandlesSquare.js" Size="4956" HashValue="5891128A60B1D6C91CC73C948B2C10E2" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="DataAdapter.js" Size="25960" HashValue="4B0E96DDBC9A536EDE8E27C4E23D6258" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="EditorGrid.js" Size="16282" HashValue="34942A09124BB74A7CA17724AC40014C" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="EditorHandlesSquare.js" Size="4924" HashValue="65A6CEA7DB5F923C23A11365C389998D" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="EjChart.js" Size="2471" HashValue="48145842F70DBAC66719A1B486913AE0" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="EjChartCache.js" Size="2595" HashValue="92D856AF7CAEE41798A63E62FC76BE67" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ImageHandling.js" Size="3734" HashValue="A260B90D9B3B61AE2AEF014551062987" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="LineReduction.js" Size="3793" HashValue="4BCECB9BB7866C598A601934E2DF2FBF" ProjectDependent="1" IgnoreDifference="0" />
-										<File Name="NativeScroller.js" Size="17592" HashValue="46E4ED5B90A82A0B784F2CCEEC06E9DD" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NativeScroller.js" Size="17226" HashValue="345885E06F83DE4AA501AB8132FFC605" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="Renderer.js" Size="51357" HashValue="C247F8E71D1F59F840FCFACCF116615F" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ReorderingByJson.js" Size="2562" HashValue="CBE73335F04BA90EB2A5B810D7038344" ProjectDependent="1" IgnoreDifference="0" />
 										<File Name="ScrollPrevent_iOS.js" Size="978" HashValue="78D94AC6031673A8232F7E25394B3B3D" ProjectDependent="1" IgnoreDifference="0" />
@@ -1351,17 +1924,63 @@
 									</Folder>
 								</Folder>
 							</Folder>
+							<Folder Name="widgets" ProjectDependent="1" IgnoreDifference="0">
+								<Folder Name="ChangePasswordDialog" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="css" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ChangePasswordDialog.sass.css" Size="6566" HashValue="DACC2CF97D5A1563606DFFF2562A00EF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.scss" Size="7452" HashValue="23C482750B6A77507DA6066FEEE7EE81" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="943" HashValue="7285B2C8A2E338A336CFE3E3FBAE4FA1" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="libs" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="Elements.js" Size="3279" HashValue="87971816E54DF0E1241011AF114F07BF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Message.js" Size="1092" HashValue="224D0B995D69D47DF07CA91C9B5375EC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PoliciesResult.js" Size="941" HashValue="E8AD88D24321B689EA106F0BAF9CB724" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="PolicyView.js" Size="3574" HashValue="C59150CBEF25542D5A0224546FE80C33" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Validator.js" Size="6144" HashValue="7559A0BBB0F41C08CD0C43ADCD001360" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ChangePasswordDialog.json" Size="5734" HashValue="14742B9D9B731CEAAC186E2021535AFF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.style.info" Size="138" HashValue="AF4CD8BB37B519A98DF2BCD9BD509C5D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.widget" Size="4899" HashValue="B854A3F3799AAD866F5E480B3A2B04A0" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog.xsd" Size="1317" HashValue="427BD78DE467BAA2E18E0E3F00D9D551" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_EventsActions.xsd" Size="1762" HashValue="50B395C61F415C0D590A4A3247CB0644" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_base.scss" Size="77" HashValue="538E9AC25FB8589DBBEAE1E56CA421AF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_default.sass.css" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_default.scss" Size="183" HashValue="2256275ACF89046E6F00EAEB8A428192" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="ChangePasswordDialog_doc.html" Size="9605" HashValue="A1211BA82620BAF9C89C4A3A8C1B7EBE" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="ChangePasswordDialog.html" Size="9306" HashValue="93B7BF233BAE0FA589F53B1D34976F96" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="ChangePasswordDialog.js" Size="20492" HashValue="B077736AB88D5AF798C0F4B33522A7F8" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
+								<Folder Name="common" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="keyboards" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="AutoSize.js" Size="4644" HashValue="BDD136C74E6DBB7C0850AC7B61F2795B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="Docking.js" Size="3040" HashValue="6732A54903BBB2B5182B24D666E0E28B" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="KeyboardOptions.js" Size="918" HashValue="47D113E9DA518032082723D309174F82" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="KeyboardType.js" Size="487" HashValue="E17BB1F1CBDE76E8B6F4F6AB06004A4D" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="NodeInfo.js" Size="3246" HashValue="E934833D6D923624EAAAB398F52CB3DC" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="UnitInfo.js" Size="1825" HashValue="BA9FF61466C8774A2EBBAEF99A3E5089" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+								</Folder>
+							</Folder>
 						</Folder>
-						<File Name="TPVersion.txt" Size="9" HashValue="55E98CD718A8AFD1AA40CFBBFA5FBCB0" ProjectDependent="1" IgnoreDifference="0" />
-						<File Name="bootstrapper.min.js" Size="13375" HashValue="D970BA2261EFFBADA669B768E509AAF3" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="TPVersion.txt" Size="9" HashValue="5DD6B253FF3142C1BA8DF2E6B23258CA" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="bootstrapper.min.js" Size="13406" HashValue="16518C8C0CA2A0A29201F5CE3A659FA1" ProjectDependent="1" IgnoreDifference="0" />
 						<File Name="jquery.js" Size="258648" HashValue="AACC43D6F308FA362AC85E3F4FB2B30C" ProjectDependent="1" IgnoreDifference="0" />
-						<File Name="require_config.js" Size="546" HashValue="49FEEBFB7003443F0CAC1CE05F0CF1E0" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="require_config.js" Size="587" HashValue="D25A9E5DC701DE3349BD10078153CBD4" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1" IgnoreDifference="0">
 						<Folder Name="mappView" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="MainPageContent.html" Size="25347" HashValue="1CB3B63EC8F453ED0D0BF1C51EA52BE0" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="NavContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="StatusContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="BoilContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="DistilingContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="FillTankContent.html" Size="13106" HashValue="816910D6D1B3917D9D56A137E1F2F386" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="MainPageContent.html" Size="32934" HashValue="72EC3DF371005B5368BB9011C584ABCD" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="NavContent.html" Size="3717" HashValue="C8C3CA72B9EF3CFFEE8BB99709084E74" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="RecipeContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="StatusContent.html" Size="676" HashValue="2750FB973FB7B202E6115991F929B6F9" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 					</Folder>
 					<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
@@ -1434,14 +2053,14 @@
 						</Folder>
 					</Folder>
 					<File Name="favicon.ico" Size="1406" HashValue="B3D2122594565CE5AF565BE898EF539A" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="index.html" Size="4463" HashValue="4A95E9E9E12EF78D0B856CB36473F073" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.json" Size="1004" HashValue="D0910EF11E9D85982A824E481B0BA9A4" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="index.html" Size="4385" HashValue="BC3ED7AA954B2FBC318B1E291F29D2CE" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.json" Size="2540" HashValue="985DF0EBD40A851C7C464C8C339E2BF0" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 			</Folder>
 			<Folder Name="OPCUA" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="Generated" ProjectDependent="1" IgnoreDifference="0">
-						<File Name="OpcUaMap.uar.gz" Size="671" HashValue="39963FE33C6E7413568060D1FA8FE4BB" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="OpcUaMap.uar.gz" Size="720" HashValue="4E12EA48ABC82AAA88D8BDE41E8C372B" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IgnoreDifference="0">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1" IgnoreDifference="0" />
@@ -1454,39 +2073,39 @@
 		</Class>
 		<Class Name="Addons">
 			<Folder Name="IATR" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
-				<File Name="IATRRunner.dll" Size="29184" HashValue="6C4C8A4D2EF94BF1FB8215823FC5ED49" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="IATR_444445.txt" Size="20" HashValue="EA44386E032EA533C3F9076A339FC0BD" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="IATRRunner.dll" Size="29184" HashValue="F34C7B675B4CE6DCFF1C40D0634360CF" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="IATR_466772.txt" Size="20" HashValue="BB43F493C17F0EFEA31D1707203A4158" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="LoadBurLibraries2.cfg" Size="100" HashValue="9EB6B0ECAB212582C1638638BDEEF195" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="LoadIATRLibraries.cfg" Size="362" HashValue="3C1B7A75CD6706E29C09AC71249C8D39" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="QtCore4.dll" Size="2554368" HashValue="4DAE952009FF9815778FE31ADC1C7312" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="QtNetwork4.dll" Size="1028608" HashValue="D03B2BF9587DBB883C12039076E1E4B3" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="QtTest4.dll" Size="110080" HashValue="86643606A71C3DC794F96595ACDFEE38" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="Version.xml" Size="112" HashValue="0DBDA1837EBF3DAE0C8A438038D2D6E7" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="afcomp.dll" Size="309248" HashValue="FAE54D57D54D6E0FC6EB755686A7981C" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="Version.xml" Size="133" HashValue="2E84C74CA3B1E5A47BAC6ACB49CBC118" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="afcomp.dll" Size="312320" HashValue="B572C3AE17EA840A83F1C9A13659BE39" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="afsystem.conf" Size="1156" HashValue="3FB6422AD32D87700B8B3BBAAC96CD4D" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="afsystem.dll" Size="233472" HashValue="20AEDC5593F6C3C04F74DFBD0BCBF97D" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="defaultConfig.mappviewcfg" Size="1889" HashValue="854D11C0B5A4910F4E703AFCCF71C972" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="afsystem.dll" Size="233472" HashValue="815A53D66CDC55B506B4920207C29CD3" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="defaultConfig.mappviewcfg" Size="1922" HashValue="D95E88EF138C5A27171E8907D2448C1F" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="defaultOpcUaServer.uaserver" Size="514" HashValue="355E012540AA023210B4FE79E6F9EACA" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrbigdata.dll" Size="131584" HashValue="7EA6A4F634892DCCC32860975FE537F7" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrcore.dll" Size="526848" HashValue="7A3C571C8D7F44A51CFA77B3D870E5B5" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrexpr.dll" Size="210944" HashValue="455E77DF52DF4D9D1383F0671EA01F77" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrhtml.dll" Size="304640" HashValue="B7226070CEB24B8504844024E308ED13" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrmapp.dll" Size="124928" HashValue="B61EA8419C70F90E8E0E6BEEFBE99D5C" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrserv.dll" Size="1084928" HashValue="57ACAA1499DD3946B488D2C356BEEA11" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrsnippet.dll" Size="96768" HashValue="5F64DA4E4424BA69A5EC5023E207AD91" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatruac.dll" Size="394240" HashValue="2042D0B608271CAEDE7B334F4742ADA6" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrvar.dll" Size="132608" HashValue="D4F867432BC647113B8F46E1519096BA" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="iatrwstf.dll" Size="460288" HashValue="C9B45F1493F7CD200773691743B8C087" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="jsonBackport.dll" Size="83968" HashValue="91186F2798AD4A146A31321E157D3F2C" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrbigdata.dll" Size="131584" HashValue="AAD049BC8EA65CD86CF567F48D5CE3D5" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrcore.dll" Size="526848" HashValue="1B37297360B2A67C926934A95CEA9581" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrexpr.dll" Size="211456" HashValue="5C4EB8C3A61E0F4A85A11581199968B1" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrhtml.dll" Size="304640" HashValue="123A99CAB842CF3793450281107951A5" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrmapp.dll" Size="124928" HashValue="1547879F20D109F55F3634AFEAE7C984" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrserv.dll" Size="1098752" HashValue="4A0C76E09C326470F9F0286938DE457F" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrsnippet.dll" Size="96768" HashValue="9E157BDCC0406B4ABFB035912B4577A2" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatruac.dll" Size="404480" HashValue="25DC63A318425EED1B63B71455795131" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrvar.dll" Size="132608" HashValue="DC40A79AFC3E32A4C195CC8F1E182448" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="iatrwstf.dll" Size="477184" HashValue="AEA9105F2CFBBABE1A58ECEC74DC261D" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="jsonBackport.dll" Size="83968" HashValue="D8BFBD28DE3F59023AB680D46BCDF3A7" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="libeay32.dll" Size="1209344" HashValue="1C84D5275826474C1FBB04FD5A8590C5" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="libxml2.dll" Size="1038336" HashValue="E02A9E7F7F2855B373E61EE57608CC4B" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="opcuaapi.dll" Size="1344512" HashValue="1DF00D80A3230C50735C6847A9092BFD" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="opcuawebapi.dll" Size="261632" HashValue="655002A94A0B677D40AEA94D02E9DC6B" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="rbacwebapi.dll" Size="25600" HashValue="DA688527F74FF4AB167CE1ECF4731ECA" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="libxml2.dll" Size="354816" HashValue="0471CE957DC386428036471C5897D0EF" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="opcuaapi.dll" Size="1356288" HashValue="93156A79DA096783EDC5D034A052B33B" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="opcuawebapi.dll" Size="277504" HashValue="2866C2EA2359D09B78C927766B73524F" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="rbacwebapi.dll" Size="25600" HashValue="C5E150DF19F9D840E64B1EB79F69F68C" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="sqlite3.dll" Size="650725" HashValue="EE68B052A08FEC0F574F2DAE2003DF27" ProjectDependent="1" IgnoreDifference="0" />
 				<File Name="ssleay32.dll" Size="271360" HashValue="CD217B0AEA765E49C18403BF277F88EF" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="textwebapi.dll" Size="49664" HashValue="A610221FC484A0296638FC4945BC4301" ProjectDependent="1" IgnoreDifference="0" />
-				<File Name="uastack.dll" Size="775680" HashValue="DFA09B4C975C3EB99ED4B02AC88B47F0" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="textwebapi.dll" Size="48640" HashValue="FC63FE5461698568321B4D44366CD1A2" ProjectDependent="1" IgnoreDifference="0" />
+				<File Name="uastack.dll" Size="873472" HashValue="59EE76B5DEE5CDA9270E5F8A4EC67B44" ProjectDependent="1" IgnoreDifference="0" />
 			</Folder>
 		</Class>
 		<Class Name="Os">
@@ -1520,59 +2139,50 @@
 		</Class>
 		<Memory Name="SYSROM">
 			<Module Name="::$$sysconf" Type="129" Size="70488" Modified="2022-11-07 18:51:37" Version="4.93" ProjectDependent="1" Reboot="1" />
-			<Module Name="::TCData" Type="209" Size="7979984" Modified="2022-11-07 18:51:45" Version="1.00" ProjectDependent="1" />
-			<Module Name="::arconfig" Type="132" Size="4952" Modified="2022-11-07 18:51:37" Version="1.00" ProjectDependent="1" Reboot="1" />
+			<Module Name="::TCData" Type="209" Size="6419508" Modified="2022-11-12 10:40:30" Version="1.00" ProjectDependent="1" />
+			<Module Name="::arconfig" Type="132" Size="4952" Modified="2022-11-12 09:23:36" Version="1.00" ProjectDependent="1" Reboot="1" />
 			<Module Name="::asfw" Type="67" Size="932104" Modified="2022-11-07 18:51:37" Version="1.00" ProjectDependent="1" Reboot="1" />
 			<Module Name="::ashwd" Type="67" Size="4380" Modified="2022-11-07 18:51:37" Version="1.00" ProjectDependent="1" Reboot="1" />
 		</Memory>
 		<Memory Name="USERROM">
-			<Module Name="::Acp10map" Type="70" Size="224" Modified="2022-11-07 18:51:37" Version="1.00" ProjectDependent="1" Reboot="1" />
 			<Module Name="::ArCoal" Type="18" Size="65384" Modified="2021-07-22 08:35:57" Version="5.16" ProjectDependent="1" />
 			<Module Name="::ArFlatPrv" Type="18" Size="617296" Modified="2021-07-22 08:40:10" Version="5.16" ProjectDependent="1" />
 			<Module Name="::ArSsl" Type="18" Size="13436" Modified="2022-06-22 07:47:50" Version="4.93" ProjectDependent="1" />
 			<Module Name="::ArSvcReg" Type="18" Size="78216" Modified="2016-12-09 07:57:34" Version="4.93" ProjectDependent="1" />
-			<Module Name="::ArUser" Type="18" Size="18020" Modified="2022-06-22 07:43:27" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsARCfg" Type="18" Size="49272" Modified="2022-06-22 07:48:15" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsEPL" Type="18" Size="15056" Modified="2022-06-22 07:50:34" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsIO" Type="18" Size="13124" Modified="2022-06-22 08:04:14" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsIODiag" Type="18" Size="52212" Modified="2022-06-22 08:05:08" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsIecCon" Type="18" Size="17432" Modified="2022-06-22 08:03:38" Version="4.93" ProjectDependent="1" />
-			<Module Name="::AsTCP" Type="18" Size="19268" Modified="2022-06-22 07:43:26" Version="4.93" ProjectDependent="1" />
-			<Module Name="::AsUSB" Type="18" Size="9864" Modified="2022-06-22 07:43:28" Version="4.93" ProjectDependent="1" />
 			<Module Name="::AsZip" Type="18" Size="6928" Modified="2022-06-22 07:44:38" Version="4.93" ProjectDependent="1" />
-			<Module Name="::BrewingSeq" Type="17" Size="2248" Modified="2022-11-07 18:51:32" Version="1.00" ProjectDependent="1" />
 			<Module Name="::CoTrace" Type="18" Size="268212" Modified="2021-07-29 14:50:59" Version="5.16" ProjectDependent="1" />
-			<Module Name="::Config" Type="136" Size="12132" Modified="2022-11-07 18:51:36" Version="5.16" ProjectDependent="1" />
-			<Module Name="::Config_1" Type="136" Size="1100" Modified="2022-11-07 18:51:36" Version="5.161" ProjectDependent="1" />
+			<Module Name="::Config" Type="136" Size="18044" Modified="2022-11-12 10:40:24" Version="5.19" ProjectDependent="1" />
+			<Module Name="::Config_1" Type="136" Size="1100" Modified="2022-11-12 10:40:24" Version="5.19" ProjectDependent="1" />
+			<Module Name="::DataObj" Type="18" Size="13788" Modified="2022-06-22 07:44:43" Version="4.93" ProjectDependent="1" />
 			<Module Name="::FWRules" Type="136" Size="456" Modified="2022-11-07 18:51:36" Version="1.00" ProjectDependent="1" />
 			<Module Name="::FileIO" Type="18" Size="39196" Modified="2022-06-22 07:46:56" Version="4.93" ProjectDependent="1" />
-			<Module Name="::Functions" Type="18" Size="1556" Modified="2022-11-07 18:51:32" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HLTControl" Type="17" Size="11948" Modified="2022-11-07 18:56:32" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HMIProgram" Type="17" Size="2088" Modified="2022-11-07 18:51:32" Version="1.00" ProjectDependent="1" />
-			<Module Name="::KettleCont" Type="17" Size="12780" Modified="2022-11-07 18:56:32" Version="1.00" ProjectDependent="1" />
-			<Module Name="::MTBasics" Type="18" Size="80568" Modified="2021-07-16 06:30:55" Version="5.16" ProjectDependent="1" />
+			<Module Name="::FillingTan" Type="17" Size="1976" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
+			<Module Name="::Functions" Type="18" Size="1552" Modified="2022-11-13 10:57:17" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HLTControl" Type="17" Size="12032" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HMIProgram" Type="17" Size="2076" Modified="2022-11-13 10:57:17" Version="1.00" ProjectDependent="1" />
+			<Module Name="::KettleCont" Type="17" Size="12932" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
+			<Module Name="::MTBasics" Type="18" Size="32504" Modified="2022-05-02 06:55:21" Version="5.19" ProjectDependent="1" />
 			<Module Name="::MTTypes" Type="18" Size="364" Modified="2017-02-21 11:08:12" Version="1.034" ProjectDependent="1" />
-			<Module Name="::MashTunCon" Type="17" Size="13088" Modified="2022-11-07 18:56:32" Version="1.00" ProjectDependent="1" />
-			<Module Name="::MpBase" Type="18" Size="594592" Modified="2021-06-16 14:47:37" Version="5.16" ProjectDependent="1" />
-			<Module Name="::MpSfDomMgr" Type="18" Size="874556" Modified="2021-07-23 13:50:02" Version="5.16" ProjectDependent="1" />
-			<Module Name="::MpTemp" Type="18" Size="241464" Modified="2021-07-15 10:29:14" Version="5.16" ProjectDependent="1" />
+			<Module Name="::MashTunCon" Type="17" Size="13428" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
+			<Module Name="::MpAlarmX" Type="18" Size="429220" Modified="2022-05-03 01:26:38" Version="5.19" ProjectDependent="1" />
+			<Module Name="::MpBase" Type="18" Size="599264" Modified="2022-04-26 10:05:02" Version="5.19" ProjectDependent="1" />
+			<Module Name="::MpTemp" Type="18" Size="242492" Modified="2022-05-02 06:56:15" Version="5.19" ProjectDependent="1" />
 			<Module Name="::Role" Type="136" Size="760" Modified="2022-11-07 18:51:36" Version="1.00" ProjectDependent="1" />
-			<Module Name="::SfDomDrv" Type="18" Size="110796" Modified="2021-07-23 13:41:38" Version="5.16" ProjectDependent="1" />
-			<Module Name="::SfDomVis" Type="18" Size="903704" Modified="2021-07-23 13:44:41" Version="5.16" ProjectDependent="1" />
-			<Module Name="::SfDomain" Type="18" Size="451852" Modified="2021-07-23 13:55:36" Version="5.16" ProjectDependent="1" />
 			<Module Name="::User" Type="136" Size="648" Modified="2022-11-07 18:51:36" Version="1.00" ProjectDependent="1" />
 			<Module Name="::ViBase" Type="18" Size="603516" Modified="2021-10-22 11:28:42" Version="5.161" ProjectDependent="1" />
-			<Module Name="::acp10cfg" Type="70" Size="160" Modified="2022-11-07 18:51:36" Version="5.162" ProjectDependent="1" Reboot="1" />
-			<Module Name="::acp10man" Type="18" Size="584604" Modified="2021-10-22 09:38:09" Version="5.162" ProjectDependent="1" Reboot="1" />
-			<Module Name="::acp10par" Type="18" Size="384" Modified="2021-10-22 09:39:56" Version="5.162" ProjectDependent="1" />
-			<Module Name="::acp10sys" Type="65" Size="10260624" Modified="2021-10-22 09:19:38" Version="5.162" ProjectDependent="1" Reboot="1" />
+			<Module Name="::acp10man" Type="18" Size="586684" Modified="2022-06-08 09:59:44" Version="5.191" ProjectDependent="1" Reboot="1" />
+			<Module Name="::acp10par" Type="18" Size="384" Modified="2022-06-08 10:01:09" Version="5.191" ProjectDependent="1" />
 			<Module Name="::ashwac" Type="136" Size="212" Modified="2022-11-07 18:51:35" Version="1.00" ProjectDependent="1" />
 			<Module Name="::astime" Type="18" Size="24304" Modified="2022-06-22 07:43:27" Version="4.93" ProjectDependent="1" />
 			<Module Name="::brsystem" Type="18" Size="23912" Modified="2022-06-22 07:44:44" Version="4.93" ProjectDependent="1" />
-			<Module Name="::iomap" Type="50" Size="16908" Modified="2022-11-07 18:51:37" Version="1.00" ProjectDependent="1" />
-			<Module Name="::mCoWebSc" Type="136" Size="948" Modified="2021-07-05 16:49:50" Version="5.16" ProjectDependent="1" />
-			<Module Name="::mvLoader" Type="18" Size="5336" Modified="2021-10-29 08:06:29" Version="5.161" ProjectDependent="1" />
-			<Module Name="::ncglobal" Type="18" Size="13420" Modified="2021-10-22 09:36:17" Version="5.162" ProjectDependent="1" Reboot="1" />
+			<Module Name="::iomap" Type="50" Size="16972" Modified="2022-11-13 11:53:25" Version="1.00" ProjectDependent="1" />
+			<Module Name="::mvLoader" Type="18" Size="5336" Modified="2022-05-13 09:31:13" Version="5.19" ProjectDependent="1" />
+			<Module Name="::ncglobal" Type="18" Size="13420" Modified="2022-06-08 09:57:45" Version="5.191" ProjectDependent="1" Reboot="1" />
 			<Module Name="::powerlnk" Type="18" Size="44192" Modified="2022-06-22 07:47:13" Version="4.93" ProjectDependent="1" />
 			<Module Name="::runtime" Type="18" Size="29340" Modified="2022-06-22 07:47:09" Version="4.93" ProjectDependent="1" />
 			<Module Name="::standard" Type="18" Size="11576" Modified="2022-06-22 07:47:39" Version="4.93" ProjectDependent="1" />

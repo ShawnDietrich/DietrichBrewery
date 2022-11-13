@@ -32,6 +32,7 @@ define(['brease/core/Utils', 'brease/enum/Enum'], function (Utils, Enum) {
     Utils.defineProperty(instance, 'CLIENT_WIDGET_INITIALIZATION_FAILED', 'CLIENT_WIDGET_INITIALIZATION_FAILED');
     Utils.defineProperty(instance, 'PRELOADING_ACTIVE', 'PRELOADING_ACTIVE');
     Utils.defineProperty(instance, 'CLIENT_FOCUS_ACTION_FAIL', 'CLIENT_FOCUS_ACTION_FAIL');
+    Utils.defineProperty(instance, 'CROSS_ORIGIN_REQUEST_BLOCKED', 'CROSS_ORIGIN_REQUEST_BLOCKED');
 
     var logs = {
         PAGE_NOT_FOUND: {
@@ -141,6 +142,11 @@ define(['brease/core/Utils', 'brease/enum/Enum'], function (Utils, Enum) {
         },
         CLIENT_FOCUS_ACTION_FAIL: {
             code: Enum.EventLoggerId.CLIENT_FOCUS_ACTION_FAIL,
+            severity: Enum.EventLoggerSeverity.WARNING,
+            verboseLevel: Enum.EventLoggerVerboseLevel.OFF
+        },
+        CROSS_ORIGIN_REQUEST_BLOCKED: {
+            code: Enum.EventLoggerId.CROSS_ORIGIN_REQUEST_BLOCKED,
             severity: Enum.EventLoggerSeverity.WARNING,
             verboseLevel: Enum.EventLoggerVerboseLevel.OFF
         }

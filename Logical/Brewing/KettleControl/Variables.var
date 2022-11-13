@@ -1,0 +1,13 @@
+VAR
+	Proc : ProcControl;
+	KettleTmr : TON;
+	TimePre : TIME;
+	StartKettle : BOOL;
+	TmrDT : TIMEStructure;
+	HrRe : STRING[4];
+	MinRe : STRING[4];
+	SecRe : STRING[4];
+	TmrRemain : STRING[10];
+	pbUp : BOOL;
+	pbDown : BOOL;
+END_VAR

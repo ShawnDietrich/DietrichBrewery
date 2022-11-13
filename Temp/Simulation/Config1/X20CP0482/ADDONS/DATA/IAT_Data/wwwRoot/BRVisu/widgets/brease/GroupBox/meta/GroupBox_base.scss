@@ -63,7 +63,10 @@
 }
 	opacity: 1;
 	@include box-shadow(none);
-> .container {
+> .container > .widgetContainer {
+	padding: 0px;
+}
+> .widgetContainer {
 	padding: 0px;
 }
 	margin: 0px 0px 12px 0px;

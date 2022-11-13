@@ -13,10 +13,10 @@ define(['brease/objects/WidgetObject', 'brease/core/Utils', 'brease/enum/Enum'],
         if (keepGlobal !== true) {
             this.contents = {};
         } else { 
-            var globalContent = this.contents['0global'];
-            this.contents = {
-                '0global': globalContent
-            };
+            var globalContentId = brease.settings.globalContent,
+                globalContent = this.contents[globalContentId];
+            this.contents = {};
+            this.contents[globalContentId] = globalContent;
             globalContent.forEach(function (value, widgetId) {
                 self.items.set(widgetId, value);
             });

@@ -5,12 +5,12 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Package.pkg"
     LogicalPath=""
     Type="Package.ParentUnknown"
-    LastWriteTime="133116141825169477" />
+    LastWriteTime="133128302403700240" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Includes\AS_TempDecl\Config1\GlobalComponents\MpComponents.var"
     LogicalPath="MpComponents.var"
     Type="File"
-    LastWriteTime="133116144083400995"
+    LastWriteTime="133128284749601083"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Global.typ"
@@ -28,7 +28,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Package.pkg"
     LogicalPath="Libraries"
     Type="Package"
-    LastWriteTime="133116152129238127" />
+    LastWriteTime="133128284660812416" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\operator\binary.lby"
     LogicalPath="Libraries.operator"
@@ -266,51 +266,6 @@
     LastWriteTime="133116141828138025"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10man\Binary.lby"
-    LogicalPath="Libraries.Acp10man"
-    Type="Library"
-    LastWriteTime="133116152048803297" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10man\Acp10man.typ"
-    LogicalPath="Libraries.Acp10man.Acp10man.typ"
-    Type="File"
-    LastWriteTime="133116152048646868"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10par\Binary.lby"
-    LogicalPath="Libraries.Acp10par"
-    Type="Library"
-    LastWriteTime="133116152050834072" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10par\Acp10par.var"
-    LogicalPath="Libraries.Acp10par.Acp10par.var"
-    Type="File"
-    LastWriteTime="133116152050834072"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\Binary.lby"
-    LogicalPath="Libraries.NcGlobal"
-    Type="Library"
-    LastWriteTime="133116152053492840" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.fun"
-    LogicalPath="Libraries.NcGlobal.NcGlobal.fun"
-    Type="File"
-    LastWriteTime="133116152053492840"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.typ"
-    LogicalPath="Libraries.NcGlobal.NcGlobal.typ"
-    Type="File"
-    LastWriteTime="133116152053492840"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.var"
-    LogicalPath="Libraries.NcGlobal.NcGlobal.var"
-    Type="File"
-    LastWriteTime="133116152053492840"
-    Private="false" />
-  <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\ViBase\binary.lby"
     LogicalPath="Libraries.ViBase"
     Type="Library"
@@ -472,122 +427,6 @@
     LastWriteTime="133116152085646122"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\binary.lby"
-    LogicalPath="Libraries.MTBasics"
-    Type="Library"
-    LastWriteTime="133116152086224999" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.fun"
-    LogicalPath="Libraries.MTBasics.MTBasics.fun"
-    Type="File"
-    LastWriteTime="133116152085794172"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.typ"
-    LogicalPath="Libraries.MTBasics.MTBasics.typ"
-    Type="File"
-    LastWriteTime="133116152086155138"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.var"
-    LogicalPath="Libraries.MTBasics.MTBasics.var"
-    Type="File"
-    LastWriteTime="133116152086215023"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\SfDomain\Binary.lby"
-    LogicalPath="Libraries.SfDomain"
-    Type="Library"
-    LastWriteTime="133116152111022637" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\SfDomain\SfDomain.fun"
-    LogicalPath="Libraries.SfDomain.SfDomain.fun"
-    Type="File"
-    LastWriteTime="133116152110768557"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\SfDomain\SfDomain.var"
-    LogicalPath="Libraries.SfDomain.SfDomain.var"
-    Type="File"
-    LastWriteTime="133116152110952815"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\SfDomain\SfDomain.typ"
-    LogicalPath="Libraries.SfDomain.SfDomain.typ"
-    Type="File"
-    LastWriteTime="133116152110982737"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\SfDomain\SfDomainError.typ"
-    LogicalPath="Libraries.SfDomain.SfDomainError.typ"
-    Type="File"
-    LastWriteTime="133116152111012686"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\Binary.lby"
-    LogicalPath="Libraries.MpBase"
-    Type="Library"
-    LastWriteTime="133116152111321316" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.typ"
-    LogicalPath="Libraries.MpBase.MpBase.typ"
-    Type="File"
-    LastWriteTime="133116152111260886"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.var"
-    LogicalPath="Libraries.MpBase.MpBase.var"
-    Type="File"
-    LastWriteTime="133116152111282447"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.fun"
-    LogicalPath="Libraries.MpBase.MpBase.fun"
-    Type="File"
-    LastWriteTime="133116152111301317"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\Common_EventLog.tmx"
-    LogicalPath="Libraries.MpBase.Common_EventLog.tmx"
-    Type="File"
-    LastWriteTime="133116152111321316"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\Binary.lby"
-    LogicalPath="Libraries.MpTemp"
-    Type="Library"
-    LastWriteTime="133116152112220657" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.var"
-    LogicalPath="Libraries.MpTemp.MpTemp.var"
-    Type="File"
-    LastWriteTime="133116152112135678"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.typ"
-    LogicalPath="Libraries.MpTemp.MpTemp.typ"
-    Type="File"
-    LastWriteTime="133116152112155350"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTempError.typ"
-    LogicalPath="Libraries.MpTemp.MpTempError.typ"
-    Type="File"
-    LastWriteTime="133116152112177434"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTempAlarm.typ"
-    LogicalPath="Libraries.MpTemp.MpTempAlarm.typ"
-    Type="File"
-    LastWriteTime="133116152112200693"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.fun"
-    LogicalPath="Libraries.MpTemp.MpTemp.fun"
-    Type="File"
-    LastWriteTime="133116152112220657"
-    Private="false" />
-  <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\CoTrace\binary.lby"
     LogicalPath="Libraries.CoTrace"
     Type="Library"
@@ -611,107 +450,246 @@
     LastWriteTime="133116152129082119"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\Package.pkg"
-    LogicalPath="ProcessControl"
-    Type="Package"
-    LastWriteTime="133123389770962328" />
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\Binary.lby"
+    LogicalPath="Libraries.MpTemp"
+    Type="Library"
+    LastWriteTime="133127409719476177" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\IEC.prg"
-    LogicalPath="ProcessControl.HLTControl"
-    Type="Program"
-    LastWriteTime="133116141845464207" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\Main.st"
-    LogicalPath="ProcessControl.HLTControl.Main.st"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.var"
+    LogicalPath="Libraries.MpTemp.MpTemp.var"
     Type="File"
-    LastWriteTime="133116141845653310"
+    LastWriteTime="133127409719440914"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\Types.typ"
-    LogicalPath="ProcessControl.HLTControl.Types.typ"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.typ"
+    LogicalPath="Libraries.MpTemp.MpTemp.typ"
     Type="File"
-    LastWriteTime="133116141845773010"
-    Private="true" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\HLTControl\Variables.var"
-    LogicalPath="ProcessControl.HLTControl.Variables.var"
-    Type="File"
-    LastWriteTime="133116141845942846"
-    Private="true" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\IEC.prg"
-    LogicalPath="ProcessControl.MashTunControl"
-    Type="Program"
-    LastWriteTime="133116141846758577" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\Main.st"
-    LogicalPath="ProcessControl.MashTunControl.Main.st"
-    Type="File"
-    LastWriteTime="133116141846928818"
+    LastWriteTime="133127409719451194"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\Types.typ"
-    LogicalPath="ProcessControl.MashTunControl.Types.typ"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTempError.typ"
+    LogicalPath="Libraries.MpTemp.MpTempError.typ"
     Type="File"
-    LastWriteTime="133116141847059324"
-    Private="true" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\MashTunControl\Variables.var"
-    LogicalPath="ProcessControl.MashTunControl.Variables.var"
-    Type="File"
-    LastWriteTime="133116141847219211"
-    Private="true" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\IEC.prg"
-    LogicalPath="ProcessControl.KettleControl"
-    Type="Program"
-    LastWriteTime="133116141846107962" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\Main.st"
-    LogicalPath="ProcessControl.KettleControl.Main.st"
-    Type="File"
-    LastWriteTime="133116141846275334"
+    LastWriteTime="133127409719460871"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\Types.typ"
-    LogicalPath="ProcessControl.KettleControl.Types.typ"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTempAlarm.typ"
+    LogicalPath="Libraries.MpTemp.MpTempAlarm.typ"
     Type="File"
-    LastWriteTime="133116141846434770"
-    Private="true" />
+    LastWriteTime="133127409719470847"
+    Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\ProcessControl\KettleControl\Variables.var"
-    LogicalPath="ProcessControl.KettleControl.Variables.var"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpTemp\MpTemp.fun"
+    LogicalPath="Libraries.MpTemp.MpTemp.fun"
     Type="File"
-    LastWriteTime="133116141846594352"
-    Private="true" />
+    LastWriteTime="133127409719476177"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\Binary.lby"
+    LogicalPath="Libraries.MpBase"
+    Type="Library"
+    LastWriteTime="133127409719673393" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.var"
+    LogicalPath="Libraries.MpBase.MpBase.var"
+    Type="File"
+    LastWriteTime="133127409719648086"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.typ"
+    LogicalPath="Libraries.MpBase.MpBase.typ"
+    Type="File"
+    LastWriteTime="133127409719658331"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\MpBase.fun"
+    LogicalPath="Libraries.MpBase.MpBase.fun"
+    Type="File"
+    LastWriteTime="133127409719658331"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpBase\Common_EventLog.tmx"
+    LogicalPath="Libraries.MpBase.Common_EventLog.tmx"
+    Type="File"
+    LastWriteTime="133127409719673393"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\Binary.lby"
+    LogicalPath="Libraries.MTBasics"
+    Type="Library"
+    LastWriteTime="133127409735759089" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.fun"
+    LogicalPath="Libraries.MTBasics.MTBasics.fun"
+    Type="File"
+    LastWriteTime="133127409735749218"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.typ"
+    LogicalPath="Libraries.MTBasics.MTBasics.typ"
+    Type="File"
+    LastWriteTime="133127409735749218"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MTBasics\MTBasics.var"
+    LogicalPath="Libraries.MTBasics.MTBasics.var"
+    Type="File"
+    LastWriteTime="133127409735759089"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10man\Binary.lby"
+    LogicalPath="Libraries.Acp10man"
+    Type="Library"
+    LastWriteTime="133127411938614198" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10man\Acp10man.typ"
+    LogicalPath="Libraries.Acp10man.Acp10man.typ"
+    Type="File"
+    LastWriteTime="133127411938600050"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10par\Binary.lby"
+    LogicalPath="Libraries.Acp10par"
+    Type="Library"
+    LastWriteTime="133127411938774361" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\Acp10par\Acp10par.var"
+    LogicalPath="Libraries.Acp10par.Acp10par.var"
+    Type="File"
+    LastWriteTime="133127411938774361"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\Binary.lby"
+    LogicalPath="Libraries.NcGlobal"
+    Type="Library"
+    LastWriteTime="133127411938883401" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.fun"
+    LogicalPath="Libraries.NcGlobal.NcGlobal.fun"
+    Type="File"
+    LastWriteTime="133127411938863453"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.typ"
+    LogicalPath="Libraries.NcGlobal.NcGlobal.typ"
+    Type="File"
+    LastWriteTime="133127411938873612"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\NcGlobal\NcGlobal.var"
+    LogicalPath="Libraries.NcGlobal.NcGlobal.var"
+    Type="File"
+    LastWriteTime="133127411938873612"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpAlarmX\Binary.lby"
+    LogicalPath="Libraries.MpAlarmX"
+    Type="Library"
+    LastWriteTime="133128284660694987" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpAlarmX\MpAlarmX.typ"
+    LogicalPath="Libraries.MpAlarmX.MpAlarmX.typ"
+    Type="File"
+    LastWriteTime="133128284660651631"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpAlarmX\MpAlarmXError.typ"
+    LogicalPath="Libraries.MpAlarmX.MpAlarmXError.typ"
+    Type="File"
+    LastWriteTime="133128284660676676"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Libraries\MpAlarmX\MpAlarmX.fun"
+    LogicalPath="Libraries.MpAlarmX.MpAlarmX.fun"
+    Type="File"
+    LastWriteTime="133128284660694987"
+    Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\Package.pkg"
     LogicalPath="Brewing"
     Type="Package"
-    LastWriteTime="133116141825414383" />
+    LastWriteTime="133123389770962328" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\IEC.prg"
-    LogicalPath="Brewing.BrewingSeq"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\HLTControl\IEC.prg"
+    LogicalPath="Brewing.HLTControl"
     Type="Program"
-    LastWriteTime="133116141825631430" />
+    LastWriteTime="133116141845464207" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Main.st"
-    LogicalPath="Brewing.BrewingSeq.Main.st"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\HLTControl\Main.st"
+    LogicalPath="Brewing.HLTControl.Main.st"
     Type="File"
-    LastWriteTime="133116141825815880"
+    LastWriteTime="133127390869484547"
     Private="false" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Types.typ"
-    LogicalPath="Brewing.BrewingSeq.Types.typ"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\HLTControl\Types.typ"
+    LogicalPath="Brewing.HLTControl.Types.typ"
     Type="File"
-    LastWriteTime="133116141825996406"
+    LastWriteTime="133116141845773010"
     Private="true" />
   <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\BrewingSeq\Variables.var"
-    LogicalPath="Brewing.BrewingSeq.Variables.var"
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\HLTControl\Variables.var"
+    LogicalPath="Brewing.HLTControl.Variables.var"
     Type="File"
-    LastWriteTime="133116141826106974"
+    LastWriteTime="133127390194750815"
     Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\MashTunControl\IEC.prg"
+    LogicalPath="Brewing.MashTunControl"
+    Type="Program"
+    LastWriteTime="133116141846758577" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\MashTunControl\Main.st"
+    LogicalPath="Brewing.MashTunControl.Main.st"
+    Type="File"
+    LastWriteTime="133127381825392954"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\MashTunControl\Types.typ"
+    LogicalPath="Brewing.MashTunControl.Types.typ"
+    Type="File"
+    LastWriteTime="133116141847059324"
+    Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\MashTunControl\Variables.var"
+    LogicalPath="Brewing.MashTunControl.Variables.var"
+    Type="File"
+    LastWriteTime="133116141847219211"
+    Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\IEC.prg"
+    LogicalPath="Brewing.KettleControl"
+    Type="Program"
+    LastWriteTime="133128243082791879" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\Main.st"
+    LogicalPath="Brewing.KettleControl.Main.st"
+    Type="File"
+    LastWriteTime="133128244435096751"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\Types.typ"
+    LogicalPath="Brewing.KettleControl.Types.typ"
+    Type="File"
+    LastWriteTime="133116141846434770"
+    Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\Variables.var"
+    LogicalPath="Brewing.KettleControl.Variables.var"
+    Type="File"
+    LastWriteTime="133128244435363542"
+    Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\Displayclock.st"
+    LogicalPath="Brewing.KettleControl.Displayclock.st"
+    Type="File"
+    LastWriteTime="133128242570864942"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Brewing\KettleControl\PowerControl.st"
+    LogicalPath="Brewing.KettleControl.PowerControl.st"
+    Type="File"
+    LastWriteTime="133128257804780127"
+    Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\Fermenting\Package.pkg"
     LogicalPath="Fermenting"
@@ -722,6 +700,34 @@
     LogicalPath="Distilling"
     Type="Package"
     LastWriteTime="133116141826263196" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\Package.pkg"
+    LogicalPath="FillingTanks"
+    Type="Package"
+    LastWriteTime="133128314164497681" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\FillingTanks\IEC.prg"
+    LogicalPath="FillingTanks.FillingTanks"
+    Type="Program"
+    LastWriteTime="133128302621601409" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\FillingTanks\Main.st"
+    LogicalPath="FillingTanks.FillingTanks.Main.st"
+    Type="File"
+    LastWriteTime="133128315737721018"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\FillingTanks\Types.typ"
+    LogicalPath="FillingTanks.FillingTanks.Types.typ"
+    Type="File"
+    LastWriteTime="133128302621561139"
+    Private="true" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\FillingTanks\Variables.var"
+    LogicalPath="FillingTanks.FillingTanks.Variables.var"
+    Type="File"
+    LastWriteTime="133128318156698061"
+    Private="true" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\HMIControl\Package.pkg"
     LogicalPath="HMIControl"
@@ -853,7 +859,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\Package.pkg"
     LogicalPath="mappView.Visualization.Pages"
     Type="Package"
-    LastWriteTime="133116141851838544" />
+    LastWriteTime="133128275023191902" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\AreaContents\Package.pkg"
     LogicalPath="mappView.Visualization.Pages.AreaContents"
@@ -863,13 +869,13 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\AreaContents\Nav.content"
     LogicalPath="mappView.Visualization.Pages.AreaContents.Nav.content"
     Type="File"
-    LastWriteTime="133123385779754476"
+    LastWriteTime="133128278756543578"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\AreaContents\Status.content"
     LogicalPath="mappView.Visualization.Pages.AreaContents.Status.content"
     Type="File"
-    LastWriteTime="133123386329373811"
+    LastWriteTime="133128286105674683"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\Main\Package.pkg"
@@ -886,7 +892,75 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\Main\Content.content"
     LogicalPath="mappView.Visualization.Pages.Main.Content.content"
     Type="File"
-    LastWriteTime="133123406760070265"
+    LastWriteTime="133128274187925818"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\FillTanksPage\Package.pkg"
+    LogicalPath="mappView.Visualization.Pages.FillTanksPage"
+    Type="Package"
+    LastWriteTime="133127328506726245" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\FillTanksPage\FillTank.page"
+    LogicalPath="mappView.Visualization.Pages.FillTanksPage.FillTank.page"
+    Type="File"
+    LastWriteTime="133128277790171104"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\FillTanksPage\Content.content"
+    LogicalPath="mappView.Visualization.Pages.FillTanksPage.Content.content"
+    Type="File"
+    LastWriteTime="133128311882499898"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\BoilPage\Package.pkg"
+    LogicalPath="mappView.Visualization.Pages.BoilPage"
+    Type="Package"
+    LastWriteTime="133128277185540594" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\BoilPage\BoilPage.page"
+    LogicalPath="mappView.Visualization.Pages.BoilPage.BoilPage.page"
+    Type="File"
+    LastWriteTime="133128280777698319"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\BoilPage\Content.content"
+    LogicalPath="mappView.Visualization.Pages.BoilPage.Content.content"
+    Type="File"
+    LastWriteTime="133128276245538629"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\DistilingPage\Package.pkg"
+    LogicalPath="mappView.Visualization.Pages.DistilingPage"
+    Type="Package"
+    LastWriteTime="133128277249488429" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\DistilingPage\DistilingPage.page"
+    LogicalPath="mappView.Visualization.Pages.DistilingPage.DistilingPage.page"
+    Type="File"
+    LastWriteTime="133128278386330050"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\DistilingPage\Content.content"
+    LogicalPath="mappView.Visualization.Pages.DistilingPage.Content.content"
+    Type="File"
+    LastWriteTime="133128276246257777"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\RecipePage\Package.pkg"
+    LogicalPath="mappView.Visualization.Pages.RecipePage"
+    Type="Package"
+    LastWriteTime="133128277303314824" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\RecipePage\RecipePage.page"
+    LogicalPath="mappView.Visualization.Pages.RecipePage.RecipePage.page"
+    Type="File"
+    LastWriteTime="133128278387029075"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Pages\RecipePage\Content.content"
+    LogicalPath="mappView.Visualization.Pages.RecipePage.Content.content"
+    Type="File"
+    LastWriteTime="133128276507307177"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\mappView\Visualization\Variables\Package.pkg"
@@ -937,7 +1011,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\Hardware.hw"
     LogicalPath="Config1.Hardware.hw"
     Type="File"
-    LastWriteTime="133123386465921845"
+    LastWriteTime="133128320329756162"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\Hardware.hwl"
@@ -949,12 +1023,12 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Cpu.pkg"
     LogicalPath="Config1.X20CP0482"
     Type="Cpu"
-    LastWriteTime="133123403276936610" />
+    LastWriteTime="133128322378226191" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Cpu.sw"
     LogicalPath="Config1.X20CP0482.Cpu.sw"
     Type="File"
-    LastWriteTime="133123389771002463"
+    LastWriteTime="133128319978375465"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Cpu.per"
@@ -966,7 +1040,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\IoMap.iom"
     LogicalPath="Config1.X20CP0482.IoMap.iom"
     Type="File"
-    LastWriteTime="133116141858218648"
+    LastWriteTime="133127389205946343"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\PvMap.vvm"
@@ -988,7 +1062,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Connectivity\OpcUA\OpcUaMap.uad"
     LogicalPath="Config1.X20CP0482.Connectivity.OpcUA.OpcUaMap.uad"
     Type="File"
-    LastWriteTime="133123402449555383"
+    LastWriteTime="133128314765094779"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\TextSystem\Package.pkg"
@@ -1087,7 +1161,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappControl\Config.tempcontroller"
     LogicalPath="Config1.X20CP0482.mappControl.Config.tempcontroller"
     Type="File"
-    LastWriteTime="133116141863407331"
+    LastWriteTime="133127338723597303"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappMotion\Package.pkg"
@@ -1098,7 +1172,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappServices\Package.pkg"
     LogicalPath="Config1.X20CP0482.mappServices"
     Type="Package"
-    LastWriteTime="133116141864927810" />
+    LastWriteTime="133128284748914509" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappServices\Config_1.mpalarmxcore"
     LogicalPath="Config1.X20CP0482.mappServices.Config_1.mpalarmxcore"
@@ -1124,7 +1198,7 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\Package.pkg"
     LogicalPath="Config1.X20CP0482.mappView"
     Type="Package"
-    LastWriteTime="133116141865757857" />
+    LastWriteTime="133128314860455094" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\Config.mappviewcfg"
     LogicalPath="Config1.X20CP0482.mappView.Config.mappviewcfg"
@@ -1135,13 +1209,25 @@
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\Visualizat.vis"
     LogicalPath="Config1.X20CP0482.mappView.Visualizat.vis"
     Type="File"
-    LastWriteTime="133116141865956949"
+    LastWriteTime="133128322246855108"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\MainPageContent.binding"
     LogicalPath="Config1.X20CP0482.mappView.MainPageContent.binding"
     Type="File"
-    LastWriteTime="133123406760140291"
+    LastWriteTime="133128255956047607"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\StatusContent.binding"
+    LogicalPath="Config1.X20CP0482.mappView.StatusContent.binding"
+    Type="File"
+    LastWriteTime="133128286105674683"
+    Private="false" />
+  <Object
+    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\FillTankContent.binding"
+    LogicalPath="Config1.X20CP0482.mappView.FillTankContent.binding"
+    Type="File"
+    LastWriteTime="133128314860455094"
     Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappVision\Package.pkg"
@@ -1153,29 +1239,6 @@
     LogicalPath="Config1.X20CP0482.mappCockpit"
     Type="Package"
     LastWriteTime="133116141863057619" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Motion\Package.pkg"
-    LogicalPath="Config1.X20CP0482.Motion"
-    Type="Package"
-    LastWriteTime="133116152065681548" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Motion\Acp10cfg.ncc"
-    LogicalPath="Config1.X20CP0482.Motion.Acp10cfg.ncc"
-    Type="File"
-    LastWriteTime="133116152064934341"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Motion\Acp10map.ncm"
-    LogicalPath="Config1.X20CP0482.Motion.Acp10map.ncm"
-    Type="File"
-    LastWriteTime="133116152065369121"
-    Private="false" />
-  <Object
-    Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\Motion\Acp10sys.br"
-    LogicalPath="Config1.X20CP0482.Motion.Acp10sys.br"
-    Type="File"
-    LastWriteTime="133116152066462620"
-    Private="false" />
   <Object
     Path="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\Hardware.jpg"
     LogicalPath="Config1.Hardware.jpg"

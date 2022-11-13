@@ -1,0 +1,19 @@
+VAR
+	MashTmr : TON;
+	mProc : ProcControl;
+	pbMashPump : BOOL;
+	PumpExp : BOOL;
+	StartMash : BOOL;
+	TimePre : DINT;
+	MashACC : STRING[80];
+	TmrRe : STRING[80];
+	TmrRemain : STRING[80];
+	CharNumPos : INT;
+	MillNumPos : INT;
+	NumStart : INT;
+	TmrDT : TIMEStructure;
+	RemainTime : DATE_AND_TIME;
+	HrRe : STRING[4];
+	MinRe : STRING[4];
+	SecRe : STRING[4];
+END_VAR

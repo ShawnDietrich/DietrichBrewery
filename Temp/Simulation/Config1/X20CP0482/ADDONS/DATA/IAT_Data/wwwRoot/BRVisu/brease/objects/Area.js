@@ -15,6 +15,8 @@ define(['brease/core/Utils'], function (Utils) {
     * @param {Integer} data.height
     * @param {Integer} data.top
     * @param {Integer} data.left
+    * @param {Integer} data.zIndex
+    * @param {Integer} data.tabIndex
     * @param {String/Number} data.cssWidth (optional)
     * @param {String/Number} data.cssHeight (optional)
     */
@@ -91,21 +93,20 @@ define(['brease/core/Utils'], function (Utils) {
     };
 
     Area.prototype.hasPercentageWidth = function () {
-        return (this.cssWidth !== undefined && this.cssWidth.indexOf('%') !== -1);
+        return Utils.isPercentageValue(this.cssWidth);
     };
 
     Area.prototype.hasPercentageHeight = function () {
-        return (this.cssHeight !== undefined && this.cssHeight.indexOf('%') !== -1);
+        return Utils.isPercentageValue(this.cssHeight);
     };
 
-    Object.defineProperty(Area.prototype, 'styleWidth', { get: function () { return ((Utils.isString(this.cssWidth) && this.cssWidth.indexOf('%') !== -1) ? this.cssWidth : this.width + 'px'); } });
-    Object.defineProperty(Area.prototype, 'styleHeight', { get: function () { return ((Utils.isString(this.cssHeight) && this.cssHeight.indexOf('%') !== -1) ? this.cssHeight : this.height + 'px'); } });
+    Object.defineProperty(Area.prototype, 'styleWidth', { get: function () { return (Utils.isPercentageValue(this.cssWidth)) ? this.cssWidth : this.width + 'px'; } });
+    Object.defineProperty(Area.prototype, 'styleHeight', { get: function () { return (Utils.isPercentageValue(this.cssHeight)) ? this.cssHeight : this.height + 'px'; } });
 
     function _setRequired(propertyName, value) {
         if (value !== undefined) {
             this[propertyName] = value;
         } else {
-            //console.log(this, value)
             throw new SyntaxError(propertyName + ' is required');
         }
     }

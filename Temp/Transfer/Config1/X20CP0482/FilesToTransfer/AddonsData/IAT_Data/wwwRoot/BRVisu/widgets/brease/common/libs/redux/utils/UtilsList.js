@@ -1,6 +1,7 @@
 define([
-    'brease/enum/Enum'
-], function (Enum) {
+    'brease/enum/Enum',
+    'brease/core/Utils'
+], function (Enum, CoreUtils) {
 
     'use strict';
 
@@ -15,23 +16,20 @@ define([
      * @method 
      * This method takes a non parsed dataprovider and parses each object separately and returns
      * the entire configuration.
-     * If one item failes it will not be part of the returned configuration.
+     * If one item fails it will not be part of the returned configuration.
      * @param {String[]} dataProvider list of string with the dataprovider configuration
      * @returns {Object[]}
      */
-    UtilsList.parseJSONtoObject = function (dataProvider) {
+    UtilsList.parseJSONtoObject = function (dataProvider, widgetId) {
         var data = [];
-        dataProvider = dataProvider || [];
-        for (var i = 0; i < dataProvider.length; i += 1) {
-            if (typeof dataProvider[i] === 'string' && dataProvider[i].length > 0) {
-                try {
-                    data.push(JSON.parse(dataProvider[i].replace(/'/g, '"')));
-                } catch (err) {
-                    console.log('Error in JSON at', err);
+        if (Array.isArray(dataProvider)) {
+            data = dataProvider.map(function (item) {
+                if (typeof item === 'string') {
+                    return CoreUtils.parsePseudoJSON(item, 'malformed data provider - widgetId: ' + widgetId);
+                } else if (item !== null && typeof item === 'object') {
+                    return item;
                 }
-            } else if (typeof dataProvider[i] === 'object') {
-                data.push(dataProvider[i]);
-            }
+            }, this).filter(function (item) { return item !== undefined; });
         }
         return data;
     };

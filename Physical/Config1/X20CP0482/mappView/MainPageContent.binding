@@ -41,10 +41,7 @@
 <Source xsi:type="opcUa" refId="::HLTControl:Proc.currPower" attribute="node" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericOutput2" attribute="node" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::HLTControl:Proc.setPower" attribute="node" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput2" attribute="node" />
-</Binding>
+
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::MashTunCon:mProc.currTemp" attribute="node" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericOutput3" attribute="node" />
@@ -82,14 +79,6 @@
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericOutput6" attribute="node" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:Proc.SetTemp" attribute="node" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput5" attribute="node" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:Proc.currTemp" attribute="node" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericOutput5" attribute="node" />
-</Binding>
-<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::MashTunCon:pbMashPump" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch5" attribute="value" />
 </Binding>
@@ -97,10 +86,7 @@
 <Source xsi:type="opcUa" refId="::MashTunCon:StartMash" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch9" attribute="value" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:TimePre" attribute="node" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput8" attribute="node" />
-</Binding>
+
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::KettleCont:StartKettle" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch14" attribute="value" />
@@ -109,13 +95,32 @@
 <Source xsi:type="opcUa" refId="::KettleCont:Proc.i.Start" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch12" attribute="value" />
 </Binding>
+
+		
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:Proc.i.Auto" attribute="value" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch11" attribute="value" />
+<Source xsi:type="opcUa" refId="::MashTunCon:TimePre" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput4" attribute="value" />
+</Binding>
+		<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:TimePre" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput8" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::MashTunCon:TimePre" attribute="node" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput4" attribute="node" />
+<Source xsi:type="opcUa" refId="::HLTControl:Proc.setPower" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="NumericInput2" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HLTControl:PumpExp" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbUp" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="PushButton1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbDown" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="PushButton2" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

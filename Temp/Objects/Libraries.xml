@@ -6,13 +6,13 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="Acp10par"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="AsARCfg"
     IsDeployed="true"
@@ -80,23 +80,29 @@
     UseAsStatic="false"
     Version="" />
   <Library
+    Name="MpAlarmX"
+    IsDeployed="true"
+    IsStatic="false"
+    UseAsStatic="false"
+    Version="5.19.0" />
+  <Library
     Name="MpBase"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MpTemp"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MTBasics"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MTTypes"
     IsDeployed="true"
@@ -108,7 +114,7 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="operator"
     IsDeployed="false"
@@ -127,12 +133,6 @@
     IsStatic="false"
     UseAsStatic="false"
     Version="" />
-  <Library
-    Name="SfDomain"
-    IsDeployed="true"
-    IsStatic="false"
-    UseAsStatic="false"
-    Version="5.16.0" />
   <Library
     Name="standard"
     IsDeployed="true"

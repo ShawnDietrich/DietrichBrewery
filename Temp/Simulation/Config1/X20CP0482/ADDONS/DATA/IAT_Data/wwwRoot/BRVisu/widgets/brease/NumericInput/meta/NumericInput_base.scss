@@ -1,7 +1,11 @@
 @import "mixins.scss";
 @mixin widgets_brease_NumericInput_base {
-	@include elemWidth(100);
-	@include elemHeight(30);
+	@include elemAutoWidth(100);
+	@include elemAutoHeight(30);
+	@include elemMinWidth(0);
+	@include elemMaxWidth(0);
+	@include elemMinHeight(0);
+	@include elemMaxHeight(0);
 &:not(.active):not(.disabled) {
 	border-width: 2px 6px 2px 2px;
 }

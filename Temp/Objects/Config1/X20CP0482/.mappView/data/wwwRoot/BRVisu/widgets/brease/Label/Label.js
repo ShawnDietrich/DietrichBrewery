@@ -118,7 +118,7 @@ define(['brease/core/BaseWidget',
         this.settings.wordWrap = Types.parseValue(this.settings.wordWrap, 'Boolean');
 
         _setClasses(this);
-
+        this.setText(this.settings.text);
         SuperClass.prototype.init.apply(this, arguments);
 
         document.body.addEventListener(BreaseEvent.THEME_CHANGED, this._bind('themeChangeHandler'));
@@ -146,6 +146,7 @@ define(['brease/core/BaseWidget',
             widget.designer.getSelectionDecoratables = function () {
                 return editorHandles.getSelectionDecoratables();
             };
+            widget.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
         });
     };
 
@@ -161,7 +162,6 @@ define(['brease/core/BaseWidget',
 
     p._dispatchReady = function () {
         SuperClass.prototype._dispatchReady.call(this);
-        this.setText(this.settings.text);
         this.addScroller();
     };
 

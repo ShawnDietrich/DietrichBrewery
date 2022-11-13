@@ -121,7 +121,7 @@ function (BreaseEvent, LayoutSelector, KeyboardType, ClassUtils, BreaseNumPadCla
 
     }
 
-    function loadDisplayNames(keyboardMapping) {
+    function loadDisplayNames() {
         var keyboards = [];
         for (var lang in keyboardMapping) {
             var mapping = keyboardMapping[lang];
@@ -228,7 +228,7 @@ function (BreaseEvent, LayoutSelector, KeyboardType, ClassUtils, BreaseNumPadCla
             _instantiateNumPad(BreaseNumPadClass);
         }
         keyboardMapping = _getMappingFromConfig();
-        loadDisplayNames(keyboardMapping);
+        loadDisplayNames();
     }
 
     var loader = {

@@ -3,27 +3,22 @@
 <Transfer xmlns="http://br-automation.co.at/AS/Transfer">
   <OperatingSystem Version="B4.93"/>
   <Hardware Target="SG4"/>
-  <Operation Delete="MashTunCon.br"/>
+  <Operation Delete="FillingTan.br"/>
   <Operation Delete="HMIProgram.br"/>
-  <Operation Delete="BrewingSeq.br"/>
-  <Operation Delete="HLTControl.br"/>
+  <Operation Delete="MashTunCon.br"/>
   <Operation Delete="KettleCont.br"/>
-  <Operation Delete="SfDomVis.br"/>
+  <Operation Delete="HLTControl.br"/>
+  <Operation Delete="MpAlarmX.br"/>
   <Operation Delete="CoTrace.br"/>
-  <Operation Delete="SfDomain.br"/>
   <Operation Delete="ViBase.br"/>
   <Operation Delete="Functions.br"/>
   <Operation Delete="mvLoader.br"/>
+  <Operation Delete="AsIODiag.br"/>
   <Operation Delete="MTBasics.br"/>
   <Operation Delete="MpTemp.br"/>
   <Operation Delete="arflatprv.br"/>
   <Operation Delete="arcoal.br"/>
-  <Operation Delete="AsIODiag.br"/>
-  <Operation Delete="asusb.br"/>
-  <Operation Delete="MpSfDomMgr.br"/>
-  <Operation Delete="SfDomDrv.br"/>
-  <Operation Delete="astcp.br"/>
-  <Operation Delete="aruser.br"/>
+  <Operation Delete="dataobj.br"/>
   <Operation Delete="AsZip.br"/>
   <Operation Delete="AsARCfg.br"/>
   <Operation Delete="AsEPL.br"/>
@@ -42,18 +37,25 @@
   <Operation Download="sysconf.br" Memory="SystemROM"/>
   <Operation Restart="warm"/>
   <Operation Download="NcGlobal.br" Memory="UserROM"/>
-  <Operation Download="powerlnk.br" Memory="UserROM"/>
-  <Operation Download="Acp10par.br" Memory="UserROM"/>
   <Operation Download="runtime.br" Memory="UserROM"/>
+  <Operation Download="Acp10par.br" Memory="UserROM"/>
+  <Operation Download="powerlnk.br" Memory="UserROM"/>
   <Operation Download="astime.br" Memory="UserROM"/>
   <Operation Download="FileIO.br" Memory="UserROM"/>
   <Operation Download="Acp10man.br" Memory="UserROM"/>
-  <Operation Download="Acp10sys.br" Memory="UserROM"/>
-  <Operation Download="acp10cfg.br" Memory="UserROM"/>
-  <Operation Download="Acp10map.br" Memory="UserROM"/>
   <Operation Restart="warm"/>
-  <Operation Download="arsvcreg.br" Memory="UserROM"/>
+  <Operation Download="FWRules.br" Memory="UserROM"/>
+  <Operation Download="TCData.br" Memory="SystemROM"/>
+  <Operation Download="udbdef.br" Memory="UserROM"/>
+  <Operation Download="User.br" Memory="UserROM"/>
+  <Operation Download="iomap.br" Memory="UserROM"/>
+  <Operation Download="Config.br" Memory="UserROM"/>
+  <Operation Download="Role.br" Memory="UserROM"/>
+  <Operation Download="ashwac.br" Memory="UserROM"/>
+  <Operation Download="Config_1.br" Memory="UserROM"/>
   <Operation Download="MTTypes.br" Memory="UserROM"/>
+  <Operation Download="standard.br" Memory="UserROM"/>
+  <Operation Download="arsvcreg.br" Memory="UserROM"/>
   <Operation Download="arssl.br" Memory="UserROM"/>
   <Operation Download="brsystem.br" Memory="UserROM"/>
   <Operation Download="sys_lib.br" Memory="UserROM"/>
@@ -63,36 +65,20 @@
   <Operation Download="AsEPL.br" Memory="UserROM"/>
   <Operation Download="AsARCfg.br" Memory="UserROM"/>
   <Operation Download="AsZip.br" Memory="UserROM"/>
-  <Operation Download="standard.br" Memory="UserROM"/>
-  <Operation Download="aruser.br" Memory="UserROM"/>
-  <Operation Download="astcp.br" Memory="UserROM"/>
-  <Operation Download="SfDomDrv.br" Memory="UserROM"/>
-  <Operation Download="MpSfDomMgr.br" Memory="UserROM"/>
-  <Operation Download="asusb.br" Memory="UserROM"/>
-  <Operation Download="AsIODiag.br" Memory="UserROM"/>
+  <Operation Download="dataobj.br" Memory="UserROM"/>
   <Operation Download="arcoal.br" Memory="UserROM"/>
   <Operation Download="arflatprv.br" Memory="UserROM"/>
   <Operation Download="MpTemp.br" Memory="UserROM"/>
   <Operation Download="MTBasics.br" Memory="UserROM"/>
-  <Operation Download="FWRules.br" Memory="UserROM"/>
-  <Operation Download="TCData.br" Memory="SystemROM"/>
-  <Operation Download="udbdef.br" Memory="UserROM"/>
+  <Operation Download="AsIODiag.br" Memory="UserROM"/>
   <Operation Download="mvLoader.br" Memory="UserROM"/>
-  <Operation Download="User.br" Memory="UserROM"/>
-  <Operation Download="iomap.br" Memory="UserROM"/>
-  <Operation Download="Config.br" Memory="UserROM"/>
-  <Operation Download="Role.br" Memory="UserROM"/>
-  <Operation Download="ashwac.br" Memory="UserROM"/>
-  <Operation Download="Config_1.br" Memory="UserROM"/>
   <Operation Download="Functions.br" Memory="UserROM"/>
   <Operation Download="ViBase.br" Memory="UserROM"/>
-  <Operation Download="SfDomain.br" Memory="UserROM"/>
   <Operation Download="CoTrace.br" Memory="UserROM"/>
-  <Operation Download="mCoWebSc.br" Memory="UserROM"/>
-  <Operation Download="SfDomVis.br" Memory="UserROM"/>
-  <Operation Download="KettleCont.br" Memory="UserROM"/>
+  <Operation Download="MpAlarmX.br" Memory="UserROM"/>
   <Operation Download="HLTControl.br" Memory="UserROM"/>
-  <Operation Download="BrewingSeq.br" Memory="UserROM"/>
-  <Operation Download="HMIProgram.br" Memory="UserROM"/>
+  <Operation Download="KettleCont.br" Memory="UserROM"/>
   <Operation Download="MashTunCon.br" Memory="UserROM"/>
+  <Operation Download="HMIProgram.br" Memory="UserROM"/>
+  <Operation Download="FillingTan.br" Memory="UserROM"/>
 </Transfer>

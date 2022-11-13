@@ -38,8 +38,8 @@
       </Group>
       <Property ID="defaultVisu" Value="" />
       <Group ID="Widget">
-        <Selector ID="renderingPolicy" Value="1">
-        </Selector>
+        <Selector ID="renderingPolicy" Value="1" />
+        <Selector ID="securityPolicy" Value="1" />
       </Group>
     </Group>
   </Element>

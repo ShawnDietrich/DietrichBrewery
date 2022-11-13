@@ -3,5 +3,6 @@ VAR_CONFIG
 	::KettleHeater AT %QX."X20DO8332".DigitalOutput01;
 	::HLTHeater AT %QX."X20DO8332".DigitalOutput02;
 	::MashPump AT %QX."X20DO8332".DigitalOutput03;
-	::HLTPump AT %QX."X20DO8332".DigitalOutput04;
+	::rawMashTemp AT %IW."X20cAT4222".Temperature02;
+	::HLTPump AT %QX."X20DO8332".DigitalOutput05;
 END_VAR

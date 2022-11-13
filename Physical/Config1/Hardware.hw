@@ -42,6 +42,7 @@
   <Module Name="X20DO8332" Type="X20DO8332" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12c" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20cBM11" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
   </Module>
   <Module Name="X20PS9600" Type="X20PS9600" Version="1.6.0.0">
     <Connection Connector="PS" TargetModule="X20BB52" TargetConnector="PS1" />
@@ -61,5 +62,6 @@
   <Module Name="X20cDI4371" Type="X20cDI4371" Version="1.2.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12a" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="1" />
   </Module>
 </Hardware>

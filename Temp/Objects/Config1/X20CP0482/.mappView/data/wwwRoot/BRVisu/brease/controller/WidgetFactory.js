@@ -154,9 +154,11 @@ function (fileManager, BreaseEvent, Enum, factoryUtils, Queue, widgetParser, Wid
         if (contentId) {
             if (widgetConfig.options) {
                 widgetConfig.options.parentContentId = contentId;
+                widgetConfig.options._dynamicallyCreated = true;
             } else {
                 widgetConfig.options = {
-                    parentContentId: contentId
+                    parentContentId: contentId,
+                    _dynamicallyCreated: true
                 };
             }
         }

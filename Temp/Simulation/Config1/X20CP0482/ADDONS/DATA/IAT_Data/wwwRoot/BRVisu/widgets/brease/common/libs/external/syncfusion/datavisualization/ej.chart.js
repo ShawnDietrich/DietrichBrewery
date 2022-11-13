@@ -1,7 +1,7 @@
 /*!
 *  filename: ej.chart.js
-*  version : 18.4.0.30
-*  Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
+*  version : 19.4.0.38
+*  Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -9904,7 +9904,12 @@ ej.EjStripline = function (chartobj) {
                 if (axis._initialRange != axis.range && axis.range != null)
                     axis.setRange = true;
                 else if (axis.range == null)
-                    axis.setRange = false;
+                    if (axis.actual_Range) {
+                        axis.range = { min: axis.actual_Range.min, max: axis.actual_Range.max, interval: axis.actual_Range.interval };
+                        axis.setRange = true;
+                    } else {
+                        axis.setRange = false;
+                    }
             }
 			if(!chartObj.resetZooming && !axis._initialRange)					
                 axis._initialRange = axis.range == null ? { min: null, max: null, interval: null } : { min: axis.range.min, max: axis.range.max, interval: axis.range.interval };
@@ -14243,6 +14248,7 @@ ej.EjStripline = function (chartobj) {
         },
         _calculateHorizontalStripline: function (widthValue, pointstart, axis, stripLine) {
             var borderWidth = stripLine.borderWidth,
+				height = this.chart.model.m_AreaBounds.Height,
                 width = widthValue ? widthValue :(borderWidth ? borderWidth : 0),
                 x = (axis.isInversed) ? (pointstart - widthValue) : pointstart,
                 y = this.chart.model.m_AreaBounds.Y,
@@ -17244,7 +17250,8 @@ ej.EjTrendLineRenderer = function () {
                 xVal = 0, yVal = 0, isEmpty, point, xDiff, yDiff,
                 currentPointsLenght = seriesPoints.length,
                 markerCount = 0, dataLabelCount = 0, sorted = true,
-                count = 0, minPoint = currentPointsLenght > 0 && seriesPoints[0].xValue;
+                count = 0, minPoint = currentPointsLenght > 0 && seriesPoints[0].xValue,
+                firstFound = false;
 
             for (var k = 0; k < currentPointsLenght; k++) {
                 point = seriesPoints[k];
@@ -17263,7 +17270,15 @@ ej.EjTrendLineRenderer = function () {
                 point.isEmpty && emptyPointsCount++;
                 xDiff = xVal - prevXValue;
                 yDiff = yVal - prevYValue;
-                if ((xDiff >= xTolerance || -xDiff >= xTolerance) || yDiff >= yTolerance || -yDiff >= yTolerance) {
+                // #A&P 744985: mappView | XYChart widget | Issue with XY Chart Graphing Large Numbers
+                // should be fixed by https://support.syncfusion.com/support/tickets/359920
+                if(!firstFound) {
+                    firstFound = !point.isEmpty;
+                    point.visible = !point.isEmpty ? true : (point.visible || false);
+                    tempPoints[count++] = point;
+                    (xVal === xVal) && (prevXValue = xVal);
+                    (yVal === yVal) && (prevYValue = yVal);
+                } else if ((xDiff >= xTolerance || -xDiff >= xTolerance) || yDiff >= yTolerance || -yDiff >= yTolerance) {
                     point.visible = !point.isEmpty ? true : (point.visible || false);
                     tempPoints[count++] = point;
                     (xVal === xVal) && (prevXValue = xVal);
@@ -25281,7 +25296,7 @@ ej.ejChart = {};
                             currentSeries = series[i];
                             currentSeries._xAxisValueType = null;
                             pointLength = currentSeries.points.length;
-                            pointX = currentSeries.points[0].x;
+                            pointX = currentSeries.points.length ? currentSeries.points[0].x : pointX;
 
                             if (pointX != null) {
                                 currentSeries._xAxisValueType = this._getDataType(pointX);
@@ -29286,7 +29301,7 @@ ej.ejChart = {};
                 jsonLength = !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg") ? jsonObj.length : jsonObj[jsonObj.length - 1] === undefined ? jsonObj.length - 1 : jsonObj.length,
                 yLength = yNames.length,
                 isBubble = type == 'bubble',
-                checkString = !!jsonObj[0][xName].indexOf || (!series._hiloTypes ? !!(jsonObj[0][yNames] == 0 ? 0 : jsonObj[0][yNames] || jsonObj[0][series.size] || 0).indexOf : (jsonObj[0][series.high] && jsonObj[0][series.high].indexOf)),
+                checkString = jsonObj.length && (!!jsonObj[0][xName].indexOf || (!series._hiloTypes ? !!(jsonObj[0][yNames] == 0 ? 0 : jsonObj[0][yNames] || jsonObj[0][series.size] || 0).indexOf : (jsonObj[0][series.high] && jsonObj[0][series.high].indexOf))),
                 isDate = checkString && jsonObj[0][xName].indexOf && (jsonObj[0][xName].indexOf("/Date(") != -1),
                 point, m = 0, x, y,
                 hiddenIndex = this.model._hiddenPointIndex;
@@ -29329,21 +29344,14 @@ ej.ejChart = {};
         _processStringData: function (jsonObj, series, xName, yName, isDate, jsonLength, points) {
             var m = 0, x, y,
                 isDateString = jsonObj[0][xName].indexOf && jsonObj[0][xName].indexOf("/Date(") != -1;
-			if(points.length && series.dataSource instanceof ej.DataManager){					
-				while (m < points.length) {
-					x = points[m].x;
-					y = points[m].y;
-					series.points[m++] = { x: x, xValue: x, y: y, YValues: [y] };
+			while (m < jsonLength) {
+				x = jsonObj[m][xName];
+				isDate && !(x instanceof Date) && (x = new Date(isDateString ? parseInt(x.substr(6)) : x));
+				y = parseFloat(jsonObj[m][yName]);
+				series.points[m++] = { x: x, xValue: x, y: y, YValues: [y] };
+				if(points.length && points.length == jsonLength && series.dataSource instanceof ej.DataManager){					
 					if(!ej.isNullOrUndefined(points[m-1].fill))
 						series.points[m-1].fill = points[m-1].fill;
-				}
-			}
-            else {
-				while (m < jsonLength) {
-					x = jsonObj[m][xName];
-					isDate && !(x instanceof Date) && (x = new Date(isDateString ? parseInt(x.substr(6)) : x));
-					y = parseFloat(jsonObj[m][yName]);
-					series.points[m++] = { x: x, xValue: x, y: y, YValues: [y] };
 				}
 			}
         },
@@ -29640,6 +29648,19 @@ ej.ejChart = {};
         _isOrientationSupported: function () {
             return ("orientation" in window && "onorientationchange" in window);
         },
+
+        _getElemCoords: function(elem) { // crossbrowser version
+            var box = elem.getBoundingClientRect();                       
+            var body = document.body;            
+            var docEl = document.documentElement;
+            var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+            var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+            var clientTop = docEl.clientTop || body.clientTop || 0;
+            var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+            var top = box.top + scrollTop - clientTop;
+            var left = box.left + scrollLeft - clientLeft;
+            return { top: Math.round(top), left: Math.round(left) };
+        },
         _calculatePinchZoomPosition: function (e) {
             var areaBounds = $.extend(true, {}, this.model.m_AreaBounds), zoomPosition, axes = this.model._axes, axis,
                 event = (e.originalEvent.touches && e.originalEvent.touches.length > 0 ? e.originalEvent.touches[0] : e.originalEvent),
@@ -29650,13 +29671,12 @@ ej.ejChart = {};
 				areaBoundsY = areaBounds.Y * trans.y,
 				areaBoundsWidth = areaBounds.Width * trans.x,
 				areaBoundsHeight = areaBounds.Height * trans.y;
-            var chartEle = document.getElementById(this.element[0].id);
-            // Martin Aumair 14.01.2021 fix for A&P 676695
-            // get position of element in window (with scroll position)
-            // should be fixed by next syncfusion version. If not fixed do not overwrite with new version!!
-			var coords = this._getElemCoords(chartEle);
-			areaBoundsX = areaBoundsX + coords.left;
-			areaBoundsY = areaBoundsY + coords.top;			
+			var chartEle = document.getElementById(this.element[0].id);
+			//areaBoundsX = areaBoundsX + chartEle.offsetParent.offsetLeft;
+			//areaBoundsY = areaBoundsY + chartEle.offsetParent.offsetTop;	
+            var coords = this._getElemCoords(chartEle);
+            areaBoundsX = areaBoundsX + coords.left;
+            areaBoundsY = areaBoundsY + coords.top;					
             if (pageX > areaBoundsX  && pageX < areaBoundsX + areaBoundsWidth && pageY > areaBoundsY && pageY < areaBoundsY + areaBoundsHeight) {
                 if (!panTouch)
                     panTouch = this.previousPanTouch = { pageX: pageX, pageY: pageY };
@@ -29669,7 +29689,7 @@ ej.ejChart = {};
                 for (; j < length; j++) {
                     axis = axes[j];
                     orientation = axis.orientation.toLowerCase() == "horizontal";
-                    offset = orientation ? ((panTouch.pageX - pageX) / axis.width * axis.zoomFactor) : ((panTouch.pageY - pageY) / axis.height * axis.zoomFactor);
+                    offset = orientation ? ((panTouch.pageX - pageX) / areaBoundsWidth * axis.zoomFactor) : ((panTouch.pageY - pageY) / areaBoundsHeight * axis.zoomFactor);
                     zoomPosition = axis.zoomPosition;
                     axis.zoomPosition = this._ensureValueInMinMax(orientation ? zoomPosition + offset : zoomPosition - offset, 0, 1 - axis.zoomFactor);
                     pinchPan = pinchPan || (zoomPosition != axis.zoomPosition);
@@ -29682,27 +29702,6 @@ ej.ejChart = {};
             }
 
         },
-        // Martin Aumair 14.01.2021 fix for A&P 676695
-        // get position of element in window (with scroll position)
-        // https://stackoverflow.com/a/26230989
-        // should be fixed by next syncfusion version. If not fixed do not overwrite with new version!!
-        _getElemCoords: function (elem) {
-			var box = elem.getBoundingClientRect();
-
-			var body = document.body;
-			var docEl = document.documentElement;
-
-			var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-			var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-			var clientTop = docEl.clientTop || body.clientTop || 0;
-			var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-			var top  = box.top +  scrollTop - clientTop;
-			var left = box.left + scrollLeft - clientLeft;
-
-			return { top: Math.round(top), left: Math.round(left) };
-		},
         _calculateTouchDistance: function (previous, current) {
             var result = [], j = 0, length = current.length;
 
@@ -29723,11 +29722,15 @@ ej.ejChart = {};
         },
         _calculatePinchZoomFactor: function (scale, orientation, target) {
             var model = this.model, axes = model._axes, zoomedOut = true, zoomed, currentScale, origin, cumulativeScale,
-                axisScale, axis, factor, zoomFactor, zoomPosition, areaBounds = model.m_AreaBounds,
+                axisScale, axis, factor, zoomFactor, zoomPosition, areaBounds = $.extend(true, {}, model.m_AreaBounds),
                 prevScale, scaleLimit = 10000, i = 0, length = axes.length;
 
             orientation = (orientation == 'x' ? 'horizontal' : (orientation == 'y' ? 'vertical' : null));
-
+			var trans = this.getScaleValues(this);
+		    var areaBoundsX = areaBounds.X * trans.x,
+				areaBoundsY = areaBounds.Y * trans.y,
+				areaBoundsWidth = areaBounds.Width * trans.x,
+				areaBoundsHeight = areaBounds.Height * trans.y;
             if (this.previousScale != null) {
                 for (; i < length; i++) {
                     if (!orientation || axes[i].orientation === orientation) {
@@ -29740,7 +29743,7 @@ ej.ejChart = {};
                         zoomPosition = axis.zoomPosition;
                         axisScale = this._ensureValueInMinMax(1 / axis.zoomFactor, 1, scaleLimit);
                         cumulativeScale = this._ensureValueInMinMax(axisScale + (axisScale * (currentScale - prevScale) / prevScale), 1, scaleLimit);
-                        origin = (axis.orientation == 'horizontal' ? (scale[1].center.x / areaBounds.Width) : (1 - scale[1].center.y / areaBounds.Height));
+                        origin = (axis.orientation == 'horizontal' ? (scale[1].center.x / areaBoundsWidth) : (1 - scale[1].center.y / areaBoundsHeight));
                         axis.zoomFactor = this._ensureValueInMinMax(1 / cumulativeScale, 1 / scaleLimit, 1);
                         axis.zoomPosition = this._ensureValueInMinMax(zoomPosition + (zoomFactor - axis.zoomFactor) * origin, 0, 1 - axis.zoomFactor);
                         zoomed = zoomed || (zoomFactor != axis.zoomFactor);
@@ -29785,10 +29788,15 @@ ej.ejChart = {};
             return { touches: [], movements: [] };
         },
         _pointerPinchStart: function (e) {
-            var event = e.originalEvent, targetId, model = this.model, bounds = model.m_AreaBounds, eventObj, elementOffset = $(this.element).offset(),
+            var event = e.originalEvent, targetId, model = this.model, bounds = $.extend(true, {}, model.m_AreaBounds), eventObj, elementOffset = $(this.element).offset(),
                 params = this.eventParams || (this.eventParams = this._initEventParams()),
                 x = (event.pageX || event.changedTouches[0].pageX) - elementOffset.left, y = (event.pageY || event.changedTouches[0].pageY) - elementOffset.top;
-
+				// to check transform 
+			var trans = this.getScaleValues(this);
+			var m_AreaBoundsX = bounds.X * trans.x,
+				m_AreaBoundsY = bounds.Y * trans.y,
+				m_AreaBoundsWidth = bounds.Width * trans.x,
+				m_AreaBoundsHeight = bounds.Height * trans.y;
             if (this.model.selectionEnable) {
                 this.cancelEvent(e);
                 event.preventDefault();
@@ -29804,7 +29812,7 @@ ej.ejChart = {};
                     this.startZoom(e);
                 else if (targetId.indexOf("ZoomOut") != -1 || targetId.indexOf("ZoomIn") != -1)
                     this.startZoomInOut(e);
-                else if (x > bounds.X && x < bounds.X + bounds.Width && y > bounds.Y && y < bounds.Y + bounds.Height) {
+                else if (x > m_AreaBoundsX && x < m_AreaBoundsX + m_AreaBoundsWidth && y > m_AreaBoundsY && y < m_AreaBoundsY + m_AreaBoundsHeight) {
                     event.touches ? (params.touches = this._copyTouches(event.touches)) : this._addTouchPointer(params.touches, { pageX: x, pageY: y, pointerId: event.pointerId });
                     if (params.touches.length < 2)
                         this.chartMouseDown(e);
@@ -31777,7 +31785,7 @@ ej.ejChart = {};
                     var mousePanCords = this.calMousePosition(e);
                     this.mousePanX = mousePanCords.X;
                     this.mousePanY = mousePanCords.Y;
-                    if (this.mousePanX >= model.m_AreaBounds.X && this.mousePanX < (model.m_AreaBounds.X + model.m_AreaBounds.Width) && this.mousePanY < (model.m_AreaBounds.Y + model.m_AreaBounds.Height + 18) && this.mousePanY >= model.m_AreaBounds.Y) {
+                    if (this.mousePanX >= m_AreaBoundsX && this.mousePanX < (m_AreaBoundsX + m_AreaBoundsWidth) && this.mousePanY < (m_AreaBoundsY + m_AreaBoundsHeight + 18) && this.mousePanY >= m_AreaBoundsY) {
                         this.doPan = true;
 
                     }
@@ -35340,7 +35348,7 @@ ej.ejChart = {};
                                 }
                             }
                             var xPointLocation = { X: (chart.mousemoveX), Y: (axis.y) };
-                            chart.displayAxisTooltip(xPointLocation, xVal, axis, axisIndex, mouseLocation);
+                            chart.displayAxisTooltip(xPointLocation, xVal, axis, axisIndex, mouseLocation, false, trans);
                             $("#" + chart.svgObject.id + '_AxisToolTipText' + '_' + axisIndex).show();
                             $("#" + chart.svgObject.id + '_AxisToolTipRect' + '_' + axisIndex).show();
                         }
@@ -35361,7 +35369,7 @@ ej.ejChart = {};
 
                             }
                             var ypointLocation = { X: axis.x, Y: (chart.mousemoveY) };
-                            chart.displayAxisTooltip(ypointLocation, yVal, axis, axisIndex, mouseLocation);
+                            chart.displayAxisTooltip(ypointLocation, yVal, axis, axisIndex, mouseLocation, false, trans);
                             $("#" + chart.svgObject.id + '_AxisToolTipText' + '_' + axisIndex).show();
                             $("#" + chart.svgObject.id + '_AxisToolTipRect' + '_' + axisIndex).show();
                         }
@@ -36361,6 +36369,7 @@ ej.ejChart = {};
                 this.currentPageY = evt.pageY;
 				$("#secondCanvas").remove();
                 $("#" + this._id + "_canvas").css({ "cursor": "pointer" });
+				var trans = this.getScaleValues(this);
                 if (!ej.isTouchDevice() && !deferredZoom) {
                     var oDelta;
                     oDelta = {
@@ -36373,7 +36382,7 @@ ej.ejChart = {};
                         'y': evt.pageY
                     };
                     $.each(model._axes, function (index, axis) {
-                        var currentScale = Math.max(1 / ej.EjSvgRender.utils._minMax(axis.zoomFactor, 0, 1), 1);
+                        var currentScale = Math.max(1 / ej.EjSvgRender.utils._minMax(axis.zoomFactor, 0, 1), 1) * trans.x;
                         chart.translate(axis, (oDelta.x), (oDelta.y), currentScale);
                     });
                     this._updateScroll();
@@ -37126,7 +37135,7 @@ ej.ejChart = {};
             $(tooltipdiv).css("left", xLoc);
             $(tooltipdiv).css("top", yLoc);
         },
-        displayAxisTooltip: function (location, text, axis, index, mouseLoc, tracker) {
+        displayAxisTooltip: function (location, text, axis, index, mouseLoc, tracker, transValue) {
 
             if (axis._valueType.toLowerCase() == "double") {
                 var customFormat = (!(axis.labelFormat)) ? null : axis.labelFormat.match('{value}');
@@ -37159,7 +37168,7 @@ ej.ejChart = {};
                 var textOffset = ej.EjSvgRender.utils._measureText(trackAxisText, null, axis.crosshairLabel.font);
                 if (orientation == 'horizontal') {
                     x = x - textOffset.width / 2;
-                    if (axis.labelPosition == 'inside' || (opposedPosition ? mouseLoc.y < axis.y : mouseLoc.y > axis.y)) {
+                    if (axis.labelPosition == 'inside' || (opposedPosition ? mouseLoc.y < axis.y : mouseLoc.y > (axis.y * transValue.y))) {
                         if (opposedPosition == false) {
                             y = axis.y - textOffset.height + maxTickSize - (axis._isScroll ? this.model.scrollerSize : 0);
                             position = "top";
@@ -37190,7 +37199,7 @@ ej.ejChart = {};
 				}
                 if (orientation == 'vertical') {
                     y = location.Y + textOffset.height / 4;
-                    if (axis.labelPosition == 'inside' || (!opposedPosition && mouseLoc.x < axis.x)) {
+                    if (axis.labelPosition == 'inside' || (!opposedPosition && mouseLoc.x < (axis.x * transValue.x))) {
                         if (opposedPosition == true) {
                             x = axis.x - textOffset.width + padding - maxTickSize;
                             position = "left";
@@ -37227,11 +37236,11 @@ ej.ejChart = {};
 							y = y - (textOffset.height/2);						
 					}
                 }
-
+                var canvasPadding = (enableCanvas) ? padding / 4 : 0
                 var textAxisOptions = {
                     'id': this.svgObject.id + '_AxisToolTipText' + '_' + index,
-                    'x': x - vPadding,
-                    'y': y + hPadding,
+                    'x': x - (enableCanvas ? 0 : vPadding),
+                    'y': y + (enableCanvas ? - canvasPadding : hPadding),
                     'fill': axis.crosshairLabel.font.color,
                     'font-size': axis.crosshairLabel.font.size,
                     'font-family': axis.crosshairLabel.font.fontFamily,
@@ -37241,16 +37250,15 @@ ej.ejChart = {};
                     'opacity': axis.crosshairLabel.font.opacity
 
                 };
-                var canvasPadding = (enableCanvas) ? padding / 4 : 0,
-                    fontSize = ej.EjSvgRender.utils._measureText(commonTrackTextArgs.data.currentTrackText, this.model.m_AreaBounds.Width, axis.crosshairLabel.font),
+                var fontSize = ej.EjSvgRender.utils._measureText(commonTrackTextArgs.data.currentTrackText, this.model.m_AreaBounds.Width, axis.crosshairLabel.font),
                     crosshairLabel = axis.crosshairLabel,
                     x = (x - padding),
                     y = (y - (fontSize.height)),
                     width = (fontSize.width) + (2 * padding),
                     height = (2 * fontSize.height) - (2 * padding);
                 var toolAxisRectOptions = {
-                    'x': x - vPadding,
-                    'y': y + hPadding,
+                    'x': x - (enableCanvas ? 0 : vPadding),
+                    'y': y + (enableCanvas ? -canvasPadding : hPadding),
                     'width': width,
                     'height': height,
                     'rx': crosshairLabel.rx * ((enableCanvas) ? 2 : 1),
@@ -41676,7 +41684,7 @@ ej.EjSvgScrollbarRender = function (element, scrollObj) {
 })(jQuery);;
 /**
 * @fileOverview Plugin to style the Html Chart elements
-* @copyright Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
+* @copyright Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under

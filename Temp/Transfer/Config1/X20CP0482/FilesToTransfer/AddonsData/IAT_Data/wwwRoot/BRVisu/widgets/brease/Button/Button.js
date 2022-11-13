@@ -463,20 +463,11 @@ define(['brease/core/BaseWidget',
     p.setImage = function (image, omitSettings) {
         //console.debug(WidgetClass.name + '[id=' + this.elem.id + '].setImage:', image, this.settings.imageAlign, Enum.ImageAlign.left);
         var widget = this;
-
-        this.imgEl.hide();
-        this.svgEl.hide();
-
+        _rejectImageDeferredIfPending.call(this);
         if (image !== undefined && image !== '') {
 
             if (omitSettings !== true) {
                 this.settings.image = image;
-            }
-
-            if (this.imageDeferred !== undefined) {
-                if (this.imageDeferred.state() === 'pending') {
-                    this.imageDeferred.reject();
-                }
             }
 
             if (UtilsImage.isStylable(image) && this.settings.useSVGStyling) {
@@ -484,15 +475,19 @@ define(['brease/core/BaseWidget',
                 this.imageDeferred.done(function (svgElement) {
                     widget.svgEl.replaceWith(svgElement);
                     widget.svgEl = svgElement;
-                    widget.svgEl.show();
                 });
+                this.imgEl.hide();
+                this.svgEl.show();
             } else {
                 this.imgEl.attr('src', image);
+                this.svgEl.hide();
                 this.imgEl.show();
             }
             this.setClasses();
         } else {
             this.settings.image = undefined;
+            this.svgEl.hide();
+            this.imgEl.hide();
         }
     };
 
@@ -691,6 +686,7 @@ define(['brease/core/BaseWidget',
         $(window).off('blur', this._bind('_blurOnMoveHandler'));
         $(document).off(BreaseEvent.MOUSE_UP, this._bind('_upHandler'));
         this._resetActiveState();
+        _rejectImageDeferredIfPending.call(this);
         SuperClass.prototype.dispose.apply(this, arguments);
     };
 
@@ -819,6 +815,12 @@ define(['brease/core/BaseWidget',
             widget.el.prepend(widget.textEl);
         } else {
             widget.el.append(widget.textEl);
+        }
+    }
+
+    function _rejectImageDeferredIfPending() {
+        if (this.imageDeferred !== undefined && this.imageDeferred.state() === 'pending') {
+            this.imageDeferred.reject();
         }
     }
 

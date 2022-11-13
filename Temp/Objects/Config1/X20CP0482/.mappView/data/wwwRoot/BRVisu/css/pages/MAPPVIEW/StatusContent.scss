@@ -1,1 +1,50 @@
 ﻿@import "mixins.scss";
+#StatusContent_GroupBox1 {
+	@include elemTop(4);
+}
+#StatusContent_GroupBox1 {
+	@include elemLeft(1);
+}
+#StatusContent_GroupBox1 {
+	@include elemWidth(1597);
+}
+#StatusContent_GroupBox1 {
+	@include elemHeight(94);
+}
+#StatusContent_GroupBox1 {
+		z-index: 0;
+}
+#StatusContent_GroupBox1 {
+	@include border-radius(10px);
+}
+#StatusContent_GroupBox1 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#StatusContent_GroupBox1 {
+		border-color: rgba(0, 0, 0, 1);
+}
+#StatusContent_GroupBox1 {
+	> .header{
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#StatusContent_AlarmLine1 {
+	@include elemHeight(80);
+}
+#StatusContent_AlarmLine1 {
+	@include elemTop(6);
+}
+#StatusContent_AlarmLine1 {
+	@include elemLeft(223);
+}
+#StatusContent_AlarmLine1 {
+	@include elemWidth(1149);
+}
+#StatusContent_AlarmLine1 {
+		z-index: 0;
+}
+#StatusContent_AlarmLine1 {
+	&.breaseAlarmLine .AlarmLineWrapper > div{
+	@include border-radius(10px);
+	}
+}

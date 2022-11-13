@@ -10,12 +10,13 @@ define(function () {
     /**
     * @method constructor
     * Creates a new WidgetObject instance.
-    * @param {String} id
-    * @param {ContentReference} contentId
-    * @param {brease.enum.WidgetState} state
-    * @param {brease.enum.WidgetState} suspendedState
-    * @param {Object} widget
-    * @param {Object} options
+    * @param {Object} data
+    * @param {String} data.id
+    * @param {ContentReference} data.contentId
+    * @param {brease.enum.WidgetState} data.state
+    * @param {brease.enum.WidgetState} data.suspendedState
+    * @param {brease.objects.WidgetInstance} data.widget
+    * @param {Object} data.options
     */
     /**
     * @property {String} id
@@ -30,14 +31,14 @@ define(function () {
     * @property {brease.enum.WidgetState} suspendedState
     */
     /**
-    * @property {Object} widget
+    * @property {brease.objects.WidgetInstance} widget
     */
     /**
     * @property {Object} options
     */
     var WidgetObject = function (data) {
         var self = this;
-        ['id', 'contentId', 'state', 'suspendedState', 'options', 'widget'].forEach(function (key) {
+        ['id', 'contentId', 'state', 'suspendedState', 'widget', 'options'].forEach(function (key) {
             if (data[key] !== undefined) {
                 self[key] = data[key]; 
             }

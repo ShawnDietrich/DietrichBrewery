@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _LIBRARIES_20221107192440_
-#define _LIBRARIES_20221107192440_
+#ifndef _LIBRARIES_20221113115924_
+#define _LIBRARIES_20221113115924_
 
 __asm__(".section \".plc\"");
 
@@ -37,11 +37,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIODiag/AsIODiag.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10man/Acp10man.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10par/Acp10par.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/ViBase/ViBase.var\\\" scope \\\"global\\\"\\n\"");
@@ -63,24 +58,28 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsEPL/AsEPL.var\\\" scope \\\"gl
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/AsIO/AsIO.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomain.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/SfDomain/SfDomainError.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempError.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTempAlarm.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/MpTemp/MpTemp.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpBase/MpBase.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MTBasics/MTBasics.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10man/Acp10man.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Acp10par/Acp10par.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/NcGlobal/NcGlobal.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpAlarmX/MpAlarmX.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpAlarmX/MpAlarmXError.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/MpAlarmX/MpAlarmX.fun\\\" scope \\\"global\\\"\\n\"");
 
 /* Exported library functions and function blocks */
 #ifdef _OPERATOR_EXPORT
@@ -657,18 +656,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\
 	__asm__(".ascii \"plcexport \\\"DiagCpuIsSimulated\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"DiagCpuIsARsim\\\" FUN\\n\"");
 #endif
-#ifdef _NCGLOBAL_EXPORT
-	__asm__(".ascii \"plcexport \\\"nccnccom\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncda_dir\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncda_inf\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncda_id\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncda_wr\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncda_cr\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncaccess\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncalloc\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncaction\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ncglobal_action\\\" FUN\\n\"");
-#endif
 #ifdef _VIBASE_EXPORT
 	__asm__(".ascii \"plcexport \\\"ViBaseSaveDiagData\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"ViBaseLoadApplication\\\" FUB\\n\"");
@@ -813,6 +800,29 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\
 	__asm__(".ascii \"plcexport \\\"AsIOListDP\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"AsIOPVInfo\\\" FUB\\n\"");
 #endif
+#ifdef _COTRACE_EXPORT
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigCreate\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigLoad\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigSetTiming\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigOptionalParameter\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddDataPoint\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddStartTrigger\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceRecorder\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceDataReadRecords\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"CoTraceDataSaveCsv\\\" FUB\\n\"");
+#endif
+#ifdef _MPTEMP_EXPORT
+	__asm__(".ascii \"plcexport \\\"MpTempController\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempControllerConfig\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempGroup\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempGroupConfig\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempHCM\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpTempHCMConfig\\\" FUB\\n\"");
+#endif
+#ifdef _MPBASE_EXPORT
+	__asm__(".ascii \"plcexport \\\"MpComHandle\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpComVersion\\\" FUN\\n\"");
+#endif
 #ifdef _MTBASICS_EXPORT
 	__asm__(".ascii \"plcexport \\\"MTBasicsDT1\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"MTBasicsDT2\\\" FUB\\n\"");
@@ -830,61 +840,41 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/CoTrace/CoTrace.var\\\" scope \\
 	__asm__(".ascii \"plcexport \\\"MTBasicsTimeDelay\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"MTBasicsTransferFcn\\\" FUB\\n\"");
 #endif
-#ifdef _SFDOMAIN_EXPORT
-	__asm__(".ascii \"plcexport \\\"SfDomainConnect\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainTransfer\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainCompletion\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainInfo\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainExchange\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainControl\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainTableCompletion\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionBool\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainLoadSafeOptions\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionBool\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSaveSafeOptions\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionSint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionSint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUsint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUsint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionInt\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionInt\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionDint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionDint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionUdint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionUdint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeOptionString\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeOptionString\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainGetSafeNodeAvailability\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"SfDomainSetSafeNodeAvailability\\\" FUB\\n\"");
+#ifdef _NCGLOBAL_EXPORT
+	__asm__(".ascii \"plcexport \\\"nccnccom\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_dir\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_inf\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_id\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_wr\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncda_cr\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncaccess\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncalloc\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncaction\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ncglobal_action\\\" FUN\\n\"");
 #endif
-#ifdef _MPBASE_EXPORT
-	__asm__(".ascii \"plcexport \\\"MpComHandle\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpComVersion\\\" FUN\\n\"");
-#endif
-#ifdef _MPTEMP_EXPORT
-	__asm__(".ascii \"plcexport \\\"MpTempController\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempControllerConfig\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempGroup\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempGroupConfig\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempHCM\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"MpTempHCMConfig\\\" FUB\\n\"");
-#endif
-#ifdef _COTRACE_EXPORT
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigCreate\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigLoad\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigSetTiming\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigOptionalParameter\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddDataPoint\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceConfigAddStartTrigger\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceRecorder\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceDataReadRecords\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"CoTraceDataSaveCsv\\\" FUB\\n\"");
+#ifdef _MPALARMX_EXPORT
+	__asm__(".ascii \"plcexport \\\"MpAlarmXCore\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXListUI\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXHistoryUI\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXCheckState\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXCheckStateID\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXCheckReaction\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXSet\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXAcknowledge\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXAcknowledgeID\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXReset\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXResetID\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXHistory\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXClearHistory\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXConfigAlarm\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXConfigMapping\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXQuery\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXAcknowledgeAll\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"MpAlarmXAlarmControl\\\" FUB\\n\"");
 #endif
 
 __asm__(".previous");
 
 
-#endif /* _LIBRARIES_20221107192440_ */
+#endif /* _LIBRARIES_20221113115924_ */
 

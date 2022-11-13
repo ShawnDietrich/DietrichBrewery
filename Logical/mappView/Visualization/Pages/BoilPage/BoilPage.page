@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pdef:Page xmlns:pdef="http://www.br-automation.com/iat2015/pageDefinition/v2" id="BoilPageID" layoutRefId="DesktopLayout">
+  <Assignments>
+    <Assignment type="Content" baseContentRefId="StatusContent" areaRefId="AreaHeader" />
+    <Assignment type="Content" baseContentRefId="BoilContent" areaRefId="AreaContent" />
+    <Assignment type="Content" baseContentRefId="NavContent" areaRefId="AreaNavigation" />
+  </Assignments>
+</pdef:Page>

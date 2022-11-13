@@ -29,16 +29,22 @@ function (config, settings, Utils) {
         }
 
         Utils.defineProperty(config, 'debug', $('script[src="release/brease.js"]').length === 0);
-        Utils.defineProperty(config, 'mocked', mocked);
-        Utils.defineProperty(config, 'mockType', mockType);
+        if (mocked) {
+            config.mocked = mocked;
+            config.mockType = mockType; 
+        }
 
         var appElem = document.getElementById('appContainer');
-        window.brease = {
-            config: config,
-            settings: settings,
-            appElem: appElem,
-            appView: $(appElem)
-        };
+        try {
+            window.brease = {
+                config: config,
+                settings: settings,
+                appElem: appElem,
+                appView: $(appElem)
+            };
+        } catch (error) {
+            
+        }
 
         require([servicePath, 
             webSocketPath, 
@@ -78,16 +84,16 @@ function (config, settings, Utils) {
                     'brease/controller/WidgetController', 
                     'brease/model/VisuModel', 
                     'brease/controller/KeyboardManager'], 
-                function (bindingController, connectionController, infoController, actionController, pageController, overlayController, uiController, NumberFormatter, eventController, widgetController, visuModel) {
+                function (bindingController, connectionController, infoController, actionController, pageController, overlayController, uiController, NumberFormatter, eventController, widgetController, visuModel, keyboardManager) {
                     require(['brease/services/MeasurementSystem',
                         'brease/services/Language', 
                         'brease/services/Culture',
-                        'brease/services/User', 
+                        'brease/services/UserService', 
                         'brease/services/TextFormatter',
                         'brease/services/Logger', 
                         'brease/services/Configuration',
                         'brease/services/Opcua'], 
-                    function (measurementSystem, language, culture, user, textFormatter, loggerService, configuration, opcua) {
+                    function (measurementSystem, language, culture, userService, textFormatter, loggerService, configuration, opcua) {
                         files = ['brease/brease'];
                         if (brease.config.editMode === true || brease.config.mocked === true) {
                             files.push('brease/core/designer/Brease/ClassExtension');
@@ -100,7 +106,7 @@ function (config, settings, Utils) {
                                 measurementSystem: measurementSystem,
                                 language: language,
                                 culture: culture,
-                                user: user,
+                                user: userService,
                                 textFormatter: textFormatter,
                                 loggerService: loggerService,
                                 configuration: configuration,
@@ -116,7 +122,8 @@ function (config, settings, Utils) {
                                 uiController: uiController,
                                 widgetController: widgetController,
                                 formatter: new NumberFormatter(),
-                                eventController: eventController
+                                eventController: eventController,
+                                keyboardManager: keyboardManager
                             });
                             brease[startMethod](startId);
                         });

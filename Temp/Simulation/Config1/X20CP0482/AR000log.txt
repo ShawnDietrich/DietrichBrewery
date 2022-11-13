@@ -1,21 +1,21 @@
-Mon Nov  7 18:52:53 2022
+Sun Nov 13 11:53:53 2022
 COPYRIGHT (C) B&R Industrial Automation GmbH
 
-Mon Nov  7 18:52:53 2022
+Sun Nov 13 11:53:53 2022
 No ARsim registration found!
 
-Mon Nov  7 18:52:53 2022
-InstanceName: 0000096eaa69139a
+Sun Nov 13 11:53:53 2022
+InstanceName: 00000142bc607ab1
 
-Mon Nov  7 18:52:53 2022
+Sun Nov 13 11:53:53 2022
 WorkingDirectory: G:\GitRepos\Brewery\AS Project\DietrichBrewery\Temp\Simulation\Config1\X20CP0482\
 
-Mon Nov  7 18:52:53 2022
+Sun Nov 13 11:53:53 2022
 COMMAND_COLDSTART
 
-Mon Nov  7 18:52:55 2022
+Sun Nov 13 11:53:55 2022
 Version: B4.93
 
-Mon Nov  7 18:52:56 2022
+Sun Nov 13 11:59:47 2022
 COMMAND_TERMINATE
 

@@ -2,6 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Program" Language="IEC">BrewingSeq</Object>
+    <Object Type="Program" Language="IEC">HLTControl</Object>
+    <Object Type="Program" Language="IEC">MashTunControl</Object>
+    <Object Type="Program" Language="IEC">KettleControl</Object>
   </Objects>
 </Package>

@@ -7,7 +7,7 @@ $(AS_PROJECT_PATH)/Logical/Libraries/MpBase/MpBase.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTempError.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/astime/astime.fun
-$(AS_PROJECT_PATH)/Logical/ProcessControl/KettleControl/Variables.var
+$(AS_PROJECT_PATH)/Logical/Brewing/KettleControl/Variables.var
 $(AS_PROJECT_PATH)/Logical/Global.var
 $(AS_PROJECT_PATH)/Logical/Global.typ
 $(AS_PROJECT_PATH)/Physical/Config1/X20CP0482/mappControl/Config.tempcontroller

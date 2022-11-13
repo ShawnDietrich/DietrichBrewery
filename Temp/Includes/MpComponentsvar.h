@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1667141630_3_
-#define _BUR_1667141630_3_
+#ifndef _BUR_1668355033_1_
+#define _BUR_1668355033_1_
 
 #include <bur/plctypes.h>
 
@@ -14,6 +14,7 @@
 
 /* Variables */
 _GLOBAL struct MpComIdentType gAlarmXCore;
+_GLOBAL struct MpComIdentType Cfg_MashTemp_simulated;
 _GLOBAL struct MpComIdentType Cfg_KettleTemp;
 _GLOBAL struct MpComIdentType Cfg_HLTTemp;
 
@@ -31,5 +32,5 @@ __asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/Config1/GlobalComponents
 __asm__(".previous");
 
 
-#endif /* _BUR_1667141630_3_ */
+#endif /* _BUR_1668355033_1_ */
 

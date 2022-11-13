@@ -1,7 +1,7 @@
 /*!
 *  filename: ej.globalize.js
-*  version : 18.4.0.30
-*  Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
+*  version : 19.4.0.38
+*  Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -94,7 +94,7 @@ ej.cultures['en-US'].calendar = ej.cultures['en-US'].calendar || ej.cultures['en
 var regexTrim = /^\s+|\s+$/g,
     regexInfinity = /^[+-]?infinity$/i,
     regexHex = /^0x[a-f0-9]+$/i,
-	regexExpo = /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)/;
+	regexExpo = /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)/,
     regexParseFloat = /^[+-]?\d*\.?\d*(e[+-]?\d+)?$/;
 var charMap =  {
                 '9': "[0-9 ]",

@@ -1,10 +1,8 @@
 define(['brease/core/BaseWidget',
-    'brease/enum/Enum',
-    'brease/core/Types',
     'brease/decorators/DragAndDropCapability',
     'widgets/brease/common/DragDropProperties/libs/DraggablePropertiesEvents',
     'widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents'
-], function (SuperClass, Enum, Types, dragAndDropCapability) {
+], function (SuperClass, dragAndDropCapability) {
 
     'use strict';
 
@@ -39,7 +37,7 @@ define(['brease/core/BaseWidget',
     /**
      * @cfg {String} tooltip=''
      * @iatStudioExposed
-     * @hide.  
+     * @hide
      */
 
     /**

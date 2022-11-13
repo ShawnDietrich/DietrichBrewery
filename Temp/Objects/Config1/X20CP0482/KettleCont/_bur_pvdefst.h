@@ -536,3 +536,5 @@ _BUR_LOCAL plcstring HrRe[5];
 _BUR_LOCAL plcstring MinRe[5];
 _BUR_LOCAL plcstring SecRe[5];
 _BUR_LOCAL plcstring TmrRemain[11];
+_BUR_LOCAL plcbit pbUp;
+_BUR_LOCAL plcbit pbDown;

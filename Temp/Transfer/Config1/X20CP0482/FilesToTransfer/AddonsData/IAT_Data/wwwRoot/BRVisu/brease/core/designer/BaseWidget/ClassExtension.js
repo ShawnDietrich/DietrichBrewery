@@ -107,6 +107,10 @@ define(['brease/core/Utils'], function (Utils) {
                             if (self.designer.isSquare()) {
                                 if (name === 'height') changeset['width'] = value;
                                 if (name === 'width') changeset['height'] = value;
+                                if (name === 'minHeight') changeset['minWidth'] = value;
+                                if (name === 'minWidth') changeset['minHeight'] = value;
+                                if (name === 'maxHeight') changeset['maxWidth'] = value;
+                                if (name === 'maxWidth') changeset['maxHeight'] = value;
                             }
                             return changeset;
                         }
