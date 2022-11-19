@@ -1,4 +1,11 @@
 VAR
+	AutoFillMash : ValveControl;
+	AutoFillHLT : ValveControl;
 	MashImgCont : INT;
 	HLTImgCont : INT;
+END_VAR
+(*Simulation Variables*)
+VAR
+	SimFlowMeterPulse : TON;
+	SimFlowMeterVal : REAL;
 END_VAR

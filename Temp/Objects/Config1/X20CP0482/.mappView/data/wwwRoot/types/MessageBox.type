@@ -117,7 +117,7 @@
     </StyleProperty>
 
     <StyleProperty name="headerGradient" category="Appearance" type="Gradient">
-      <StyleElement selector=".breaseMessageBoxHeader" attribute="@include backGroundGradient('$value')"></StyleElement>
+      <StyleElement selector=".breaseMessageBoxHeader" attribute="background-image"></StyleElement>
       <Description>
         background as a gradient of header area
       </Description>
@@ -309,15 +309,15 @@
     </StyleProperty>
 
     <StyleProperty name="buttonBackGroundGradient" category="Appearance" type="Gradient" >
-      <StyleElement selector=".messageBoxButton" attribute="@include backGroundGradient('$value')"></StyleElement>
+      <StyleElement selector=".messageBoxButton" attribute="background-image"></StyleElement>
       <Description>
         background gradient for MessageBox buttons
       </Description>
     </StyleProperty>
     <StyleProperty name="mouseDownButtonBackGroundGradient" category="Appearance" type="Gradient" >
-      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="@include backGroundGradient('$value')"></StyleElement>
-      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="@include backGroundGradient('$value')"></StyleElement>
-      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="@include backGroundGradient('$value')"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode):active" attribute="background-image"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).active" attribute="background-image"></StyleElement>
+      <StyleElement selector=".messageBoxButton:not(.disabled):not(.editMode).checked" attribute="background-image"></StyleElement>
       <Description>
         background gradient for MessageBox buttons in mousedown state
       </Description>

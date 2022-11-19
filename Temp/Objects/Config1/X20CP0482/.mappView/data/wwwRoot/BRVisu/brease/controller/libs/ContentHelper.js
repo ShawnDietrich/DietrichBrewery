@@ -22,8 +22,7 @@ function (contentManager, ContentStatus, PageType, visuModel, Utils, BreaseEvent
 
                 var arInactiveContents = arContent.filter(function (contentId) {
                     // all contents which are not activated so far
-                    var state = contentManager.getActiveState(contentId);
-                    return state < ContentStatus.active && state !== ContentStatus.aborted;
+                    return contentManager.getActiveState(contentId) < ContentStatus.active;
                 });
 
                 if (arInactiveContents.length === 0) {
@@ -55,7 +54,7 @@ function (contentManager, ContentStatus, PageType, visuModel, Utils, BreaseEvent
                 _queue.forEach(function (data, id) {
                     if (data.def === deferred) {
                         window.clearTimeout(data.timeout);
-                        _resolve(data.def, true, id, data.eventTypes, data.listener);
+                        _resolve(data.def, true, id, data.eventType, data.listener);
                     }
                 }, this);
             },
@@ -197,27 +196,23 @@ function (contentManager, ContentStatus, PageType, visuModel, Utils, BreaseEvent
 
     function _waitForContentEvents(def, arContents, type) {
         _id += 1;
-        var eventTypes = (type === 'activate') ? [BreaseEvent.CONTENT_ACTIVATED, BreaseEvent.CONTENT_ACTIVATE_ERROR] : [BreaseEvent.CONTENT_DEACTIVATED],
+        var eventType = (type === 'activate') ? BreaseEvent.CONTENT_ACTIVATED : BreaseEvent.CONTENT_DEACTIVATED,
             listener = _contentEventListener.bind(null, _id),
-            timeout = window.setTimeout(_resolve, ContentHelper.TIMEOUT[type], def, false, _id, eventTypes, listener),
+            timeout = window.setTimeout(_resolve, ContentHelper.TIMEOUT[type], def, false, _id, eventType, listener),
             data = {
                 listener: listener,
                 def: def,
                 arContent: arContents,
                 timeout: timeout,
-                eventTypes: eventTypes
+                eventType: eventType
             };
 
         _queue.set(_id, data);
-        eventTypes.forEach(function (type) {
-            brease.bodyEl.on(type, listener);
-        });
+        brease.bodyEl.on(eventType, listener);
     }
 
-    function _resolve(def, success, id, eventTypes, listener) {
-        eventTypes.forEach(function (type) {
-            brease.bodyEl.off(type, listener);
-        });
+    function _resolve(def, success, id, eventType, listener) {
+        brease.bodyEl.off(eventType, listener);
         _queue.delete(id);
         if (_queue.size === 0) {
             _id = 0;
@@ -234,7 +229,7 @@ function (contentManager, ContentStatus, PageType, visuModel, Utils, BreaseEvent
             data.arContent.splice(index, 1);
             if (data.arContent.length === 0) {
                 window.clearTimeout(data.timeout);
-                _resolve(data.def, true, id, data.eventTypes, data.listener);
+                _resolve(data.def, true, id, e.type, data.listener);
             }
         }
     }

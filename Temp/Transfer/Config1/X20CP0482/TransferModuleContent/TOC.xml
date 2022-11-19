@@ -6,7 +6,7 @@
 				<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
 					<File Name="-1662823413.binding" Size="10072" HashValue="14521C3AB5AD81E8E2596022615FDFBF" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="1970273527.binding" Size="507" HashValue="3D484307E606C335D3D731935759A4F2" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="893280410.binding" Size="279" HashValue="E2E97A1CA161035EAE829AC10C0F181E" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="893280410.binding" Size="6520" HashValue="7812D83A81217619E0FF5E2FA7AAB336" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="__SystemVariables.sessionVar" Size="3679" HashValue="47F4015152DC77A4E81EB725C733FBD6" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="vis_0.vis" Size="1511" HashValue="9A4EEA0B8585689D7DA1E7376EF73EA7" ProjectDependent="1" IgnoreDifference="0" />
@@ -25,6 +25,8 @@
 							<File Name="kegempty.png" Size="11658" HashValue="F8F679FBA36B74E5DD5953828DD2F420" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="kettle.png" Size="17589" HashValue="2B1254D68C0FFB59A82162D78CFF8C19" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="recipes.png" Size="10151" HashValue="A878EE0FFCE1CF92F37CBE109D4728C2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="reset-click.png" Size="39100" HashValue="388B7672ADBDAE02D0A127750CC36890" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="reset.png" Size="26597" HashValue="C993599D1763D1C96549CBEBAF75A975" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="start-button-off.png" Size="12343" HashValue="5143CF6BDBC136736EE599B8298AA328" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="start-button-on.png" Size="17953" HashValue="61ADD865C02AB3DE3CAE5FA5E48FE77D" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="stopOff.png" Size="10968" HashValue="9B148D025BE13914493C5ED8B4BC7EE7" ProjectDependent="1" IgnoreDifference="0" />
@@ -510,7 +512,7 @@
 						</Folder>
 						<Folder Name="release" ProjectDependent="1" IgnoreDifference="0">
 							<File Name="brease.js" Size="1279170" HashValue="838022B8FCB4A48D470670D83E59E34B" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease_core.min.css" Size="443135" HashValue="24E2C41F0DBD40F4B2608C92BFBADA78" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease_core.min.css" Size="443524" HashValue="BB60722E401B6D797610F621B45A77FF" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="system" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
@@ -1976,9 +1978,9 @@
 						<Folder Name="mappView" ProjectDependent="1" IgnoreDifference="0">
 							<File Name="BoilContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="DistilingContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="FillTankContent.html" Size="13106" HashValue="816910D6D1B3917D9D56A137E1F2F386" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="FillTankContent.html" Size="12872" HashValue="28F3B88D167901017BA7A3F658B67183" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="MainPageContent.html" Size="32934" HashValue="72EC3DF371005B5368BB9011C584ABCD" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="NavContent.html" Size="3717" HashValue="C8C3CA72B9EF3CFFEE8BB99709084E74" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="NavContent.html" Size="3757" HashValue="1E795B12F84EE16C6B9AB4CA9E4EA8EA" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="RecipeContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="StatusContent.html" Size="676" HashValue="2750FB973FB7B202E6115991F929B6F9" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
@@ -2060,7 +2062,7 @@
 			<Folder Name="OPCUA" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="Generated" ProjectDependent="1" IgnoreDifference="0">
-						<File Name="OpcUaMap.uar.gz" Size="720" HashValue="4E12EA48ABC82AAA88D8BDE41E8C372B" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="OpcUaMap.uar.gz" Size="967" HashValue="A590506298FCF9F7E0FB8AF2F87F5859" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IgnoreDifference="0">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1" IgnoreDifference="0" />
@@ -2161,7 +2163,7 @@
 			<Module Name="::DataObj" Type="18" Size="13788" Modified="2022-06-22 07:44:43" Version="4.93" ProjectDependent="1" />
 			<Module Name="::FWRules" Type="136" Size="456" Modified="2022-11-07 18:51:36" Version="1.00" ProjectDependent="1" />
 			<Module Name="::FileIO" Type="18" Size="39196" Modified="2022-06-22 07:46:56" Version="4.93" ProjectDependent="1" />
-			<Module Name="::FillingTan" Type="17" Size="1976" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
+			<Module Name="::FillingTan" Type="17" Size="3288" Modified="2022-11-19 10:36:15" Version="1.00" ProjectDependent="1" />
 			<Module Name="::Functions" Type="18" Size="1552" Modified="2022-11-13 10:57:17" Version="1.00" ProjectDependent="1" />
 			<Module Name="::HLTControl" Type="17" Size="12032" Modified="2022-11-13 11:53:24" Version="1.00" ProjectDependent="1" />
 			<Module Name="::HMIProgram" Type="17" Size="2076" Modified="2022-11-13 10:57:17" Version="1.00" ProjectDependent="1" />

@@ -3,7 +3,6 @@
 <xs:complexType name="widgets.brease.RectangleRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
-			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="-1" />
 			<xs:attribute name="height" use="optional" type="types:Size" default="100" />
 			<xs:attribute name="width" use="optional" type="types:Size" default="100" />
 		</xs:restriction>
@@ -13,10 +12,6 @@
 	<xs:complexContent>
 		<xs:extension base="iat:widgets.brease.RectangleRestrict">
 			<xs:attribute name="draggable" use="optional" type="types:Boolean" default="false" />
-			<xs:attribute name="maxHeight" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="minHeight" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="maxWidth" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="minWidth" use="optional" type="types:Size" default="0" />
 			<xs:attribute name="borderStyle" use="optional" type="types:BorderStyle" default="solid" />
 			<xs:attribute name="borderWidth" use="optional" type="types:PixelValCollection" default="1px" />
 			<xs:attribute name="cornerRadius" use="optional" type="types:PixelValCollection" default="0px" />

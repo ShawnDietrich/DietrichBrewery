@@ -42,12 +42,8 @@ define(['brease/helper/XHRPool'], function (XHRPool) {
         activateVisu: function (visuId, callback, callbackInfo) {
             if (visuId !== undefined) {
                 var request = XHRPool.getXHR(callbackInfo);
-                request.open('POST', _clientService + 'activateVisu');
-                request.send(JSON.stringify({
-                    'Parameter': {
-                        'visuId': visuId
-                    }
-                }), callback);
+                request.open('GET', _clientService + 'activateVisu?visuId=' + visuId);
+                request.send(null, callback);
             } else {
                 console.iatWarn('undefined visuId in method activateVisu');
             }

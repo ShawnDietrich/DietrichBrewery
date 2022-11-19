@@ -630,111 +630,98 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         }
         return false;
     }
-    
-    function _responseWithLoggerEntry(success, logCode, logArgs) {
-        this.logger.log(logCode, logArgs);
-        return {
-            success: success, code: logCode
-        };
-    }
-   
-    function _isContentLoadingInProgress() {
-        return _pageCycle.inProgress === true || 
-            _loadCycle.inProgress === true || 
-            this.contentManager.getPendingContents().length > 0;
-    }
-    
-    function _isCurrentPage(page, currentPage) {
-        return currentPage !== undefined && currentPage.id === page.id;
-    } 
-
-    function _getCurrentPage(page, container) {
-        var currentPageId = containers.getCurrentPage(container.id);
-        return (page.type === PageType.DIALOG) ? _visuModel.getDialogById(currentPageId) : _visuModel.getPageById(currentPageId);
-    }
-
-    function _isDefinedLayout(page) {
-        return _visuModel.getLayoutById(page.layout) !== undefined;
-    }
 
     function _loadPage(page, container, embedCall) {
         //embedCall=true => load of a Page embedded in assignment 
-        var activeContents = [];
+        var activeContents = [],
+            response,
+            isAllowedDialog = _isAllowedDialog(page),
+            pendingContents = (embedCall) ? [] : this.contentManager.getPendingContents();
 
         // A&P 629100: strategy for loadPage: not allowed as long one content is pending
-        // exception: internal page load (embedCall=true)
-        // exception: allowed dialogs, see _isAllowedDialog        
-        if (embedCall !== true && _isContentLoadingInProgress.call(this) && _isAllowedDialog(page) !== true) {
-            return _responseWithLoggerEntry.call(this, false, LogCode.CONTENT_LOADING_IN_PROCESS, {
-                pageId: page.id
-            });
-        }
-
-        if (_pageCycle.inProgress === false && page.type !== PageType.DIALOG) {
-            activeContents = this.contentManager.getContents([ContentStatus.active]);
-        }
-        var currentPage = _getCurrentPage(page, container);
-
-        // if page is current -> return with logger entry
-        if (_isCurrentPage(page, currentPage)) {
-
-            var contentsOfPage = _visuModel.getContentsOfPage(page.id, page.type);
-            for (var i = 0; i < contentsOfPage.length; i += 1) {
-                _pageCycle.remove(contentsOfPage[i]);
+        if ((_pageCycle.inProgress === false && _loadCycle.inProgress === false && pendingContents.length === 0) || embedCall === true || isAllowedDialog === true) {
+            if (_pageCycle.inProgress === false && page.type !== PageType.DIALOG) {
+                activeContents = this.contentManager.getContents([ContentStatus.active]);
             }
-            return _responseWithLoggerEntry.call(this, false, LogCode.PAGE_IS_CURRENT, {
+            var currentPageId = containers.getCurrentPage(container.id),
+                currentPage = (page.type === PageType.DIALOG) ? _visuModel.getDialogById(currentPageId) : _visuModel.getPageById(currentPageId);
+
+            if (currentPage === undefined || currentPageId !== page.id) {
+
+                if (_visuModel.getLayoutById(page.layout) !== undefined) {
+                    var contentsToLoad = _visuModel.getContentsOfPage(page.id, page.type),
+                        contentsToRemove = _getContentsToRemove(activeContents, contentsToLoad, container),
+                        layoutChange = false;
+                    if (page.type === PageType.PAGE) {
+                        _contentsToRemove = contentsToRemove.slice(0);
+                    }
+
+                    //console.log('%c' + 'contentsToLoad:' + JSON.stringify(contentsToLoad), 'color:#cc9900');
+                    //console.log('%c' + 'contentsToRemove:' + JSON.stringify(contentsToRemove), 'color:#cc9900');
+                    _loaderPool.startTagMode(contentsToLoad);
+                    if (container.isSameNode(this.rootContainer)) {
+                        _pageLoadInProgress = true;
+                    }
+                    if (currentPage === undefined || page.layout !== currentPage.layout) {
+                        _emptyContainer.call(this, container);
+                        layoutChange = true;
+                    }
+                    var layoutDiv = _createLayout.call(this, page.layout, container, page.type);
+                    _setPageProps(layoutDiv, page);
+                    containers.setCurrentPage(container.id, page.id);
+
+                    _pageCycle.addEventListener('CycleFinished', _cycleFinishListener);
+                    _pageCycle.start(_cycleCallback, contentsToLoad, contentsToRemove, {
+                        embedCall: embedCall,
+                        pageId: page.id,
+                        containerId: container.id,
+                        contentsToLoad: contentsToLoad,
+                        contentsToRemove: contentsToRemove
+                    });
+                    if (!layoutChange) {
+                        _removeChangingAssignments.call(this, currentPage, page, container);
+                    }
+                    _loadAssignments.call(this, page, container, layoutChange);
+                    Utils.setPageStyle((page.style || 'default'), layoutDiv, page.type);
+
+                    if (currentPage !== undefined && page.layout !== currentPage.layout && container.id !== this.rootContainer.id) {
+                        _prepareZoom.call(this, page, container);
+                    }
+                    response = {
+                        success: true
+                    };
+                } else {
+                    response = {
+                        success: false, code: LogCode.LAYOUT_NOT_FOUND
+                    };
+                    this.logger.log(response.code, {
+                        pageId: page.id, layoutId: page.layout, isStartPage: (_visuModel.startPageId === page.id)
+                    });
+                }
+
+            } else {
+                response = {
+                    success: false, code: LogCode.PAGE_IS_CURRENT
+                };
+                this.logger.log(response.code, {
+                    pageId: page.id
+                });
+
+                var contentsOfPage = _visuModel.getContentsOfPage(page.id, page.type);
+                for (var i = 0; i < contentsOfPage.length; i += 1) {
+                    _pageCycle.remove(contentsOfPage[i]);
+                }
+
+            }
+        } else {
+            response = {
+                success: false, code: LogCode.CONTENT_LOADING_IN_PROCESS
+            };
+            this.logger.log(response.code, {
                 pageId: page.id
             });
         }
-
-        // if layout is not defined -> return with logger entry
-        if (!_isDefinedLayout(page)) {
-            return _responseWithLoggerEntry.call(this, false, LogCode.LAYOUT_NOT_FOUND, {
-                pageId: page.id, layoutId: page.layout, isStartPage: (_visuModel.startPageId === page.id)
-            });
-        }
-
-        var contentsToLoad = _visuModel.getContentsOfPage(page.id, page.type),
-            contentsToRemove = _getContentsToRemove(activeContents, contentsToLoad, container),
-            layoutChange = false;
-
-        if (page.type === PageType.PAGE) {
-            _contentsToRemove = contentsToRemove.slice(0);
-        }
-
-        //console.log('%c' + 'contentsToLoad:' + JSON.stringify(contentsToLoad), 'color:#cc9900');
-        //console.log('%c' + 'contentsToRemove:' + JSON.stringify(contentsToRemove), 'color:#cc9900');
-        _loaderPool.startTagMode(contentsToLoad);
-        if (container.isSameNode(this.rootContainer)) {
-            _pageLoadInProgress = true;
-        }
-        if (currentPage === undefined || page.layout !== currentPage.layout) {
-            _emptyContainer.call(this, container);
-            layoutChange = true;
-        }
-        var layoutDiv = _createLayout.call(this, page.layout, container, page.type);
-        _setPageProps(layoutDiv, page);
-        containers.setCurrentPage(container.id, page.id);
-
-        _pageCycle.addEventListener('CycleFinished', _cycleFinishListener);
-        _pageCycle.start(_cycleCallback, contentsToLoad, contentsToRemove, {
-            embedCall: embedCall,
-            pageId: page.id,
-            containerId: container.id,
-            contentsToLoad: contentsToLoad,
-            contentsToRemove: contentsToRemove
-        });
-        if (!layoutChange) {
-            _removeChangingAssignments.call(this, currentPage, page, container);
-        }
-        _loadAssignments.call(this, page, container, layoutChange);
-        Utils.setPageStyle((page.style || 'default'), layoutDiv, page.type);
-
-        _prepareZoom.call(this, page, currentPage, container);
-                        
-        return {
-            success: true
-        };
+        return response;
     }
 
     function _resolve(deferred, success, code, data) {
@@ -797,47 +784,34 @@ function (BreaseEvent, Enum, CoreUtils, Utils, Deferred, VisuModel, LoaderPool, 
         }
     }
 
-    function _isZoomablePage(page, currentPage, container) {
-        return currentPage !== undefined && page.layout !== currentPage.layout && container.id !== this.rootContainer.id;
-    }
+    function _prepareZoom(page, container) {
 
-    function _prepareZoom(page, currentPage, container) {
+        var areaDiv, areaDivId, areaId, area, layoutId, parentPage, pageId, assignment, layoutDiv;
 
-        if (_isZoomablePage.call(this, page, currentPage, container)) {
+        areaDiv = $(container).closest('div[data-brease-areaId]')[0];
+        if (areaDiv) {
+            areaDivId = areaDiv.id;
+            areaId = areaDiv.getAttribute('data-brease-areaId');
+        }
 
-            var areaDiv = $(container).closest('div[data-brease-areaId]')[0],
-                areaDivId, areaId, area;
+        layoutDiv = $(container).closest('div[data-brease-layoutId]')[0];
+        if (layoutDiv) {
+            layoutId = layoutDiv.getAttribute('data-brease-layoutId');
+        }
 
-            if (areaDiv) {
-                areaDivId = areaDiv.id;
-                areaId = areaDiv.getAttribute('data-brease-areaId');
-            }
+        if (areaId && layoutId) {
+            area = _visuModel.getLayoutById(layoutId).areas[areaId];
+        }
 
-            var layoutDiv = $(container).closest('div[data-brease-layoutId]')[0],
-                layoutId, layout;
-            if (layoutDiv) {
-                layoutId = layoutDiv.getAttribute('data-brease-layoutId');
-                layout = _visuModel.getLayoutById(layoutId);
-            }
+        parentPage = $(container).closest('div[data-brease-pageId]')[0];
 
-            if (areaId && layout) {
-                area = layout.areas[areaId];
-            }
+        if (parentPage) {
+            pageId = parentPage.getAttribute('data-brease-pageId');
+            assignment = _visuModel.getPageById(pageId).assignments[areaId];
+        }
 
-            var parentPageDiv = $(container).closest('div[data-brease-pageId]')[0],
-                parentPageId, parentPage, assignment;
-
-            if (parentPageDiv) {
-                parentPageId = parentPageDiv.getAttribute('data-brease-pageId');
-                parentPage = _visuModel.getPageById(parentPageId);
-                if (parentPage) {
-                    assignment = parentPage.assignments[areaId];
-                }
-            }
-
-            if (page && areaDivId && areaDiv && area && assignment) {
-                _zoomAndStyle.call(this, page, AreaManager.get(areaDivId), assignment);
-            }
+        if (page && areaDivId && areaDiv && area && assignment) {
+            _zoomAndStyle.call(this, page, AreaManager.get(areaDivId), assignment);
         }
     }
 

@@ -1,11 +1,13 @@
 
 PROGRAM _INIT
-	HLTImgCont := 0;
-	MashImgCont := 0;
+
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
+	SimFlowMeter;
+	FillHLT;
+	
 	
 	 
 END_PROGRAM

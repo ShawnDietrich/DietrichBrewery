@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version="4.12.2.93"?>
+<ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
+  <TaskClass
+    Name="Cyclic#1">
+    <Task
+      Name="HLTControl"
+      Disable="false"
+      Source="Brewing.HLTControl"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HLTControl\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\HLTControl\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\HLTControl\Variables.var" />
+    </Task>
+    <Task
+      Name="KettleCont"
+      Disable="false"
+      Source="Brewing.KettleControl"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\KettleControl\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\KettleControl\Variables.var" />
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\Displayclock.st.var" />
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\PowerControl.st.var" />
+    </Task>
+    <Task
+      Name="MashTunCon"
+      Disable="false"
+      Source="Brewing.MashTunControl"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\MashTunCon\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\MashTunControl\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\MashTunControl\Variables.var" />
+    </Task>
+  </TaskClass>
+  <TaskClass
+    Name="Cyclic#2" />
+  <TaskClass
+    Name="Cyclic#3" />
+  <TaskClass
+    Name="Cyclic#4">
+    <Task
+      Name="HMIProgram"
+      Disable="false"
+      Source="HMIControl.HMIProgram"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\HMIProgram\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\HMIControl\HMIProgram\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\HMIControl\HMIProgram\Variables.var" />
+    </Task>
+    <Task
+      Name="FillingTan"
+      Disable="false"
+      Source="FillingTanks.FillingTanks"
+      Language="IEC">
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\Main.st.var" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\Types.typ" />
+      <File
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\Variables.var" />
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\SimFlowMeter.st.var" />
+      <InternalFile
+        Path="G:\GitRepos\Brewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\FillHLT.st.var" />
+    </Task>
+  </TaskClass>
+  <TaskClass
+    Name="Cyclic#5" />
+  <TaskClass
+    Name="Cyclic#6" />
+  <TaskClass
+    Name="Cyclic#7" />
+  <TaskClass
+    Name="Cyclic#8" />
+</ConfigInfo>

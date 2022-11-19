@@ -1,10 +1,7 @@
 define([
     'libs/d3/d3',
-    'widgets/brease/common/libs/wfUtils/SVGCache',
-    'brease/controller/libs/LogCode',
-    'brease/enum/Enum',
-    'brease/core/Utils'
-], function (d3, SVGCache, LogCode, Enum, Utils) {
+    'widgets/brease/common/libs/wfUtils/SVGCache'
+], function (d3, SVGCache) {
 
     'use strict';
 
@@ -18,8 +15,7 @@ define([
 
     /**
     * @method getInlineSvg
-    * Gets the inline code of an svg.
-    * Remote source paths are blocked (i.e http://xy.at/svg.svg).
+    * gets the inline code of an svg
     * @param {String} sourceImage path for the svg image
     * @param {Boolean} avoidBrokenSvg avoids returning a broken image svg
     * @param {String[]} array
@@ -29,11 +25,6 @@ define([
         var deferedElement = $.Deferred();
         avoidBrokenSvg = (avoidBrokenSvg === true);
         putInCache = (putInCache === true);
-        if (!Utils.hasSameOrigin(sourceImage)) {
-            handleLoadError(sourceImage, avoidBrokenSvg, putInCache, deferedElement);
-            logSameOriginWarning(sourceImage);
-            return deferedElement;
-        }
         if (SVGCache.contains(sourceImage)) {
             SVGCache.done(sourceImage, function (strXml) {
                 if (strXml) {
@@ -51,34 +42,25 @@ define([
         return deferedElement;
     };
 
-    function logSameOriginWarning(src) {
-        var log = LogCode.getConfig(LogCode.CROSS_ORIGIN_REQUEST_BLOCKED);
-        brease.loggerService.log(log.code, Enum.EventLoggerCustomer.BUR, log.verboseLevel, log.severity, [src]);
-    }
-
     function svgLoadResponse(sourceImage, deferedElement, array, avoidBrokenSvg, putInCache, error, xml) {
         if (error || xml === null) {
-            handleLoadError(sourceImage, avoidBrokenSvg, putInCache, deferedElement);
+            if (avoidBrokenSvg === true) {
+                if (putInCache) {
+                    SVGCache.resolve(sourceImage);
+                }
+                deferedElement.reject();
+            } else {
+                var brokenSvg = UtilsImage.getBrokenSvg();
+                if (putInCache) {
+                    SVGCache.resolve(sourceImage, brokenSvg.outerHTML); 
+                }
+                deferedElement.resolve($(brokenSvg));
+            }
         } else {
             if (putInCache) {
                 SVGCache.resolve(sourceImage, xml.documentElement.outerHTML);
             }
             resolveSVG(xml.documentElement, sourceImage, array, deferedElement);
-        }
-    }
-
-    function handleLoadError(sourceImage, avoidBrokenSvg, putInCache, deferedElement) {
-        if (avoidBrokenSvg === true) {
-            if (putInCache) {
-                SVGCache.resolve(sourceImage);
-            }
-            deferedElement.reject();
-        } else {
-            var brokenSvg = UtilsImage.getBrokenSvg();
-            if (putInCache) {
-                SVGCache.resolve(sourceImage, brokenSvg.outerHTML); 
-            }
-            deferedElement.resolve($(brokenSvg));
         }
     }
 

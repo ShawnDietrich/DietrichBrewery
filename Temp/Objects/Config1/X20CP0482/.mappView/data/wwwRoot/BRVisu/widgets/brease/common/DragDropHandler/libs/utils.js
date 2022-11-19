@@ -19,30 +19,42 @@ define([], function () {
             },
           
             /*
-             * Adds class to an Element. Polyfill for classList for SVG Elements in IE (polyfill is deprecated)
+             * Adds class to an Element. Polyfill for classList for SVG Elements in IE
              * @method addClass
              * @param {Object} elem DOM element
              * @param {string} className The class name which should be added
              */
             addClass: function (elem, className) {
-                elem.classList.add(className);
+                if (elem.classList) {
+                    elem.classList.add(className);
+                } else {
+                    $(elem).addClass(className);
+                }
             },
             /*
-             * Removes class from an Element. Polyfill for classList for SVG Elements in IE (polyfill is deprecated)
+             * Removes class from an Element. Polyfill for classList for SVG Elements in IE
              * @param {Object} elem DOM element
              * @param {string} className The class name which should be removed
              */
             removeClass: function (elem, className) {
-                elem.classList.remove(className);
+                if (elem.classList) {
+                    elem.classList.remove(className);
+                } else {
+                    $(elem).removeClass(className);
+                }
             },
             /*
-             * Checks if element contains class. Polyfill for classList for SVG Elements in IE (polyfill is deprecated)
+             * Checks if element contains class. Polyfill for classList for SVG Elements in IE
              * @param {Object} elem DOM element
              * @param {string} className The class name which should be checked
              * @returns {boolean} 'true' if element contains class, otherwise 'false'
              */
             containsClass: function (elem, className) {
-                return elem.classList.contains(className);
+                if (elem.classList) {
+                    return elem.classList.contains(className);
+                } else {
+                    return $(elem).hasClass(className);
+                }
             }
         };
     }

@@ -61,7 +61,7 @@
 }
 
 #MainPageContent_ToggleSwitch1 {
-  top: 665px;
+  top: 513px;
   position: absolute;
 }
 
@@ -115,12 +115,12 @@
 }
 
 #MainPageContent_GroupBox2 {
-  top: 13px;
+  top: 32px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox2 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -170,12 +170,12 @@
 }
 
 #MainPageContent_NumericOutput1 {
-  left: 8px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericOutput1 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericOutput1 {
@@ -217,12 +217,12 @@
 }
 
 #MainPageContent_Label1 {
-  left: 124px;
+  left: 135px;
   position: absolute;
 }
 
 #MainPageContent_Label1 {
-  width: 142px;
+  width: 162px;
 }
 
 #MainPageContent_Label1 {
@@ -235,12 +235,12 @@
 }
 
 #MainPageContent_NumericInput1 {
-  left: 8px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericInput1 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericInput1 {
@@ -270,34 +270,25 @@
 }
 
 #MainPageContent_Label2 {
-  left: 134px;
+  left: 135px;
   position: absolute;
 }
 
 #MainPageContent_Label2 {
-  width: 152px;
+  width: 171px;
 }
 
 #MainPageContent_Label2 {
   z-index: 3;
 }
 
-#MainPageContent_Label2 {
-  justify-content: flex-end;
-  text-align: right;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 #MainPageContent_GroupBox3 {
-  top: 205px;
+  top: 247px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox3 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -351,7 +342,7 @@
 }
 
 #MainPageContent_NumericOutput2 {
-  left: 8px;
+  left: 24px;
   position: absolute;
 }
 
@@ -389,17 +380,17 @@
 }
 
 #MainPageContent_Label3 {
-  top: 20px;
+  top: 16px;
   position: absolute;
 }
 
 #MainPageContent_Label3 {
-  left: 124px;
+  left: 154px;
   position: absolute;
 }
 
 #MainPageContent_Label3 {
-  width: 142px;
+  width: 162px;
 }
 
 #MainPageContent_Label3 {
@@ -416,7 +407,7 @@
 }
 
 #MainPageContent_NumericInput2 {
-  left: 8px;
+  left: 24px;
   position: absolute;
 }
 
@@ -447,12 +438,12 @@
 }
 
 #MainPageContent_Label4 {
-  left: 124px;
+  left: 154px;
   position: absolute;
 }
 
 #MainPageContent_Label4 {
-  width: 152px;
+  width: 171px;
 }
 
 #MainPageContent_Label4 {
@@ -460,7 +451,7 @@
 }
 
 #MainPageContent_ToggleSwitch3 {
-  top: 602px;
+  top: 450px;
   position: absolute;
 }
 
@@ -514,7 +505,7 @@
 }
 
 #MainPageContent_ToggleSwitch4 {
-  top: 602px;
+  top: 450px;
   position: absolute;
 }
 
@@ -630,12 +621,12 @@
 }
 
 #MainPageContent_ToggleSwitch5 {
-  top: 665px;
+  top: 570px;
   position: absolute;
 }
 
 #MainPageContent_ToggleSwitch5 {
-  left: 173px;
+  left: 178px;
   position: absolute;
 }
 
@@ -684,12 +675,12 @@
 }
 
 #MainPageContent_GroupBox5 {
-  top: 13px;
+  top: 32px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox5 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -739,12 +730,12 @@
 }
 
 #MainPageContent_NumericOutput3 {
-  left: 6px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericOutput3 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericOutput3 {
@@ -791,20 +782,11 @@
 }
 
 #MainPageContent_Label5 {
-  width: 142px;
+  width: 162px;
 }
 
 #MainPageContent_Label5 {
   z-index: 1;
-}
-
-#MainPageContent_Label5 {
-  justify-content: flex-end;
-  text-align: right;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 #MainPageContent_NumericInput3 {
@@ -813,12 +795,12 @@
 }
 
 #MainPageContent_NumericInput3 {
-  left: 6px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericInput3 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericInput3 {
@@ -853,24 +835,15 @@
 }
 
 #MainPageContent_Label6 {
-  width: 154px;
+  width: 171px;
 }
 
 #MainPageContent_Label6 {
   z-index: 3;
 }
 
-#MainPageContent_Label6 {
-  justify-content: flex-end;
-  text-align: right;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 #MainPageContent_ToggleSwitch8 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 
@@ -924,12 +897,12 @@
 }
 
 #MainPageContent_GroupBox6 {
-  top: 205px;
+  top: 247px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox6 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -973,39 +946,69 @@
   border-bottom-style: outset;
 }
 
+#MainPageContent_NumericOutput4 {
+  width: 100px;
+}
+
+#MainPageContent_NumericOutput4 {
+  top: 15px;
+  position: absolute;
+}
+
+#MainPageContent_NumericOutput4 {
+  left: 24px;
+  position: absolute;
+}
+
+#MainPageContent_NumericOutput4 {
+  height: 40px;
+}
+
+#MainPageContent_NumericOutput4 {
+  z-index: 0;
+}
+
+#MainPageContent_NumericOutput4 {
+  border-width: 2px;
+}
+
+#MainPageContent_NumericOutput4 {
+  border-radius: 5px;
+}
+
+#MainPageContent_NumericOutput4 {
+  background-color: whitesmoke;
+}
+
+#MainPageContent_NumericOutput4 {
+  border-style: outset;
+}
+
+#MainPageContent_NumericOutput4 input {
+  justify-content: center;
+  text-align: center;
+}
+
 #MainPageContent_Label7 {
   height: 30px;
 }
 
 #MainPageContent_Label7 {
-  top: 20px;
+  top: 16px;
   position: absolute;
 }
 
 #MainPageContent_Label7 {
-  left: 135px;
+  left: 154px;
   position: absolute;
 }
 
 #MainPageContent_Label7 {
-  width: 124px;
+  width: 162px;
 }
 
 #MainPageContent_Label7 {
-  z-index: 0;
-}
-
-#MainPageContent_Label7 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label7 span {
-  padding: 0px;
+  z-index: 1;
 }
 
 #MainPageContent_NumericInput4 {
@@ -1018,7 +1021,7 @@
 }
 
 #MainPageContent_NumericInput4 {
-  left: 6px;
+  left: 24px;
   position: absolute;
 }
 
@@ -1027,7 +1030,7 @@
 }
 
 #MainPageContent_NumericInput4 {
-  z-index: 1;
+  z-index: 2;
 }
 
 #MainPageContent_NumericInput4 {
@@ -1049,100 +1052,20 @@
 }
 
 #MainPageContent_Label8 {
-  left: 135px;
+  left: 154px;
   position: absolute;
 }
 
 #MainPageContent_Label8 {
-  width: 133px;
+  width: 171px;
 }
 
 #MainPageContent_Label8 {
-  z-index: 2;
-}
-
-#MainPageContent_Label8 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label8 span {
-  padding: 0px;
-}
-
-#MainPageContent_TextOutput1 {
-  width: 100px;
-}
-
-#MainPageContent_TextOutput1 {
-  top: 15px;
-  position: absolute;
-}
-
-#MainPageContent_TextOutput1 {
-  left: 6px;
-  position: absolute;
-}
-
-#MainPageContent_TextOutput1 {
-  height: 40px;
-}
-
-#MainPageContent_TextOutput1 {
   z-index: 3;
 }
 
-#MainPageContent_TextOutput1 {
-  border-width: 2px;
-}
-
-#MainPageContent_TextOutput1 {
-  border-radius: 5px;
-}
-
-#MainPageContent_TextOutput1 {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput1:before {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput1:after {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput1 {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput1:before {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput1:after {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput1 {
-  justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_TextOutput1 {
-  font-size: 20px;
-}
-
 #MainPageContent_ToggleSwitch9 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 
@@ -1258,12 +1181,12 @@
 }
 
 #MainPageContent_GroupBox8 {
-  top: 13px;
+  top: 32px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox8 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -1313,12 +1236,12 @@
 }
 
 #MainPageContent_NumericOutput5 {
-  left: 7px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericOutput5 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericOutput5 {
@@ -1360,29 +1283,16 @@
 }
 
 #MainPageContent_Label9 {
-  left: 138px;
+  left: 135px;
   position: absolute;
 }
 
 #MainPageContent_Label9 {
-  width: 151px;
+  width: 162px;
 }
 
 #MainPageContent_Label9 {
   z-index: 1;
-}
-
-#MainPageContent_Label9 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label9 span {
-  padding: 0px;
 }
 
 #MainPageContent_NumericInput5 {
@@ -1391,12 +1301,12 @@
 }
 
 #MainPageContent_NumericInput5 {
-  left: 7px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericInput5 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericInput5 {
@@ -1426,38 +1336,25 @@
 }
 
 #MainPageContent_Label10 {
-  left: 138px;
+  left: 135px;
   position: absolute;
 }
 
 #MainPageContent_Label10 {
-  width: 156px;
+  width: 171px;
 }
 
 #MainPageContent_Label10 {
   z-index: 3;
 }
 
-#MainPageContent_Label10 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label10 span {
-  padding: 0px;
-}
-
 #MainPageContent_GroupBox9 {
-  top: 205px;
+  top: 247px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox9 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -1511,7 +1408,7 @@
 }
 
 #MainPageContent_NumericOutput6 {
-  left: 7px;
+  left: 24px;
   position: absolute;
 }
 
@@ -1549,12 +1446,12 @@
 }
 
 #MainPageContent_Label11 {
-  top: 20px;
+  top: 16px;
   position: absolute;
 }
 
 #MainPageContent_Label11 {
-  left: 138px;
+  left: 154px;
   position: absolute;
 }
 
@@ -1564,10 +1461,6 @@
 
 #MainPageContent_Label11 {
   z-index: 1;
-}
-
-#MainPageContent_Label11 span {
-  padding: 0px;
 }
 
 #MainPageContent_NumericInput6 {
@@ -1580,7 +1473,7 @@
 }
 
 #MainPageContent_NumericInput6 {
-  left: 7px;
+  left: 24px;
   position: absolute;
 }
 
@@ -1611,7 +1504,7 @@
 }
 
 #MainPageContent_Label12 {
-  left: 138px;
+  left: 154px;
   position: absolute;
 }
 
@@ -1623,12 +1516,8 @@
   z-index: 3;
 }
 
-#MainPageContent_Label12 span {
-  padding: 0px;
-}
-
 #MainPageContent_ToggleSwitch11 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 
@@ -1682,7 +1571,7 @@
 }
 
 #MainPageContent_ToggleSwitch12 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 
@@ -1736,7 +1625,7 @@
 }
 
 #MainPageContent_ToggleSwitch14 {
-  top: 665px;
+  top: 674px;
   position: absolute;
 }
 
@@ -1787,224 +1676,6 @@
 
 #MainPageContent_ToggleSwitch14 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
-}
-
-#MainPageContent_GroupBox12 {
-  top: 397px;
-  position: absolute;
-}
-
-#MainPageContent_GroupBox12 {
-  left: 15px;
-  position: absolute;
-}
-
-#MainPageContent_GroupBox12 {
-  width: 289px;
-}
-
-#MainPageContent_GroupBox12 {
-  height: 179px;
-}
-
-#MainPageContent_GroupBox12 {
-  z-index: 5;
-}
-
-#MainPageContent_GroupBox12 {
-  border-width: 3px;
-}
-
-#MainPageContent_GroupBox12 > .header {
-  border-width: 3px;
-}
-
-#MainPageContent_GroupBox12 {
-  border-radius: 10px;
-}
-
-#MainPageContent_GroupBox12 {
-  border-color: #e3c54e;
-}
-
-#MainPageContent_GroupBox12 > .header {
-  border-color: #e3c54e;
-}
-
-#MainPageContent_GroupBox12 {
-  border-style: outset;
-}
-
-#MainPageContent_GroupBox12 > .header {
-  border-bottom-style: outset;
-}
-
-#MainPageContent_Label15 {
-  height: 30px;
-}
-
-#MainPageContent_Label15 {
-  top: 20px;
-  position: absolute;
-}
-
-#MainPageContent_Label15 {
-  left: 135px;
-  position: absolute;
-}
-
-#MainPageContent_Label15 {
-  width: 124px;
-}
-
-#MainPageContent_Label15 {
-  z-index: 0;
-}
-
-#MainPageContent_Label15 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label15 span {
-  padding: 0px;
-}
-
-#MainPageContent_NumericInput8 {
-  width: 100px;
-}
-
-#MainPageContent_NumericInput8 {
-  top: 91px;
-  position: absolute;
-}
-
-#MainPageContent_NumericInput8 {
-  left: 6px;
-  position: absolute;
-}
-
-#MainPageContent_NumericInput8 {
-  height: 40px;
-}
-
-#MainPageContent_NumericInput8 {
-  z-index: 1;
-}
-
-#MainPageContent_NumericInput8 {
-  border-radius: 5px;
-}
-
-#MainPageContent_NumericInput8 input {
-  justify-content: center;
-  text-align: center;
-}
-
-#MainPageContent_Label16 {
-  height: 30px;
-}
-
-#MainPageContent_Label16 {
-  top: 96px;
-  position: absolute;
-}
-
-#MainPageContent_Label16 {
-  left: 135px;
-  position: absolute;
-}
-
-#MainPageContent_Label16 {
-  width: 133px;
-}
-
-#MainPageContent_Label16 {
-  z-index: 2;
-}
-
-#MainPageContent_Label16 {
-  justify-content: flex-start;
-  text-align: left;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_Label16 span {
-  padding: 0px;
-}
-
-#MainPageContent_TextOutput2 {
-  width: 100px;
-}
-
-#MainPageContent_TextOutput2 {
-  top: 15px;
-  position: absolute;
-}
-
-#MainPageContent_TextOutput2 {
-  left: 6px;
-  position: absolute;
-}
-
-#MainPageContent_TextOutput2 {
-  height: 40px;
-}
-
-#MainPageContent_TextOutput2 {
-  z-index: 3;
-}
-
-#MainPageContent_TextOutput2 {
-  border-width: 2px;
-}
-
-#MainPageContent_TextOutput2 {
-  border-radius: 5px;
-}
-
-#MainPageContent_TextOutput2 {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput2:before {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput2:after {
-  border-color: #555555;
-}
-
-#MainPageContent_TextOutput2 {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput2:before {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput2:after {
-  border-style: solid;
-}
-
-#MainPageContent_TextOutput2 {
-  justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#MainPageContent_TextOutput2 {
-  font-size: 20px;
 }
 
 #MainPageContent_GroupBox10 {
@@ -2070,7 +1741,7 @@
 }
 
 #MainPageContent_ToggleSwitch13 {
-  top: 665px;
+  top: 570px;
   position: absolute;
 }
 
@@ -2124,12 +1795,12 @@
 }
 
 #MainPageContent_GroupBox11 {
-  top: 13px;
+  top: 32px;
   position: absolute;
 }
 
 #MainPageContent_GroupBox11 {
-  left: 15px;
+  left: 17px;
   position: absolute;
 }
 
@@ -2179,12 +1850,12 @@
 }
 
 #MainPageContent_NumericOutput7 {
-  left: 11px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericOutput7 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericOutput7 {
@@ -2244,12 +1915,12 @@
 }
 
 #MainPageContent_NumericInput7 {
-  left: 11px;
+  left: 19px;
   position: absolute;
 }
 
 #MainPageContent_NumericInput7 {
-  width: 125px;
+  width: 110px;
 }
 
 #MainPageContent_NumericInput7 {
@@ -2292,7 +1963,7 @@
 }
 
 #MainPageContent_ToggleSwitch15 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 
@@ -2346,7 +2017,7 @@
 }
 
 #MainPageContent_ToggleSwitch16 {
-  top: 602px;
+  top: 477px;
   position: absolute;
 }
 

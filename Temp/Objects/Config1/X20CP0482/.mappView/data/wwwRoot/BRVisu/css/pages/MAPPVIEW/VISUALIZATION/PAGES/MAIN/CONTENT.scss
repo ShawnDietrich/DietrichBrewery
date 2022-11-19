@@ -55,7 +55,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	@include elemTop(665);
+	@include elemTop(513);
 }
 #MainPageContent_ToggleSwitch1 {
 	@include elemLeft(178);
@@ -108,10 +108,10 @@
 	}
 }
 #MainPageContent_GroupBox2 {
-	@include elemTop(13);
+	@include elemTop(32);
 }
 #MainPageContent_GroupBox2 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox2 {
 	@include elemWidth(289);
@@ -153,10 +153,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput1 {
-	@include elemLeft(8);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericOutput1 {
-	@include elemAutoWidth(125);
+	@include elemAutoWidth(110);
 }
 #MainPageContent_NumericOutput1 {
 	@include elemAutoHeight(40);
@@ -188,10 +188,10 @@
 	@include elemTop(16);
 }
 #MainPageContent_Label1 {
-	@include elemLeft(124);
+	@include elemLeft(135);
 }
 #MainPageContent_Label1 {
-	@include elemAutoWidth(142);
+	@include elemAutoWidth(162);
 }
 #MainPageContent_Label1 {
 		z-index: 1;
@@ -200,10 +200,10 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput1 {
-	@include elemLeft(8);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericInput1 {
-	@include elemWidth(125);
+	@include elemWidth(110);
 }
 #MainPageContent_NumericInput1 {
 	@include elemHeight(40);
@@ -226,22 +226,19 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label2 {
-	@include elemLeft(134);
+	@include elemLeft(135);
 }
 #MainPageContent_Label2 {
-	@include elemAutoWidth(152);
+	@include elemAutoWidth(171);
 }
 #MainPageContent_Label2 {
 		z-index: 3;
 }
-#MainPageContent_Label2 {
-	@include text-alignment-all('right');
+#MainPageContent_GroupBox3 {
+	@include elemTop(247);
 }
 #MainPageContent_GroupBox3 {
-	@include elemTop(205);
-}
-#MainPageContent_GroupBox3 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox3 {
 	@include elemWidth(289);
@@ -286,7 +283,7 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput2 {
-	@include elemLeft(8);
+	@include elemLeft(24);
 }
 #MainPageContent_NumericOutput2 {
 	@include elemAutoHeight(40);
@@ -315,13 +312,13 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label3 {
-	@include elemTop(20);
+	@include elemTop(16);
 }
 #MainPageContent_Label3 {
-	@include elemLeft(124);
+	@include elemLeft(154);
 }
 #MainPageContent_Label3 {
-	@include elemAutoWidth(142);
+	@include elemAutoWidth(162);
 }
 #MainPageContent_Label3 {
 		z-index: 1;
@@ -333,7 +330,7 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput2 {
-	@include elemLeft(8);
+	@include elemLeft(24);
 }
 #MainPageContent_NumericInput2 {
 	@include elemHeight(40);
@@ -356,16 +353,16 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label4 {
-	@include elemLeft(124);
+	@include elemLeft(154);
 }
 #MainPageContent_Label4 {
-	@include elemAutoWidth(152);
+	@include elemAutoWidth(171);
 }
 #MainPageContent_Label4 {
 		z-index: 3;
 }
 #MainPageContent_ToggleSwitch3 {
-	@include elemTop(602);
+	@include elemTop(450);
 }
 #MainPageContent_ToggleSwitch3 {
 	@include elemLeft(5);
@@ -418,7 +415,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	@include elemTop(602);
+	@include elemTop(450);
 }
 #MainPageContent_ToggleSwitch4 {
 	@include elemLeft(178);
@@ -526,10 +523,10 @@
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	@include elemTop(665);
+	@include elemTop(570);
 }
 #MainPageContent_ToggleSwitch5 {
-	@include elemLeft(173);
+	@include elemLeft(178);
 }
 #MainPageContent_ToggleSwitch5 {
 	@include elemAutoWidth(130);
@@ -579,10 +576,10 @@
 	}
 }
 #MainPageContent_GroupBox5 {
-	@include elemTop(13);
+	@include elemTop(32);
 }
 #MainPageContent_GroupBox5 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox5 {
 	@include elemWidth(289);
@@ -624,10 +621,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput3 {
-	@include elemLeft(6);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericOutput3 {
-	@include elemAutoWidth(125);
+	@include elemAutoWidth(110);
 }
 #MainPageContent_NumericOutput3 {
 	@include elemAutoHeight(40);
@@ -662,22 +659,19 @@
 	@include elemLeft(135);
 }
 #MainPageContent_Label5 {
-	@include elemAutoWidth(142);
+	@include elemAutoWidth(162);
 }
 #MainPageContent_Label5 {
 		z-index: 1;
-}
-#MainPageContent_Label5 {
-	@include text-alignment-all('right');
 }
 #MainPageContent_NumericInput3 {
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput3 {
-	@include elemLeft(6);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericInput3 {
-	@include elemWidth(125);
+	@include elemWidth(110);
 }
 #MainPageContent_NumericInput3 {
 	@include elemHeight(40);
@@ -703,16 +697,13 @@
 	@include elemLeft(135);
 }
 #MainPageContent_Label6 {
-	@include elemAutoWidth(154);
+	@include elemAutoWidth(171);
 }
 #MainPageContent_Label6 {
 		z-index: 3;
 }
-#MainPageContent_Label6 {
-	@include text-alignment-all('right');
-}
 #MainPageContent_ToggleSwitch8 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch8 {
 	@include elemLeft(12);
@@ -765,10 +756,10 @@
 	}
 }
 #MainPageContent_GroupBox6 {
-	@include elemTop(205);
+	@include elemTop(247);
 }
 #MainPageContent_GroupBox6 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox6 {
 	@include elemWidth(289);
@@ -806,28 +797,52 @@
 		border-bottom-style: outset;
 	}
 }
+#MainPageContent_NumericOutput4 {
+	@include elemAutoWidth(100);
+}
+#MainPageContent_NumericOutput4 {
+	@include elemTop(15);
+}
+#MainPageContent_NumericOutput4 {
+	@include elemLeft(24);
+}
+#MainPageContent_NumericOutput4 {
+	@include elemAutoHeight(40);
+}
+#MainPageContent_NumericOutput4 {
+		z-index: 0;
+}
+#MainPageContent_NumericOutput4 {
+		border-width: 2px;
+}
+#MainPageContent_NumericOutput4 {
+	@include border-radius(5px);
+}
+#MainPageContent_NumericOutput4 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#MainPageContent_NumericOutput4 {
+		border-style: outset;
+}
+#MainPageContent_NumericOutput4 {
+	input{
+	@include text-alignment(center);
+	}
+}
 #MainPageContent_Label7 {
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label7 {
-	@include elemTop(20);
+	@include elemTop(16);
 }
 #MainPageContent_Label7 {
-	@include elemLeft(135);
+	@include elemLeft(154);
 }
 #MainPageContent_Label7 {
-	@include elemAutoWidth(124);
+	@include elemAutoWidth(162);
 }
 #MainPageContent_Label7 {
-		z-index: 0;
-}
-#MainPageContent_Label7 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label7 {
-	span{
-		padding: 0px;
-	}
+		z-index: 1;
 }
 #MainPageContent_NumericInput4 {
 	@include elemWidth(100);
@@ -836,13 +851,13 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput4 {
-	@include elemLeft(6);
+	@include elemLeft(24);
 }
 #MainPageContent_NumericInput4 {
 	@include elemHeight(40);
 }
 #MainPageContent_NumericInput4 {
-		z-index: 1;
+		z-index: 2;
 }
 #MainPageContent_NumericInput4 {
 	@include border-radius(5px);
@@ -859,77 +874,16 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label8 {
-	@include elemLeft(135);
+	@include elemLeft(154);
 }
 #MainPageContent_Label8 {
-	@include elemAutoWidth(133);
+	@include elemAutoWidth(171);
 }
 #MainPageContent_Label8 {
-		z-index: 2;
-}
-#MainPageContent_Label8 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label8 {
-	span{
-		padding: 0px;
-	}
-}
-#MainPageContent_TextOutput1 {
-	@include elemAutoWidth(100);
-}
-#MainPageContent_TextOutput1 {
-	@include elemTop(15);
-}
-#MainPageContent_TextOutput1 {
-	@include elemLeft(6);
-}
-#MainPageContent_TextOutput1 {
-	@include elemAutoHeight(40);
-}
-#MainPageContent_TextOutput1 {
 		z-index: 3;
 }
-#MainPageContent_TextOutput1 {
-		border-width: 2px;
-}
-#MainPageContent_TextOutput1 {
-	@include border-radius(5px);
-}
-#MainPageContent_TextOutput1 {
-		border-color: rgba(85, 85, 85, 1);
-}
-#MainPageContent_TextOutput1 {
-	&:before{
-		border-color: rgba(85, 85, 85, 1);
-	}
-}
-#MainPageContent_TextOutput1 {
-	&:after{
-		border-color: rgba(85, 85, 85, 1);
-	}
-}
-#MainPageContent_TextOutput1 {
-		border-style: solid;
-}
-#MainPageContent_TextOutput1 {
-	&:before{
-		border-style: solid;
-	}
-}
-#MainPageContent_TextOutput1 {
-	&:after{
-		border-style: solid;
-	}
-}
-#MainPageContent_TextOutput1 {
-	@include text-alignment-all('center');
-}
-#MainPageContent_TextOutput1 {
-		font-size: 20px;
-}
 #MainPageContent_ToggleSwitch9 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch9 {
 	@include elemLeft(173);
@@ -1037,10 +991,10 @@
 	}
 }
 #MainPageContent_GroupBox8 {
-	@include elemTop(13);
+	@include elemTop(32);
 }
 #MainPageContent_GroupBox8 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox8 {
 	@include elemWidth(289);
@@ -1082,10 +1036,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput5 {
-	@include elemLeft(7);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericOutput5 {
-	@include elemAutoWidth(125);
+	@include elemAutoWidth(110);
 }
 #MainPageContent_NumericOutput5 {
 	@include elemAutoHeight(40);
@@ -1117,30 +1071,22 @@
 	@include elemTop(16);
 }
 #MainPageContent_Label9 {
-	@include elemLeft(138);
+	@include elemLeft(135);
 }
 #MainPageContent_Label9 {
-	@include elemAutoWidth(151);
+	@include elemAutoWidth(162);
 }
 #MainPageContent_Label9 {
 		z-index: 1;
-}
-#MainPageContent_Label9 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label9 {
-	span{
-		padding: 0px;
-	}
 }
 #MainPageContent_NumericInput5 {
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput5 {
-	@include elemLeft(7);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericInput5 {
-	@include elemWidth(125);
+	@include elemWidth(110);
 }
 #MainPageContent_NumericInput5 {
 	@include elemHeight(40);
@@ -1163,27 +1109,19 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label10 {
-	@include elemLeft(138);
+	@include elemLeft(135);
 }
 #MainPageContent_Label10 {
-	@include elemAutoWidth(156);
+	@include elemAutoWidth(171);
 }
 #MainPageContent_Label10 {
 		z-index: 3;
 }
-#MainPageContent_Label10 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label10 {
-	span{
-		padding: 0px;
-	}
+#MainPageContent_GroupBox9 {
+	@include elemTop(247);
 }
 #MainPageContent_GroupBox9 {
-	@include elemTop(205);
-}
-#MainPageContent_GroupBox9 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox9 {
 	@include elemWidth(289);
@@ -1228,7 +1166,7 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput6 {
-	@include elemLeft(7);
+	@include elemLeft(24);
 }
 #MainPageContent_NumericOutput6 {
 	@include elemAutoHeight(40);
@@ -1257,21 +1195,16 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label11 {
-	@include elemTop(20);
+	@include elemTop(16);
 }
 #MainPageContent_Label11 {
-	@include elemLeft(138);
+	@include elemLeft(154);
 }
 #MainPageContent_Label11 {
 	@include elemAutoWidth(162);
 }
 #MainPageContent_Label11 {
 		z-index: 1;
-}
-#MainPageContent_Label11 {
-	span{
-		padding: 0px;
-	}
 }
 #MainPageContent_NumericInput6 {
 	@include elemWidth(100);
@@ -1280,7 +1213,7 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput6 {
-	@include elemLeft(7);
+	@include elemLeft(24);
 }
 #MainPageContent_NumericInput6 {
 	@include elemHeight(40);
@@ -1303,7 +1236,7 @@
 	@include elemTop(96);
 }
 #MainPageContent_Label12 {
-	@include elemLeft(138);
+	@include elemLeft(154);
 }
 #MainPageContent_Label12 {
 	@include elemAutoWidth(171);
@@ -1311,13 +1244,8 @@
 #MainPageContent_Label12 {
 		z-index: 3;
 }
-#MainPageContent_Label12 {
-	span{
-		padding: 0px;
-	}
-}
 #MainPageContent_ToggleSwitch11 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch11 {
 	@include elemLeft(5);
@@ -1370,7 +1298,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch12 {
 	@include elemLeft(178);
@@ -1423,7 +1351,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	@include elemTop(665);
+	@include elemTop(674);
 }
 #MainPageContent_ToggleSwitch14 {
 	@include elemLeft(179);
@@ -1474,170 +1402,6 @@
 	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
-}
-#MainPageContent_GroupBox12 {
-	@include elemTop(397);
-}
-#MainPageContent_GroupBox12 {
-	@include elemLeft(15);
-}
-#MainPageContent_GroupBox12 {
-	@include elemWidth(289);
-}
-#MainPageContent_GroupBox12 {
-	@include elemHeight(179);
-}
-#MainPageContent_GroupBox12 {
-		z-index: 5;
-}
-#MainPageContent_GroupBox12 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox12 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox12 {
-		border-color: rgba(227, 197, 78, 1);
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-color: rgba(227, 197, 78, 1);
-	}
-}
-#MainPageContent_GroupBox12 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox12 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_Label15 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label15 {
-	@include elemTop(20);
-}
-#MainPageContent_Label15 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label15 {
-	@include elemAutoWidth(124);
-}
-#MainPageContent_Label15 {
-		z-index: 0;
-}
-#MainPageContent_Label15 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label15 {
-	span{
-		padding: 0px;
-	}
-}
-#MainPageContent_NumericInput8 {
-	@include elemWidth(100);
-}
-#MainPageContent_NumericInput8 {
-	@include elemTop(91);
-}
-#MainPageContent_NumericInput8 {
-	@include elemLeft(6);
-}
-#MainPageContent_NumericInput8 {
-	@include elemHeight(40);
-}
-#MainPageContent_NumericInput8 {
-		z-index: 1;
-}
-#MainPageContent_NumericInput8 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericInput8 {
-	input{
-	@include text-alignment(center);
-	}
-}
-#MainPageContent_Label16 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label16 {
-	@include elemTop(96);
-}
-#MainPageContent_Label16 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label16 {
-	@include elemAutoWidth(133);
-}
-#MainPageContent_Label16 {
-		z-index: 2;
-}
-#MainPageContent_Label16 {
-	@include text-alignment-all('left');
-}
-#MainPageContent_Label16 {
-	span{
-		padding: 0px;
-	}
-}
-#MainPageContent_TextOutput2 {
-	@include elemAutoWidth(100);
-}
-#MainPageContent_TextOutput2 {
-	@include elemTop(15);
-}
-#MainPageContent_TextOutput2 {
-	@include elemLeft(6);
-}
-#MainPageContent_TextOutput2 {
-	@include elemAutoHeight(40);
-}
-#MainPageContent_TextOutput2 {
-		z-index: 3;
-}
-#MainPageContent_TextOutput2 {
-		border-width: 2px;
-}
-#MainPageContent_TextOutput2 {
-	@include border-radius(5px);
-}
-#MainPageContent_TextOutput2 {
-		border-color: rgba(85, 85, 85, 1);
-}
-#MainPageContent_TextOutput2 {
-	&:before{
-		border-color: rgba(85, 85, 85, 1);
-	}
-}
-#MainPageContent_TextOutput2 {
-	&:after{
-		border-color: rgba(85, 85, 85, 1);
-	}
-}
-#MainPageContent_TextOutput2 {
-		border-style: solid;
-}
-#MainPageContent_TextOutput2 {
-	&:before{
-		border-style: solid;
-	}
-}
-#MainPageContent_TextOutput2 {
-	&:after{
-		border-style: solid;
-	}
-}
-#MainPageContent_TextOutput2 {
-	@include text-alignment-all('center');
-}
-#MainPageContent_TextOutput2 {
-		font-size: 20px;
 }
 #MainPageContent_GroupBox10 {
 	@include elemTop(10);
@@ -1695,7 +1459,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch13 {
-	@include elemTop(665);
+	@include elemTop(570);
 }
 #MainPageContent_ToggleSwitch13 {
 	@include elemLeft(178);
@@ -1748,10 +1512,10 @@
 	}
 }
 #MainPageContent_GroupBox11 {
-	@include elemTop(13);
+	@include elemTop(32);
 }
 #MainPageContent_GroupBox11 {
-	@include elemLeft(15);
+	@include elemLeft(17);
 }
 #MainPageContent_GroupBox11 {
 	@include elemWidth(289);
@@ -1793,10 +1557,10 @@
 	@include elemTop(15);
 }
 #MainPageContent_NumericOutput7 {
-	@include elemLeft(11);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericOutput7 {
-	@include elemAutoWidth(125);
+	@include elemAutoWidth(110);
 }
 #MainPageContent_NumericOutput7 {
 	@include elemAutoHeight(40);
@@ -1840,10 +1604,10 @@
 	@include elemTop(91);
 }
 #MainPageContent_NumericInput7 {
-	@include elemLeft(11);
+	@include elemLeft(19);
 }
 #MainPageContent_NumericInput7 {
-	@include elemWidth(125);
+	@include elemWidth(110);
 }
 #MainPageContent_NumericInput7 {
 	@include elemHeight(40);
@@ -1875,7 +1639,7 @@
 		z-index: 3;
 }
 #MainPageContent_ToggleSwitch15 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch15 {
 	@include elemLeft(5);
@@ -1928,7 +1692,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch16 {
-	@include elemTop(602);
+	@include elemTop(477);
 }
 #MainPageContent_ToggleSwitch16 {
 	@include elemLeft(178);

@@ -1,0 +1,435 @@
+﻿@import "mixins.scss";
+#NavContent_NavigationButton2 {
+	@include elemAutoWidth(100);
+}
+#NavContent_NavigationButton2 {
+	@include elemTop(349);
+}
+#NavContent_NavigationButton2 {
+	@include elemLeft(9);
+}
+#NavContent_NavigationButton2 {
+	@include elemAutoHeight(100);
+}
+#NavContent_NavigationButton2 {
+		z-index: 1;
+}
+#NavContent_NavigationButton2 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton2 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton2 {
+		border-style: solid;
+}
+#NavContent_NavigationButton2 {
+	&.active{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton2 {
+	&.checked{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton2 {
+	&.disabled{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton2 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton2 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton2 {
+	@include border-radius(5px);
+}
+#NavContent_NavigationButton2 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#NavContent_NavigationButton2 {
+	&:not(.disabled):not(.checked){
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton2 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton2 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton2 {
+	&.checked:not(.active):not(.disabled){
+		border-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton3 {
+	@include elemAutoWidth(100);
+}
+#NavContent_NavigationButton3 {
+	@include elemTop(518);
+}
+#NavContent_NavigationButton3 {
+	@include elemLeft(9);
+}
+#NavContent_NavigationButton3 {
+	@include elemAutoHeight(100);
+}
+#NavContent_NavigationButton3 {
+		z-index: 2;
+}
+#NavContent_NavigationButton3 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton3 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton3 {
+		border-style: solid;
+}
+#NavContent_NavigationButton3 {
+	&.active{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton3 {
+	&.checked{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton3 {
+	&.disabled{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton3 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton3 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton3 {
+	@include border-radius(5px);
+}
+#NavContent_NavigationButton3 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#NavContent_NavigationButton3 {
+	&:not(.disabled):not(.checked){
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton3 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton3 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton3 {
+	&.checked:not(.active):not(.disabled){
+		border-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_GroupBox1 {
+	@include elemTop(2);
+}
+#NavContent_GroupBox1 {
+	@include elemLeft(1);
+}
+#NavContent_GroupBox1 {
+	@include elemWidth(116);
+}
+#NavContent_GroupBox1 {
+	@include elemHeight(796);
+}
+#NavContent_GroupBox1 {
+		z-index: 0;
+}
+#NavContent_GroupBox1 {
+	@include border-radius(10px);
+}
+#NavContent_GroupBox1 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#NavContent_GroupBox1 {
+		border-color: rgba(0, 0, 0, 1);
+}
+#NavContent_GroupBox1 {
+	> .header{
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton1 {
+	@include elemAutoWidth(100);
+}
+#NavContent_NavigationButton1 {
+	@include elemTop(176);
+}
+#NavContent_NavigationButton1 {
+	@include elemLeft(7);
+}
+#NavContent_NavigationButton1 {
+	@include elemAutoHeight(100);
+}
+#NavContent_NavigationButton1 {
+		z-index: 0;
+}
+#NavContent_NavigationButton1 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton1 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton1 {
+		border-style: solid;
+}
+#NavContent_NavigationButton1 {
+	&.active{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton1 {
+	&.checked{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton1 {
+	&.disabled{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton1 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton1 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton1 {
+	@include border-radius(5px);
+}
+#NavContent_NavigationButton1 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#NavContent_NavigationButton1 {
+	&:not(.disabled):not(.checked){
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton1 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton1 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton1 {
+	&.checked:not(.active):not(.disabled){
+		border-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton5 {
+	@include elemAutoWidth(100);
+}
+#NavContent_NavigationButton5 {
+	@include elemTop(7);
+}
+#NavContent_NavigationButton5 {
+	@include elemLeft(7);
+}
+#NavContent_NavigationButton5 {
+	@include elemAutoHeight(100);
+}
+#NavContent_NavigationButton5 {
+		z-index: 1;
+}
+#NavContent_NavigationButton5 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton5 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton5 {
+		border-style: solid;
+}
+#NavContent_NavigationButton5 {
+	&.active{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton5 {
+	&.checked{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton5 {
+	&.disabled{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton5 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton5 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton5 {
+	@include border-radius(5px);
+}
+#NavContent_NavigationButton5 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#NavContent_NavigationButton5 {
+	&:not(.disabled):not(.checked){
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton5 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton5 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton5 {
+	&.checked:not(.active):not(.disabled){
+		border-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton4 {
+	@include elemAutoWidth(100);
+}
+#NavContent_NavigationButton4 {
+	@include elemTop(684);
+}
+#NavContent_NavigationButton4 {
+	@include elemLeft(7);
+}
+#NavContent_NavigationButton4 {
+	@include elemAutoHeight(100);
+}
+#NavContent_NavigationButton4 {
+		z-index: 2;
+}
+#NavContent_NavigationButton4 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton4 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#NavContent_NavigationButton4 {
+		border-style: solid;
+}
+#NavContent_NavigationButton4 {
+	&.active{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton4 {
+	&.checked{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton4 {
+	&.disabled{
+		border-style: solid;
+	}
+}
+#NavContent_NavigationButton4 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton4 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#NavContent_NavigationButton4 {
+	@include border-radius(5px);
+}
+#NavContent_NavigationButton4 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#NavContent_NavigationButton4 {
+	&:not(.disabled):not(.checked){
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#NavContent_NavigationButton4 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton4 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(192, 192, 192, 1);
+	}
+}
+#NavContent_NavigationButton4 {
+	&.checked:not(.active):not(.disabled){
+		border-color: rgba(192, 192, 192, 1);
+	}
+}

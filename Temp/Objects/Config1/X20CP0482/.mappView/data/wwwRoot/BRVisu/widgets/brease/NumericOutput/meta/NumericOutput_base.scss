@@ -2,10 +2,6 @@
 @mixin widgets_brease_NumericOutput_base {
 	@include elemAutoWidth(100);
 	@include elemAutoHeight(30);
-	@include elemMinWidth(0);
-	@include elemMaxWidth(0);
-	@include elemMinHeight(0);
-	@include elemMaxHeight(0);
 	border-width: 2px;
 	@include border-radius(0px);
 	background-color: #FFFFFF;
@@ -41,6 +37,10 @@ input {
 	@include box-shadow(none);
 	padding: 0 15px 0 15px;
 	margin: 0px;
+	@include elemMinWidth(0);
+	@include elemMaxWidth(0);
+	@include elemMinHeight(0);
+	@include elemMaxHeight(0);
 
 }
 

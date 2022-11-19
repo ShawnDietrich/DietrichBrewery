@@ -1,10 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State">
-  <TextEdit ID="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Logical\FillingTanks\Program\Main.st" CaretLine="15" CaretColumn="2" FirstVisibleLine="1">
+  <TextEdit ID="G:\GitRepos\Brewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\SimFlowMeter.st" CaretLine="8" CaretColumn="34" FirstVisibleLine="1">
     <Bookmarks />
   </TextEdit>
-  <TextEdit ID="G:\GitRepos\Brewery\AS Project\DietrichBrewery\Physical\Config1\X20CP0482\mappView\Visualizat.vis" CaretLine="17" CaretColumn="12" FirstVisibleLine="1">
+  <TextEdit ID="G:\GitRepos\Brewery\DietrichBrewery\Logical\Brewing\HLTControl\Main.st" CaretLine="29" CaretColumn="51" FirstVisibleLine="7">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="G:\GitRepos\Brewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\FillHLT.st" CaretLine="22" CaretColumn="32" FirstVisibleLine="1">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="G:\GitRepos\Brewery\DietrichBrewery\Logical\Global.typ" CaretLine="58" CaretColumn="7" FirstVisibleLine="23">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="G:\GitRepos\Brewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\Main.st" CaretLine="3" CaretColumn="1" FirstVisibleLine="1">
     <Bookmarks />
   </TextEdit>
 </State>

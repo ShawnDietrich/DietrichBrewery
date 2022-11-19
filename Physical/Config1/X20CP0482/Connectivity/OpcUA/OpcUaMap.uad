@@ -4,9 +4,16 @@
   <Aliases>
     <ACLAliases />
     <EURangeViolationAliases />
-    <EURangesAliases />
+    <EURangesAliases>
+      <EURanges Id="1">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const">50</High>
+        </EURange>
+      </EURanges>
+    </EURangesAliases>
     <EngineeringUnitAliases>
-      <EngineeringUnit Id="1" UnitId="4408652" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree Celsius" Symbol="°C" />
+      <EngineeringUnit Id="2" UnitId="5002322" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="litre" Symbol="l" />
     </EngineeringUnitAliases>
   </Aliases>
   <DefaultView>
@@ -87,6 +94,22 @@
       <Task Name="FillingTan">
         <Variable Name="HLTImgCont" />
         <Variable Name="MashImgCont" />
+        <Variable Name="AutoFillHLT">
+          <Variable Name="Stop" />
+          <Variable Name="Start" />
+          <Variable Name="Valve" />
+          <Variable Name="VolumePV" EngineeringUnitId="2" />
+          <Variable Name="VolumeSP" EURangesId="1" EngineeringUnitId="2" />
+          <Variable Name="Reset" />
+        </Variable>
+        <Variable Name="AutoFillMash">
+          <Variable Name="Stop" />
+          <Variable Name="Start" />
+          <Variable Name="Valve" />
+          <Variable Name="VolumePV" EngineeringUnitId="2" />
+          <Variable Name="VolumeSP" EngineeringUnitId="2" />
+          <Variable Name="Reset" />
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

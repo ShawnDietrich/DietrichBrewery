@@ -62,7 +62,7 @@
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
     <Parameter ID="Supervision" Value="on" />
-    <Parameter ID="InputFilter" Value="1" Type="USINT" />
+    <Parameter ID="InputFilter" Value="10" Type="USINT" />
   </Module>
   <Module ID="IF6.ST2" Hardware="X20cAT4222">
     <Parameter ID="HardwareModuleName" Value="X20cAT4222" />
@@ -84,7 +84,7 @@
   <Module ID="IF6.ST3.IO" Hardware="X20DO8332">
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
-    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="Supervision" Value="on" />
     <Parameter ID="StatusInfo" Value="on" />
     <Parameter ID="PowerSupply01" Value="off" />
     <Parameter ID="DigitalOutputsPacked" Value="off" />

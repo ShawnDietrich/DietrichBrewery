@@ -4,7 +4,7 @@
     var path = require('path'),
         grunt = require('grunt'),
         basePath = path.resolve(__dirname, '../'),
-        libraryUtils = require(path.resolve(basePath, 'libs/libraryUtils')),
+        libraryUtils = require(path.resolve(basePath, 'iat/libraryUtils')),
         XMLLint = require(path.resolve(basePath, 'iat/XMLLint')),
         utils = require(path.resolve(basePath, 'iat/utils')),
         DataTypes = require(path.resolve(basePath, 'iat/DataTypes')),
@@ -319,13 +319,13 @@
                     }
                 }
             } else if (event.arguments) {
-                obj.parameter = _arguments2Parameters(event.arguments);
+                obj.parameter = _arguments2Paramters(event.arguments);
             }
             widgetEvents.push(obj);
         }
     }
 
-    function _arguments2Parameters(args) {
+    function _arguments2Paramters(args) {
         let parameters = [];
         let index = 0;
         for (var argName in args) {
@@ -353,7 +353,7 @@
                     public: false
                 };
                 if (event.arguments) {
-                    triggerAction.parameter = _arguments2Parameters(event.arguments);
+                    triggerAction.parameter = _arguments2Paramters(event.arguments);
                 }
                 if (isUsedActionName(triggerAction.name, widgetActions)) {
                     patchCoWi.failWithWarning('UserEvent: name of trigger action (' + triggerAction.name + ') already used!');

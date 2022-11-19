@@ -57,13 +57,12 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
             addScrollbars: function (selector, options, noObserver) {
                 var wrapper = typeof selector === 'string' ? document.querySelector(selector) : selector,
                     scroller;
-                    
                 if (wrapper !== null) {
-                    scroller = new IScroll(wrapper, getSettings(options));
+                    scroller = new IScroll(wrapper, _settings(options));
                     scroller.zoomFactor = Utils.getScaleFactor(wrapper);
                     scroller.on('beforeScrollStart', function () {
                         this.stopped = false;
-                        startHandling(this);
+                        _start(this);
                     });
                     scroller.on('scrollStart', function () {
                         this.options.preventDefault = true;
@@ -72,14 +71,14 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
                     scroller.on('scrollEnd', function () {
                         this.options.preventDefault = false;
                         if (!this.stopped) {
-                            endHandling();
+                            _stop();
                             this.stopped = true;
                         }
                     });
                     scroller.on('scrollCancel', function () {
                         this.options.preventDefault = false;
                         if (!this.stopped) {
-                            endHandling();
+                            _stop();
                             this.stopped = true;
                         }
                     });
@@ -87,7 +86,6 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
                         document.body.removeEventListener(BreaseEvent.APP_RESIZE, this.boundUpdateZoomFactor);
                         this.wrapper.removeEventListener(BreaseEvent.FOCUS_IN, this.boundFocusIn);
                         this.wrapper.removeEventListener('scroll', handleNativeScroll);
-                        this.wrapper.removeEventListener('wheel', this.boundStopPropagation);
                     });
                     scroller.boundUpdateZoomFactor = scroller.breaseUpdateZoomFactor.bind(scroller);
                     document.body.addEventListener(BreaseEvent.APP_RESIZE, scroller.boundUpdateZoomFactor);
@@ -96,9 +94,6 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
                     // prevent native scrolling on the wrapper since scrolling programatically also works for containers
                     // with css overflow = hidden
                     scroller.wrapper.addEventListener('scroll', handleNativeScroll);
-                    // stop wheel events to prevent scrolling in parent elements
-                    scroller.boundStopPropagation = stopPropagation.bind(scroller);
-                    scroller.wrapper.addEventListener('wheel', scroller.boundStopPropagation);
                     _popupManager.update();
                     if (noObserver !== true) {
                         addObserver(wrapper, scroller);
@@ -160,7 +155,7 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
 
     Utils.defineProperty(Scroller, 'defaults', _defaults);
 
-    function getSettings(options) {
+    function _settings(options) {
         var settings = $.extend({}, Scroller.defaults, options);
         settings.disableTouch = false;
         settings.disableMouse = false;
@@ -169,31 +164,7 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
         return settings;
     }
 
-    function isXScrollable(scroller) {
-        return scroller.enabled && scroller.options.mouseWheel === true && Math.abs(scroller.maxScrollX) > 0;
-    }
-
-    function isYScrollable(scroller) {
-        return scroller.enabled && scroller.options.mouseWheel === true && Math.abs(scroller.maxScrollY) > 0;
-    }
-
-    function isXWheel(evt) {
-        return Math.abs(evt.deltaX) > 0;
-    }
-
-    function isYWheel(evt) {
-        return Math.abs(evt.deltaY) > 0;
-    }
-
-    function stopPropagation(e) { 
-        if ((isYWheel(e) && isYScrollable(this)) || 
-            (isXWheel(e) && isXScrollable(this)) || 
-            (!isYScrollable(this) && isXScrollable(this) && isYWheel(e))) { // if the scroller is scrollable horizontally only, then the vertical wheel is used by iscroll
-            e.stopPropagation(); 
-        }
-    }
-
-    function startHandling(scroller) {
+    function _start(scroller) {
 
         if (scroller.hasHorizontalScroll || scroller.hasVerticalScroll) {
 
@@ -215,7 +186,7 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
         }
     }
 
-    function endHandling() {
+    function _stop() {
         if (_safe.stopped !== true) {
             _safe.stopped = true;
             window.setTimeout(function () {
@@ -236,12 +207,12 @@ function (IScroll, Utils, BreaseEvent, ScrollUtils) {
         if (typeof MutationObserver === 'function') {
             var observer = new MutationObserver(handleMutations);
 
-            observer.debouncedRefresh = _.debounce(refreshScroller.bind(null, scroller, observer), 300);
+            observer.debouncedRefresh = _.debounce(_refresh.bind(null, scroller, observer), 300);
             observer.observe(HTMLnode, { childList: true, subtree: true });
         }
     }
 
-    function refreshScroller(scroller, observer) {
+    function _refresh(scroller, observer) {
         if (scroller.wrapper && scroller.wrapper.ownerDocument === document) {
             scroller.refresh();
         }

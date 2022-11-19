@@ -1,5 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="FillTankContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:MashImgCont" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ImageList2" attribute="selectedIndex" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:HLTImgCont" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ImageList1" attribute="selectedIndex" />
+</Binding>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton3" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton1" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Valve" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleSwitch3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumeSP" attribute="node" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="NumericInput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumePV" attribute="node" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="NumericOutput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Stop" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Stop" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Valve" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleSwitch4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumeSP" attribute="node" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="NumericInput2" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumePV" attribute="node" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="NumericOutput2" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Reset" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Reset" attribute="value" />
+<Target xsi:type="brease" contentRefId="FillTankContent" widgetRefId="ToggleButton6" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>
