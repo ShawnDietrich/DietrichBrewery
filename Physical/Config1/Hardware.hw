@@ -55,6 +55,10 @@
   <Module Name="X20cAT4222" Type="X20cAT4222" Version="1.4.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12b" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11a" TargetConnector="SL1" />
+    <Parameter ID="SensorType01" Description="HLT Temperature" />
+    <Parameter ID="SensorType02" Description="Mash Tank Temperature" />
+    <Parameter ID="SensorType03" Description="Chiller Temperature" />
+    <Parameter ID="SensorType04" Description="Fermenter Temperature" />
   </Module>
   <Module Name="X20cBM11" Type="X20cBM11" Version="1.1.0.0">
     <Connection Connector="X2X1" TargetModule="X20BM11a" TargetConnector="X2X2" />

@@ -1,7 +1,3 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State">
-  <TextEdit ID="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\FillingTanks\FillingTanks\FillHLT.st" CaretLine="24" CaretColumn="12" FirstVisibleLine="6">
-    <Bookmarks />
-  </TextEdit>
-</State>
+<State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State" />
