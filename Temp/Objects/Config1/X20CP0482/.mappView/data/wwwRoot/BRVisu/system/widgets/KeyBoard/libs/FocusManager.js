@@ -18,10 +18,10 @@ define(['brease/events/BreaseEvent'],
             };
 
             self.onShow = function () {
-                self.inputEl.one('focusout', function (e) {
+                self.inputEl.one('focusout', function () {
                     _setFocus.call(self, cursor.pos);
                 });
-                self.inputEl.on('click', function (e) {
+                self.inputEl.on('click', function () {
                     cursor.pos = self.inputElem.selectionStart;
                 });
                 _setInitialFocus.call(self);
@@ -47,7 +47,7 @@ define(['brease/events/BreaseEvent'],
             };
 
             self.inputBlur = function () {
-                self.inputEl.blur(); 
+                self.inputEl.trigger('blur'); 
             };
         }
 
@@ -55,7 +55,7 @@ define(['brease/events/BreaseEvent'],
             if (this.widget && this.widget.data && this.widget.data.open === true) {
                 if (this.inputElem && this.inputElem !== document.activeElement) {
                     // correct order: first the focus, then the cursor (setSelectionRange)
-                    this.inputEl.focus();
+                    this.inputEl.trigger('focus'); 
                     this.inputElem.setSelectionRange(pos, pos);
                 }
             }
@@ -70,7 +70,7 @@ define(['brease/events/BreaseEvent'],
             this.inputEl.one('focusin', function () {
                 instance.inputElem.setSelectionRange(pos, pos);
             });
-            this.inputEl.focus();
+            this.inputEl.trigger('focus'); 
         }
         
         return FocusManager;

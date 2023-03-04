@@ -1,0 +1,13 @@
+$(AS_PROJECT_PATH)/Logical/Global.var
+$(AS_PROJECT_PATH)/Logical/ProcessControl/Kettle/Variables.var
+$(AS_PROJECT_PATH)/Physical/Config1/X20CP0482/Cpu.sw
+$(AS_PROJECT_PATH)/Logical/Global.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/MpTemp/MpTemp.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MpBase/MpBase.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/MTBasics/MTBasics.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/MTBasics/MTBasics.typ
+$(AS_PROJECT_PATH)/Logical/ProcessControl/HLT/Variables.var
+$(AS_PROJECT_PATH)/Logical/HMIControl/HMIProgram/Variables.var
+$(AS_PROJECT_PATH)/Logical/ProcessControl/MashTun/Variables.var
+$(AS_PROJECT_PATH)/Logical/Libraries/astime/astime.typ

@@ -337,7 +337,8 @@ or if autofocus should be disabled (-1)				</Description>
 				<Description>Shadow of the Widget</Description>
 			</StyleProperty>
 			<StyleProperty name="padding" category="Layout" type="Padding" default="0px">
-				<StyleElement selector="&gt; .container" attribute="padding"/>
+				<StyleElement selector="&gt; .container &gt; .widgetContainer" attribute="padding"/>
+				<StyleElement selector="&gt; .widgetContainer" attribute="padding"/>
 				<Description>Padding of the Widget</Description>
 			</StyleProperty>
 			<StyleProperty name="margin" category="Layout" type="Margin" default="0px 0px 12px 0px">

@@ -158,6 +158,9 @@
 <LN ID="%ID.IF6.BusLengthConfigured" Type="DINT">
 <Prod Device="$root" DPName="IF6.BusLengthConfigured" Kind="io"/>
 </LN>
+<LN ID="%IX.IF7.TerminatingResistor" Type="BOOL">
+<Prod Device="$root" DPName="IF7.TerminatingResistor" Kind="io"/>
+</LN>
 <LN ID="%IX.IF6.ST1.ModuleOk" Type="BOOL">
 <Prod Device="IF6.ST1" DPName="ModuleOk" Kind="io"/>
 </LN>
@@ -245,6 +248,7 @@
 </LN>
 <LN ID="%IW.IF6.ST2.Temperature02" Type="INT">
 <Prod Device="IF6.ST2" DPName="Temperature02" Kind="io"/>
+<Cons Device="TC#1-CPYDEV" DPName="::rawMashTemp" Kind="pv"/>
 </LN>
 <LN ID="%IW.IF6.ST2.Temperature03" Type="INT">
 <Prod Device="IF6.ST2" DPName="Temperature03" Kind="io"/>
@@ -318,14 +322,14 @@
 <Cons Device="IF6.ST3" DPName="DigitalOutput02" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput03" Type="BOOL">
-<Prod Device="TC#4-CPYDEV" DPName="::MashPump" Kind="pv"/>
+<Prod Device="TC#1-CPYDEV" DPName="::MashPump" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput03" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput04" Type="BOOL">
-<Prod Device="TC#1-CPYDEV" DPName="::HLTPump" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput04" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput05" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::HLTPump" Kind="pv"/>
 <Cons Device="IF6.ST3" DPName="DigitalOutput05" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST3.DigitalOutput06" Type="BOOL">

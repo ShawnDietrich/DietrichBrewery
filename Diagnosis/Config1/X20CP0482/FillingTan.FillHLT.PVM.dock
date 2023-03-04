@@ -1,3 +1,16 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=FillingTan 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=250 Type=0 Scope=0 Force=0 Index=0 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=250 Type=0 Scope=0 Force=0 Index=11 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
+                             AutoFillHLT                             ValveControl    0 "                                                               *"    0   24    1    0    1    1         
+                                   Reset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                    Stop                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                   Start                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                  ValveR                                   R_TRIG    0 "                                                               *"    1   24    1    0    0    1         
+                                     CLK                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                       Q                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                       M                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Valve                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                VolumePV                                     REAL    0 "                                                             0.0"    1    8    1   10    0    0         
+                                VolumeSP                                     REAL    0 "                                                            10.0"    1    8    1   10    0    0         
+                                   State                                     DINT    0 "                                                               3"    1    4    1   10    0    0 e,0,Stop
+

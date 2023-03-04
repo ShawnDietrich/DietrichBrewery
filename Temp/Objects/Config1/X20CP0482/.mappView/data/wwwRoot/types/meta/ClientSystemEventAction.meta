@@ -240,6 +240,14 @@
           <w1:Method name="FocusPrevious" read="false">
             <w1:Description>This action moves the focus to the previous widget.</w1:Description>
           </w1:Method>
+          <!--<w1:Method name="GetScreenCapture" read="false">
+            <w1:Description>This action takes a screenshot and stores it on the client.</w1:Description>
+            <w1:Arguments>
+              <w1:Argument name="preFix" type="FileName" index="0" required="false" defaultValue="">
+              </w1:Argument>
+            </w1:Arguments>
+            <w1:Result type="Boolean" />
+          </w1:Method>-->
         </Methods>
       </MethodGroup>
     </MethodGroups>

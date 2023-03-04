@@ -1,4 +1,4 @@
-define(['brease/core/Utils'], function (Utils) {
+define(function () {
 
     'use strict';
 
@@ -13,7 +13,7 @@ define(['brease/core/Utils'], function (Utils) {
     AsyncProcess.prototype.start = function () {
         if (!this.started) {
             this.started = true;
-            Utils.requestAnimationFrame(this.execute);
+            window.requestAnimationFrame(this.execute);
         }
     };
 

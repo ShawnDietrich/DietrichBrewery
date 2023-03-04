@@ -10,6 +10,9 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     * @property {Number} notExistent=-3
     */
     /** 
+    * @property {Number} aborted=-2.5
+    */
+    /** 
     * @property {Number} deactivated=-2
     */
     /** 
@@ -32,6 +35,7 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     */
     var ContentStatus = new EnumObject({
         notExistent: -3,
+        aborted: -2.5,
         deactivated: -2,
         deactivatePending: -1,
         initialized: 0,

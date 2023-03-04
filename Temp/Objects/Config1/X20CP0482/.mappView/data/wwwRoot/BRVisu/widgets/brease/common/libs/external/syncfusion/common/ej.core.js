@@ -1,7 +1,7 @@
 /*!
 *  filename: ej.core.js
-*  version : 18.4.0.30
-*  Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
+*  version : 19.4.0.38
+*  Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -19,7 +19,7 @@ window.ej = window.Syncfusion = window.Syncfusion || {};
 (function ($, ej, undefined) {
     'use strict';
 
-    ej.version = "18.4.0.30";
+    ej.version = "19.4.0.38";
 
     ej.consts = {
         NamespaceJoin: '-'

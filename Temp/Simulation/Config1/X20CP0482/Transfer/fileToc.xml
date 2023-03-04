@@ -45,7 +45,7 @@
 					<File Name="1970273527.binding" Size="507" HashValue="3D484307E606C335D3D731935759A4F2" ProjectDependent="1"/>
 					<File Name="893280410.binding" Size="6520" HashValue="7812D83A81217619E0FF5E2FA7AAB336" ProjectDependent="1"/>
 					<File Name="__SystemVariables.sessionVar" Size="3679" HashValue="47F4015152DC77A4E81EB725C733FBD6" ProjectDependent="1"/>
-					<File Name="Config.mappviewcfg" Size="1435" HashValue="C75DB0DC105DA93E410B4DC10320E241" ProjectDependent="1"/>
+					<File Name="Config.mappviewcfg" Size="1474" HashValue="6AA5A5DCFB054D30E86A8999C97952D0" ProjectDependent="1"/>
 					<File Name="vis_0.vis" Size="1511" HashValue="9A4EEA0B8585689D7DA1E7376EF73EA7" ProjectDependent="1"/>
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1">
@@ -2099,7 +2099,7 @@
 			<Folder Name="OPCUA" ProjectDependent="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IsGroup="1">
 					<Folder Name="Generated" ProjectDependent="1" IsGroup="1">
-						<File Name="OpcUaMap.uar.gz" Size="967" HashValue="A590506298FCF9F7E0FB8AF2F87F5859" ProjectDependent="1"/>
+						<File Name="OpcUaMap.uar.gz" Size="968" HashValue="36657891802D794954197883F281EFCD" ProjectDependent="1"/>
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IsGroup="1">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1"/>

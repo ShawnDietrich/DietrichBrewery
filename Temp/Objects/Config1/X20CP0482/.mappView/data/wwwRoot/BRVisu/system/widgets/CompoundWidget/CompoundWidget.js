@@ -117,9 +117,7 @@ define(['brease/core/BaseWidget', 'brease/events/BreaseEvent', 'brease/enum/Enum
             if (brease.config.editMode === false) {
                 this.selectChildren('direct').each(function () {
                     var widgetId = this.id;
-                    if (brease.uiController.getWidgetState(widgetId) < Enum.WidgetState.INITIALIZED || brease.uiController.callWidget(widgetId, 'setParentEnableState', enabled) === null) {
-                        brease.uiController.addWidgetOption(widgetId, 'parentEnableState', enabled);
-                    }
+                    brease.uiController.setWidgetPropertyIndependentOfState(widgetId, 'parentEnableState', enabled);
                 });
             }
         }
@@ -132,9 +130,7 @@ define(['brease/core/BaseWidget', 'brease/events/BreaseEvent', 'brease/enum/Enum
         if (brease.config.editMode === false) {
             this.selectChildren('direct').each(function () {
                 var widgetId = this.id;
-                if (brease.uiController.getWidgetState(widgetId) < Enum.WidgetState.INITIALIZED || brease.uiController.callWidget(widgetId, 'setParentEnableState', enabled) === null) {
-                    brease.uiController.addWidgetOption(widgetId, 'parentEnableState', enabled);
-                }
+                brease.uiController.setWidgetPropertyIndependentOfState(widgetId, 'parentEnableState', enabled);
             });
         }
     };
@@ -210,9 +206,7 @@ define(['brease/core/BaseWidget', 'brease/events/BreaseEvent', 'brease/enum/Enum
             if (brease.config.editMode === false) {
                 this.selectChildren('direct').each(function () {
                     var widgetId = this.id;
-                    if (brease.uiController.getWidgetState(widgetId) < Enum.WidgetState.INITIALIZED || brease.uiController.callWidget(widgetId, 'setParentVisibleState', visible) === null) {
-                        brease.uiController.addWidgetOption(widgetId, 'parentVisibleState', visible);
-                    }
+                    brease.uiController.setWidgetPropertyIndependentOfState(widgetId, 'parentVisibleState', visible);
                 });
             }
         }

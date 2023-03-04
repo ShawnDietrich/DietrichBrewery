@@ -193,7 +193,7 @@ define(['brease/core/Class'], function (SuperClass) {
     }
 
     function _setErrorMessage(self, widgetId, msg) {
-        if (brease.config.editMode || window.jasmine) { return false; }
+        if (brease.config.editMode) { return false; }
         _showErrorMessageOnUI(self, 'ERROR: ' + msg + ' { WidgetId: ' + widgetId + ', ContentId: ' + self.contentId + ' }');
         self._numberOfReportedErrors += 1;
     }

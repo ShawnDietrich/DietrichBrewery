@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?AutomationRuntimeIOSystem Version = 2.5.0.7?>
 <ChannelConfiguration xmlns="http://www.br-automation.com/AR/IO">
-  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20CP0482" ModuleID="14">
+  <Module ID="$root" Hardware="X20BB57" HardwareModuleName="X20CP0482" ModuleID="15">
     <Channel ID="SerialNumber_CPU" Description="Serial number of CPU board" Ext="/HW" Address="0" Direction="IN" Type="UDINT" ChannelType="GenericFuncCall" Function="HwGetSerialNumber" Sig_St_Udint="1" />
     <Channel ID="ModuleID_CPU" Description="Module ID of CPU board" Ext="/HW" Address="1" Direction="IN" Type="UINT" ChannelType="ModuleIDCpu" Sig_St_Uint="1" />
     <Channel ID="HardwareVariant" Description="Hardware variant" Ext="/HW" Address="2" Direction="IN" Type="UINT" ChannelType="HardwareVariant" Sig_St_Uint="1" />
@@ -25,7 +25,7 @@
     <Channel ID="IF3.CycleIdleTime" Description="Unoccupied time during one POWERLINK cycle [µs]" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="IF3.CycleCongestionCount" Description="allways 0, available for legacy projects" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
   </Module>
-  <Module ID="$root" Hardware="X20BB52" HardwareModuleName="X20BB52" ModuleID="1">
+  <Module ID="$root" Hardware="X20BB57" HardwareModuleName="X20BB57" ModuleID="1">
     <Channel ID="ModuleID_BB" Description="Module ID bus base" Ext="/HW" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" ChannelType="ModuleID" />
     <Channel ID="IF6.CycleCount" Description="Number of bus cycles" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
     <Channel ID="IF6.BreakCount" Description="Number of bus cycles with set break signal" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
@@ -56,8 +56,9 @@
     <Channel ID="IF6.AsyncFrameSize" Description="Size of asynchronous frame [Bytes]" FromVersion="A3.08" Ext="/INFO" Address="0x8000011A" Direction="IN" Type="DINT" Sig_St_Dint="1" />
     <Channel ID="IF6.AsyncFrameSpareSize" Description="Size reserve within asynchronous frame [Bytes]" FromVersion="A3.08" Ext="/INFO" Address="0x8000011B" Direction="IN" Type="DINT" Sig_St_Dint="1" />
     <Channel ID="IF6.BusLengthConfigured" Description="Configured bus length [m]" FromVersion="A3.08" Ext="/INFO" Address="0x8000011C" Direction="IN" Type="DINT" Sig_St_Dint="1" />
+    <Channel ID="IF7.TerminatingResistor" Description="Abschlusswiderstand" Ext="/HW" Address="1" Direction="IN" Type="BOOL" ChannelType="Statistic" />
   </Module>
-  <Module ID="IF6.ST1" Hardware="X20cDI4371" HardwareModuleName="X20cDI4371" ModuleID="41" Simulatable="true">
+  <Module ID="IF6.ST1" Hardware="X20cDI4371" HardwareModuleName="X20cDI4371" ModuleID="42" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
@@ -81,7 +82,7 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="IF6.ST2" Hardware="X20cAT4222" HardwareModuleName="X20cAT4222" ModuleID="34" Simulatable="true">
+  <Module ID="IF6.ST2" Hardware="X20cAT4222" HardwareModuleName="X20cAT4222" ModuleID="35" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
@@ -106,7 +107,7 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="IF6.ST3" Hardware="X20DO8332" HardwareModuleName="X20DO8332" ModuleID="20" Simulatable="true">
+  <Module ID="IF6.ST3" Hardware="X20DO8332" HardwareModuleName="X20DO8332" ModuleID="21" Simulatable="true">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" FromVersion="A3.08" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" FromVersion="A3.08" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />
@@ -142,7 +143,7 @@
     <Channel ID="ModuleCommError" Description="Number of communication errors to IO processor on IO module" FromVersion="A4.81" Ext="/INFO" Address="0x80000186" Direction="IN" Type="DINT" Sig_St_Dint="1" Diagnose="/DIAG" />
     <Channel ID="ModuleCommErrorChangeTime" Description="Time of last change of channel ModuleCommError" FromVersion="A4.81" Ext="/INFO" Address="0xC0000186" Direction="IN" Type="DATE_AND_TIME" Sig_St_Dt="1" Diagnose="/DIAG" />
   </Module>
-  <Module ID="PS1" Hardware="X20PS9600" HardwareModuleName="X20PS9600" ModuleID="23">
+  <Module ID="PS1" Hardware="X20PS9600" HardwareModuleName="X20PS9600" ModuleID="24">
     <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
     <Channel ID="SerialNumber" Description="Serial number" Ext="/INFO" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
     <Channel ID="ModuleID" Description="Module ID" Ext="/INFO" Address="10" Direction="IN" Type="UINT" Sig_St_Uint="1" />

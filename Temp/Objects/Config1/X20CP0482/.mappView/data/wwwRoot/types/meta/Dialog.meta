@@ -59,7 +59,7 @@ This image is shown next to the header text.
     </StyleProperty>
     <StyleProperty name="backGroundGradient" category="Appearance" type="Gradient" default="">
       <Description>Background gradient for the dialog box.</Description>
-      <StyleElement selector=".breaseDialogWindowContentBox .breaseLayout" attribute="background-image"></StyleElement>
+      <StyleElement selector=".breaseDialogWindowContentBox .breaseLayout" attribute="@include backGroundGradient('$value')"></StyleElement>
     </StyleProperty>
     <StyleProperty name="borderWidth" type="PixelValCollection" default="2px" category="Appearance">
       <StyleElement selector=".breaseDialogWindowContentBox" attribute="border-width"></StyleElement>
@@ -91,7 +91,7 @@ Possible Values: solid, dotted, none, dashed, double, groove
       </Description>
     </StyleProperty>
     <StyleProperty name="headerGradient" category="Appearance" type="Gradient" default="none">
-      <StyleElement selector=".breaseDialogWindowHeader" attribute="background-image"></StyleElement>
+      <StyleElement selector=".breaseDialogWindowHeader" attribute="@include backGroundGradient('$value')"></StyleElement>
       <Description>Background of header as a gradient.
 For further information see CSS Gradients.
       </Description>

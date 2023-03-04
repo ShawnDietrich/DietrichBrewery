@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?AutomationRuntimeIOSystem Version = 1.0?>
 <IOCFG xmlns="http://www.br-automation.com/AR/IO" Version="2.0">
-  <Module ID="$root" Hardware="X20BB52">
+  <Module ID="$root" Hardware="X20BB57">
     <Parameter ID="HardwareModuleName" Value="X20CP0482" />
     <Parameter ID="SimulationIPAddress" Value="127.0.0.1" />
     <Parameter ID="SimulationInaPort" Value="11160" Type="UDINT" />
@@ -12,7 +12,7 @@
     <Parameter ID="X2XCycleTimeMax" Value="32000" Type="UDINT" />
   </Module>
   <Module ID="CPU" Hardware="X20CP0482" />
-  <Module ID="IF2" Hardware="X20BB52">
+  <Module ID="IF2" Hardware="X20BB57">
     <Parameter ID="ActivateOSAFT" Value="0" />
   </Module>
   <Module ID="IF2.OPCUA" Hardware="OPCUA">
@@ -21,7 +21,7 @@
   <Module ID="IF2.SITEMAN" Hardware="SITEMAN">
     <Parameter ID="ActivateSiteMan" Value="1" Type="INT" />
   </Module>
-  <Module ID="IF3" Hardware="X20BB52">
+  <Module ID="IF3" Hardware="X20BB57">
     <Parameter ID="Operation" Value="EPL-V2" />
     <Parameter ID="MtuSize" Value="300" Type="UDINT" />
   </Module>
@@ -62,7 +62,7 @@
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
     <Parameter ID="Supervision" Value="on" />
-    <Parameter ID="InputFilter" Value="10" Type="USINT" />
+    <Parameter ID="InputFilter" Value="1" Type="USINT" />
   </Module>
   <Module ID="IF6.ST2" Hardware="X20cAT4222">
     <Parameter ID="HardwareModuleName" Value="X20cAT4222" />
@@ -84,10 +84,15 @@
   <Module ID="IF6.ST3.IO" Hardware="X20DO8332">
     <Parameter ID="FunctionModel" Value="Standard" />
     <Parameter ID="FunctionModelNumber" Value="0" Type="USINT" />
-    <Parameter ID="Supervision" Value="on" />
+    <Parameter ID="Supervision" Value="off" />
     <Parameter ID="StatusInfo" Value="on" />
     <Parameter ID="PowerSupply01" Value="off" />
     <Parameter ID="DigitalOutputsPacked" Value="off" />
+  </Module>
+  <Module ID="IF7.CANIO" Hardware="CANIO">
+    <Parameter ID="Timeout" Value="1000" Type="UDINT" />
+    <Parameter ID="Retries" Value="3" Type="UDINT" />
+    <Parameter ID="Mode" Value="CANIO" />
   </Module>
   <Module ID="PS1" Hardware="X20PS9600">
     <Parameter ID="HardwareModuleName" Value="X20PS9600" />

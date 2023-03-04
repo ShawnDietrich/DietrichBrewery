@@ -7,5 +7,6 @@
     <File Description="Local variables" Private="true">Variables.var</File>
     <File>SimFlowMeter.st</File>
     <File>FillHLT.st</File>
+    <File>FillMash.st</File>
   </Files>
 </Program>

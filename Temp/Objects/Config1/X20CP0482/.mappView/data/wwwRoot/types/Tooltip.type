@@ -21,7 +21,7 @@
 	
     <StyleProperty name="backGroundGradient" category="Appearance" type="Gradient">
       <Description>Background gradient for the Tootip</Description>
-      <StyleElement selector=".breaseTooltip" attribute="background-image"></StyleElement>
+      <StyleElement selector=".breaseTooltip" attribute="@include backGroundGradient('$value')"></StyleElement>
     </StyleProperty>
 	
     <StyleProperty name="borderWidth" type="PixelValCollection" default="1px" category="Appearance">

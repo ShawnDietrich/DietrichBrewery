@@ -1,18 +1,26 @@
 
 ACTION FillHLT:
 	
+	
+	//Start and stop logic
 	IF  DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
 		
 		IF(AutoFillHLT.Start) THEN
 			AutoFillHLT.State := SimAuto;
 		ELSIF AutoFillHLT.Stop THEN
-			AutoFillHLT.State := SimManual;
+			AutoFillHLT.State := Stop;
 		END_IF
 		
 	END_IF
 	
 	
 	CASE AutoFillHLT.State OF 
+		
+		Stop:
+			AutoFillHLT.Valve	:= FALSE;
+
+			AutoFillHLT.Stop	:= FALSE;
+			AutoFillHLT.State 	:=SimManual;
 		
 		SimAuto: 
 			AutoFillHLT.VolumePV := SimFlowMeterVal;
@@ -24,10 +32,10 @@ ACTION FillHLT:
 			END_IF
 			
 		SimManual:
+			
 			IF AutoFillHLT.Reset THEN
-				AutoFillHLT.VolumePV := 0.0;
-				AutoFillHLT.Valve	:= FALSE;
 				AutoFillHLT.Reset	:= FALSE;
+				AutoFillHLT.VolumePV := 0.0;
 			END_IF
 		Automatic: 
 			

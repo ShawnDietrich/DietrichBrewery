@@ -53,6 +53,7 @@ END_TYPE
 TYPE
 	ControlState : 
 		(
+		Stop,
 		Manual,
 		Automatic,
 		SimManual,

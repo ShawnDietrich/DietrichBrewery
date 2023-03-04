@@ -76,7 +76,7 @@
     </StyleProperty>
     <StyleProperty name="headerGradient" category="Header" type="Gradient">
       <Description>Hintergrund der Kopfzeile als Farb-Gradient.</Description>
-      <StyleElement selector="header" attribute="background-image"></StyleElement>
+      <StyleElement selector="header" attribute="@include backGroundGradient('$value')"></StyleElement>
     </StyleProperty>
     <StyleProperty name="headerBackColor" category="Header" type="Color" default="#333">
       <Description>Hintergrundfarbe der Kopfzeile.</Description>

@@ -1,2 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<breakpoints />
+<breakpoints>
+  <breakpoint>
+    <status>Y</status>
+    <file>Logical/FillingTanks/FillingTanks/FillHLT.st</file>
+    <position>35</position>
+    <condition></condition>
+    <instance></instance>
+    <program>FillingTan</program>
+  </breakpoint>
+</breakpoints>

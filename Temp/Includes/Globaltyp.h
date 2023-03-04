@@ -1,14 +1,15 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1667141630_1_
-#define _BUR_1667141630_1_
+#ifndef _BUR_1677893434_1_
+#define _BUR_1677893434_1_
 
 #include <bur/plctypes.h>
 
 /* Datatypes and datatypes of function blocks */
 typedef enum ControlState
-{	Manual,
+{	Stop,
+	Manual,
 	Automatic,
 	SimManual,
 	SimAuto
@@ -69,5 +70,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Global.typ\\\" scope \\\"global\\\"\\n\"")
 __asm__(".previous");
 
 
-#endif /* _BUR_1667141630_1_ */
+#endif /* _BUR_1677893434_1_ */
 

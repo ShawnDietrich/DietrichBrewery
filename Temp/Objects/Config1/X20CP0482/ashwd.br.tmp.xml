@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <?hwc2hwd version="1.1"?>
 <HWD Version="2.0" xmlns="http://br-automation.com/AR/IO/HWD">
-  <Hardware Family="10" ID="X20BB52" Modno="60170" UseType="2">
-    <Parameter ID="OrderNumber" Value="X20BB52" />
+  <Hardware Family="10" ID="X20BB57" Modno="60169" UseType="2">
+    <Parameter ID="OrderNumber" Value="X20BB57" />
     <Parameter ID="MergeInfoNode" Value="CPU" />
     <Parameter ID="Supervision" Value="on" />
     <Resource ID="CPU" />
@@ -39,6 +39,28 @@
         <Parameter ID="IOSuffix" Value="X2X.BUS" />
         <Parameter ID="Interrupt" Value="0x41" Type="UDINT" />
         <Parameter ID="Classcode" Value="0x09800200" Type="UDINT" />
+      </Resource>
+      <Resource ID="IF7">
+        <Parameter ID="VirtFunc" Value="BASEDEV" />
+        <Parameter ID="OfferedBus" Value="CAN" />
+        <Parameter ID="MemBase0" Value="0xe0008000" Type="UDINT" />
+        <Parameter ID="Interrupt" Value="0x3C" Type="UDINT" />
+        <Parameter ID="Classcode" Value="0x17800200" Type="UDINT" />
+        <Parameter ID="TermSwitchMethod" Value="10" Type="UDINT" />
+        <Parameter ID="IOSuffix" Value="TERMIF7" />
+        <Resource ID="TERMIF7">
+          <Parameter ID="VirtFunc" Value="BASEDEV" />
+          <Parameter ID="Classcode" Value="0x20000022" Type="UDINT" />
+          <Parameter ID="Transparent" Value="1" Type="UDINT" />
+          <Parameter ID="ARIOMaster" Value="1" Type="UDINT" />
+          <Channel ID="TerminatingResistor">
+            <Parameter ID="Ext" Value="/HW" />
+            <Parameter ID="Address" Value="1" Type="UDINT" />
+            <Parameter ID="Direction" Value="IN" />
+            <Parameter ID="Type" Value="BOOL" />
+            <Parameter ID="ChannelType" Value="Statistic" />
+          </Channel>
+        </Resource>
       </Resource>
       <Resource ID="PSUART">
         <Parameter ID="Transparent" Value="1" Type="UDINT" />

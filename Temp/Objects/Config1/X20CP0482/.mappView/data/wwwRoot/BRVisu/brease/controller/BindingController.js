@@ -121,7 +121,7 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
                 var readyDef = $.Deferred(),
                     content = contentManager.setLatestRequest(contentId, 'detach');
 
-                if (content) {
+                if (content && content.state !== ContentStatus.aborted) {
                     contentManager.setActiveState(contentId, ContentStatus.deactivatePending);
                     contentManager.setDeactivateDeferred(contentId, readyDef);
                     var force = (brease.config.preLoadingState !== true);
@@ -257,8 +257,8 @@ function (bindingModel, bindingLoader, BreaseEvent, SocketEvent, ServerCode, Enu
                 brease.loggerService.log(Enum.EventLoggerId.CLIENT_BINDING_ATTACH_OK, Enum.EventLoggerCustomer.BUR, Enum.EventLoggerVerboseLevel.LOW, Enum.EventLoggerSeverity.SUCCESS, [callbackInfo.contentId]);
             } else {
                 console.iatWarn('activateContent for content "' + callbackInfo.contentId + '" failed, possibly no binding defined!');
-                callbackInfo.deferred.resolve(callbackInfo.contentId);
-                brease.loggerService.log(Enum.EventLoggerId.CLIENT_BINDING_ATTACH_FAIL, Enum.EventLoggerCustomer.BUR, Enum.EventLoggerVerboseLevel.LOW, Enum.EventLoggerSeverity.ERROR, [callbackInfo.contentId]);
+                callbackInfo.deferred.reject(callbackInfo.contentId);
+                brease.loggerService.log(Enum.EventLoggerId.CLIENT_BINDING_ATTACH_FAIL, Enum.EventLoggerCustomer.BUR, Enum.EventLoggerVerboseLevel.OFF, Enum.EventLoggerSeverity.ERROR, [callbackInfo.contentId]);
             }
         } else {
             console.iatWarn('activateContent for content "' + callbackInfo.contentId + '" aborted!');

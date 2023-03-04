@@ -7,7 +7,7 @@ PROGRAM _CYCLIC
 
 	SimFlowMeter;
 	FillHLT;
-	
+	FillMash;
 	
 	 
 END_PROGRAM

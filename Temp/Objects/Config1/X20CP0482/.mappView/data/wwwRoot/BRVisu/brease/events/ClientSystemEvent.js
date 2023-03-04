@@ -10,6 +10,7 @@ define(['brease/core/Utils'], function (Utils) {
     * @property {String} CONTENT_LOADED='ContentLoaded'
     * @readonly
     * @static
+    * Fired when all widgets of content are parsed (init, BreaseEvent.CONTENT_PARSED) and sendInitialValues is done (BreaseEvent.FRAGMENT_SHOW) and CONTENT_ACTIVATED is done
     */
     /**
     * @property {String} DISABLED_CLICK='DisabledClick'

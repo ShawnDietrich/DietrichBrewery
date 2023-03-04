@@ -25,6 +25,8 @@ function (BreaseEvent, SocketEvent, Utils, PageType, AssignType, ContentStatus, 
     */
     var VisuModel = {
 
+        VISU_ACTIVATION_TIMEOUT: 30000,
+
         init: function (runtimeService, logger) {
             if (logger) {
                 _logger = logger;
@@ -50,13 +52,17 @@ function (BreaseEvent, SocketEvent, Utils, PageType, AssignType, ContentStatus, 
             if (visu === undefined || visu.status !== VisuStatus.LOADED) {
                 deferred.reject((visu !== undefined) ? visu.status : VisuStatus.NOT_FOUND, undefined, callbackInfo);
             } else {
-                if (visu.active !== true) {
+                if (visu.pending === true) {
+                    deferred.reject((visu !== undefined) ? visu.status : VisuStatus.NOT_FOUND, undefined, callbackInfo);
+                } else if (visu.active === true) {
+                    deferred.resolve(callbackInfo);
+                } else {
                     visu.activateDeferred = deferred;
                     visu.callbackInfo = callbackInfo;
-                    _runtimeService.activateVisu(visuId, _activateVisuResponse, callbackInfo);
+                    visu.pending = true;
                     _pendingVisus.push(visuId);
-                } else {
-                    deferred.resolve(callbackInfo);
+                    visu.timeout = window.setTimeout(_rejectVisuActivation.bind(null, visu), VisuModel.VISU_ACTIVATION_TIMEOUT);
+                    _runtimeService.activateVisu(visuId, _activateVisuResponse, callbackInfo);
                 }
             }
             return deferred.promise();
@@ -513,29 +519,65 @@ function (BreaseEvent, SocketEvent, Utils, PageType, AssignType, ContentStatus, 
         }
         return visuData;
     }
+    
+    function _activateVisuResponse(response, callbackInfo) {
+        var visu = _visuModel.visus[callbackInfo.visuId];
+        if (visu) {
+            var responseCode = (response !== undefined && response.status !== undefined) ? response.status.code : undefined;
+            if (responseCode !== 0) {
+                _rejectVisuActivation(visu, responseCode);
+            } else { 
+                visu.callResponse = true;
+                _tryAactivateVisu(visu);
+            }
+        }
+    }
+
+    function _rejectVisuActivation(visu, responseCode) {
+        responseCode = responseCode || -1;
+        visu.activateDeferred.reject(VisuStatus.ACTIVATE_FAILED, responseCode, visu.callbackInfo);
+        brease.messenger.announce('VISU_NOT_ACTIVATED', { visuId: visu.id });
+        cleanupVisu(visu);
+    }
+
+    function cleanupVisu(visu) {
+        window.clearTimeout(visu.timeout);
+        delete visu.timeout;
+        delete visu.callbackInfo;
+        delete visu.callResponse;
+        delete visu.eventResponse;
+        delete visu.activateDeferred;
+        delete visu.pending;
+    }
 
     function _visuActivatedListener(e) {
-
         var visuId = e.detail.visuId,
             visu = _visuModel.visus[visuId];
         if (!visu) {
             return;
         }
-        var deferred = visu.activateDeferred,
-            callbackInfo = visu.callbackInfo;
+        visu.eventResponse = true;
+        _tryAactivateVisu(visu);
+    }
 
-        visu.active = true;
-        window.clearTimeout(visu.timeout);
-        delete visu.callbackInfo;
-        delete visu.timeout;
-        // event is needed by BindingLoader to refresh session event subscriptions
-        document.body.dispatchEvent(new CustomEvent(BreaseEvent.VISU_ACTIVATED, {
-            detail: {
-                visuId: visuId
+    function _tryAactivateVisu(visu) {
+
+        if (visu.callResponse === true && visu.eventResponse === true) {
+            var deferred = visu.activateDeferred,
+                callbackInfo = visu.callbackInfo;
+
+            cleanupVisu(visu);
+
+            visu.active = true;
+            // event is needed by BindingLoader to refresh session event subscriptions
+            document.body.dispatchEvent(new CustomEvent(BreaseEvent.VISU_ACTIVATED, {
+                detail: {
+                    visuId: visu.id
+                }
+            }));
+            if (deferred) {
+                deferred.resolve(callbackInfo);
             }
-        }));
-        if (deferred) {
-            deferred.resolve(callbackInfo);
         }
     }
 
@@ -552,25 +594,6 @@ function (BreaseEvent, SocketEvent, Utils, PageType, AssignType, ContentStatus, 
                 visuId: visuId
             }
         }));
-    }
-
-    // response can be positive or negative
-    // a visu is activated, if active!=undefined
-    function _activateVisuResponse(response, callbackInfo) {
-        //console.log('_activateVisuResponse:' + JSON.stringify(response), callbackInfo)
-        var visu = _visuModel.visus[callbackInfo.visuId];
-        if (visu) {
-            var deferred = visu.activateDeferred,
-                responseCode = (response !== undefined && response.status !== undefined) ? response.status.code : undefined;
-
-            if (responseCode !== 0) {
-                deferred.reject(VisuStatus.ACTIVATE_FAILED, responseCode, callbackInfo);
-            } else if (visu.active !== true) { // it's possible that VisuActivated is sent before activateVisuResponse
-                visu.timeout = window.setTimeout(function () {
-                    brease.messenger.announce('VISU_NOT_ACTIVATED', { visuId: callbackInfo.visuId });
-                }, 30000);
-            }
-        }
     }
 
     function _contentsOfPage(pageId, pageType) {
