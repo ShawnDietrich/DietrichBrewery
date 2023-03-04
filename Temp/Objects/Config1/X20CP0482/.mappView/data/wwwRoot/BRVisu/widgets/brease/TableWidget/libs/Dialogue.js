@@ -124,7 +124,7 @@ define([
     /**
      * @method _getLanguage
      * @private
-     * This method will determine which language is currenly used. If it's not german it will default to English.
+     * This method will determine which langauge is currenly used. If it's not german it will default to English.
      */
     p._getLanguage = function () {
         return brease.language.getCurrentLanguage();

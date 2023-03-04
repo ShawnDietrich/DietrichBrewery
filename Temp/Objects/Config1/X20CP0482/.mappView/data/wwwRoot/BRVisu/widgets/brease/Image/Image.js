@@ -87,7 +87,7 @@ define(['brease/core/BaseWidget',
     p._initEditor = function () {
         var widget = this;
         widget.el.addClass('iatd-outline');
-        require(['widgets/brease/Image/libs/EditorHandles', 'brease/events/BreaseEvent'], function (EditorHandles, BreaseEvent) {
+        require(['widgets/brease/Image/libs/EditorHandles'], function (EditorHandles) {
             var editorHandles = new EditorHandles(widget);
             widget.getHandles = function () {
                 return editorHandles.getHandles();
@@ -95,7 +95,6 @@ define(['brease/core/BaseWidget',
             widget.designer.getSelectionDecoratables = function () {
                 return editorHandles.getSelectionDecoratables();
             };
-            widget.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
         });
     };
 
@@ -164,7 +163,7 @@ define(['brease/core/BaseWidget',
      * @return {brease.enum.SizeMode}
      */
     p.getSizeMode = function () {
-        return this.imageStore.getImageSizeMode();
+        return this.imageStore.getSizeMode();
     };
 
     p.updateVisibility = function (initial) {

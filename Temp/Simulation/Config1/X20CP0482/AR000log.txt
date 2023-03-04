@@ -1,18 +1,21 @@
-Fri Mar  3 20:44:42 2023
+Sat Mar  4 09:45:45 2023
 COPYRIGHT (C) B&R Industrial Automation GmbH
 
-Fri Mar  3 20:44:42 2023
+Sat Mar  4 09:45:45 2023
 No ARsim registration found!
 
-Fri Mar  3 20:44:42 2023
-InstanceName: 000000001ccf896c
+Sat Mar  4 09:45:45 2023
+InstanceName: 0000003cada76064
 
-Fri Mar  3 20:44:42 2023
+Sat Mar  4 09:45:45 2023
 WorkingDirectory: C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Simulation\Config1\X20CP0482\
 
-Fri Mar  3 20:44:42 2023
+Sat Mar  4 09:45:45 2023
 COMMAND_COLDSTART
 
-Fri Mar  3 20:44:44 2023
+Sat Mar  4 09:45:48 2023
 Version: B4.93
+
+Sat Mar  4 09:54:54 2023
+COMMAND_TERMINATE
 

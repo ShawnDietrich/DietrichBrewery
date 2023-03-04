@@ -67,11 +67,6 @@ define(['brease/core/Utils',
                 return _readyDef[classPath];
             }
         },
-        
-        // needed for unit tests only, to remove references to widget classes
-        undef: function (classPath) {
-            _readyDef[classPath] = undefined;
-        },
 
         // needed for unit tests only, where widgets are not loaded the usual way
         loadWidgetMeta: function (widgetPath) {

@@ -154,16 +154,26 @@ define([
     * @param {Boolean} [omitSubmit] If true, value change is not submitted to SPS
     */
     p.toggle = function (status, omitSubmit, omitLoad) {
+        //console.debug(WidgetClass.name + '[id=' + this.elem.id + '].toggle:', { status: status, isToggle: this.settings.isToggle, omitLoad: omitLoad, url: this.settings.url, pageId: this.settings.pageId });
         if (this.settings.isToggle === true && ((this.settings.value === SuperClass.values.unchecked) || (omitSubmit && omitLoad))) {
             SuperClass.prototype.toggle.apply(this, arguments);
         }
         if (omitLoad !== true) {
             if (this.settings.value === SuperClass.values.checked || this.settings.isToggle === false) {
                 try {
-                    _loadPage.call(this, this.settings.pageId);
+                    var visu = brease.pageController.getVisuById(brease.pageController.getVisu4Page(this.settings.pageId));
+                    if (visu !== undefined) {
+                        var container = document.getElementById(visu.containerId),
+                            result = brease.pageController.loadPage(this.settings.pageId, container);
+                        if (result.success === false && result.code !== 'PAGE_IS_CURRENT') {
+                            SuperClass.prototype.toggle.call(this, SuperClass.values.unchecked);
+                        } 
+                    } else {
+                        SuperClass.prototype.toggle.call(this, SuperClass.values.unchecked); 
+                    }
                 } catch (e) {
                     SuperClass.prototype.toggle.call(this, SuperClass.values.unchecked);
-                    console.iatWarn('Load page error', e);
+                    console.log('Load page error', e);
                 }
             }
         }
@@ -205,22 +215,6 @@ define([
         brease.appElem.removeEventListener(BreaseEvent.PAGE_LOADED, this._bind('_pageLoadedHandler'));
         SuperClass.prototype.dispose.apply(this, arguments);
     };
-
-    function _loadPage(pageId) {
-        if (brease.pageController.isPageChangeInProgress()) {
-            return;
-        }
-        var visu = brease.pageController.getVisuById(brease.pageController.getVisu4Page(pageId));
-        if (visu !== undefined) {
-            var container = document.getElementById(visu.containerId),
-                result = brease.pageController.loadPage(pageId, container);
-            if (result.success === false && result.code !== 'PAGE_IS_CURRENT') {
-                SuperClass.prototype.toggle.call(this, SuperClass.values.unchecked);
-            } 
-        } else {
-            SuperClass.prototype.toggle.call(this, SuperClass.values.unchecked); 
-        }
-    }
 
     return WidgetClass;
 

@@ -117,7 +117,7 @@ define([
         
         this.config.startWidgets = [];
         
-        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
+        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
 
         // First add the header for the configuration dialogue
         this.config.startWidgets.push(this._getImage('style_button_add_0', 'widgets/brease/TableWidget/assets/Add.svg', this.config.children.left.add_next_row, this._getCurrTop(0)));
@@ -126,39 +126,20 @@ define([
             this.dialog.addWidget(this.config.startWidgets[i]);
         }
 
-        var addButtonId = this.config.startWidgets[0].id; 
-        if (brease.config.isKeyboardOperationEnabled()) {
-            brease.uiController.setWidgetPropertyIndependentOfState(addButtonId, 'tabIndex', 1);
-        }
-        $('#' + addButtonId).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
+        $('#' + this.config.startWidgets[0].id).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
     };
 
     /**
-     * @method _handleChildWidgetReady
+     * @method _addCorrectStyle
      * @private
      * Handles the widgets when these are ready
      */
-    p._handleChildWidgetReady = function (e) {
-        this._addCorrectStyle(e);
-        this._initFocus(e);
-    };
-    
     p._addCorrectStyle = function (e) {
         var type = e.target['dataset'].breaseWidget.split('/')[2], cls;
         
         cls = 'widgets_brease_' + type + '_style_tableConfigurationDialogStyle';
         e.target.classList.add(cls);
-    };
-
-    /**
-     * @method _initFocus
-     * @private
-     * Sets focus to add button when its ready
-     */
-    p._initFocus = function (e) {
-        if (e.target.id.includes('style_button_add_0')) {
-            e.target.focus();
-        }
+        
     };
 
     /**
@@ -184,7 +165,6 @@ define([
 
             this._reColourNewObject(i);
         }
-        _setTabIndex.call(this);
     };
 
     /**
@@ -225,7 +205,7 @@ define([
         this.config.rows.push({ widgets: row });
 
         this.currRow += 1;
-        _setTabIndex.call(this);
+
     };
 
     /**
@@ -260,7 +240,6 @@ define([
         
         //Increase currRow by one
         this.currRow += 1;
-        _setTabIndex.call(this);
     };
 
     /**
@@ -288,8 +267,6 @@ define([
                 self.dialog.removeWidget(self.config.rows[clickedRow].widgets[self.config.children.delete_this_row]);
                 self.config.rows.splice(clickedRow, 1);
                 self.currRow -= 1;
-                _setTabIndex.call(self);
-                _restoreFocusAfterRemove.call(self, clickedRow);
             }, 0);
 
             //Move all the widgets to their new respective positions
@@ -361,7 +338,7 @@ define([
      * This method will remove eventlisteners added at start up
      */
     p.removeEventListeners = function () {
-        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
+        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
     };
 
     /**
@@ -515,9 +492,9 @@ define([
             value = 0;
         }
         var format = {
-                'metric': { 'decimalPlaces': 0, 'minimumIntegerDigits': 1, 'maximumIntegerDigits': 11 },
-                'imperial': { 'decimalPlaces': 0, 'minimumIntegerDigits': 1, 'maximumIntegerDigits': 11 },
-                'imperial-us': { 'decimalPlaces': 0, 'minimumIntegerDigits': 1, 'maximumIntegerDigits': 11 } },
+                'metric': { 'decimalPlaces': 0, 'minimumIntegerDigits': 0, 'maximumIntegerDigits': 11 },
+                'imperial': { 'decimalPlaces': 0, 'minimumIntegerDigits': 0, 'maximumIntegerDigits': 11 },
+                'imperial-us': { 'decimalPlaces': 0, 'minimumIntegerDigits': 0, 'maximumIntegerDigits': 11 } },
             uDG = true,
             maxValue = 4294967295,
             lVP = 'noSubmit';
@@ -564,8 +541,7 @@ define([
         image.height = '30px';
 
         image.options = {
-            image: img,
-            tabIndex: 0
+            image: img
         };
 
         return image;
@@ -630,35 +606,4 @@ define([
 
     return StyleClass;
 
-    function _setTabIndex() {
-        if (!brease.config.isKeyboardOperationEnabled()) {
-            return;
-        }
-        var tabIndex = 2;
-        this.config.rows.forEach(function (row) {
-            row.widgets.forEach(function (widget) {
-                if (widget.id !== '' && !widget.id.includes('label') && !widget.id.includes('rect_separator')) {
-                    brease.uiController.setWidgetPropertyIndependentOfState(widget.id, 'tabIndex', tabIndex++);
-                }
-            }, this);
-        }, this);
-        this.dialog.elem.dispatchEvent(new CustomEvent(BreaseEvent.TABINDEX_CHANGED, { bubbles: true, detail: { contentId: brease.settings.globalContent } }));
-    }
-    
-    // next task: restore focus to next element and not to first add button
-    function _restoreFocusAfterRemove(clickedRow) {
-        if (!brease.config.isKeyboardOperationEnabled()) {
-            return;
-        }
-        var focusWidget;
-        if (clickedRow === 0) {
-            var addButtonWidgetId = this.config.startWidgets[0].id;
-            focusWidget = document.getElementById(addButtonWidgetId);
-        } else {
-            focusWidget = document.getElementById(this.config.rows[clickedRow - 1].widgets[this.config.children.add_next_row].id);
-        }
-        if (focusWidget) {
-            focusWidget.focus();
-        }
-    }
 });

@@ -1,4 +1,4 @@
-/* ncglobal.h V5.19.1 */ 
+/* ncglobal.h V5.16.2 */ 
 /* COPYRIGHT (C) B&R Industrial Automation GmbH */ 
 
 /* Automation Studio generated header file */
@@ -264,9 +264,6 @@
  #define ncCAN_IF 0U
  #define ncCLOSED 1U
  #define ncCMD_ERROR 281U
- #define ncCMD_ERROR_A2_STOP 7U
- #define ncCMD_ERROR_A2_STOP_CTRL_OFF 8U
- #define ncCMD_ERROR_A2_V_STOP_CTRL_OFF 9U
  #define ncCMD_ERROR_COAST_TO_STANDSTILL 5U
  #define ncCMD_ERROR_INDUCTION_HALT 6U
  #define ncCMD_ERROR_ONLY 1U
@@ -354,7 +351,6 @@
  #define ncENGLISH 1U
  #define ncENTRY 4U
  #define ncEPROM 2U
- #define ncERR_A2 60U
  #define ncERR_CL0 215U
  #define ncERROR 1U
  #define ncETEL 2U
@@ -469,7 +465,6 @@
  #define ncLOW_PASS 1U
  #define ncM_GRP_TAB 126U
  #define ncM1_STOP 203U
- #define ncMA_IV_SL_ABS 41U
  #define ncMA_LATCHPOS 32U
  #define ncMA_S_START_I32 2048U
  #define ncMA_SL_ABS 40U
@@ -1068,9 +1063,6 @@
  _IEC_CONST unsigned short ncCAN_IF = 0U;
  _IEC_CONST unsigned char ncCLOSED = 1U;
  _IEC_CONST unsigned short ncCMD_ERROR = 281U;
- _IEC_CONST unsigned short ncCMD_ERROR_A2_STOP = 7U;
- _IEC_CONST unsigned short ncCMD_ERROR_A2_STOP_CTRL_OFF = 8U;
- _IEC_CONST unsigned short ncCMD_ERROR_A2_V_STOP_CTRL_OFF = 9U;
  _IEC_CONST unsigned short ncCMD_ERROR_COAST_TO_STANDSTILL = 5U;
  _IEC_CONST unsigned short ncCMD_ERROR_INDUCTION_HALT = 6U;
  _IEC_CONST unsigned short ncCMD_ERROR_ONLY = 1U;
@@ -1158,7 +1150,6 @@
  _IEC_CONST unsigned short ncENGLISH = 1U;
  _IEC_CONST unsigned char ncENTRY = 4U;
  _IEC_CONST unsigned char ncEPROM = 2U;
- _IEC_CONST unsigned char ncERR_A2 = 60U;
  _IEC_CONST unsigned short ncERR_CL0 = 215U;
  _IEC_CONST unsigned short ncERROR = 1U;
  _IEC_CONST unsigned char ncETEL = 2U;
@@ -1273,7 +1264,6 @@
  _IEC_CONST unsigned short ncLOW_PASS = 1U;
  _IEC_CONST unsigned short ncM_GRP_TAB = 126U;
  _IEC_CONST unsigned short ncM1_STOP = 203U;
- _IEC_CONST unsigned char ncMA_IV_SL_ABS = 41U;
  _IEC_CONST unsigned char ncMA_LATCHPOS = 32U;
  _IEC_CONST unsigned short ncMA_S_START_I32 = 2048U;
  _IEC_CONST unsigned char ncMA_SL_ABS = 40U;

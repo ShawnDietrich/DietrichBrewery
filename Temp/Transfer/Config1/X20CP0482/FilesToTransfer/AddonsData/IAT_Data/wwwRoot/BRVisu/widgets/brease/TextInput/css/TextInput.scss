@@ -24,7 +24,6 @@ $unit-color: #333;
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    overflow: hidden;
 	@include box-sizing(border-box);
 
     input {

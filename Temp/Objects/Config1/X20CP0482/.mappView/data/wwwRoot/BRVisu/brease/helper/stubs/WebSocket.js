@@ -13,10 +13,7 @@ define(['brease/helper/stubs/Server',
                 activateContent: 10,
                 deactivateContentResponse: 0,
                 deactivateContent: 10
-            },
-            status: {
-                activateContent: 0
-            }
+            } 
         },
         config = Utils.deepCopy(configTemplate),
         timeoutIds = {
@@ -48,7 +45,7 @@ define(['brease/helper/stubs/Server',
             'event': eventType,
             'detail': {
                 contentId: data.Parameter.contentId,
-                status: { code: config.status.activateContent }
+                status: { code: 0 }
             }
         };
         Server.dispatchEvent(event, eventType);
@@ -95,9 +92,6 @@ define(['brease/helper/stubs/Server',
             if (type === 'timeout') {
                 config.timeout[key] = value;
             } 
-            if (type === 'status') {
-                config.status[key] = value;
-            }
         },
 
         resetData: function () {

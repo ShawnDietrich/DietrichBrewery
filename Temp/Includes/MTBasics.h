@@ -1,6 +1,5 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MTBasics 5.19.0 */
 
 #ifndef _MTBASICS_
 #define _MTBASICS_
@@ -8,35 +7,16 @@
 extern "C" 
 {
 #endif
-#ifndef _MTBasics_VERSION
-#define _MTBasics_VERSION 5.19.0
-#endif
 
 #include <bur/plctypes.h>
+
+#include <brsystem.h>
+#include <sys_lib.h>
+#include <MTTypes.h>
 
 #ifndef _BUR_PUBLIC
 #define _BUR_PUBLIC
 #endif
-#ifdef _SG3
-		#include "MTTypes.h"
-		#include "sys_lib.h"
-		#include "brsystem.h"
-#endif
-
-#ifdef _SG4
-		#include "MTTypes.h"
-		#include "sys_lib.h"
-		#include "brsystem.h"
-#endif
-
-#ifdef _SGC
-		#include "MTTypes.h"
-		#include "sys_lib.h"
-		#include "brsystem.h"
-#endif
-
-
-
 /* Constants */
 #ifdef _REPLACE_CONST
  #define mtBCD_INF_TUNING_ABORTED_BY_USER 1089471511
@@ -97,6 +77,9 @@ extern "C"
  #define mtBCD_ERR_TIME_CONSTANT2_INVALID (-1058012138)
  #define mtBCD_ERR_TIME_CONSTANT1_INVALID (-1058012139)
 #else
+ #ifndef _GLOBAL_CONST
+   #define _GLOBAL_CONST _WEAK const
+ #endif
  _GLOBAL_CONST signed long mtBCD_INF_TUNING_ABORTED_BY_USER;
  _GLOBAL_CONST signed long mtBCD_INF_TIME_CONSTANT2_ZERO;
  _GLOBAL_CONST signed long mtBCD_INF_TIME_CONSTANT1_ZERO;
@@ -344,7 +327,7 @@ typedef struct MTBasicsPIDInternalType
 	float ControlError;
 	float ControlErrorOld;
 	float Out;
-	MTPIDIntegrationEnum HoldIntegration;
+	enum MTPIDIntegrationEnum HoldIntegration;
 	float IntegrationPartPresetValue;
 	plcbit SetIntegrationPart;
 	plcbit SetIntegrationPartOld;
@@ -715,7 +698,7 @@ typedef struct MTBasicsPID
 	float ActValue;
 	float IntegrationPartPresetValue;
 	float TrackingValue;
-	MTPIDIntegrationEnum HoldIntegration;
+	enum MTPIDIntegrationEnum HoldIntegration;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	float Out;
@@ -723,7 +706,7 @@ typedef struct MTBasicsPID
 	float ProportionalPart;
 	float IntegrationPart;
 	float DerivativePart;
-	MTPIDIntegrationEnum IntegrationStatus;
+	enum MTPIDIntegrationEnum IntegrationStatus;
 	unsigned long SystemReference;
 	/* VAR (analog) */
 	struct MTBasicsPIDInternalType Internal;

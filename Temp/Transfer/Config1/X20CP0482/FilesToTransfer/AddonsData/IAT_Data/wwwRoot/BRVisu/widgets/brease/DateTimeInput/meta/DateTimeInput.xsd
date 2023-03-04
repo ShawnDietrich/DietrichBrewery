@@ -3,9 +3,9 @@
 <xs:complexType name="widgets.brease.DateTimeInputRestrict" abstract="true">
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
-			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="0" />
-			<xs:attribute name="height" use="optional" type="types:AutoSize" default="30" />
-			<xs:attribute name="width" use="optional" type="types:AutoSize" default="250" />
+			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="-1" />
+			<xs:attribute name="height" use="optional" type="types:Size" default="30" />
+			<xs:attribute name="width" use="optional" type="types:Size" default="250" />
 		</xs:restriction>
 	</xs:complexContent>
 </xs:complexType>
@@ -17,10 +17,6 @@
 			<xs:attribute name="pickerPosition" use="optional" type="types:brease.enum.Position" default="right" />
 			<xs:attribute name="submitOnChange" use="optional" type="types:Boolean" default="true" />
 			<xs:attribute name="value" use="optional" type="types:DateTime" default="1970-01-01T00:00:00.000Z" />
-			<xs:attribute name="maxHeight" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="minHeight" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="maxWidth" use="optional" type="types:Size" default="0" />
-			<xs:attribute name="minWidth" use="optional" type="types:Size" default="0" />
 			<xs:attribute name="borderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />
 			<xs:attribute name="activeBorderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />
 			<xs:attribute name="disabledBorderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />

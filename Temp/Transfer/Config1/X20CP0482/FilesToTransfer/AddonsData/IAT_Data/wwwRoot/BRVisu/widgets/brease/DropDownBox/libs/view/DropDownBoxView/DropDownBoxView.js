@@ -12,8 +12,8 @@ define([
     * @class widgets.brease.DropDownBox.libs.view.DropDownBoxView 
     */
     'use strict';
-    var DropDownBoxView = function (store, widgetEl, widget) {
-        this.el = widgetEl;
+    var DropDownBoxView = function (store, parent, widget) {
+        this.el = parent;
         this.elem = this.el.get(0);
         this.store = store;
         this.widget = widget;
@@ -175,7 +175,7 @@ define([
         }
     }
 
-    function _closeOnMouseMove() {
+    function _closeOnMouseMove(event) {
         _closeList(this.store, this.widget);
     }
 
@@ -316,25 +316,6 @@ define([
         location.zIndex = popupManager.getHighestZindex() + 1;
         return location;
     };
-
-    function getAppAndAreaRect(appView, isInDialog) {
-        var $areaDiv = this.el.closest('div[data-brease-areaId]'),
-            appRect = appView.get(0).getBoundingClientRect();
-
-        if ($areaDiv.length > 0 && !isInDialog) {
-            var areaRect = $areaDiv[0].getBoundingClientRect(),
-                maxRect = {
-                    top: Math.min(areaRect.top, appRect.top),
-                    bottom: Math.max(areaRect.bottom, appRect.bottom),
-                    left: Math.min(areaRect.left, appRect.left),
-                    right: Math.max(areaRect.right, appRect.right)
-                }; 
-            return maxRect;
-        } else {
-            return appRect;
-        }
-    }
-    
     /**
     * @method getLimits
     * Used to retrieve the limits for the location of the ListBox
@@ -353,11 +334,11 @@ define([
                 width: 0,
                 height: 0
             },
-            dialogElem = _getDialogElem(el.get(0)),
-            isInDialog = dialogElem !== null,
-            appRect = getAppAndAreaRect.call(this, appView, isInDialog),
+            appRect = appView.get(0).getBoundingClientRect(),
             viewportRect = _toAbsoluteRect(bodyEl.get(0).getBoundingClientRect()),
-            parentRect = el.parent().get(0).getBoundingClientRect();
+            dialogRect = _getDialogRect(el.get(0)),
+            parentRect = el.parent().get(0).getBoundingClientRect(),
+            isInDialog = dialogRect !== null;
         switch (cropToParent) {
             case Enum.CropToParent.height:
             case Enum.CropToParent.both:
@@ -395,8 +376,12 @@ define([
     };
 
     // AuP 666055: fix listView position, if DropDownBox is inside DialogWindow or GenericDialog
-    function _getDialogElem(elem) {
-        return Utils.getClosestDialogElem(elem);
+    function _getDialogRect(elem) {
+        var dialogElem = Utils.getClosestDialogElem(elem);
+        if (dialogElem) {
+            return dialogElem.getBoundingClientRect();
+        }
+        return dialogElem;
     }
     function _ensureLimits(location, limits, scaleFactor, listPosition) {
         if (location.top < limits.top) {

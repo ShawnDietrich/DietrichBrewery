@@ -1,7 +1,6 @@
 define([
-    'system/widgets/KeyBoard/libs/external/dictionaries',
-    'brease/core/Types'
-], function (dictionary, Types) {
+    'system/widgets/KeyBoard/libs/external/dictionaries'
+], function (dictionary) {
 
     'use strict';
     
@@ -15,12 +14,9 @@ define([
         p = ConverterZhCHS.prototype,
         candidateList = [],
         pattern;
-    /**
-    * @method init
-    * @return {Promise}
-    */
+
     p.init = function () {
-        return dictionary.load('zh-cn');
+        dictionary.load('zh-cn');
     };
     /**
      * @method getCandidates
@@ -42,11 +38,7 @@ define([
      * @param {String} value
      */
     p.lookup = function (value) {
-        return _searchDictionary(value).filter(this.testEntry, value).sort(function (a, b) {
-            var fa = Types.parseValue(a.freq, 'Integer', { default: dictionary.MAX_FREQUENCY, min: dictionary.MIN_FREQUENCY, max: dictionary.MAX_FREQUENCY }),
-                fb = Types.parseValue(b.freq, 'Integer', { default: dictionary.MAX_FREQUENCY, min: dictionary.MIN_FREQUENCY, max: dictionary.MAX_FREQUENCY });
-            return fa - fb;
-        }).map(this.extractData);
+        return _searchDictionary(value).filter(this.testEntry, value).map(this.extractData);
     };
     /**
      * @method testEntry

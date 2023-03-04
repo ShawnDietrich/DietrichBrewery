@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1668351868_2_
-#define _BUR_1668351868_2_
+#ifndef _BUR_1677955200_5_
+#define _BUR_1677955200_5_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Brewing/HLTControl/Variables.var\\\" scope
 __asm__(".previous");
 
 
-#endif /* _BUR_1668351868_2_ */
+#endif /* _BUR_1677955200_5_ */
 

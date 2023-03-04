@@ -167,7 +167,6 @@ function (BreaseEvent, SocketEvent, ContentStatus, contentManager, Utils) {
             }
                 
         } else {
-            deferred.reject(contentId);
             console.log('%c' + 'activate of content ' + contentId + ' failed', 'color:red;');
         }
     }

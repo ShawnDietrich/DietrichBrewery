@@ -86,7 +86,7 @@ function (_widgetFactory, _widgetParser, Enum, Utils) {
                     var options = {};
                     if (projectedValue !== undefined) {
                         options[mapping.prop] = projectedValue;
-                    } else if (defaultValue !== null && defaultValue !== undefined) {
+                    } else {
                         options[mapping.prop] = defaultValue;
                     }
                     _widgetController.setOptions(mapping.id, options);

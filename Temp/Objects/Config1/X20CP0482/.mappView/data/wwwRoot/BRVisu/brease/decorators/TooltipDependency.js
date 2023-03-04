@@ -122,9 +122,6 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
                     }
                 }
             }
-            $(window)
-                .off('resize', this._bind('deactivateTooltipMode'))
-                .off('mousewheel', this._bind('deactivateTooltipMode'));
         },
 
         setTooltipDependency: function (flag) {
@@ -227,16 +224,19 @@ function (Decorator, Utils, BreaseEvent, Enum, PopUpManager, ZoomManager) {
 
     // add listeners to the tooltip indicator
     function _addTooltipListeners() {
-        var instance = this;
+        var self = this;
         brease.bodyEl.on(BreaseEvent.MOUSE_DOWN, this._bind(_onHMIOperation));
         this.tooltip.indicator.on(BreaseEvent.CLICK, this._bind(_appendTooltipContent));
         this.tooltip.indicator.on(BreaseEvent.MOUSE_DOWN, function (e) {
-            instance._handleEvent(e, true);
+            self._handleEvent(e, true);
         });
 
-        $(window)
-            .on('resize', this._bind('deactivateTooltipMode'))
-            .on('mousewheel', this._bind('deactivateTooltipMode'));
+        $(window).resize(function () {
+            self.deactivateTooltipMode();
+        });
+        $(window).on('mousewheel', function () {
+            self.deactivateTooltipMode();
+        });
     }
 
     function _targetIsInTooltip(targetEl) {

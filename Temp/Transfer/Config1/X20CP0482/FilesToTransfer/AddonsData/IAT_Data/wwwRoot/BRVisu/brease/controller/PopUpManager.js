@@ -47,7 +47,7 @@ define(['brease/core/Utils', 'brease/events/BreaseEvent'], function (Utils, Brea
 
         /**
         * @method getNumberOfWindowsOfType
-        * @param {String} type supported types: 'MessageBox', 'DialogWindow', 'NumPad', 'KeyBoard', ...any class derived from window
+        * @param {String} type supported types: 'MessageBox', 'DialogWindow'
         * @return {Integer} number of open windows of specified type
         */
         getNumberOfWindowsOfType: function (type) {

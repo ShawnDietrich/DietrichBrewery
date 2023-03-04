@@ -232,25 +232,24 @@ define([
      * @paramMeta omitPrompt:deprecated=true
      */
     p.setDataProvider = function (provider) {
+        this.settings.dataProvider = provider;
         if (provider === null) {
-            this.settings.dataProvider = provider;
             _setOffline.call(this, 'dataProvider');
             return;
         }
-        this.settings.dataProvider = UtilsList.parseJSONtoObject(provider, this.elem.id);
         _setOnline.call(this, 'dataProvider');
-        
         var previous = _getActValues.call(this),
             triggeredByBinding = _triggeredByBinding(arguments[arguments.length - 1]);
-
+        //Parse JSON to object
+        var dataProviderObject = UtilsList.parseJSONtoObject(provider);
         //Generate the text elements
-        var textElements = UtilsText.getTextsFromItems(this.settings.dataProvider);
+        var textElements = UtilsText.getTextsFromItems(dataProviderObject);
         var actionText = DropDownBoxActions.updateText(textElements);
         //Generate the image elements
-        var imageList = UtilsImage.createImageList(this.settings.dataProvider);
+        var imageList = UtilsImage.createImageList(dataProviderObject);
         var actionImage = DropDownBoxActions.updateImageList(imageList);
         //Generate the item list
-        var itemList = UtilsList.getItemsFromItems(this.settings.dataProvider);
+        var itemList = UtilsList.getItemsFromItems(dataProviderObject);
         var actionItem = DropDownBoxActions.updateItemList(itemList);
         //Dispatch the actions
         this.store.dispatch(actionText);
@@ -560,14 +559,7 @@ define([
      */
     p.setDisplaySettings = function (displaySettings) {
         this.settings.displaySettings = displaySettings;
-
-        var subValues = UtilsList.getShowValues(this.settings.displaySettings),
-            action = DropDownBoxActions.updateListSettings({ 
-                showTexts: subValues.showTexts,
-                showImages: subValues.showImages,
-                showTextsInButton: subValues.showTextsInButton,
-                showImagesInButton: subValues.showImagesInButton
-            });
+        var action = DropDownBoxActions.updateListSettings({ displaySettings: UtilsList.getShowValues(this.settings.displaySettings) });
         this.store.dispatch(action);
     };
 

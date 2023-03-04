@@ -128,6 +128,8 @@ function (Message, StringUtils, PasswordPolicies) {
     * @return {PoliciesResult}
     */
     p.testPolicies = function (str, policies) {
+        str = '' + str;
+
         var result = {
             alphanumeric: true,
             mixedCase: true,

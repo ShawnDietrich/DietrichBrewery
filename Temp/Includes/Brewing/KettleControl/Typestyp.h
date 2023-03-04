@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1668351868_5_
-#define _BUR_1668351868_5_
+#ifndef _BUR_1677955200_8_
+#define _BUR_1677955200_8_
 
 #include <bur/plctypes.h>
 
@@ -19,5 +19,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Brewing/KettleControl/Types.typ\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1668351868_5_ */
+#endif /* _BUR_1677955200_8_ */
 

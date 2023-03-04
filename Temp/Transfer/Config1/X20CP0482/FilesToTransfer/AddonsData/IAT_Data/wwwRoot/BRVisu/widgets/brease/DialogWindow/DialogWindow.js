@@ -274,9 +274,7 @@ define([
         this.setForceInteraction(false);
         this.el.find('.contentBox').css('width', 'auto');
         brease.textFormatter.format(message, [dialogId]).then(function (text) {
-            var errorTextElem = $('<div class="errorText" ></div>');
-            errorTextElem.text(text);
-            widget.contentBox.append(errorTextElem);
+            widget.contentBox.append('<div class="errorText" >' + text + '</div>');
         });
     }
 

@@ -333,8 +333,7 @@ function (ServerStub, WebSocketStub, VisuStatus, ServerCode, SocketEvent) {
                         preserveOldValues: 'TRUE' 
                     },
                     Widget: {
-                        renderingPolicy: '1',
-                        securityPolicy: '1'
+                        renderingPolicy: '1'
                     }
                 }
             }, callbackInfo);

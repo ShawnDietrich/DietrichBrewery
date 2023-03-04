@@ -14,7 +14,7 @@ define([
         /**
          * @method getTexts
          * Method to read all available texts from the backend for a certain configuration dialog, in this way making it available
-         * in any language.
+         * in any langauge.
          * @param {String} lang the language that is to be used
          * @param {Object} originalTexts an object which holds the structure from which texts should be used, defined by the widget itself
          * @param {String} type which type of widget

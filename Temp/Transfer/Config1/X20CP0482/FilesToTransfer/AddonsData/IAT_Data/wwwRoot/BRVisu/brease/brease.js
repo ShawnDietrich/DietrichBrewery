@@ -83,7 +83,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         _defineControllers.call(this, controller);
 
         _initServices.call(this, runtimeService);
-        _initControllers.call(this, runtimeService);
+        _initControllers.call(this, runtimeService, systemMessage);
 
     };
 
@@ -208,7 +208,6 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
                 * @readonly
                 */
         _definePublicMethod(this, 'uiController', _controller);
-        _definePublicMethod(this, 'keyboardManager', _controller);
 
         _definePublicMethod(this, 'focusManager', { focusManager: focusManager });
     }
@@ -236,11 +235,11 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
                 * @property {brease.services.Language} services.language
                 * Reference to the actual instance of singleton Language service
     
-                * @property {brease.services.UserService} services.user
-                * Reference to the actual instance of singleton User service
+                * @property {brease.services.User} services.user
+                * Reference to the actual instance of singleton user service
     
                 * @property {brease.services.Culture} services.culture
-                * Reference to the actual instance of singleton Culture service
+                * Reference to the actual instance of singleton User service
     
                 * @property {brease.services.TextFormatter} services.textFormatter
                 * Reference to the actual instance of singleton textFormatter service
@@ -266,7 +265,7 @@ function (Client, Utils, BreaseEvent, SocketEvent, SystemGestures, VirtualEvents
         _definePublicMethod(this.services, 'opcua', _services);
     }
 
-    function _initControllers(runtimeService) {
+    function _initControllers(runtimeService, systemMessage) {
 
         _controller.bindingController.init(runtimeService);
         _controller.connectionController.init(runtimeService, systemMessage);

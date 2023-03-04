@@ -2,22 +2,22 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="Config1.Hardware.hw" LastWriteTime="03/03/2023 20:16:33" />
+    <TimeStamp LogicalPath="Config1.Hardware.hw" LastWriteTime="03/04/2023 10:28:04" />
   </TimeStamps>
   <Modules>
-    <Module Name="X20BB57" Type="X20BB57" X="125.034683" Y="123.144638" />
-    <Module Name="X20BM11" Type="X20BM11" X="163.034683" Y="123.144638" />
-    <Module Name="X20cDI4371" Type="X20cDI4371" X="163.034683" Y="123.144638" />
-    <Module Name="X20TB12a" Type="X20TB12" X="163.034683" Y="150.144638" />
-    <Module Name="X20BM11a" Type="X20BM11" X="176.034683" Y="123.144638" />
-    <Module Name="X20cAT4222" Type="X20cAT4222" X="176.034683" Y="123.144638" />
-    <Module Name="X20TB12b" Type="X20TB12" X="176.034683" Y="150.144638" />
-    <Module Name="X20cBM11" Type="X20cBM11" X="189.034683" Y="123.144638" />
-    <Module Name="X20DO8332" Type="X20DO8332" X="189.034683" Y="123.144638" />
-    <Module Name="X20TB12c" Type="X20TB12" X="189.034683" Y="150.144638" />
-    <Module Name="X20PS9600" Type="X20PS9600" X="150.034683" Y="123.144638" />
-    <Module Name="X20TB12" Type="X20TB12" X="150.034683" Y="150.144638" />
-    <Module Name="X20CP0482" Type="X20CP0482" X="125.034683" Y="123.144638" />
+    <Module Name="X20BB57" Type="X20BB57" X="-53" Y="119" />
+    <Module Name="X20BM11" Type="X20BM11" X="-15" Y="119" />
+    <Module Name="X20AT4222" Type="X20AT4222" X="-15" Y="119" />
+    <Module Name="X20TB12a" Type="X20TB12" X="-15" Y="146" />
+    <Module Name="X20BM11a" Type="X20BM11" X="-2" Y="119" />
+    <Module Name="X20DO8332" Type="X20DO8332" X="-2" Y="119" />
+    <Module Name="X20TB12b" Type="X20TB12" X="-2" Y="146" />
+    <Module Name="X20cBM11" Type="X20cBM11" X="11" Y="119" />
+    <Module Name="X20DI4371" Type="X20DI4371" X="11" Y="119" />
+    <Module Name="X20TB12c" Type="X20TB12" X="11" Y="146" />
+    <Module Name="X20PS9600" Type="X20PS9600" X="-28" Y="119" />
+    <Module Name="X20TB12" Type="X20TB12" X="-28" Y="146" />
+    <Module Name="X20CP0482" Type="X20CP0482" X="-53" Y="119" />
   </Modules>
   <Links />
   <InfoElements />

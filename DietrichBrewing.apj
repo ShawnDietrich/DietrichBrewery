@@ -8,9 +8,9 @@
   <Project StoreRuntimeInProject="false" />
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
-    <Acp10Arnc0 Version="5.19.1" />
-    <mapp Version="5.19.0" />
-    <mappControl Version="5.19.0" />
-    <mappView Version="5.19.0" />
+    <Acp10Arnc0 Version="5.16.2" />
+    <mapp Version="5.16.1" />
+    <mappControl Version="5.16.0" />
+    <mappView Version="5.16.1" />
   </TechnologyPackages>
 </Project>

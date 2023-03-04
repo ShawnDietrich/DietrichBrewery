@@ -88,22 +88,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -203,10 +203,10 @@
 	@include elemLeft(8);
 }
 #MainPageContent_NumericInput1 {
-	@include elemAutoWidth(125);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput1 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput1 {
 		z-index: 2;
@@ -327,7 +327,7 @@
 		z-index: 1;
 }
 #MainPageContent_NumericInput2 {
-	@include elemAutoWidth(100);
+	@include elemWidth(100);
 }
 #MainPageContent_NumericInput2 {
 	@include elemTop(91);
@@ -336,7 +336,7 @@
 	@include elemLeft(8);
 }
 #MainPageContent_NumericInput2 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput2 {
 		z-index: 2;
@@ -398,22 +398,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -451,22 +451,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -559,22 +559,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -659,10 +659,10 @@
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput3 {
-	@include elemAutoWidth(125);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput3 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput3 {
 		z-index: 1;
@@ -742,22 +742,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -827,7 +827,7 @@
 	}
 }
 #MainPageContent_NumericInput4 {
-	@include elemAutoWidth(100);
+	@include elemWidth(100);
 }
 #MainPageContent_NumericInput4 {
 	@include elemTop(91);
@@ -836,7 +836,7 @@
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput4 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput4 {
 		z-index: 1;
@@ -972,22 +972,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -1141,7 +1141,7 @@
 	}
 }
 #MainPageContent_NumericInput6 {
-	@include elemAutoWidth(100);
+	@include elemWidth(100);
 }
 #MainPageContent_NumericInput6 {
 	@include elemTop(91);
@@ -1150,7 +1150,7 @@
 	@include elemLeft(7);
 }
 #MainPageContent_NumericInput6 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput6 {
 		z-index: 2;
@@ -1353,22 +1353,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -1406,22 +1406,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -1491,7 +1491,7 @@
 	}
 }
 #MainPageContent_NumericInput8 {
-	@include elemAutoWidth(100);
+	@include elemWidth(100);
 }
 #MainPageContent_NumericInput8 {
 	@include elemTop(91);
@@ -1500,7 +1500,7 @@
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput8 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput8 {
 		z-index: 1;
@@ -1678,22 +1678,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch13 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch13 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -1793,10 +1793,10 @@
 	@include elemLeft(11);
 }
 #MainPageContent_NumericInput7 {
-	@include elemAutoWidth(125);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput7 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput7 {
 		z-index: 2;
@@ -1858,22 +1858,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch16 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch16 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -1966,22 +1966,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch17 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch17 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -2081,10 +2081,10 @@
 	@include elemLeft(11);
 }
 #MainPageContent_NumericInput9 {
-	@include elemAutoWidth(125);
+	@include elemWidth(125);
 }
 #MainPageContent_NumericInput9 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #MainPageContent_NumericInput9 {
 		z-index: 2;
@@ -2146,22 +2146,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch18 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch18 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -2199,22 +2199,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch19 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch19 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }

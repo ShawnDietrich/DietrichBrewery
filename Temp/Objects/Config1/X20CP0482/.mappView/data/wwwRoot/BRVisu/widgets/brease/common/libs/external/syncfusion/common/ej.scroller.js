@@ -1,7 +1,7 @@
 /*!
 *  filename: ej.scroller.js
-*  version : 19.4.0.38
-*  Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
+*  version : 18.4.0.30
+*  Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -15,7 +15,7 @@
 
 /**
 * @fileOverview Plugin to style the Html ScrollBar elements
-* @copyright Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
+* @copyright Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -434,7 +434,7 @@
 
 /**
 * @fileOverview Plugin to style the Html Scroller elements
-* @copyright Copyright Syncfusion Inc. 2001 - 2021. All rights reserved.
+* @copyright Copyright Syncfusion Inc. 2001 - 2020. All rights reserved.
 *  Use of this code is subject to the terms of our license.
 *  A copy of the current license can be obtained at any time by e-mailing
 *  licensing@syncfusion.com. Any infringement will be prosecuted under
@@ -1057,7 +1057,7 @@
             if (pixel === "") return;
             if (this._hScrollbar) pixel = parseFloat(pixel) > this._hScrollbar._scrollData.scrollable ? this._hScrollbar._scrollData.scrollable : parseFloat(pixel);
             var browserName = ej.browserInfo().name;
-            if (this.model.enableRTL && browserName != "mozilla" && browserName != "chrome") {
+            if (this.model.enableRTL && browserName != "mozilla") {
                 if (pixel < 0) pixel = Math.abs(pixel);
                 var content = this.model.targetPane != null ? this.content().find(this.model.targetPane)[0] : this.content()[0];
                 if (e != "mousemove" && e != "touchmove" && (browserName != "msie")) if (browserName != "msie") pixel = this._hScrollbar._scrollData.scrollable - pixel;
@@ -1182,7 +1182,7 @@
         },
 
         _normalizingDelta: function (e) {
-            var delta = navigator.platform.indexOf("Mac") == 0 ? ((Math.abs(e.wheelDelta) !== 120) ? -e.wheelDelta / 3: -e.wheelDelta / 80) : -e.wheelDelta / 120;
+            var delta = navigator.platform.indexOf("Mac") == 0 ? -e.wheelDelta / 3 : -e.wheelDelta / 120;
             return delta;
         },
 

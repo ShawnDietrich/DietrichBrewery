@@ -73,8 +73,7 @@ define(['brease/services/LoadedByBootstrapper', 'brease/events/BreaseEvent', 'br
             cachingSlots: (configurations.ContentCaching && configurations.ContentCaching.cachingSlots !== undefined) ? Math.min(parseInt(configurations.ContentCaching.cachingSlots, 10), brease.settings.cachingSlotsMax) : brease.settings.cachingSlotsDefault
         };
         brease.config.WidgetData = {
-            renderingPolicy: (configurations.Widget !== undefined && configurations.Widget.renderingPolicy === '2') ? Enum.RenderingPolicy.PERFORMANCE : Enum.RenderingPolicy.DEFAULT,
-            securityPolicy: (configurations.Widget !== undefined && configurations.Widget.securityPolicy === '2') ? Enum.SecurityPolicy.OFF : Enum.SecurityPolicy.ON
+            renderingPolicy: (configurations.Widget !== undefined && configurations.Widget.renderingPolicy === '2') ? Enum.RenderingPolicy.PERFORMANCE : Enum.RenderingPolicy.DEFAULT
         };
     }
 

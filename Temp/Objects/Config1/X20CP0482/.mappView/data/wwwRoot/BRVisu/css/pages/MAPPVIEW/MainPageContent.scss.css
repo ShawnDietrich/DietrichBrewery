@@ -98,19 +98,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch1.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch1.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch1.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch1.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch1 .wrapper .before {
+#MainPageContent_ToggleSwitch1 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch1 .wrapper .after {
+#MainPageContent_ToggleSwitch1 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -495,19 +495,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch3.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch3.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch3.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch3.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch3 .wrapper .before {
+#MainPageContent_ToggleSwitch3 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch3 .wrapper .after {
+#MainPageContent_ToggleSwitch3 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -549,19 +549,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch4.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch4.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch4.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch4.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch4 .wrapper .before {
+#MainPageContent_ToggleSwitch4 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch4 .wrapper .after {
+#MainPageContent_ToggleSwitch4 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -665,19 +665,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch5.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch5.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch5.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch5.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch5 .wrapper .before {
+#MainPageContent_ToggleSwitch5 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch5 .wrapper .after {
+#MainPageContent_ToggleSwitch5 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -894,19 +894,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch8.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch8.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch8.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch8.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch8 .wrapper .before {
+#MainPageContent_ToggleSwitch8 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch8 .wrapper .after {
+#MainPageContent_ToggleSwitch8 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -1172,19 +1172,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch9.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch9.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch9.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch9.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch9 .wrapper .before {
+#MainPageContent_ToggleSwitch9 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch9 .wrapper .after {
+#MainPageContent_ToggleSwitch9 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -1606,19 +1606,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch12.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch12.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch12.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch12.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch12 .wrapper .before {
+#MainPageContent_ToggleSwitch12 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch12 .wrapper .after {
+#MainPageContent_ToggleSwitch12 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -1660,19 +1660,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch14.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch14.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch14.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch14.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch14 .wrapper .before {
+#MainPageContent_ToggleSwitch14 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch14 .wrapper .after {
+#MainPageContent_ToggleSwitch14 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -1988,19 +1988,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch13.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch13.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch13.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch13.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch13 .wrapper .before {
+#MainPageContent_ToggleSwitch13 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch13 .wrapper .after {
+#MainPageContent_ToggleSwitch13 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -2210,19 +2210,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch16.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch16.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch16.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch16.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch16 .wrapper .before {
+#MainPageContent_ToggleSwitch16 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch16 .wrapper .after {
+#MainPageContent_ToggleSwitch16 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -2326,19 +2326,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch17.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch17.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch17.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch17.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch17 .wrapper .before {
+#MainPageContent_ToggleSwitch17 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch17 .wrapper .after {
+#MainPageContent_ToggleSwitch17 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -2548,19 +2548,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch18.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch18.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch18.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch18.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch18 .wrapper .before {
+#MainPageContent_ToggleSwitch18 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch18 .wrapper .after {
+#MainPageContent_ToggleSwitch18 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -2602,19 +2602,19 @@
   color: black;
 }
 
-#MainPageContent_ToggleSwitch19.checked:not(.disabled) .wrapper .before {
+#MainPageContent_ToggleSwitch19.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch19.checked:not(.disabled) .wrapper .after {
+#MainPageContent_ToggleSwitch19.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#MainPageContent_ToggleSwitch19 .wrapper .before {
+#MainPageContent_ToggleSwitch19 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#MainPageContent_ToggleSwitch19 .wrapper .after {
+#MainPageContent_ToggleSwitch19 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 

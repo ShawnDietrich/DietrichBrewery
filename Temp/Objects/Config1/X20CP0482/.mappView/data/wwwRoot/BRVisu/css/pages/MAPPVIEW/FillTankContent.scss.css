@@ -311,19 +311,19 @@
   color: black;
 }
 
-#FillTankContent_ToggleSwitch3.checked:not(.disabled) .wrapper .before {
+#FillTankContent_ToggleSwitch3.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#FillTankContent_ToggleSwitch3.checked:not(.disabled) .wrapper .after {
+#FillTankContent_ToggleSwitch3.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#FillTankContent_ToggleSwitch3 .wrapper .before {
+#FillTankContent_ToggleSwitch3 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#FillTankContent_ToggleSwitch3 .wrapper .after {
+#FillTankContent_ToggleSwitch3 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 
@@ -591,19 +591,19 @@
   color: black;
 }
 
-#FillTankContent_ToggleSwitch4.checked:not(.disabled) .wrapper .before {
+#FillTankContent_ToggleSwitch4.checked:not(.disabled) .breaseToggleSwitch_toggle .before {
   color: black;
 }
 
-#FillTankContent_ToggleSwitch4.checked:not(.disabled) .wrapper .after {
+#FillTankContent_ToggleSwitch4.checked:not(.disabled) .breaseToggleSwitch_toggle .after {
   color: black;
 }
 
-#FillTankContent_ToggleSwitch4 .wrapper .before {
+#FillTankContent_ToggleSwitch4 .breaseToggleSwitch_toggle .wrapper .before {
   font-size: 15px;
 }
 
-#FillTankContent_ToggleSwitch4 .wrapper .after {
+#FillTankContent_ToggleSwitch4 .breaseToggleSwitch_toggle .wrapper .after {
   font-size: 15px;
 }
 

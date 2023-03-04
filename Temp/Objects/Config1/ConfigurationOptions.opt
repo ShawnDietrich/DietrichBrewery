@@ -7,7 +7,7 @@
   SaveSourceOnTarget="false"
   ActivateSdm="true"
   WebServer="true"
-  ARMSimulation="True"
+  ARMSimulation="False"
   ArVersion="B4.93">
   <ModuleMemoryData>
     <Module

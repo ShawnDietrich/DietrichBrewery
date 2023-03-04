@@ -179,10 +179,10 @@
 	@include elemLeft(8);
 }
 #FillTankContent_NumericInput1 {
-	@include elemAutoWidth(125);
+	@include elemWidth(125);
 }
 #FillTankContent_NumericInput1 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #FillTankContent_NumericInput1 {
 		z-index: 2;
@@ -247,22 +247,22 @@
 	}
 }
 #FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch3 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #FillTankContent_ToggleSwitch3 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -414,7 +414,7 @@
 		z-index: 1;
 }
 #FillTankContent_NumericInput2 {
-	@include elemAutoWidth(100);
+	@include elemWidth(100);
 }
 #FillTankContent_NumericInput2 {
 	@include elemTop(91);
@@ -423,7 +423,7 @@
 	@include elemLeft(8);
 }
 #FillTankContent_NumericInput2 {
-	@include elemAutoHeight(40);
+	@include elemHeight(40);
 }
 #FillTankContent_NumericInput2 {
 		z-index: 2;
@@ -485,22 +485,22 @@
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .wrapper .before{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .wrapper .after{
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	.wrapper .before{
+	.breaseToggleSwitch_toggle .wrapper .before{
 		font-size: 15px;
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	.wrapper .after{
+	.breaseToggleSwitch_toggle .wrapper .after{
 		font-size: 15px;
 	}
 }

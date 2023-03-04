@@ -1,7 +1,8 @@
 define([
     'brease/core/Class',
-    'brease/enum/Enum'
-], function (SuperClass, Enum) {
+    'brease/enum/Enum',
+    'brease/helper/Scroller'
+], function (SuperClass, Enum, Scroller) {
 
     'use strict';
 
@@ -32,7 +33,7 @@ define([
                     _retainSettings(self);
                 },
 
-                update: function (newBox) {
+                update: function (newBox, direction) {
 
                     var updatedBox = {
                         width: newBox.width,

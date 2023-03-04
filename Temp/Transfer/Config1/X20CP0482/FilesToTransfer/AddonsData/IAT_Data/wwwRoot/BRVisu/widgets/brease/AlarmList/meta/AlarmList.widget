@@ -52,7 +52,7 @@
 				<Description>Acknowledges all alarms</Description>
 			</Method>
 			<Method name="Focus" read="false">
-				<Description>Sets focus on the search box or header element, if it can be focused and keyboardOperation=true</Description>
+				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
 			</Method>
 			<Method name="GoToFirstPage" read="false">
 				<Result type="Boolean"/>
@@ -165,6 +165,12 @@
 					<Argument name="show" type="Boolean" index="2" required="true"/>
 					<Argument name="select" type="Integer" index="3" required="true"/>
 				</Arguments>
+			</Event>
+			<Event name="FocusIn">
+				<Description>Fired when the widgets gets focus</Description>
+			</Event>
+			<Event name="FocusOut">
+				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 			<Event name="ItemClick">
 				<Description>Fired when a row is clicked on.</Description>

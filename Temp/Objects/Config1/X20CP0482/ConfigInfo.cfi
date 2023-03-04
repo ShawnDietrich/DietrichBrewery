@@ -80,6 +80,20 @@
       <InternalFile
         Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\FillMash.st.var" />
     </Task>
+    <Task
+      Name="Fermenting"
+      Disable="false"
+      Source="Fermenting.Fermenting"
+      Language="IEC">
+      <InternalFile
+        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\Fermenting\Main.st.var" />
+      <File
+        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\Fermenting\Fermenting\Types.typ" />
+      <File
+        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\Fermenting\Fermenting\Variables.var" />
+      <InternalFile
+        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\Fermenting\ChillerControl.st.var" />
+    </Task>
   </TaskClass>
   <TaskClass
     Name="Cyclic#5" />

@@ -2,22 +2,16 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
 
     'use strict';
 
-    /**
-    * @class brease.controller.libs.FocusChain
-    * The chain (property) contains all contents with widgets in the order according to tabindex/dom position.
-    * The position property holds the current focused element index: chain[position.content].widgets[position.widget]
-    * Example chain: [{ contentId: 'content', widgets: [widget1, widget2] }]
-    * After calling #method-sort, #method-insert, #method-addDialog we also add additional info for contents:
-    * [{ contentId: 'content', widgets: [widget1, widget2], areaId: 'AreaMain', pageId: 'PageSettings', type:'Page', tabIndex: [1] }]
-    * 
-    * areaId: parent areaId of content
-    * pageId: parent pageId or dialogId of content
-    * type: Page or Dialog
-    * tabIndex: tabIndex of parent areas. The last entry in the array is the tabIndex of the closest area parent.
-    * 
-    * @extends Object
-    */
     var FocusChain = function () {
+        // chain contains all contents with widgets in the order according to tabindex/dom position
+        // position: current focused element index: chain[position.content].widgets[position.widget]
+        // example chain: [{ contentId: 'content', widgets: [widget1, widget2] }]
+        // after sort, insert, addDialog we also add additional info for one content;
+        // [{ contentId: 'content', widgets: [widget1, widget2], areaId: 'AreaMain', pageId: 'PageSettings', type:'Page', tabIndex: [1] }]
+        // areaId: parent areaId of content
+        // pageId: parent pageId or dialogId of content
+        // type: Page or Dialog
+        // tabIndex: tabIndex of parent areas. The last entry in the array is the tabIndex of the closest area parent.
         this.chain = [];
         this.position = { content: undefined, widget: undefined };
         this.orderedContents = [];
@@ -26,25 +20,13 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
             length: undefined
         };
         this.recoveryPoints = new Map();
-        this.resetted = false;
-        this.modalWidgets = [];
     };
 
-    /**
-     * @method hasFocus
-     * Check if the focus position is valid. I.e its no more valid if all contents are removed due to page change.
-     */
     FocusChain.prototype.hasFocus = function () {
         return this.position.content !== undefined && this.chain[this.position.content] !== undefined;
     };
 
-    /**
-     * @method resetFocus
-     * Resets the native focus to the current position if the focus position is valid (#method-hasFocus returns true).
-     * Otherwise resets the position to first focusable widget in chain.
-     */
     FocusChain.prototype.resetFocus = function () {
-        this.modalWidgets = [];
         if (this.hasFocus()) {
             this.getFocusedElem().focus({ preventScroll: true });
         } else {
@@ -52,15 +34,8 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
             this.position.widget = 0;
             this.focusNext(true, true);
         }
-        this.resetted = true;
     };
 
-    /**
-     * @method addDialog 
-     * Should be called if a dialog is opened. It adds all contents+widgets of the dialog to the focusChain and moves the focus to the first
-     * focusable element in the dialog. It also restricts the chain to the dialog contents if its a modal dialog.
-     * @param {String} dialogId id of dialog
-     */
     FocusChain.prototype.addDialog = function (dialogId) {
         // get dialog contents in correct order with all infos
         var orderedContents = getOrderedContents(dialogId);
@@ -90,19 +65,15 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         }
         // todo: dialog with no focusable elements should be handled with focus trap
         this.focusNext(true, true);
-        this.resetted = true;
     };
 
-    /**
-     * @method removeDialog
-     * Removes all contents/widgets of the dialog from the chain. 
-     * It will try to recover the focus to the element which was focused before #method-addDialog was called.
-     * If this fails it will just call #method-focusNext. This can be prevented by setting preventFocus to true.
-     * @param {String} dialogId id of dialog
-     * @param {Boolean} preventFocus Prevent focusNext if focus can not be recoverd.
-     */
     FocusChain.prototype.removeDialog = function (dialogId, preventFocus) {
-        _removeDialogChainCircle.call(this);
+        var lastDialogId = _getLastDialogId.call(this);
+        if (lastDialogId && Utils.hasModalWindow()) {
+            this.chainCircle = _createChainCircleForDialog.call(this, lastDialogId);
+        } else {
+            this.chainCircle.start = undefined;
+        }
         _removeDialogDummies.call(this, dialogId);
         var recoveryElem = this.recoveryPoints.get(dialogId);
         this.recoveryPoints.delete(dialogId);
@@ -114,47 +85,6 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         }
     };
 
-    /**
-     * @method addDialog 
-     * Should be called if a generic dialog is opened. The global content is added to the change.
-     * Widgets are added to the gobal content with method #method-addWidget. It also restricts the chain to the global content. (modal!)  
-     * @param {String} dialogId id of dialog
-     */
-    FocusChain.prototype.addGenericDialog = function (id) {
-        this.recoveryPoints.set(id, this.getFocusedElem());
-        this.chain.push({ contentId: brease.settings.globalContent, widgets: [], areaId: '', pageId: id, type: 'Dialog', tabIndex: [1] });
-        this.chainCircle.start = this.chain.length - 1;
-        this.chainCircle.length = 1;
-    };
-
-    /**
-     * @method removeGenericDialog
-     * Removes the global content from the chain. 
-     * It will try to recover the focus to the element which was focused before #method-addGenericDialog was called.
-     * If this fails it will just call #method-focusNext. This can be prevented by setting preventFocus to true.
-     * @param {String} dialogId id of dialog
-     * @param {Boolean} preventFocus Prevent focusNext if focus can not be recoverd.
-     */
-    FocusChain.prototype.removeGenericDialog = function (id, preventFocus) {
-        var recoveryElem = this.recoveryPoints.get(id);
-        this.recoveryPoints.delete(id);
-        this.remove(brease.settings.globalContent);
-        _removeDialogChainCircle.call(this);
-        this.focus(recoveryElem);
-        if (!preventFocus) {
-            this.focusNext(true, true);
-        }
-    };
-
-    /**
-     * @method add
-     * Add a content with widgets to the chain.
-     * If this was called during page change it will just be appended it to the chain, #method-sort should be used to order the chain afterwards.
-     * If the content was added after page change (dynamic content), the chain is already sorted so it will be sorted in.
-     * If the chain is empty and this is the first dynamic content => focus will be restetted to this content.
-     * @param {String} contentId 
-     * @param {Array} widgets 
-     */
     FocusChain.prototype.add = function (contentId, widgets) {
         if (!_hasContent.call(this, contentId)) {
             if (brease.pageController.isPageChangeInProgress()) {
@@ -170,11 +100,6 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         }
     };
 
-    /**
-     * @mehtod remove
-     * Remove a content from the chain. If the focus is on this content while removed, it will be recoverd.
-     * @param {String} contentId
-     */
     FocusChain.prototype.remove = function (contentId) {
         if (brease.pageController.isPageChangeInProgress() && !brease.pageController.isContentToBeRemoved(contentId)) {
             return;
@@ -189,57 +114,6 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
             --this.position.content;
         }
     };
-
-    /**
-     * @method addWidget
-     * Add a single widget to a chain content. The content must already exist.
-     * The widget will not be added if tabIndex<0 or settings.focusable=false or widget elem is already in chain.
-     * The widget is inserted at the correct position according to tabOrder.
-     * @param {String} contentId parentContentId of the widget
-     * @param {Object} widget widget to add
-     */
-    FocusChain.prototype.addWidget = function (contentId, widget) {
-        if (widget.getTabIndex() < 0 || !widget.settings.focusable || this.hasElem(widget.elem)) {
-            return;
-        }
-        var contentPos = _getFocusPositionOfContent.call(this, contentId);
-        if (contentPos < 0) {
-            return;
-        }
-        _insertWidget.call(this, contentPos, widget);
-        if (document.activeElement !== this.getFocusedElem()) {
-            this.focus(document.activeElement);
-        }
-    };
-
-    /**
-     * @method removeWidget
-     * Remove a added widget from the chain. Only widgets added with #method-addWidget should be removed from the chain.
-     * If the focus is on the widget while removeWidget is called it will not be corrected!
-     * This is because we currently assume that the widget is removed only because of a redraw and will be added after that. 
-     */
-    FocusChain.prototype.removeWidget = function (contentId, widget) {
-        var contentPos = _getFocusPositionOfContent.call(this, contentId);
-        if (contentPos < 0) {
-            return;
-        }
-        var index = this.chain[contentPos].widgets.findIndex(function (w) {
-            return w === widget;
-        });
-        if (index !== -1) {
-            this.chain[contentPos].widgets.splice(index, 1);
-            if (contentPos === this.position.content && this.position.widget > 0 && index <= this.position.widget) {
-                this.position.widget--;
-            }
-        }
-    };
-
-    /**
-     * @method sort 
-     * Sort the chain according to tabOrder of layout areas.
-     * It will add additional info to each content in the chain so it can be used for contents which are later inserted into the sorted chain.
-     * @param {String} pageId 
-     */
     FocusChain.prototype.sort = function (pageId) {
         var orderedContents = getOrderedContents(pageId),
             newFocusPosition;
@@ -263,19 +137,7 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         this.chain = orderedContents;
     };
 
-    FocusChain.prototype.sortContent = function (contentId) {
-        _cleanup.call(this);
-        var contentPos = _getFocusPositionOfContent.call(this, contentId);
-        if (contentPos >= 0) {
-            this.chain[contentPos].widgets.sort(Utils.compareTabOrder);
-            if (document.activeElement !== this.getFocusedElem()) {
-                this.focus(document.activeElement);
-            }
-        }
-    };
-
-    /** 
-     * @method focus
+    /**
      * Manually set to focus to a element/widget in the focus chain.
      * This function should always be called if any element gets the focus (document.focusin) to keep the FocusChain
      * synchronised. It keeps the position on a known element if the focus function is called with a element which is not in FocusChain focuschain.
@@ -289,12 +151,12 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
      * @param {Node} elem Focus target node. 
      */
     FocusChain.prototype.focus = function (elem) {
-        if (elem === this.getFocusedElem()) return false;
+        if (elem === this.getFocusedElem()) return;
 
         for (var i = 0; i < this.chain.length; ++i) {
             var widgets = this.chain[i].widgets;
             for (var j = 0; j < widgets.length; ++j) {
-                if (widgets[j].elem === elem) {
+                if (widgets[j].elem.isSameNode(elem)) {
                     if (!_isInChainCircle.call(this, i)) {
                         document.activeElement.blur();
                         var log = LogCode.getConfig('CLIENT_FOCUS_ACTION_FAIL');
@@ -302,21 +164,18 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
                     // prevent focus on disabled inputs (inputs are always focusable by mouse!)
                     } else if (widgets[j].isEnabled()) {
                         this.position = { content: i, widget: j };
-                        this.resetted = false;
                     } else {
                         document.activeElement.blur();
                     }
-                    return true;
+                    return;
                 }
             }
         }
-        return false;
     };
 
     /**
-     * @method focusNext
-     * Set focus on next focusable widget in chain.
-     * @param {Boolen} current default=false, true=start at current position (for reset).
+     * Set focus on next focusable widget in chain. 
+     * @param {*} current Start at the current position
      * @param {Boolean} omitEvent omit BEFORE_FOCUS_MOVE move event i.e the element is not available anymore 
      */
     FocusChain.prototype.focusNext = function (current, omitEvent) {
@@ -339,12 +198,11 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
                     continue;
                 }
                 var widget = widgets[this.position.widget];
-                if (widget.isFocusable() && _isModalWidget.call(this, widget.elem.id)) {
+                if (widget.isFocusable()) {
                     if (!omitEvent) {
                         focusedElem.dispatchEvent(new CustomEvent(BreaseEvent.BEFORE_FOCUS_MOVE, { bubbles: false, cancelable: false, detail: {} }));
                     }
                     widget.elem.focus({ preventScroll: true });
-                    this.resetted = false;
                     return;
                 }
             }
@@ -355,11 +213,6 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         this.position.content = undefined;
     };
 
-    /**
-     * @method focusPrevious
-     * Set the focus on previous focusable widget in chain
-     * @returns 
-     */
     FocusChain.prototype.focusPrevious = function () {
         var current = false;
         if (this.chain.length === 0) {
@@ -385,12 +238,11 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
                         continue;
                     }
                     var widget = widgets[this.position.widget];
-                    if (widget.isFocusable() && _isModalWidget.call(this, widget.elem.id)) {
+                    if (widget.isFocusable()) {
                         if (!focusedElem.isSameNode(widget.elem)) {
                             focusedElem.dispatchEvent(new CustomEvent(BreaseEvent.BEFORE_FOCUS_MOVE, { bubbles: false, cancelable: false, detail: {} }));
                         }
                         widget.elem.focus({ preventScroll: true });
-                        this.resetted = false;
                         return;
                     }
                 }
@@ -402,65 +254,9 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         this.position.content = undefined;
     };
 
-    /**
-     * @method getFocusedElem
-     * Get the html element of the current focus position.
-     * @returns {HTMLElement} returns undefined if focus position is invalid.
-     */
     FocusChain.prototype.getFocusedElem = function () {
-        if (this.hasFocus() && this.chain[this.position.content].widgets.length > 0 && this.chain[this.position.content].widgets[this.position.widget]) {
+        if (this.hasFocus() && this.chain[this.position.content].widgets.length > 0) {
             return this.chain[this.position.content].widgets[this.position.widget].elem;
-        }
-    };
-
-    /**
-     * @mehtod hasElem
-     * Check if html element is somewhere in chain.
-     * @param {HTMLElement} elem 
-     * @returns true if the element is in the chain.
-     */
-    FocusChain.prototype.hasElem = function (elem) {
-        return this.chain.some(function (content) {
-            return content.widgets.some(function (widget) {
-                return elem.isSameNode(widget.elem);
-            });
-        });
-    };
-
-    /**
-     * @method pushModalWidgets
-     * Push widgets which are shown modal onto a stack. Widgets which are on top of the stack
-     * are focusable - all other not. The first widget (according to tabOrder) is focused.
-     * @param {String} id Should be used to remove pushed modal widgets. 
-     * @param {Array} widgets Widgets with tabIndex>=0 
-     */
-    FocusChain.prototype.pushModalWidgets = function (id, widgets) {
-        var index = this.modalWidgets.findIndex(function (context) {
-            return context.id === id;
-        });
-        if (index >= 0) {
-            return;
-        }
-        this.modalWidgets.push({
-            id: id,
-            widgetIds: widgets.map(function (w) {
-                return w.elem.id;
-            })
-        });
-        this.focusNext(true);
-    };
-
-    /**
-     * @mehtod removeModalWidgets
-     * Remove widgets which are shown modal from the stack. The focus remains on the current widget!
-     * @param {String} id Identifier which was used with pushModalWidgets
-     */
-    FocusChain.prototype.removeModalWidgets = function (id) {
-        var index = this.modalWidgets.findIndex(function (it) {
-            return it.id === id;
-        });
-        if (index >= 0) {
-            this.modalWidgets.splice(index, 1);
         }
     };
 
@@ -469,16 +265,22 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
     }
 
     function _getFocusPositionOfContent(contentId) {
-        return this.chain.findIndex(function (content) {
-            return content.contentId === contentId;
-        });
+        for (var i = 0; i < this.chain.length; ++i) {
+            if (this.chain[i].contentId === contentId) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     function _hasPage(pageId) {
-        return this.chain.some(function (content) {
+        for (var i = 0; i < this.chain.length; ++i) {
             // exclude dummy contents
-            return content.pageId === pageId && content.contentId !== undefined;
-        });
+            if (this.chain[i].pageId === pageId && this.chain[i].contentId !== undefined) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function _getLastDialogId() {
@@ -559,117 +361,21 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         }
     }
 
-    function _insertWidget(contentPos, widget) {
-        _cleanup.call(this);
-        var insertIndex;
-        for (var i = 0; i < this.chain[contentPos].widgets.length; ++i) {
-            var chainWidget = this.chain[contentPos].widgets[i];
-
-            // for cowi childs we have to use tabIndex of parent
-            var parentCoWiId = chainWidget.settings.parentCoWiId;
-            if (parentCoWiId) {
-                chainWidget = brease.callWidget(parentCoWiId, 'widget');
-            }
-            if (Utils.compareTabOrder(chainWidget, widget) > 0) {
-                insertIndex = i;
-                break;
-            }
-        }
-        if (insertIndex === undefined) {
-            this.chain[contentPos].widgets.push(widget);
-        } else {
-            this.chain[contentPos].widgets.splice(insertIndex, 0, widget);
-            
-            if (contentPos === this.position.content && insertIndex <= this.position.widget) {
-                // reset the focus only if the user has not already moved the focus!
-                if (this.resetted) {
-                    this.resetFocus();
-                } else {
-                    ++this.position.widget;
-                }
-            }
-        }
-    }
-
-    /**
-     * Cleanup already deleted widgets (workaround for table which always recreates the TextInput)
-     */
-    function _cleanup() {
-        this.chain.forEach(function (link) {
-            link.widgets = link.widgets.filter(function (widget) {
-                return widget.elem !== null;
-            });
-        });
-    }
-    
     // insert a content with widgets into sorted chain according the area of the content 
     function _insert(content) {
         Object.assign(content, Utils.getContentPageAreaIds(content.contentId));
 
         var insertIndex = _findLastIndexOfPageArea.call(this, content.pageId, content.areaId);
         if (insertIndex === -1) {
-            // if the area is empty (e.g. content removed) we take the initial order of the page areas
-            insertIndex = _findInitialIndexOfPageArea.call(this, content.pageId, content.areaId);
-            if (insertIndex === -1) {
-                // content is not part of the current page
-                return;
-            } else {
-                this.chain.splice(insertIndex, 0, content);
-            }
-        } else {
-            // take type from dummy
-            content.type = this.chain[insertIndex].type;
-            //insert after dummy
-            this.chain.splice(++insertIndex, 0, content);
+            return;
         }
+        // take type from dummy
+        content.type = this.chain[insertIndex].type;
+        this.chain.splice(++insertIndex, 0, content);
         if (insertIndex <= this.position.content) {
             ++this.position.content;
         }
         _updateChainCircle.call(this, insertIndex);
-    }
-
-    function _findInitialIndexOfPageArea(pageId, areaId) {
-        var areasBefore = _findAreasWithLowerTabIndex(pageId, areaId);
-        
-        if (areasBefore) {
-            var index = 0;
-            // count all contents with areaIds from areas with lower tabIndex
-            for (var i = 0; i < this.chain.length; i += 1) {
-                var content = this.chain[i];
-                if (content.pageId === pageId && areasBefore.includes(content.areaId)) {
-                    index += 1;
-                } else {
-                    break;
-                }
-            }
-            return index;
-        } else {
-            return -1;
-        }
-    }
-    
-    function _findAreasWithLowerTabIndex(pageId, areaId) {
-        var arContent = getOrderedContents(pageId),
-            areasBefore = [],
-            areaFound = false;
-
-        // iterate over all ordered contents til we find the areaId of the content to add
-        for (var i = 0; i < arContent.length; i += 1) {
-            var content = arContent[i];
-            if (content.pageId === pageId && content.areaId === areaId) {
-                areaFound = true;
-                break;
-            } else {
-                if (areasBefore.indexOf(content.areaId) === -1) {
-                    areasBefore.push(content.areaId);
-                }
-            }
-        }
-        if (areaFound) {
-            return areasBefore;
-        } else {
-            return undefined;
-        }
     }
 
     function _findLastIndexOfPageArea(pageId, areaId) {
@@ -724,23 +430,6 @@ define(['brease/events/BreaseEvent', 'brease/controller/libs/Utils', 'brease/enu
         }
         chainCircle.length = chainCircle.end - chainCircle.start + 1;
         return chainCircle;
-    }
-
-    function _removeDialogChainCircle() {
-        var lastDialogId = _getLastDialogId.call(this);
-        if (lastDialogId && Utils.hasModalWindow()) {
-            this.chainCircle = _createChainCircleForDialog.call(this, lastDialogId);
-        } else {
-            this.chainCircle.start = undefined;
-        }
-    }
-
-    function _isModalWidget(id) {
-        var top = this.modalWidgets[this.modalWidgets.length - 1];
-        if (top === undefined) {
-            return true;
-        }
-        return top.widgetIds.indexOf(id) !== -1;
     }
 
     return FocusChain;

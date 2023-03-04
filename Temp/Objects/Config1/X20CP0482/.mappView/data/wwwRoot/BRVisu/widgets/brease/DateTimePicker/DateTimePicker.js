@@ -140,13 +140,11 @@ define([
                 start: 1900,
                 end: 2100,
                 offset: 1
-            },
-            colIndex: 0
+            }
         }, this._bind('_setYear'));
 
         this.DateTimePickerMonth = new SliderWheel(this.el.find('.dtfragment.month'), {
-            data: _getMonthData(),
-            colIndex: 0
+            data: _getMonthData()
         }, this._bind('_setMonth'));
 
         this.DateTimePickerDay = new SliderWheel(this.el.find('.dtfragment.day'), {
@@ -155,8 +153,7 @@ define([
                 end: 31,
                 offset: 1
             },
-            digits: 2,
-            colIndex: 0
+            digits: 2
         }, this._bind('_setDay'));
 
         this.DateTimePickerHour = new SliderWheel(this.el.find('.dtfragment.hour'), {
@@ -165,8 +162,7 @@ define([
                 end: 23,
                 offset: 1
             },
-            digits: 2,
-            colIndex: 0
+            digits: 2
         }, this._bind('_setHour'));
 
         this.DateTimePickerMinute = new SliderWheel(this.el.find('.dtfragment.minute'), {
@@ -175,8 +171,7 @@ define([
                 end: 59,
                 offset: 1
             },
-            digits: 2,
-            colIndex: 0
+            digits: 2
         }, this._bind('_setMinute'));
 
         this.DateTimePickerSecond = new SliderWheel(this.el.find('.dtfragment.second'), {
@@ -185,18 +180,14 @@ define([
                 end: 59,
                 offset: 1
             },
-            digits: 2,
-            colIndex: 0
+            digits: 2
         }, this._bind('_setSecond'));
-
+        
         resetComponentWidth.call(this);
 
         this.DateTimePickerString = this.el.find('.actDate');
         this.btnEnter = this.el.find('.dateTimePickerEnter').on(BreaseEvent.CLICK, this._bind('_submitValue')).on(BreaseEvent.MOUSE_DOWN, this._bind(_addEnter));
         this.btnReset = this.el.find('.dateTimePickerReset').on(BreaseEvent.CLICK, this._bind('_resetValue')).on(BreaseEvent.MOUSE_DOWN, this._bind(_addReset));
-        this.DateTimePickerObjArray = [this.DateTimePickerYear, this.DateTimePickerMonth, this.DateTimePickerDay,
-            this.DateTimePickerHour, this.DateTimePickerMinute, this.DateTimePickerSecond,
-            this.btnEnter, this.btnReset];
         document.body.addEventListener(BreaseEvent.THEME_CHANGED, this._bind('themeChangeHandler'));
         _setButtonText(this);
     };
@@ -258,7 +249,6 @@ define([
         options = _validatePositions(options);
         // calculate the corresponding width depending on date-format
         options.format = this._addOptionsDateTimeFormat(options);
-        _insertAllComponents.call(this);
         options.width = _calculateWidth.call(this, options.format);
         if (this.height === undefined || options.width === undefined) {
             options.height = this.el.outerHeight();
@@ -337,15 +327,11 @@ define([
         }
 
         var instance = this;
-        var counter = 0;
         Object.keys(components).forEach(function (item) {
             if (_hasFormat.call(instance, item, format)) {
-                instance[components[item].elName].insert();
-                counter = counter + 1;
-                instance[components[item].elName].columnIndex = counter;
+                instance[components[item].elName].show();
             } else {
-                instance[components[item].elName].detach();
-                instance[components[item].elName].columnIndex = 0;
+                instance[components[item].elName].hide();
             }
         });
 
@@ -539,18 +525,11 @@ define([
         Object.keys(components).forEach(function (item) {
             instance.dtpw[item] = _calcWidth.call(instance, item, format);
         });
-
+        
         var border = WidgetClass.borderWidth * 2,
             result = this.dtpw.year + this.dtpw.month + this.dtpw.day + this.dtpw.hour + this.dtpw.minute + this.dtpw.second;
-
+        
         return (result === 0) ? WidgetClass.minWidth : result + border;
-    }
-
-    function _insertAllComponents() {
-        var instance = this;
-        Object.keys(components).forEach(function (item) {   
-            instance[components[item].elName].insert();
-        });
     }
 
     var instance = new WidgetClass();

@@ -53,9 +53,6 @@ define([
      * @param {Object} options the options necessary for instantiating the table
      */
     p.initializeDataTable = function (options) {
-        //set dataTables to use console.warn for errors
-        //attention: all widgets, which use dataTables, share this setting; so it makes no sense to use different settings
-        $.fn.dataTable.ext.sErrMode = console.warn;
         this.datatable = this.$table.DataTable(options);
     };
 

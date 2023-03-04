@@ -73,9 +73,6 @@ define([
     BoxLayout.ALIGNMENT_BOTTOM_RIGHT = 'content-bottom-right';
 
     function _findClosest(elem, className) {
-        if (!(elem instanceof Element)) {
-            return null;
-        }
         if (elem.classList.contains(className)) {
             return elem;
         }

@@ -38,7 +38,7 @@ define(function () {
     * Check if EnumObject contains member  
     * ##Example  
     *     var align = new EnumObject({ center: 'c', left: 'l', right: 'r' });  
-    *     expect(align.hasMember('c')).toBeTrue();  
+    *     expect(align.hasMember('c')).toBeTruthy();  
     *     
     * @param {ANY} member the value of a member
     * @return {Boolean}

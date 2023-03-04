@@ -4,9 +4,7 @@ define([
 
     'use strict';
 
-    var defaultSettings = {
-            imgSrc: 'widgets/brease/BusyIndicator/assets/busy-animated.gif'
-        },
+    var defaultSettings = {},
 
         /**
          * @class widgets.brease.BusyIndicator
@@ -52,13 +50,13 @@ define([
         p = BusyIndicator.prototype;
 
     p.init = function () {
-        if (this.settings.omitClass !== true) {
-            this.addInitialClass('breaseBusyIndicator');
-        }
+        this.addInitialClass('breaseBusyIndicator');
         SuperClass.prototype.init.call(this, true);
+
         this.elem.onload = this._bind('draw');
         this.elem.onerror = this._bind('_imageLoadError');
-        this.elem.src = this.settings.imgSrc;
+
+        this.elem.src = 'widgets/brease/BusyIndicator/assets/busy-animated.gif';
     };
 
     p.draw = function () {
@@ -78,8 +76,8 @@ define([
     p._imageLoadError = function () {
         this.elem.onload = null;
         this.elem.onerror = null;
-        console.iatWarn('could not load image "' + this.settings.imgSrc + '" @BusyIndicator[id="' + this.elem.id + '"]!');
-        this._dispatchReady();
+
+        console.iatWarn('could not load image @BusyIndicator[id="' + this.elem.id + '"]!');
     };
 
     return BusyIndicator;

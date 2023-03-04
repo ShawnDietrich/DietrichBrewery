@@ -12,9 +12,9 @@ extern "C"
 	#include <MTTypes.h>
 	#include <standard.h>
 	#include <powerlnk.h>
-	#include <MpBase.h>
 	#include <Acp10par.h>
 	#include <NcGlobal.h>
+	#include <MpBase.h>
 	#include <astime.h>
 	#include <brsystem.h>
 	#include <sys_lib.h>
@@ -24,13 +24,13 @@ extern "C"
 	#include <AsARCfg.h>
 	#include <AsEPL.h>
 	#include <AsIO.h>
-	#include <MpTemp.h>
 	#include <Acp10man.h>
+	#include <MpTemp.h>
 	#include <AsIecCon.h>
 	#include <ViBase.h>
 	#include <CoTrace.h>
-	#include <MTBasics.h>
 	#include <MpAlarmX.h>
+	#include <MTBasics.h>
 	#include <Functions.h>
 #ifdef __cplusplus
 };

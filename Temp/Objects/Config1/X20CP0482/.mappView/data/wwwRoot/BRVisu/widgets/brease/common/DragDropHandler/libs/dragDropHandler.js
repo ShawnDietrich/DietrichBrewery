@@ -3,26 +3,35 @@ define(['widgets/brease/common/DragDropHandler/libs/dragDropBase',
     'widgets/brease/common/DragDropHandler/libs/dragDropPointer'],
 function (DragDropBase, DragDropTouch, DragDropPointer) {
     'use strict';
-
-    function DragDropHandler() {
-        if (DragDropHandler.supportsPointer()) {
-            return new DragDropPointer();
-        } else if (DragDropHandler.isTouch()) {
-            return new DragDropTouch();
-        } else {
-            return new DragDropBase();
-        }
+    function isTouch() {
+        return 'ontouchstart' in window || // works on most browsers 
+                navigator.maxTouchPoints; // works on IE10/11 and Surface
     }
-    DragDropHandler.supportsPointer = function () {
+
+    function supportsPointer() {
         if (window.PointerEvent) {
             return true;
         }
         return false;
-    };
-    DragDropHandler.isTouch = function () {
-        return 'ontouchstart' in window || // works on most browsers 
-            navigator.maxTouchPoints; // works on IE10/11 and Surface
-    };
+    }
+
+    function DragDropHandler() {
+        if (supportsPointer()) {
+            DragDropPointer.call(this);
+        } else if (isTouch()) {
+            DragDropTouch.call(this);
+        } else {
+            DragDropBase.call(this);
+        }
+    }
+
+    if (supportsPointer()) {
+        DragDropHandler.prototype = Object.create(DragDropPointer.prototype);
+    } else if (isTouch()) {
+        DragDropHandler.prototype = Object.create(DragDropTouch.prototype);
+    } else {
+        DragDropHandler.prototype = Object.create(DragDropBase.prototype);
+    }
 
     return DragDropHandler;
 });

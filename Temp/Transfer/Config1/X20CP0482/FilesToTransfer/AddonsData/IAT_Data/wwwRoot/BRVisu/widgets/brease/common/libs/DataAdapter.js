@@ -156,97 +156,11 @@ define([
         return maximum;
     };
 
-    function _createYAxisArea(dataAdapter, axisId, yAxisWidget, yAxisSize) {
-        
-        var tickLabelDistance = parseFloat(yAxisWidget.getTickLabelDistance()),
-            tickLabelRotation = parseFloat(yAxisWidget.getTickLabelRotation()) % 360;
-        
-        return {
-            id: axisId,
-            y: dataAdapter.settings.chartMargin['marginTop'],
-            width: yAxisSize,
-            info: {
-                coordinate: 'y',
-                position: dataAdapter.widget.chartItems.yAxis[axisId].getAxisPosition(),
-                axisLabelDistance: parseInt(yAxisWidget.getAxisLabelDistance(), 10),
-                tickLabelDistance: tickLabelDistance || 0,
-                tickLabelRotation: tickLabelRotation || 0,
-                minZoomLevel: dataAdapter.widget.getMinZoomLevel() / 100,
-                maxZoomLevel: dataAdapter.widget.getMaxZoomLevel() / 100,
-                format: yAxisWidget.currentFormat(),
-                type: 'number'
-            }
-        };
-    }
-
-    function _createXAxisArea(dataAdapter, axisId, xAxisWidget, xAxisSize, xOffsetLeft, xOffsetRight) {
-        
-        var tickLabelDistance = parseFloat(xAxisWidget.getTickLabelDistance()),
-            tickLabelRotation = parseFloat(xAxisWidget.getTickLabelRotation()) % 360;
-
-        return {
-            id: axisId,
-            x: xOffsetLeft,
-            width: xOffsetRight - xOffsetLeft,
-            height: xAxisSize,
-            info: {
-                coordinate: 'x',
-                position: xAxisWidget.getAxisPosition(),
-                axisLabelDistance: parseInt(xAxisWidget.getAxisLabelDistance(), 10),
-                tickLabelDistance: tickLabelDistance || 0,
-                tickLabelRotation: tickLabelRotation || 0,
-                minZoomLevel: dataAdapter.widget.getMinZoomLevel() / 100,
-                maxZoomLevel: dataAdapter.widget.getMaxZoomLevel() / 100
-            }
-        };
-    }
-    function _createCursor(dataAdapter, cursorWidget, xCursorId) {
-        return {
-            id: xCursorId,
-            xCursor: cursorWidget._getValue(),
-            yValues: [],
-            yValueAxes: [],
-            markerVisible: [],
-            active: false,
-            x: -dataAdapter.settings.cursorAreaWidth / 2 + dataAdapter.xAxisAreas[cursorWidget.axisWidget.elem.id].scale(cursorWidget._getValue()),
-            y: 0,
-            width: dataAdapter.settings.cursorAreaWidth,
-            height: dataAdapter.chartArea.height,
-            maxAvailableXPositionIndex: cursorWidget._getMaxDrawnXSampleIndex(cursorWidget._getMaxNumberOfSamples())
-        //markerRadius: 
-        };
-    }
-
-    function _setChartMargin(dataAdapter) {
-        var i = 0,
-            parseChartMargin = dataAdapter.widget.settings.chartMargin.match(/-?\d+(\.\d+)?px/g);
-
-        for (var pos in dataAdapter.settings.chartMargin) {
-            dataAdapter.settings.chartMargin[pos] = parseFloat(parseChartMargin[i], 10);
-            i = (parseChartMargin[i + 1]) ? i + 1 : 0;
-        }
-    }
-
-    function _setXScales(axisType, dataAdapter, axisId) {
-        switch (axisType) {
-
-            case 'dateTime':
-                dataAdapter.xScales[axisId] = d3.time.scale();
-                break;
-
-            case 'index':
-            case 'secondsAsNumber':
-                dataAdapter.xScales[axisId] = d3.scale.linear();
-                break;
-        }
-        //dataAdapter.xScales[axisId] = (typeof xAxisMinValue === 'object') ? d3.time.scale() : d3.scale.linear();;
-        dataAdapter.xAxisAreas[axisId].scale = dataAdapter.xScales[axisId];
-    }
-
     // Private Functions
     function _initializeChartAreas(dataAdapter) {
 
-        var axisId,
+        var i = 0,
+            axisId,
             xCursorId,
             xOffsetLeft = 0,
             xOffsetRight = dataAdapter.widget.settings.width,
@@ -256,12 +170,20 @@ define([
             yAxisSize = 0,
             xAxisWidget,
             yAxisWidget,
+            tickLabelDistance,
+            tickLabelRotation,
+            parseChartMargin,
             topBorderWidth,
             bottomBorderWidth,
             leftBorderWidth,
             rightBorderWidth;
 
-        _setChartMargin(dataAdapter);
+        parseChartMargin = dataAdapter.widget.settings.chartMargin.match(/-?\d+(\.\d+)?px/g);
+
+        for (var pos in dataAdapter.settings.chartMargin) {
+            dataAdapter.settings.chartMargin[pos] = parseFloat(parseChartMargin[i], 10);
+            i = (parseChartMargin[i + 1]) ? i + 1 : 0;
+        }
 
         topBorderWidth = parseInt(dataAdapter.widget.el.css('border-top-width'), 10);
         bottomBorderWidth = parseInt(dataAdapter.widget.el.css('border-bottom-width'), 10);
@@ -277,8 +199,25 @@ define([
 
             yAxisWidget = dataAdapter.widget.chartItems.yAxis[axisId];
             yAxisSize = parseInt(dataAdapter.widget.chartItems.yAxis[axisId].settings.width, 10);
+            tickLabelDistance = parseFloat(yAxisWidget.getTickLabelDistance());
+            tickLabelRotation = parseFloat(yAxisWidget.getTickLabelRotation()) % 360;
 
-            dataAdapter.yAxisAreas[axisId] = _createYAxisArea(dataAdapter, axisId, yAxisWidget, yAxisSize);
+            dataAdapter.yAxisAreas[axisId] = {
+                id: axisId,
+                y: dataAdapter.settings.chartMargin['marginTop'],
+                width: yAxisSize,
+                info: {
+                    coordinate: 'y',
+                    position: dataAdapter.widget.chartItems.yAxis[axisId].getAxisPosition(),
+                    axisLabelDistance: parseInt(yAxisWidget.getAxisLabelDistance(), 10),
+                    tickLabelDistance: tickLabelDistance || 0,
+                    tickLabelRotation: tickLabelRotation || 0,
+                    minZoomLevel: dataAdapter.widget.getMinZoomLevel() / 100,
+                    maxZoomLevel: dataAdapter.widget.getMaxZoomLevel() / 100,
+                    format: yAxisWidget.currentFormat(),
+                    type: 'number'
+                }
+            };
 
             xOffsetRight -= (dataAdapter.yAxisAreas[axisId].info.position === 'right') ? yAxisSize : 0;
 
@@ -295,8 +234,24 @@ define([
 
             xAxisWidget = dataAdapter.widget.chartItems.xAxis[axisId];
             xAxisSize = parseInt(xAxisWidget.settings.height, 10);
+            tickLabelDistance = parseFloat(xAxisWidget.getTickLabelDistance());
+            tickLabelRotation = parseFloat(xAxisWidget.getTickLabelRotation()) % 360;
 
-            dataAdapter.xAxisAreas[axisId] = _createXAxisArea(dataAdapter, axisId, xAxisWidget, xAxisSize, xOffsetLeft, xOffsetRight);
+            dataAdapter.xAxisAreas[axisId] = {
+                id: axisId,
+                x: xOffsetLeft,
+                width: xOffsetRight - xOffsetLeft,
+                height: xAxisSize,
+                info: {
+                    coordinate: 'x',
+                    position: xAxisWidget.getAxisPosition(),
+                    axisLabelDistance: parseInt(xAxisWidget.getAxisLabelDistance(), 10),
+                    tickLabelDistance: tickLabelDistance || 0,
+                    tickLabelRotation: tickLabelRotation || 0,
+                    minZoomLevel: dataAdapter.widget.getMinZoomLevel() / 100,
+                    maxZoomLevel: dataAdapter.widget.getMaxZoomLevel() / 100
+                }
+            };
 
             yOffsetBottom -= (dataAdapter.xAxisAreas[axisId].info.position === 'bottom') ? xAxisSize : 0;
 
@@ -304,7 +259,19 @@ define([
 
             yOffsetTop += (dataAdapter.xAxisAreas[axisId].info.position === 'top') ? xAxisSize : 0;
 
-            _setXScales(xAxisWidget._getAxisType(), dataAdapter, axisId);
+            switch (xAxisWidget._getAxisType()) {
+
+                case 'dateTime':
+                    dataAdapter.xScales[axisId] = d3.time.scale();
+                    break;
+
+                case 'index':
+                case 'secondsAsNumber':
+                    dataAdapter.xScales[axisId] = d3.scale.linear();
+                    break;
+            }
+            //dataAdapter.xScales[axisId] = (typeof xAxisMinValue === 'object') ? d3.time.scale() : d3.scale.linear();;
+            dataAdapter.xAxisAreas[axisId].scale = dataAdapter.xScales[axisId];
         }
 
         // Y-Axes (y positioning)
@@ -325,34 +292,43 @@ define([
         for (xCursorId in dataAdapter.widget.chartItems.xCursors) {
             var cursorWidget = dataAdapter.widget.chartItems.xCursors[xCursorId];
 
-            dataAdapter.xAxisCursorAreas[xCursorId] = _createCursor(dataAdapter, cursorWidget, xCursorId);
+            dataAdapter.xAxisCursorAreas[xCursorId] = {
+                id: xCursorId,
+                xCursor: cursorWidget._getValue(),
+                yValues: [],
+                yValueAxes: [],
+                markerVisible: [],
+                active: false,
+                x: -dataAdapter.settings.cursorAreaWidth / 2 + dataAdapter.xAxisAreas[cursorWidget.axisWidget.elem.id].scale(cursorWidget._getValue()),
+                y: 0,
+                width: dataAdapter.settings.cursorAreaWidth,
+                height: dataAdapter.chartArea.height,
+                maxAvailableXPositionIndex: cursorWidget._getMaxDrawnXSampleIndex(cursorWidget._getMaxNumberOfSamples())
+                //markerRadius: 
+            };
 
-            _setCursorValues(dataAdapter, cursorWidget, xCursorId);
+            for (var graphId in cursorWidget.graphWidgets) {
+                var graphWidget = cursorWidget.graphWidgets[graphId],
+                    cursorPositionWithinGraphNumberOfSamples,
+                    graphNumberOfSamples;
+
+                graphNumberOfSamples = (graphWidget.getNumberOfSamples() < 0) ? graphWidget.getValue().length : graphWidget.getNumberOfSamples();
+
+                cursorPositionWithinGraphNumberOfSamples = cursorWidget.axisWidget._xPositions()
+                    .map(function (xPosition) {
+                        return +xPosition;
+                    })
+                    .indexOf(+dataAdapter.xAxisCursorAreas[xCursorId].xCursor) <= (graphNumberOfSamples - 1);
+
+                dataAdapter.xAxisCursorAreas[xCursorId].yValues[graphId] = graphWidget.getCursorValue();
+                dataAdapter.xAxisCursorAreas[xCursorId].yValueAxes[graphId] = graphWidget.axisWidget.elem.id;
+                dataAdapter.xAxisCursorAreas[xCursorId].markerVisible[graphId] = graphWidget.isVisible() && cursorWidget.isVisible() && cursorPositionWithinGraphNumberOfSamples;
+            }
         }
 
         _addIntersectionPointsToGraphs(dataAdapter);
 
         dataAdapter._createGraphIntersectionPoints();
-    }
-
-    function _setCursorValues(dataAdapter, cursorWidget, xCursorId) {
-        for (var graphId in cursorWidget.graphWidgets) {
-            var graphWidget = cursorWidget.graphWidgets[graphId],
-                cursorPositionWithinGraphNumberOfSamples,
-                graphNumberOfSamples;
-
-            graphNumberOfSamples = (graphWidget.getNumberOfSamples() < 0) ? graphWidget.getValue().length : graphWidget.getNumberOfSamples();
-
-            cursorPositionWithinGraphNumberOfSamples = cursorWidget.axisWidget._xPositions()
-                .map(function (xPosition) {
-                    return +xPosition;
-                })
-                .indexOf(+dataAdapter.xAxisCursorAreas[xCursorId].xCursor) <= (graphNumberOfSamples - 1);
-
-            dataAdapter.xAxisCursorAreas[xCursorId].yValues[graphId] = graphWidget.getCursorValue();
-            dataAdapter.xAxisCursorAreas[xCursorId].yValueAxes[graphId] = graphWidget.axisWidget.elem.id;
-            dataAdapter.xAxisCursorAreas[xCursorId].markerVisible[graphId] = graphWidget.isVisible() && cursorWidget.isVisible() && cursorPositionWithinGraphNumberOfSamples;
-        }
     }
 
     function _addIntersectionPointsToGraphs(dataAdapter) {

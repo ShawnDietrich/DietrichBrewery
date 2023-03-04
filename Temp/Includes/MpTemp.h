@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpTemp 5.19.0 */
+/* MpTemp 5.16.0 */
 
 #ifndef _MPTEMP_
 #define _MPTEMP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpTemp_VERSION
-#define _MpTemp_VERSION 5.19.0
+#define _MpTemp_VERSION 5.16.0
 #endif
 
 #include <bur/plctypes.h>

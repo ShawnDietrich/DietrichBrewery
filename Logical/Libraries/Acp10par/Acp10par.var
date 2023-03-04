@@ -1,9 +1,9 @@
 (********************************************************************
  * COPYRIGHT (C) B&R Industrial Automation GmbH
  ********************************************************************
- * File: ACP10PAR.VAR (2022-06-08 10:00:57)
+ * File: ACP10PAR.VAR (2021-10-22 09:39:39)
  ********************************************************************
- * Constants of library ACP10PAR (V5.19.1)
+ * Constants of library ACP10PAR (V5.16.2)
  ********************************************************************)
 VAR CONSTANT
     ACP10PAR_SAFEMC_STATUS            :UINT  := 4;     (* (UDINT) SafeMOTION: Status *)
@@ -1028,7 +1028,6 @@ VAR CONSTANT
     ACP10PAR_ENCOD0_S_FILTER_TE       :UINT  := 1316;  (* (REAL) Virtual Encoder: Extrapolation time for actual position filter [s] *)
     ACP10PAR_ENCOD1_COMMUT_OFFSET     :UINT  := 1317;  (* (REAL) Encoder1: Commutation offset [rad] *)
     ACP10PAR_ELC_TRANSFER_PARID       :UINT  := 1318;  (* (UINT) Encoderless control: Parameter-ID Transition  *)
-    ACP10PAR_STAT_NETWORK_ERROR       :UINT  := 1319;  (* (UDINT) Status: Cyclic communication network error *)
     ACP10PAR_ENCOD0_MODE              :UINT  := 1320;  (* (UDINT) Virtual Encoder: Mode *)
     ACP10PAR_ENCOD0_POS_ACT           :UINT  := 1321;  (* (DINT) Virtual Encoder: Actual position per revolution [Incr] *)
     ACP10PAR_ENCOD0_S_ACT             :UINT  := 1322;  (* (DINT) Virtual Encoder: Actual position [Units] *)
@@ -1257,8 +1256,6 @@ VAR CONSTANT
     ACP10PAR_ENCOD2_OUTPUT_FREQUENCY  :UINT  := 1636;  (* (UDINT) Encoder2: Maximal expected output frequency [Hz] *)
     ACP10PAR_TCTRANS_MODE             :UINT  := 1637;  (* (UINT) Torque Current Transformation: Mode *)
     ACP10PAR_MOTOR_UDC_MAX            :UINT  := 1641;  (* (REAL) Motor: Maximum permissible DC bus voltage [V] *)
-    ACP10PAR_CYC_NETW_ERR_REACTION    :UINT  := 1643;  (* (UINT) Cyclic communication: Network error reaction *)
-    ACP10PAR_CYC_NETW_ERR_T_DELAY     :UINT  := 1644;  (* (REAL) Cyclic communication: Delay time of network error reaction [s] *)
     ACP10PAR_ENCOD2_COMP_MODE         :UINT  := 1645;  (* (UINT) Encoder2: Compensation: Mode *)
     ACP10PAR_ENCOD2_DAT_IDX           :UINT  := 1646;  (* (DINT) Encoder2: Data: Index *)
     ACP10PAR_ENCOD2_DAT_A0            :UINT  := 1647;  (* (REAL) Encoder2: Data: Parameter A0 *)
@@ -1304,16 +1301,6 @@ VAR CONSTANT
     ACP10PAR_GEARBOX_TORQ_LIM         :UINT  := 1696;  (* (REAL) Motor gearbox: Output torque limiter: Limit [Nm] *)
     ACP10PAR_MOTOR_TEMPMODEL_REF_OFF  :UINT  := 1706;  (* (REAL) Motor: Temperature model: Reference sensor: Temperature offset [°C] *)
     ACP10PAR_MOTOR_TEMPMODEL_REF_TAU  :UINT  := 1707;  (* (REAL) Motor: Temperature model: Reference sensor: Time constant [s] *)
-    ACP10PAR_STOP_ERR_A2              :UINT  := 1708;  (* (REAL) Movement stop: Deceleration after drive error [Units/s²] *)
-    ACP10PAR_SCTRL_SPEED_ACT_DZONE    :UINT  := 1709;  (* (REAL) CTRL Speed: Dead zone for actual speed [Hz] *)
-    ACP10PAR_MOTOR_BRAKE_FRICWRK_LIM  :UINT  := 1710;  (* (REAL) Motor holding brake: Permitted friction work [J] *)
-    ACP10PAR_BRAKE_WEARMON_REVO       :UINT  := 1711;  (* (REAL) Motor holding brake: Wear monitoring: Friction revolutions [Rev.] *)
-    ACP10PAR_BRAKE_WEARMON_REVO_IGN   :UINT  := 1712;  (* (REAL) Motor holding brake: Wear monitoring: Ignored friction revolutions [Rev.] *)
-    ACP10PAR_BRAKE_WEARMON_REVO_LIM   :UINT  := 1713;  (* (REAL) Motor holding brake: Wear monitoring: Friction revolutions: Limit value [Rev.] *)
-    ACP10PAR_HOMING_TORQUE_LIM_POS    :UINT  := 1714;  (* (REAL) Homing: Positive Torque limit [Nm] *)
-    ACP10PAR_HOMING_TORQUE_LIM_NEG    :UINT  := 1715;  (* (REAL) Homing: Negative Torque limit [Nm] *)
-    ACP10PAR_PCTRL_S_SET_FRAC         :UINT  := 1716;  (* (REAL) CTRL Position controller: Set position fractional part [Units] *)
-    ACP10PAR_S_SET_FRAC_VAX1          :UINT  := 1717;  (* (REAL) VAX: Position fractional part [Units] *)
     ACP10PAR_LOGIC_MODE               :UINT  := 3072;  (* (UINT) FB LOGIC: Mode *)
     ACP10PAR_LOGIC_IN1_PARID          :UINT  := 3080;  (* (UINT) FB LOGIC: Parameter ID of input1 *)
     ACP10PAR_LOGIC_IN2_PARID          :UINT  := 3088;  (* (UINT) FB LOGIC: Parameter ID of input2 *)

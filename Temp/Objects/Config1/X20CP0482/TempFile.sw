@@ -11,6 +11,7 @@
   <TaskClass Name="Cyclic#4">
     <Task Name="HMIProgram" Source="HMIControl.HMIProgram.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="FillingTan" Source="FillingTanks.FillingTanks.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Fermenting" Source="Fermenting.Fermenting.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

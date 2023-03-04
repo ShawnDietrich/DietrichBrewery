@@ -205,6 +205,8 @@
                 }
 
                 xsd += '</div>' + lbr();
+                // xsd += ' <script src="' + prePath + '../../jquery.js"></script>' + lbr();
+                // xsd += ' <script src="' + prePath + '../../assets/js/bootstrap.min.js"></script>' + lbr();
                 xsd += '</body>' + lbr();
                 xsd += '</html>' + lbr();
             }

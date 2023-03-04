@@ -1054,7 +1054,6 @@ define([
         */
     p.dispose = function () {
         this._contentDeactivatedHandler();
-        document.body.removeEventListener(BreaseEvent.CONTENT_ACTIVATED, this._bind('_contentActivatedHandler'));
         var activeAction = StatusActions.changeActive(false);
         this.store.dispatch(activeAction);
         SuperClass.prototype.dispose.apply(this, arguments);

@@ -15,8 +15,7 @@ define(function () {
             preserveOldValues: true
         },
         WidgetData: {
-            renderingPolicy: 'default',
-            securityPolicy: 'on'
+            renderingPolicy: 'default'
         },
         themeFolder: 'release/'
     };

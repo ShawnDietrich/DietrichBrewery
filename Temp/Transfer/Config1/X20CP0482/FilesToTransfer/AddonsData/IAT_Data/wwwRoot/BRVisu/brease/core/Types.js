@@ -537,14 +537,6 @@ define(['brease/core/Utils'], function (Utils) {
 */
 
 /**
-* @class brease.datatype.FileName
-* @alternateClassName FileName
-* @embeddedClass
-* @virtualNote 
-* name of a file
-*/
-
-/**
 * @class brease.datatype.FilePath
 * @alternateClassName FilePath
 * @embeddedClass

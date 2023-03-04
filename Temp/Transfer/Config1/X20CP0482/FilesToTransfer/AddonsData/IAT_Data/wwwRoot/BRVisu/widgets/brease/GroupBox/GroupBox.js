@@ -213,7 +213,6 @@ define([
             widget.getHandles = function () {
                 return editorHandles.getHandles();
             }; 
-            widget.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
         });
     };
 
@@ -813,7 +812,6 @@ define([
             widget.container.on('VisibleChanged', widget._bind('_scrollUpdateHandler'));
             if (!widget.scrollWrapper) {
                 _addScroller(widget, scrollerSettings);
-                widget.scrollWrapper.addClass('widgetContainer');
                 widget.el.addClass('autoScroll');
             } else {
                 if (brease.config.editMode) {
@@ -821,10 +819,9 @@ define([
                 }
                 _addChildAtScroller(widget);
             }
-            widget.container.removeClass('widgetContainer');
+
         } else {
             widget.el.removeClass('autoScroll');
-            widget.container.addClass('widgetContainer');
         }
     }
 

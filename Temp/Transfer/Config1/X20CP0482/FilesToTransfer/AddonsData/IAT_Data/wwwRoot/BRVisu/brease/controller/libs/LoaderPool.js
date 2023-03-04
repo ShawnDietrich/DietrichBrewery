@@ -19,9 +19,7 @@ define(['brease/events/BreaseEvent', 'brease/enum/Enum', 'brease/core/Utils', 'b
 
         LoaderPool.prototype.dispose = function () {
             for (var loaderId in this.pool) {
-                if (brease.uiController.getWidgetState(loaderId) > Enum.WidgetState.NON_EXISTENT) {
-                    brease.callWidget(loaderId, 'dispose');
-                }
+                brease.callWidget(loaderId, 'dispose');
             }
             this.pool = {};
             this.slots = 0;

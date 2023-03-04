@@ -82,7 +82,7 @@ define([
             compVal = fil.comp;
             origVal = this._getStatus(row[fil.data]);
         } else if (fil.data === 'cat') {
-            compVal = (this.widget.model && this.widget.model.categories) ? this.widget.model.categories[fil.comp] : undefined;
+            compVal = this.widget.model.categories[fil.comp];
             origVal = row[fil.data];
         } else {
             compVal = fil.comp;

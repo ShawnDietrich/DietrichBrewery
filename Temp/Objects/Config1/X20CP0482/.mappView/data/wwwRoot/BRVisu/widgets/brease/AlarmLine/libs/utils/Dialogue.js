@@ -20,7 +20,7 @@ define([
      * @method constructor
      * constructor to set up the class Dialogue used by the AlarmLine
      */
-    var DialogueClass = SuperClass.extend(function Dialogue() {
+    var DialogueClass = SuperClass.extend(function Dialogue(widget) {
             SuperClass.apply(this, arguments);
         }, null),
 
@@ -29,7 +29,7 @@ define([
     /**
      * @method initialize
      * @param {String} type which type of dialog should be instantiated 
-     * @param {String} lang the language to be used
+     * @param {String} lang the langauge to be used
      * @returns {Object}
      */
     p.initialize = function (type) {

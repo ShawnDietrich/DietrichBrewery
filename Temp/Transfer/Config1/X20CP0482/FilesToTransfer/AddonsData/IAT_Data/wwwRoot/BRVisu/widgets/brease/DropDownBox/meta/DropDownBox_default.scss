@@ -7,18 +7,6 @@
 	@include elemHeight(30);
 }
 &.DropDownBoxView {
-	@include elemMinWidth(0);
-}
-&.DropDownBoxView {
-	@include elemMaxWidth(0);
-}
-&.DropDownBoxView {
-	@include elemMinHeight(0);
-}
-&.DropDownBoxView {
-	@include elemMaxHeight(0);
-}
-&.DropDownBoxView {
 	@include border-radius(0px);
 }
 & > .ItemView {

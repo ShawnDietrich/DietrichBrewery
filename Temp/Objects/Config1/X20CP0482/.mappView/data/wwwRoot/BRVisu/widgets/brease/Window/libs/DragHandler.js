@@ -1,7 +1,8 @@
 define([
-    'brease/events/BreaseEvent'
+    'brease/events/BreaseEvent', 
+    'brease/core/Utils'
 ], function (
-    BreaseEvent
+    BreaseEvent, Utils
 ) {
 
     'use strict';
@@ -18,7 +19,7 @@ define([
 
     DragHandler.prototype.dispose = function () {
         this.active = false;
-        window.cancelAnimationFrame(this.animationFrame);
+        Utils.cancelAnimationFrame(this.animationFrame);
         brease.bodyEl.off(BreaseEvent.MOUSE_MOVE, this.headerMoveHandler);
         brease.bodyEl.off(BreaseEvent.MOUSE_UP, this.headerUpHandler);
         this.start = null;
@@ -68,7 +69,7 @@ define([
         
         if (!this.active) {
             this.active = true;
-            this.animationFrame = window.requestAnimationFrame(this.updatePosition);
+            this.animationFrame = Utils.requestAnimationFrame(this.updatePosition);
         }
     }
 
@@ -81,15 +82,15 @@ define([
             };
         }
         if (this.active) {
-            this.animationFrame = window.requestAnimationFrame(this.updatePosition);
+            this.animationFrame = requestAnimationFrame(this.updatePosition);
         }
     }
     
-    function _headerUpHandler() {
+    function _headerUpHandler(widget) {
         this.active = false;
         brease.bodyEl.off(BreaseEvent.MOUSE_MOVE, this.headerMoveHandler);
         brease.bodyEl.off(BreaseEvent.MOUSE_UP, this.headerUpHandler);
-        window.cancelAnimationFrame(this.animationFrame);
+        Utils.cancelAnimationFrame(this.animationFrame);
     }
 
     return DragHandler;

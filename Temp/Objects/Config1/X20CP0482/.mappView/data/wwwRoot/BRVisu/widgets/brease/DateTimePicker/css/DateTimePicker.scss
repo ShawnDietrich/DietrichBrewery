@@ -13,7 +13,6 @@ $btn-active-color: $active-color;
         }
 
         .dateTimePickerBody {
-
             background-color: #333333;
             display: block;
 
@@ -38,7 +37,7 @@ $btn-active-color: $active-color;
             }
 
             .dateTimePickerButtons {
-                display: flex;
+                position: relative;
                 box-sizing: border-box;
                 height: 200px;
                 background-color: #FFF;
@@ -57,10 +56,11 @@ $btn-active-color: $active-color;
                         width: $dtfragment-month-width;
                     }
 
-                    margin-right: 5px;
+                    border-right: 5px solid #FFF;
+
 
                     &:last-child {
-                        margin-right: 0;
+                        border-right: none;
                     }
 
                     .fragment {
@@ -116,11 +116,9 @@ $btn-active-color: $active-color;
             }
 
             .dateTimePickerControl {
-                display: flex;
                 margin: 5px 0 0 0;
                 height: 60px;
                 background-color: #FFF;
-                justify-content: space-between;
 
                 .dateTimePickerEnter {
                     max-width: 120px;
@@ -151,7 +149,6 @@ $btn-active-color: $active-color;
                         color: #FFF;
                     }
                 }
-
                 .space {
                     max-width: 229px;
                     width: auto;
