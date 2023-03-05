@@ -6,6 +6,6 @@
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
     <File>Displayclock.st</File>
-    <File>PowerControl.st</File>
+    <File>HopControl.st</File>
   </Files>
 </Program>

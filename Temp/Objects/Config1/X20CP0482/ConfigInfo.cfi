@@ -29,7 +29,7 @@
       <InternalFile
         Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\Displayclock.st.var" />
       <InternalFile
-        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\PowerControl.st.var" />
+        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\KettleCont\HopControl.st.var" />
     </Task>
     <Task
       Name="MashTunCon"

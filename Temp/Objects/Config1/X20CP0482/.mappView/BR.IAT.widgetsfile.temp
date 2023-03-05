@@ -20,6 +20,7 @@
   <widget name="widgets.brease.KeyBoard" />
   <widget name="widgets.brease.Label" />
   <widget name="widgets.brease.MessageBox" />
+  <widget name="widgets.brease.MomentaryPushButton" />
   <widget name="widgets.brease.NavigationButton" />
   <widget name="widgets.brease.NumericInput" />
   <widget name="widgets.brease.NumericOutput" />

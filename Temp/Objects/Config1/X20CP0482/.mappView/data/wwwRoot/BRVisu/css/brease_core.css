@@ -3677,6 +3677,1046 @@ div[id$="_breaseMainWrapper"]{position:absolute;pointer-events:none}.breaseInfoB
 #FillTankContent_ToggleButton5.checked:not(.active):not(.disabled) {
   background-color: rgba(255, 255, 255, 0);
 }
+#BoilContent_GroupBox7 {
+  top: 80px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox7 {
+  left: 286px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox7 {
+  width: 890px;
+}
+
+#BoilContent_GroupBox7 {
+  height: 268px;
+}
+
+#BoilContent_GroupBox7 {
+  z-index: 1;
+}
+
+#BoilContent_GroupBox7 {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox7 > .header {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox7 {
+  border-radius: 10px;
+}
+
+#BoilContent_GroupBox7 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_GroupBox7 {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox7 > .header {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox7 {
+  border-style: outset;
+}
+
+#BoilContent_GroupBox7 > .header {
+  border-bottom-style: outset;
+}
+
+#BoilContent_GroupBox7 > .header span {
+  font-size: 30px;
+}
+
+#BoilContent_GroupBox7 > .header {
+  height: 50px;
+}
+
+#BoilContent_ToggleSwitch12 {
+  top: 46px;
+  position: absolute;
+}
+
+#BoilContent_ToggleSwitch12 {
+  left: 633px;
+  position: absolute;
+}
+
+#BoilContent_ToggleSwitch12 {
+  width: 217px;
+}
+
+#BoilContent_ToggleSwitch12 {
+  height: 50px;
+}
+
+#BoilContent_ToggleSwitch12 {
+  z-index: 0;
+}
+
+#BoilContent_ToggleSwitch12 {
+  border-radius: 5px;
+}
+
+#BoilContent_ToggleSwitch12 .breaseToggleSwitch_toggle {
+  border-radius: 3px;
+}
+
+#BoilContent_ToggleSwitch12.checked:not(.disabled) {
+  background-color: orangered;
+}
+
+#BoilContent_ToggleSwitch12.checked:not(.disabled) .breaseToggleSwitch_toggle {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch12.checked:not(.disabled) .wrapper .before {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch12.checked:not(.disabled) .wrapper .after {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch12 .wrapper .before {
+  font-size: 15px;
+}
+
+#BoilContent_ToggleSwitch12 .wrapper .after {
+  font-size: 15px;
+}
+
+#BoilContent_NumericOutput6 {
+  top: 47px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput6 {
+  left: 24px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput6 {
+  width: 122px;
+}
+
+#BoilContent_NumericOutput6 {
+  height: 49px;
+}
+
+#BoilContent_NumericOutput6 {
+  z-index: 1;
+}
+
+#BoilContent_NumericOutput6 {
+  border-width: 2px;
+}
+
+#BoilContent_NumericOutput6 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericOutput6 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_NumericOutput6 {
+  border-style: outset;
+}
+
+#BoilContent_NumericOutput6 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_Label11 {
+  height: 30px;
+}
+
+#BoilContent_Label11 {
+  top: 57px;
+  position: absolute;
+}
+
+#BoilContent_Label11 {
+  left: 151px;
+  position: absolute;
+}
+
+#BoilContent_Label11 {
+  width: 147px;
+}
+
+#BoilContent_Label11 {
+  z-index: 2;
+}
+
+#BoilContent_Label11 span {
+  padding: 0px;
+}
+
+#BoilContent_NumericInput6 {
+  top: 122px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput6 {
+  left: 24px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput6 {
+  width: 122px;
+}
+
+#BoilContent_NumericInput6 {
+  height: 49px;
+}
+
+#BoilContent_NumericInput6 {
+  z-index: 3;
+}
+
+#BoilContent_NumericInput6 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericInput6 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_Label12 {
+  height: 30px;
+}
+
+#BoilContent_Label12 {
+  top: 132px;
+  position: absolute;
+}
+
+#BoilContent_Label12 {
+  left: 158px;
+  position: absolute;
+}
+
+#BoilContent_Label12 {
+  width: 107px;
+}
+
+#BoilContent_Label12 {
+  z-index: 4;
+}
+
+#BoilContent_Label12 span {
+  padding: 0px;
+}
+
+#BoilContent_MomentaryPushButton1 {
+  top: 47px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton1 {
+  left: 291px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton1 {
+  width: 146px;
+}
+
+#BoilContent_MomentaryPushButton1 {
+  height: 60px;
+}
+
+#BoilContent_MomentaryPushButton1 {
+  z-index: 5;
+}
+
+#BoilContent_MomentaryPushButton1 img {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton1 svg {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton1:not(.active):not(.checked) {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton1.disabled {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton1:not(.disabled):not(.active):not(.checked) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#BoilContent_MomentaryPushButton1.active:not(.disabled):not(.editMode) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton1.checked:not(.disabled) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton2 {
+  top: 117px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton2 {
+  left: 291px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton2 {
+  width: 146px;
+}
+
+#BoilContent_MomentaryPushButton2 {
+  height: 60px;
+}
+
+#BoilContent_MomentaryPushButton2 {
+  z-index: 6;
+}
+
+#BoilContent_MomentaryPushButton2 img {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton2 svg {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton2:not(.active):not(.checked) {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton2.disabled {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton2:not(.disabled):not(.active):not(.checked) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#BoilContent_MomentaryPushButton2.active:not(.disabled):not(.editMode) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton2.checked:not(.disabled) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton3 {
+  top: 117px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton3 {
+  left: 461px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton3 {
+  width: 146px;
+}
+
+#BoilContent_MomentaryPushButton3 {
+  height: 60px;
+}
+
+#BoilContent_MomentaryPushButton3 {
+  z-index: 7;
+}
+
+#BoilContent_MomentaryPushButton3 img {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton3 svg {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton3:not(.active):not(.checked) {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton3.disabled {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton3:not(.disabled):not(.active):not(.checked) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#BoilContent_MomentaryPushButton3.active:not(.disabled):not(.editMode) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton3.checked:not(.disabled) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton4 {
+  top: 47px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton4 {
+  left: 461px;
+  position: absolute;
+}
+
+#BoilContent_MomentaryPushButton4 {
+  width: 146px;
+}
+
+#BoilContent_MomentaryPushButton4 {
+  height: 60px;
+}
+
+#BoilContent_MomentaryPushButton4 {
+  z-index: 8;
+}
+
+#BoilContent_MomentaryPushButton4 img {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton4 svg {
+  height: 50px;
+}
+
+#BoilContent_MomentaryPushButton4:not(.active):not(.checked) {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton4.disabled {
+  border-width: 1px;
+}
+
+#BoilContent_MomentaryPushButton4:not(.disabled):not(.active):not(.checked) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#BoilContent_MomentaryPushButton4.active:not(.disabled):not(.editMode) {
+  background-color: #80ff80;
+}
+
+#BoilContent_MomentaryPushButton4.checked:not(.disabled) {
+  background-color: #80ff80;
+}
+
+#BoilContent_GroupBox8 {
+  top: 1px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox8 {
+  left: 1px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox8 {
+  width: 1478px;
+}
+
+#BoilContent_GroupBox8 {
+  height: 699px;
+}
+
+#BoilContent_GroupBox8 {
+  z-index: 0;
+}
+
+#BoilContent_GroupBox8 {
+  border-radius: 10px;
+}
+
+#BoilContent_GroupBox8 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_GroupBox8 {
+  border-color: black;
+}
+
+#BoilContent_GroupBox8 > .header {
+  border-color: black;
+}
+
+#BoilContent_GroupBox9 {
+  top: 367px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox9 {
+  left: 284px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox9 {
+  width: 427px;
+}
+
+#BoilContent_GroupBox9 {
+  height: 228px;
+}
+
+#BoilContent_GroupBox9 {
+  z-index: 0;
+}
+
+#BoilContent_GroupBox9 {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox9 > .header {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox9 {
+  border-radius: 10px;
+}
+
+#BoilContent_GroupBox9 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_GroupBox9 {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox9 > .header {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox9 {
+  border-style: outset;
+}
+
+#BoilContent_GroupBox9 > .header {
+  border-bottom-style: outset;
+}
+
+#BoilContent_GroupBox9 > .header span {
+  font-size: 30px;
+}
+
+#BoilContent_GroupBox9 > .header {
+  height: 50px;
+}
+
+#BoilContent_Label15 {
+  height: 30px;
+}
+
+#BoilContent_Label15 {
+  top: 33px;
+  position: absolute;
+}
+
+#BoilContent_Label15 {
+  left: 144px;
+  position: absolute;
+}
+
+#BoilContent_Label15 {
+  width: 124px;
+}
+
+#BoilContent_Label15 {
+  z-index: 0;
+}
+
+#BoilContent_Label15 {
+  justify-content: flex-start;
+  text-align: left;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#BoilContent_Label15 span {
+  padding: 0px;
+}
+
+#BoilContent_NumericInput8 {
+  top: 92px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput8 {
+  left: 16px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput8 {
+  width: 122px;
+}
+
+#BoilContent_NumericInput8 {
+  height: 49px;
+}
+
+#BoilContent_NumericInput8 {
+  z-index: 1;
+}
+
+#BoilContent_NumericInput8 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericInput8 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_Label16 {
+  height: 30px;
+}
+
+#BoilContent_Label16 {
+  top: 102px;
+  position: absolute;
+}
+
+#BoilContent_Label16 {
+  left: 144px;
+  position: absolute;
+}
+
+#BoilContent_Label16 {
+  width: 133px;
+}
+
+#BoilContent_Label16 {
+  z-index: 2;
+}
+
+#BoilContent_Label16 {
+  justify-content: flex-start;
+  text-align: left;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#BoilContent_Label16 span {
+  padding: 0px;
+}
+
+#BoilContent_TextOutput2 {
+  top: 23px;
+  position: absolute;
+}
+
+#BoilContent_TextOutput2 {
+  left: 16px;
+  position: absolute;
+}
+
+#BoilContent_TextOutput2 {
+  width: 122px;
+}
+
+#BoilContent_TextOutput2 {
+  height: 49px;
+}
+
+#BoilContent_TextOutput2 {
+  z-index: 3;
+}
+
+#BoilContent_TextOutput2 {
+  border-width: 2px;
+}
+
+#BoilContent_TextOutput2 {
+  border-radius: 5px;
+}
+
+#BoilContent_TextOutput2 {
+  border-color: #555555;
+}
+
+#BoilContent_TextOutput2:before {
+  border-color: #555555;
+}
+
+#BoilContent_TextOutput2:after {
+  border-color: #555555;
+}
+
+#BoilContent_TextOutput2 {
+  border-style: solid;
+}
+
+#BoilContent_TextOutput2:before {
+  border-style: solid;
+}
+
+#BoilContent_TextOutput2:after {
+  border-style: solid;
+}
+
+#BoilContent_TextOutput2 {
+  justify-content: center;
+  text-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#BoilContent_TextOutput2 {
+  font-size: 20px;
+}
+
+#BoilContent_ToggleSwitch14 {
+  top: 23px;
+  position: absolute;
+}
+
+#BoilContent_ToggleSwitch14 {
+  left: 278px;
+  position: absolute;
+}
+
+#BoilContent_ToggleSwitch14 {
+  width: 130px;
+}
+
+#BoilContent_ToggleSwitch14 {
+  height: 50px;
+}
+
+#BoilContent_ToggleSwitch14 {
+  z-index: 4;
+}
+
+#BoilContent_ToggleSwitch14 {
+  border-radius: 5px;
+}
+
+#BoilContent_ToggleSwitch14 .breaseToggleSwitch_toggle {
+  border-radius: 3px;
+}
+
+#BoilContent_ToggleSwitch14.checked:not(.disabled) {
+  background-color: lime;
+}
+
+#BoilContent_ToggleSwitch14.checked:not(.disabled) .breaseToggleSwitch_toggle {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch14.checked:not(.disabled) .wrapper .before {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch14.checked:not(.disabled) .wrapper .after {
+  color: black;
+}
+
+#BoilContent_ToggleSwitch14 .wrapper .before {
+  font-size: 15px;
+}
+
+#BoilContent_ToggleSwitch14 .wrapper .after {
+  font-size: 15px;
+}
+
+#BoilContent_GroupBox10 {
+  top: 367px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox10 {
+  left: 751px;
+  position: absolute;
+}
+
+#BoilContent_GroupBox10 {
+  width: 423px;
+}
+
+#BoilContent_GroupBox10 {
+  height: 228px;
+}
+
+#BoilContent_GroupBox10 {
+  z-index: 1;
+}
+
+#BoilContent_GroupBox10 {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox10 > .header {
+  border-width: 3px;
+}
+
+#BoilContent_GroupBox10 {
+  border-radius: 10px;
+}
+
+#BoilContent_GroupBox10 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_GroupBox10 {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox10 > .header {
+  border-color: #1eb0ad;
+}
+
+#BoilContent_GroupBox10 {
+  border-style: outset;
+}
+
+#BoilContent_GroupBox10 > .header {
+  border-bottom-style: outset;
+}
+
+#BoilContent_GroupBox10 > .header span {
+  font-size: 30px;
+}
+
+#BoilContent_GroupBox10 > .header {
+  height: 50px;
+}
+
+#BoilContent_DropDownBox1 {
+  top: 23px;
+  position: absolute;
+}
+
+#BoilContent_DropDownBox1 {
+  left: 33px;
+  position: absolute;
+}
+
+#BoilContent_DropDownBox1.DropDownBoxView {
+  width: 168px;
+}
+
+#BoilContent_DropDownBox1.DropDownBoxView {
+  height: 50px;
+}
+
+#BoilContent_DropDownBox1 {
+  z-index: 0;
+}
+
+#BoilContent_DropDownBox1.DropDownBoxView {
+  border-radius: 5px;
+}
+
+#BoilContent_DropDownBox1 > .ItemView {
+  border-radius: 5px;
+}
+
+#BoilContent_DropDownBox1_listBoxWrapper > .ListView.Container {
+  border-radius: 5px;
+}
+
+#BoilContent_DropDownBox1_listBoxWrapper > .ListView.Container {
+  border-width: 1px;
+}
+
+#BoilContent_DropDownBox1 .TextView {
+  font-size: 15px;
+}
+
+#BoilContent_DropDownBox1_listBoxWrapper .TextView {
+  font-size: 15px;
+}
+
+#BoilContent_NumericInput9 {
+  top: 23px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput9 {
+  left: 227px;
+  position: absolute;
+}
+
+#BoilContent_NumericInput9 {
+  width: 168px;
+}
+
+#BoilContent_NumericInput9 {
+  height: 50px;
+}
+
+#BoilContent_NumericInput9 {
+  z-index: 1;
+}
+
+#BoilContent_NumericInput9 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericInput9 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_NumericOutput7 {
+  top: 111px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput7 {
+  left: 33px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput7 {
+  width: 168px;
+}
+
+#BoilContent_NumericOutput7 {
+  height: 50px;
+}
+
+#BoilContent_NumericOutput7 {
+  z-index: 2;
+}
+
+#BoilContent_NumericOutput7 {
+  border-width: 2px;
+}
+
+#BoilContent_NumericOutput7 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericOutput7 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_NumericOutput7 {
+  border-style: outset;
+}
+
+#BoilContent_NumericOutput7 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_NumericOutput8 {
+  top: 111px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput8 {
+  left: 227px;
+  position: absolute;
+}
+
+#BoilContent_NumericOutput8 {
+  width: 168px;
+}
+
+#BoilContent_NumericOutput8 {
+  height: 50px;
+}
+
+#BoilContent_NumericOutput8 {
+  z-index: 3;
+}
+
+#BoilContent_NumericOutput8 {
+  border-width: 2px;
+}
+
+#BoilContent_NumericOutput8 {
+  border-radius: 5px;
+}
+
+#BoilContent_NumericOutput8 {
+  background-color: whitesmoke;
+}
+
+#BoilContent_NumericOutput8 {
+  border-style: outset;
+}
+
+#BoilContent_NumericOutput8 input {
+  justify-content: center;
+  text-align: center;
+}
+
+#BoilContent_Label1 {
+  top: 81px;
+  position: absolute;
+}
+
+#BoilContent_Label1 {
+  left: 43px;
+  position: absolute;
+}
+
+#BoilContent_Label1 {
+  width: 148px;
+}
+
+#BoilContent_Label1 {
+  height: 25px;
+}
+
+#BoilContent_Label1 {
+  z-index: 4;
+}
+
+#BoilContent_Label1 {
+  justify-content: center;
+  text-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#BoilContent_Label2 {
+  top: 81px;
+  position: absolute;
+}
+
+#BoilContent_Label2 {
+  left: 237px;
+  position: absolute;
+}
+
+#BoilContent_Label2 {
+  width: 148px;
+}
+
+#BoilContent_Label2 {
+  height: 25px;
+}
+
+#BoilContent_Label2 {
+  z-index: 5;
+}
+
+#BoilContent_Label2 {
+  justify-content: center;
+  text-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 .remove{display:none !important}
 .system_brease_Area_style_default {
   background-size: 100% 100%;

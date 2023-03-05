@@ -24,8 +24,6 @@ PROGRAM _CYCLIC
 	
 	IF SlienceBtn THEN
 		Buzzer := FALSE;
-		FlashOff.IN := FALSE;
-		FlashOn.IN := FALSE;
 		SlienceVis := FALSE;
 		SlienceBtn := FALSE;
 	END_IF

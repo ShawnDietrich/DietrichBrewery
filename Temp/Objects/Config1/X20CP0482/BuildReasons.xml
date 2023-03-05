@@ -1,31 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BuildReasons>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\mappview\layouts\layout.layout" differs.
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\main.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\hmicontrol\hmiprogram\main.st" differs.
 </BuildReason>
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job._markerfile">
     <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\iat_media.job" differs.
 </BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\filltankpageid.page._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\boilpageid.page._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\distilingpageid.page._markerfile">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\desktoplayout.layout._markerfile" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\vis_0.json">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\.mappview\data\wwwroot\mainpage.page._markerfile" differs.
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\main.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\brewing\kettlecontrol\hopcontrol.st" differs.
 </BuildReason>
   </Rule>
   <Rule ID=".mappView_Build">
@@ -34,7 +18,59 @@
   <Rule ID=".mappView_IntegrationBuild">
     <BuildReason>Rule contains a phony target. </BuildReason>
   </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\main.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\main.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\main.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\main.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\_bur_pvdef.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\_bur_pvdef.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\_bur_pvdef.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\_bur_pvdef.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\_bur_pvdef.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\_bur_pvdef.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\a.out">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\a.out">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\main.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\hmiprogram.ox">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\a.out" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\kettlecont.ox">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\a.out" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont\kettlecont.ox" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\hmiprogram\hmiprogram.ox" differs.
+</BuildReason>
+  </Rule>
   <Rule ID="#cpu_tp.mak">
     <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\binaries\config1\x20cp0482\transfer.lst">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\x20cp0482\kettlecont.br" differs.
+</BuildReason>
   </Rule>
 </BuildReasons>

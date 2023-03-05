@@ -6,14 +6,18 @@
 				<Folder Name="server" ProjectDependent="1" IgnoreDifference="0">
 					<File Name="-1662823413.binding" Size="9182" HashValue="F9DC83E31702AE8018BE40C1E3A08F2E" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="1970273527.binding" Size="1202" HashValue="AAC8D90DC492A66E2F0230CDBC5FFCE7" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="2028816987.binding" Size="6219" HashValue="8598550FBBAAD7D593275E5E7806E5B1" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="893280410.binding" Size="6520" HashValue="7812D83A81217619E0FF5E2FA7AAB336" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="Config.mappviewcfg" Size="1584" HashValue="413250A5812EA5E06E947E7A0EA4A7F5" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="Config.mappviewcfg" Size="1584" HashValue="9AC45134E58E45CBB1E995F4FE341052" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="__SystemVariables.sessionVar" Size="3679" HashValue="47F4015152DC77A4E81EB725C733FBD6" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.vis" Size="1477" HashValue="A7B7D79C0DC0F1101B6A6F73F31707BB" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.vis" Size="1515" HashValue="AE967E6A4BD36A5C7B606A145198856B" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 				<Folder Name="wwwRoot" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="BRVisu" ProjectDependent="1" IgnoreDifference="0">
 						<Folder Name="Media" ProjectDependent="1" IgnoreDifference="0">
+							<File Name="Down-arrow.png" Size="4746" HashValue="4BA18D8BD8E7D271A95E3D2AA335921B" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="FastDown-arrow.png" Size="8189" HashValue="3E6E38102BBC6FF8958828E8B96FE15D" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="FastUp-arrow.png" Size="8170" HashValue="8D36AFD8A49CB6A5FD4828953B428DFB" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="TankFill.png" Size="8061" HashValue="00ED585D56CA26545670B56892E7A486" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="arrow-down.png" Size="4388" HashValue="A8BEB43FB162FA7B00EF7DAE5C4FBEBA" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="arrow-up.png" Size="4271" HashValue="8E91E591D7EFDBFFDDCA47A1B3A4423B" ProjectDependent="1" IgnoreDifference="0" />
@@ -31,6 +35,7 @@
 							<File Name="start-button-on.png" Size="17953" HashValue="61ADD865C02AB3DE3CAE5FA5E48FE77D" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="stopOff.png" Size="10968" HashValue="9B148D025BE13914493C5ED8B4BC7EE7" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="stopOn.png" Size="16592" HashValue="8903C979BB29C7746B399BFDBEE7C3B5" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="up-arrow.png" Size="2634" HashValue="4DA604EE241D7EAA259DA39487E5D6E7" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="warning.png" Size="20406" HashValue="29F782759422F9F253B6AFAD2B2C7B31" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="assets" ProjectDependent="1" IgnoreDifference="0">
@@ -512,8 +517,8 @@
 							<File Name="require.js" Size="17695" HashValue="1565AF44B896BC4C641F238FD800FC83" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="release" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="brease.js" Size="1279170" HashValue="838022B8FCB4A48D470670D83E59E34B" ProjectDependent="1" IgnoreDifference="0" />
-							<File Name="brease_core.min.css" Size="435660" HashValue="D23EE6F23BC1B1BC00990AA1D6640FD7" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease.js" Size="1284337" HashValue="945972746D0D13BB1B84011189B0C716" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="brease_core.min.css" Size="444282" HashValue="9808DF1FD212640A913A3BCB478CAB4F" ProjectDependent="1" IgnoreDifference="0" />
 						</Folder>
 						<Folder Name="system" ProjectDependent="1" IgnoreDifference="0">
 							<Folder Name="brease" ProjectDependent="1" IgnoreDifference="0">
@@ -1334,6 +1339,25 @@
 									<File Name="MessageBox.html" Size="1215" HashValue="14022C4C04753D1FEB73FEB61CD7CC81" ProjectDependent="1" IgnoreDifference="0" />
 									<File Name="MessageBox.js" Size="7908" HashValue="84C5D5290AA45DC3BAC19FD5A27A3D2D" ProjectDependent="1" IgnoreDifference="0" />
 								</Folder>
+								<Folder Name="MomentaryPushButton" ProjectDependent="1" IgnoreDifference="0">
+									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="ClassInfo.js" Size="2893" HashValue="5E58BCA8654D519B0791AB50CCDBCFD7" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<Folder Name="meta" ProjectDependent="1" IgnoreDifference="0">
+										<File Name="MomentaryPushButton.json" Size="29621" HashValue="6203A85922A5CCED31E005E4B8331A80" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton.widget" Size="30610" HashValue="FF2A7458E1187B68F0F32FD715F286B7" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton.xsd" Size="5544" HashValue="1CB33A23035C51DDBBA961E826CF2B13" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_Copied.markerFile" Size="0" HashValue="D41D8CD98F00B204E9800998ECF8427E" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_EventsActions.xsd" Size="6995" HashValue="FFB31B8002C43A7F37B4F4BCD719E9A5" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_Styles.xsd" Size="3354" HashValue="C5E69F048263140B52B6AA3F6FF44664" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_base.scss" Size="2908" HashValue="A9F5EF7BF2DD093E66027EEBBD2BDC61" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_default.sass.css" Size="3669" HashValue="C543E97D19CC8086331AEE8789E51172" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_default.scss" Size="3012" HashValue="61362997446AC0323EA28162D02B9DBF" ProjectDependent="1" IgnoreDifference="0" />
+										<File Name="MomentaryPushButton_doc.html" Size="40259" HashValue="DDBA25C7AFB3C8CEBCC38A4D670327E5" ProjectDependent="1" IgnoreDifference="0" />
+									</Folder>
+									<File Name="MomentaryPushButton.html" Size="90" HashValue="9E4F33580D16E1BBF470DE74C74C43EC" ProjectDependent="1" IgnoreDifference="0" />
+									<File Name="MomentaryPushButton.js" Size="5281" HashValue="04DE896DC4E49DA61CAAED827F31F60E" ProjectDependent="1" IgnoreDifference="0" />
+								</Folder>
 								<Folder Name="NavigationButton" ProjectDependent="1" IgnoreDifference="0">
 									<Folder Name="designer" ProjectDependent="1" IgnoreDifference="0">
 										<File Name="ClassInfo.js" Size="3154" HashValue="01265C807E23C9F5FA2103F5331A515D" ProjectDependent="1" IgnoreDifference="0" />
@@ -1977,7 +2001,7 @@
 					</Folder>
 					<Folder Name="contents" ProjectDependent="1" IgnoreDifference="0">
 						<Folder Name="mappView" ProjectDependent="1" IgnoreDifference="0">
-							<File Name="BoilContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
+							<File Name="BoilContent.html" Size="12078" HashValue="7EF93F683DC53C84ABB60F3BC6F454FD" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="DistilingContent.html" Size="13" HashValue="C76C35562F693CB69BEFC6D2A60F49D2" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="FillTankContent.html" Size="12807" HashValue="29A2B9B26F91CDED1B62F190C80121E1" ProjectDependent="1" IgnoreDifference="0" />
 							<File Name="MainPageContent.html" Size="22044" HashValue="9064616509055E7A06F213DF49539822" ProjectDependent="1" IgnoreDifference="0" />
@@ -2056,13 +2080,13 @@
 					</Folder>
 					<File Name="favicon.ico" Size="1406" HashValue="B3D2122594565CE5AF565BE898EF539A" ProjectDependent="1" IgnoreDifference="0" />
 					<File Name="index.html" Size="4385" HashValue="BC3ED7AA954B2FBC318B1E291F29D2CE" ProjectDependent="1" IgnoreDifference="0" />
-					<File Name="vis_0.json" Size="2162" HashValue="41CA43E556E048750C55E939EE132758" ProjectDependent="1" IgnoreDifference="0" />
+					<File Name="vis_0.json" Size="2162" HashValue="8BAB51A353B198A7DEB4EB44B5A9DB5F" ProjectDependent="1" IgnoreDifference="0" />
 				</Folder>
 			</Folder>
 			<Folder Name="OPCUA" ProjectDependent="1" IgnoreDifference="0" IsGroup="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IgnoreDifference="0">
 					<Folder Name="Generated" ProjectDependent="1" IgnoreDifference="0">
-						<File Name="OpcUaMap.uar.gz" Size="952" HashValue="A9C0717578EC347BADADDC4EBD990ADF" ProjectDependent="1" IgnoreDifference="0" />
+						<File Name="OpcUaMap.uar.gz" Size="1054" HashValue="756F6F5601CDF8F90EF103D0BF3DDAE7" ProjectDependent="1" IgnoreDifference="0" />
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IgnoreDifference="0">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1" IgnoreDifference="0" />
@@ -2169,8 +2193,8 @@
 			<Module Name="::FillingTan" Type="17" Size="4380" Modified="2023-03-04 19:30:13" Version="1.00" ProjectDependent="1" />
 			<Module Name="::Functions" Type="18" Size="1664" Modified="2023-03-04 14:42:57" Version="1.00" ProjectDependent="1" />
 			<Module Name="::HLTControl" Type="17" Size="12344" Modified="2023-03-04 16:56:12" Version="1.00" ProjectDependent="1" />
-			<Module Name="::HMIProgram" Type="17" Size="2960" Modified="2023-03-04 20:20:36" Version="1.00" ProjectDependent="1" />
-			<Module Name="::KettleCont" Type="17" Size="13288" Modified="2023-03-04 20:25:57" Version="1.00" ProjectDependent="1" />
+			<Module Name="::HMIProgram" Type="17" Size="2948" Modified="2023-03-05 11:40:11" Version="1.00" ProjectDependent="1" />
+			<Module Name="::KettleCont" Type="17" Size="14152" Modified="2023-03-05 11:40:11" Version="1.00" ProjectDependent="1" />
 			<Module Name="::MTBasics" Type="18" Size="36552" Modified="2022-05-02 06:56:18" Version="5.19" ProjectDependent="1" />
 			<Module Name="::MTTypes" Type="18" Size="4140" Modified="2017-02-21 11:08:18" Version="1.034" ProjectDependent="1" />
 			<Module Name="::MashTunCon" Type="17" Size="13792" Modified="2023-03-04 20:21:12" Version="1.00" ProjectDependent="1" />

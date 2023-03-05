@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="BoilContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbUp" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="MomentaryPushButton1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbDown" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="MomentaryPushButton2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbFastDown" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="MomentaryPushButton3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:pbFastUp" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="MomentaryPushButton4" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:Proc.currPower" attribute="node" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericOutput6" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:Proc.setPower" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericInput6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:Proc.i.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="ToggleSwitch12" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:TimePre" attribute="node" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericInput8" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:TmrRemain" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="TextOutput2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:StartKettle" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="ToggleSwitch14" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:HopSelection" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="DropDownBox1" attribute="selectedIndex" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:SelectedHopTime" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericInput9" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:remainTime" attribute="node" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericOutput8" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::KettleCont:currHop" attribute="value" />
+<Target xsi:type="brease" contentRefId="BoilContent" widgetRefId="NumericOutput7" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

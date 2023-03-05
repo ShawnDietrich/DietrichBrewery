@@ -1,3 +1,12 @@
+(*Hop Control Variables*)
+VAR
+	SelectedHopTime : USINT;
+	HopTime : ARRAY[0..5] OF USINT;
+	i : INT;
+	currHop : INT;
+	remainTime : USINT;
+END_VAR
+(*Kettle Control*)
 VAR
 	Proc : ProcControl;
 	KettleTmr : TON;
@@ -8,6 +17,11 @@ VAR
 	MinRe : STRING[4];
 	SecRe : STRING[4];
 	TmrRemain : STRING[10];
+	pbFastDown : BOOL;
+	pbFastUp : BOOL;
 	pbUp : BOOL;
 	pbDown : BOOL;
+	HopSelection : DINT;
+	PrevSelection : DINT;
+	PrevHopTime : DINT;
 END_VAR

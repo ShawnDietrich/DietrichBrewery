@@ -61,9 +61,26 @@ PROGRAM _CYCLIC
 			
 	END_CASE
 	
+	//Power Control
+	IF pbUp AND Proc.setPower < 100 THEN
+		Proc.setPower := Proc.setPower + 1;
+		pbUp := FALSE;
+	ELSIF  pbDown AND Proc.setPower > 0 THEN
+		Proc.setPower := Proc.setPower - 1;
+		pbDown := FALSE;
+	END_IF
+	
+	IF pbFastUp AND Proc.setPower < 100 THEN 
+		Proc.setPower := Proc.setPower + 10;
+		pbFastUp := FALSE;
+	ELSIF pbFastDown AND Proc.setPower > 0 THEN
+		Proc.setPower := Proc.setPower - 10;
+		pbFastDown := FALSE;
+	END_IF
+	
 	//Call Action Files
 	Displayclock;
-	PowerControl;
+	HopControl;
 	
 	//Call FB's
 	Proc.TempCtrl.Ctrl();

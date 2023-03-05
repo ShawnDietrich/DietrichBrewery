@@ -1,3 +1,3 @@
 <?xml version="1.0"?>
 <?AutomationStudio FileVersion="4.9"?>
-<Project xmlns="http://br-automation.co.at/AS/Project"><Active ID="0"/><Configuration Name="Config1"/></Project>
+<Project xmlns="http://br-automation.co.at/AS/Project"><Active ID="0"/><Configuration Name="Config1"/><ConfigurationFiles xmlns="" ConfigurationName="Config1" ActiveConfigurationFile="\Logical\HMIControl\HMIProgram\Main.st"><ConfigurationFile Placement="\Logical\mappView\Visualization\Pages\BoilPage\Content.content,,3,44,0,1,-1,-1,-1,-1,2,24,1581,777"/><ConfigurationFile Placement="\Logical\Brewing\KettleControl\HopControl.st,Brewing.KettleControl,2,44,0,1,-1,-1,-1,-1,2,24,1581,777"/><ConfigurationFile Placement="\Logical\Brewing\KettleControl\Displayclock.st,Brewing.KettleControl,2,44,0,1,-1,-1,-1,-1,2,24,1581,777"/><ConfigurationFile Placement="\Logical\HMIControl\HMIProgram\Main.st,HMIControl.HMIProgram,2,44,0,1,-1,-1,-1,-1,2,24,1581,777"/></ConfigurationFiles></Project>

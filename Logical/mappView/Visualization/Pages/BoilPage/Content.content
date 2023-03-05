@@ -1,4 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="BoilContent" height="800" width="1480" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets />
+<Content id="BoilContent" height="700" width="1480" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox7" top="80" left="286" width="890" height="268" zIndex="1" borderWidth="3px" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(30, 176, 173, 1)" borderStyle="outset" fontSize="30px">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch12" top="46" left="633" width="217" height="50" zIndex="0" mouseDownText="Stop Boil Operation" text="Start Boil Operation" cornerRadius="5px" mouseDownBackColor="rgba(255, 69, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput6" top="47" left="24" width="122" height="49" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" unit="{'metric':'P1','imperial':'P1','imperial-us':'P1'}" unitAlign="right" borderWidth="2px" cornerRadius="5px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" textAlign="center" />
+        <Widget xsi:type="widgets.brease.Label" id="Label11" top="57" left="151" width="147" zIndex="2" text="Actual Power" padding="0px" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput6" top="122" left="24" width="122" height="49" zIndex="3" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" numpadPosition="left" unit="{'metric':'P1','imperial':'P1','imperial-us':'P1'}" unitAlign="right" cornerRadius="5px" textAlign="center" />
+        <Widget xsi:type="widgets.brease.Label" id="Label12" top="132" left="158" width="107" zIndex="4" text="Power Setpoint" padding="0px" />
+        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="47" left="291" width="146" height="60" zIndex="5" image="Media/up-arrow.png" imageHeight="50" borderWidth="1px" backColor="rgba(255, 255, 255, 0)" mouseDownBackColor="rgba(128, 255, 128, 1)" />
+        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton2" top="117" left="291" width="146" height="60" zIndex="6" image="Media/Down-arrow.png" imageHeight="50" borderWidth="1px" backColor="rgba(255, 255, 255, 0)" mouseDownBackColor="rgba(128, 255, 128, 1)" />
+        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton3" top="117" left="461" width="146" height="60" zIndex="7" image="Media/FastDown-arrow.png" imageHeight="50" borderWidth="1px" backColor="rgba(255, 255, 255, 0)" mouseDownBackColor="rgba(128, 255, 128, 1)" />
+        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton4" top="47" left="461" width="146" height="60" zIndex="8" image="Media/FastUp-arrow.png" imageHeight="50" borderWidth="1px" backColor="rgba(255, 255, 255, 0)" mouseDownBackColor="rgba(128, 255, 128, 1)" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox8" top="1" left="1" width="1478" height="699" zIndex="0" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(0, 0, 0, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox9" top="367" left="284" width="427" height="228" zIndex="0" text="Boil Time" borderWidth="3px" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(30, 176, 173, 1)" borderStyle="outset" fontSize="30px">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.Label" id="Label15" top="33" left="144" width="124" zIndex="0" text="Time Remaining" textAlign="left" padding="0px" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput8" top="92" left="16" width="122" height="49" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" numpadPosition="left" unit="{'metric':'MIN','imperial':'P1','imperial-us':'P1'}" unitAlign="right" cornerRadius="5px" textAlign="center" />
+            <Widget xsi:type="widgets.brease.Label" id="Label16" top="102" left="144" width="133" zIndex="2" text="Boil Time" textAlign="left" padding="0px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput2" top="23" left="16" width="122" height="49" zIndex="3" borderWidth="2px" cornerRadius="5px" borderColor="rgba(85, 85, 85, 1)" borderStyle="solid" textAlign="center" fontSize="20px" />
+            <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch14" top="23" left="278" width="130" height="50" zIndex="4" mouseDownText="Stop Timer" text="Start Timer" cornerRadius="5px" mouseDownBackColor="rgba(0, 255, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox10" top="367" left="751" width="423" height="228" zIndex="1" text="Hop Timer" borderWidth="3px" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(30, 176, 173, 1)" borderStyle="outset" fontSize="30px">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBox1" top="23" left="33" width="168" height="50" zIndex="0" dataProvider="[{'value':'0','text':'Select Hop Addition'},{'value':'1','text':'First Addition'},{'value':'2','text':'Second Addition'},{'value':'3','text':'Third Addition'},{'value':'4','text':'Fourth Addition'},{'value':'5','text':'Fith Addition'}]" listWidth="250" selectedValue="0" cornerRadius="5px" listBorderWidth="1px" fontSize="15px" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput9" top="23" left="227" width="168" height="50" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" maxValue="90" numpadPosition="left" unit="{'metric':'MIN','imperial':'P1','imperial-us':'P1'}" unitAlign="right" cornerRadius="5px" textAlign="center" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput7" top="111" left="33" width="168" height="50" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" showUnit="false" unit="{'metric':'P1','imperial':'P1','imperial-us':'P1'}" unitAlign="right" borderWidth="2px" cornerRadius="5px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" textAlign="center" tooltip="Current Hop Addition" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput8" top="111" left="227" width="168" height="50" zIndex="3" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" unit="{'metric':'MIN','imperial':'MIN','imperial-us':'MIN'}" unitAlign="right" borderWidth="2px" cornerRadius="5px" backColor="rgba(245, 245, 245, 1)" borderStyle="outset" textAlign="center" tooltip="Current Hop Addition" />
+            <Widget xsi:type="widgets.brease.Label" id="Label1" top="81" left="43" width="148" height="25" zIndex="4" text="Current Addition" textAlign="center" />
+            <Widget xsi:type="widgets.brease.Label" id="Label2" top="81" left="237" width="148" height="25" zIndex="5" text="Next Addition" textAlign="center" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+  </Widgets>
 </Content>

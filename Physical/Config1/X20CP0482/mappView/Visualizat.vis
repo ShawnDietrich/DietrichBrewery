@@ -14,6 +14,7 @@
 		<BindingsSet refId="MainPageContent_binding" />
 		<BindingsSet refId="FillTankContent_binding" />
 		<BindingsSet refId="StatusContent_binding" />
+		<BindingsSet refId="BoilContent_binding"/>
   </BindingsSets>
   <EventBindingsSets>
     <!--<EventBindingsSet refId="" />-->

@@ -29,8 +29,6 @@ if(FlashOn.Q){
 
 if(SlienceBtn){
 (Buzzer=0);
-(FlashOff.IN=0);
-(FlashOn.IN=0);
 (SlienceVis=0);
 (SlienceBtn=0);
 }
@@ -41,13 +39,13 @@ TON(&FlashOn);
 TON(&FlashOff);
 
 }}
-#line 38 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 40 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
+#line 36 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 38 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 43 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 41 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

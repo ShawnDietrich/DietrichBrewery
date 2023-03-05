@@ -1,0 +1,24 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=KettleCont 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=250 Type=0 Scope=0 Force=0 Index=3 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                                       i                                      INT    0 "                                                               6"    0    3    1   10    1    0         
+                                 HopTime                              USINT[0..5]    0 "                                                               *"    0    5    6    0    1    1         
+                              HopTime[0]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                              HopTime[1]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                              HopTime[2]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                              HopTime[3]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                              HopTime[4]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                              HopTime[5]                                    USINT    0 "                                                               0"    1    5    1   10    1    0         
+                        SelectionChanged                                     BOOL    0 "                                                               *"    0    1    1    2    1    0         
+                           PrevSelection                                     DINT    0 "                                                               0"    0    4    1   10    1    0         
+                            HopSelection                                     DINT    0 "                                                               0"    0    4    1   10    1    0         
+                         SelectedHopTime                                    USINT    0 "                                                               0"    0    5    1   10    1    0         
+                                   TmrDT                            TIMEStructure    0 "                                                               *"    0   24    1    0    1    1         
+                                     day                                     SINT    0 "                                                               0"    1    2    1   10    0    0         
+                                    hour                                    USINT    0 "                                                               0"    1    5    1   10    0    0         
+                                  minute                                    USINT    0 "                                                               0"    1    5    1   10    0    0         
+                                  second                                    USINT    0 "                                                               0"    1    5    1   10    0    0         
+                                millisec                                     UINT    0 "                                                               0"    1    6    1   10    0    0         
+                                microsec                                     UINT    0 "                                                               0"    1    6    1   10    0    0         
+                                 currHop                                      INT    0 "                                                               0"    0    3    1   10    1    0         
+                              remainTime                                    USINT    0 "                                                               0"    0    5    1   10    1    0         

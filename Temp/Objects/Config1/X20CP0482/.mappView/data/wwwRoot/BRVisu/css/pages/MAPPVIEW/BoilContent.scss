@@ -1,1 +1,890 @@
 ﻿@import "mixins.scss";
+#BoilContent_GroupBox7 {
+	@include elemTop(80);
+}
+#BoilContent_GroupBox7 {
+	@include elemLeft(286);
+}
+#BoilContent_GroupBox7 {
+	@include elemWidth(890);
+}
+#BoilContent_GroupBox7 {
+	@include elemHeight(268);
+}
+#BoilContent_GroupBox7 {
+		z-index: 1;
+}
+#BoilContent_GroupBox7 {
+		border-width: 3px;
+}
+#BoilContent_GroupBox7 {
+	> .header{
+		border-width: 3px;
+	}
+}
+#BoilContent_GroupBox7 {
+	@include border-radius(10px);
+}
+#BoilContent_GroupBox7 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_GroupBox7 {
+		border-color: rgba(30, 176, 173, 1);
+}
+#BoilContent_GroupBox7 {
+	> .header{
+		border-color: rgba(30, 176, 173, 1);
+	}
+}
+#BoilContent_GroupBox7 {
+		border-style: outset;
+}
+#BoilContent_GroupBox7 {
+	> .header{
+		border-bottom-style: outset;
+	}
+}
+#BoilContent_GroupBox7 {
+	> .header span{
+		font-size: 30px;
+	}
+}
+#BoilContent_GroupBox7 {
+	> .header{
+	height: 30px + 20px;
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	@include elemTop(46);
+}
+#BoilContent_ToggleSwitch12 {
+	@include elemLeft(633);
+}
+#BoilContent_ToggleSwitch12 {
+	@include elemAutoWidth(217);
+}
+#BoilContent_ToggleSwitch12 {
+	@include elemAutoHeight(50);
+}
+#BoilContent_ToggleSwitch12 {
+		z-index: 0;
+}
+#BoilContent_ToggleSwitch12 {
+	@include border-radius(5px);
+}
+#BoilContent_ToggleSwitch12 {
+	.breaseToggleSwitch_toggle{
+	@include border-radius(5px - 2px);
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	&.checked:not(.disabled){
+	background-color: rgba(255, 69, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	&.checked:not(.disabled) .wrapper .before{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	&.checked:not(.disabled) .wrapper .after{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	.wrapper .before{
+		font-size: 15px;
+	}
+}
+#BoilContent_ToggleSwitch12 {
+	.wrapper .after{
+		font-size: 15px;
+	}
+}
+#BoilContent_NumericOutput6 {
+	@include elemTop(47);
+}
+#BoilContent_NumericOutput6 {
+	@include elemLeft(24);
+}
+#BoilContent_NumericOutput6 {
+	@include elemAutoWidth(122);
+}
+#BoilContent_NumericOutput6 {
+	@include elemAutoHeight(49);
+}
+#BoilContent_NumericOutput6 {
+		z-index: 1;
+}
+#BoilContent_NumericOutput6 {
+		border-width: 2px;
+}
+#BoilContent_NumericOutput6 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericOutput6 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_NumericOutput6 {
+		border-style: outset;
+}
+#BoilContent_NumericOutput6 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_Label11 {
+	@include elemAutoHeight(30);
+}
+#BoilContent_Label11 {
+	@include elemTop(57);
+}
+#BoilContent_Label11 {
+	@include elemLeft(151);
+}
+#BoilContent_Label11 {
+	@include elemAutoWidth(147);
+}
+#BoilContent_Label11 {
+		z-index: 2;
+}
+#BoilContent_Label11 {
+	span{
+		padding: 0px;
+	}
+}
+#BoilContent_NumericInput6 {
+	@include elemTop(122);
+}
+#BoilContent_NumericInput6 {
+	@include elemLeft(24);
+}
+#BoilContent_NumericInput6 {
+	@include elemAutoWidth(122);
+}
+#BoilContent_NumericInput6 {
+	@include elemAutoHeight(49);
+}
+#BoilContent_NumericInput6 {
+		z-index: 3;
+}
+#BoilContent_NumericInput6 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericInput6 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_Label12 {
+	@include elemAutoHeight(30);
+}
+#BoilContent_Label12 {
+	@include elemTop(132);
+}
+#BoilContent_Label12 {
+	@include elemLeft(158);
+}
+#BoilContent_Label12 {
+	@include elemAutoWidth(107);
+}
+#BoilContent_Label12 {
+		z-index: 4;
+}
+#BoilContent_Label12 {
+	span{
+		padding: 0px;
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	@include elemTop(47);
+}
+#BoilContent_MomentaryPushButton1 {
+	@include elemLeft(291);
+}
+#BoilContent_MomentaryPushButton1 {
+	@include elemAutoWidth(146);
+}
+#BoilContent_MomentaryPushButton1 {
+	@include elemAutoHeight(60);
+}
+#BoilContent_MomentaryPushButton1 {
+		z-index: 5;
+}
+#BoilContent_MomentaryPushButton1 {
+	img{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	svg{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton1 {
+	&.checked:not(.disabled){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	@include elemTop(117);
+}
+#BoilContent_MomentaryPushButton2 {
+	@include elemLeft(291);
+}
+#BoilContent_MomentaryPushButton2 {
+	@include elemAutoWidth(146);
+}
+#BoilContent_MomentaryPushButton2 {
+	@include elemAutoHeight(60);
+}
+#BoilContent_MomentaryPushButton2 {
+		z-index: 6;
+}
+#BoilContent_MomentaryPushButton2 {
+	img{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	svg{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton2 {
+	&.checked:not(.disabled){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	@include elemTop(117);
+}
+#BoilContent_MomentaryPushButton3 {
+	@include elemLeft(461);
+}
+#BoilContent_MomentaryPushButton3 {
+	@include elemAutoWidth(146);
+}
+#BoilContent_MomentaryPushButton3 {
+	@include elemAutoHeight(60);
+}
+#BoilContent_MomentaryPushButton3 {
+		z-index: 7;
+}
+#BoilContent_MomentaryPushButton3 {
+	img{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	svg{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton3 {
+	&.checked:not(.disabled){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	@include elemTop(47);
+}
+#BoilContent_MomentaryPushButton4 {
+	@include elemLeft(461);
+}
+#BoilContent_MomentaryPushButton4 {
+	@include elemAutoWidth(146);
+}
+#BoilContent_MomentaryPushButton4 {
+	@include elemAutoHeight(60);
+}
+#BoilContent_MomentaryPushButton4 {
+		z-index: 8;
+}
+#BoilContent_MomentaryPushButton4 {
+	img{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	svg{
+	@include imageHeight(50);
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	&:not(.active):not(.checked){
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	&.disabled{
+		border-width: 1px;
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_MomentaryPushButton4 {
+	&.checked:not(.disabled){
+		background-color: rgba(128, 255, 128, 1);
+	}
+}
+#BoilContent_GroupBox8 {
+	@include elemTop(1);
+}
+#BoilContent_GroupBox8 {
+	@include elemLeft(1);
+}
+#BoilContent_GroupBox8 {
+	@include elemWidth(1478);
+}
+#BoilContent_GroupBox8 {
+	@include elemHeight(699);
+}
+#BoilContent_GroupBox8 {
+		z-index: 0;
+}
+#BoilContent_GroupBox8 {
+	@include border-radius(10px);
+}
+#BoilContent_GroupBox8 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_GroupBox8 {
+		border-color: rgba(0, 0, 0, 1);
+}
+#BoilContent_GroupBox8 {
+	> .header{
+		border-color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_GroupBox9 {
+	@include elemTop(367);
+}
+#BoilContent_GroupBox9 {
+	@include elemLeft(284);
+}
+#BoilContent_GroupBox9 {
+	@include elemWidth(427);
+}
+#BoilContent_GroupBox9 {
+	@include elemHeight(228);
+}
+#BoilContent_GroupBox9 {
+		z-index: 0;
+}
+#BoilContent_GroupBox9 {
+		border-width: 3px;
+}
+#BoilContent_GroupBox9 {
+	> .header{
+		border-width: 3px;
+	}
+}
+#BoilContent_GroupBox9 {
+	@include border-radius(10px);
+}
+#BoilContent_GroupBox9 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_GroupBox9 {
+		border-color: rgba(30, 176, 173, 1);
+}
+#BoilContent_GroupBox9 {
+	> .header{
+		border-color: rgba(30, 176, 173, 1);
+	}
+}
+#BoilContent_GroupBox9 {
+		border-style: outset;
+}
+#BoilContent_GroupBox9 {
+	> .header{
+		border-bottom-style: outset;
+	}
+}
+#BoilContent_GroupBox9 {
+	> .header span{
+		font-size: 30px;
+	}
+}
+#BoilContent_GroupBox9 {
+	> .header{
+	height: 30px + 20px;
+	}
+}
+#BoilContent_Label15 {
+	@include elemAutoHeight(30);
+}
+#BoilContent_Label15 {
+	@include elemTop(33);
+}
+#BoilContent_Label15 {
+	@include elemLeft(144);
+}
+#BoilContent_Label15 {
+	@include elemAutoWidth(124);
+}
+#BoilContent_Label15 {
+		z-index: 0;
+}
+#BoilContent_Label15 {
+	@include text-alignment-all('left');
+}
+#BoilContent_Label15 {
+	span{
+		padding: 0px;
+	}
+}
+#BoilContent_NumericInput8 {
+	@include elemTop(92);
+}
+#BoilContent_NumericInput8 {
+	@include elemLeft(16);
+}
+#BoilContent_NumericInput8 {
+	@include elemAutoWidth(122);
+}
+#BoilContent_NumericInput8 {
+	@include elemAutoHeight(49);
+}
+#BoilContent_NumericInput8 {
+		z-index: 1;
+}
+#BoilContent_NumericInput8 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericInput8 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_Label16 {
+	@include elemAutoHeight(30);
+}
+#BoilContent_Label16 {
+	@include elemTop(102);
+}
+#BoilContent_Label16 {
+	@include elemLeft(144);
+}
+#BoilContent_Label16 {
+	@include elemAutoWidth(133);
+}
+#BoilContent_Label16 {
+		z-index: 2;
+}
+#BoilContent_Label16 {
+	@include text-alignment-all('left');
+}
+#BoilContent_Label16 {
+	span{
+		padding: 0px;
+	}
+}
+#BoilContent_TextOutput2 {
+	@include elemTop(23);
+}
+#BoilContent_TextOutput2 {
+	@include elemLeft(16);
+}
+#BoilContent_TextOutput2 {
+	@include elemAutoWidth(122);
+}
+#BoilContent_TextOutput2 {
+	@include elemAutoHeight(49);
+}
+#BoilContent_TextOutput2 {
+		z-index: 3;
+}
+#BoilContent_TextOutput2 {
+		border-width: 2px;
+}
+#BoilContent_TextOutput2 {
+	@include border-radius(5px);
+}
+#BoilContent_TextOutput2 {
+		border-color: rgba(85, 85, 85, 1);
+}
+#BoilContent_TextOutput2 {
+	&:before{
+		border-color: rgba(85, 85, 85, 1);
+	}
+}
+#BoilContent_TextOutput2 {
+	&:after{
+		border-color: rgba(85, 85, 85, 1);
+	}
+}
+#BoilContent_TextOutput2 {
+		border-style: solid;
+}
+#BoilContent_TextOutput2 {
+	&:before{
+		border-style: solid;
+	}
+}
+#BoilContent_TextOutput2 {
+	&:after{
+		border-style: solid;
+	}
+}
+#BoilContent_TextOutput2 {
+	@include text-alignment-all('center');
+}
+#BoilContent_TextOutput2 {
+		font-size: 20px;
+}
+#BoilContent_ToggleSwitch14 {
+	@include elemTop(23);
+}
+#BoilContent_ToggleSwitch14 {
+	@include elemLeft(278);
+}
+#BoilContent_ToggleSwitch14 {
+	@include elemAutoWidth(130);
+}
+#BoilContent_ToggleSwitch14 {
+	@include elemAutoHeight(50);
+}
+#BoilContent_ToggleSwitch14 {
+		z-index: 4;
+}
+#BoilContent_ToggleSwitch14 {
+	@include border-radius(5px);
+}
+#BoilContent_ToggleSwitch14 {
+	.breaseToggleSwitch_toggle{
+	@include border-radius(5px - 2px);
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	&.checked:not(.disabled){
+	background-color: rgba(0, 255, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	&.checked:not(.disabled) .wrapper .before{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	&.checked:not(.disabled) .wrapper .after{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	.wrapper .before{
+		font-size: 15px;
+	}
+}
+#BoilContent_ToggleSwitch14 {
+	.wrapper .after{
+		font-size: 15px;
+	}
+}
+#BoilContent_GroupBox10 {
+	@include elemTop(367);
+}
+#BoilContent_GroupBox10 {
+	@include elemLeft(751);
+}
+#BoilContent_GroupBox10 {
+	@include elemWidth(423);
+}
+#BoilContent_GroupBox10 {
+	@include elemHeight(228);
+}
+#BoilContent_GroupBox10 {
+		z-index: 1;
+}
+#BoilContent_GroupBox10 {
+		border-width: 3px;
+}
+#BoilContent_GroupBox10 {
+	> .header{
+		border-width: 3px;
+	}
+}
+#BoilContent_GroupBox10 {
+	@include border-radius(10px);
+}
+#BoilContent_GroupBox10 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_GroupBox10 {
+		border-color: rgba(30, 176, 173, 1);
+}
+#BoilContent_GroupBox10 {
+	> .header{
+		border-color: rgba(30, 176, 173, 1);
+	}
+}
+#BoilContent_GroupBox10 {
+		border-style: outset;
+}
+#BoilContent_GroupBox10 {
+	> .header{
+		border-bottom-style: outset;
+	}
+}
+#BoilContent_GroupBox10 {
+	> .header span{
+		font-size: 30px;
+	}
+}
+#BoilContent_GroupBox10 {
+	> .header{
+	height: 30px + 20px;
+	}
+}
+#BoilContent_DropDownBox1 {
+	@include elemTop(23);
+}
+#BoilContent_DropDownBox1 {
+	@include elemLeft(33);
+}
+#BoilContent_DropDownBox1 {
+	&.DropDownBoxView{
+	@include elemWidth(168);
+	}
+}
+#BoilContent_DropDownBox1 {
+	&.DropDownBoxView{
+	@include elemHeight(50);
+	}
+}
+#BoilContent_DropDownBox1 {
+		z-index: 0;
+}
+#BoilContent_DropDownBox1 {
+	&.DropDownBoxView{
+	@include border-radius(5px);
+	}
+}
+#BoilContent_DropDownBox1 {
+	& > .ItemView{
+	@include border-radius(5px);
+	}
+}
+#BoilContent_DropDownBox1_listBoxWrapper {
+	& > .ListView.Container{
+	@include border-radius(5px);
+	}
+}
+#BoilContent_DropDownBox1_listBoxWrapper {
+	& > .ListView.Container{
+		border-width: 1px;
+	}
+}
+#BoilContent_DropDownBox1 {
+	& .TextView{
+		font-size: 15px;
+	}
+}
+#BoilContent_DropDownBox1_listBoxWrapper {
+	& .TextView{
+		font-size: 15px;
+	}
+}
+#BoilContent_NumericInput9 {
+	@include elemTop(23);
+}
+#BoilContent_NumericInput9 {
+	@include elemLeft(227);
+}
+#BoilContent_NumericInput9 {
+	@include elemAutoWidth(168);
+}
+#BoilContent_NumericInput9 {
+	@include elemAutoHeight(50);
+}
+#BoilContent_NumericInput9 {
+		z-index: 1;
+}
+#BoilContent_NumericInput9 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericInput9 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_NumericOutput7 {
+	@include elemTop(111);
+}
+#BoilContent_NumericOutput7 {
+	@include elemLeft(33);
+}
+#BoilContent_NumericOutput7 {
+	@include elemAutoWidth(168);
+}
+#BoilContent_NumericOutput7 {
+	@include elemAutoHeight(50);
+}
+#BoilContent_NumericOutput7 {
+		z-index: 2;
+}
+#BoilContent_NumericOutput7 {
+		border-width: 2px;
+}
+#BoilContent_NumericOutput7 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericOutput7 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_NumericOutput7 {
+		border-style: outset;
+}
+#BoilContent_NumericOutput7 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_NumericOutput8 {
+	@include elemTop(111);
+}
+#BoilContent_NumericOutput8 {
+	@include elemLeft(227);
+}
+#BoilContent_NumericOutput8 {
+	@include elemAutoWidth(168);
+}
+#BoilContent_NumericOutput8 {
+	@include elemAutoHeight(50);
+}
+#BoilContent_NumericOutput8 {
+		z-index: 3;
+}
+#BoilContent_NumericOutput8 {
+		border-width: 2px;
+}
+#BoilContent_NumericOutput8 {
+	@include border-radius(5px);
+}
+#BoilContent_NumericOutput8 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#BoilContent_NumericOutput8 {
+		border-style: outset;
+}
+#BoilContent_NumericOutput8 {
+	input{
+	@include text-alignment(center);
+	}
+}
+#BoilContent_Label1 {
+	@include elemTop(81);
+}
+#BoilContent_Label1 {
+	@include elemLeft(43);
+}
+#BoilContent_Label1 {
+	@include elemAutoWidth(148);
+}
+#BoilContent_Label1 {
+	@include elemAutoHeight(25);
+}
+#BoilContent_Label1 {
+		z-index: 4;
+}
+#BoilContent_Label1 {
+	@include text-alignment-all('center');
+}
+#BoilContent_Label2 {
+	@include elemTop(81);
+}
+#BoilContent_Label2 {
+	@include elemLeft(237);
+}
+#BoilContent_Label2 {
+	@include elemAutoWidth(148);
+}
+#BoilContent_Label2 {
+	@include elemAutoHeight(25);
+}
+#BoilContent_Label2 {
+		z-index: 5;
+}
+#BoilContent_Label2 {
+	@include text-alignment-all('center');
+}
