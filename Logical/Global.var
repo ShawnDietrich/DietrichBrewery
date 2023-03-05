@@ -4,6 +4,8 @@ VAR
 END_VAR
 (*Output Mapping*)
 VAR
+	Buzzer : BOOL;
+	ValveSelector : BOOL; (*Off = Mash, On = HLT*)
 	ValveOff : BOOL;
 	ValveOn : BOOL;
 	SysPower : BOOL;

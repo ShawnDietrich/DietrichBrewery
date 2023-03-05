@@ -2,10 +2,10 @@
 <breakpoints>
   <breakpoint>
     <status>Y</status>
-    <file>Logical/FillingTanks/FillingTanks/FillHLT.st</file>
-    <position>36</position>
+    <file>Logical/Brewing/HLTControl/Main.st</file>
+    <position>37</position>
     <condition></condition>
     <instance></instance>
-    <program>FillingTan</program>
+    <program>HLTControl</program>
   </breakpoint>
 </breakpoints>

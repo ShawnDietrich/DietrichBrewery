@@ -6,7 +6,7 @@
       <Selector ID="WebServerProtocol" Value="1">
         <Property ID="WebServerPort" Value="81" />
       </Selector>
-      <Property ID="MaxClientConnections" Value="2" />
+      <Property ID="MaxClientConnections" Value="1" />
       <Property ID="MaxBRClientConnections" Value="0" />
       <Selector ID="AuthenticationMode" Value="AuthenticationModeRbac" />
       <Group ID="TcpProxyConf">
@@ -15,6 +15,7 @@
       <Group ID="DiagnosticPageConf">
         <Selector ID="DiagnosticPageSelection" Value="1" />
       </Group>
+      <Selector ID="Deployment" Value="DeploymentPLC" />
     </Group>
     <Group ID="OpcUa">
       <Property ID="ServerConnectionTimeout" Value="5000" />
@@ -34,6 +35,7 @@
       <Property ID="defaultVisu" Value="vis_0" />
       <Group ID="Widget">
         <Selector ID="renderingPolicy" Value="1" />
+        <Selector ID="securityPolicy" Value="1" />
       </Group>
     </Group>
   </Element>

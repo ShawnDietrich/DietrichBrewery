@@ -9,11 +9,12 @@ define([
     'brease/core/Types',
     'widgets/brease/common/libs/wfUtils/UtilsEditableBinding',
     'brease/decorators/DragAndDropCapability',
+    'widgets/brease/common/libs/BreaseTextMetrics',
     'widgets/brease/common/DragDropProperties/libs/DraggablePropertiesEvents',
     'widgets/brease/common/DragDropProperties/libs/DroppablePropertiesEvents'
 ], function (
     SuperClass, languageDependency, keyboardManager,
-    BreaseEvent, KeyActions, Utils, Enum, Types, UtilsEditableBinding, dragAndDropCapability
+    BreaseEvent, KeyActions, Utils, Enum, Types, UtilsEditableBinding, dragAndDropCapability, BreaseTextMetrics
 ) {
 
     'use strict';
@@ -162,12 +163,17 @@ define([
         if (this.keyBoard.state === Enum.WidgetState.READY) {
             SuperClass.prototype.init.call(this);
             this._enableHandler(this.getEnable());
+            _setInputWidth(this);
         } else {
             document.body.addEventListener(BreaseEvent.WIDGET_READY, this._bind('keyBoard_readyHandler'));
         }
         document.body.addEventListener(BreaseEvent.SYSTEM_KEYBOARD_CHANGED, this._bind('changeKeyBoard'));
+        document.body.addEventListener(BreaseEvent.THEME_CHANGED, this._bind('_onThemeChanged'));
     };
-
+    p._initEditor = function () {
+        this.elem.addEventListener(BreaseEvent.WIDGET_STYLE_PROPERTIES_CHANGED, this._bind('_onStylePropertiesChanged'));
+        this.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
+    };
     // ausgelagert, damit abgeleitete widgets ueberschreiben koennen 
     p.createKeyBoard = function () {
         this.keyBoard = keyboardManager.getKeyboard();
@@ -179,6 +185,16 @@ define([
             SuperClass.prototype.init.call(this, true);
             this._enableHandler(this.getEnable());
             this._dispatchReady();
+            _setInputWidth(this);
+        }
+    };
+
+    p._setWidth = function (w) {
+        SuperClass.prototype._setWidth.apply(this, arguments);
+        if (w === 'auto') {
+            _setInputWidth(this);
+        } else {
+            this.input.css({ 'width': '', 'max-width': '' });
         }
     };
 
@@ -215,6 +231,7 @@ define([
 
     p.showValue = function () {
         this.input.val(this.settings.value);
+        _setInputWidth(this);
     };
 
     /**
@@ -269,7 +286,6 @@ define([
      */
     p.setMaxLength = function (maxLength) {
         this.settings.maxLength = maxLength;
-
     };
 
     /**
@@ -316,6 +332,7 @@ define([
             this.settings.placeholder = brease.language.getTextByKey(brease.language.parseKey(placeholder));
         }
         _renderPlaceholder(this);
+        _setInputWidth(this);
     };
 
     /**
@@ -407,7 +424,7 @@ define([
 
     p._initKeyboardEvents = function (on) {
         var fn = on ? 'on' : 'off';
-        this.input[fn]('focusout', this._bind('_onFocusOut'))[fn]('focusin', this._bind('_onFocusIn'));
+        this.input[fn]('focusout', this._bind('_onFocusOut'))[fn]('focusin', this._bind('_onFocusIn'))[fn]('input', this._bind('_onInput'));
         this.el[fn](BreaseEvent.MOUSE_DOWN, this._bind('_mouseDownHandler')); 
     };
 
@@ -436,14 +453,17 @@ define([
         // remove document event listeners to support concent-caching
         document.body.removeEventListener(BreaseEvent.WIDGET_READY, this._bind('keyBoard_readyHandler'));
         document.body.removeEventListener(BreaseEvent.SYSTEM_KEYBOARD_CHANGED, this._bind('changeKeyBoard')); 
+        document.body.removeEventListener(BreaseEvent.THEME_CHANGED, this._bind('_onThemeChanged'));
         SuperClass.prototype.suspend.apply(this, arguments);
     };
 
     p.wake = function () { 
+        _setInputWidth(this);
         if (!keyboardManager.isCurrentKeyboard(this.keyBoard)) {
             this.changeKeyBoard();
         }
         document.body.addEventListener(BreaseEvent.SYSTEM_KEYBOARD_CHANGED, this._bind('changeKeyBoard')); 
+        document.body.addEventListener(BreaseEvent.THEME_CHANGED, this._bind('_onThemeChanged'));
         SuperClass.prototype.wake.apply(this, arguments);
     };
 
@@ -453,6 +473,7 @@ define([
         this.elem.removeEventListener(BreaseEvent.BEFORE_FOCUS_MOVE, this._bind('_onBeforeFocusMove'));
         this.elem.removeEventListener(BreaseEvent.BEFORE_ENABLE_CHANGE, this._bind('_onBeforeStateChange'));
         this.elem.removeEventListener(BreaseEvent.BEFORE_VISIBLE_CHANGE, this._bind('_onBeforeStateChange'));
+        document.body.removeEventListener(BreaseEvent.THEME_CHANGED, this._bind('_onThemeChanged'));
         if (this.keyBoard) {
             this.keyBoard = null;
         }
@@ -556,6 +577,14 @@ define([
         }
     };
 
+    p._onThemeChanged = function () {
+        _setInputWidth(this);
+    };
+
+    p._onStylePropertiesChanged = function () {
+        _setInputWidth(this);
+    };
+
     function _showKeyboard(value) {
         _bindKeyboard.call(this);
         this._setKeyboardOpen(true);
@@ -597,7 +626,7 @@ define([
         }
     };
 
-    p._onFocusIn = function (e) {
+    p._onFocusIn = function () {
         if (this.isDisabled === true) {
             this.input.blur();
         } else {
@@ -646,7 +675,12 @@ define([
 
         if (!this._validateInput(e.key)) {
             e.preventDefault();
+        } else {
+            //_setInputWidth(this);
         }
+    };
+    p._onInput = function () {
+        _setInputWidth(this);
     };
     p._handleFocusKeyDown = function (e) {
         //This flag must be set because if someone clicks outside the widget
@@ -698,7 +732,7 @@ define([
         }
     };
 
-    p.langChangeHandler = function (e) {
+    p.langChangeHandler = function () {
         if (this.settings.placeholderTextKey !== undefined && this.settings.placeholderTextKey !== '') {
             this.setPlaceholder(this.settings.placeholderTextKey);
         }
@@ -713,6 +747,11 @@ define([
             return false;
         }
         return true;
+    };
+
+    p.setStyle = function () {
+        SuperClass.prototype.setStyle.apply(this, arguments);
+        _setInputWidth(this);
     };
 
     function _unbindKeyboard() {
@@ -754,6 +793,14 @@ define([
         return $('<input>').attr(attr).on('change', this._bind('_inputChangeHandler')).appendTo(this.el);
     }
 
+    function _setInputWidth(widget) {
+        if (widget.settings.width === 'auto') {
+            var inputText = widget.input.val(),
+                displayedText = (inputText === '') ? widget.settings.placeholder : inputText;
+            widget.input.css({ 'width': _measureText(displayedText, widget.input.css('font')) + 'px', 'max-width': '100%' });
+        }
+    }
+
     function _ellipsisSettings(widget) {
         if (widget.settings.ellipsis !== undefined) {
             widget.settings.ellipsis = Types.parseValue(widget.settings.ellipsis, 'Boolean');
@@ -773,7 +820,9 @@ define([
             inputElem.removeAttribute('placeholder');
         }
     }
-
+    function _measureText(val, font) {
+        return Math.ceil(BreaseTextMetrics.measureText(val, font).width);
+    }
     return dragAndDropCapability.decorate(languageDependency.decorate(WidgetClass, true), false);
 
 });

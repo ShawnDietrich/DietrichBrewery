@@ -4,26 +4,55 @@
 #line 1 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
-
+(ValveTmr.PT=(2000));
 }}
 #line 4 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 #line 6 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
+
+if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
 __AS__Action__SimFlowMeter();
+}
+
+
 __AS__Action__FillHLT();
 __AS__Action__FillMash();
 
 
+if(AutoFillHLT.Valve){
+(ValveSelector=1);
+}
+
+
+
+if(((AutoFillHLT.Valve|AutoFillMash.Valve)&~Edge0000400000&1?((Edge0000400000=(AutoFillHLT.Valve|AutoFillMash.Valve)&1),1):((Edge0000400000=(AutoFillHLT.Valve|AutoFillMash.Valve)&1),0))){
+(ValveOn=1);
+(ValveTmr.IN=1);
+}else if((~(AutoFillHLT.Valve|AutoFillMash.Valve)&Edge0000400001&1?((Edge0000400001=(AutoFillHLT.Valve|AutoFillMash.Valve)&1),1):((Edge0000400001=(AutoFillHLT.Valve|AutoFillMash.Valve)&1),0))){
+(ValveOff=1);
+(ValveTmr.IN=1);
+}
+
+if(ValveTmr.Q){
+(ValveOn=0);
+(ValveOff=0);
+(ValveTmr.IN=0);
+(ValveSelector=0);
+}
+
+
+
+TON(&ValveTmr);
 }}
-#line 13 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
-#line 15 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.st"
+#line 42 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
+#line 44 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 
 }}
-#line 19 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
+#line 48 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/SimFlowMeter.st"
 static void __AS__Action__SimFlowMeter(void){
 {
@@ -40,20 +69,25 @@ if(SimFlowMeterPulse.Q){
 TON(&SimFlowMeterPulse);
 
 }}
-#line 21 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
+#line 50 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/FillHLT.st"
 static void __AS__Action__FillHLT(void){
 {
-
-
-if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
-
 if(AutoFillHLT.Start){
-(AutoFillHLT.State=4);
+(AutoFillHLT.State=2);
 }else if(AutoFillHLT.Stop){
 (AutoFillHLT.State=0);
 }
 
+
+if((((AutoFillHLT.VolumePV>(AutoFillHLT.VolumeSP/4)))&((AutoFillHLT.VolumePV<(AutoFillHLT.VolumeSP/2))))){
+(HLTImgCont=1);
+}else if((((AutoFillHLT.VolumePV>=(AutoFillHLT.VolumeSP/2)))&((AutoFillHLT.VolumePV<AutoFillHLT.VolumeSP)))){
+(HLTImgCont=2);
+}else if(((AutoFillHLT.VolumePV>=AutoFillHLT.VolumeSP))){
+(HLTImgCont=3);
+}else{
+(HLTImgCont=0);
 }
 
 
@@ -61,75 +95,80 @@ switch(AutoFillHLT.State){
 
 case 0:{
 (AutoFillHLT.Valve=0);
-
 (AutoFillHLT.Stop=0);
-(AutoFillHLT.State=3);
+(AutoFillHLT.State=1);
 
-}break;case 4:{
-(AutoFillHLT.VolumePV=SimFlowMeterVal);
-if((AutoFillHLT.Start&((AutoFillHLT.VolumePV<=AutoFillHLT.VolumeSP)))){
+}break;case 2:{
+
+if((AutoFillHLT.Start&((AutoFillHLT.VolumePV<AutoFillHLT.VolumeSP)))){
 (AutoFillHLT.Valve=1);
 }else{
 (AutoFillHLT.Start=0);
-(AutoFillHLT.Valve=0);
+(AutoFillHLT.State=0);
 }
 
-}break;case 3:{
+}break;case 1:{
 
 if(AutoFillHLT.Reset){
 (AutoFillHLT.Reset=0);
 (AutoFillHLT.VolumePV=(0.00000000000000000000E+00));
 }
-}break;case 2:{
 
 }break;}
 
-}imp16385_case2_3:imp16385_endcase2_0:;}
-#line 21 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
+}imp16385_case2_2:imp16385_endcase2_0:;}
+#line 50 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/FillMash.st"
 static void __AS__Action__FillMash(void){
 {
 
-if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
-
 if(AutoFillMash.Start){
-(AutoFillMash.State=4);
+(AutoFillMash.State=2);
 }else if(AutoFillMash.Stop){
 (AutoFillMash.State=0);
 }
 
+
+
+if((((AutoFillMash.VolumePV>(AutoFillMash.VolumeSP/4)))&((AutoFillMash.VolumePV<(AutoFillMash.VolumeSP/2))))){
+(MashImgCont=1);
+}else if((((AutoFillMash.VolumePV>=(AutoFillMash.VolumeSP/2)))&((AutoFillMash.VolumePV<AutoFillMash.VolumeSP)))){
+(MashImgCont=2);
+}else if(((AutoFillMash.VolumePV>=AutoFillMash.VolumeSP))){
+(MashImgCont=3);
+}else{
+(MashImgCont=0);
 }
+
 
 
 switch(AutoFillMash.State){
 
 case 0:{
 (AutoFillMash.Valve=0);
-
 (AutoFillMash.Stop=0);
-(AutoFillMash.State=3);
+(AutoFillMash.State=1);
 
-}break;case 4:{
-(AutoFillMash.VolumePV=SimFlowMeterVal);
-if((AutoFillMash.Start&((AutoFillMash.VolumePV<=AutoFillMash.VolumeSP)))){
+}break;case 2:{
+
+if((AutoFillMash.Start&((AutoFillMash.VolumePV<AutoFillMash.VolumeSP)))){
 (AutoFillMash.Valve=1);
 }else{
 (AutoFillMash.Start=0);
-(AutoFillMash.Valve=0);
+(AutoFillMash.State=0);
 }
 
-}break;case 3:{
+}break;case 1:{
 
 if(AutoFillMash.Reset){
 (AutoFillMash.VolumePV=(0.00000000000000000000E+00));
 (AutoFillMash.Reset=0);
 }
-}break;case 2:{
 
 }break;}
 
-}imp16386_case2_3:imp16386_endcase2_0:;}
-#line 21 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
+}imp16386_case2_2:imp16386_endcase2_0:;}
+#line 50 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -214,4 +253,5 @@ __asm__(".ascii \"iecfile \\\"Logical/FillingTanks/FillingTanks/Types.typ\\\" sc
 __asm__(".ascii \"iecfile \\\"Logical/FillingTanks/FillingTanks/Variables.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Temp/Objects/Config1/X20CP0482/FillingTan/Main.st.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"plcreplace \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Temp/Objects/Config1/X20CP0482/FillingTan/Main.st.c\\\" \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Logical/FillingTanks/FillingTanks/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Temp/Objects/Config1/X20CP0482/FillingTan/Main.st.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".previous");

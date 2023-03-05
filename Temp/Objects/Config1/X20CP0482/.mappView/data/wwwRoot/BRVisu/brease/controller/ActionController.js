@@ -2,6 +2,7 @@ define(['brease/controller/objects/Client',
     'brease/controller/libs/ContentHelper',
     'brease/decorators/TooltipDependency',
     'brease/controller/libs/ScrollManager',
+    'brease/controller/libs/ScreenManager',
     'brease/core/Utils',
     'brease/core/Types',
     'brease/enum/Enum',
@@ -9,18 +10,18 @@ define(['brease/controller/objects/Client',
     'brease/controller/libs/DialogQueue',
     'brease/events/BreaseEvent',
     'brease/controller/FocusManager'],
-function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types, Enum, SocketEvent, DialogQueue, BreaseEvent, focusManager) {
+function (Client, contentHelper, tooltipDependency, ScrollManager, ScreenManager, Utils, Types, Enum, SocketEvent, DialogQueue, BreaseEvent, focusManager) {
 
     'use strict';
 
     /**
-                * @class brease.controller.ActionController
-                * @extends core.javascript.Object
-                * Main controller to handle actions
-                * It provides methods handle actions
-                * 
-                * @singleton
-                */
+    * @class brease.controller.ActionController
+    * @extends core.javascript.Object
+    * Main controller to handle actions
+    * It provides methods handle actions
+    * 
+    * @singleton
+    */
     var ActionController = function ActionController() {
             this.serverActionHandler = _serverActionHandler.bind(this);
         },
@@ -166,7 +167,7 @@ function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types,
                     _runScrollContentSystemAction(action);
                 } else {
                     _processActionResponse(null, action.actionId, false);
-                    console.iatWarn('client not valid -> action "ScrollContent" rejected');
+                    console.warn('client not valid -> action "ScrollContent" rejected');
                 }
                 break;
             case ('clientSystem.Action.ShowTooltips'):
@@ -184,6 +185,10 @@ function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types,
             case ('clientSystem.Action.FocusPrevious'):
                 focusManager.focusPrevious();
                 _processActionResponse(true, action.actionId, true);
+                break;
+
+            case ('clientSystem.Action.GetScreenCapture'):
+                _runScreenCaptureAction(action);
                 break;
 
             default:
@@ -525,6 +530,23 @@ function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types,
         }
     }
 
+    function _runScreenCaptureAction(action) {
+        if (ScreenManager.active) {
+            console.iatDebug('GetScreenCapture action rejected: action already in progress');
+            _processActionResponse(false, action.actionId, false);
+        } else {
+            ScreenManager.captureScreenAndSaveOnClient(action.actionArgs.preFix)
+                .then(
+                    function success() {
+                        _processActionResponse(true, action.actionId, true);
+                    },
+                    function fail(reason) {
+                        console.iatDebug('GetScreenCapture action rejected:' + reason);
+                        _processActionResponse(false, action.actionId, false);
+                    }); 
+        }
+    }
+
     function _runLoginAction(action) {
         var args = action.actionArgs;
 
@@ -613,12 +635,12 @@ function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types,
     }
 
     /**
-                 * @method _processActionResponse
-                 * Sends the action response to the server.  
-                 * @param {ANY} result Return value of the action. If no return value is available, this is the same value as 'success'. If an action is rejected, result=null.
-                 * @param {Integer} id  Id of the action
-                 * @param {Boolean} success  Indicator if action was successful
-                 */
+     * @method _processActionResponse
+     * Sends the action response to the server.  
+     * @param {ANY} result Return value of the action. If no return value is available, this is the same value as 'success'. If an action is rejected, result=null.
+     * @param {Integer} id  Id of the action
+     * @param {Boolean} success  Indicator if action was successful
+     */
     function _processActionResponse(result, id, success) {
         var res = {
             actionId: id,
@@ -633,7 +655,7 @@ function (Client, contentHelper, tooltipDependency, ScrollManager, Utils, Types,
 
     function _log(e, action) {
 
-        var message = 'Error in action "' + action.action + ((action.target.refId) ? '" for widget "' + action.target.refId + '"' : '');
+        var message = 'Error in action "' + action.action + ((action.target && action.target.refId) ? '" for widget "' + action.target.refId + '"' : '');
         console.log(message + ':');
         console.log(e.message);
     }

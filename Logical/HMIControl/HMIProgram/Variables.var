@@ -1,8 +1,7 @@
 VAR
-	pbSysPower : BOOL;
-	pbHLTHeater : BOOL;
-	pbKettleHeater : BOOL;
-	pbCoolingPump : BOOL;
-	pbHLTPump : BOOL;
-	pbMashPump : BOOL;
+	TestBuzzer : BOOL;
+	FlashOn : TON;
+	FlashOff : TON;
+	SlienceVis : BOOL;
+	SlienceBtn : BOOL;
 END_VAR

@@ -88,6 +88,10 @@ define(['brease/helper/Scroller', 'brease/enum/Enum', 'libs/iscroll-probe'], fun
             return (_private[elem.id] !== undefined && _private[elem.id].scroller !== undefined);
         },
 
+        getScroller: function (elem) {
+            return (elem && elem.id && _private[elem.id]) ? _private[elem.id].scroller : undefined;
+        },
+
         scrollTo: function (elemId, top, left) {
             if (_private[elemId] && _private[elemId].scroller) {
                 _private[elemId].scroller.scrollTo(top, left);

@@ -13,9 +13,6 @@ void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 ((*(unsigned long*)&(Proc.TempCtrl.Ctrl.Parameters))=((unsigned long)(&Proc.TempCtrl.Ptr)));
 ((*(unsigned long*)&(Proc.TempCtrl.Ctrl.MpLink))=((unsigned long)(&Cfg_HLTTemp)));
 
-(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
-(Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
-
 
 if((FromMashCyc.Start&~Edge0000100000&1?((Edge0000100000=FromMashCyc.Start&1),1):((Edge0000100000=FromMashCyc.Start&1),0))){
 (Proc.i.Auto=1);
@@ -31,53 +28,55 @@ if((FromMashCyc.Start&~Edge0000100000&1?((Edge0000100000=FromMashCyc.Start&1),1)
 (Proc.Status.Manual=(Proc.i.Auto^1));
 
 
-if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
+(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
+(Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
+(Proc.TempCtrl.Ctrl.SetTemperature=Proc.SetTemp);
+
 if(Proc.Status.Automatic){
-(Proc.State=4);
+(Proc.State=2);
 }else if(Proc.Status.Manual){
-(Proc.State=3);
+(Proc.State=1);
 }
+
+
+if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
+(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(Proc.currPower=Proc.TempCtrl.Ctrl.Info.Simulation.HeatValue);
+(Proc.TempCtrl.Ctrl.Simulate=1);
+}else{
+(Proc.TempCtrl.Ctrl.ActualTemperature=(rawHLTTemp*1000));
+
+(Proc.currTemp=(rawHLTTemp*1000));
+(Proc.TempCtrl.Ctrl.Simulate=0);
 }
 
 
 switch(Proc.State){
 
-case 4:{
+case 2:{
 
 (Proc.TempCtrl.PWM.Enable=0);
 (Proc.TempCtrl.Ctrl.Enable=1);
-(Proc.TempCtrl.Ctrl.Simulate=1);
 
 
-(Proc.TempCtrl.Ctrl.Control=Proc.i.Start);
-(Proc.TempCtrl.Ctrl.SetTemperature=Proc.SetTemp);
-(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
-(Proc.currPower=Proc.TempCtrl.Ctrl.Info.Simulation.HeatValue);
-(HLTHeater=Proc.TempCtrl.Ctrl.Info.Simulation.Heat);
-
-}break;case 3:{
-(Proc.TempCtrl.PWM.Enable=1);
-(Proc.TempCtrl.Ctrl.Enable=0);
-
-(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
-(Proc.TempCtrl.PWM.MinPulseWidth=(1.00000001490116119385E-01));
-(Proc.TempCtrl.PWM.Period=(1.00000000000000000000E+00));
-
-}break;case 2:{
-(Proc.TempCtrl.PWM.Enable=1);
-(Proc.TempCtrl.Ctrl.Enable=0);
-(Proc.TempCtrl.Ctrl.ActualTemperature=(rawHLTTemp*1000));
+(HLTHeater=Proc.TempCtrl.Ctrl.Heat);
 (Proc.currPower=Proc.TempCtrl.Ctrl.HeatValue);
-(Proc.currTemp=(rawHLTTemp*1000));
 
 }break;case 1:{
-(Proc.TempCtrl.PWM.Enable=0);
-(Proc.TempCtrl.Ctrl.Enable=1);
 
+(Proc.TempCtrl.PWM.Enable=Proc.i.Start);
+(Proc.TempCtrl.Ctrl.Enable=0);
 (Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
 (Proc.TempCtrl.PWM.MinPulseWidth=(1.00000001490116119385E-01));
 (Proc.TempCtrl.PWM.Period=(1.00000000000000000000E+00));
-(Proc.currTemp=(rawHLTTemp*1000));
+
+
+(HLTHeater=Proc.TempCtrl.PWM.Out);
+if(Proc.TempCtrl.PWM.Active){
+(Proc.currPower=Proc.TempCtrl.PWM.DutyCycle);
+}else{
+(Proc.currPower=0);
+}
 
 }break;}
 
@@ -89,13 +88,13 @@ MTBasicsPWM(&Proc.TempCtrl.PWM);
 
 (HLTPump=PumpExp);
 }}
-#line 86 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.nodebug"
-#line 88 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.st"
+#line 85 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.nodebug"
+#line 87 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 91 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.nodebug"
+#line 90 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/HLTControl/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

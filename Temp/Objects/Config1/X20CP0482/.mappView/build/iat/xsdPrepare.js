@@ -14,11 +14,12 @@
         },
         getStyleHeader: function getStyleHeader() {
             return xsdPrepare.XMLHeader() + 
-            '<xs:schema targetNamespace="http://www.br-automation.com/iat2015/styles/engineering/v1" ' + lbr() +
-            tab(1) + 'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' + lbr() +
-            tab(1) + 'xmlns:sd="http://www.br-automation.com/iat2015/styles/engineering/v1" ' + lbr() +
-            tab(1) + 'xmlns:wt="http://www.br-automation.com/iat2015/widgetTypes/v2" ' + lbr() +
-            tab(1) + 'elementFormDefault="qualified">' + lbr();
+`<xs:schema targetNamespace="http://www.br-automation.com/iat2015/styles/engineering/v1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sd="http://www.br-automation.com/iat2015/styles/engineering/v1"
+    xmlns:kt="http://www.br-automation.com/iat2015/keywordTypes/v1"
+    elementFormDefault="qualified">
+    `;
         },
         getEventHeader: function getEventHeader() {
             return xsdPrepare.XMLHeader() + '<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:s1="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:var="http://www.br-automation.com/iat2015/varTypes/v2" elementFormDefault="qualified">' + lbr(1);
@@ -99,7 +100,7 @@
                 for (i = 0; i < widgetInfo.styleproperties.StyleProperty.length; i += 1) {
                     prop = widgetInfo.styleproperties.StyleProperty[i]['$'];
                     if (prop.hide !== true && prop.hide !== 'true') {
-                        xsd += tab(4) + '<xs:attribute name="' + prop.name + '" use="optional" type="wt:' + prop.type + '"></xs:attribute>' + lbr(); 
+                        xsd += tab(4) + '<xs:attribute name="' + prop.name + '" use="optional" type="kt:' + prop.type + '"></xs:attribute>' + lbr(); 
                     }
                 }
 

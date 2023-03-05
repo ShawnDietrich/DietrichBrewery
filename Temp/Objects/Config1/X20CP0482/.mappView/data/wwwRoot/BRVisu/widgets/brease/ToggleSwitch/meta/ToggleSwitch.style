@@ -15,21 +15,21 @@
       <StyleElement selector=".breaseToggleSwitch_toggle" attribute="@include elemWidth($value)"></StyleElement>
       <Description>outer width of slider</Description>
     </StyleProperty>
-    
+
     <StyleProperty name="sliderHeight" type="Size" not_styleable="true" default="100%" groupRefId="SliderSize" groupOrder="2">
       <StyleElement selector=".breaseToggleSwitch_toggle" attribute="@include elemHeight($value)"></StyleElement>
       <Description>outer height of slider</Description>
     </StyleProperty>
-    
+
     <StyleProperty name="sliderImage" category="Appearance" type="ImagePath" default="">
       <StyleElement selector=".breaseToggleSwitch_toggle" attribute="@include pureBackgroundImage('../$value')"></StyleElement>
-	  <Description>
-		Sets the path for an image for the slider
-	  </Description>
+      <Description>
+        Sets the path for an image for the slider
+      </Description>
     </StyleProperty>
 
     <!-- Image color -->
-    
+
     <StyleProperty name="imageColor" category="Appearance" type="Color" default="#000000" >
       <StyleElement selector="&amp;:not(.checked):not(.disabled) svg" attribute="fill"></StyleElement>
       <Description>Color of the image - only apply if a SVG image is used</Description>
@@ -44,13 +44,13 @@
       <StyleElement selector="&amp;.disabled svg" attribute="fill"></StyleElement>
       <Description>Color of the image - only apply if a SVG image is used</Description>
     </StyleProperty>
-    
+
     <!-- Standard styles -->
-    
-		<StyleProperty name="cornerRadius" category="Appearance" type="PixelValCollection" default="0px">
-			<StyleElement attribute="@include border-radius($value)"></StyleElement>
-			<StyleElement selector=".breaseToggleSwitch_toggle" attribute="@include border-radius($value - 2px)"></StyleElement>
-		</StyleProperty>
+
+    <StyleProperty name="cornerRadius" category="Appearance" type="PixelValCollection" default="0px">
+      <StyleElement attribute="@include border-radius($value)"></StyleElement>
+      <StyleElement selector=".breaseToggleSwitch_toggle" attribute="@include border-radius($value - 2px)"></StyleElement>
+    </StyleProperty>
 
     <StyleProperty name="opacity" category="Appearance" type="Opacity" default="1">
       <StyleElement attribute="opacity"></StyleElement>
@@ -61,18 +61,18 @@
     </StyleProperty>
 
     <StyleProperty name="padding" category="Layout" type="Padding" default="2px">
-      <StyleElement attribute="padding"></StyleElement>
+      <StyleElement selector=".contentWrapper" attribute="padding"></StyleElement>
       <Description>
         Padding of the Widget
       </Description>
-    </StyleProperty>    
-    
+    </StyleProperty>
+
     <!-- Back color -->
-    
-		<StyleProperty name="backColor" category="Appearance" type="Color" default="#555555" >
-			<StyleElement selector="&amp;:not(.checked):not(.disabled)" attribute="background-color: $value"></StyleElement>
+
+    <StyleProperty name="backColor" category="Appearance" type="Color" default="#555555" >
+      <StyleElement selector="&amp;:not(.checked):not(.disabled)" attribute="background-color: $value"></StyleElement>
       <StyleElement selector="&amp;.active:not(.disabled)" attribute="background-color: $value"></StyleElement>
-		</StyleProperty>
+    </StyleProperty>
 
     <StyleProperty name="mouseDownBackColor" category="Appearance" type="Color" default="#555555" >
       <StyleElement selector="&amp;.checked:not(.disabled)" attribute="background-color: $value"></StyleElement>
@@ -86,7 +86,7 @@
     </StyleProperty>
 
     <StyleProperty name="disabledCheckedBackColor" category="Appearance" type="Color" default="#CCCCCC" >
-      
+
       <StyleElement selector="&amp;.disabled.checked" attribute="background-color"></StyleElement>
       <Description>
         Sets the background color when disabled and checked
@@ -101,34 +101,34 @@
     </StyleProperty>
 
     <!-- Fore color -->
-    
+
     <StyleProperty name="foreColor" category="Appearance" type="Color" default="#FFFFFF" >
       <StyleElement selector="&amp;:not(.disabled) .breaseToggleSwitch_toggle" attribute="background-color: $value"></StyleElement>
       <Description>
         Sets the color of the switch
       </Description>
     </StyleProperty>
-    
+
     <StyleProperty name="disabledForeColor" category="Appearance" type="Color" default="#FFFFFF" >
       <StyleElement selector="&amp;.disabled .breaseToggleSwitch_toggle" attribute="background-color: $value"></StyleElement>
       <Description>
         Sets the color of the switch
       </Description>
     </StyleProperty>
-    
+
     <StyleProperty name="foreGroundGradient" category="Appearance" type="Gradient" default="">
       <StyleElement selector="&amp;:not(.disabled) .breaseToggleSwitch_toggle" attribute="@include backGroundGradient('$value')"></StyleElement>
       <Description>
         Sets the color of the switch as gradient
       </Description>
     </StyleProperty>
-    
+
     <!-- Border color -->
-    
-		<StyleProperty name="borderColor" category="Appearance" type="ColorCollection" default="#555555" >
-			<StyleElement selector="&amp;:not(.disabled):not(.checked)" attribute="border-color"></StyleElement>
-		</StyleProperty>
-    
+
+    <StyleProperty name="borderColor" category="Appearance" type="ColorCollection" default="#555555" >
+      <StyleElement selector="&amp;:not(.disabled):not(.checked)" attribute="border-color"></StyleElement>
+    </StyleProperty>
+
     <StyleProperty name="disabledBorderColor" category="Appearance" type="ColorCollection" default="#FFFFFF #C8C8C8 #C8C8C8 #FFFFFF">
       <StyleElement selector="&amp;.disabled" attribute="border-color"></StyleElement>
       <Description>
@@ -139,52 +139,52 @@
     <StyleProperty name="mouseDownBorderColor" category="Appearance" type="ColorCollection" default="#555555" >
       <StyleElement selector="&amp;.checked:not(.disabled)" attribute="border-color"></StyleElement>
     </StyleProperty>
-    
+
     <!-- Text styles -->
-    
-		<StyleProperty name="textColor" category="Appearance" type="Color" default="#FFFFFF" >
-			<StyleElement selector="&amp;:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .before" attribute="color"></StyleElement>
-			<StyleElement selector="&amp;:not(.disabled):not(.checked) .breaseToggleSwitch_toggle .after" attribute="color"></StyleElement>
-		</StyleProperty>
-    
-		<StyleProperty name="mouseDownTextColor" category="Appearance" type="Color" default="#FFFFFF" >
-			<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle" attribute="color"></StyleElement>
-			<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle .before" attribute="color"></StyleElement>
-			<StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle .after" attribute="color"></StyleElement>
-		</StyleProperty>
-    
-	  <StyleProperty name="textAlign" category="Appearance" type="brease.enum.TextAlign" default="center" >
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper" attribute="@include text-alignment($value)"></StyleElement>
+
+    <StyleProperty name="textColor" category="Appearance" type="Color" default="#FFFFFF" >
+      <StyleElement selector="&amp;:not(.disabled):not(.checked) .wrapper .before" attribute="color"></StyleElement>
+      <StyleElement selector="&amp;:not(.disabled):not(.checked) .wrapper .after" attribute="color"></StyleElement>
+    </StyleProperty>
+
+    <StyleProperty name="mouseDownTextColor" category="Appearance" type="Color" default="#FFFFFF" >
+      <StyleElement selector="&amp;.checked:not(.disabled) .breaseToggleSwitch_toggle" attribute="color"></StyleElement>
+      <StyleElement selector="&amp;.checked:not(.disabled) .wrapper .before" attribute="color"></StyleElement>
+      <StyleElement selector="&amp;.checked:not(.disabled) .wrapper .after" attribute="color"></StyleElement>
+    </StyleProperty>
+
+    <StyleProperty name="textAlign" category="Appearance" type="brease.enum.TextAlign" default="center" >
+      <StyleElement selector=".wrapper" attribute="@include text-alignment($value)"></StyleElement>
       <Description>
         Alignment of the text
       </Description>
     </StyleProperty>
-    
+
     <StyleProperty name="fontSize" category="Font" type="PixelVal" default="12px" >
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="font-size"></StyleElement>
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="font-size"></StyleElement>
+      <StyleElement selector=".wrapper .before" attribute="font-size"></StyleElement>
+      <StyleElement selector=".wrapper .after" attribute="font-size"></StyleElement>
     </StyleProperty>
-    
+
     <StyleProperty name="fontName" category="Font" type="FontName" default="Arial">
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="font-family"></StyleElement>
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="font-family"></StyleElement>
+      <StyleElement selector=".wrapper .before" attribute="font-family"></StyleElement>
+      <StyleElement selector=".wrapper .after" attribute="font-family"></StyleElement>
     </StyleProperty>
-    
+
     <StyleProperty name="bold" category="Font" type="Boolean" default="true">
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="@include font-weight-bold($value)"></StyleElement>
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="@include font-weight-bold($value)"></StyleElement>
+      <StyleElement selector=".wrapper .before" attribute="@include font-weight-bold($value)"></StyleElement>
+      <StyleElement selector=".wrapper .after" attribute="@include font-weight-bold($value)"></StyleElement>
     </StyleProperty>
-    
+
     <StyleProperty name="italic" category="Font" type="Boolean" default="false">
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .before" attribute="@include font-style-italic($value)"></StyleElement>
-      <StyleElement selector=".breaseToggleSwitch_toggle .wrapper .after" attribute="@include font-style-italic($value)"></StyleElement>
+      <StyleElement selector=".wrapper .before" attribute="@include font-style-italic($value)"></StyleElement>
+      <StyleElement selector=".wrapper .after" attribute="@include font-style-italic($value)"></StyleElement>
     </StyleProperty>
-    
+
     <!-- Hiding styles -->
-    
+
     <StyleProperty name="checkedBackColor" not_styleable="true" hide="true" category="Appearance" type="Color">
     </StyleProperty>
-   
+
     <StyleProperty name="checkedBorderColor" not_styleable="true" hide="true" category="Appearance" type="ColorCollection">
     </StyleProperty>
     <StyleProperty name="disabledCheckedBorderColor" not_styleable="true" hide="true" category="Appearance" type="Color">
@@ -199,9 +199,6 @@
     </StyleProperty>
     <StyleProperty name="checkedImageColor" hide="true" type="Color">
     </StyleProperty>
-    
-	</StyleProperties>
-</StyleInformation>
-	
-	
 
+  </StyleProperties>
+</StyleInformation>

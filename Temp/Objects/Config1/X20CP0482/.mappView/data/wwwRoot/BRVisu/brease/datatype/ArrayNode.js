@@ -52,7 +52,7 @@ define(['brease/datatype/Node', 'brease/core/Utils'], function (Node, Utils) {
     */
     p.setValue = function (value) {
         if (Array.isArray(value) !== true) {
-            console.warn('ArrayNode: value has to be of type Array:', value);
+            console.iatWarn('ArrayNode: value has to be of type Array:', value);
             this.value = [];
         } else {
             this.value = value;

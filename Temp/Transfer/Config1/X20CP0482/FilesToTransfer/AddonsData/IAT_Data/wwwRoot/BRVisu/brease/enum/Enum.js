@@ -210,10 +210,10 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     * false
     */
     /**
-    * @property {Number} FAILED=-3 
+    * @property {Number} ABORTED=-3 
     */
     /**
-    * @property {Number} ABORTED=-2 
+    * @property {Number} FAILED=-2 
     */
     /**
     * @property {Number} NON_EXISTENT=-1 
@@ -262,6 +262,12 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     * @property {String} ScrollUp='ScrollUp'
     */
     /**
+    * @property {String} ScrollRight='ScrollRight'
+    */
+    /**
+    * @property {String} ScrollLeft='ScrollLeft'
+    */
+    /**
     * @property {String} ScrollDownFast='ScrollDownFast'
     */
     /** 
@@ -275,6 +281,8 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
         Cancel: 'Cancel',
         ScrollDown: 'ScrollDown',
         ScrollUp: 'ScrollUp',
+        ScrollRight: 'ScrollRight',
+        ScrollLeft: 'ScrollLeft',
         ScrollDownFast: 'ScrollDownFast',
         ScrollUpFast: 'ScrollUpFast',
         Close: 'Close'
@@ -557,6 +565,25 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
     _defineEnum('RenderingPolicy', {
         DEFAULT: 'default',
         PERFORMANCE: 'performance'
+    });
+
+    /** 
+   * @enum {String} brease.enum.SecurityPolicy
+   * @iatMeta studio:visible
+   * true
+   */
+    /** 
+    * @property {String} ON='on'
+    * @iatStudioExposed
+    */
+    /** 
+    * @property {String} OFF='off'
+    * @iatStudioExposed
+    */
+
+    _defineEnum('SecurityPolicy', {
+        ON: 'on',
+        OFF: 'off'
     });
 
     /** 
@@ -1830,7 +1857,9 @@ define(['brease/enum/EnumObject'], function (EnumObject) {
         CLIENT_WIDGET_INITIALIZATION_FAILED: 32087, //OFF
         CLIENT_USER_CHANGEPASSWORD_OK: 32088, //OFF
         CLIENT_USER_CHANGEPASSWORD_FAIL: 32089, //OFF
-        CLIENT_FOCUS_ACTION_FAIL: 32090 // OFF
+        CLIENT_FOCUS_ACTION_FAIL: 32090, // OFF
+        CROSS_ORIGIN_REQUEST_BLOCKED: 32100, // OFF
+        DOCUMENT_CONTENT_SANITIZED: 32101 // OFF
     });
 
     /** 

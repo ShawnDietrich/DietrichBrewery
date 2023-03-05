@@ -40,7 +40,7 @@ define(function () {
         } catch (e) {
             breaseEvent.support.options = false;
         }
-        delete p.init;
+        this.init = function () {};
     };
 
     p.setEditMode = function (editMode) {
@@ -75,6 +75,14 @@ define(function () {
     _defineProperty(breaseEvent, 'CONTENT_DEACTIVATED', 'ContentDeactivated');    
     _defineProperty(breaseEvent, 'CONTENT_SUSPENDED', 'ContentSuspended');
     _defineProperty(breaseEvent, 'CONTENT_DISPOSED', 'ContentDisposed');
+    /**
+    * @property {String} CONTENT_ACTIVATE_ERROR='content_activate_error'
+    * @readonly
+    * @static
+    * Fired when content could not be activated (server responds with error)
+    */
+    _defineProperty(breaseEvent, 'CONTENT_ACTIVATE_ERROR', 'content_activate_error');
+         
     _defineProperty(breaseEvent, 'VISU_ACTIVATED', 'VisuActivated');
     _defineProperty(breaseEvent, 'VISU_DEACTIVATED', 'VisuDeactivated');
 
@@ -157,6 +165,21 @@ define(function () {
     * @static
     */
     _defineProperty(breaseEvent, 'BEFORE_FOCUS_MOVE', 'BeforeFocusMove');
+
+    /**
+    * @property {String} FOCUS_ELEM_READY='FocusElemReady'
+    * Will be fired if a new brease.controller.libs.FocusElem is created.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'FOCUS_ELEM_READY', 'FocusElemReady');
+    /**
+    * @property {String} FOCUS_ELEM_DISPOSED='FocusElemDisposed'
+    * Will be fired if brease.controller.libs.FocusElem is disposed.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'FOCUS_ELEM_DISPOSED', 'FocusElemDisposed');
 
     //Logger.js
     _defineProperty(breaseEvent, 'LOG_MESSAGE', 'log_message');
@@ -259,6 +282,12 @@ define(function () {
     _defineProperty(breaseEvent, 'BEFORE_HIDE', 'fragment_before_hide');
     _defineProperty(breaseEvent, 'BEFORE_UNLOAD', 'fragment_before_unload');
     _defineProperty(breaseEvent, 'PAGE_CHANGE', 'pageChange');
+    /**
+     * @property {String} PAGE_LOADED='pageLoaded'
+     * @readonly
+     * @static
+     * Fired when all new contents are activaded (CONTENT_ACTIVATED) and old are deactivated (CONTENT_DEACTIVATED)
+     */
     _defineProperty(breaseEvent, 'PAGE_LOADED', 'pageLoaded');
     _defineProperty(breaseEvent, 'THEME_CHANGED', 'theme_changed');
     _defineProperty(breaseEvent, 'NAVIGATION_DISPOSE', 'navDispose');
@@ -268,7 +297,7 @@ define(function () {
     * @static
     */
     _defineProperty(breaseEvent, 'LOAD_ERROR', 'load_error');
-
+     
     //Trend.js
     _defineProperty(breaseEvent, 'UPDATE_CURSOR_INTERSECTION', 'update_cursor_intersection');
     _defineProperty(breaseEvent, 'UPDATE_CURSOR', 'update_ursor');
@@ -295,10 +324,35 @@ define(function () {
     _defineProperty(breaseEvent, 'TICK', 'tick');
     _defineProperty(breaseEvent, 'ALERT', 'alert');
     _defineProperty(breaseEvent, 'TAP_HOLD', 'taphold');
-    
+
+    /**
+    * @property {String} SHOW_MODAL='show_modal'
+    * Fired when an element is shown modally.
+    * detail.id should be used to identify SHOW-HIDE_MODAL pairs.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'SHOW_MODAL', 'show_modal');
+    /**
+    * @property {String} HIDE_MODAL='hide_modal'
+    * Fired when a modal element is hidden.
+    * detail.id should be used to identify SHOW-HIDE_MODAL pairs.
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'HIDE_MODAL', 'hide_modal');
+    /**
+    * @property {String} TABINDEX_CHANGED='tabindex_changed'
+    * Fired when tabIndex property of a widget is changed. This only happens for non user defined widgets so it has to be fired manually! 
+    * This will reorder the chain at the position of the content. ContentId must be provided in detail prop. 
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'TABINDEX_CHANGED', 'tabindex_changed');
+
     /* content editor events - start */
     /* These events are fired only in content editor (brease.config.editMode=true)!*/
-    
+
     /**
     * @property {String} WIDGET_ADDED='widget_added'
     * The event is triggered on a container widget html element when a widget is added.  
@@ -335,6 +389,25 @@ define(function () {
     * @static
     */
     _defineProperty(breaseEvent, 'WIDGET_STYLE_PROPERTIES_CHANGED', 'widget_style_properties_changed');
+    /**
+    * @property {String} WIDGET_EDITOR_IF_READY='WIDGET_EDITOR_IF_READY'
+    * The event is triggered on the widget html element when the interface for the content editor
+    * has been loaded. (editorHandles)
+    * Mainly used for UnitTests.
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_EDITOR_IF_READY', 'widget_editor_if_ready');
+
+    /**
+    * @property {String} WIDGET_RESIZE='widget_resize'
+    * The event is triggered on the widget html element while the widget is resized by the user in the content editor.
+    * This event is fired only in content editor (brease.config.editMode=true)!  
+    * @readonly
+    * @static
+    */
+    _defineProperty(breaseEvent, 'WIDGET_RESIZE', 'widget_resize');
     /* content editor events - end */
 
     return breaseEvent;

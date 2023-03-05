@@ -2,9 +2,8 @@ define([
     'widgets/brease/common/libs/redux/utils/UtilsImage',
     'widgets/brease/common/libs/redux/utils/UtilsText',
     'widgets/brease/common/libs/redux/utils/UtilsList',
-    'widgets/brease/common/libs/redux/utils/UtilsStyle',
-    'brease/enum/Enum'
-], function (UtilsImage, UtilsText, UtilsList, UtilsStyle, Enum) {
+    'widgets/brease/common/libs/redux/utils/UtilsStyle'
+], function (UtilsImage, UtilsText, UtilsList, UtilsStyle) {
 
     'use strict';
 

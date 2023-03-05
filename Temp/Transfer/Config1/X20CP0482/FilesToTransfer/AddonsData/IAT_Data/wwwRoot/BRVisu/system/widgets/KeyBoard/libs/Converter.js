@@ -31,15 +31,21 @@ define(['brease/enum/Enum', 'brease/core/Types', 'system/widgets/KeyBoard/libs/e
                         len = patterns.length,
                         i;
                     if (len > 0) {
-                        Dictionaries.get(self.getMode()).forEach(function (val) {
+                        Dictionaries.get(self.getMode()).filter(function (val) {
                             for (i = 0; i < len; i += 1) {
                                 if (patterns[i].test(val.com) === true) {
-                                    // requirement candidate list should not contain duplicate entries
-                                    if (candidates.indexOf(val.can) === -1) {
-                                        candidates.push(val.can);
-                                    }
-                                    break;
+                                    return true;
                                 }
+                            }
+                            return false;
+                        }).sort(function (a, b) {
+                            var fa = Types.parseValue(a.freq, 'Integer', { default: Dictionaries.MAX_FREQUENCY, min: Dictionaries.MIN_FREQUENCY, max: Dictionaries.MAX_FREQUENCY }),
+                                fb = Types.parseValue(b.freq, 'Integer', { default: Dictionaries.MAX_FREQUENCY, min: Dictionaries.MIN_FREQUENCY, max: Dictionaries.MAX_FREQUENCY });
+                            return fa - fb;
+                        }).forEach(function (entry) {
+                            // requirement candidate list should not contain duplicate entries
+                            if (!candidates.includes(entry.can)) {
+                                candidates.push(entry.can);
                             }
                         });
                         // possible solution for keeping previously provided candidates
@@ -128,12 +134,13 @@ define(['brease/enum/Enum', 'brease/core/Types', 'system/widgets/KeyBoard/libs/e
         * @method setMode
         * Used to define the IME mode
         * @param {brease.enum.IMEMode} mode='disabled'
+        * @return {Promise}
         */
         p.setMode = function (mode) {
             this.mode = Types.parseValue(mode, 'Enum', { Enum: Enum.IMEMode, default: 'disabled' });
             this.setQuery([]);
             this.setCandidates([]);
-            Dictionaries.load(this.mode);
+            return Dictionaries.load(this.mode);
         };
 
         /**

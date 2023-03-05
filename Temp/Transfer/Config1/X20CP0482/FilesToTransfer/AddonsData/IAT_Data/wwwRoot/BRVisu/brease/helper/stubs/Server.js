@@ -69,6 +69,33 @@ function (EventDispatcher, SocketEvent, Utils) {
                     current_language: 'de'
                 },
 
+                designerLanguages: {
+                    de: {
+                        description: 'Deutsch',
+                        index: 0
+                    },
+                    en: {
+                        description: 'English',
+                        index: 1
+                    },
+                    fr: {
+                        description: 'Français',
+                        index: 2
+                    },
+                    zh: {
+                        description: 'Chinese',
+                        index: 3
+                    },
+                    ko: {
+                        description: 'Korean',
+                        index: 4
+                    },
+                    ja: {
+                        description: 'Japanese',
+                        index: 5
+                    }
+                },
+
                 texts: {
                     de: {
                         'BR/IAT/brease.common.attention': 'Achtung',
@@ -401,6 +428,9 @@ function (EventDispatcher, SocketEvent, Utils) {
         return texts;
     };
     server.getLanguages = function () {
+        if (brease.config.editMode === true) {
+            _model.language.data.languages = _model.language.designerLanguages;
+        }
         return _model.language.data;
     };
     server.getAllUnitSymbols = function () {

@@ -1,0 +1,10 @@
+VAR_CONFIG
+	::HLTHeater AT %QX."X20DO8332".DigitalOutput01;
+	::KettleHeater AT %QX."X20DO8332".DigitalOutput02;
+	::HLTPump AT %QX."X20DO8332".DigitalOutput03;
+	::MashPump AT %QX."X20DO8332".DigitalOutput04;
+	::Buzzer AT %QX."X20DO8332".DigitalOutput05;
+	::ValveSelector AT %QX."X20DO8332".DigitalOutput06;
+	::ValveOff AT %QX."X20DO8332".DigitalOutput07;
+	::ValveOn AT %QX."X20DO8332".DigitalOutput08;
+END_VAR

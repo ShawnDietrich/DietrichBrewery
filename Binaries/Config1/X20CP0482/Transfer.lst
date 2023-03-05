@@ -3,7 +3,6 @@
 <Transfer xmlns="http://br-automation.co.at/AS/Transfer">
   <OperatingSystem Version="B4.93"/>
   <Hardware Target="SG4"/>
-  <Operation Delete="Fermenting.br"/>
   <Operation Delete="FillingTan.br"/>
   <Operation Delete="HMIProgram.br"/>
   <Operation Delete="MashTunCon.br"/>
@@ -81,5 +80,4 @@
   <Operation Download="MashTunCon.br" Memory="UserROM"/>
   <Operation Download="HMIProgram.br" Memory="UserROM"/>
   <Operation Download="FillingTan.br" Memory="UserROM"/>
-  <Operation Download="Fermenting.br" Memory="UserROM"/>
 </Transfer>

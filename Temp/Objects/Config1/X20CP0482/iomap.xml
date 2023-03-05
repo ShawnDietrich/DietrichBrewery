@@ -204,27 +204,35 @@
 <Prod Device="IF6.ST2" DPName="FirmwareVersion" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput01" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::HLTHeater" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput01" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput02" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::KettleHeater" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput02" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput03" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::HLTPump" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput03" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput04" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::MashPump" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput04" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput05" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::Buzzer" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput05" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput06" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::ValveSelector" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput06" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput07" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::ValveOff" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput07" Kind="io"/>
 </LN>
 <LN ID="%QX.IF6.ST2.DigitalOutput08" Type="BOOL">
+<Prod Device="TC#1-CPYDEV" DPName="::ValveOn" Kind="pv"/>
 <Cons Device="IF6.ST2" DPName="DigitalOutput08" Kind="io"/>
 </LN>
 <LN ID="%IX.IF6.ST2.StatusDigitalOutput01" Type="BOOL">

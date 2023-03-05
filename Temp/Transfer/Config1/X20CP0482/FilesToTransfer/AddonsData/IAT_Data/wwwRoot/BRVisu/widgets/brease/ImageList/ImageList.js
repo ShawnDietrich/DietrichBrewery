@@ -91,7 +91,7 @@ define([
     p._initEditor = function () {
         var widget = this;
         widget.el.addClass('iatd-outline');
-        require(['widgets/brease/ImageList/libs/EditorHandles'], function (EditorHandles) {
+        require(['widgets/brease/ImageList/libs/EditorHandles', 'brease/events/BreaseEvent'], function (EditorHandles, BreaseEvent) {
             var editorHandles = new EditorHandles(widget);
             widget.getHandles = function () {
                 return editorHandles.getHandles();
@@ -99,6 +99,7 @@ define([
             widget.designer.getSelectionDecoratables = function () {
                 return editorHandles.getSelectionDecoratables();
             };
+            widget.dispatchEvent(new CustomEvent(BreaseEvent.WIDGET_EDITOR_IF_READY, { bubbles: true }));
         });
     };
 
@@ -147,7 +148,7 @@ define([
      * @return {brease.enum.SizeMode}
      */
     p.getSizeMode = function () {
-        return this.imageStore.getSizeMode();
+        return this.imageStore.getImageSizeMode();
     };
 
     /**

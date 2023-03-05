@@ -1,18 +1,19 @@
 define([
     'widgets/brease/DataHandlerWidget/DataHandlerWidget',
-    'brease/events/BreaseEvent',
+    'brease/events/EventDispatcher',
     'brease/enum/Enum',
     'widgets/brease/TableWidget/libs/Renderer',
     'widgets/brease/TableWidget/libs/Controller',
     'widgets/brease/TableWidget/libs/Model',
+    'widgets/brease/TableWidget/libs/FocusHandler',
     'brease/decorators/CultureDependency',
     'brease/decorators/MeasurementSystemDependency',
     'brease/decorators/VisibilityDependency',
     'widgets/brease/TableWidget/libs/ConfigBuilder',
     'widgets/brease/common/BusyIndicatorHandler/libs/BusyIndicatorHandler'
 ], function (
-    SuperClass, BreaseEvent, Enum, Renderer, Controller,
-    Model, CultureDependency,
+    SuperClass, EventDispatcher, Enum, Renderer, Controller,
+    Model, FocusHandler, CultureDependency,
     MeasurementSystemDependency, VisibilityDependency, ConfigBuilder,
     BusyIndicatorHandler
 ) {
@@ -143,6 +144,13 @@ define([
      */
 
     /**
+    * @cfg {Boolean} focusable=false
+    * The widget will not be added to the focus chain if this option is set to false.
+    * It should be used if a widget has child widgets which derive the tabIndex from its parent but the parent widget itselfe should not be focusable. (i.e Login)
+    * The difference to tabIndex=-1 is that the user can still set a tabIndex and the widget can forward the tabIndex to its child widgets.
+    */
+
+    /**
      * @event FirstPageNumber
      * Fires every time there is a page change, updates the First page.
      * @param {Integer} pageNumber
@@ -206,6 +214,16 @@ define([
      * @inheritdoc  
      */
 
+    /**
+    * @event FocusIn
+    * @hide
+    */
+
+    /**
+    * @event FocusOut
+    * @hide
+    */
+
     var defaultSettings = {
             childrenInitialized: false,
             childrenList: [],
@@ -231,7 +249,8 @@ define([
             config: {
                 hidden: { data: '' }
             },
-            busyIndicatorDelay: 0
+            busyIndicatorDelay: 0,
+            focusable: false
         },
 
         WidgetClass = SuperClass.extend(function TableWidget() {
@@ -241,6 +260,8 @@ define([
         p = WidgetClass.prototype;
 
     p.init = function () {
+        this.eventDispatcher = new EventDispatcher();
+        this.focusHandler = new FocusHandler(this);
         this.busyIndicatorHandler = new BusyIndicatorHandler(this);
         this.initRenderer();
         this.initController();
@@ -281,6 +302,42 @@ define([
     p.initModel = function () {
         this.model = new Model(this);
         this.model.initialize();
+    };
+
+    /**
+     * @method setTabIndex
+     * Sets the state of property «tabIndex»
+     * @param {Number} value
+     */
+    p.setTabIndex = function (value) {
+        if (this.renderer) {
+            brease.callWidget(this.renderer.searchBoxId, 'setTabIndex', value);
+        }
+        SuperClass.prototype.setTabIndex.call(this, value);
+    };
+
+    /**
+    * @method focus
+    * @iatStudioExposed
+    * Sets focus on the search box or header element, if it can be focused and keyboardOperation=true
+    */
+    p.focus = function () {
+        if (this.getSearchBox()) {
+            return brease.callWidget(this.renderer.searchBoxId, 'focus');
+        } else {
+            return this.focusHandler.focus();
+        }
+    };
+
+    p.getScroller = function () {
+        if (this.settings.optimize) {
+            return this.renderer.ns;
+        }
+        return this.renderer.scrollerBody;
+    };
+
+    p.getHeaderScroller = function () {
+        return this.renderer.scrollerHead;
     };
 
     /**
@@ -659,6 +716,7 @@ define([
     };
     
     p._clickHandler = function (e) {
+        this.renderer._clickHandler(e);
         SuperClass.prototype._clickHandler.call(this, e, { origin: this.elem.id });
     };
 
@@ -806,6 +864,7 @@ define([
     };
 
     p.dispose = function () {
+        this.focusHandler.dispose();
         this.controller.dispose();
         this.renderer.dispose();
         this.model.dispose();

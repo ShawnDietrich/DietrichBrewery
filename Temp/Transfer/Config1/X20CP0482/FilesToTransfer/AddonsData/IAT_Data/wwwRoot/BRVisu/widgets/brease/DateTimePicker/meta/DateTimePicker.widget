@@ -187,7 +187,6 @@ or if autofocus should be disabled (-1)				</Description>
 				<StyleElement selector=".dateTimePickerBody button" attribute="background-color"/>
 				<StyleElement selector=".dateTimePickerBody .dateTimePickerHeadings .actDate" attribute="background-color"/>
 				<StyleElement selector=".dateTimePickerBody .dateTimePickerControl" attribute="background-color"/>
-				<StyleElement selector=".dateTimePickerBody .dateTimePickerButtons .dtfragment" attribute="border-right-color"/>
 				<StyleElement selector=".dateTimePickerBody .dateTimePickerButtons button" attribute="border-bottom-color"/>
 				<StyleElement selector=".dateTimePickerBody .dateTimePickerControl .dateTimePickerEnter.active" attribute="background-color"/>
 				<StyleElement selector=".dateTimePickerBody .dateTimePickerControl .dateTimePickerReset.active" attribute="background-color"/>

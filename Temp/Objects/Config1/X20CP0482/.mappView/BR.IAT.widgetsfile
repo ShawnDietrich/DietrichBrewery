@@ -24,6 +24,7 @@
   <widget name="widgets.brease.NumericInput" />
   <widget name="widgets.brease.NumericOutput" />
   <widget name="widgets.brease.NumPad" />
+  <widget name="widgets.brease.Password" />
   <widget name="widgets.brease.PushButton" />
   <widget name="widgets.brease.Rectangle" />
   <widget name="widgets.brease.TableWidget" />
@@ -33,4 +34,5 @@
   <widget name="widgets.brease.ToggleButton" />
   <widget name="widgets.brease.ToggleSwitch" />
   <widget name="widgets.brease.Window" />
+  <widget name="widgets.widgets.ChangePasswordDialog" />
 </widgets>

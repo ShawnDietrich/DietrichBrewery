@@ -76,7 +76,7 @@ define([
     /**
      * @method setSelectedItem
      * @param {Object} item currently selected item
-     * This method sets the currently selected item and stores it in the prototype.
+     * This method sets the currently selected item and stores it in the instance.
      */
     p.setSelectedItem = function (item) {
         this.selectedItem = item; // this.widget.model.getSelectedRowOnCurrentPage() //Gets actually selected item on this page

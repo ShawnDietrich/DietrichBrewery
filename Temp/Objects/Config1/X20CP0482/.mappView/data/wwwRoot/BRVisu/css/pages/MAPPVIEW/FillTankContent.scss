@@ -3,13 +3,13 @@
 	@include elemTop(0);
 }
 #FillTankContent_GroupBox8 {
-	@include elemLeft(0);
+	@include elemLeft(3);
 }
 #FillTankContent_GroupBox8 {
-	@include elemWidth(1480);
+	@include elemWidth(1477);
 }
 #FillTankContent_GroupBox8 {
-	@include elemHeight(800);
+	@include elemHeight(698);
 }
 #FillTankContent_GroupBox8 {
 		z-index: 0;
@@ -29,16 +29,16 @@
 	}
 }
 #FillTankContent_GroupBox1 {
-	@include elemTop(7);
+	@include elemTop(85);
 }
 #FillTankContent_GroupBox1 {
-	@include elemLeft(1138);
+	@include elemLeft(1098);
 }
 #FillTankContent_GroupBox1 {
 	@include elemWidth(325);
 }
 #FillTankContent_GroupBox1 {
-	@include elemHeight(784);
+	@include elemHeight(526);
 }
 #FillTankContent_GroupBox1 {
 		z-index: 0;
@@ -83,249 +83,8 @@
 	height: 30px + 20px;
 	}
 }
-#FillTankContent_GroupBox2 {
-	@include elemTop(50);
-}
-#FillTankContent_GroupBox2 {
-	@include elemLeft(17);
-}
-#FillTankContent_GroupBox2 {
-	@include elemWidth(289);
-}
-#FillTankContent_GroupBox2 {
-	@include elemHeight(254);
-}
-#FillTankContent_GroupBox2 {
-		z-index: 0;
-}
-#FillTankContent_GroupBox2 {
-		border-width: 3px;
-}
-#FillTankContent_GroupBox2 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#FillTankContent_GroupBox2 {
-	@include border-radius(10px);
-}
-#FillTankContent_GroupBox2 {
-		border-color: rgba(30, 176, 173, 1);
-}
-#FillTankContent_GroupBox2 {
-	> .header{
-		border-color: rgba(30, 176, 173, 1);
-	}
-}
-#FillTankContent_GroupBox2 {
-		border-style: outset;
-}
-#FillTankContent_GroupBox2 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#FillTankContent_NumericOutput1 {
-	@include elemTop(15);
-}
-#FillTankContent_NumericOutput1 {
-	@include elemLeft(8);
-}
-#FillTankContent_NumericOutput1 {
-	@include elemAutoWidth(125);
-}
-#FillTankContent_NumericOutput1 {
-	@include elemAutoHeight(40);
-}
-#FillTankContent_NumericOutput1 {
-		z-index: 0;
-}
-#FillTankContent_NumericOutput1 {
-		border-width: 2px;
-}
-#FillTankContent_NumericOutput1 {
-	@include border-radius(5px);
-}
-#FillTankContent_NumericOutput1 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#FillTankContent_NumericOutput1 {
-		border-style: outset;
-}
-#FillTankContent_NumericOutput1 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#FillTankContent_Label1 {
-	@include elemAutoHeight(30);
-}
-#FillTankContent_Label1 {
-	@include elemTop(16);
-}
-#FillTankContent_Label1 {
-	@include elemLeft(139);
-}
-#FillTankContent_Label1 {
-	@include elemAutoWidth(86);
-}
-#FillTankContent_Label1 {
-		z-index: 1;
-}
-#FillTankContent_NumericInput1 {
-	@include elemTop(91);
-}
-#FillTankContent_NumericInput1 {
-	@include elemLeft(8);
-}
-#FillTankContent_NumericInput1 {
-	@include elemWidth(125);
-}
-#FillTankContent_NumericInput1 {
-	@include elemHeight(40);
-}
-#FillTankContent_NumericInput1 {
-		z-index: 2;
-}
-#FillTankContent_NumericInput1 {
-	@include border-radius(5px);
-}
-#FillTankContent_NumericInput1 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#FillTankContent_Label2 {
-	@include elemAutoHeight(30);
-}
-#FillTankContent_Label2 {
-	@include elemTop(96);
-}
-#FillTankContent_Label2 {
-	@include elemLeft(139);
-}
-#FillTankContent_Label2 {
-	@include elemAutoWidth(96);
-}
-#FillTankContent_Label2 {
-		z-index: 3;
-}
-#FillTankContent_Label2 {
-	@include text-alignment-all('left');
-}
-#FillTankContent_ToggleSwitch3 {
-	@include elemTop(156);
-}
-#FillTankContent_ToggleSwitch3 {
-	@include elemLeft(8);
-}
-#FillTankContent_ToggleSwitch3 {
-	@include elemAutoWidth(130);
-}
-#FillTankContent_ToggleSwitch3 {
-	@include elemAutoHeight(50);
-}
-#FillTankContent_ToggleSwitch3 {
-		z-index: 4;
-}
-#FillTankContent_ToggleSwitch3 {
-	@include border-radius(5px);
-}
-#FillTankContent_ToggleSwitch3 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled){
-	background-color: rgba(255, 215, 0, 1);
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#FillTankContent_ToggleSwitch3 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
-#FillTankContent_ToggleButton5 {
-	@include elemAutoWidth(100);
-}
-#FillTankContent_ToggleButton5 {
-	@include elemTop(135);
-}
-#FillTankContent_ToggleButton5 {
-	@include elemLeft(174);
-}
-#FillTankContent_ToggleButton5 {
-	@include elemAutoHeight(76);
-}
-#FillTankContent_ToggleButton5 {
-		z-index: 5;
-}
-#FillTankContent_ToggleButton5 {
-	img{
-	@include imageHeight(64);
-	}
-}
-#FillTankContent_ToggleButton5 {
-	svg{
-	@include imageHeight(64);
-	}
-}
-#FillTankContent_ToggleButton5 {
-		border-style: none;
-}
-#FillTankContent_ToggleButton5 {
-	&.active{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton5 {
-	&.checked{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton5 {
-	&.disabled{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton5 {
-	&:not(.disabled):not(.active):not(.checked){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#FillTankContent_ToggleButton5 {
-	&.active:not(.disabled):not(.editMode){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#FillTankContent_ToggleButton5 {
-	&.checked:not(.active):not(.disabled){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
 #FillTankContent_GroupBox3 {
-	@include elemTop(386);
+	@include elemTop(244);
 }
 #FillTankContent_GroupBox3 {
 	@include elemLeft(17);
@@ -334,10 +93,10 @@
 	@include elemWidth(289);
 }
 #FillTankContent_GroupBox3 {
-	@include elemHeight(248);
+	@include elemHeight(214);
 }
 #FillTankContent_GroupBox3 {
-		z-index: 1;
+		z-index: 0;
 }
 #FillTankContent_GroupBox3 {
 		border-width: 3px;
@@ -414,16 +173,16 @@
 		z-index: 1;
 }
 #FillTankContent_NumericInput2 {
-	@include elemWidth(100);
+	@include elemAutoWidth(100);
 }
 #FillTankContent_NumericInput2 {
-	@include elemTop(91);
+	@include elemTop(58);
 }
 #FillTankContent_NumericInput2 {
 	@include elemLeft(8);
 }
 #FillTankContent_NumericInput2 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #FillTankContent_NumericInput2 {
 		z-index: 2;
@@ -440,7 +199,7 @@
 	@include elemAutoHeight(30);
 }
 #FillTankContent_Label4 {
-	@include elemTop(96);
+	@include elemTop(58);
 }
 #FillTankContent_Label4 {
 	@include elemLeft(119);
@@ -452,7 +211,7 @@
 		z-index: 3;
 }
 #FillTankContent_ToggleSwitch4 {
-	@include elemTop(152);
+	@include elemTop(118);
 }
 #FillTankContent_ToggleSwitch4 {
 	@include elemLeft(8);
@@ -485,22 +244,22 @@
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #FillTankContent_ToggleSwitch4 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -508,7 +267,7 @@
 	@include elemAutoWidth(100);
 }
 #FillTankContent_ToggleButton6 {
-	@include elemTop(131);
+	@include elemTop(98);
 }
 #FillTankContent_ToggleButton6 {
 	@include elemLeft(174);
@@ -562,8 +321,176 @@
 		background-color: rgba(255, 255, 255, 0);
 	}
 }
+#FillTankContent_GroupBox6 {
+	@include elemTop(48);
+}
+#FillTankContent_GroupBox6 {
+	@include elemLeft(18);
+}
+#FillTankContent_GroupBox6 {
+	@include elemWidth(290);
+}
+#FillTankContent_GroupBox6 {
+	@include elemHeight(191);
+}
+#FillTankContent_GroupBox6 {
+		z-index: 1;
+}
+#FillTankContent_GroupBox6 {
+		border-width: 3px;
+}
+#FillTankContent_GroupBox6 {
+	> .header{
+		border-width: 3px;
+	}
+}
+#FillTankContent_GroupBox6 {
+	@include border-radius(10px);
+}
+#FillTankContent_GroupBox6 {
+		border-color: rgba(30, 176, 173, 1);
+}
+#FillTankContent_GroupBox6 {
+	> .header{
+		border-color: rgba(30, 176, 173, 1);
+	}
+}
+#FillTankContent_GroupBox6 {
+		border-style: outset;
+}
+#FillTankContent_GroupBox6 {
+	> .header{
+		border-bottom-style: outset;
+	}
+}
+#FillTankContent_ButtonBar2 {
+	@include elemTop(12);
+}
+#FillTankContent_ButtonBar2 {
+	@include elemLeft(8);
+}
+#FillTankContent_ButtonBar2 {
+	@include elemWidth(269);
+}
+#FillTankContent_ButtonBar2 {
+	@include elemHeight(131);
+}
+#FillTankContent_ButtonBar2 {
+		z-index: 0;
+}
+#FillTankContent_ToggleButton3 {
+	@include elemAutoWidth(100);
+}
+#FillTankContent_ToggleButton3 {
+	@include elemTop(28);
+}
+#FillTankContent_ToggleButton3 {
+	@include elemLeft(24);
+}
+#FillTankContent_ToggleButton3 {
+	@include elemAutoHeight(76);
+}
+#FillTankContent_ToggleButton3 {
+		z-index: 0;
+}
+#FillTankContent_ToggleButton3 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#FillTankContent_ToggleButton3 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#FillTankContent_ToggleButton3 {
+		border-style: none;
+}
+#FillTankContent_ToggleButton3 {
+	&.active{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton3 {
+	&.checked{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton3 {
+	&.disabled{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton3 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#FillTankContent_ToggleButton3 {
+	&.active:not(.disabled):not(.editMode){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#FillTankContent_ToggleButton3 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#FillTankContent_ToggleButton4 {
+	@include elemAutoWidth(100);
+}
+#FillTankContent_ToggleButton4 {
+	@include elemTop(28);
+}
+#FillTankContent_ToggleButton4 {
+	@include elemLeft(143);
+}
+#FillTankContent_ToggleButton4 {
+	@include elemAutoHeight(76);
+}
+#FillTankContent_ToggleButton4 {
+		z-index: 1;
+}
+#FillTankContent_ToggleButton4 {
+	img{
+	@include imageHeight(64);
+	}
+}
+#FillTankContent_ToggleButton4 {
+	svg{
+	@include imageHeight(64);
+	}
+}
+#FillTankContent_ToggleButton4 {
+		border-style: none;
+}
+#FillTankContent_ToggleButton4 {
+	&.active{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton4 {
+	&.checked{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton4 {
+	&.disabled{
+		border-style: none;
+	}
+}
+#FillTankContent_ToggleButton4 {
+	&:not(.disabled):not(.active):not(.checked){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
+#FillTankContent_ToggleButton4 {
+	&.checked:not(.active):not(.disabled){
+		background-color: rgba(255, 255, 255, 0);
+	}
+}
 #FillTankContent_ImageList1 {
-	@include elemTop(80);
+	@include elemTop(165);
 }
 #FillTankContent_ImageList1 {
 	@include elemLeft(50);
@@ -578,7 +505,7 @@
 		z-index: 1;
 }
 #FillTankContent_ImageList2 {
-	@include elemTop(80);
+	@include elemTop(165);
 }
 #FillTankContent_ImageList2 {
 	@include elemLeft(415);
@@ -593,16 +520,16 @@
 		z-index: 2;
 }
 #FillTankContent_GroupBox4 {
-	@include elemTop(8);
+	@include elemTop(84);
 }
 #FillTankContent_GroupBox4 {
-	@include elemLeft(795);
+	@include elemLeft(755);
 }
 #FillTankContent_GroupBox4 {
 	@include elemWidth(325);
 }
 #FillTankContent_GroupBox4 {
-	@include elemHeight(784);
+	@include elemHeight(528);
 }
 #FillTankContent_GroupBox4 {
 		z-index: 3;
@@ -815,170 +742,243 @@
 		background-color: rgba(255, 255, 255, 0);
 	}
 }
-#FillTankContent_GroupBox6 {
-	@include elemTop(385);
+#FillTankContent_GroupBox2 {
+	@include elemTop(247);
 }
-#FillTankContent_GroupBox6 {
-	@include elemLeft(15);
+#FillTankContent_GroupBox2 {
+	@include elemLeft(16);
 }
-#FillTankContent_GroupBox6 {
-	@include elemWidth(290);
+#FillTankContent_GroupBox2 {
+	@include elemWidth(289);
 }
-#FillTankContent_GroupBox6 {
-	@include elemHeight(191);
+#FillTankContent_GroupBox2 {
+	@include elemHeight(210);
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 		z-index: 1;
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 		border-width: 3px;
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 	> .header{
 		border-width: 3px;
 	}
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 	@include border-radius(10px);
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 		border-color: rgba(30, 176, 173, 1);
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 	> .header{
 		border-color: rgba(30, 176, 173, 1);
 	}
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 		border-style: outset;
 }
-#FillTankContent_GroupBox6 {
+#FillTankContent_GroupBox2 {
 	> .header{
 		border-bottom-style: outset;
 	}
 }
-#FillTankContent_ButtonBar2 {
-	@include elemTop(12);
+#FillTankContent_NumericOutput1 {
+	@include elemTop(15);
 }
-#FillTankContent_ButtonBar2 {
+#FillTankContent_NumericOutput1 {
 	@include elemLeft(8);
 }
-#FillTankContent_ButtonBar2 {
-	@include elemWidth(269);
+#FillTankContent_NumericOutput1 {
+	@include elemAutoWidth(125);
 }
-#FillTankContent_ButtonBar2 {
-	@include elemHeight(131);
+#FillTankContent_NumericOutput1 {
+	@include elemAutoHeight(40);
 }
-#FillTankContent_ButtonBar2 {
+#FillTankContent_NumericOutput1 {
 		z-index: 0;
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_NumericOutput1 {
+		border-width: 2px;
+}
+#FillTankContent_NumericOutput1 {
+	@include border-radius(5px);
+}
+#FillTankContent_NumericOutput1 {
+		background-color: rgba(245, 245, 245, 1);
+}
+#FillTankContent_NumericOutput1 {
+		border-style: outset;
+}
+#FillTankContent_NumericOutput1 {
+	input{
+	@include text-alignment(left);
+	}
+}
+#FillTankContent_Label1 {
+	@include elemAutoHeight(30);
+}
+#FillTankContent_Label1 {
+	@include elemTop(16);
+}
+#FillTankContent_Label1 {
+	@include elemLeft(139);
+}
+#FillTankContent_Label1 {
+	@include elemAutoWidth(86);
+}
+#FillTankContent_Label1 {
+		z-index: 1;
+}
+#FillTankContent_NumericInput1 {
+	@include elemTop(58);
+}
+#FillTankContent_NumericInput1 {
+	@include elemLeft(9);
+}
+#FillTankContent_NumericInput1 {
+	@include elemAutoWidth(125);
+}
+#FillTankContent_NumericInput1 {
+	@include elemAutoHeight(40);
+}
+#FillTankContent_NumericInput1 {
+		z-index: 2;
+}
+#FillTankContent_NumericInput1 {
+	@include border-radius(5px);
+}
+#FillTankContent_NumericInput1 {
+	input{
+	@include text-alignment(left);
+	}
+}
+#FillTankContent_Label2 {
+	@include elemAutoHeight(30);
+}
+#FillTankContent_Label2 {
+	@include elemTop(63);
+}
+#FillTankContent_Label2 {
+	@include elemLeft(139);
+}
+#FillTankContent_Label2 {
+	@include elemAutoWidth(96);
+}
+#FillTankContent_Label2 {
+		z-index: 3;
+}
+#FillTankContent_Label2 {
+	@include text-alignment-all('left');
+}
+#FillTankContent_ToggleSwitch3 {
+	@include elemTop(114);
+}
+#FillTankContent_ToggleSwitch3 {
+	@include elemLeft(8);
+}
+#FillTankContent_ToggleSwitch3 {
+	@include elemAutoWidth(130);
+}
+#FillTankContent_ToggleSwitch3 {
+	@include elemAutoHeight(50);
+}
+#FillTankContent_ToggleSwitch3 {
+		z-index: 4;
+}
+#FillTankContent_ToggleSwitch3 {
+	@include border-radius(5px);
+}
+#FillTankContent_ToggleSwitch3 {
+	.breaseToggleSwitch_toggle{
+	@include border-radius(5px - 2px);
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	&.checked:not(.disabled){
+	background-color: rgba(255, 215, 0, 1);
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	&.checked:not(.disabled) .wrapper .before{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	&.checked:not(.disabled) .wrapper .after{
+		color: rgba(0, 0, 0, 1);
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	.wrapper .before{
+		font-size: 15px;
+	}
+}
+#FillTankContent_ToggleSwitch3 {
+	.wrapper .after{
+		font-size: 15px;
+	}
+}
+#FillTankContent_ToggleButton5 {
 	@include elemAutoWidth(100);
 }
-#FillTankContent_ToggleButton3 {
-	@include elemTop(28);
+#FillTankContent_ToggleButton5 {
+	@include elemTop(94);
 }
-#FillTankContent_ToggleButton3 {
-	@include elemLeft(24);
+#FillTankContent_ToggleButton5 {
+	@include elemLeft(174);
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	@include elemAutoHeight(76);
 }
-#FillTankContent_ToggleButton3 {
-		z-index: 0;
+#FillTankContent_ToggleButton5 {
+		z-index: 5;
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	img{
 	@include imageHeight(64);
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	svg{
 	@include imageHeight(64);
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 		border-style: none;
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	&.active{
 		border-style: none;
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	&.checked{
 		border-style: none;
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	&.disabled{
 		border-style: none;
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	&:not(.disabled):not(.active):not(.checked){
 		background-color: rgba(255, 255, 255, 0);
 	}
 }
-#FillTankContent_ToggleButton3 {
+#FillTankContent_ToggleButton5 {
 	&.active:not(.disabled):not(.editMode){
 		background-color: rgba(255, 255, 255, 0);
 	}
 }
-#FillTankContent_ToggleButton3 {
-	&.checked:not(.active):not(.disabled){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#FillTankContent_ToggleButton4 {
-	@include elemAutoWidth(100);
-}
-#FillTankContent_ToggleButton4 {
-	@include elemTop(28);
-}
-#FillTankContent_ToggleButton4 {
-	@include elemLeft(143);
-}
-#FillTankContent_ToggleButton4 {
-	@include elemAutoHeight(76);
-}
-#FillTankContent_ToggleButton4 {
-		z-index: 1;
-}
-#FillTankContent_ToggleButton4 {
-	img{
-	@include imageHeight(64);
-	}
-}
-#FillTankContent_ToggleButton4 {
-	svg{
-	@include imageHeight(64);
-	}
-}
-#FillTankContent_ToggleButton4 {
-		border-style: none;
-}
-#FillTankContent_ToggleButton4 {
-	&.active{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton4 {
-	&.checked{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton4 {
-	&.disabled{
-		border-style: none;
-	}
-}
-#FillTankContent_ToggleButton4 {
-	&:not(.disabled):not(.active):not(.checked){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#FillTankContent_ToggleButton4 {
+#FillTankContent_ToggleButton5 {
 	&.checked:not(.active):not(.disabled){
 		background-color: rgba(255, 255, 255, 0);
 	}

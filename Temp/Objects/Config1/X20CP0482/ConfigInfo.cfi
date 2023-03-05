@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.12.2.93"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
 <ConfigInfo xmlns="http://br-automation.co.at/AS/BuildInfo">
   <TaskClass
     Name="Cyclic#1">
@@ -79,20 +79,6 @@
         Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\FillHLT.st.var" />
       <InternalFile
         Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\FillingTan\FillMash.st.var" />
-    </Task>
-    <Task
-      Name="Fermenting"
-      Disable="false"
-      Source="Fermenting.Fermenting"
-      Language="IEC">
-      <InternalFile
-        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\Fermenting\Main.st.var" />
-      <File
-        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\Fermenting\Fermenting\Types.typ" />
-      <File
-        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\Fermenting\Fermenting\Variables.var" />
-      <InternalFile
-        Path="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\Objects\Config1\X20CP0482\Fermenting\ChillerControl.st.var" />
     </Task>
   </TaskClass>
   <TaskClass

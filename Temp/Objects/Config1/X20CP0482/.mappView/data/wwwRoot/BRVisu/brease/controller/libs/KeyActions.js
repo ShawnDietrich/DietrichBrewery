@@ -11,6 +11,8 @@ define(['brease/enum/Enum'], function (Enum) {
         'Escape': [Enum.KeyAction.Cancel, Enum.KeyAction.Close],
         'ArrowDown': [Enum.KeyAction.ScrollDown],
         'ArrowUp': [Enum.KeyAction.ScrollUp],
+        'ArrowRight': [Enum.KeyAction.ScrollRight],
+        'ArrowLeft': [Enum.KeyAction.ScrollLeft],
         'PageDown': [Enum.KeyAction.ScrollDownFast],
         'PageUp': [Enum.KeyAction.ScrollUpFast]
     };

@@ -1181,7 +1181,7 @@
  1316: Virtual Encoder: Extrapolation time for actual position filter
  1317: Encoder1: Commutation offset
  1318: Encoderless control: Parameter-ID Transition
- 1319: INTERNAL1319
+ 1319: Status: Cyclic communication network error
  1320: Virtual Encoder: Mode
  1321: Virtual Encoder: Actual position per revolution
  1322: Virtual Encoder: Actual position
@@ -1387,6 +1387,7 @@
  1522: INTERNAL1522
  1523: INTERNAL1523
  1524: INTERNAL1524
+ 1525: INTERNAL1525
  1528: Encoder2: Diagnosis 2
  1529: Encoder2: Diagnosis 3
  1530: Encoder3: Diagnosis 2
@@ -1497,8 +1498,8 @@
  1640: INTERNAL1640
  1641: Motor: Maximum permissible DC bus voltage
  1642: INTERNAL1642
- 1643: INTERNAL1643
- 1644: INTERNAL1644
+ 1643: Cyclic communication: Network error reaction
+ 1644: Cyclic communication: Delay time of network error reaction
  1645: Encoder2: Compensation: Mode
  1646: Encoder2: Data: Index
  1647: Encoder2: Data: Parameter A0
@@ -1559,6 +1560,16 @@
  1705: INTERNAL1705
  1706: Motor: Temperature model: Reference sensor: Temperature offset
  1707: Motor: Temperature model: Reference sensor: Time constant
+ 1708: Movement stop: Deceleration after drive error
+ 1709: CTRL Speed: Dead zone for actual speed
+ 1710: Motor holding brake: Permitted friction work
+ 1711: Motor holding brake: Wear monitoring: Friction revolutions
+ 1712: Motor holding brake: Wear monitoring: Ignored friction revolutions
+ 1713: Motor holding brake: Wear monitoring: Friction revolutions: Limit value
+ 1714: Homing: Positive Torque limit
+ 1715: Homing: Negative Torque limit
+ 1716: CTRL Position controller: Set position fractional part
+ 1717: VAX: Position fractional part
  3072: FB LOGIC: Mode
  3080: FB LOGIC: Parameter ID of input1
  3088: FB LOGIC: Parameter ID of input2
@@ -2178,7 +2189,6 @@
 63685: INTERNAL63685
 63686: INTERNAL63686
 63687: INTERNAL63687
-63688: INTERNAL63688
 63689: INTERNAL63689
 63690: Motor: Temperature model: Temperature
 63691: Motor: Temperature model: Stop limit
@@ -2298,6 +2308,8 @@
 63820: INTERNAL63820
 63821: INTERNAL63821
 63822: INTERNAL63822
+63830: INTERNAL63830
+63831: INTERNAL63831
 63879: CTRL Controller: Configuration: Index of parameter record
 63880: CTRL Position controller: Actual position of shuttle on segment
 63881: INTERNAL63881

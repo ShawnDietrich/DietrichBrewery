@@ -23,8 +23,8 @@ define(['brease/core/Utils'], function (Utils) {
         minimumIntegerDigits: 1,
         maximumIntegerDigits: 8,
         separators: {
-            dsp: '.',
-            gsp: ','
+            dsp: '.', // decimal separator = string that separates a number from the fractional portion, as in 1.99
+            gsp: ',' // group separator = string that separates number groups, as in 1,000,000
         }
     };
 

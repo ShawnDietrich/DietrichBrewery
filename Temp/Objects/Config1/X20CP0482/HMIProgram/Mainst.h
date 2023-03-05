@@ -66,3 +66,19 @@ typedef struct {
 } _4byte_bit_field_;
 #endif
 
+struct TON
+{	plctime PT;
+	plctime ET;
+	plctime StartTime;
+	unsigned long Restart;
+	plcbit IN;
+	plcbit Q;
+	plcbit M;
+};
+_BUR_PUBLIC void TON(struct TON* inst);
+_BUR_LOCAL struct TON FlashOn;
+_BUR_LOCAL struct TON FlashOff;
+_BUR_LOCAL plcbit SlienceVis;
+_BUR_LOCAL plcbit SlienceBtn;
+_GLOBAL plcbit Buzzer;
+_LOCAL plcbit Edge0000100000;

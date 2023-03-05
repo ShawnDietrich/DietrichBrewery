@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.12.2.93"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
 <ProjectOptions
   IecNamingConventions="true"
   IecKeywordsAsStructureMembers="false"
   IecExtendedConstants="true"
   LogicalDirectory="C:\Repos\DietrichBrewery\DietrichBrewery\Logical\"
   TempDirectory="C:\Repos\DietrichBrewery\DietrichBrewery\Temp\"
-  AutomationStudioVersion="4.12.2.93"
+  AutomationStudioVersion="4.12.3.127 SP"
   AutomationStudioEdition="Standard"
   BuildCrossReference="false"
   ActiveConfiguration="Config1"

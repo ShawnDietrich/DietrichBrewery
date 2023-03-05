@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version="4.12.2.93"?>
+<?AutomationStudio Version="4.12.3.127 SP"?>
 <LibraryInfos>
   <Library
     Name="Acp10man"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="Acp10par"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="AsARCfg"
     IsDeployed="true"
@@ -84,25 +84,25 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.1" />
+    Version="5.19.0" />
   <Library
     Name="MpBase"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MpTemp"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MTBasics"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.0" />
+    Version="5.19.0" />
   <Library
     Name="MTTypes"
     IsDeployed="true"
@@ -114,7 +114,7 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="5.16.2" />
+    Version="5.19.1" />
   <Library
     Name="operator"
     IsDeployed="false"

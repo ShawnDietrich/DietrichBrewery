@@ -1,4 +1,7 @@
 VAR
+	HLTFillLevel : REAL;
+	MashFillLevel : REAL;
+	ValveTmr : TON;
 	AutoFillMash : ValveControl;
 	AutoFillHLT : ValveControl;
 	MashImgCont : INT;

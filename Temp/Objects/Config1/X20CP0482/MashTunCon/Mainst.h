@@ -532,8 +532,6 @@ typedef enum ControlState
 {	Stop = 0,
 	Manual = 1,
 	Automatic = 2,
-	SimManual = 3,
-	SimAuto = 4,
 } ControlState;
 #endif
 
@@ -621,6 +619,7 @@ _BUR_LOCAL plcstring HrRe[5];
 _BUR_LOCAL plcstring MinRe[5];
 _BUR_LOCAL plcstring SecRe[5];
 _GLOBAL MashToHLT FromMashCyc;
+_GLOBAL plcbit Buzzer;
 _GLOBAL plcbit MashPump;
 _GLOBAL signed short rawMashTemp;
 _GLOBAL MpComIdentType Cfg_MashTemp_simulated;

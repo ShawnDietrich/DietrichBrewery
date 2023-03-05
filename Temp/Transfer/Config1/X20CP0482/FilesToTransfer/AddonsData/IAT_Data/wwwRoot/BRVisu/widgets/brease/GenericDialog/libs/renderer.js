@@ -91,7 +91,10 @@ define([
             if (dialogWidget.content !== undefined && dialogWidget.content !== null) {
                 for (var i = 0; i < dialogWidget.content.length; i += 1) {
                     dialogWidget.content[i].id = dialogWidget.id.split('_')[0] + '_' + dialogWidget.content[i].name;
-                    finalElem.append(this.createWidgetElem(dialogWidget.content[i], true));
+                    var dialogElem = this.createWidgetElem(dialogWidget.content[i], true);
+                    if (dialogElem !== null) {
+                        finalElem.appendChild(dialogElem);
+                    }
                 }
             }
             return finalElem;

@@ -1,4 +1,4 @@
-/* acp10par.h V5.16.2 */ 
+/* acp10par.h V5.19.1 */ 
 /* COPYRIGHT (C) B&R Industrial Automation GmbH */ 
 
 #ifndef ACP10PAR_H_ 
@@ -1026,6 +1026,7 @@
 #define ACP10PAR_ENCOD0_S_FILTER_TE        1316 /* (REAL) Virtual Encoder: Extrapolation time for actual position filter [s] */
 #define ACP10PAR_ENCOD1_COMMUT_OFFSET      1317 /* (REAL) Encoder1: Commutation offset [rad] */
 #define ACP10PAR_ELC_TRANSFER_PARID        1318 /* (UINT) Encoderless control: Parameter-ID Transition  */
+#define ACP10PAR_STAT_NETWORK_ERROR        1319 /* (UDINT) Status: Cyclic communication network error */
 #define ACP10PAR_ENCOD0_MODE               1320 /* (UDINT) Virtual Encoder: Mode */
 #define ACP10PAR_ENCOD0_POS_ACT            1321 /* (DINT) Virtual Encoder: Actual position per revolution [Incr] */
 #define ACP10PAR_ENCOD0_S_ACT              1322 /* (DINT) Virtual Encoder: Actual position [Units] */
@@ -1254,6 +1255,8 @@
 #define ACP10PAR_ENCOD2_OUTPUT_FREQUENCY   1636 /* (UDINT) Encoder2: Maximal expected output frequency [Hz] */
 #define ACP10PAR_TCTRANS_MODE              1637 /* (UINT) Torque Current Transformation: Mode */
 #define ACP10PAR_MOTOR_UDC_MAX             1641 /* (REAL) Motor: Maximum permissible DC bus voltage [V] */
+#define ACP10PAR_CYC_NETW_ERR_REACTION     1643 /* (UINT) Cyclic communication: Network error reaction */
+#define ACP10PAR_CYC_NETW_ERR_T_DELAY      1644 /* (REAL) Cyclic communication: Delay time of network error reaction [s] */
 #define ACP10PAR_ENCOD2_COMP_MODE          1645 /* (UINT) Encoder2: Compensation: Mode */
 #define ACP10PAR_ENCOD2_DAT_IDX            1646 /* (DINT) Encoder2: Data: Index */
 #define ACP10PAR_ENCOD2_DAT_A0             1647 /* (REAL) Encoder2: Data: Parameter A0 */
@@ -1299,6 +1302,16 @@
 #define ACP10PAR_GEARBOX_TORQ_LIM          1696 /* (REAL) Motor gearbox: Output torque limiter: Limit [Nm] */
 #define ACP10PAR_MOTOR_TEMPMODEL_REF_OFF   1706 /* (REAL) Motor: Temperature model: Reference sensor: Temperature offset [°C] */
 #define ACP10PAR_MOTOR_TEMPMODEL_REF_TAU   1707 /* (REAL) Motor: Temperature model: Reference sensor: Time constant [s] */
+#define ACP10PAR_STOP_ERR_A2               1708 /* (REAL) Movement stop: Deceleration after drive error [Units/s²] */
+#define ACP10PAR_SCTRL_SPEED_ACT_DZONE     1709 /* (REAL) CTRL Speed: Dead zone for actual speed [Hz] */
+#define ACP10PAR_MOTOR_BRAKE_FRICWRK_LIM   1710 /* (REAL) Motor holding brake: Permitted friction work [J] */
+#define ACP10PAR_BRAKE_WEARMON_REVO        1711 /* (REAL) Motor holding brake: Wear monitoring: Friction revolutions [Rev.] */
+#define ACP10PAR_BRAKE_WEARMON_REVO_IGN    1712 /* (REAL) Motor holding brake: Wear monitoring: Ignored friction revolutions [Rev.] */
+#define ACP10PAR_BRAKE_WEARMON_REVO_LIM    1713 /* (REAL) Motor holding brake: Wear monitoring: Friction revolutions: Limit value [Rev.] */
+#define ACP10PAR_HOMING_TORQUE_LIM_POS     1714 /* (REAL) Homing: Positive Torque limit [Nm] */
+#define ACP10PAR_HOMING_TORQUE_LIM_NEG     1715 /* (REAL) Homing: Negative Torque limit [Nm] */
+#define ACP10PAR_PCTRL_S_SET_FRAC          1716 /* (REAL) CTRL Position controller: Set position fractional part [Units] */
+#define ACP10PAR_S_SET_FRAC_VAX1           1717 /* (REAL) VAX: Position fractional part [Units] */
 #define ACP10PAR_LOGIC_MODE                3072 /* (UINT) FB LOGIC: Mode */
 #define ACP10PAR_LOGIC_IN1_PARID           3080 /* (UINT) FB LOGIC: Parameter ID of input1 */
 #define ACP10PAR_LOGIC_IN2_PARID           3088 /* (UINT) FB LOGIC: Parameter ID of input2 */

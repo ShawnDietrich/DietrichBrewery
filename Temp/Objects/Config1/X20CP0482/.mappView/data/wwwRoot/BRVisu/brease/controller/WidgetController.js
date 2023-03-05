@@ -179,7 +179,7 @@ function (Utils, factoryUtils, Enum, BreaseEvent, Queue, WidgetModel) {
                 if (target !== null) {
                     _stopActQueues(target);
 
-                    var widgetIds = controller.getWidgetsOfContent(contentId, Enum.WidgetState.FAILED), //minimal state is lowest state => get all widgets
+                    var widgetIds = controller.getWidgetsOfContent(contentId, Enum.WidgetState.ABORTED), //minimal state is lowest state => get all widgets
                         state, suspendedState;
 
                     for (var i = 0, l = widgetIds.length; i < l; i += 1) {
@@ -485,8 +485,18 @@ function (Utils, factoryUtils, Enum, BreaseEvent, Queue, WidgetModel) {
         return ids;
     }
 
+    function _isGetter(methodName) {
+        return Utils.isString(methodName) && methodName.indexOf('get') === 0;
+    }
+
     function _methodIsCallable(methodName, widgetState) {
-        return (widgetState === Enum.WidgetState.READY || widgetState === Enum.WidgetState.INITIALIZED || (widgetState === Enum.WidgetState.SUSPENDED && (methodName === 'dispose' || methodName === 'onBeforeDispose' || methodName === 'getSettings')));
+        return (widgetState === Enum.WidgetState.READY || 
+            widgetState === Enum.WidgetState.INITIALIZED || 
+            (widgetState === Enum.WidgetState.SUSPENDED && (
+                methodName === 'dispose' || 
+                methodName === 'onBeforeDispose' || 
+                _isGetter(methodName)
+            )));
     }
 
     return controller;

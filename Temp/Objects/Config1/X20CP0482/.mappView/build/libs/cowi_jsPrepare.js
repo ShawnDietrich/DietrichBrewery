@@ -93,7 +93,7 @@
                 }
                 if (prop.defaultValue !== undefined && !prop.required) {
                     var parsed = Utils.parseValueForJS(prop.defaultValue, prop.type);
-                    if (parsed !== undefined) {
+                    if (parsed !== undefined && parsed !== 'null') {
                         defaultSettings += ((defaultSettings !== '') ? ',' : '') + ctrl.lf + ctrl.tab(3) + prop.name + ': ' + parsed;
                     }
                 }

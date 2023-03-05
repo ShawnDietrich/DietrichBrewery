@@ -13,13 +13,23 @@ PROGRAM _CYCLIC
 	mProc.Status.Manual		:= NOT mProc.i.Start;
 	FromMashCyc.Start := mProc.i.Start;
 	
-	//Set the state machine
+	IF mProc.Status.Automatic THEN
+		mProc.State := Automatic;
+	ELSIF mProc.Status.Manual THEN
+		mProc.State := Manual;
+	END_IF
+	
+	//Simulate Values
 	IF  DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
-		IF mProc.Status.Automatic THEN
-			mProc.State := SimAuto;
-		ELSIF mProc.Status.Manual THEN
-			mProc.State := SimManual;
-		END_IF
+		mProc.currTemp := mProc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature;
+		mProc.TempCtrl.Ctrl.Simulate := TRUE;
+		mProc.TempCtrl.PWM.Enable := FALSE;
+		mProc.TempCtrl.Ctrl.Enable := TRUE;
+		mProc.TempCtrl.Ctrl.SetTemperature := mProc.SetTemp;
+		mProc.TempCtrl.Ctrl.Control := mProc.i.Start;
+	ELSE 
+		mProc.currTemp := rawMashTemp / 1000;
+		mProc.TempCtrl.Ctrl.Simulate := FALSE;
 	END_IF 
 
 	//Turn off pump when switching auto and manual
@@ -33,21 +43,13 @@ PROGRAM _CYCLIC
 	
 	CASE mProc.State OF 
 		
-		SimManual:
+		Manual:
 			//Figure out how to simulate the temperature
 			mProc.currTemp := rawMashTemp / 1000;
 			PumpExp := pbMashPump;
 			
-		SimAuto:
-			//mProc.currTemp := rawMashTemp / 1000;
-			
-			//Simulate temperature
-			mProc.TempCtrl.PWM.Enable := FALSE;
-			mProc.TempCtrl.Ctrl.Enable := TRUE;
-			mProc.TempCtrl.Ctrl.Simulate := TRUE;
-			mProc.currTemp := mProc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature;
-			mProc.TempCtrl.Ctrl.SetTemperature := mProc.SetTemp;
-			mProc.TempCtrl.Ctrl.Control := mProc.i.Start;
+		Automatic:
+
 			//Set parameters
 			FromMashCyc.HLTTemp := mProc.SetTemp + 3;
 			pbMashPump := PumpExp;
@@ -58,42 +60,40 @@ PROGRAM _CYCLIC
 			ELSE
 				PumpExp	:= TRUE;
 			END_IF 
-			
-			//Mash timer 
-			MashTmr.PT := DINT_TO_TIME(TimePre*60000);
-			//Start Mash Timer 
-			MashTmr.IN := StartMash;
-			
-			//Calculate and display the remaining time
-			TIME_TO_TIMEStructure((MashTmr.PT - MashTmr.ET), ADR(TmrDT));
-			HrRe 	:= USINT_TO_STRING(TmrDT.hour);
-			MinRe 	:= USINT_TO_STRING(TmrDT.minute);
-			SecRe	:= USINT_TO_STRING(TmrDT.second);
-			TmrRemain := CONCAT(HrRe, ':');
-			TmrRemain := CONCAT(TmrRemain, MinRe);
-			TmrRemain := CONCAT(TmrRemain,':');
-			TmrRemain := CONCAT(TmrRemain, SecRe);
-		
-			
-			//Mash Time is Done Rest Everything
-			IF MashTmr.Q THEN
-				StartMash := FALSE;
-				mProc.i.Start := FALSE;
-			END_IF
-			
-			//call simulated FUB
-			mProc.TempCtrl.Ctrl();
-			mProc.TempCtrl.PWM();
-				
-		Manual:
-		
-			mProc.currTemp := rawMashTemp / 1000;
 		
 	END_CASE 
-		
+	
+	//Mash timer 
+	MashTmr.PT := DINT_TO_TIME(TimePre*60000);
+	MashTmr.IN := StartMash;
+	
+	//Mash Time is Done Rest Everything
+	IF MashTmr.Q THEN
+		StartMash := FALSE;
+		mProc.i.Start := FALSE;
+		Buzzer := TRUE;
+	END_IF
+	
+	//Calculate and display the remaining time
+	TIME_TO_TIMEStructure((MashTmr.PT - MashTmr.ET), ADR(TmrDT));
+	HrRe 	:= USINT_TO_STRING(TmrDT.hour);
+	MinRe 	:= USINT_TO_STRING(TmrDT.minute);
+	SecRe	:= USINT_TO_STRING(TmrDT.second);
+	TmrRemain := CONCAT(HrRe, ':');
+	TmrRemain := CONCAT(TmrRemain, MinRe);
+	TmrRemain := CONCAT(TmrRemain,':');
+	TmrRemain := CONCAT(TmrRemain, SecRe);
+	
+	//HMI Control
 	MashPump := PumpExp;
 	
+	//Call Function Blocks
 	MashTmr();
+	
+	//call simulated FUB
+	mProc.TempCtrl.Ctrl();
+	mProc.TempCtrl.PWM();
+	
 END_PROGRAM
 
 PROGRAM _EXIT

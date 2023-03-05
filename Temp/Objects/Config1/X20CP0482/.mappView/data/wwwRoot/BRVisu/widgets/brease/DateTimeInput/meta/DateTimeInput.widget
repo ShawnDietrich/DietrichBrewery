@@ -8,6 +8,7 @@
 		<Dependencies>
 			<Files>
 				<File>brease/core/BaseWidget.js</File>
+				<File>widgets/brease/DateTimeInput/libs/FocusHandler.js</File>
 				<File>brease/decorators/CultureDependency.js</File>
 				<File>brease/enum/Enum.js</File>
 				<File>widgets/brease/DateTimePicker/DateTimePicker.js</File>
@@ -214,7 +215,7 @@
 			<Property name="submitOnChange" type="Boolean" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="true">
 				<Description>Determines if changes, triggered by user input, should be sent immediately to the server.</Description>
 			</Property>
-			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="-1">
+			<Property name="tabIndex" type="Integer" initOnly="true" localizable="false" editableBinding="false" readOnly="false" required="false" projectable="true" category="Behavior" defaultValue="0">
 				<Description>sets if a widget should have autofocus enabled (0), the order of the focus (&gt;0),
 or if autofocus should be disabled (-1)				</Description>
 			</Property>
@@ -229,12 +230,12 @@ or if autofocus should be disabled (-1)				</Description>
 			</Property>
 		</Properties>
 		<StyleProperties>
-			<StyleProperty name="width" type="Size" not_styleable="true" owner="widgets.brease.DateTimeInput" category="Layout" groupRefId="Size" groupOrder="1" default="250">
-				<StyleElement attribute="@include elemWidth($value)"/>
+			<StyleProperty name="width" type="AutoSize" not_styleable="true" owner="widgets.brease.DateTimeInput" category="Layout" groupRefId="Size" groupOrder="1" default="250">
+				<StyleElement attribute="@include elemAutoWidth($value)"/>
 				<Description>outer width of widget</Description>
 			</StyleProperty>
-			<StyleProperty name="height" type="Size" not_styleable="true" owner="widgets.brease.DateTimeInput" category="Layout" groupRefId="Size" groupOrder="2" default="30">
-				<StyleElement attribute="@include elemHeight($value)"/>
+			<StyleProperty name="height" type="AutoSize" not_styleable="true" owner="widgets.brease.DateTimeInput" category="Layout" groupRefId="Size" groupOrder="2" default="30">
+				<StyleElement attribute="@include elemAutoHeight($value)"/>
 				<Description>outer height of widget</Description>
 			</StyleProperty>
 			<StyleProperty name="top" type="Integer" not_styleable="true" owner="brease.core.BaseWidget" category="Layout" groupRefId="Position" groupOrder="1">
@@ -250,6 +251,22 @@ or if autofocus should be disabled (-1)				</Description>
 				<Description>The zIndex property specifies the z-order of a widget and its childs.&lt;br/&gt;
         When widgets overlap, z-order determines which one covers the other. A widget with a larger zIndex generally covers a widget with a lower one.&lt;br/&gt;
         The zIndex must be unique within a content.&lt;br/&gt;				</Description>
+			</StyleProperty>
+			<StyleProperty name="minWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="3">
+				<StyleElement attribute="@include elemMinWidth($value)"/>
+				<Description>minimum outer width of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="maxWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="4">
+				<StyleElement attribute="@include elemMaxWidth($value)"/>
+				<Description>maximum outer width of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="minHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="5">
+				<StyleElement attribute="@include elemMinHeight($value)"/>
+				<Description>minimum outer height of widget</Description>
+			</StyleProperty>
+			<StyleProperty name="maxHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="6">
+				<StyleElement attribute="@include elemMaxHeight($value)"/>
+				<Description>maximum outer height of widget</Description>
 			</StyleProperty>
 			<StyleProperty name="borderWidth" category="Appearance" type="PixelValCollection" default="2px 6px 2px 2px">
 				<StyleElement selector="&amp;:not(.disabled):not(.active)" attribute="border-width"/>

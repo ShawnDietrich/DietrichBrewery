@@ -3,7 +3,7 @@
 }
 
 #NavContent_NavigationButton2 {
-  top: 349px;
+  top: 398px;
   position: absolute;
 }
 
@@ -76,84 +76,6 @@
   border-color: silver;
 }
 
-#NavContent_NavigationButton3 {
-  width: 100px;
-}
-
-#NavContent_NavigationButton3 {
-  top: 518px;
-  position: absolute;
-}
-
-#NavContent_NavigationButton3 {
-  left: 9px;
-  position: absolute;
-}
-
-#NavContent_NavigationButton3 {
-  height: 100px;
-}
-
-#NavContent_NavigationButton3 {
-  z-index: 2;
-}
-
-#NavContent_NavigationButton3 img {
-  height: 64px;
-}
-
-#NavContent_NavigationButton3 svg {
-  height: 64px;
-}
-
-#NavContent_NavigationButton3 {
-  border-style: solid;
-}
-
-#NavContent_NavigationButton3.active {
-  border-style: solid;
-}
-
-#NavContent_NavigationButton3.checked {
-  border-style: solid;
-}
-
-#NavContent_NavigationButton3.disabled {
-  border-style: solid;
-}
-
-#NavContent_NavigationButton3:not(.active):not(.checked) {
-  border-width: 1px;
-}
-
-#NavContent_NavigationButton3.disabled {
-  border-width: 1px;
-}
-
-#NavContent_NavigationButton3 {
-  border-radius: 5px;
-}
-
-#NavContent_NavigationButton3:not(.disabled):not(.active):not(.checked) {
-  background-color: rgba(255, 255, 255, 0);
-}
-
-#NavContent_NavigationButton3:not(.disabled):not(.checked) {
-  border-color: black;
-}
-
-#NavContent_NavigationButton3.active:not(.disabled):not(.editMode) {
-  background-color: silver;
-}
-
-#NavContent_NavigationButton3.checked:not(.active):not(.disabled) {
-  background-color: silver;
-}
-
-#NavContent_NavigationButton3.checked:not(.active):not(.disabled) {
-  border-color: silver;
-}
-
 #NavContent_GroupBox1 {
   top: 2px;
   position: absolute;
@@ -169,7 +91,7 @@
 }
 
 #NavContent_GroupBox1 {
-  height: 796px;
+  height: 696px;
 }
 
 #NavContent_GroupBox1 {
@@ -197,7 +119,7 @@
 }
 
 #NavContent_NavigationButton1 {
-  top: 176px;
+  top: 201px;
   position: absolute;
 }
 
@@ -348,80 +270,80 @@
   border-color: silver;
 }
 
-#NavContent_NavigationButton4 {
+#NavContent_NavigationButton3 {
   width: 100px;
 }
 
-#NavContent_NavigationButton4 {
-  top: 684px;
+#NavContent_NavigationButton3 {
+  top: 589px;
   position: absolute;
 }
 
-#NavContent_NavigationButton4 {
-  left: 7px;
+#NavContent_NavigationButton3 {
+  left: 8px;
   position: absolute;
 }
 
-#NavContent_NavigationButton4 {
+#NavContent_NavigationButton3 {
   height: 100px;
 }
 
-#NavContent_NavigationButton4 {
+#NavContent_NavigationButton3 {
   z-index: 2;
 }
 
-#NavContent_NavigationButton4 img {
+#NavContent_NavigationButton3 img {
   height: 64px;
 }
 
-#NavContent_NavigationButton4 svg {
+#NavContent_NavigationButton3 svg {
   height: 64px;
 }
 
-#NavContent_NavigationButton4 {
+#NavContent_NavigationButton3 {
   border-style: solid;
 }
 
-#NavContent_NavigationButton4.active {
+#NavContent_NavigationButton3.active {
   border-style: solid;
 }
 
-#NavContent_NavigationButton4.checked {
+#NavContent_NavigationButton3.checked {
   border-style: solid;
 }
 
-#NavContent_NavigationButton4.disabled {
+#NavContent_NavigationButton3.disabled {
   border-style: solid;
 }
 
-#NavContent_NavigationButton4:not(.active):not(.checked) {
+#NavContent_NavigationButton3:not(.active):not(.checked) {
   border-width: 1px;
 }
 
-#NavContent_NavigationButton4.disabled {
+#NavContent_NavigationButton3.disabled {
   border-width: 1px;
 }
 
-#NavContent_NavigationButton4 {
+#NavContent_NavigationButton3 {
   border-radius: 5px;
 }
 
-#NavContent_NavigationButton4:not(.disabled):not(.active):not(.checked) {
+#NavContent_NavigationButton3:not(.disabled):not(.active):not(.checked) {
   background-color: rgba(255, 255, 255, 0);
 }
 
-#NavContent_NavigationButton4:not(.disabled):not(.checked) {
+#NavContent_NavigationButton3:not(.disabled):not(.checked) {
   border-color: black;
 }
 
-#NavContent_NavigationButton4.active:not(.disabled):not(.editMode) {
+#NavContent_NavigationButton3.active:not(.disabled):not(.editMode) {
   background-color: silver;
 }
 
-#NavContent_NavigationButton4.checked:not(.active):not(.disabled) {
+#NavContent_NavigationButton3.checked:not(.active):not(.disabled) {
   background-color: silver;
 }
 
-#NavContent_NavigationButton4.checked:not(.active):not(.disabled) {
+#NavContent_NavigationButton3.checked:not(.active):not(.disabled) {
   border-color: silver;
 }

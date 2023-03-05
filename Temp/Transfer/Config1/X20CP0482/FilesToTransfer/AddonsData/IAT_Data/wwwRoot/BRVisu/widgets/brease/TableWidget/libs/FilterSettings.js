@@ -140,8 +140,8 @@ define([
      * the current row with one. 
      */
     p._addRow = function () {
-        var row = this._createRow(this.currRow);      
-        
+        var row = this._createRow(this.currRow);
+
         for (var i = 0; i < row.length; i += 1) {
             if (i !== this.config.children.logic_op_next_row || this.currRow !== 0) {
                 this.dialog.addWidget(row[i]);
@@ -155,6 +155,8 @@ define([
         this.config.rows.push({ widgets: row });
 
         this.currRow += 1;
+
+        _setTabIndex.call(this);
     };
 
     /**
@@ -169,15 +171,18 @@ define([
 
         //Create a new row with positional value where this one is
         var row = this._createRow(clickedRow);
-        
+
         //Instatiate logical operator from resting first row
         if (clickedRow === 0) {
+            if (this.config.rows[clickedRow].widgets[this.config.children.logic_op_next_row].id === '') {
+                this.config.rows[clickedRow].widgets[this.config.children.logic_op_next_row].id = this._generateLogicalOperatorWidgetId();
+            }
             this.dialog.addWidget(this.config.rows[clickedRow].widgets[this.config.children.logic_op_next_row]);
         }
 
         //Move all the widgets to their new respective positions
         this._moveRow(clickedRow, false);
-        
+
         //Instatiate new row
         for (var i = 0; i < row.length; i += 1) {
             if (!(i === this.config.children.logic_op_next_row && clickedRow === 0)) {
@@ -192,9 +197,14 @@ define([
 
         //splice new row into position in row configuration
         this.config.rows.splice(clickedRow, 0, { widgets: row });
-        
+
         //Increase currRow by one
         this.currRow += 1;
+        _setTabIndex.call(this);
+    };
+
+    p._generateLogicalOperatorWidgetId = function () {
+        return 'Dropdown_Logical_Filter_' + Utils.uniqueID();
     };
 
     /**
@@ -236,6 +246,8 @@ define([
             this.dialog.addWidget(row[i]);
         }
         this.config.rows[currRow].widgets = this.config.rows[currRow].widgets.concat(row);
+
+        _setTabIndex.call(this);
     };
 
     /**
@@ -281,12 +293,14 @@ define([
                 self.dialog.removeWidget(self.config.rows[clickedRow].widgets[self.config.children.delete_this_row]);
                 self.config.rows.splice(clickedRow, 1);
                 self.currRow -= 1;
+                _restoreFocusAfterRemove.call(self, clickedRow);
+                _setTabIndex.call(self);
             }, 0);
 
             //Inter filter operator has to be removed of the previous row
             if (clickedRow === 0 && this.config.rows[clickedRow + 1] !== undefined) {
                 this.dialog.removeWidget(this.config.rows[clickedRow + 1].widgets[this.config.children.logic_op_next_row]);
-                // this.config.rows[clickedRow + 1].widgets.splice(this.config.children.logic_op_next_row, 1);
+                this.config.rows[clickedRow + 1].widgets[this.config.children.logic_op_next_row].id = '';
             }
             
             //Move all the widgets to their new respective positions
@@ -378,7 +392,7 @@ define([
      * This method will remove eventlisteners added at start up
      */
     p.removeEventListeners = function () {
-        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
+        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
     };
 
     /**
@@ -451,11 +465,10 @@ define([
      * 
      * Next it will create the delete button first. The add button belongs to the previous row, just as this row will add it's add button to the next row.
      * Then it will add the ColumnPicker (which will display all the available columns in the widget), and an operator widget (Dropdown displaying >, <, 
-     * ==, <>, etc). Then the Add button will be placed on the new row. After that a logical filter operator (and/or) will be placed between the previous
+     * ==, <>, etc). Then value selector is created by calling the _getvalueColumn function which decides which type of widget will be used.
+     * Then the Add button will be placed on the new row. After that a logical filter operator (and/or) will be placed between the previous
      * row and this new one. Next a Rectangle widget will added below the row that will act as a separation line between two rows. Lastly, and it's very
-     * important that this happens last, the value selector (i.e. the value we want to compare to) is added. The reason it has to be added last is that
-     * it needs to be popped from the queue and readded when user changes the column type from the column selector. The value selector is created by calling
-     * the _getvalueColumn function which decides which type of widget will be used.
+     * important that this happens last, the value selector (i.e. the value we want to compare to) is added.
      * 
      * If this is very hard to grasp, which I might understand if it is, I'd recommend that you open up a dialog in the runtime and a have a look at what
      * it looks like and how it works. This is going to clear things up a lot.
@@ -476,7 +489,7 @@ define([
         row.push(this._getImage('Button_Delete_' + randomNumber, 'widgets/brease/TableWidget/assets/Delete.svg', this.config.children.left.delete_this_row, currTop));
         row.push(this._getDropDownColumn('Dropdown_ColumnPicker_' + randomNumber, this.config.children.left.column_picker, currTop, 150, obj.data));
         row.push(this._getDropDownOperator('Dropdown_Operator_' + randomNumber, this.config.children.left.operator, currTop, 85, obj.opVal));
-        
+
         //Move the new add button to the next row
         var oneRowOffset = currTop + this.config.loc.rowHeight;
         row.push(this._getImage('Button_Add_' + randomNumber, 'widgets/brease/TableWidget/assets/Add.svg', this.config.children.left.add_next_row, oneRowOffset));
@@ -500,7 +513,7 @@ define([
             data = this.tableConfig.columns[0].data;
         }
         row.push(this._getValueColumn(data, this.config.children.left.comp_value, currTop, 220, obj.comp));
-        
+
         return row;
     };
 
@@ -527,7 +540,7 @@ define([
             $('#' + this.config.rows[i].widgets[this.config.children.add_next_row].id).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
             $('#' + this.config.rows[i].widgets[this.config.children.delete_this_row].id).on(BreaseEvent.CLICK, this._bind('_removeRow'));
         }
-    
+        _setTabIndex.call(this);
     };
 
     /**
@@ -538,7 +551,7 @@ define([
      */
     p._initializeEmptyDialogConfig = function () {
         this.config.startWidgets = [];
-        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
+        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
         // First add the header for the configuration dialogue
         this.config.startWidgets.push(this._getRect('filter_rect_header', 0, 50 + this.config.loc.offset, 600));
         this.config.startWidgets.push(this._getLabel('filter_label_column', this.texts.col, 100, 20 + this.config.loc.offset, 100));
@@ -549,15 +562,23 @@ define([
         for (var i = 0; i < this.config.startWidgets.length; i += 1) {
             this.dialog.addWidget(this.config.startWidgets[i]);
         }
-
-        $('#' + this.config.startWidgets[4].id).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
+        var addButtonWidgetId = this.config.startWidgets[4].id;
+        if (brease.config.isKeyboardOperationEnabled()) {
+            brease.uiController.setWidgetPropertyIndependentOfState(addButtonWidgetId, 'tabIndex', 1);
+        }
+        $('#' + addButtonWidgetId).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
     };
 
     /**
-     * @method _addCorrectStyle
+     * @method _handleChildWidgetReady
      * @private
      * Handles the widgets when these are ready
      */
+    p._handleChildWidgetReady = function (e) {
+        this._addCorrectStyle(e);
+        this._initFocus(e);
+    };
+
     p._addCorrectStyle = function (e) {
         var type = e.target['dataset'].breaseWidget.split('/')[2], cls;
         
@@ -567,6 +588,17 @@ define([
         } else {
             cls = 'widgets_brease_' + type + '_style_tableConfigurationDialogStyle';
             e.target.classList.add(cls);
+        }
+    };
+
+    /**
+     * @method _initFocus
+     * @private
+     * Sets focus to add button when its ready
+     */
+    p._initFocus = function (e) {
+        if (e.target.id.includes('filter_button_add_0')) {
+            e.target.focus();
         }
     };
 
@@ -972,7 +1004,8 @@ define([
         image.height = '30px';
 
         image.options = {
-            image: img
+            image: img,
+            tabIndex: 0
         };
 
         return image;
@@ -1004,6 +1037,61 @@ define([
 
         return rect;
     };
+
+    function _setTabIndex() {
+        if (!brease.config.isKeyboardOperationEnabled()) {
+            return;
+        }
+        // logic operators between lines are special and need to be inserted always before a add row button
+        var logicOpIds = _getLogicalOperatorWidgetIds.call(this);
+        var tabIndex = 2;
+        this.config.rows.forEach(function (row) {
+            row.widgets.forEach(function (widget) {
+                if (isFocusableWidget(widget)) {
+                    if (widget.name.includes('Button_Add_') && logicOpIds.length > 0) {
+                        brease.uiController.setWidgetPropertyIndependentOfState(logicOpIds.shift(), 'tabIndex', tabIndex++);
+                    }
+                    brease.uiController.setWidgetPropertyIndependentOfState(widget.id, 'tabIndex', tabIndex++);
+                    if (widget.name.includes('Dropdown_Operator') && row.widgets[this.config.children.comp_value]) {
+                        var id = row.widgets[this.config.children.comp_value].id;
+                        brease.uiController.setWidgetPropertyIndependentOfState(id, 'tabIndex', tabIndex++);
+                    }
+                }
+            }, this);
+        }, this);
+        this.dialog.elem.dispatchEvent(new CustomEvent(BreaseEvent.TABINDEX_CHANGED, { bubbles: true, detail: { contentId: brease.settings.globalContent } }));
+    }
+
+    function isFocusableWidget(widget) {
+        return widget.id !== '' && !widget.name.includes('Rect') && !widget.name.includes('Dropdown_Logical') && !widget.name.includes('Value_') && widget.type !== 'widgets/brease/Label';
+    }
+
+    function _getLogicalOperatorWidgetIds() {
+        var logicOpIds = [];
+        this.config.rows.forEach(function (row) {
+            var logicOpWidget = row.widgets[this.config.children.logic_op_next_row];
+            if (logicOpWidget.id !== '') {
+                logicOpIds.push(logicOpWidget.id);
+            }
+        }, this);
+        return logicOpIds;
+    }
+
+    function _restoreFocusAfterRemove(clickedRow) {
+        if (!brease.config.isKeyboardOperationEnabled()) {
+            return;
+        }
+        var focusWidget;
+        if (clickedRow === 0) {
+            var addButtonWidgetId = this.config.startWidgets[4].id;
+            focusWidget = document.getElementById(addButtonWidgetId);
+        } else {
+            focusWidget = document.getElementById(this.config.rows[clickedRow - 1].widgets[this.config.children.add_next_row].id);
+        }
+        if (focusWidget) {
+            focusWidget.focus();
+        }
+    }
 
     return FilterClass;
 });

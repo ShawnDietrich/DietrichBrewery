@@ -169,6 +169,14 @@ define([
 
     };
 
+    p.detach = function () {
+        this.$el.detach();
+    };
+
+    p.insert = function () {
+        this.$el.appendTo('.dateTimePickerButtons');
+    };
+
     function _format(value, digits) {
         var str = value + '';
         if (str.length < digits) {

@@ -14,12 +14,6 @@ define([
      */
 
     'use strict';
-    var rAF = window.requestAnimationFrame ||
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame ||
-                    window.oRequestAnimationFrame ||
-                    window.msRequestAnimationFrame ||
-                        function (callback) { window.setTimeout(callback, 1000 / 60); };
 
     var ModuleClass = SuperClass.extend(function NativeScroller(widget) {
             SuperClass.call(this);
@@ -90,7 +84,10 @@ define([
      * This method will remove the event listener from the element
      */
     p.dispose = function () {
+        window.cancelAnimationFrame(this.internal.animationFrame);
         this.internal.elem.removeEventListener('mousedown', this._bind('_start'));
+        document.removeEventListener('mousemove', this._bind('_move'));
+        document.removeEventListener('mouseup', this._bind('_stop'));
     };
 
     /**
@@ -122,8 +119,8 @@ define([
             return;
         }
   
-        var point = e.touches ? e.touches[0] : e,
-            pos;
+        var point = e.touches ? e.touches[0] : e;
+        //pos;
   
         this.initiated = this.internal.eventType[e.type];
         this.moved = false;
@@ -136,10 +133,10 @@ define([
         this.startTime = this._getTime();
   
         if (this.internal.useTransition && this.isInTransition) {
-            this._transitionTime();
+            //this._transitionTime();
             this.isInTransition = false;
-            pos = this.getComputedPosition();
-            this._translate(Math.round(pos.x), Math.round(pos.y));
+            //pos = this.getComputedPosition();
+            //this._translate(Math.round(pos.x), Math.round(pos.y));
             this._execEvent('scrollEnd');
         } else if (!this.internal.useTransition && this.isAnimating) {
             this.isAnimating = false;
@@ -157,7 +154,7 @@ define([
         document.addEventListener('mousemove', this._bind('_move'));
         document.addEventListener('mouseup', this._bind('_stop'));
     };
-
+    
     /**
      * @method _move
      * @private
@@ -170,31 +167,63 @@ define([
         if (!this.internal.enabled || this.internal.eventType[e.type] !== this.initiated) {
             return;
         }
-
-        if (this.internal.preventDefault) { // increases performance on Android? TODO: check!
-            e.preventDefault();
-        }
-
-        var point = e.touches ? e.touches[0] : e,
+        var timestamp = this._getTime();
+        var point = getPointFromEvent(e),
             deltaX = point.pageX - this.pointX,
             deltaY = point.pageY - this.pointY,
-            timestamp = this._getTime(),
-            newX, newY,
             absDistX, absDistY;
 
         this.pointX = point.pageX;
         this.pointY = point.pageY;
-
         this.distX += deltaX;
         this.distY += deltaY;
         absDistX = Math.abs(this.distX);
         absDistY = Math.abs(this.distY);
 
-        // We need to move at least 10 pixels for the scrolling to initiate
-        if (timestamp - this.endTime > 300 && (absDistX < 10 && absDistY < 10)) {
+        if (this._movedLessThanTreshold(absDistX, absDistY)) {
             return;
         }
+        this._lockDirection(absDistX, absDistY);
 
+        if (this.directionLocked === 'h') {
+            deltaY = 0;
+        } else if (this.directionLocked === 'v') {
+            deltaX = 0;
+        }
+        deltaX = this.hasHorizontalScroll ? deltaX : 0;
+        deltaY = this.hasVerticalScroll ? deltaY : 0;
+
+        this.directionX = getDirectionFromDelta(deltaX);
+        this.directionY = getDirectionFromDelta(deltaY);
+
+        if (!this.moved) {
+            this._execEvent('scrollStart');
+        }
+        this.moved = true;
+        this._translate(deltaX, deltaY);
+
+        /* REPLACE START: _stop */
+        if (timestamp - this.startTime > 300) {
+            this.startTime = timestamp;
+            this.startX = this.x;
+            this.startY = this.y;
+        }
+    };
+
+    function getPointFromEvent(e) {
+        return e.touches ? e.touches[0] : e;
+    }
+
+    function getDirectionFromDelta(delta) {
+        return delta > 0 ? -1 : delta < 0 ? 1 : 0;
+    }
+
+    p._movedLessThanTreshold = function (absDistX, absDistY) {
+        // We need to move at least 10 pixels for the scrolling to initiate
+        return this._getTime() - this.endTime > 300 && (absDistX < 10 && absDistY < 10);
+    };
+
+    p._lockDirection = function (absDistX, absDistY) {
         // If you are scrolling in one direction lock the other
         if (!this.directionLocked && !this.internal.freeScroll) {
             if (absDistX > absDistY + this.internal.directionLockThreshold) {
@@ -204,59 +233,6 @@ define([
             } else {
                 this.directionLocked = 'n'; // no lock
             }
-        }
-
-        if (this.directionLocked === 'h') {
-            if (this.internal.eventPassthrough === 'vertical') {
-                e.preventDefault();
-            } else if (this.internal.eventPassthrough === 'horizontal') {
-                this.initiated = false;
-                return;
-            }
-
-            deltaY = 0;
-        } else if (this.directionLocked === 'v') {
-            if (this.internal.eventPassthrough === 'horizontal') {
-                e.preventDefault();
-            } else if (this.internal.eventPassthrough === 'vertical') {
-                this.initiated = false;
-                return;
-            }
-
-            deltaX = 0;
-        }
-
-        deltaX = this.hasHorizontalScroll ? deltaX : 0;
-        deltaY = this.hasVerticalScroll ? deltaY : 0;
-
-        newX = this.x + deltaX;
-        newY = this.y + deltaY;
-
-        // Slow down if outside of the boundaries
-        if (newX > 0 || newX < this.maxScrollX) {
-            newX = this.internal.bounce ? this.x + deltaX / 3 : newX > 0 ? 0 : this.maxScrollX;
-        }
-        if (newY > 0 || newY < this.maxScrollY) {
-            newY = this.internal.bounce ? this.y + deltaY / 3 : newY > 0 ? 0 : this.maxScrollY;
-        }
-
-        this.directionX = deltaX > 0 ? -1 : deltaX < 0 ? 1 : 0;
-        this.directionY = deltaY > 0 ? -1 : deltaY < 0 ? 1 : 0;
-
-        if (!this.moved) {
-            this._execEvent('scrollStart');
-        }
-
-        this.moved = true;
-
-        this._translate(deltaX, deltaY);
-
-        /* REPLACE START: _stop */
-
-        if (timestamp - this.startTime > 300) {
-            this.startTime = timestamp;
-            this.startX = this.x;
-            this.startY = this.y;
         }
     };
 
@@ -277,9 +253,9 @@ define([
             return;
         }
 
-        if (this.internal.preventDefault && !this._preventDefaultException(e.target, this.internal.preventDefaultException)) {
-            e.preventDefault();
-        }
+        //if (this.internal.preventDefault && !this._preventDefaultException(e.target, this.internal.preventDefaultException)) {
+        //    e.preventDefault();
+        //}
 
         var momentumX,
             momentumY,
@@ -385,14 +361,25 @@ define([
         this.isInTransition = this.internal.useTransition && time > 0;
         var transitionType = this.internal.useTransition && easing.style;
         if (!time || transitionType) {
-            if (transitionType) {
-                this._transitionTimingFunction(easing.style);
-                this._transitionTime(time);
-            }
+            //if (transitionType) {
+            //    this._transitionTimingFunction(easing.style);
+            //    this._transitionTime(time);
+            //}
             this._translate(x, y);
         } else {
             this._animate(x, y, time, easing.fn);
         }
+    };
+
+    /**
+     * @method scrollToElement
+     * Only for scrolling in Y-direction!
+     */
+    p.scrollToElement = function (el, time, offsetX, offsetY, easing) {
+        if (offsetY === true) {
+            offsetY = Math.round(el.offsetHeight / 2 - this.internal.elem.offsetHeight / 2);
+        }
+        this.internal.elem.scrollTop = el.offsetTop - this.internal.elem.offsetTop + offsetY;
     };
 
     /**
@@ -440,7 +427,7 @@ define([
             that._translate(newX, newY);
 
             if (that.isAnimating) {
-                rAF(step);
+                that.internal.animationFrame = window.requestAnimationFrame(step);
             }
         }
 

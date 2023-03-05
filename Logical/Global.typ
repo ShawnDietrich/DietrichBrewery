@@ -55,8 +55,6 @@ TYPE
 		(
 		Stop,
 		Manual,
-		Automatic,
-		SimManual,
-		SimAuto
+		Automatic
 		);
 END_TYPE

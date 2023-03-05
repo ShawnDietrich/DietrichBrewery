@@ -1181,7 +1181,7 @@
  1316: Virtueller Geber: Extrapolations-Zeit für Istpositions-Filter
  1317: Geber1: Kommutierungsoffset
  1318: Geberloser Betrieb: Parameter-ID Überblendung
- 1319: INTERNAL1319
+ 1319: Status: Zyklische Kommunikation Netzwerkfehler
  1320: Virtueller Geber: Modus
  1321: Virtueller Geber: Istposition pro Umdrehung
  1322: Virtueller Geber: Istposition
@@ -1387,6 +1387,7 @@
  1522: INTERNAL1522
  1523: INTERNAL1523
  1524: INTERNAL1524
+ 1525: INTERNAL1525
  1528: Geber2: Diagnosewert 2
  1529: Geber2: Diagnosewert 3
  1530: Geber3: Diagnosewert 2
@@ -1497,8 +1498,8 @@
  1640: INTERNAL1640
  1641: Motor: Maximal zulässige Zwischenkreisspannung
  1642: INTERNAL1642
- 1643: INTERNAL1643
- 1644: INTERNAL1644
+ 1643: Zyklische Kommunikation: Netzwerk Fehlerreaktion
+ 1644: Zyklische Kommunikation: Verzögerungszeit der Netzwerk Fehlerreaktion
  1645: Geber2: Kompensation: Modus
  1646: Geber2: Daten: Index
  1647: Geber2: Daten: Parameter A0
@@ -1559,6 +1560,16 @@
  1705: INTERNAL1705
  1706: Motor: Temperaturmodell: Referenzsensor: Temperaturoffset
  1707: Motor: Temperaturmodell: Referenzsensor: Zeitkonstante
+ 1708: Bewegungsabbruch: Verzögerung nach Antriebsfehler
+ 1709: CTRL Drehzahl: Totzone für Istdrehzahl
+ 1710: Motor-Haltebremse: Zulässige Reibarbeit
+ 1711: Motor-Haltebremse: Verschleißüberwachung: Reibumdrehungen
+ 1712: Motor-Haltebremse: Verschleißüberwachung: Ignorierte Reibumdrehungen
+ 1713: Motor-Haltebremse: Verschleißüberwachung: Reibumdrehungen: Grenzwert
+ 1714: Referenzieren: Positive Momentengrenze
+ 1715: Referenzieren: Negative Momentengrenze
+ 1716: CTRL Lageregler: Sollposition Nachkommateil
+ 1717: VAX: Position Nachkommateil
  3072: FB LOGIC: Modus
  3080: FB LOGIC: Parameter-ID Eingang1
  3088: FB LOGIC: Parameter-ID Eingang2
@@ -2178,7 +2189,6 @@
 63685: INTERNAL63685
 63686: INTERNAL63686
 63687: INTERNAL63687
-63688: INTERNAL63688
 63689: INTERNAL63689
 63690: Motor: Temperaturmodell: Temperatur
 63691: Motor: Temperaturmodell: Abbruchgrenze
@@ -2298,6 +2308,8 @@
 63820: INTERNAL63820
 63821: INTERNAL63821
 63822: INTERNAL63822
+63830: INTERNAL63830
+63831: INTERNAL63831
 63879: CTRL Regler: Konfiguration: Index eines Parametersatzes
 63880: CTRL Position: Istposition des Shuttles auf Segment
 63881: INTERNAL63881

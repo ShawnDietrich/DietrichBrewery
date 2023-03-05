@@ -7,6 +7,5 @@
     <Object Type="Package">FillTanksPage</Object>
     <Object Type="Package">BoilPage</Object>
     <Object Type="Package">DistilingPage</Object>
-    <Object Type="Package">RecipePage</Object>
   </Objects>
 </Package>

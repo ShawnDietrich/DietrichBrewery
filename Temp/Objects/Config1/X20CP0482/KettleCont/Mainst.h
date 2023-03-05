@@ -524,8 +524,6 @@ typedef enum ControlState
 {	Stop = 0,
 	Manual = 1,
 	Automatic = 2,
-	SimManual = 3,
-	SimAuto = 4,
 } ControlState;
 #endif
 
@@ -612,6 +610,7 @@ _BUR_LOCAL plcstring SecRe[5];
 _BUR_LOCAL plcstring TmrRemain[11];
 _BUR_LOCAL plcbit pbUp;
 _BUR_LOCAL plcbit pbDown;
+_GLOBAL plcbit Buzzer;
 _GLOBAL plcbit KettleHeater;
 _GLOBAL signed short rawHLTTemp;
 _GLOBAL MpComIdentType Cfg_KettleTemp;

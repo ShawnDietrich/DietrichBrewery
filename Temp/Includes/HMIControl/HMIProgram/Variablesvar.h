@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1677955200_15_
-#define _BUR_1677955200_15_
+#ifndef _BUR_1677978815_1_
+#define _BUR_1677978815_1_
 
 #include <bur/plctypes.h>
 
@@ -13,12 +13,11 @@
 
 
 /* Variables */
-_BUR_LOCAL plcbit pbMashPump;
-_BUR_LOCAL plcbit pbHLTPump;
-_BUR_LOCAL plcbit pbCoolingPump;
-_BUR_LOCAL plcbit pbKettleHeater;
-_BUR_LOCAL plcbit pbHLTHeater;
-_BUR_LOCAL plcbit pbSysPower;
+_BUR_LOCAL plcbit SlienceBtn;
+_BUR_LOCAL plcbit SlienceVis;
+_BUR_LOCAL struct TON FlashOff;
+_BUR_LOCAL struct TON FlashOn;
+_BUR_LOCAL plcbit TestBuzzer;
 
 
 
@@ -28,11 +27,12 @@ __asm__(".section \".plc\"");
 
 /* Used IEC files */
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Variables.var\\\" scope \\\"local\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope \\\"global\\\"\\n\"");
 
 /* Exported library functions and function blocks */
 
 __asm__(".previous");
 
 
-#endif /* _BUR_1677955200_15_ */
+#endif /* _BUR_1677978815_1_ */
 

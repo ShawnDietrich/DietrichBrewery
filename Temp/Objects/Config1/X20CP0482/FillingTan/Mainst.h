@@ -78,8 +78,6 @@ typedef enum ControlState
 {	Stop = 0,
 	Manual = 1,
 	Automatic = 2,
-	SimManual = 3,
-	SimAuto = 4,
 } ControlState;
 #endif
 
@@ -109,10 +107,18 @@ struct TON
 _BUR_PUBLIC void TON(struct TON* inst);
 _BUR_PUBLIC plcbit DiagCpuIsSimulated(void);
 _BUR_PUBLIC plcbit DiagCpuIsARsim(void);
+_BUR_LOCAL struct TON ValveTmr;
 _BUR_LOCAL ValveControl AutoFillMash;
 _BUR_LOCAL ValveControl AutoFillHLT;
+_BUR_LOCAL signed short MashImgCont;
+_BUR_LOCAL signed short HLTImgCont;
 _BUR_LOCAL struct TON SimFlowMeterPulse;
 _BUR_LOCAL float SimFlowMeterVal;
+_GLOBAL plcbit ValveSelector;
+_GLOBAL plcbit ValveOff;
+_GLOBAL plcbit ValveOn;
+_LOCAL plcbit Edge0000400000;
+_LOCAL plcbit Edge0000400001;
 static void __AS__Action__SimFlowMeter(void);
 static void __AS__Action__FillHLT(void);
 static void __AS__Action__FillMash(void);

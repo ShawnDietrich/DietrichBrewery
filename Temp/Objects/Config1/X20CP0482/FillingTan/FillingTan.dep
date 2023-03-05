@@ -1,5 +1,6 @@
 $(AS_PROJECT_PATH)/Logical/Libraries/AsIODiag/AsIODiag.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+$(AS_PROJECT_PATH)/Logical/Global.var
 $(AS_PROJECT_PATH)/Logical/FillingTanks/FillingTanks/Variables.var
 $(AS_PROJECT_PATH)/Logical/Global.typ
 $(AS_PROJECT_PATH)/Logical/FillingTanks/FillingTanks/Types.typ

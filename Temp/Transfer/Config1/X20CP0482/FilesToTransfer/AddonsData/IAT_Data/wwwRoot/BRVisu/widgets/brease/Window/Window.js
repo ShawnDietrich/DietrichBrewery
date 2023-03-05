@@ -95,7 +95,7 @@ define([
     * @param {HTMLElement} refElement Either HTML element of opener widget or any HTML element for relative positioning.
     */
     p.show = function (options, refElement) {
-        //console.log(((this.elem) ? this.elem.id : 'undefined') + '.show:refElement:' + ((refElement) ? refElement.id : '') + '/options:' + JSON.stringify(options));
+        //console.alwaysWarn(((this.elem) ? this.elem.id : 'undefined') + '.show:refElement:' + ((refElement) ? refElement.id : '') + '/options:' + JSON.stringify(options));
         var self = this;
         this.closeDeferred = $.Deferred();
         popupManager.addWindow(self.elem.id, self.settings.windowType);
@@ -189,6 +189,7 @@ define([
     * Method to hide the Window.  
     */
     p.hide = function () {
+        //console.always(((this.elem) ? this.elem.id : 'undefined') + '.hide');
         var self = this;
         this.el.css({
             'display': 'none'
@@ -607,6 +608,10 @@ define([
     p._windowInFrontHandler = function (e) {
         if (e.type.indexOf('mousedown') !== -1) {
             _start = e.target;
+        }
+        if (popupManager.getNumberOfWindowsOfType('NumPad') > 0) {
+            // never put dialog window in front of NumPad! (#A&P 744835)
+            return;
         }
         var maxIndex = popupManager.getHighestZindex(),
             curIndex = parseInt(this.el.css('z-index'), 10);

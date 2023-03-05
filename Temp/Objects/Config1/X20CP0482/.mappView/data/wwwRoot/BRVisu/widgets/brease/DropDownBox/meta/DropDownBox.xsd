@@ -27,6 +27,10 @@
 			<xs:attribute name="selectedIndex" use="optional" type="types:Integer" default="0" />
 			<xs:attribute name="selectedValue" use="optional" type="types:String" default="" />
 			<xs:attribute name="wordWrap" use="optional" type="types:Boolean" default="false" />
+			<xs:attribute name="maxHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="maxWidth" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minWidth" use="optional" type="types:Size" default="0" />
 			<xs:attribute name="cornerRadius" use="optional" type="types:PixelValCollection" default="0px" />
 			<xs:attribute name="opacity" use="optional" type="types:Opacity" default="1" />
 			<xs:attribute name="margin" use="optional" type="types:Margin" default="0px" />

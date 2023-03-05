@@ -4,8 +4,8 @@
 	<xs:complexContent>
 		<xs:restriction base="iat:brease.core.BaseContentWidget">
 			<xs:attribute name="tabIndex" use="optional" type="types:Integer" default="0" />
-			<xs:attribute name="height" use="optional" type="types:Size" default="30" />
-			<xs:attribute name="width" use="optional" type="types:Size" default="100" />
+			<xs:attribute name="height" use="optional" type="types:AutoSize" default="30" />
+			<xs:attribute name="width" use="optional" type="types:AutoSize" default="100" />
 		</xs:restriction>
 	</xs:complexContent>
 </xs:complexType>
@@ -20,6 +20,10 @@
 			<xs:attribute name="placeholder" use="optional" type="types:String" default="" />
 			<xs:attribute name="submitOnChange" use="optional" type="types:Boolean" default="true" />
 			<xs:attribute name="value" use="optional" type="types:String" default="" />
+			<xs:attribute name="maxHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="maxWidth" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minWidth" use="optional" type="types:Size" default="0" />
 			<xs:attribute name="borderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />
 			<xs:attribute name="activeBorderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />
 			<xs:attribute name="disabledBorderWidth" use="optional" type="types:PixelValCollection" default="2px 6px 2px 2px" />

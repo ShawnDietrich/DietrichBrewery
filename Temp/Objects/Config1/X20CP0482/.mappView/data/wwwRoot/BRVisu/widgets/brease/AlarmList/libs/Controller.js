@@ -96,7 +96,7 @@ define([
     /**
      * @method languageChanged
      * This method will force the model to refetch the data from the backend, so the data is available in the correct
-     * langauge.
+     * language.
      */
     p.languageChanged = function () {
         this.widget.model.sendData();
@@ -148,6 +148,10 @@ define([
     p.openConf = function (type) {
         this.configDialogue = new ConfigDialogue(this.widget);
         this.configDialogue.open(type);
+    };
+    p.dispose = function () {
+        document.body.removeEventListener(BreaseEvent.CONTENT_ACTIVATED, this._bind('_contentActivatedHandler'));
+        SuperClass.prototype.dispose.apply(this, arguments);
     };
 
     return ControllerClass;

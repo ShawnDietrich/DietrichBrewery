@@ -10,7 +10,8 @@ require.config({
         'globalize': 'libs/globalize',
         'hammer': 'libs/hammer.min',
         'mappView': '../mappView',
-        'ace': 'libs/ace'
+        'ace': 'libs/ace',
+        'DOMPurify': 'libs/purify.min'
     },
 
     shim: {

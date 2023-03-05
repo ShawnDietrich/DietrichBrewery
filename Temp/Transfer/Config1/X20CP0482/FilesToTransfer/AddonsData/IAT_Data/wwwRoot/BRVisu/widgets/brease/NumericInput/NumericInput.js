@@ -647,8 +647,11 @@ define([
     };
 
     p._setWidth = function (w) {
+        SuperClass.prototype._setWidth.apply(this, arguments);
         if (w === 'auto') {
             _setInputWidth(this);
+        } else {
+            this.inputEl.css('width', '');
         }
     };
 
@@ -801,6 +804,9 @@ define([
             this.inputEl[0].focus();
             this.inputEl[0].addEventListener('keypress', this._bind('_onKeyPress'));
             this.inputEl[0].addEventListener('keyup', this._bind('_onKeyUp'));
+            if (this.settings.width === 'auto') {
+                this.inputEl[0].addEventListener('keydown', this._bind('_onKeyDown'));
+            }
             this.el.addClass('active');
 
         }
@@ -894,6 +900,14 @@ define([
         }
     };
 
+    p._onKeyDown = function (e) {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+            _setInputWidth(this, -1);
+        } else if (this._isPrintable(e.key)) {
+            _setInputWidth(this, 1);
+        }
+    };
+
     p._validateKeyInputValue = function (value) {
         if (value !== '' && value !== '-' && value !== '+' && this.settings.regexp !== undefined && this.settings.regexp.test(value) === false) {
             return false;
@@ -902,12 +916,18 @@ define([
     };
 
     p._onKeyPress = function (e) {
+        var inputElem = this.inputEl.get(0);
         if (KeyActions.getActionForKey(e.key) === Enum.KeyAction.Accept && !this._getUseKeyboardOperations()) { // 13 Enter keycode
             // A&P 697705:  attribut "forceSend" always forced an immediate transmission to the server.
             //              Also with submitOnChange=false.
             this.inputEl.blur();
             return;
         }
+        if (e.key === ',' || e.key === '.') {
+            e.preventDefault();
+            inputElem.setRangeText(brease.user.getSeparators().dsp, inputElem.selectionStart, inputElem.selectionEnd, 'end');
+        }
+
         var val = this.inputEl.val();
         if (typeof val === 'number') this.oldValue = val;
     };
@@ -915,6 +935,7 @@ define([
     p.removeFocus = function () {
         this.inputEl[0].removeEventListener('keypress', this._bind('_onKeyPress'));
         this.inputEl[0].removeEventListener('keyup', this._bind('_onKeyUp'));
+        this.inputEl[0].removeEventListener('keydown', this._bind('_onKeyDown'));
         this.el.removeClass('active');
     };
     
@@ -1159,8 +1180,9 @@ define([
         }
     }
 
-    function _setInputWidth(widget) {
-        widget.inputEl.css('width', widget.inputEl.val().length + 'ch');
+    function _setInputWidth(widget, add) {
+        add = add || 0;
+        widget.inputEl.css('width', widget.inputEl.val().length + add + 'ch');
     }
 
     function _renderUnitSymbol(widget) {

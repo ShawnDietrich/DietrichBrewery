@@ -114,13 +114,7 @@
 <Source xsi:type="opcUa" refId="::HLTControl:PumpExp" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="ToggleSwitch1" attribute="value" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:pbUp" attribute="value" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="PushButton1" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::KettleCont:pbDown" attribute="value" />
-<Target xsi:type="brease" contentRefId="MainPageContent" widgetRefId="PushButton2" attribute="value" />
-</Binding>
+
+
 </Bindings>
 </BindingsSet>

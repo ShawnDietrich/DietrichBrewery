@@ -456,8 +456,6 @@ typedef enum ControlState
 {	Stop = 0,
 	Manual = 1,
 	Automatic = 2,
-	SimManual = 3,
-	SimAuto = 4,
 } ControlState;
 #endif
 

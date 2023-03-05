@@ -18,13 +18,23 @@ void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){int __AS__Local0_00000;plcstring*
 (mProc.Status.Manual=(mProc.i.Start^1));
 (FromMashCyc.Start=mProc.i.Start);
 
+if(mProc.Status.Automatic){
+(mProc.State=2);
+}else if(mProc.Status.Manual){
+(mProc.State=1);
+}
+
 
 if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
-if(mProc.Status.Automatic){
-(mProc.State=4);
-}else if(mProc.Status.Manual){
-(mProc.State=3);
-}
+(mProc.currTemp=mProc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+(mProc.TempCtrl.Ctrl.Simulate=1);
+(mProc.TempCtrl.PWM.Enable=0);
+(mProc.TempCtrl.Ctrl.Enable=1);
+(mProc.TempCtrl.Ctrl.SetTemperature=mProc.SetTemp);
+(mProc.TempCtrl.Ctrl.Control=mProc.i.Start);
+}else{
+(mProc.currTemp=(((signed long)(rawMashTemp))/((signed long)(1000))));
+(mProc.TempCtrl.Ctrl.Simulate=0);
 }
 
 
@@ -38,21 +48,13 @@ if((~mProc.i.Start&Edge0000100000&1?((Edge0000100000=mProc.i.Start&1),1):((Edge0
 
 switch(mProc.State){
 
-case 3:{
+case 1:{
 
 (mProc.currTemp=(((signed long)(rawMashTemp))/((signed long)(1000))));
 (PumpExp=pbMashPump);
 
-}break;case 4:{
+}break;case 2:{
 
-
-
-(mProc.TempCtrl.PWM.Enable=0);
-(mProc.TempCtrl.Ctrl.Enable=1);
-(mProc.TempCtrl.Ctrl.Simulate=1);
-(mProc.currTemp=mProc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
-(mProc.TempCtrl.Ctrl.SetTemperature=mProc.SetTemp);
-(mProc.TempCtrl.Ctrl.Control=mProc.i.Start);
 
 (FromMashCyc.HLTTemp=(mProc.SetTemp+3));
 (pbMashPump=PumpExp);
@@ -64,10 +66,18 @@ if(((mProc.currTemp>(mProc.SetTemp*(1.10000002384185791016E+00))))){
 (PumpExp=1);
 }
 
+}break;}
+
 
 (MashTmr.PT=(plctime)(TimePre*60000));
-
 (MashTmr.IN=StartMash);
+
+
+if(MashTmr.Q){
+(StartMash=0);
+(mProc.i.Start=0);
+(Buzzer=1);
+}
 
 
 TIME_TO_TIMEStructure((MashTmr.PT-MashTmr.ET),((unsigned long)(&TmrDT)));
@@ -80,25 +90,15 @@ __AS__Local3_00000=(plcstring*)TmrRemain; __AS__Local4_00000=(plcstring*)CONCAT(
 __AS__Local3_00000=(plcstring*)TmrRemain; __AS__Local4_00000=(plcstring*)CONCAT(TmrRemain,SecRe); for(__AS__Local0_00000=0; __AS__Local0_00000<80l && __AS__Local4_00000[__AS__Local0_00000]!=0; __AS__Local0_00000++) __AS__Local3_00000[__AS__Local0_00000] = __AS__Local4_00000[__AS__Local0_00000]; __AS__Local3_00000[__AS__Local0_00000] = 0;
 
 
+(MashPump=PumpExp);
 
-if(MashTmr.Q){
-(StartMash=0);
-(mProc.i.Start=0);
-}
+
+TON(&MashTmr);
 
 
 MpTempController(&mProc.TempCtrl.Ctrl);
 MTBasicsPWM(&mProc.TempCtrl.PWM);
 
-}break;case 1:{
-
-(mProc.currTemp=(((signed long)(rawMashTemp))/((signed long)(1000))));
-
-}break;}
-
-(MashPump=PumpExp);
-
-TON(&MashTmr);
 }}
 #line 97 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/MashTunControl/Main.nodebug"
 #line 99 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/MashTunControl/Main.st"

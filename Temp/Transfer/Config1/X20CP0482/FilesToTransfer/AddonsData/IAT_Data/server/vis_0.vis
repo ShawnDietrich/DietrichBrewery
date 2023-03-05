@@ -6,8 +6,7 @@
 		<Page refId="FillTankPageID" />
 		<Page refId="BoilPageID" />
 		<Page refId="DistilingPageID" />
-		<Page refId="RecipePageID" />
-  </Pages>
+	</Pages>
   <Navigations>
     <!--<Navigation refId="" />-->
   </Navigations>  

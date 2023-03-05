@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         },
         DataTypes = _moduleRequire('iat/DataTypes'),
         Properties = _moduleRequire('iat/Properties'),
-        libraryUtils = _moduleRequire('iat/libraryUtils'),
+        libraryUtils = _moduleRequire('libs/libraryUtils'),
         debug = false;
 
     /**
@@ -341,7 +341,7 @@ module.exports = function (grunt) {
             }
             widgetInfo.categories.Category.push(widgetObject.category);
         }
-        libraryUtils.patchLocalMediaPath(widgetObject.props, widgetInfo.properties, widgetObject.library, DataTypes);
+        libraryUtils.patchLocalMediaPath(widgetObject.props, widgetInfo, widgetObject.library, DataTypes);
         _overwriteDefaults(widgetObject, 'props', widgetInfo.properties, 'defaultValue');
         _overwriteDefaults(widgetObject, 'styleProps', widgetInfo.styleproperties.StyleProperty, 'default');
 

@@ -1,6 +1,22 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=HMIProgram 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=102 Type=0 Scope=0 Force=0 Index=2 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=102 Type=0 Scope=0 Force=0 Index=16 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
-                                MashPump                                     BOOL    3 "                                                           FALSE"    0    1    1    2    0    0         
-                              pbMashPump                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
-                                AutoMode                                     BOOL    0 "                                                               *"    0    1    1    2    0    0         
+                                 FlashOn                                      TON    0 "                                                               *"    0   24    1    0    1    1         
+                                      IN                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      PT                                     TIME    0 "                                                           T#01s"    1   12    1    1    0    0         
+                                       Q                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      ET                                     TIME    0 "                                                           T#0ms"    1   12    1    1    0    0         
+                               StartTime                                     TIME    0 "                                             T#01h_41m_35s_520ms"    1   12    1    1    0    0         
+                                       M                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Restart                                    UDINT    0 "                                                              31"    1    7    1   10    0    0         
+                                FlashOff                                      TON    0 "                                                               *"    0   24    1    0    1    1         
+                                      IN                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      PT                                     TIME    0 "                                                         T#500ms"    1   12    1    1    0    0         
+                                       Q                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      ET                                     TIME    0 "                                                           T#0ms"    1   12    1    1    0    0         
+                               StartTime                                     TIME    0 "                                             T#01h_41m_34s_920ms"    1   12    1    1    0    0         
+                                       M                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Restart                                    UDINT    0 "                                                              31"    1    7    1   10    0    0         
+                                  Buzzer                                     BOOL    3 "                                                           FALSE"    0    1    1    2    0    0         
+                              SlienceBtn                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
+                              TestBuzzer                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         

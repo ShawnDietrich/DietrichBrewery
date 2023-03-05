@@ -26,6 +26,6 @@
     <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
     <Object Type="Library" Language="Binary" Description="Core library for mapp components">MpBase</Object>
     <Object Type="Library" Language="Binary" Description="Temperature control">MpTemp</Object>
-    <Object Type="Library" Language="binary" Description="This mechatronics library contains basic control function blocks.">MTBasics</Object>
+    <Object Type="Library" Language="Binary" Description="This mechatronics library contains basic control function blocks.">MTBasics</Object>
   </Objects>
 </Package>

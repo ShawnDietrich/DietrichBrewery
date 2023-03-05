@@ -94,8 +94,8 @@ define([
         this.config.loc.rowHeight = this.config.loc.widgetHeight + 3 * this.config.loc.widgetOffset;
 
         this.config.rows = [];
-        
-        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
+
+        this.dialog.el.on(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
 
         // First add the header for the configuration dialogue
         this.config.startWidgets.push(this._getRect('sort_rect_header', 0, 50 + this.config.loc.offset, 600));
@@ -108,15 +108,23 @@ define([
             this.dialog.addWidget(this.config.startWidgets[i]);
         }
 
-        $('#' + this.config.startWidgets[4].id).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
-
+        var addButtonWidgetId = this.config.startWidgets[4].id;
+        if (brease.config.isKeyboardOperationEnabled()) {
+            brease.uiController.setWidgetPropertyIndependentOfState(addButtonWidgetId, 'tabIndex', 1);
+        }
+        $('#' + addButtonWidgetId).on(BreaseEvent.CLICK, this._bind('_addRowHandler'));
     };
 
     /**
-     * @method _addCorrectStyle
+     * @method _handleChildWidgetReady
      * @private
      * Handles the widgets when these are ready
      */
+    p._handleChildWidgetReady = function (e) {
+        this._addCorrectStyle(e);
+        this._initFocus(e);
+    };
+
     p._addCorrectStyle = function (e) {
         var type = e.target['dataset'].breaseWidget.split('/')[2], cls;
         
@@ -128,13 +136,24 @@ define([
             e.target.classList.add(cls);
         }
     };
+
+    /**
+     * @method _initFocus
+     * @private
+     * Sets focus to add button when its ready
+     */
+    p._initFocus = function (e) {
+        if (e.target.id.includes('sort_button_add_0')) {
+            e.target.focus();
+        }
+    };
     
     /**
     * @method
      * This method will remove eventlisteners added at start up
      */
     p.removeEventListeners = function () {
-        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_addCorrectStyle'));
+        this.dialog.el.off(BreaseEvent.WIDGET_READY, this._bind('_handleChildWidgetReady'));
     };
 
     /**
@@ -161,10 +180,6 @@ define([
         } else {
             this._insertRow(clickedRow);
         }
-
-        if (this.currRow === this.tableConfig.columns.length - 1) {
-            $('#' + this.config.rows[clickedRow].widgets[this.config.children.add_next_row].id).on(BreaseEvent.WIDGET_READY, this._bind('_maxColumnReached'));
-        }
     };
  
     /**
@@ -190,7 +205,7 @@ define([
         this.config.rows.push({ widgets: row });
 
         this.currRow += 1;
-
+        _setTabIndex.call(this);
     };
 
     /**
@@ -219,6 +234,7 @@ define([
 
             this._reColourNewObject(i);
         }
+        _setTabIndex.call(this);
     };
 
     /**
@@ -231,6 +247,7 @@ define([
         if (addedRow === undefined) { return; }
         
         this._reColourNewObject(addedRow);
+        this._checkMaxColumnsReached();
 
         $('#' + this.config.rows[addedRow].widgets[this.config.children.column_picker].id).off(BreaseEvent.WIDGET_READY, this._bind('_updateRowHandler'));
         $('#' + this.config.rows[addedRow].widgets[this.config.children.column_picker].id).on('SelectedIndexChanged', this._bind('_updateRow'));
@@ -260,6 +277,7 @@ define([
             this.dialog.addWidget(row[i]);
         }
         this.config.rows[currRow].widgets = this.config.rows[currRow].widgets.concat(row);
+        _setTabIndex.call(this);
     };
 
     /**
@@ -299,6 +317,7 @@ define([
         
         //Increase currRow by one
         this.currRow += 1;
+        _setTabIndex.call(this);
     };
 
     /**
@@ -406,7 +425,7 @@ define([
             //Finally set a timer to remove the Delete Image with a timer so that the 
             //event can dispatch first before removing widget
             var self = this;
-            setTimeout(function () { 
+            window.setTimeout(function () { 
                 self.dialog.removeWidget(self.config.rows[clickedRow].widgets[self.config.children.delete_this_row]);
                 self.config.rows.splice(clickedRow, 1);
                 self.currRow -= 1;
@@ -414,6 +433,11 @@ define([
                 if (clickedRow === 0 && self.config.rows[clickedRow] !== undefined) {
                     brease.callWidget(self.config.rows[clickedRow].widgets[self.config.children.label].id, 'setText', self.texts.first);
                 }
+                if (self.config.rows.length === _nrOfVisibleColumns.call(self) - 1) {
+                    self._belowMaxColumn(); 
+                }
+                _restoreFocusAfterRemove.call(self, clickedRow);
+                _setTabIndex.call(self);
             }, 0);
             //Move all the widgets to their new respective positions
             this._moveRow(clickedRow, true, true);
@@ -474,7 +498,7 @@ define([
         return widget;
     };
 
-    p._widgetCollectStateBeforeClosing = function (e) {
+    p._widgetCollectStateBeforeClosing = function () {
         var listJsonObj = [];
         
         for (var i = 0; i < this.currRow; i += 1) {
@@ -512,12 +536,22 @@ define([
         return item;
     };
 
-    p._maxColumnReached = function () {
-        for (var j = 0; j < this.config.rows.length; j += 1) {
-            brease.callWidget(this.config.rows[j].widgets[this.config.children.add_next_row].id, 'setVisible', false);
+    p._checkMaxColumnsReached = function () {
+        if (this.config.rows.length >= _nrOfVisibleColumns.call(this)) {
+            _changeAddButtonVisibility.call(this, false); 
         }
-        brease.callWidget(this.config.startWidgets[4].id, 'setVisible', false);
     };
+
+    p._belowMaxColumn = function () {
+        _changeAddButtonVisibility.call(this, true); 
+    };
+
+    function _changeAddButtonVisibility(visibility) {
+        for (var j = 0; j < this.config.rows.length; j += 1) {
+            brease.callWidget(this.config.rows[j].widgets[this.config.children.add_next_row].id, 'setVisible', visibility);
+        }
+        brease.callWidget(this.config.startWidgets[this.config.children.add_next_row].id, 'setVisible', visibility); 
+    }
 
     p._getCurrSeparatorTop = function (row) {
         return this.config.loc.currSeparatorTopOffset + (row * this.config.loc.rowHeight) + this.config.loc.offset;
@@ -543,7 +577,7 @@ define([
         if (selectedIndex === undefined) {
             selectedIndex = 0;
         } else {
-            for (var i = 0; i < this.tableConfig.columns.length - 1; i += 1) {
+            for (var i = 0; i < _nrOfVisibleColumns.call(this); i += 1) {
                 if (selectedIndex === this.tableConfig.columns[i].data) {
                     selectedIndex = i;
                 }
@@ -576,7 +610,7 @@ define([
         if (selectedIndex === undefined) {
             selectedIndex = 0;
         } else {
-            for (var i = 0; i < this.tableConfig.columns.length - 1; i += 1) {
+            for (var i = 0; i < _nrOfVisibleColumns.call(this); i += 1) {
                 if (selectedIndex === this.tableConfig.columns[i].data) {
                     selectedIndex = i;
                 }
@@ -600,7 +634,7 @@ define([
             'ellipsis': true
         };
 
-        for (var j = 0; j < this.tableConfig.columns.length - 1; j += 1) {
+        for (var j = 0; j < _nrOfVisibleColumns.call(this); j += 1) {
             dropdown.options.dataProvider.push({ 'value': this.tableConfig.columns[j].data, 'text': this.childrenList[j].settings.text });
         }
 
@@ -618,7 +652,8 @@ define([
         image.height = '30px';
 
         image.options = {
-            image: img
+            image: img,
+            tabIndex: 0
         };
 
         return image;
@@ -655,6 +690,46 @@ define([
 
         return rect;
     };
+
+    function _nrOfVisibleColumns() {
+        return this.tableConfig.columns.length - 1;
+    }
+
+    function _setTabIndex() {
+        if (!brease.config.isKeyboardOperationEnabled()) {
+            return;
+        }
+        var tabIndex = 2;
+        this.config.rows.forEach(function (row) {
+            row.widgets.forEach(function (widget) {
+                if (widget.id !== '' && !widget.name.includes('sort_rect') && !widget.name.includes('sort_label') && !widget.name.includes('dropdown_sort_')) {
+                    brease.uiController.setWidgetPropertyIndependentOfState(widget.id, 'tabIndex', tabIndex++);
+                    
+                    if (widget.name.includes('sort_dropdown_columnpicker') && row.widgets[this.config.children.sort_value]) {
+                        var id = row.widgets[this.config.children.sort_value].id;
+                        brease.uiController.setWidgetPropertyIndependentOfState(id, 'tabIndex', tabIndex++);
+                    }
+                }
+            }, this);
+        }, this);
+        this.dialog.elem.dispatchEvent(new CustomEvent(BreaseEvent.TABINDEX_CHANGED, { bubbles: true, detail: { contentId: brease.settings.globalContent } }));
+    }
+
+    function _restoreFocusAfterRemove(clickedRow) {
+        if (!brease.config.isKeyboardOperationEnabled()) {
+            return;
+        }
+        var focusWidget;
+        if (clickedRow === 0) {
+            var addButtonWidgetId = this.config.startWidgets[this.config.children.add_next_row].id;
+            focusWidget = document.getElementById(addButtonWidgetId);
+        } else {
+            focusWidget = document.getElementById(this.config.rows[clickedRow - 1].widgets[this.config.children.add_next_row].id);
+        }
+        if (focusWidget) {
+            focusWidget.focus();
+        }
+    }
 
     return SortingClass;
 });

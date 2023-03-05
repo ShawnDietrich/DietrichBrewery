@@ -55,6 +55,7 @@ define(['brease/events/EventDispatcher', 'brease/events/BreaseEvent', 'brease/co
                 Utils.removeClass(this.activeButton, 'active');
             }
             this.activeButton = undefined;
+            this.startButton = undefined;
         };
 
         ButtonElements.prototype.buttonDownHandler = function (e) {

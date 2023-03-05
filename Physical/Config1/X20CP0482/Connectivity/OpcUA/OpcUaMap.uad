@@ -24,12 +24,8 @@
         <Variable Name="HLTPump" />
       </GlobalVariables>
       <Task Name="HMIProgram">
-        <Variable Name="pbMashPump" />
-        <Variable Name="pbCoolingPump" />
-        <Variable Name="pbHLTHeater" />
-        <Variable Name="pbHLTPump" />
-        <Variable Name="pbKettleHeater" />
-        <Variable Name="pbSysPower" />
+        <Variable Name="SlienceBtn" />
+        <Variable Name="SlienceVis" />
       </Task>
       <Task Name="KettleCont">
         <Variable Name="Proc">

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1677955200_13_
-#define _BUR_1677955200_13_
+#ifndef _BUR_1677975532_1_
+#define _BUR_1677975532_1_
 
 #include <bur/plctypes.h>
 
@@ -19,6 +19,9 @@ _BUR_LOCAL signed short HLTImgCont;
 _BUR_LOCAL signed short MashImgCont;
 _BUR_LOCAL struct ValveControl AutoFillHLT;
 _BUR_LOCAL struct ValveControl AutoFillMash;
+_BUR_LOCAL struct TON ValveTmr;
+_BUR_LOCAL float MashFillLevel;
+_BUR_LOCAL float HLTFillLevel;
 
 
 
@@ -35,5 +38,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1677955200_13_ */
+#endif /* _BUR_1677975532_1_ */
 

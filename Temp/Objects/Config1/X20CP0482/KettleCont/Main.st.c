@@ -18,47 +18,51 @@ void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 (Proc.TempCtrl.Ctrl.ErrorReset=Proc.i.ResetError);
 
 
-
-
 (Proc.Status.Automatic=Proc.i.Auto);
 (Proc.Status.Manual=(Proc.i.Auto^1));
 
+if(Proc.Status.Automatic){
+(Proc.State=2);
+}else if(Proc.Status.Manual){
+(Proc.State=1);
+}else{
+
+}
+
+
 
 if((DiagCpuIsARsim()|DiagCpuIsSimulated())){
-if(Proc.Status.Automatic){
-(Proc.State=4);
-}else if(Proc.Status.Manual){
-(Proc.State=3);
-}
+(Proc.TempCtrl.Ctrl.Enable=1);
+(Proc.TempCtrl.Ctrl.Simulate=1);
+(Proc.currTemp=Proc.TempCtrl.Ctrl.Info.Simulation.ActualTemperature);
+}else{
+(Proc.currTemp=(rawHLTTemp*1000));
 }
 
 
 switch(Proc.State){
 
-case 4:{
+case 1:{
 
-
-}break;case 3:{
 (Proc.TempCtrl.PWM.Enable=Proc.i.Start);
-(Proc.TempCtrl.Ctrl.Enable=0);
+
 
 (Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
 (Proc.TempCtrl.PWM.MinPulseWidth=(1.00000001490116119385E-01));
 (Proc.TempCtrl.PWM.Period=(1.00000000000000000000E+00));
-(Proc.currPower=Proc.TempCtrl.PWM.DutyCycle);
 (KettleHeater=Proc.TempCtrl.PWM.Out);
+
+
+if(Proc.TempCtrl.PWM.Active){
+(Proc.currPower=Proc.TempCtrl.PWM.DutyCycle);
+}else{
+(Proc.currPower=0);
+}
 
 }break;case 2:{
 
 
-}break;case 1:{
-(Proc.TempCtrl.PWM.Enable=Proc.i.Start);
-(Proc.TempCtrl.Ctrl.Enable=1);
 
-(Proc.TempCtrl.PWM.DutyCycle=Proc.setPower);
-(Proc.TempCtrl.PWM.MinPulseWidth=(1.00000001490116119385E-01));
-(Proc.TempCtrl.PWM.Period=(1.00000000000000000000E+00));
-(Proc.currTemp=(rawHLTTemp*1000));
 
 }break;}
 
@@ -71,13 +75,13 @@ MpTempController(&Proc.TempCtrl.Ctrl);
 MTBasicsPWM(&Proc.TempCtrl.PWM);
 TON(&KettleTmr);
 }}
-#line 68 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
-#line 70 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.st"
+#line 72 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
+#line 74 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 73 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
+#line 77 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Displayclock.st"
 static void __AS__Action__Displayclock(void){int __AS__Local0_00000;plcstring* __AS__Local3_00000;plcstring* __AS__Local4_00000;
 {
@@ -101,10 +105,11 @@ __AS__Local3_00000=(plcstring*)TmrRemain; __AS__Local4_00000=(plcstring*)CONCAT(
 if(KettleTmr.Q){
 (StartKettle=0);
 (Proc.i.Start=0);
+(Buzzer=1);
 }
 
 }imp16385_else0_0:imp16385_end0_0:;}
-#line 75 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
+#line 79 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/PowerControl.st"
 static void __AS__Action__PowerControl(void){
 {
@@ -123,7 +128,7 @@ if(pbDown){
 
 
 }imp16386_else2_0:imp16386_end2_0:imp16386_else0_0:imp16386_end0_0:;}
-#line 75 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
+#line 79 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/Brewing/KettleControl/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

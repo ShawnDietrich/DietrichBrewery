@@ -110,11 +110,13 @@ function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, C
         if (remove) {
             document.body.removeEventListener(BreaseEvent.FRAGMENT_SHOW, _contentLoadedHandler);
             document.body.removeEventListener(BreaseEvent.CONTENT_ACTIVATED, _contentActivatedHandler);
+            document.body.removeEventListener(BreaseEvent.CONTENT_ACTIVATE_ERROR, _contentActivateErrorHandler);
             // A&P 575490: listen to BreaseEvent.DISABLED_CLICK events in order to create ClientSystemEvent 
             document.body.removeEventListener(BreaseEvent.DISABLED_CLICK, _disabledClickHandler);
         } else {
             document.body.addEventListener(BreaseEvent.FRAGMENT_SHOW, _contentLoadedHandler);
             document.body.addEventListener(BreaseEvent.CONTENT_ACTIVATED, _contentActivatedHandler);
+            document.body.addEventListener(BreaseEvent.CONTENT_ACTIVATE_ERROR, _contentActivateErrorHandler);
             // A&P 575490: listen to BreaseEvent.DISABLED_CLICK events in order to create ClientSystemEvent 
             document.body.addEventListener(BreaseEvent.DISABLED_CLICK, _disabledClickHandler);
         }
@@ -217,6 +219,16 @@ function (EventHandler, ClientSystemEvent, BreaseEvent, SystemGestures, Utils, C
                 });
             }
         }
+    }
+
+    function _contentActivateErrorHandler(e) {
+        var contentId = e.detail.contentId;
+        if (_eventQueue.contains(contentId)) {
+            _eventQueue.remove(contentId);
+        }
+        var content = _visuModel.getContentById(contentId);
+        content.state = ContentStatus.aborted;
+        document.body.dispatchEvent(new CustomEvent(BreaseEvent.CONTENT_LOAD_ABORTED, { detail: { contentId: contentId } }));
     }
 
     function _keyDownHandler(e) {

@@ -1,123 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BindingDefinition xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1">
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:MashImgCont" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ImageList2" attribute="selectedIndex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:HLTImgCont" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ImageList1" attribute="selectedIndex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Start" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton3" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<BindingDefinition xmlns="http://www.br-automation.com/iat2014/binding/runtime/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:br="http://www.br-automation.com/iat2015/bindingList/runtime/v2">
+  
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:MashImgCont" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ImageList2" attribute="selectedIndex" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:HLTImgCont" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ImageList1" attribute="selectedIndex" />
+</Binding></Content>
+
+
+
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Start" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton3" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Start" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton3" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Start" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton1" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Start" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton3" attribute="editable::value" />
+</Binding></Content>
+
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Start" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton1" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Start" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton1" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Valve" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch3" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Start" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton1" attribute="editable::value" />
+</Binding></Content>
+
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Valve" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch3" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Valve" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch3" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumeSP" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericInput1" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Valve" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch3" attribute="editable::value" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumeSP" attribute="node" />
+<Target xsi:type="brease" refId="FillTankContent_NumericInput1" attribute="node" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumeSP" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericInput1" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumePV" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericOutput1" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumeSP" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_NumericInput1" attribute="editable::node" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumePV" attribute="node" />
+<Target xsi:type="brease" refId="FillTankContent_NumericOutput1" attribute="node" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumePV" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericOutput1" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Stop" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton2" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.VolumePV" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_NumericOutput1" attribute="editable::node" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Stop" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton2" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Stop" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton2" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Stop" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton4" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Stop" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton2" attribute="editable::value" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Stop" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton4" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Stop" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton4" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Valve" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch4" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Stop" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton4" attribute="editable::value" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Valve" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch4" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Valve" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch4" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumeSP" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericInput2" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Valve" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleSwitch4" attribute="editable::value" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumeSP" attribute="node" />
+<Target xsi:type="brease" refId="FillTankContent_NumericInput2" attribute="node" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumeSP" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericInput2" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumePV" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericOutput2" attribute="node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumeSP" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_NumericInput2" attribute="editable::node" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumePV" attribute="node" />
+<Target xsi:type="brease" refId="FillTankContent_NumericOutput2" attribute="node" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumePV" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_NumericOutput2" attribute="editable::node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Reset" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton5" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.VolumePV" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_NumericOutput2" attribute="editable::node" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Reset" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton5" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Reset" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton5" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
-  <Content id="FillTankContent">
-    <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Reset" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton6" attribute="value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillHLT.Reset" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton5" attribute="editable::value" />
+</Binding></Content>
+
+
+
+<Content id="FillTankContent"><Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Reset" attribute="value" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton6" attribute="value" />
 </Binding><Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Reset" attribute="editable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-<Target xsi:type="brease" refId="FillTankContent_ToggleButton6" attribute="editable::value" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-</Binding>
-  </Content>
+<Source xsi:type="opcUa" refId="::FillingTan:AutoFillMash.Reset" attribute="editable" />
+<Target xsi:type="brease" refId="FillTankContent_ToggleButton6" attribute="editable::value" />
+</Binding></Content>
+
+
+
+
 </BindingDefinition>

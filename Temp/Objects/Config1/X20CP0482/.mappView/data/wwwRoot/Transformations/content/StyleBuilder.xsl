@@ -9,21 +9,7 @@
       xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
       xmlns:iat="http://www.br-automation.com/iat2015/contentDefinition/v2"
       xmlns:widget="http://www.br-automation.com/iat2014/widget"
-      xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-      xmlns:scriptEx="urn:AcmeX.com:xslt"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-      <msxsl:script language="JScript" implements-prefix="scriptEx">
-    <![CDATA[
-  
-    var id_regex= /\{ID_PREFIX\}/g;
-    
-    function replaceId(txt, by){
-      return "" + txt.replace(id_regex, by);
-    }
-  
-  ]]>
-  </msxsl:script>
 
   <xsl:output method="text" encoding="UTF-8" indent="yes" />
 
@@ -88,12 +74,17 @@
       </xsl:if>
     </xsl:for-each>
 
-    
+
     <xsl:if test="$isCompound='true' and $editor!='true'">
       <xsl:variable name="idPrefix" select="concat($contentId,'_',$widgetId,'Θ')"/>
       <xsl:variable name="css" select="document(concat($pathToWidgetFolder,'content',$elpathdelimiter,'widgets_css.xml'))//style/text()"></xsl:variable>
-      <xsl:value-of select="scriptEx:replaceId(string($css),$idPrefix)" />
+      <xsl:call-template name="string-replace-all">
+        <xsl:with-param name="text" select="$css" />
+        <xsl:with-param name="replace" select="'{ID_PREFIX}'" />
+        <xsl:with-param name="by" select="$idPrefix" />
+      </xsl:call-template>
     </xsl:if>
+
 
     <xsl:if test="iat:Properties/*/iat:Element">
       <!-- handle structured properties -->

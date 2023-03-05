@@ -47,7 +47,8 @@ define([
             data[itr].sta = this._addSVGToRow(data[itr].sta);
             data[itr].cat = this._fixCategory(data[itr].cat);
             data[itr].tim = this._fixTimestamp(data[itr].tim);
-        } 
+            data[itr].mes = _.escape(data[itr].mes);
+        }
 
         this.widget.renderer.updateData(data);
 

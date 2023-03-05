@@ -42,7 +42,7 @@ define([
      */
     p.dispose = function () {
         if (this.callbackQueue.length > 0) {
-            console.iatWarn('Open requests...');
+            console.iatDebug('Open requests...');
         }
     };
 
@@ -75,7 +75,7 @@ define([
         if (telegram.response) {
             this._handleCallbackItem(telegram);
         } else {
-            console.iatWarn('Unexpected telegram recieved', this.widget.elem.id, telegram);
+            console.iatDebug('Unexpected telegram recieved', this.widget.elem.id, telegram);
         }
     };
 
@@ -103,7 +103,7 @@ define([
                     break;
             }
         } else {
-            console.iatWarn('Response without callback to handle it', telegram);
+            console.iatDebug('Response without callback to handle it', telegram);
         }
     };
     
@@ -207,15 +207,15 @@ define([
      * Method used to unsubscribe to subscribed backend methods.
      * @param {String} methodID The methodID defined in the backend that is to be called
      */
-    p.unSubscribe = function (methodID, unSubscribeParamter) {
+    p.unSubscribe = function (methodID, unSubscribeParameter) {
         var telegram = {
                 request: 'Unsubscribe',
                 methodID: methodID
             },
             index = this._getIndexInQueue(methodID);
 
-        if (unSubscribeParamter !== undefined) {
-            telegram.parameter = unSubscribeParamter;
+        if (unSubscribeParameter !== undefined) {
+            telegram.parameter = unSubscribeParameter;
         }
         if (index > -1) {
             this.callbackQueue[index].type = 'UNSUBSCRIPTION';

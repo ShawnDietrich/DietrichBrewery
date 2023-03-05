@@ -4,14 +4,30 @@
   
 	<StyleProperties>
    
-    <StyleProperty name="width" type="Size" not_styleable="true" default="250">
-      <StyleElement attribute="@include elemWidth($value)"></StyleElement>
+    <StyleProperty name="width" type="AutoSize" not_styleable="true" default="250">
+      <StyleElement attribute="@include elemAutoWidth($value)"></StyleElement>
       <Description>outer width of widget</Description>
     </StyleProperty>
-    
-    <StyleProperty name="height" type="Size" not_styleable="true" default="30">
-      <StyleElement attribute="@include elemHeight($value)"></StyleElement>
+    <StyleProperty name="height" type="AutoSize" not_styleable="true" default="30">
+      <StyleElement attribute="@include elemAutoHeight($value)"></StyleElement>
       <Description>outer height of widget</Description>
+    </StyleProperty>
+	
+	<StyleProperty name="minWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="3">
+      <StyleElement attribute="@include elemMinWidth($value)"></StyleElement>
+      <Description>minimum outer width of widget</Description>
+    </StyleProperty>
+    <StyleProperty name="maxWidth" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="4">
+      <StyleElement attribute="@include elemMaxWidth($value)"></StyleElement>
+      <Description>maximum outer width of widget</Description>
+    </StyleProperty>
+    <StyleProperty name="minHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="5">
+      <StyleElement attribute="@include elemMinHeight($value)"></StyleElement>
+      <Description>minimum outer height of widget</Description>
+    </StyleProperty>
+    <StyleProperty name="maxHeight" type="Size" not_styleable="true" default="0" category="Layout" groupRefId="Size" groupOrder="6">
+      <StyleElement attribute="@include elemMaxHeight($value)"></StyleElement>
+      <Description>maximum outer height of widget</Description>
     </StyleProperty>
 
     <StyleProperty name="borderWidth" category="Appearance" type="PixelValCollection" default="2px 6px 2px 2px">

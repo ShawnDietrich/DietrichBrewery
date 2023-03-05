@@ -1,15 +1,15 @@
 ﻿@import "mixins.scss";
 #MainPageContent_GroupBox1 {
-	@include elemTop(10);
+	@include elemTop(61);
 }
 #MainPageContent_GroupBox1 {
-	@include elemLeft(20);
+	@include elemLeft(120);
 }
 #MainPageContent_GroupBox1 {
 	@include elemWidth(325);
 }
 #MainPageContent_GroupBox1 {
-	@include elemHeight(784);
+	@include elemHeight(578);
 }
 #MainPageContent_GroupBox1 {
 		z-index: 1;
@@ -55,10 +55,10 @@
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	@include elemTop(665);
+	@include elemTop(454);
 }
 #MainPageContent_ToggleSwitch1 {
-	@include elemLeft(178);
+	@include elemLeft(177);
 }
 #MainPageContent_ToggleSwitch1 {
 	@include elemAutoWidth(130);
@@ -88,22 +88,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch1 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -117,7 +117,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox2 {
-	@include elemHeight(179);
+	@include elemHeight(149);
 }
 #MainPageContent_GroupBox2 {
 		z-index: 1;
@@ -197,16 +197,16 @@
 		z-index: 1;
 }
 #MainPageContent_NumericInput1 {
-	@include elemTop(91);
+	@include elemTop(60);
 }
 #MainPageContent_NumericInput1 {
 	@include elemLeft(8);
 }
 #MainPageContent_NumericInput1 {
-	@include elemWidth(125);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericInput1 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput1 {
 		z-index: 2;
@@ -223,7 +223,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label2 {
-	@include elemTop(96);
+	@include elemTop(65);
 }
 #MainPageContent_Label2 {
 	@include elemLeft(139);
@@ -238,7 +238,7 @@
 	@include text-alignment-all('left');
 }
 #MainPageContent_GroupBox3 {
-	@include elemTop(397);
+	@include elemTop(184);
 }
 #MainPageContent_GroupBox3 {
 	@include elemLeft(15);
@@ -247,7 +247,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox3 {
-	@include elemHeight(179);
+	@include elemHeight(163);
 }
 #MainPageContent_GroupBox3 {
 		z-index: 2;
@@ -327,16 +327,16 @@
 		z-index: 1;
 }
 #MainPageContent_NumericInput2 {
-	@include elemWidth(100);
+	@include elemAutoWidth(100);
 }
 #MainPageContent_NumericInput2 {
-	@include elemTop(91);
+	@include elemTop(65);
 }
 #MainPageContent_NumericInput2 {
 	@include elemLeft(8);
 }
 #MainPageContent_NumericInput2 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput2 {
 		z-index: 2;
@@ -353,7 +353,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label4 {
-	@include elemTop(96);
+	@include elemTop(70);
 }
 #MainPageContent_Label4 {
 	@include elemLeft(119);
@@ -365,10 +365,10 @@
 		z-index: 3;
 }
 #MainPageContent_ToggleSwitch3 {
-	@include elemTop(602);
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch3 {
-	@include elemLeft(5);
+	@include elemLeft(4);
 }
 #MainPageContent_ToggleSwitch3 {
 	@include elemAutoWidth(130);
@@ -398,30 +398,30 @@
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch3 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	@include elemTop(602);
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch4 {
-	@include elemLeft(178);
+	@include elemLeft(177);
 }
 #MainPageContent_ToggleSwitch4 {
 	@include elemAutoWidth(130);
@@ -451,36 +451,36 @@
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch4 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_GroupBox4 {
-	@include elemTop(10);
+	@include elemTop(61);
 }
 #MainPageContent_GroupBox4 {
-	@include elemLeft(392);
+	@include elemLeft(570);
 }
 #MainPageContent_GroupBox4 {
 	@include elemWidth(325);
 }
 #MainPageContent_GroupBox4 {
-	@include elemHeight(784);
+	@include elemHeight(578);
 }
 #MainPageContent_GroupBox4 {
 		z-index: 2;
@@ -526,7 +526,7 @@
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	@include elemTop(665);
+	@include elemTop(454);
 }
 #MainPageContent_ToggleSwitch5 {
 	@include elemLeft(173);
@@ -559,22 +559,22 @@
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch5 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
@@ -588,7 +588,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox5 {
-	@include elemHeight(179);
+	@include elemHeight(149);
 }
 #MainPageContent_GroupBox5 {
 		z-index: 1;
@@ -653,16 +653,16 @@
 	}
 }
 #MainPageContent_NumericInput3 {
-	@include elemTop(91);
+	@include elemTop(60);
 }
 #MainPageContent_NumericInput3 {
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput3 {
-	@include elemWidth(125);
+	@include elemAutoWidth(125);
 }
 #MainPageContent_NumericInput3 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput3 {
 		z-index: 1;
@@ -694,7 +694,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label6 {
-	@include elemTop(96);
+	@include elemTop(65);
 }
 #MainPageContent_Label6 {
 	@include elemLeft(147);
@@ -709,7 +709,7 @@
 	@include text-alignment-all('left');
 }
 #MainPageContent_ToggleSwitch8 {
-	@include elemTop(602);
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch8 {
 	@include elemLeft(12);
@@ -742,27 +742,27 @@
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch8 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_GroupBox6 {
-	@include elemTop(397);
+	@include elemTop(184);
 }
 #MainPageContent_GroupBox6 {
 	@include elemLeft(15);
@@ -771,7 +771,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox6 {
-	@include elemHeight(179);
+	@include elemHeight(163);
 }
 #MainPageContent_GroupBox6 {
 		z-index: 3;
@@ -827,16 +827,16 @@
 	}
 }
 #MainPageContent_NumericInput4 {
-	@include elemWidth(100);
+	@include elemAutoWidth(100);
 }
 #MainPageContent_NumericInput4 {
-	@include elemTop(91);
+	@include elemTop(65);
 }
 #MainPageContent_NumericInput4 {
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput4 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput4 {
 		z-index: 1;
@@ -853,7 +853,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label8 {
-	@include elemTop(96);
+	@include elemTop(70);
 }
 #MainPageContent_Label8 {
 	@include elemLeft(135);
@@ -939,7 +939,7 @@
 		font-size: 20px;
 }
 #MainPageContent_ToggleSwitch9 {
-	@include elemTop(602);
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch9 {
 	@include elemLeft(173);
@@ -972,36 +972,36 @@
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch9 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_GroupBox7 {
-	@include elemTop(10);
+	@include elemTop(61);
 }
 #MainPageContent_GroupBox7 {
-	@include elemLeft(766);
+	@include elemLeft(1020);
 }
 #MainPageContent_GroupBox7 {
 	@include elemWidth(325);
 }
 #MainPageContent_GroupBox7 {
-	@include elemHeight(784);
+	@include elemHeight(578);
 }
 #MainPageContent_GroupBox7 {
 		z-index: 3;
@@ -1056,7 +1056,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox9 {
-	@include elemHeight(307);
+	@include elemHeight(148);
 }
 #MainPageContent_GroupBox9 {
 		z-index: 0;
@@ -1141,16 +1141,16 @@
 	}
 }
 #MainPageContent_NumericInput6 {
-	@include elemWidth(100);
+	@include elemAutoWidth(100);
 }
 #MainPageContent_NumericInput6 {
-	@include elemTop(91);
+	@include elemTop(60);
 }
 #MainPageContent_NumericInput6 {
 	@include elemLeft(7);
 }
 #MainPageContent_NumericInput6 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput6 {
 		z-index: 2;
@@ -1167,7 +1167,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label12 {
-	@include elemTop(96);
+	@include elemTop(65);
 }
 #MainPageContent_Label12 {
 	@include elemLeft(113);
@@ -1183,147 +1183,11 @@
 		padding: 0px;
 	}
 }
-#MainPageContent_PushButton1 {
-	@include elemTop(149);
-}
-#MainPageContent_PushButton1 {
-	@include elemLeft(6);
-}
-#MainPageContent_PushButton1 {
-	@include elemAutoWidth(102);
-}
-#MainPageContent_PushButton1 {
-	@include elemAutoHeight(43);
-}
-#MainPageContent_PushButton1 {
-		z-index: 4;
-}
-#MainPageContent_PushButton1 {
-	img{
-	@include imageHeight(32);
-	}
-}
-#MainPageContent_PushButton1 {
-	svg{
-	@include imageHeight(32);
-	}
-}
-#MainPageContent_PushButton1 {
-	img{
-	@include imageWidth(32);
-	}
-}
-#MainPageContent_PushButton1 {
-	svg{
-	@include imageWidth(32);
-	}
-}
-#MainPageContent_PushButton1 {
-		border-style: none;
-}
-#MainPageContent_PushButton1 {
-	&.active{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton1 {
-	&.checked{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton1 {
-	&.disabled{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton1 {
-	&:not(.disabled):not(.active):not(.checked){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#MainPageContent_PushButton2 {
-	@include elemTop(209);
-}
-#MainPageContent_PushButton2 {
-	@include elemLeft(6);
-}
-#MainPageContent_PushButton2 {
-	@include elemAutoWidth(102);
-}
-#MainPageContent_PushButton2 {
-	@include elemAutoHeight(43);
-}
-#MainPageContent_PushButton2 {
-		z-index: 5;
-}
-#MainPageContent_PushButton2 {
-	img{
-	@include imageHeight(32);
-	}
-}
-#MainPageContent_PushButton2 {
-	svg{
-	@include imageHeight(32);
-	}
-}
-#MainPageContent_PushButton2 {
-	img{
-	@include imageWidth(32);
-	}
-}
-#MainPageContent_PushButton2 {
-	svg{
-	@include imageWidth(32);
-	}
-}
-#MainPageContent_PushButton2 {
-		border-style: none;
-}
-#MainPageContent_PushButton2 {
-	&.active{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton2 {
-	&.checked{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton2 {
-	&.disabled{
-		border-style: none;
-	}
-}
-#MainPageContent_PushButton2 {
-	&:not(.disabled):not(.active):not(.checked){
-		background-color: rgba(255, 255, 255, 0);
-	}
-}
-#MainPageContent_Label19 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label19 {
-	@include elemTop(189);
-}
-#MainPageContent_Label19 {
-	@include elemLeft(113);
-}
-#MainPageContent_Label19 {
-	@include elemAutoWidth(147);
-}
-#MainPageContent_Label19 {
-		z-index: 6;
-}
-#MainPageContent_Label19 {
-	span{
-		padding: 0px;
-	}
+#MainPageContent_ToggleSwitch12 {
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch12 {
-	@include elemTop(602);
-}
-#MainPageContent_ToggleSwitch12 {
-	@include elemLeft(178);
+	@include elemLeft(17);
 }
 #MainPageContent_ToggleSwitch12 {
 	@include elemAutoWidth(130);
@@ -1353,30 +1217,30 @@
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch12 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	@include elemTop(665);
+	@include elemTop(374);
 }
 #MainPageContent_ToggleSwitch14 {
-	@include elemLeft(179);
+	@include elemLeft(177);
 }
 #MainPageContent_ToggleSwitch14 {
 	@include elemAutoWidth(130);
@@ -1406,27 +1270,27 @@
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
+	&.checked:not(.disabled) .wrapper .before{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
+	&.checked:not(.disabled) .wrapper .after{
 		color: rgba(0, 0, 0, 1);
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	.breaseToggleSwitch_toggle .wrapper .before{
+	.wrapper .before{
 		font-size: 15px;
 	}
 }
 #MainPageContent_ToggleSwitch14 {
-	.breaseToggleSwitch_toggle .wrapper .after{
+	.wrapper .after{
 		font-size: 15px;
 	}
 }
 #MainPageContent_GroupBox12 {
-	@include elemTop(397);
+	@include elemTop(184);
 }
 #MainPageContent_GroupBox12 {
 	@include elemLeft(15);
@@ -1435,7 +1299,7 @@
 	@include elemWidth(289);
 }
 #MainPageContent_GroupBox12 {
-	@include elemHeight(179);
+	@include elemHeight(163);
 }
 #MainPageContent_GroupBox12 {
 		z-index: 3;
@@ -1491,16 +1355,16 @@
 	}
 }
 #MainPageContent_NumericInput8 {
-	@include elemWidth(100);
+	@include elemAutoWidth(100);
 }
 #MainPageContent_NumericInput8 {
-	@include elemTop(91);
+	@include elemTop(65);
 }
 #MainPageContent_NumericInput8 {
 	@include elemLeft(6);
 }
 #MainPageContent_NumericInput8 {
-	@include elemHeight(40);
+	@include elemAutoHeight(40);
 }
 #MainPageContent_NumericInput8 {
 		z-index: 1;
@@ -1517,7 +1381,7 @@
 	@include elemAutoHeight(30);
 }
 #MainPageContent_Label16 {
-	@include elemTop(96);
+	@include elemTop(70);
 }
 #MainPageContent_Label16 {
 	@include elemLeft(135);
@@ -1589,646 +1453,17 @@
 #MainPageContent_TextOutput2 {
 		font-size: 20px;
 }
-#MainPageContent_GroupBox10 {
-	@include elemTop(10);
-}
-#MainPageContent_GroupBox10 {
-	@include elemLeft(1133);
-}
-#MainPageContent_GroupBox10 {
-	@include elemWidth(325);
-}
-#MainPageContent_GroupBox10 {
-	@include elemHeight(784);
-}
-#MainPageContent_GroupBox10 {
-		z-index: 4;
-}
-#MainPageContent_GroupBox10 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox10 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox10 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox10 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#MainPageContent_GroupBox10 {
-		border-color: rgba(30, 176, 173, 1);
-}
-#MainPageContent_GroupBox10 {
-	> .header{
-		border-color: rgba(30, 176, 173, 1);
-	}
-}
-#MainPageContent_GroupBox10 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox10 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_GroupBox10 {
-	> .header span{
-		font-size: 30px;
-	}
-}
-#MainPageContent_GroupBox10 {
-	> .header{
-	height: 30px + 20px;
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	@include elemTop(665);
-}
-#MainPageContent_ToggleSwitch13 {
-	@include elemLeft(178);
-}
-#MainPageContent_ToggleSwitch13 {
-	@include elemAutoWidth(130);
-}
-#MainPageContent_ToggleSwitch13 {
-	@include elemAutoHeight(50);
-}
-#MainPageContent_ToggleSwitch13 {
-		z-index: 2;
-}
-#MainPageContent_ToggleSwitch13 {
-	@include border-radius(5px);
-}
-#MainPageContent_ToggleSwitch13 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled){
-	background-color: rgba(0, 255, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch13 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
-#MainPageContent_GroupBox11 {
-	@include elemTop(13);
-}
-#MainPageContent_GroupBox11 {
-	@include elemLeft(15);
-}
-#MainPageContent_GroupBox11 {
-	@include elemWidth(289);
-}
-#MainPageContent_GroupBox11 {
-	@include elemHeight(179);
-}
-#MainPageContent_GroupBox11 {
-		z-index: 0;
-}
-#MainPageContent_GroupBox11 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox11 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox11 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox11 {
-		border-color: rgba(30, 176, 173, 1);
-}
-#MainPageContent_GroupBox11 {
-	> .header{
-		border-color: rgba(30, 176, 173, 1);
-	}
-}
-#MainPageContent_GroupBox11 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox11 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_NumericOutput7 {
-	@include elemTop(15);
-}
-#MainPageContent_NumericOutput7 {
-	@include elemLeft(11);
-}
-#MainPageContent_NumericOutput7 {
-	@include elemAutoWidth(125);
-}
-#MainPageContent_NumericOutput7 {
-	@include elemAutoHeight(40);
-}
-#MainPageContent_NumericOutput7 {
-		z-index: 0;
-}
-#MainPageContent_NumericOutput7 {
-		border-width: 2px;
-}
-#MainPageContent_NumericOutput7 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericOutput7 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#MainPageContent_NumericOutput7 {
-		border-style: outset;
-}
-#MainPageContent_NumericOutput7 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#MainPageContent_Label13 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label13 {
-	@include elemTop(16);
-}
-#MainPageContent_Label13 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label13 {
-	@include elemAutoWidth(96);
-}
-#MainPageContent_Label13 {
-		z-index: 1;
-}
-#MainPageContent_NumericInput7 {
-	@include elemTop(91);
-}
-#MainPageContent_NumericInput7 {
-	@include elemLeft(11);
-}
-#MainPageContent_NumericInput7 {
-	@include elemWidth(125);
-}
-#MainPageContent_NumericInput7 {
-	@include elemHeight(40);
-}
-#MainPageContent_NumericInput7 {
-		z-index: 2;
-}
-#MainPageContent_NumericInput7 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericInput7 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#MainPageContent_Label14 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label14 {
-	@include elemTop(96);
-}
-#MainPageContent_Label14 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label14 {
-	@include elemAutoWidth(105);
-}
-#MainPageContent_Label14 {
-		z-index: 3;
-}
-#MainPageContent_ToggleSwitch16 {
-	@include elemTop(602);
-}
-#MainPageContent_ToggleSwitch16 {
-	@include elemLeft(178);
-}
-#MainPageContent_ToggleSwitch16 {
-	@include elemAutoWidth(130);
-}
-#MainPageContent_ToggleSwitch16 {
-	@include elemAutoHeight(50);
-}
-#MainPageContent_ToggleSwitch16 {
-		z-index: 3;
-}
-#MainPageContent_ToggleSwitch16 {
-	@include border-radius(5px);
-}
-#MainPageContent_ToggleSwitch16 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled){
-	background-color: rgba(255, 69, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch16 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
-#MainPageContent_GroupBox13 {
-	@include elemTop(320);
-}
-#MainPageContent_GroupBox13 {
-	@include elemLeft(0);
-}
-#MainPageContent_GroupBox13 {
-	@include elemWidth(325);
-}
-#MainPageContent_GroupBox13 {
-	@include elemHeight(420);
-}
-#MainPageContent_GroupBox13 {
-		z-index: 1;
-}
-#MainPageContent_GroupBox13 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox13 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox13 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#MainPageContent_GroupBox13 {
-		border-color: rgba(227, 197, 78, 1);
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-color: rgba(227, 197, 78, 1);
-	}
-}
-#MainPageContent_GroupBox13 {
-		border-style: none;
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-		border-bottom-style: none;
-	}
-}
-#MainPageContent_GroupBox13 {
-	> .header span{
-		font-size: 30px;
-	}
-}
-#MainPageContent_GroupBox13 {
-	> .header{
-	height: 30px + 20px;
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	@include elemTop(665);
-}
-#MainPageContent_ToggleSwitch17 {
-	@include elemLeft(178);
-}
-#MainPageContent_ToggleSwitch17 {
-	@include elemAutoWidth(130);
-}
-#MainPageContent_ToggleSwitch17 {
-	@include elemAutoHeight(50);
-}
-#MainPageContent_ToggleSwitch17 {
-		z-index: 0;
-}
-#MainPageContent_ToggleSwitch17 {
-	@include border-radius(5px);
-}
-#MainPageContent_ToggleSwitch17 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled){
-	background-color: rgba(0, 255, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch17 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
-#MainPageContent_GroupBox14 {
-	@include elemTop(27);
-}
-#MainPageContent_GroupBox14 {
-	@include elemLeft(15);
-}
-#MainPageContent_GroupBox14 {
-	@include elemWidth(289);
-}
-#MainPageContent_GroupBox14 {
-	@include elemHeight(179);
-}
-#MainPageContent_GroupBox14 {
-		z-index: 1;
-}
-#MainPageContent_GroupBox14 {
-		border-width: 3px;
-}
-#MainPageContent_GroupBox14 {
-	> .header{
-		border-width: 3px;
-	}
-}
-#MainPageContent_GroupBox14 {
-	@include border-radius(10px);
-}
-#MainPageContent_GroupBox14 {
-		border-color: rgba(30, 176, 173, 1);
-}
-#MainPageContent_GroupBox14 {
-	> .header{
-		border-color: rgba(30, 176, 173, 1);
-	}
-}
-#MainPageContent_GroupBox14 {
-		border-style: outset;
-}
-#MainPageContent_GroupBox14 {
-	> .header{
-		border-bottom-style: outset;
-	}
-}
-#MainPageContent_NumericOutput8 {
-	@include elemTop(15);
-}
-#MainPageContent_NumericOutput8 {
-	@include elemLeft(11);
-}
-#MainPageContent_NumericOutput8 {
-	@include elemAutoWidth(125);
-}
-#MainPageContent_NumericOutput8 {
-	@include elemAutoHeight(40);
-}
-#MainPageContent_NumericOutput8 {
-		z-index: 0;
-}
-#MainPageContent_NumericOutput8 {
-		border-width: 2px;
-}
-#MainPageContent_NumericOutput8 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericOutput8 {
-		background-color: rgba(245, 245, 245, 1);
-}
-#MainPageContent_NumericOutput8 {
-		border-style: outset;
-}
-#MainPageContent_NumericOutput8 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#MainPageContent_Label17 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label17 {
-	@include elemTop(16);
-}
-#MainPageContent_Label17 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label17 {
-	@include elemAutoWidth(105);
-}
-#MainPageContent_Label17 {
-		z-index: 1;
-}
-#MainPageContent_NumericInput9 {
-	@include elemTop(91);
-}
-#MainPageContent_NumericInput9 {
-	@include elemLeft(11);
-}
-#MainPageContent_NumericInput9 {
-	@include elemWidth(125);
-}
-#MainPageContent_NumericInput9 {
-	@include elemHeight(40);
-}
-#MainPageContent_NumericInput9 {
-		z-index: 2;
-}
-#MainPageContent_NumericInput9 {
-	@include border-radius(5px);
-}
-#MainPageContent_NumericInput9 {
-	input{
-	@include text-alignment(left);
-	}
-}
-#MainPageContent_Label18 {
-	@include elemAutoHeight(30);
-}
-#MainPageContent_Label18 {
-	@include elemTop(96);
-}
-#MainPageContent_Label18 {
-	@include elemLeft(135);
-}
-#MainPageContent_Label18 {
-	@include elemAutoWidth(114);
-}
-#MainPageContent_Label18 {
-		z-index: 3;
-}
-#MainPageContent_ToggleSwitch18 {
-	@include elemTop(602);
-}
-#MainPageContent_ToggleSwitch18 {
-	@include elemLeft(5);
-}
-#MainPageContent_ToggleSwitch18 {
-	@include elemAutoWidth(130);
-}
-#MainPageContent_ToggleSwitch18 {
-	@include elemAutoHeight(50);
-}
-#MainPageContent_ToggleSwitch18 {
-		z-index: 2;
-}
-#MainPageContent_ToggleSwitch18 {
-	@include border-radius(5px);
-}
-#MainPageContent_ToggleSwitch18 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled){
-	background-color: rgba(255, 215, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch18 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	@include elemTop(602);
-}
-#MainPageContent_ToggleSwitch19 {
-	@include elemLeft(178);
-}
-#MainPageContent_ToggleSwitch19 {
-	@include elemAutoWidth(130);
-}
-#MainPageContent_ToggleSwitch19 {
-	@include elemAutoHeight(50);
-}
-#MainPageContent_ToggleSwitch19 {
-		z-index: 3;
-}
-#MainPageContent_ToggleSwitch19 {
-	@include border-radius(5px);
-}
-#MainPageContent_ToggleSwitch19 {
-	.breaseToggleSwitch_toggle{
-	@include border-radius(5px - 2px);
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled){
-	background-color: rgba(255, 69, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .before{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	&.checked:not(.disabled) .breaseToggleSwitch_toggle .after{
-		color: rgba(0, 0, 0, 1);
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	.breaseToggleSwitch_toggle .wrapper .before{
-		font-size: 15px;
-	}
-}
-#MainPageContent_ToggleSwitch19 {
-	.breaseToggleSwitch_toggle .wrapper .after{
-		font-size: 15px;
-	}
-}
 #MainPageContent_GroupBox8 {
 	@include elemTop(0);
 }
 #MainPageContent_GroupBox8 {
-	@include elemLeft(0);
+	@include elemLeft(2);
 }
 #MainPageContent_GroupBox8 {
-	@include elemWidth(1480);
+	@include elemWidth(1478);
 }
 #MainPageContent_GroupBox8 {
-	@include elemHeight(800);
+	@include elemHeight(699);
 }
 #MainPageContent_GroupBox8 {
 		z-index: 0;

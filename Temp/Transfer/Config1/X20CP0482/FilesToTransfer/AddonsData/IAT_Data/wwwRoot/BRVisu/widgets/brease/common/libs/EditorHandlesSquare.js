@@ -14,7 +14,7 @@ define([
      * @iatMeta studio:visible
      * false
      */
-    var ModuleClass = SuperClass.extend(function EditorHandles(widget) {
+    var ModuleClass = SuperClass.extend(function EditorHandlesSquare(widget) {
             SuperClass.call(this);
             this.widget = widget;
         }, null),
@@ -123,7 +123,7 @@ define([
         self.widget.el.css('height', self.widget.settings.height);
         self.widget.el.css('width', self.widget.settings.width);
         
-        if (self.widget.renderer !== undefined && Utils.isFunction(self.widget._redrawInEditor)) {
+        if (Utils.isFunction(self.widget._redrawInEditor)) {
             self.widget._redrawInEditor(self.widget.settings.height, self.widget.settings.width);      
         }
     }

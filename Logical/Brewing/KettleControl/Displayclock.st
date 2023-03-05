@@ -21,6 +21,7 @@ ACTION Displayclock:
 	IF KettleTmr.Q THEN
 		StartKettle := FALSE;
 		Proc.i.Start := FALSE;
+		Buzzer := TRUE;
 	END_IF
 	
 END_ACTION

@@ -3,9 +3,10 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="4" left="1" width="1597" height="94" zIndex="0" cornerRadius="10px" backColor="rgba(245, 245, 245, 1)" borderColor="rgba(0, 0, 0, 1)">
       <Widgets>
-        <Widget xsi:type="widgets.brease.AlarmLine" id="AlarmLine1" top="6" left="223" width="1149" zIndex="0" cellCornerRadius="10px">
+        <Widget xsi:type="widgets.brease.AlarmLine" id="AlarmLine1" top="6" left="223" width="1149" zIndex="0" borderStyle="none" cellCornerRadius="10px">
           <Widgets />
         </Widget>
+        <Widget xsi:type="widgets.brease.PushButton" id="PushButton1" top="3" left="31" width="127" height="87" zIndex="1" image="Media/warning.png" imageAlign="bottom" text="Slience Buzzer" imageHeight="64" imageWidth="64" borderStyle="none" backColor="rgba(255, 255, 255, 0)" textAlign="center" visible="false" />
       </Widgets>
     </Widget>
   </Widgets>

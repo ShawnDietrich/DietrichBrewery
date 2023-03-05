@@ -144,7 +144,8 @@
     </StyleProperty>
 
     <StyleProperty name="padding" category="Layout" type="Padding" default="0px">
-      <StyleElement selector="&gt; .container" attribute="padding"></StyleElement>
+      <StyleElement selector="&gt; .container &gt; .widgetContainer" attribute="padding"></StyleElement>
+      <StyleElement selector="&gt; .widgetContainer" attribute="padding"></StyleElement>
 			<Description>
 				Padding of the Widget
 			</Description>

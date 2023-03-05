@@ -2,14 +2,12 @@ define([
     'brease/core/Class',
     'brease/helper/Scroller',
     'brease/core/Utils',
-    'brease/core/Types',
     'brease/events/BreaseEvent',
-    'brease/helper/DateFormatter',
     'widgets/brease/TableWidget/libs/DataTable',
     'widgets/brease/common/libs/NativeScroller'
 
 ], function (
-    SuperClass, Scroller, Utils, Types, BreaseEvent, DateFormatter, DT, NativeScroller
+    SuperClass, Scroller, Utils, BreaseEvent, DT, NativeScroller
 ) {
 
     'use strict';
@@ -71,7 +69,7 @@ define([
         this.widget.settings.itemsPerPage = (this.widget.settings.itemsPerPage <= 0) ? 1 : this.widget.settings.itemsPerPage;
 
         this.searchBoxId = Utils.uniqueID(this.widget.elem.id + '_searchbox');
-        this.searchBoxWidth = Types.parseValue(this.widget.el.width() * 0.3, 'Integer'); //SearchBox should have 30% of the widget size - defined by SG
+        this.searchBoxWidth = '30%';
         this.searchBoxPadding = 3;
         this.topBarWrapperHeight = 30 + 2 * this.searchBoxPadding;
         this.tableWrapperHeight = 0;
@@ -255,7 +253,7 @@ define([
      */
     p.addRows = function (data) {
         if (!data) {
-            data = this.widget.model.getPreparedData();
+            data = this._getPreparedData();
         }
         this.dt.addRows(data);
         this.draw();
@@ -308,6 +306,7 @@ define([
         if (!this.internal.filterSet) {
             //The function for filtering WILL ONLY BE CALLED IF THERE IS DATA IN THE TABLE!!!!
             $.fn.dataTable.ext.search.push(
+                // eslint-disable-next-line no-unused-vars
                 function (settings, data, dataIndex, row) {
                     var elem = $(settings.nTable).closest('.breaseTableWidget')[0];
                     if (!elem || elem.id !== self.widget.elem.id || self.widget.model.getPreparedData().length === 0) return true;
@@ -456,7 +455,7 @@ define([
      * @private
      * Override in derived widgets
      */
-    p._rowEligibility = function (currState, currSev, style) {
+    p._rowEligibility = function () {
         //Override in derived widgets
     };
 
@@ -501,11 +500,11 @@ define([
         //??????????????????
         if (!this.widget.settings.optimize) {
             this.dt.clear();
-            this.dt.addRows(this.widget.model.getPreparedData());
+            this.dt.addRows(this._getPreparedData());
             this.draw(false);
         } else {
             if (this.widget.model.dataPrepended()) {
-                this.addRows(this.widget.model.getPrependedData());
+                this.addRows(this._getPrependedData());
             } else {
                 // this.datatable.clear(); 
                 this.rebuildView();
@@ -634,7 +633,7 @@ define([
      */
     p.enable = function () {
         if (this.searchBox && !this.widget.isDisabled) {
-            this.searchBox.enable();
+            this.searchBox.setEnable(true);
         }
         if (this.widget.busyIndicator && !this.widget.isDisabled) {
             this.widget.busyIndicator.enable();
@@ -662,7 +661,7 @@ define([
      */
     p.disable = function () {
         if (this.searchBox && this.widget.isDisabled) {
-            this.searchBox.disable();
+            this.searchBox.setEnable(false);
         }
 
         if (this.widget.busyIndicator && this.widget.isDisabled) {
@@ -891,6 +890,7 @@ define([
             this.ns = new NativeScroller();
             this.ns.init(this.widget.elem.getElementsByClassName('dataTables_scrollBody')[0]);
         }
+        this.widget.eventDispatcher.dispatchEvent({ type: 'draw' });
     };
 
     /**
@@ -971,6 +971,7 @@ define([
      */
     p._rearrangeColumnWidgets = function () {
         var self = this;
+        // eslint-disable-next-line no-unused-vars
         $.each(this.widget.model.childrenList, function (index, w) {
             w.el.detach();
             self.tw_header_el.children().append(w.el);
@@ -986,7 +987,7 @@ define([
     p._rearrangeSearchBox = function () {
         var searchBoxCSS = {
             'float': 'right',
-            'width': this.searchBoxWidth + 'px'
+            'width': this.searchBoxWidth
         };
         this.tw_top_bar_el.append(this.searchBox.el);
         this.searchBox.el.css(searchBoxCSS);
@@ -1018,7 +1019,8 @@ define([
                 id: this.searchBoxId,
                 options: {
                     droppable: false,
-                    omitDisabledClick: true
+                    omitDisabledClick: true,
+                    tabIndex: this.widget.getTabIndex()
                 }
             }], true, this.widget.settings.parentContentId);
     };
@@ -1053,6 +1055,10 @@ define([
         options = {
 
             /* Callbacks */
+            'createdRow': function (row, data) {
+                    
+                row.setAttribute('data-recordindex', data.RecordIndex);
+            },
             initComplete: _.bind(this._initCompleteCallback, this),
             drawCallback: _.bind(this._drawCallback, this),
 
@@ -1099,7 +1105,7 @@ define([
 
             height -= this.widget.settings.headerHeight;
 
-            options['data'] = this.widget.model.getPreparedData();
+            options['data'] = this._getPreparedData();
             options['scroller'] = {
                 rowHeight: (this.widget.settings.rowHeight !== 0) ? this.widget.settings.rowHeight : 62,
                 boundaryScale: 0.5
@@ -1188,7 +1194,7 @@ define([
             ellipsisSpan = this.tw_paging_el.find('.ellipsis');
         btn.addClass('widgets_brease_ToggleButton_style_default');
         btn.addClass('breaseButton');
-        btn.each(function (itr) {
+        btn.each(function () {
             var currBtn = $(this);
             var t = currBtn.text();
             currBtn.text('');
@@ -1432,6 +1438,7 @@ define([
      * This method will destroy the datatable, remove the jquery object (tableEl) and then it reinstantitates it all again.
      */
     p._destroy = function () {
+        this.widget.eventDispatcher.dispatchEvent({ type: 'before_destroy' });
         this.dt.destroy();
         this.tableEl = this.dt.addTableNode(this.widget.el);
     };
@@ -1453,6 +1460,52 @@ define([
         ellipsisSpan.css('position', 'absolute');
         ellipsisSpan.wrap(wrapEl);
     };
+
+    p._clickHandler = function (e) {
+        // A&P 738855: The paging buttons are not working with touch when the AlarmList is disabled
+        // _handleEvent in base widget calls preventDefault which prevents all following mouse events
+        // jquery datatable only triggerd on touchevents. Since its a DummyEvent we can just set defaultPrevented=true to prevent call to preventDefault. 
+        if (!this.widget.isEnabled() && Utils.getOriginalEvent(e) instanceof TouchEvent && 
+            this.tw_paging_el && this.tw_paging_el.get(0).contains(e.target) && e.originalEvent) {
+            e.originalEvent.defaultPrevented = true;
+        }
+    };
+
+    p._getPrependedData = function () {
+        var data = this.widget.model.getPrependedData();
+        // return escapeDataHTML(data);
+        return data;
+    };
+
+    p._getPreparedData = function () {
+        var data = this.widget.model.getPreparedData();
+        // return escapeDataHTML(data);
+        return data;
+    };
+
+    /*
+    function escapeDataHTML(data) {
+        for (var i = 0; i < data.length; ++i) {
+            for (var prop in data[i]) {
+                if (Utils.isString(data[i][prop])) {
+                    data[i][prop] = escapeHTML(data[i][prop]);
+                }
+            }
+        }
+        return data;
+    }
+
+    function escapeHTML(text) {
+        var fn = function (tag) {
+            var charsToReplace = {
+                '<': '&lt;',
+                '>': '&gt;'
+            };
+            return charsToReplace[tag] || tag;
+        };
+        return text.replace(/[<>]/g, fn);
+    }
+    */
 
     return RendererClass;
 });

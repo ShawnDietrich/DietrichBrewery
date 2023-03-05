@@ -9,6 +9,8 @@
 			<Files>
 				<File>widgets/brease/Window/Window.js</File>
 				<File>brease/events/BreaseEvent.js</File>
+				<File>brease/controller/libs/KeyActions.js</File>
+				<File>brease/enum/Enum.js</File>
 				<File>brease/core/Utils.js</File>
 				<File>widgets/brease/GenericDialog/libs/config.js</File>
 				<File>widgets/brease/GenericDialog/libs/constants.js</File>

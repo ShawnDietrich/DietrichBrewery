@@ -198,7 +198,10 @@ function (PreCacheInfo, Enum, BreaseEvent, visuModel, Utils, widgetController, A
     }
 
     function allWidgetsReady(contentLoader) {
-        addToLoaderPool.call(this, contentLoader);
+        var preloader = this;
+        window.setTimeout(function () {
+            addToLoaderPool.call(preloader, contentLoader);
+        }, 0);
     }
 
     function contentActivatedCheck(contentId, loaderId) {

@@ -67,6 +67,10 @@ function (BreaseEvent, SocketEvent, Utils, config) {
             return Utils.deepCopy(_languages);
         },
 
+        isValidLanguage: function (code) {
+            return _languages.languages[code] !== undefined;
+        },
+
         /**
         * @method
         * Method to get code (ISO 639-1) of current selected language.  
@@ -97,7 +101,7 @@ function (BreaseEvent, SocketEvent, Utils, config) {
                 if (text !== textID) {
                     return text;
                 } else {
-                    console.iatWarn('undefined text ID:' + textID);
+                    console.iatDebug('undefined text ID:' + textID);
                     return Language.TEXTKEYPREFIX + textID;
                 }
 
@@ -106,7 +110,7 @@ function (BreaseEvent, SocketEvent, Utils, config) {
                     return text;
                 } else {
                     if (omitWarning !== true) {
-                        console.iatWarn('undefined text ID:' + textID);
+                        console.iatDebug('undefined text ID:' + textID);
                     }
                     return config.undefinedTextReturnValue;
                 }
@@ -136,7 +140,7 @@ function (BreaseEvent, SocketEvent, Utils, config) {
             if (text !== undefined) {
                 return text;
             } else {
-                console.iatWarn('undefined text ID:' + textID);
+                console.iatDebug('undefined text ID:' + textID);
                 return config.undefinedTextReturnValue;
             }
         },
@@ -160,14 +164,14 @@ function (BreaseEvent, SocketEvent, Utils, config) {
                     brease.textFormatter.format(text, []).then(function successHandler(result) {
                         callback(result);
                     }, function errorHandler() {
-                        console.iatWarn('error in textFormatter for textID "' + textID + '"');
+                        console.iatDebug('error in textFormatter for textID "' + textID + '"');
                         callback(undefined);
                     });
                 } else {
                     callback(text);
                 }
             } else {
-                console.iatWarn('undefined textID:' + textID);
+                console.iatDebug('undefined textID:' + textID);
                 callback(config.undefinedTextReturnValue);
             }
         },
@@ -181,8 +185,8 @@ function (BreaseEvent, SocketEvent, Utils, config) {
         switchLanguage: function (code) {
             _deferred = $.Deferred();
 
-            if (_languages.languages[code] === undefined) {
-                console.iatWarn('Language \u00BB' + code + '\u00AB is not defined!');
+            if (!Language.isValidLanguage(code)) {
+                console.iatDebug('Language \u00BB' + code + '\u00AB is not defined!');
                 _deferred.resolve({ success: false });
 
             } else if (_current.code === code) {
@@ -220,7 +224,7 @@ function (BreaseEvent, SocketEvent, Utils, config) {
                 _texts[textID] = text;
             } else if (_texts[textID] && overwrite !== true) {
 
-                console.iatWarn('textID [' + textID + '] already exists!');
+                console.iatDebug('textID [' + textID + '] already exists!');
             } else {
 
                 _texts[textID] = text;

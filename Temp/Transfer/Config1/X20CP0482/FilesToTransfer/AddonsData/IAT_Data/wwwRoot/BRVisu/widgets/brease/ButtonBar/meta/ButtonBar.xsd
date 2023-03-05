@@ -24,6 +24,10 @@
 			<xs:attribute name="autoScroll" use="optional" type="types:Boolean" default="false" />
 			<xs:attribute name="childPositioning" use="optional" type="types:brease.enum.ChildPositioning" default="absolute" />
 			<xs:attribute name="selectedIndex" use="optional" type="types:Integer" default="0" />
+			<xs:attribute name="maxHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minHeight" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="maxWidth" use="optional" type="types:Size" default="0" />
+			<xs:attribute name="minWidth" use="optional" type="types:Size" default="0" />
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>

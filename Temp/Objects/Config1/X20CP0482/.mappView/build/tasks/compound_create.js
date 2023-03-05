@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         Utils = _moduleRequire('iat/utils'),
         DataTypes = _moduleRequire('iat/DataTypes'),
         Properties = _moduleRequire('iat/Properties'),
-        libraryUtils = _moduleRequire('iat/libraryUtils'),
+        libraryUtils = _moduleRequire('libs/libraryUtils'),
         debug = false;
 
     /**
@@ -272,7 +272,7 @@ module.exports = function (grunt) {
                     type = widgetAttr['xsi:type'],
                     childInfo = childInfos[type],
                     arNestedWidgets = widgetEntry.Widgets;
-                libraryUtils.patchLocalMediaPath(widgetAttr, childInfo.properties, libraryName, DataTypes);
+                libraryUtils.patchLocalMediaPath(widgetAttr, childInfo, libraryName, DataTypes);
                 if (Array.isArray(arNestedWidgets)) {
                     _patchWidgets(arNestedWidgets, libraryName, childInfos);
                 }

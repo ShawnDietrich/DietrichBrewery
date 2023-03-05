@@ -138,39 +138,25 @@ function (BreaseEvent, Utils, Types, EnumObject, EventDispatcher, d3) {
 
     NumPadSlider.prototype.updateTickAxis = function () {
 
-        if (this.settings.showTicks === true || this.settings.showTickNumbers === true) {
-
-            var tickValues = this.calcMajorTickValues({
-                ticks: this.settings.majorTicks + 2,
+        var nrOfMajorTicks = this.getNrOfMajorTicks(),
+            nrOfMinorTicks = this.getNrOfMinorTicks(nrOfMajorTicks, this.settings.minorTicks),
+            config = {
                 minValue: this.settings.minValue,
                 maxValue: this.settings.maxValue,
                 numberFormat: this.settings.numberFormat,
                 useDigitGrouping: this.settings.useDigitGrouping,
                 separators: this.settings.separators
-            });
+            },
+            majorTickValues = this.calcMajorTickValues($.extend(config, { ticks: nrOfMajorTicks })),
+            minorTickValues = this.calcMinorTickValues($.extend(config, { ticks: nrOfMinorTicks }));
 
-            this.axisScale = d3.scale.linear()
-                .domain([this.settings.minValue, this.settings.maxValue])
-                .range([0, this.settings.width]);
+        minorTickValues = minorTickValues.filter(function (item) {
+            return !majorTickValues.includes(item);
+        });
 
-            this.majorTickAxis = d3.svg.axis()
-                .scale(this.axisScale)
-                .tickValues(tickValues)
-                .innerTickSize(this.settings.trackSize)
-                .tickPadding(this.settings.tickPadding)
-                .tickFormat(d3.format('.' + this.settings.numberFormat.decimalPlaces + 'f'))
-                .orient('top');
-
-            if (this.axisElement.select('.majorTickAxis')[0][0] !== null) {
-                this.axisElement.select('.majorTickAxis')
-                    .call(this.majorTickAxis);
-            } else {
-                this.axisElement.append('g')
-                    .attr('class', this.tickAxisClasses.major)
-                    .attr('transform', 'translate(' + this.settings.axisPadding + ',' + this.settings.axisHeight + ')')
-                    .call(this.majorTickAxis);
-            }
-        }
+        // add minor ticks before major ticks to allow major to overlay minor (deprecated, as no minorTicks are drawn on place of majorTicks any more)
+        addMinorTickAxis.call(this, minorTickValues, config);
+        addMajorTickAxis.call(this, majorTickValues, config);
     };
 
     /**
@@ -195,10 +181,7 @@ function (BreaseEvent, Utils, Types, EnumObject, EventDispatcher, d3) {
             tickValues = [];
 
         for (var i = 0; i < config.ticks; i += 1) {
-            var nr = (config.minValue + i * steps),
-                formatted = brease.formatter.formatNumber(nr, config.numberFormat, config.useDigitGrouping, config.separators);
-
-            tickValues[i] = brease.formatter.parseFloat(formatted, config.separators);
+            tickValues[i] = _calcTickValue(config.minValue + i * steps, config);
         }
         return tickValues;
     };
@@ -222,10 +205,16 @@ function (BreaseEvent, Utils, Types, EnumObject, EventDispatcher, d3) {
         var steps = (config.maxValue - config.minValue) / (config.ticks - 1),
             tickValues = [];
         for (var i = 0; i < config.ticks; i += 1) {
-            tickValues[i] = config.minValue + i * steps;
+            tickValues[i] = _calcTickValue(config.minValue + i * steps, config);
         }
         return tickValues;
     };
+
+    function _calcTickValue(nr, config) {
+        var formatted = brease.formatter.formatNumber(nr, config.numberFormat, config.useDigitGrouping, config.separators),
+            value = brease.formatter.parseFloat(formatted, config.separators);
+        return value;
+    }
 
     NumPadSlider.prototype.setConfig = function (config) {
         for (var key in config) {
@@ -270,16 +259,20 @@ function (BreaseEvent, Utils, Types, EnumObject, EventDispatcher, d3) {
     /**
         * @method getNrOfMinorTicks
         * calculate number of minor ticks 
-        * @param {Integer} majorTicks total number of majorTicks including start and end tick
+        * @param {Integer} nrOfMajorTicks total number of majorTicks including start and end tick
         * @param {Integer} minorTicks number of minorTicks as configured = number of ticks between two major ticks
         * @return {Integer} 
         */
-    NumPadSlider.prototype.getNrOfMinorTicks = function (majorTicks, minorTicks) {
-        if (majorTicks < 2 || minorTicks < 0) {
+    NumPadSlider.prototype.getNrOfMinorTicks = function (nrOfMajorTicks, minorTicks) {
+        if (nrOfMajorTicks < 2 || minorTicks < 0) {
             return 0;
         } else {
-            return 1 + (majorTicks - 1) * (minorTicks + 1);
+            return 1 + (nrOfMajorTicks - 1) * (minorTicks + 1);
         }
+    };
+    
+    NumPadSlider.prototype.getNrOfMajorTicks = function () {
+        return this.settings.majorTicks + 2;
     };
 
     function addTickAxis() {
@@ -295,39 +288,61 @@ function (BreaseEvent, Utils, Types, EnumObject, EventDispatcher, d3) {
             major: 'majorTickAxis' + ((this.settings.showTicks === true) ? ' showTicks' : '') + ((this.settings.showTickNumbers === true) ? ' showTickNumbers' : ''),
             minor: 'minorTickAxis' + ((this.settings.showTicks === true) ? ' showTicks' : '')
         };
-        // add minor ticks before major ticks to allow major to overlay minor
-        addMinorTickAxis.call(this);
     }
 
-    function addMinorTickAxis() {
-        // as minorTicks do not show numbers and the number of ticks does not change, 
-        // we can use static minValue and maxValue and
-        // the axis needs no update on every NumPad.show like the majorTicks
+    function addMajorTickAxis(majorTickValues, config) {
+        if (this.settings.showTicks === true || this.settings.showTickNumbers === true) {
 
-        var nrOfMinorTicks = this.getNrOfMinorTicks(this.settings.majorTicks + 2, this.settings.minorTicks);
+            this.axisScale = d3.scale.linear()
+                .domain([config.minValue, config.maxValue])
+                .range([0, this.settings.width]);
+
+            this.majorTickAxis = d3.svg.axis()
+                .scale(this.axisScale)
+                .tickValues(majorTickValues)
+                .innerTickSize(this.settings.trackSize)
+                .tickPadding(this.settings.tickPadding)
+                .tickFormat(d3.format('.' + this.settings.numberFormat.decimalPlaces + 'f'))
+                .orient('top');
+
+            // if axis already exists -> only draw the new values
+            if (this.axisElement.select('.majorTickAxis')[0][0] !== null) {
+                this.axisElement.select('.majorTickAxis')
+                    .call(this.majorTickAxis);
+            } else {
+                this.axisElement.append('g')
+                    .attr('class', this.tickAxisClasses.major)
+                    .attr('transform', 'translate(' + this.settings.axisPadding + ',' + this.settings.axisHeight + ')')
+                    .call(this.majorTickAxis);
+            }
+        }
+    }
+
+    function addMinorTickAxis(minorTickValues, config) {
 
         if (this.settings.showTicks === true && this.settings.minorTicks > 0) {
-            var config = {
-                    minValue: 0,
-                    maxValue: 100,
-                    ticks: nrOfMinorTicks
-                },
-                axisScale = d3.scale.linear()
-                    .domain([config.minValue, config.maxValue])
-                    .range([0, this.settings.width]),
-                minorTickValues = this.calcMinorTickValues(config),
-                minorTickAxis = d3.svg.axis()
-                    .scale(axisScale)
-                    .tickValues(minorTickValues)
-                    .innerTickSize(this.settings.trackSize)
-                    .tickPadding(this.settings.tickPadding)
-                    .tickFormat('') // this hides values
-                    .orient('top');
+            var axisScale = d3.scale.linear()
+                .domain([config.minValue, config.maxValue])
+                .range([0, this.settings.width]);
 
-            this.axisElement.append('g')
-                .attr('class', this.tickAxisClasses.minor)
-                .attr('transform', 'translate(' + this.settings.axisPadding + ',' + this.settings.axisHeight + ')')
-                .call(minorTickAxis);
+            this.minorTickAxis = d3.svg.axis()
+                .scale(axisScale)
+                .tickValues(minorTickValues)
+                .innerTickSize(this.settings.trackSize)
+                .tickPadding(this.settings.tickPadding)
+                .tickFormat('') // this hides values
+                .orient('top');
+
+            // if axis already exists -> only draw the new values
+            if (this.axisElement.select('.minorTickAxis')[0][0] !== null) {
+                this.axisElement.select('.minorTickAxis')
+                    .call(this.minorTickAxis);
+            } else {
+                this.axisElement.append('g')
+                    .attr('class', this.tickAxisClasses.minor)
+                    .attr('transform', 'translate(' + this.settings.axisPadding + ',' + this.settings.axisHeight + ')')
+                    .call(this.minorTickAxis);
+            }
         }
     }
 

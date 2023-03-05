@@ -1,12 +1,14 @@
 define(['widgets/brease/Window/Window',
     'brease/events/BreaseEvent',
+    'brease/controller/libs/KeyActions',
+    'brease/enum/Enum',
     'brease/core/Utils',
     'widgets/brease/GenericDialog/libs/config',
     'widgets/brease/GenericDialog/libs/constants',
     'widgets/brease/GenericDialog/libs/renderer',
     'widgets/brease/GenericDialog/libs/models/dialogWidgetModel',
     'widgets/brease/GenericDialog/libs/enum/dialogResultEnum'
-], function (SuperClass, BreaseEvent, Utils, Config, Constants, Renderer, DialogWidgetModel, DialogResult) {
+], function (SuperClass, BreaseEvent, KeyActions, Enum, Utils, Config, Constants, Renderer, DialogWidgetModel, DialogResult) {
     'use strict';
 
     /**
@@ -97,6 +99,11 @@ define(['widgets/brease/Window/Window',
         // show
         config.zoomFactor = this._setZoom(this.el, brease.config.visuId);
         SuperClass.prototype.show.call(this, config, refElement); // settings are extended in super call
+        
+        if (brease.config.visu.keyboardOperation) {
+            this.elem.addEventListener('keydown', this._bind('_keydownHandler'));
+            this.elem.addEventListener('focusin', this._bind('_scrollIntoView'));
+        }
     };
 
     /**
@@ -163,7 +170,7 @@ define(['widgets/brease/Window/Window',
 
     /**
      * @method
-     * Returns a widget inside the dialog, identified by the <b>name</b> paramter 
+     * Returns a widget inside the dialog, identified by the <b>name</b> parameter 
      * @param {String} name 
      */
     p.getWidgetByName = function (name) {
@@ -242,6 +249,8 @@ define(['widgets/brease/Window/Window',
      */
     p.dispose = function () {
         if (this.elem) {
+            this.elem.removeEventListener('focusin', this._bind('_scrollIntoView'));
+            this.elem.removeEventListener('keydown', this._bind('_keydownHandler'));
             this.elem.removeEventListener(BreaseEvent.CONTENT_PARSED, this.onContentParsed);
             brease.uiController.dispose(this.elem);
             SuperClass.prototype.dispose.apply(this, arguments);
@@ -283,6 +292,20 @@ define(['widgets/brease/Window/Window',
     p._closeButtonClickhandler = function () {
         this.settings.dialogResult = DialogResult.CLOSE;
         SuperClass.prototype._closeButtonClickhandler.apply(this, arguments);
+    };
+
+    p._keydownHandler = function (e) {
+        if (KeyActions.getActionsForKey(e.key).indexOf(Enum.KeyAction.Close) !== -1) {
+            this.debouncedHide();
+        }
+    };
+
+    p._scrollIntoView = function (e) {
+        e.target.scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'nearest'
+        });
     };
 
     // PRIVATE

@@ -58,6 +58,73 @@
   z-index: 0;
 }
 
+#StatusContent_AlarmLine1.breaseAlarmLine {
+  border-style: none;
+}
+
 #StatusContent_AlarmLine1.breaseAlarmLine .AlarmLineWrapper > div {
   border-radius: 10px;
+}
+
+#StatusContent_PushButton1 {
+  top: 3px;
+  position: absolute;
+}
+
+#StatusContent_PushButton1 {
+  left: 31px;
+  position: absolute;
+}
+
+#StatusContent_PushButton1 {
+  width: 127px;
+}
+
+#StatusContent_PushButton1 {
+  height: 87px;
+}
+
+#StatusContent_PushButton1 {
+  z-index: 1;
+}
+
+#StatusContent_PushButton1 img {
+  height: 64px;
+}
+
+#StatusContent_PushButton1 svg {
+  height: 64px;
+}
+
+#StatusContent_PushButton1 img {
+  width: 64px;
+}
+
+#StatusContent_PushButton1 svg {
+  width: 64px;
+}
+
+#StatusContent_PushButton1 {
+  border-style: none;
+}
+
+#StatusContent_PushButton1.active {
+  border-style: none;
+}
+
+#StatusContent_PushButton1.checked {
+  border-style: none;
+}
+
+#StatusContent_PushButton1.disabled {
+  border-style: none;
+}
+
+#StatusContent_PushButton1:not(.disabled):not(.active):not(.checked) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#StatusContent_PushButton1 {
+  justify-content: center;
+  text-align: center;
 }

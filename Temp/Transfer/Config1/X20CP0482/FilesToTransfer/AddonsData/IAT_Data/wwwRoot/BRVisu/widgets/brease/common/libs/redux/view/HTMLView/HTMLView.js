@@ -36,7 +36,7 @@ define([
             this.el.addClass('TextView');
             this.span = $('<span></span>');
             Utils.addCssClasses(this.el, props.textSettings, props.selected);
-
+           
             this.span.text(brease.language.unescapeText(props.html));
             this.el.append(this.span);
         }

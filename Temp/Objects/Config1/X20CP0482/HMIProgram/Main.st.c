@@ -5,27 +5,49 @@
 #line 2 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
 void __BUR__ENTRY_INIT_FUNCT__(void){{
 
-
+(FlashOn.PT=(1000));
+(FlashOff.PT=(500));
 }}
-#line 5 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 7 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
+#line 6 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 8 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
 void _CYCLIC __BUR__ENTRY_CYCLIC_FUNCT__(void){{
 
 
 
 
+if(Buzzer){
+(SlienceVis=FlashOn.IN);
+}
+
+if(FlashOn.Q){
+(FlashOn.IN=0);
+(FlashOff.IN=1);
+}else if((FlashOff.Q|(Buzzer&~Edge0000100000&1?((Edge0000100000=Buzzer&1),1):((Edge0000100000=Buzzer&1),0)))){
+(FlashOn.IN=1);
+(FlashOff.IN=0);
+}
+
+if(SlienceBtn){
+(Buzzer=0);
+(FlashOff.IN=0);
+(FlashOn.IN=0);
+(SlienceVis=0);
+(SlienceBtn=0);
+}
 
 
 
+TON(&FlashOn);
+TON(&FlashOff);
 
 }}
-#line 16 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
-#line 18 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
+#line 38 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 40 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st"
 void _EXIT __BUR__ENTRY_EXIT_FUNCT__(void){{
 
 
 }}
-#line 21 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
+#line 43 "C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.nodebug"
 
 void __AS__ImplInitMain_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 
@@ -110,4 +132,5 @@ __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Types.typ\\\" scope 
 __asm__(".ascii \"iecfile \\\"Logical/HMIControl/HMIProgram/Variables.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"plcreplace \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.c\\\" \\\"C:/Repos/DietrichBrewery/DietrichBrewery/Logical/HMIControl/HMIProgram/Main.st\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Temp/Objects/Config1/X20CP0482/HMIProgram/Main.st.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".previous");

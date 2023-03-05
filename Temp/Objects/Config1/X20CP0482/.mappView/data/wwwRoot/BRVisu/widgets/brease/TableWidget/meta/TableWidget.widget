@@ -8,11 +8,12 @@
 		<Dependencies>
 			<Files>
 				<File>widgets/brease/DataHandlerWidget/DataHandlerWidget.js</File>
-				<File>brease/events/BreaseEvent.js</File>
+				<File>brease/events/EventDispatcher.js</File>
 				<File>brease/enum/Enum.js</File>
 				<File>widgets/brease/TableWidget/libs/Renderer.js</File>
 				<File>widgets/brease/TableWidget/libs/Controller.js</File>
 				<File>widgets/brease/TableWidget/libs/Model.js</File>
+				<File>widgets/brease/TableWidget/libs/FocusHandler.js</File>
 				<File>brease/decorators/CultureDependency.js</File>
 				<File>brease/decorators/MeasurementSystemDependency.js</File>
 				<File>brease/decorators/VisibilityDependency.js</File>
@@ -65,7 +66,7 @@
 		</Children>
 		<Methods>
 			<Method name="Focus" read="false">
-				<Description>Sets focus on the widget element, if it can be focused and keyboardOperation=true</Description>
+				<Description>Sets focus on the search box or header element, if it can be focused and keyboardOperation=true</Description>
 			</Method>
 			<Method name="GoToFirstPage" read="false">
 				<Result type="Boolean"/>
@@ -171,12 +172,6 @@
 					<Argument name="show" type="Boolean" index="2" required="true"/>
 					<Argument name="select" type="Integer" index="3" required="true"/>
 				</Arguments>
-			</Event>
-			<Event name="FocusIn">
-				<Description>Fired when the widgets gets focus</Description>
-			</Event>
-			<Event name="FocusOut">
-				<Description>Fired when the widgets lost focus</Description>
 			</Event>
 			<Event name="LastPageNumber">
 				<Description>Fires every time there is a page change, updates the Last page.</Description>
